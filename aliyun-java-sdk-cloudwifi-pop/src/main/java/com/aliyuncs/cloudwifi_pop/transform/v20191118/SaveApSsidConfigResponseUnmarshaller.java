@@ -15,6 +15,7 @@
 package com.aliyuncs.cloudwifi_pop.transform.v20191118;
 
 import com.aliyuncs.cloudwifi_pop.model.v20191118.SaveApSsidConfigResponse;
+import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -22,7 +23,7 @@ public class SaveApSsidConfigResponseUnmarshaller {
 
 	public static SaveApSsidConfigResponse unmarshall(SaveApSsidConfigResponse saveApSsidConfigResponse, UnmarshallerContext _ctx) {
 		
-		saveApSsidConfigResponse.setData(_ctx.stringValue("SaveApSsidConfigResponse.Data"));
+		saveApSsidConfigResponse.setData(_ctx.mapValue("SaveApSsidConfigResponse.Data"));
 		saveApSsidConfigResponse.setIsSuccess(_ctx.booleanValue("SaveApSsidConfigResponse.IsSuccess"));
 		saveApSsidConfigResponse.setErrorCode(_ctx.integerValue("SaveApSsidConfigResponse.ErrorCode"));
 		saveApSsidConfigResponse.setErrorMessage(_ctx.stringValue("SaveApSsidConfigResponse.ErrorMessage"));

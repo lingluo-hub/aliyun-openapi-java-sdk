@@ -14,6 +14,7 @@
 
 package com.aliyuncs.cloudwifi_pop.model.v20191118;
 
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.cloudwifi_pop.transform.v20191118.SaveApSsidConfigResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,7 +25,7 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class SaveApSsidConfigResponse extends AcsResponse {
 
-	private String data;
+	private Map<Object,Object> data;
 
 	private Boolean isSuccess;
 
@@ -32,11 +33,11 @@ public class SaveApSsidConfigResponse extends AcsResponse {
 
 	private String errorMessage;
 
-	public String getData() {
+	public Map<Object,Object> getData() {
 		return this.data;
 	}
 
-	public void setData(String data) {
+	public void setData(Map<Object,Object> data) {
 		this.data = data;
 	}
 
