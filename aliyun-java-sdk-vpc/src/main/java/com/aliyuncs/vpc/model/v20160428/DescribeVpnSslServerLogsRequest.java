@@ -37,6 +37,8 @@ public class DescribeVpnSslServerLogsRequest extends RpcAcsRequest<DescribeVpnSs
 
 	private Integer from;
 
+	private String sslVpnClientCertId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -116,6 +118,17 @@ public class DescribeVpnSslServerLogsRequest extends RpcAcsRequest<DescribeVpnSs
 		this.from = from;
 		if(from != null){
 			putQueryParameter("From", from.toString());
+		}
+	}
+
+	public String getSslVpnClientCertId() {
+		return this.sslVpnClientCertId;
+	}
+
+	public void setSslVpnClientCertId(String sslVpnClientCertId) {
+		this.sslVpnClientCertId = sslVpnClientCertId;
+		if(sslVpnClientCertId != null){
+			putQueryParameter("SslVpnClientCertId", sslVpnClientCertId);
 		}
 	}
 

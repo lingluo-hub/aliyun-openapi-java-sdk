@@ -37,7 +37,11 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 
 	private Boolean isHa;
 
+	private Integer mySQLVersion;
+
 	private String instanceSeries;
+
+	private String masterInstId;
 
 	private Integer quantity;
 
@@ -53,7 +57,7 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 
 	private String pricingCycle;
 	public CreateDrdsInstanceRequest() {
-		super("Drds", "2019-01-23", "CreateDrdsInstance", "drds");
+		super("Drds", "2019-01-23", "CreateDrdsInstance", "Drds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -127,6 +131,17 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 		}
 	}
 
+	public Integer getMySQLVersion() {
+		return this.mySQLVersion;
+	}
+
+	public void setMySQLVersion(Integer mySQLVersion) {
+		this.mySQLVersion = mySQLVersion;
+		if(mySQLVersion != null){
+			putQueryParameter("MySQLVersion", mySQLVersion.toString());
+		}
+	}
+
 	public String getInstanceSeries() {
 		return this.instanceSeries;
 	}
@@ -135,6 +150,17 @@ public class CreateDrdsInstanceRequest extends RpcAcsRequest<CreateDrdsInstanceR
 		this.instanceSeries = instanceSeries;
 		if(instanceSeries != null){
 			putQueryParameter("InstanceSeries", instanceSeries);
+		}
+	}
+
+	public String getMasterInstId() {
+		return this.masterInstId;
+	}
+
+	public void setMasterInstId(String masterInstId) {
+		this.masterInstId = masterInstId;
+		if(masterInstId != null){
+			putQueryParameter("MasterInstId", masterInstId);
 		}
 	}
 

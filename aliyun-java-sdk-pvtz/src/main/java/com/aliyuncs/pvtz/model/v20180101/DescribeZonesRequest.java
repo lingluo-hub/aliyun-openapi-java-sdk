@@ -15,30 +15,39 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
-	
-	public DescribeZonesRequest() {
-		super("pvtz", "2018-01-01", "DescribeZones", "pvtz");
-	}
+	   
 
 	private String queryVpcId;
 
-	private Integer pageSize;
+	private Integer pageNumber;
 
-	private String searchMode;
+	private String resourceGroupId;
+
+	private Integer pageSize;
 
 	private String lang;
 
 	private String keyword;
 
-	private Integer pageNumber;
+	private String searchMode;
 
 	private String queryRegionId;
+	public DescribeZonesRequest() {
+		super("pvtz", "2018-01-01", "DescribeZones", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getQueryVpcId() {
 		return this.queryVpcId;
@@ -51,6 +60,28 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 		}
 	}
 
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -59,17 +90,6 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getSearchMode() {
-		return this.searchMode;
-	}
-
-	public void setSearchMode(String searchMode) {
-		this.searchMode = searchMode;
-		if(searchMode != null){
-			putQueryParameter("SearchMode", searchMode);
 		}
 	}
 
@@ -95,14 +115,14 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 		}
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getSearchMode() {
+		return this.searchMode;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
+	public void setSearchMode(String searchMode) {
+		this.searchMode = searchMode;
+		if(searchMode != null){
+			putQueryParameter("SearchMode", searchMode);
 		}
 	}
 

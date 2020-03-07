@@ -31,6 +31,8 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 
 	private String readiness;
 
+	private String packageVersionId;
+
 	private Integer batchWaitTime;
 
 	private String liveness;
@@ -74,6 +76,8 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 	private String jDK;
 
 	private Boolean useBodyEncoding;
+
+	private String changeOrderDesc;
 
 	private String uriEncoding;
 
@@ -126,6 +130,17 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.readiness = readiness;
 		if(readiness != null){
 			putQueryParameter("Readiness", readiness);
+		}
+	}
+
+	public String getPackageVersionId() {
+		return this.packageVersionId;
+	}
+
+	public void setPackageVersionId(String packageVersionId) {
+		this.packageVersionId = packageVersionId;
+		if(packageVersionId != null){
+			putQueryParameter("PackageVersionId", packageVersionId);
 		}
 	}
 
@@ -368,6 +383,17 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.useBodyEncoding = useBodyEncoding;
 		if(useBodyEncoding != null){
 			putQueryParameter("UseBodyEncoding", useBodyEncoding.toString());
+		}
+	}
+
+	public String getChangeOrderDesc() {
+		return this.changeOrderDesc;
+	}
+
+	public void setChangeOrderDesc(String changeOrderDesc) {
+		this.changeOrderDesc = changeOrderDesc;
+		if(changeOrderDesc != null){
+			putQueryParameter("ChangeOrderDesc", changeOrderDesc);
 		}
 	}
 

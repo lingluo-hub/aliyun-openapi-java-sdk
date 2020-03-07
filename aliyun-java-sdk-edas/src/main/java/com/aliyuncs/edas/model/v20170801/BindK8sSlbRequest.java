@@ -25,6 +25,8 @@ import com.aliyuncs.edas.Endpoint;
 public class BindK8sSlbRequest extends RoaAcsRequest<BindK8sSlbResponse> {
 	   
 
+	private String servicePortInfos;
+
 	private String slbId;
 
 	private String slbProtocol;
@@ -46,6 +48,17 @@ public class BindK8sSlbRequest extends RoaAcsRequest<BindK8sSlbResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getServicePortInfos() {
+		return this.servicePortInfos;
+	}
+
+	public void setServicePortInfos(String servicePortInfos) {
+		this.servicePortInfos = servicePortInfos;
+		if(servicePortInfos != null){
+			putQueryParameter("ServicePortInfos", servicePortInfos);
+		}
 	}
 
 	public String getSlbId() {

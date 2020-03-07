@@ -15,27 +15,35 @@
 package com.aliyuncs.oos.model.v20190601;
 
 import com.aliyuncs.RpcAcsRequest;
-import com.aliyuncs.oos.Endpoint;
+import com.aliyuncs.http.MethodType;
 
 /**
  * @author auto create
  * @version 
  */
 public class ListActionsRequest extends RpcAcsRequest<ListActionsResponse> {
-	
-	public ListActionsRequest() {
-		super("oos", "2019-06-01", "ListActions", "oos");
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
+
+	private String oOSActionName;
 
 	private String nextToken;
 
 	private Integer maxResults;
+	public ListActionsRequest() {
+		super("oos", "2019-06-01", "ListActions", "oos");
+		setMethod(MethodType.POST);
+	}
 
-	private String oOSActionName;
+	public String getOOSActionName() {
+		return this.oOSActionName;
+	}
+
+	public void setOOSActionName(String oOSActionName) {
+		this.oOSActionName = oOSActionName;
+		if(oOSActionName != null){
+			putQueryParameter("OOSActionName", oOSActionName);
+		}
+	}
 
 	public String getNextToken() {
 		return this.nextToken;
@@ -56,17 +64,6 @@ public class ListActionsRequest extends RpcAcsRequest<ListActionsResponse> {
 		this.maxResults = maxResults;
 		if(maxResults != null){
 			putQueryParameter("MaxResults", maxResults.toString());
-		}
-	}
-
-	public String getOOSActionName() {
-		return this.oOSActionName;
-	}
-
-	public void setOOSActionName(String oOSActionName) {
-		this.oOSActionName = oOSActionName;
-		if(oOSActionName != null){
-			putQueryParameter("OOSActionName", oOSActionName);
 		}
 	}
 

@@ -25,57 +25,20 @@ import com.aliyuncs.iot.Endpoint;
 public class ListOTAJobByFirmwareRequest extends RpcAcsRequest<ListOTAJobByFirmwareResponse> {
 	   
 
-	private String firmwareId;
-
-	private Integer currentPage;
-
-	private String productKey;
-
 	private String iotInstanceId;
 
 	private Integer pageSize;
 
-	private String deviceName;
+	private String firmwareId;
+
+	private Integer currentPage;
 	public ListOTAJobByFirmwareRequest() {
-		super("Iot", "2018-01-20", "ListOTAJobByFirmware", "iot");
+		super("Iot", "2018-01-20", "ListOTAJobByFirmware", "Iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getFirmwareId() {
-		return this.firmwareId;
-	}
-
-	public void setFirmwareId(String firmwareId) {
-		this.firmwareId = firmwareId;
-		if(firmwareId != null){
-			putQueryParameter("FirmwareId", firmwareId);
-		}
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getIotInstanceId() {
@@ -100,14 +63,25 @@ public class ListOTAJobByFirmwareRequest extends RpcAcsRequest<ListOTAJobByFirmw
 		}
 	}
 
-	public String getDeviceName() {
-		return this.deviceName;
+	public String getFirmwareId() {
+		return this.firmwareId;
 	}
 
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
+	public void setFirmwareId(String firmwareId) {
+		this.firmwareId = firmwareId;
+		if(firmwareId != null){
+			putQueryParameter("FirmwareId", firmwareId);
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 

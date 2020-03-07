@@ -15,7 +15,9 @@
 package com.aliyuncs.retailcloud.model.v20180313;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.retailcloud.Endpoint;
 
 /**
  * @author auto create
@@ -25,6 +27,8 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 	   
 
 	private String codePath;
+
+	private List<String> configMapLists;
 
 	private String configMap;
 
@@ -38,6 +42,10 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 	public UpdateDeployConfigRequest() {
 		super("retailcloud", "2018-03-13", "UpdateDeployConfig", "retailcloud");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getCodePath() {
@@ -49,6 +57,19 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 		if(codePath != null){
 			putQueryParameter("CodePath", codePath);
 		}
+	}
+
+	public List<String> getConfigMapLists() {
+		return this.configMapLists;
+	}
+
+	public void setConfigMapLists(List<String> configMapLists) {
+		this.configMapLists = configMapLists;	
+		if (configMapLists != null) {
+			for (int i = 0; i < configMapLists.size(); i++) {
+				putQueryParameter("ConfigMapList." + (i + 1) , configMapLists.get(i));
+			}
+		}	
 	}
 
 	public String getConfigMap() {

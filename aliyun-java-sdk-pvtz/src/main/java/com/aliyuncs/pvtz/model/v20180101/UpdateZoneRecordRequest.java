@@ -15,24 +15,17 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateZoneRecordRequest extends RpcAcsRequest<UpdateZoneRecordResponse> {
-	
-	public UpdateZoneRecordRequest() {
-		super("pvtz", "2018-01-01", "UpdateZoneRecord", "pvtz");
-	}
+	   
 
 	private String rr;
-
-	private Long recordId;
-
-	private String userClientIp;
-
-	private String lang;
 
 	private String type;
 
@@ -40,7 +33,21 @@ public class UpdateZoneRecordRequest extends RpcAcsRequest<UpdateZoneRecordRespo
 
 	private Integer ttl;
 
+	private Long recordId;
+
+	private String userClientIp;
+
+	private String lang;
+
 	private String value;
+	public UpdateZoneRecordRequest() {
+		super("pvtz", "2018-01-01", "UpdateZoneRecord", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRr() {
 		return this.rr;
@@ -50,39 +57,6 @@ public class UpdateZoneRecordRequest extends RpcAcsRequest<UpdateZoneRecordRespo
 		this.rr = rr;
 		if(rr != null){
 			putQueryParameter("Rr", rr);
-		}
-	}
-
-	public Long getRecordId() {
-		return this.recordId;
-	}
-
-	public void setRecordId(Long recordId) {
-		this.recordId = recordId;
-		if(recordId != null){
-			putQueryParameter("RecordId", recordId.toString());
-		}
-	}
-
-	public String getUserClientIp() {
-		return this.userClientIp;
-	}
-
-	public void setUserClientIp(String userClientIp) {
-		this.userClientIp = userClientIp;
-		if(userClientIp != null){
-			putQueryParameter("UserClientIp", userClientIp);
-		}
-	}
-
-	public String getLang() {
-		return this.lang;
-	}
-
-	public void setLang(String lang) {
-		this.lang = lang;
-		if(lang != null){
-			putQueryParameter("Lang", lang);
 		}
 	}
 
@@ -116,6 +90,39 @@ public class UpdateZoneRecordRequest extends RpcAcsRequest<UpdateZoneRecordRespo
 		this.ttl = ttl;
 		if(ttl != null){
 			putQueryParameter("Ttl", ttl.toString());
+		}
+	}
+
+	public Long getRecordId() {
+		return this.recordId;
+	}
+
+	public void setRecordId(Long recordId) {
+		this.recordId = recordId;
+		if(recordId != null){
+			putQueryParameter("RecordId", recordId.toString());
+		}
+	}
+
+	public String getUserClientIp() {
+		return this.userClientIp;
+	}
+
+	public void setUserClientIp(String userClientIp) {
+		this.userClientIp = userClientIp;
+		if(userClientIp != null){
+			putQueryParameter("UserClientIp", userClientIp);
+		}
+	}
+
+	public String getLang() {
+		return this.lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+		if(lang != null){
+			putQueryParameter("Lang", lang);
 		}
 	}
 

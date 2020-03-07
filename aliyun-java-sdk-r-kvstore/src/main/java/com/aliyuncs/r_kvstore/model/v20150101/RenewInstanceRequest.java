@@ -50,8 +50,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 	private Long ownerId;
 
 	private String instanceId;
-
-	private Boolean forceUpgrade;
 	public RenewInstanceRequest() {
 		super("R-kvstore", "2015-01-01", "RenewInstance");
 		setMethod(MethodType.POST);
@@ -201,17 +199,6 @@ public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public Boolean getForceUpgrade() {
-		return this.forceUpgrade;
-	}
-
-	public void setForceUpgrade(Boolean forceUpgrade) {
-		this.forceUpgrade = forceUpgrade;
-		if(forceUpgrade != null){
-			putQueryParameter("ForceUpgrade", forceUpgrade.toString());
 		}
 	}
 

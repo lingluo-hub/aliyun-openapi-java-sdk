@@ -25,6 +25,10 @@ import com.aliyuncs.cdn.Endpoint;
 public class SetIgnoreQueryStringConfigRequest extends RpcAcsRequest<SetIgnoreQueryStringConfigResponse> {
 	   
 
+	private String securityToken;
+
+	private String enable;
+
 	private String keepOssArgs;
 
 	private String domainName;
@@ -32,10 +36,6 @@ public class SetIgnoreQueryStringConfigRequest extends RpcAcsRequest<SetIgnoreQu
 	private Long ownerId;
 
 	private String hashKeyArgs;
-
-	private String securityToken;
-
-	private String enable;
 	public SetIgnoreQueryStringConfigRequest() {
 		super("Cdn", "2014-11-11", "SetIgnoreQueryStringConfig");
 		setMethod(MethodType.POST);
@@ -43,6 +43,28 @@ public class SetIgnoreQueryStringConfigRequest extends RpcAcsRequest<SetIgnoreQu
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getEnable() {
+		return this.enable;
+	}
+
+	public void setEnable(String enable) {
+		this.enable = enable;
+		if(enable != null){
+			putQueryParameter("Enable", enable);
+		}
 	}
 
 	public String getKeepOssArgs() {
@@ -86,28 +108,6 @@ public class SetIgnoreQueryStringConfigRequest extends RpcAcsRequest<SetIgnoreQu
 		this.hashKeyArgs = hashKeyArgs;
 		if(hashKeyArgs != null){
 			putQueryParameter("HashKeyArgs", hashKeyArgs);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getEnable() {
-		return this.enable;
-	}
-
-	public void setEnable(String enable) {
-		this.enable = enable;
-		if(enable != null){
-			putQueryParameter("Enable", enable);
 		}
 	}
 

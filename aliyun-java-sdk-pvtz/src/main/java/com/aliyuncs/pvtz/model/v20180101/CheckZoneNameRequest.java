@@ -15,22 +15,40 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CheckZoneNameRequest extends RpcAcsRequest<CheckZoneNameResponse> {
-	
-	public CheckZoneNameRequest() {
-		super("pvtz", "2018-01-01", "CheckZoneName", "pvtz");
-	}
+	   
+
+	private String zoneName;
 
 	private String userClientIp;
 
 	private String lang;
+	public CheckZoneNameRequest() {
+		super("pvtz", "2018-01-01", "CheckZoneName", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String zoneName;
+	public String getZoneName() {
+		return this.zoneName;
+	}
+
+	public void setZoneName(String zoneName) {
+		this.zoneName = zoneName;
+		if(zoneName != null){
+			putQueryParameter("ZoneName", zoneName);
+		}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;
@@ -51,17 +69,6 @@ public class CheckZoneNameRequest extends RpcAcsRequest<CheckZoneNameResponse> {
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
-		}
-	}
-
-	public String getZoneName() {
-		return this.zoneName;
-	}
-
-	public void setZoneName(String zoneName) {
-		this.zoneName = zoneName;
-		if(zoneName != null){
-			putQueryParameter("ZoneName", zoneName);
 		}
 	}
 

@@ -16,6 +16,7 @@ package com.aliyuncs.dbs.model.v20190306;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dbs.Endpoint;
 
 /**
  * @author auto create
@@ -32,8 +33,12 @@ public class StopBackupPlanRequest extends RpcAcsRequest<StopBackupPlanResponse>
 
 	private String ownerId;
 	public StopBackupPlanRequest() {
-		super("Dbs", "2019-03-06", "StopBackupPlan", "cbs");
+		super("Dbs", "2019-03-06", "StopBackupPlan");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getStopMethod() {

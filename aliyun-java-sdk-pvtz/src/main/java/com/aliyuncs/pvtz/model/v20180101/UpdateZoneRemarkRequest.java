@@ -15,24 +15,42 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateZoneRemarkRequest extends RpcAcsRequest<UpdateZoneRemarkResponse> {
-	
-	public UpdateZoneRemarkRequest() {
-		super("pvtz", "2018-01-01", "UpdateZoneRemark", "pvtz");
-	}
+	   
+
+	private String remark;
 
 	private String userClientIp;
 
 	private String zoneId;
 
-	private String remark;
-
 	private String lang;
+	public UpdateZoneRemarkRequest() {
+		super("pvtz", "2018-01-01", "UpdateZoneRemark", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getRemark() {
+		return this.remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+		if(remark != null){
+			putQueryParameter("Remark", remark);
+		}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;
@@ -53,17 +71,6 @@ public class UpdateZoneRemarkRequest extends RpcAcsRequest<UpdateZoneRemarkRespo
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
-		}
-	}
-
-	public String getRemark() {
-		return this.remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-		if(remark != null){
-			putQueryParameter("Remark", remark);
 		}
 	}
 

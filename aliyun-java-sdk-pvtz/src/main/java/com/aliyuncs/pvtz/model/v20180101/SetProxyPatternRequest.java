@@ -15,16 +15,15 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class SetProxyPatternRequest extends RpcAcsRequest<SetProxyPatternResponse> {
-	
-	public SetProxyPatternRequest() {
-		super("pvtz", "2018-01-01", "SetProxyPattern", "pvtz");
-	}
+	   
 
 	private String proxyPattern;
 
@@ -33,6 +32,14 @@ public class SetProxyPatternRequest extends RpcAcsRequest<SetProxyPatternRespons
 	private String zoneId;
 
 	private String lang;
+	public SetProxyPatternRequest() {
+		super("pvtz", "2018-01-01", "SetProxyPattern", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProxyPattern() {
 		return this.proxyPattern;

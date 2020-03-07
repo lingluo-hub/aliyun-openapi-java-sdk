@@ -15,24 +15,33 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AddZoneRequest extends RpcAcsRequest<AddZoneResponse> {
-	
-	public AddZoneRequest() {
-		super("pvtz", "2018-01-01", "AddZone", "pvtz");
-	}
+	   
 
 	private String proxyPattern;
+
+	private String zoneName;
+
+	private String resourceGroupId;
 
 	private String userClientIp;
 
 	private String lang;
-
-	private String zoneName;
+	public AddZoneRequest() {
+		super("pvtz", "2018-01-01", "AddZone", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getProxyPattern() {
 		return this.proxyPattern;
@@ -42,6 +51,28 @@ public class AddZoneRequest extends RpcAcsRequest<AddZoneResponse> {
 		this.proxyPattern = proxyPattern;
 		if(proxyPattern != null){
 			putQueryParameter("ProxyPattern", proxyPattern);
+		}
+	}
+
+	public String getZoneName() {
+		return this.zoneName;
+	}
+
+	public void setZoneName(String zoneName) {
+		this.zoneName = zoneName;
+		if(zoneName != null){
+			putQueryParameter("ZoneName", zoneName);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -64,17 +95,6 @@ public class AddZoneRequest extends RpcAcsRequest<AddZoneResponse> {
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
-		}
-	}
-
-	public String getZoneName() {
-		return this.zoneName;
-	}
-
-	public void setZoneName(String zoneName) {
-		this.zoneName = zoneName;
-		if(zoneName != null){
-			putQueryParameter("ZoneName", zoneName);
 		}
 	}
 

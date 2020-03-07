@@ -15,20 +15,27 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeZoneVpcTreeRequest extends RpcAcsRequest<DescribeZoneVpcTreeResponse> {
-	
-	public DescribeZoneVpcTreeRequest() {
-		super("pvtz", "2018-01-01", "DescribeZoneVpcTree", "pvtz");
-	}
+	   
 
 	private String userClientIp;
 
 	private String lang;
+	public DescribeZoneVpcTreeRequest() {
+		super("pvtz", "2018-01-01", "DescribeZoneVpcTree", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;

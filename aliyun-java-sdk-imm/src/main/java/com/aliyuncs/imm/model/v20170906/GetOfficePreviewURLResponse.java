@@ -28,6 +28,14 @@ public class GetOfficePreviewURLResponse extends AcsResponse {
 
 	private String previewURL;
 
+	private String accessToken;
+
+	private String refreshToken;
+
+	private String accessTokenExpiredTime;
+
+	private String refreshTokenExpiredTime;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -42,6 +50,38 @@ public class GetOfficePreviewURLResponse extends AcsResponse {
 
 	public void setPreviewURL(String previewURL) {
 		this.previewURL = previewURL;
+	}
+
+	public String getAccessToken() {
+		return this.accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
+
+	public String getRefreshToken() {
+		return this.refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
+
+	public String getAccessTokenExpiredTime() {
+		return this.accessTokenExpiredTime;
+	}
+
+	public void setAccessTokenExpiredTime(String accessTokenExpiredTime) {
+		this.accessTokenExpiredTime = accessTokenExpiredTime;
+	}
+
+	public String getRefreshTokenExpiredTime() {
+		return this.refreshTokenExpiredTime;
+	}
+
+	public void setRefreshTokenExpiredTime(String refreshTokenExpiredTime) {
+		this.refreshTokenExpiredTime = refreshTokenExpiredTime;
 	}
 
 	@Override

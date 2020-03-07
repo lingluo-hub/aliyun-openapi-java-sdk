@@ -23,16 +23,16 @@ import com.aliyuncs.http.MethodType;
  * @version 
  */
 public class AddSecCheckSampleLibRequest extends RpcAcsRequest<AddSecCheckSampleLibResponse> {
-	
+	   
+
+	private String name;
+
+	private String type;
 	public AddSecCheckSampleLibRequest() {
 		super("cspro", "2018-03-15", "AddSecCheckSampleLib", "cspro");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
 	}
-
-	private String name;
-
-	private String type;
 
 	public String getName() {
 		return this.name;

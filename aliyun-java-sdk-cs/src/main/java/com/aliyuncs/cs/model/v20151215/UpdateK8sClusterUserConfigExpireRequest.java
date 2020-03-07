@@ -26,7 +26,7 @@ public class UpdateK8sClusterUserConfigExpireRequest extends RoaAcsRequest<Updat
 
 	private String clusterId;
 	public UpdateK8sClusterUserConfigExpireRequest() {
-		super("CS", "2015-12-15", "UpdateK8sClusterUserConfigExpire");
+		super("CS", "2015-12-15", "UpdateK8sClusterUserConfigExpire", "csk");
 		setUriPattern("/k8s/[ClusterId]/user_config/expire");
 		setMethod(MethodType.POST);
 	}

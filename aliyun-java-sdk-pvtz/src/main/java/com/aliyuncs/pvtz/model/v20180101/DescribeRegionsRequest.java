@@ -15,22 +15,42 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsResponse> {
-	
-	public DescribeRegionsRequest() {
-		super("pvtz", "2018-01-01", "DescribeRegions", "pvtz");
-	}
+	   
+
+	private Long authorizedUserId;
 
 	private String userClientIp;
 
 	private String acceptLanguage;
 
 	private String lang;
+	public DescribeRegionsRequest() {
+		super("pvtz", "2018-01-01", "DescribeRegions", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public Long getAuthorizedUserId() {
+		return this.authorizedUserId;
+	}
+
+	public void setAuthorizedUserId(Long authorizedUserId) {
+		this.authorizedUserId = authorizedUserId;
+		if(authorizedUserId != null){
+			putQueryParameter("AuthorizedUserId", authorizedUserId.toString());
+		}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;

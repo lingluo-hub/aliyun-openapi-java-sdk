@@ -1,3 +1,15 @@
+2020-02-25 Version: 1.7.0
+- Fix ListWorkFlowTemplates, ListWorkFlowNodes API Go SDK build error.
+
+2020-02-15 Version: 1.6.0
+- Supported ListWorkFlowTemplates, ListWorkFlowNodes API.
+
+2020-02-13 Version: 1.5.2
+- Fix GetDataCorrectOrderDetail API return empty database information.
+
+2020-01-15 Version: 1.5.1
+- Fix SignatureDoesNotMatch issue of GetOrderBaseInfo API.
+
 2019-12-20 Version: 1.5.0
 - Supported Authorization API, includes GrantUserPermission, RevokeUserPermission, ListDatabaseUserPermssions, ListUserPermissions.
 - Supported Database or Table Metadata synchronization API, includes SyncInstanceMeta, SyncDatabaseMeta.

@@ -26,8 +26,6 @@ public class GetOfficePreviewURLRequest extends RpcAcsRequest<GetOfficePreviewUR
 
 	private String srcType;
 
-	private Integer expires;
-
 	private String project;
 
 	private Boolean useHTTPS;
@@ -46,17 +44,6 @@ public class GetOfficePreviewURLRequest extends RpcAcsRequest<GetOfficePreviewUR
 		this.srcType = srcType;
 		if(srcType != null){
 			putQueryParameter("SrcType", srcType);
-		}
-	}
-
-	public Integer getExpires() {
-		return this.expires;
-	}
-
-	public void setExpires(Integer expires) {
-		this.expires = expires;
-		if(expires != null){
-			putQueryParameter("Expires", expires.toString());
 		}
 	}
 

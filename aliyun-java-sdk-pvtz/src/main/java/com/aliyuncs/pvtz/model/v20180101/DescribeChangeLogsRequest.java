@@ -15,16 +15,21 @@
 package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class DescribeChangeLogsRequest extends RpcAcsRequest<DescribeChangeLogsResponse> {
-	
-	public DescribeChangeLogsRequest() {
-		super("pvtz", "2018-01-01", "DescribeChangeLogs", "pvtz");
-	}
+	   
+
+	private Long startTimestamp;
+
+	private Integer pageNumber;
+
+	private Long endTimestamp;
 
 	private String entityType;
 
@@ -37,12 +42,47 @@ public class DescribeChangeLogsRequest extends RpcAcsRequest<DescribeChangeLogsR
 	private String keyword;
 
 	private String lang;
+	public DescribeChangeLogsRequest() {
+		super("pvtz", "2018-01-01", "DescribeChangeLogs", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long startTimestamp;
+	public Long getStartTimestamp() {
+		return this.startTimestamp;
+	}
 
-	private Integer pageNumber;
+	public void setStartTimestamp(Long startTimestamp) {
+		this.startTimestamp = startTimestamp;
+		if(startTimestamp != null){
+			putQueryParameter("StartTimestamp", startTimestamp.toString());
+		}
+	}
 
-	private Long endTimestamp;
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Long getEndTimestamp() {
+		return this.endTimestamp;
+	}
+
+	public void setEndTimestamp(Long endTimestamp) {
+		this.endTimestamp = endTimestamp;
+		if(endTimestamp != null){
+			putQueryParameter("EndTimestamp", endTimestamp.toString());
+		}
+	}
 
 	public String getEntityType() {
 		return this.entityType;
@@ -107,39 +147,6 @@ public class DescribeChangeLogsRequest extends RpcAcsRequest<DescribeChangeLogsR
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
-		}
-	}
-
-	public Long getStartTimestamp() {
-		return this.startTimestamp;
-	}
-
-	public void setStartTimestamp(Long startTimestamp) {
-		this.startTimestamp = startTimestamp;
-		if(startTimestamp != null){
-			putQueryParameter("StartTimestamp", startTimestamp.toString());
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
-	}
-
-	public Long getEndTimestamp() {
-		return this.endTimestamp;
-	}
-
-	public void setEndTimestamp(Long endTimestamp) {
-		this.endTimestamp = endTimestamp;
-		if(endTimestamp != null){
-			putQueryParameter("EndTimestamp", endTimestamp.toString());
 		}
 	}
 

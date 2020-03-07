@@ -16,6 +16,7 @@ package com.aliyuncs.cloudesl.model.v20190801;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cloudesl.Endpoint;
 
 /**
  * @author auto create
@@ -26,8 +27,12 @@ public class GetUserRequest extends RpcAcsRequest<GetUserResponse> {
 
 	private String userId;
 	public GetUserRequest() {
-		super("cloudesl", "2019-08-01", "GetUser", "144001");
+		super("cloudesl", "2019-08-01", "GetUser", "cloudesl");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getUserId() {

@@ -16,16 +16,15 @@ package com.aliyuncs.pvtz.model.v20180101;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.pvtz.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BindZoneVpcRequest extends RpcAcsRequest<BindZoneVpcResponse> {
-	
-	public BindZoneVpcRequest() {
-		super("pvtz", "2018-01-01", "BindZoneVpc", "pvtz");
-	}
+	   
 
 	private String userClientIp;
 
@@ -34,6 +33,14 @@ public class BindZoneVpcRequest extends RpcAcsRequest<BindZoneVpcResponse> {
 	private String lang;
 
 	private List<Vpcs> vpcss;
+	public BindZoneVpcRequest() {
+		super("pvtz", "2018-01-01", "BindZoneVpc", "pvtz");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getUserClientIp() {
 		return this.userClientIp;
@@ -88,26 +95,10 @@ public class BindZoneVpcRequest extends RpcAcsRequest<BindZoneVpcResponse> {
 
 		private String vpcId;
 
-		public String getBizRegionId() {
-			return this.regionId;
-		}
-
-		public void setBizRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		/**
-		 * @deprecated use getBizRegionId instead of this.
-		 */
-		@Deprecated
 		public String getRegionId() {
 			return this.regionId;
 		}
 
-		/**
-		 * @deprecated use setBizRegionId instead of this.
-		 */
-		@Deprecated
 		public void setRegionId(String regionId) {
 			this.regionId = regionId;
 		}

@@ -31,6 +31,8 @@ public class InsertApplicationRequest extends RoaAcsRequest<InsertApplicationRes
 
 	private Integer buildPackId;
 
+	private String componentIds;
+
 	private String healthCheckURL;
 
 	private String reservedPortStr;
@@ -90,6 +92,17 @@ public class InsertApplicationRequest extends RoaAcsRequest<InsertApplicationRes
 		this.buildPackId = buildPackId;
 		if(buildPackId != null){
 			putQueryParameter("BuildPackId", buildPackId.toString());
+		}
+	}
+
+	public String getComponentIds() {
+		return this.componentIds;
+	}
+
+	public void setComponentIds(String componentIds) {
+		this.componentIds = componentIds;
+		if(componentIds != null){
+			putQueryParameter("ComponentIds", componentIds);
 		}
 	}
 

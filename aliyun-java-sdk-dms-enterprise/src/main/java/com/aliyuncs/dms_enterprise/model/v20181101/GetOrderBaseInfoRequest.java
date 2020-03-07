@@ -29,7 +29,7 @@ public class GetOrderBaseInfoRequest extends RpcAcsRequest<GetOrderBaseInfoRespo
 
 	private Long tid;
 	public GetOrderBaseInfoRequest() {
-		super("dms-enterprise", "2018-11-01", "GetOrderBaseInfo", "dmsenterprise");
+		super("dms-enterprise", "2018-11-01", "GetOrderBaseInfo");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -44,7 +44,7 @@ public class GetOrderBaseInfoRequest extends RpcAcsRequest<GetOrderBaseInfoRespo
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 		if(orderId != null){
-			putBodyParameter("OrderId", orderId.toString());
+			putQueryParameter("OrderId", orderId.toString());
 		}
 	}
 
