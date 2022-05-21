@@ -23,10 +23,10 @@ public class CreateTagResponseUnmarshaller {
 	public static CreateTagResponse unmarshall(CreateTagResponse createTagResponse, UnmarshallerContext _ctx) {
 		
 		createTagResponse.setRequestId(_ctx.stringValue("CreateTagResponse.RequestId"));
+		createTagResponse.setHttpStatusCode(_ctx.integerValue("CreateTagResponse.HttpStatusCode"));
 		createTagResponse.setSuccess(_ctx.booleanValue("CreateTagResponse.Success"));
 		createTagResponse.setCode(_ctx.stringValue("CreateTagResponse.Code"));
 		createTagResponse.setMessage(_ctx.stringValue("CreateTagResponse.Message"));
-		createTagResponse.setHttpStatusCode(_ctx.integerValue("CreateTagResponse.HttpStatusCode"));
 		createTagResponse.setTagId(_ctx.stringValue("CreateTagResponse.TagId"));
 	 
 	 	return createTagResponse;

@@ -43,11 +43,13 @@ public class CreateDBClusterEndpointRequest extends RpcAcsRequest<CreateDBCluste
 
 	private String endpointConfig;
 
+	private String dBEndpointDescription;
+
 	private Long ownerId;
 
 	private String nodes;
 	public CreateDBClusterEndpointRequest() {
-		super("polardb", "2017-08-01", "CreateDBClusterEndpoint", "polardb");
+		super("polardb", "2017-08-01", "CreateDBClusterEndpoint");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -151,6 +153,17 @@ public class CreateDBClusterEndpointRequest extends RpcAcsRequest<CreateDBCluste
 		this.endpointConfig = endpointConfig;
 		if(endpointConfig != null){
 			putQueryParameter("EndpointConfig", endpointConfig);
+		}
+	}
+
+	public String getDBEndpointDescription() {
+		return this.dBEndpointDescription;
+	}
+
+	public void setDBEndpointDescription(String dBEndpointDescription) {
+		this.dBEndpointDescription = dBEndpointDescription;
+		if(dBEndpointDescription != null){
+			putQueryParameter("DBEndpointDescription", dBEndpointDescription);
 		}
 	}
 

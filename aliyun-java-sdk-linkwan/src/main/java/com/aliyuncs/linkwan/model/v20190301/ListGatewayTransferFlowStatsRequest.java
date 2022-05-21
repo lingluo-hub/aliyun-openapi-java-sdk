@@ -28,11 +28,13 @@ public class ListGatewayTransferFlowStatsRequest extends RpcAcsRequest<ListGatew
 
 	private Long endMillis;
 
-	private Long beginMillis;
+	private String iotInstanceId;
+
+	private String timeIntervalUnit;
 
 	private String gwEui;
 
-	private String timeIntervalUnit;
+	private Long beginMillis;
 	public ListGatewayTransferFlowStatsRequest() {
 		super("LinkWAN", "2019-03-01", "ListGatewayTransferFlowStats", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -54,14 +56,25 @@ public class ListGatewayTransferFlowStatsRequest extends RpcAcsRequest<ListGatew
 		}
 	}
 
-	public Long getBeginMillis() {
-		return this.beginMillis;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setBeginMillis(Long beginMillis) {
-		this.beginMillis = beginMillis;
-		if(beginMillis != null){
-			putQueryParameter("BeginMillis", beginMillis.toString());
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getTimeIntervalUnit() {
+		return this.timeIntervalUnit;
+	}
+
+	public void setTimeIntervalUnit(String timeIntervalUnit) {
+		this.timeIntervalUnit = timeIntervalUnit;
+		if(timeIntervalUnit != null){
+			putQueryParameter("TimeIntervalUnit", timeIntervalUnit);
 		}
 	}
 
@@ -76,14 +89,14 @@ public class ListGatewayTransferFlowStatsRequest extends RpcAcsRequest<ListGatew
 		}
 	}
 
-	public String getTimeIntervalUnit() {
-		return this.timeIntervalUnit;
+	public Long getBeginMillis() {
+		return this.beginMillis;
 	}
 
-	public void setTimeIntervalUnit(String timeIntervalUnit) {
-		this.timeIntervalUnit = timeIntervalUnit;
-		if(timeIntervalUnit != null){
-			putQueryParameter("TimeIntervalUnit", timeIntervalUnit);
+	public void setBeginMillis(Long beginMillis) {
+		this.beginMillis = beginMillis;
+		if(beginMillis != null){
+			putQueryParameter("BeginMillis", beginMillis.toString());
 		}
 	}
 

@@ -23,7 +23,15 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class DeleteLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<DeleteLiveSnapshotDetectPornConfigResponse> {
-	
+	   
+
+	private String appName;
+
+	private String securityToken;
+
+	private String domainName;
+
+	private Long ownerId;
 	public DeleteLiveSnapshotDetectPornConfigRequest() {
 		super("live", "2016-11-01", "DeleteLiveSnapshotDetectPornConfig", "live");
 		setMethod(MethodType.POST);
@@ -33,13 +41,27 @@ public class DeleteLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<Del
 		} catch (Exception e) {}
 	}
 
-	private String domainName;
+	public String getAppName() {
+		return this.appName;
+	}
 
-	private Long ownerId;
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
 
-	private String appName;
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
 
-	private String securityToken;
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
 
 	public String getDomainName() {
 		return this.domainName;
@@ -60,47 +82,6 @@ public class DeleteLiveSnapshotDetectPornConfigRequest extends RpcAcsRequest<Del
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getAppName() {
-		return this.appName;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
-		}
-	}
-
-	public String getBizSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setBizSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	/**
-	 * @deprecated use setBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

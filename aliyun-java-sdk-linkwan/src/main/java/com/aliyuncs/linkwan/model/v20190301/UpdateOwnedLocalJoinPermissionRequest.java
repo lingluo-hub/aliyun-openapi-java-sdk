@@ -28,11 +28,15 @@ public class UpdateOwnedLocalJoinPermissionRequest extends RpcAcsRequest<UpdateO
 
 	private String rxDelay;
 
-	private String classMode;
-
 	private String joinPermissionId;
 
+	private String iotInstanceId;
+
+	private String classMode;
+
 	private Long freqBandPlanGroupId;
+
+	private String joinEui;
 
 	private String joinPermissionName;
 
@@ -58,17 +62,6 @@ public class UpdateOwnedLocalJoinPermissionRequest extends RpcAcsRequest<UpdateO
 		}
 	}
 
-	public String getClassMode() {
-		return this.classMode;
-	}
-
-	public void setClassMode(String classMode) {
-		this.classMode = classMode;
-		if(classMode != null){
-			putQueryParameter("ClassMode", classMode);
-		}
-	}
-
 	public String getJoinPermissionId() {
 		return this.joinPermissionId;
 	}
@@ -80,6 +73,28 @@ public class UpdateOwnedLocalJoinPermissionRequest extends RpcAcsRequest<UpdateO
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getClassMode() {
+		return this.classMode;
+	}
+
+	public void setClassMode(String classMode) {
+		this.classMode = classMode;
+		if(classMode != null){
+			putQueryParameter("ClassMode", classMode);
+		}
+	}
+
 	public Long getFreqBandPlanGroupId() {
 		return this.freqBandPlanGroupId;
 	}
@@ -88,6 +103,17 @@ public class UpdateOwnedLocalJoinPermissionRequest extends RpcAcsRequest<UpdateO
 		this.freqBandPlanGroupId = freqBandPlanGroupId;
 		if(freqBandPlanGroupId != null){
 			putQueryParameter("FreqBandPlanGroupId", freqBandPlanGroupId.toString());
+		}
+	}
+
+	public String getJoinEui() {
+		return this.joinEui;
+	}
+
+	public void setJoinEui(String joinEui) {
+		this.joinEui = joinEui;
+		if(joinEui != null){
+			putQueryParameter("JoinEui", joinEui);
 		}
 	}
 

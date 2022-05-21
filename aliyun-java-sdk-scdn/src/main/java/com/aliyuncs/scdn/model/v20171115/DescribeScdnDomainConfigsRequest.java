@@ -32,6 +32,8 @@ public class DescribeScdnDomainConfigsRequest extends RpcAcsRequest<DescribeScdn
 	private Long ownerId;
 
 	private String securityToken;
+
+	private String configId;
 	public DescribeScdnDomainConfigsRequest() {
 		super("scdn", "2017-11-15", "DescribeScdnDomainConfigs");
 		setMethod(MethodType.POST);
@@ -82,6 +84,17 @@ public class DescribeScdnDomainConfigsRequest extends RpcAcsRequest<DescribeScdn
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getConfigId() {
+		return this.configId;
+	}
+
+	public void setConfigId(String configId) {
+		this.configId = configId;
+		if(configId != null){
+			putQueryParameter("ConfigId", configId);
 		}
 	}
 

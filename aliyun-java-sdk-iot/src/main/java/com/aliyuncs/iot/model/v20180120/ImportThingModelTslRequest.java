@@ -25,33 +25,26 @@ import com.aliyuncs.iot.Endpoint;
 public class ImportThingModelTslRequest extends RpcAcsRequest<ImportThingModelTslResponse> {
 	   
 
-	private String productKey;
-
 	private String resourceGroupId;
 
 	private String iotInstanceId;
 
+	private String functionBlockName;
+
+	private String productKey;
+
 	private String tslUrl;
 
 	private String tslStr;
+
+	private String functionBlockId;
 	public ImportThingModelTslRequest() {
-		super("Iot", "2018-01-20", "ImportThingModelTsl", "Iot");
+		super("Iot", "2018-01-20", "ImportThingModelTsl");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getResourceGroupId() {
@@ -76,6 +69,28 @@ public class ImportThingModelTslRequest extends RpcAcsRequest<ImportThingModelTs
 		}
 	}
 
+	public String getFunctionBlockName() {
+		return this.functionBlockName;
+	}
+
+	public void setFunctionBlockName(String functionBlockName) {
+		this.functionBlockName = functionBlockName;
+		if(functionBlockName != null){
+			putQueryParameter("FunctionBlockName", functionBlockName);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public String getTslUrl() {
 		return this.tslUrl;
 	}
@@ -95,6 +110,17 @@ public class ImportThingModelTslRequest extends RpcAcsRequest<ImportThingModelTs
 		this.tslStr = tslStr;
 		if(tslStr != null){
 			putQueryParameter("TslStr", tslStr);
+		}
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
 		}
 	}
 

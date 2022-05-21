@@ -25,18 +25,33 @@ import com.aliyuncs.vs.Endpoint;
 public class ModifyDeviceChannelsRequest extends RpcAcsRequest<ModifyDeviceChannelsResponse> {
 	   
 
+	private String deviceStatus;
+
 	private String id;
 
 	private Long ownerId;
 
 	private String channels;
+
+	private String dsn;
 	public ModifyDeviceChannelsRequest() {
-		super("vs", "2018-12-12", "ModifyDeviceChannels", "vs");
+		super("vs", "2018-12-12", "ModifyDeviceChannels");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getDeviceStatus() {
+		return this.deviceStatus;
+	}
+
+	public void setDeviceStatus(String deviceStatus) {
+		this.deviceStatus = deviceStatus;
+		if(deviceStatus != null){
+			putQueryParameter("DeviceStatus", deviceStatus);
+		}
 	}
 
 	public String getId() {
@@ -69,6 +84,17 @@ public class ModifyDeviceChannelsRequest extends RpcAcsRequest<ModifyDeviceChann
 		this.channels = channels;
 		if(channels != null){
 			putQueryParameter("Channels", channels);
+		}
+	}
+
+	public String getDsn() {
+		return this.dsn;
+	}
+
+	public void setDsn(String dsn) {
+		this.dsn = dsn;
+		if(dsn != null){
+			putQueryParameter("Dsn", dsn);
 		}
 	}
 

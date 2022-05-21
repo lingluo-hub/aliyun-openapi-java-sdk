@@ -28,6 +28,8 @@ public class UpdateDescriptionRequest extends RoaAcsRequest<UpdateDescriptionRes
 	private String instanceId;
 
 	private String clientToken;
+
+	private String body;
 	public UpdateDescriptionRequest() {
 		super("elasticsearch", "2017-06-13", "UpdateDescription", "elasticsearch");
 		setUriPattern("/openapi/instances/[InstanceId]/description");
@@ -57,6 +59,17 @@ public class UpdateDescriptionRequest extends RoaAcsRequest<UpdateDescriptionRes
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("clientToken", clientToken);
+		}
+	}
+
+	public String getBody() {
+		return this.body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+		if(body != null){
+			putBodyParameter("body", body);
 		}
 	}
 

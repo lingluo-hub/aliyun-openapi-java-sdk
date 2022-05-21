@@ -24,17 +24,7 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class IndexImageResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String setId;
-
-	private String imageUri;
-
-	private String remarksA;
-
-	private String remarksB;
-
-	private String createTime;
+	private String remarksArrayB;
 
 	private String modifyTime;
 
@@ -42,54 +32,28 @@ public class IndexImageResponse extends AcsResponse {
 
 	private String remarksD;
 
+	private String requestId;
+
+	private String createTime;
+
 	private String externalId;
 
-	public String getRequestId() {
-		return this.requestId;
+	private String remarksArrayA;
+
+	private String remarksA;
+
+	private String imageUri;
+
+	private String setId;
+
+	private String remarksB;
+
+	public String getRemarksArrayB() {
+		return this.remarksArrayB;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public String getSetId() {
-		return this.setId;
-	}
-
-	public void setSetId(String setId) {
-		this.setId = setId;
-	}
-
-	public String getImageUri() {
-		return this.imageUri;
-	}
-
-	public void setImageUri(String imageUri) {
-		this.imageUri = imageUri;
-	}
-
-	public String getRemarksA() {
-		return this.remarksA;
-	}
-
-	public void setRemarksA(String remarksA) {
-		this.remarksA = remarksA;
-	}
-
-	public String getRemarksB() {
-		return this.remarksB;
-	}
-
-	public void setRemarksB(String remarksB) {
-		this.remarksB = remarksB;
-	}
-
-	public String getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
+	public void setRemarksArrayB(String remarksArrayB) {
+		this.remarksArrayB = remarksArrayB;
 	}
 
 	public String getModifyTime() {
@@ -116,12 +80,68 @@ public class IndexImageResponse extends AcsResponse {
 		this.remarksD = remarksD;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
 	public String getExternalId() {
 		return this.externalId;
 	}
 
 	public void setExternalId(String externalId) {
 		this.externalId = externalId;
+	}
+
+	public String getRemarksArrayA() {
+		return this.remarksArrayA;
+	}
+
+	public void setRemarksArrayA(String remarksArrayA) {
+		this.remarksArrayA = remarksArrayA;
+	}
+
+	public String getRemarksA() {
+		return this.remarksA;
+	}
+
+	public void setRemarksA(String remarksA) {
+		this.remarksA = remarksA;
+	}
+
+	public String getImageUri() {
+		return this.imageUri;
+	}
+
+	public void setImageUri(String imageUri) {
+		this.imageUri = imageUri;
+	}
+
+	public String getSetId() {
+		return this.setId;
+	}
+
+	public void setSetId(String setId) {
+		this.setId = setId;
+	}
+
+	public String getRemarksB() {
+		return this.remarksB;
+	}
+
+	public void setRemarksB(String remarksB) {
+		this.remarksB = remarksB;
 	}
 
 	@Override

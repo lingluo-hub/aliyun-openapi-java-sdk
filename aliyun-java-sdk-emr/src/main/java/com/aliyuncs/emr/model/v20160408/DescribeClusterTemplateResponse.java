@@ -117,11 +117,17 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		private String metaStoreConf;
 
+		private Boolean dataDiskEncrypted;
+
+		private String dataDiskKMSKeyId;
+
 		private List<BootstrapAction> bootstrapActionList;
 
 		private List<HostGroup> hostGroupList;
 
 		private List<Config> configList;
+
+		private List<Tag> tags;
 
 		private List<String> softwareInfoList;
 
@@ -405,6 +411,22 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 			this.metaStoreConf = metaStoreConf;
 		}
 
+		public Boolean getDataDiskEncrypted() {
+			return this.dataDiskEncrypted;
+		}
+
+		public void setDataDiskEncrypted(Boolean dataDiskEncrypted) {
+			this.dataDiskEncrypted = dataDiskEncrypted;
+		}
+
+		public String getDataDiskKMSKeyId() {
+			return this.dataDiskKMSKeyId;
+		}
+
+		public void setDataDiskKMSKeyId(String dataDiskKMSKeyId) {
+			this.dataDiskKMSKeyId = dataDiskKMSKeyId;
+		}
+
 		public List<BootstrapAction> getBootstrapActionList() {
 			return this.bootstrapActionList;
 		}
@@ -427,6 +449,14 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 		public void setConfigList(List<Config> configList) {
 			this.configList = configList;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public List<String> getSoftwareInfoList() {
@@ -663,6 +693,29 @@ public class DescribeClusterTemplateResponse extends AcsResponse {
 
 			public void setReplace(String replace) {
 				this.replace = replace;
+			}
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
 			}
 		}
 	}

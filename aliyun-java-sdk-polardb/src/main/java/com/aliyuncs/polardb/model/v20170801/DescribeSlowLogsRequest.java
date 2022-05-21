@@ -45,7 +45,7 @@ public class DescribeSlowLogsRequest extends RpcAcsRequest<DescribeSlowLogsRespo
 
 	private String dBName;
 	public DescribeSlowLogsRequest() {
-		super("polardb", "2017-08-01", "DescribeSlowLogs", "polardb");
+		super("polardb", "2017-08-01", "DescribeSlowLogs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

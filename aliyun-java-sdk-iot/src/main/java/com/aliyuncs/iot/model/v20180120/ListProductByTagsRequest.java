@@ -26,20 +26,42 @@ import com.aliyuncs.iot.Endpoint;
 public class ListProductByTagsRequest extends RpcAcsRequest<ListProductByTagsResponse> {
 	   
 
-	private Integer currentPage;
-
-	private List<ProductTag> productTags;
-
 	private String iotInstanceId;
 
 	private Integer pageSize;
+
+	private Integer currentPage;
+
+	private List<ProductTag> productTags;
 	public ListProductByTagsRequest() {
-		super("Iot", "2018-01-20", "ListProductByTags", "Iot");
+		super("Iot", "2018-01-20", "ListProductByTags");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
 	}
 
 	public Integer getCurrentPage() {
@@ -65,28 +87,6 @@ public class ListProductByTagsRequest extends RpcAcsRequest<ListProductByTagsRes
 				putQueryParameter("ProductTag." + (depth1 + 1) + ".TagKey" , productTags.get(depth1).getTagKey());
 			}
 		}	
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
 	}
 
 	public static class ProductTag {

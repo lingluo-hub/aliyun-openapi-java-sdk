@@ -54,6 +54,8 @@ public class GetChangeSetResponse extends AcsResponse {
 
 	private Integer timeoutInMinutes;
 
+	private String statusReason;
+
 	private List<Parameter> parameters;
 
 	private List<Map<Object,Object>> changes;
@@ -114,26 +116,10 @@ public class GetChangeSetResponse extends AcsResponse {
 		this.executionStatus = executionStatus;
 	}
 
-	public String getBizRegionId() {
-		return this.regionId;
-	}
-
-	public void setBizRegionId(String regionId) {
-		this.regionId = regionId;
-	}
-
-	/**
-	 * @deprecated use getBizRegionId instead of this.
-	 */
-	@Deprecated
 	public String getRegionId() {
 		return this.regionId;
 	}
 
-	/**
-	 * @deprecated use setBizRegionId instead of this.
-	 */
-	@Deprecated
 	public void setRegionId(String regionId) {
 		this.regionId = regionId;
 	}
@@ -184,6 +170,14 @@ public class GetChangeSetResponse extends AcsResponse {
 
 	public void setTimeoutInMinutes(Integer timeoutInMinutes) {
 		this.timeoutInMinutes = timeoutInMinutes;
+	}
+
+	public String getStatusReason() {
+		return this.statusReason;
+	}
+
+	public void setStatusReason(String statusReason) {
+		this.statusReason = statusReason;
 	}
 
 	public List<Parameter> getParameters() {

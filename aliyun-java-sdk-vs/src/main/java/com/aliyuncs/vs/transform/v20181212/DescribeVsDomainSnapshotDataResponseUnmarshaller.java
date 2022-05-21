@@ -27,15 +27,12 @@ public class DescribeVsDomainSnapshotDataResponseUnmarshaller {
 	public static DescribeVsDomainSnapshotDataResponse unmarshall(DescribeVsDomainSnapshotDataResponse describeVsDomainSnapshotDataResponse, UnmarshallerContext _ctx) {
 		
 		describeVsDomainSnapshotDataResponse.setRequestId(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.RequestId"));
-		describeVsDomainSnapshotDataResponse.setDomainName(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.DomainName"));
-		describeVsDomainSnapshotDataResponse.setStartTime(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.StartTime"));
-		describeVsDomainSnapshotDataResponse.setEndTime(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.EndTime"));
 
 		List<DataModule> snapshotDataPerInterval = new ArrayList<DataModule>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeVsDomainSnapshotDataResponse.SnapshotDataPerInterval.Length"); i++) {
 			DataModule dataModule = new DataModule();
-			dataModule.setTimeStamp(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.SnapshotDataPerInterval["+ i +"].TimeStamp"));
 			dataModule.setSnapshotValue(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.SnapshotDataPerInterval["+ i +"].SnapshotValue"));
+			dataModule.setTimeStamp(_ctx.stringValue("DescribeVsDomainSnapshotDataResponse.SnapshotDataPerInterval["+ i +"].TimeStamp"));
 
 			snapshotDataPerInterval.add(dataModule);
 		}

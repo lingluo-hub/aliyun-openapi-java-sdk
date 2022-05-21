@@ -31,15 +31,13 @@ public class SearchAlertHistoriesRequest extends RpcAcsRequest<SearchAlertHistor
 
 	private Long startTime;
 
-	private String proxyUserId;
-
 	private Integer alertType;
 
 	private Integer pageSize;
 
 	private Long alertId;
 	public SearchAlertHistoriesRequest() {
-		super("ARMS", "2019-08-08", "SearchAlertHistories", "arms");
+		super("ARMS", "2019-08-08", "SearchAlertHistories");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -77,17 +75,6 @@ public class SearchAlertHistoriesRequest extends RpcAcsRequest<SearchAlertHistor
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime.toString());
-		}
-	}
-
-	public String getProxyUserId() {
-		return this.proxyUserId;
-	}
-
-	public void setProxyUserId(String proxyUserId) {
-		this.proxyUserId = proxyUserId;
-		if(proxyUserId != null){
-			putQueryParameter("ProxyUserId", proxyUserId);
 		}
 	}
 

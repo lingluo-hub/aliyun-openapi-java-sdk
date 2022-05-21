@@ -77,59 +77,23 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 
 	public static class PageData {
 
-		private String domainName;
-
-		private String cname;
-
-		private String cdnType;
-
-		private String domainStatus;
-
 		private String gmtCreated;
-
-		private String gmtModified;
-
-		private String description;
 
 		private String sslProtocol;
 
-		private String weight;
+		private String description;
 
 		private String sandbox;
 
+		private String cname;
+
+		private String domainStatus;
+
+		private String gmtModified;
+
+		private String domainName;
+
 		private List<Source> sources;
-
-		public String getDomainName() {
-			return this.domainName;
-		}
-
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
-		}
-
-		public String getCname() {
-			return this.cname;
-		}
-
-		public void setCname(String cname) {
-			this.cname = cname;
-		}
-
-		public String getCdnType() {
-			return this.cdnType;
-		}
-
-		public void setCdnType(String cdnType) {
-			this.cdnType = cdnType;
-		}
-
-		public String getDomainStatus() {
-			return this.domainStatus;
-		}
-
-		public void setDomainStatus(String domainStatus) {
-			this.domainStatus = domainStatus;
-		}
 
 		public String getGmtCreated() {
 			return this.gmtCreated;
@@ -137,22 +101,6 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 
 		public void setGmtCreated(String gmtCreated) {
 			this.gmtCreated = gmtCreated;
-		}
-
-		public String getGmtModified() {
-			return this.gmtModified;
-		}
-
-		public void setGmtModified(String gmtModified) {
-			this.gmtModified = gmtModified;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
 		}
 
 		public String getSslProtocol() {
@@ -163,12 +111,12 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 			this.sslProtocol = sslProtocol;
 		}
 
-		public String getWeight() {
-			return this.weight;
+		public String getDescription() {
+			return this.description;
 		}
 
-		public void setWeight(String weight) {
-			this.weight = weight;
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public String getSandbox() {
@@ -177,6 +125,38 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 
 		public void setSandbox(String sandbox) {
 			this.sandbox = sandbox;
+		}
+
+		public String getCname() {
+			return this.cname;
+		}
+
+		public void setCname(String cname) {
+			this.cname = cname;
+		}
+
+		public String getDomainStatus() {
+			return this.domainStatus;
+		}
+
+		public void setDomainStatus(String domainStatus) {
+			this.domainStatus = domainStatus;
+		}
+
+		public String getGmtModified() {
+			return this.gmtModified;
+		}
+
+		public void setGmtModified(String gmtModified) {
+			this.gmtModified = gmtModified;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
 		}
 
 		public List<Source> getSources() {
@@ -191,11 +171,11 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 
 			private String type;
 
-			private String content;
+			private String priority;
 
 			private Integer port;
 
-			private String priority;
+			private String content;
 
 			public String getType() {
 				return this.type;
@@ -205,12 +185,12 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 				this.type = type;
 			}
 
-			public String getContent() {
-				return this.content;
+			public String getPriority() {
+				return this.priority;
 			}
 
-			public void setContent(String content) {
-				this.content = content;
+			public void setPriority(String priority) {
+				this.priority = priority;
 			}
 
 			public Integer getPort() {
@@ -221,12 +201,12 @@ public class DescribeVodUserDomainsResponse extends AcsResponse {
 				this.port = port;
 			}
 
-			public String getPriority() {
-				return this.priority;
+			public String getContent() {
+				return this.content;
 			}
 
-			public void setPriority(String priority) {
-				this.priority = priority;
+			public void setContent(String content) {
+				this.content = content;
 			}
 		}
 	}

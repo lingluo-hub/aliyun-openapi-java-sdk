@@ -27,11 +27,11 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private LogicDatabase logicDatabase;
 
@@ -43,12 +43,12 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -59,12 +59,12 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public LogicDatabase getLogicDatabase() {
@@ -77,21 +77,39 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 
 	public static class LogicDatabase {
 
-		private Boolean logic;
+		private String databaseId;
 
-		private String envType;
+		private String dbType;
+
+		private Boolean logic;
 
 		private String schemaName;
 
 		private String searchName;
 
-		private String dbType;
+		private String envType;
 
-		private String databaseId;
+		private String alias;
 
 		private List<String> ownerIdList;
 
 		private List<String> ownerNameList;
+
+		public String getDatabaseId() {
+			return this.databaseId;
+		}
+
+		public void setDatabaseId(String databaseId) {
+			this.databaseId = databaseId;
+		}
+
+		public String getDbType() {
+			return this.dbType;
+		}
+
+		public void setDbType(String dbType) {
+			this.dbType = dbType;
+		}
 
 		public Boolean getLogic() {
 			return this.logic;
@@ -99,14 +117,6 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 
 		public void setLogic(Boolean logic) {
 			this.logic = logic;
-		}
-
-		public String getEnvType() {
-			return this.envType;
-		}
-
-		public void setEnvType(String envType) {
-			this.envType = envType;
 		}
 
 		public String getSchemaName() {
@@ -125,20 +135,20 @@ public class GetLogicDatabaseResponse extends AcsResponse {
 			this.searchName = searchName;
 		}
 
-		public String getDbType() {
-			return this.dbType;
+		public String getEnvType() {
+			return this.envType;
 		}
 
-		public void setDbType(String dbType) {
-			this.dbType = dbType;
+		public void setEnvType(String envType) {
+			this.envType = envType;
 		}
 
-		public String getDatabaseId() {
-			return this.databaseId;
+		public String getAlias() {
+			return this.alias;
 		}
 
-		public void setDatabaseId(String databaseId) {
-			this.databaseId = databaseId;
+		public void setAlias(String alias) {
+			this.alias = alias;
 		}
 
 		public List<String> getOwnerIdList() {

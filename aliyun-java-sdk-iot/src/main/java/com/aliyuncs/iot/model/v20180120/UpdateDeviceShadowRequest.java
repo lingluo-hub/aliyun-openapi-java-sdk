@@ -27,13 +27,15 @@ public class UpdateDeviceShadowRequest extends RpcAcsRequest<UpdateDeviceShadowR
 
 	private String shadowMessage;
 
+	private String iotInstanceId;
+
 	private String productKey;
 
-	private String iotInstanceId;
+	private Boolean deltaUpdate;
 
 	private String deviceName;
 	public UpdateDeviceShadowRequest() {
-		super("Iot", "2018-01-20", "UpdateDeviceShadow", "Iot");
+		super("Iot", "2018-01-20", "UpdateDeviceShadow");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -52,6 +54,17 @@ public class UpdateDeviceShadowRequest extends RpcAcsRequest<UpdateDeviceShadowR
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
 	public String getProductKey() {
 		return this.productKey;
 	}
@@ -63,14 +76,14 @@ public class UpdateDeviceShadowRequest extends RpcAcsRequest<UpdateDeviceShadowR
 		}
 	}
 
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
+	public Boolean getDeltaUpdate() {
+		return this.deltaUpdate;
 	}
 
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
+	public void setDeltaUpdate(Boolean deltaUpdate) {
+		this.deltaUpdate = deltaUpdate;
+		if(deltaUpdate != null){
+			putQueryParameter("DeltaUpdate", deltaUpdate.toString());
 		}
 	}
 

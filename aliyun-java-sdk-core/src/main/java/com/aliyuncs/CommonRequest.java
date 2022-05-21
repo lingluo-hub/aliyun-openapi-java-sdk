@@ -1,8 +1,11 @@
 package com.aliyuncs;
 
+import com.aliyuncs.auth.SignatureVersion;
+import com.aliyuncs.auth.signers.SignatureAlgorithm;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.policy.retry.RetryPolicy;
 import com.aliyuncs.regions.ProductDomain;
 
 import java.util.HashMap;
@@ -26,27 +29,36 @@ public class CommonRequest {
     private FormatType httpContentType = null;
     private byte[] httpContent = null;
     private String encoding = null;
+    private FormatType accept = FormatType.JSON;
 
     private String uriPattern = null;
     private Map<String, String> pathParameters = new HashMap<String, String>();
 
     private String domain = null;
 
+    private SignatureVersion signatureVersion;
+    private SignatureAlgorithm signatureAlgorithm;
+    private RetryPolicy retryPolicy = null;
+
     @SuppressWarnings("rawtypes")
     public AcsRequest buildRequest() {
         if (uriPattern != null) {
             CommonRoaRequest request = new CommonRoaRequest(product);
             request.setSysUriPattern(uriPattern);
+            request.setSysSignatureVersion(signatureVersion);
+            request.setSysSignatureAlgorithm(signatureAlgorithm);
+            request.setSysRetryPolicy(retryPolicy);
             for (String pathParamKey : pathParameters.keySet()) {
                 request.putPathParameter(pathParamKey, pathParameters.get(pathParamKey));
             }
             fillParams(request);
-
             return request;
         } else {
             CommonRpcRequest request = new CommonRpcRequest(product);
+            request.setSysSignatureVersion(signatureVersion);
+            request.setSysSignatureAlgorithm(signatureAlgorithm);
+            request.setSysRetryPolicy(retryPolicy);
             fillParams(request);
-
             return request;
         }
     }
@@ -82,9 +94,13 @@ public class CommonRequest {
         if (protocol != null) {
             request.setSysProtocol(protocol);
         }
+        request.setSysAcceptFormat(accept);
         if (domain != null) {
             ProductDomain productDomain = new ProductDomain(product, domain);
             request.setSysProductDomain(productDomain);
+        }
+        if (bodyParameters.size() > 0 && httpContentType != null) {
+            request.setHttpContentType(httpContentType);
         }
         if (httpContent != null) {
             request.setHttpContent(httpContent, encoding, httpContentType);
@@ -319,6 +335,10 @@ public class CommonRequest {
         return httpContentType;
     }
 
+    public void setHttpContentType(FormatType type) {
+        this.httpContentType = type;
+    }
+
     public byte[] getHttpContent() {
         return httpContent;
     }
@@ -489,4 +509,35 @@ public class CommonRequest {
         return pathParameters;
     }
 
+    public void setSysAccept(FormatType type) {
+        this.accept = type;
+    }
+
+    public FormatType getSysAccept() {
+        return this.accept;
+    }
+
+    public SignatureVersion getSysSignatureVersion() {
+        return signatureVersion;
+    }
+
+    public void setSysSignatureVersion(SignatureVersion signatureVersion) {
+        this.signatureVersion = signatureVersion;
+    }
+
+    public SignatureAlgorithm getSysSignatureAlgorithm() {
+        return signatureAlgorithm;
+    }
+
+    public void setSysSignatureAlgorithm(SignatureAlgorithm signatureAlgorithm) {
+        this.signatureAlgorithm = signatureAlgorithm;
+    }
+
+    public RetryPolicy getSysRetryPolicy() {
+        return this.retryPolicy;
+    }
+
+    public void setSysRetryPolicy(RetryPolicy retryPolicy) {
+        this.retryPolicy = retryPolicy;
+    }
 }

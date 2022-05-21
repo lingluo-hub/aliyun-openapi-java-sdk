@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -24,15 +25,23 @@ import com.aliyuncs.http.MethodType;
 public class DescribeCheckWarningSummaryRequest extends RpcAcsRequest<DescribeCheckWarningSummaryResponse> {
 	   
 
+	private String targetType;
+
+	private String containerFieldName;
+
 	private String riskName;
 
 	private String sourceIp;
+
+	private String containerFieldValue;
 
 	private Integer pageSize;
 
 	private String lang;
 
 	private Integer currentPage;
+
+	private String clusterId;
 
 	private Integer riskStatus;
 
@@ -44,8 +53,34 @@ public class DescribeCheckWarningSummaryRequest extends RpcAcsRequest<DescribeCh
 
 	private String uuids;
 	public DescribeCheckWarningSummaryRequest() {
-		super("Sas", "2018-12-03", "DescribeCheckWarningSummary", "sas");
+		super("Sas", "2018-12-03", "DescribeCheckWarningSummary");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getTargetType() {
+		return this.targetType;
+	}
+
+	public void setTargetType(String targetType) {
+		this.targetType = targetType;
+		if(targetType != null){
+			putQueryParameter("TargetType", targetType);
+		}
+	}
+
+	public String getContainerFieldName() {
+		return this.containerFieldName;
+	}
+
+	public void setContainerFieldName(String containerFieldName) {
+		this.containerFieldName = containerFieldName;
+		if(containerFieldName != null){
+			putQueryParameter("ContainerFieldName", containerFieldName);
+		}
 	}
 
 	public String getRiskName() {
@@ -67,6 +102,17 @@ public class DescribeCheckWarningSummaryRequest extends RpcAcsRequest<DescribeCh
 		this.sourceIp = sourceIp;
 		if(sourceIp != null){
 			putQueryParameter("SourceIp", sourceIp);
+		}
+	}
+
+	public String getContainerFieldValue() {
+		return this.containerFieldValue;
+	}
+
+	public void setContainerFieldValue(String containerFieldValue) {
+		this.containerFieldValue = containerFieldValue;
+		if(containerFieldValue != null){
+			putQueryParameter("ContainerFieldValue", containerFieldValue);
 		}
 	}
 
@@ -100,6 +146,17 @@ public class DescribeCheckWarningSummaryRequest extends RpcAcsRequest<DescribeCh
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 

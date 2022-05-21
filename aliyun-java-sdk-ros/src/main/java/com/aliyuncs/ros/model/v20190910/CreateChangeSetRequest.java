@@ -30,11 +30,15 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 
 	private String stackPolicyDuringUpdateBody;
 
+	private String templateVersion;
+
 	private String stackName;
 
 	private String changeSetType;
 
 	private Boolean disableRollback;
+
+	private String templateId;
 
 	private List<Parameters> parameterss;
 
@@ -50,17 +54,23 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 
 	private List<String> notificationURLss;
 
+	private List<ResourcesToImport> resourcesToImports;
+
 	private String stackPolicyBody;
 
 	private String stackPolicyDuringUpdateURL;
 
+	private String ramRoleName;
+
 	private Boolean usePreviousParameters;
+
+	private String replacementOption;
 
 	private String stackPolicyURL;
 
 	private String changeSetName;
 	public CreateChangeSetRequest() {
-		super("ROS", "2019-09-10", "CreateChangeSet");
+		super("ROS", "2019-09-10", "CreateChangeSet", "ros");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -87,6 +97,17 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 		this.stackPolicyDuringUpdateBody = stackPolicyDuringUpdateBody;
 		if(stackPolicyDuringUpdateBody != null){
 			putQueryParameter("StackPolicyDuringUpdateBody", stackPolicyDuringUpdateBody);
+		}
+	}
+
+	public String getTemplateVersion() {
+		return this.templateVersion;
+	}
+
+	public void setTemplateVersion(String templateVersion) {
+		this.templateVersion = templateVersion;
+		if(templateVersion != null){
+			putQueryParameter("TemplateVersion", templateVersion);
 		}
 	}
 
@@ -120,6 +141,17 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 		this.disableRollback = disableRollback;
 		if(disableRollback != null){
 			putQueryParameter("DisableRollback", disableRollback.toString());
+		}
+	}
+
+	public String getTemplateId() {
+		return this.templateId;
+	}
+
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
+		if(templateId != null){
+			putQueryParameter("TemplateId", templateId);
 		}
 	}
 
@@ -205,6 +237,21 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 		}	
 	}
 
+	public List<ResourcesToImport> getResourcesToImports() {
+		return this.resourcesToImports;
+	}
+
+	public void setResourcesToImports(List<ResourcesToImport> resourcesToImports) {
+		this.resourcesToImports = resourcesToImports;	
+		if (resourcesToImports != null) {
+			for (int depth1 = 0; depth1 < resourcesToImports.size(); depth1++) {
+				putQueryParameter("ResourcesToImport." + (depth1 + 1) + ".ResourceIdentifier" , resourcesToImports.get(depth1).getResourceIdentifier());
+				putQueryParameter("ResourcesToImport." + (depth1 + 1) + ".LogicalResourceId" , resourcesToImports.get(depth1).getLogicalResourceId());
+				putQueryParameter("ResourcesToImport." + (depth1 + 1) + ".ResourceType" , resourcesToImports.get(depth1).getResourceType());
+			}
+		}	
+	}
+
 	public String getStackPolicyBody() {
 		return this.stackPolicyBody;
 	}
@@ -227,6 +274,17 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 		}
 	}
 
+	public String getRamRoleName() {
+		return this.ramRoleName;
+	}
+
+	public void setRamRoleName(String ramRoleName) {
+		this.ramRoleName = ramRoleName;
+		if(ramRoleName != null){
+			putQueryParameter("RamRoleName", ramRoleName);
+		}
+	}
+
 	public Boolean getUsePreviousParameters() {
 		return this.usePreviousParameters;
 	}
@@ -235,6 +293,17 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 		this.usePreviousParameters = usePreviousParameters;
 		if(usePreviousParameters != null){
 			putQueryParameter("UsePreviousParameters", usePreviousParameters.toString());
+		}
+	}
+
+	public String getReplacementOption() {
+		return this.replacementOption;
+	}
+
+	public void setReplacementOption(String replacementOption) {
+		this.replacementOption = replacementOption;
+		if(replacementOption != null){
+			putQueryParameter("ReplacementOption", replacementOption);
 		}
 	}
 
@@ -280,6 +349,39 @@ public class CreateChangeSetRequest extends RpcAcsRequest<CreateChangeSetRespons
 
 		public void setParameterKey(String parameterKey) {
 			this.parameterKey = parameterKey;
+		}
+	}
+
+	public static class ResourcesToImport {
+
+		private String resourceIdentifier;
+
+		private String logicalResourceId;
+
+		private String resourceType;
+
+		public String getResourceIdentifier() {
+			return this.resourceIdentifier;
+		}
+
+		public void setResourceIdentifier(String resourceIdentifier) {
+			this.resourceIdentifier = resourceIdentifier;
+		}
+
+		public String getLogicalResourceId() {
+			return this.logicalResourceId;
+		}
+
+		public void setLogicalResourceId(String logicalResourceId) {
+			this.logicalResourceId = logicalResourceId;
+		}
+
+		public String getResourceType() {
+			return this.resourceType;
+		}
+
+		public void setResourceType(String resourceType) {
+			this.resourceType = resourceType;
 		}
 	}
 

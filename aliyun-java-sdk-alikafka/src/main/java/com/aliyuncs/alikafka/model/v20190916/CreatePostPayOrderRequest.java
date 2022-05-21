@@ -29,11 +29,15 @@ public class CreatePostPayOrderRequest extends RpcAcsRequest<CreatePostPayOrderR
 
 	private Integer ioMax;
 
+	private String ioMaxSpec;
+
 	private String diskType;
 
 	private Integer topicQuota;
 
 	private Integer eipMax;
+
+	private String specType;
 
 	private Integer deployType;
 	public CreatePostPayOrderRequest() {
@@ -67,6 +71,17 @@ public class CreatePostPayOrderRequest extends RpcAcsRequest<CreatePostPayOrderR
 		}
 	}
 
+	public String getIoMaxSpec() {
+		return this.ioMaxSpec;
+	}
+
+	public void setIoMaxSpec(String ioMaxSpec) {
+		this.ioMaxSpec = ioMaxSpec;
+		if(ioMaxSpec != null){
+			putQueryParameter("IoMaxSpec", ioMaxSpec);
+		}
+	}
+
 	public String getDiskType() {
 		return this.diskType;
 	}
@@ -97,6 +112,17 @@ public class CreatePostPayOrderRequest extends RpcAcsRequest<CreatePostPayOrderR
 		this.eipMax = eipMax;
 		if(eipMax != null){
 			putQueryParameter("EipMax", eipMax.toString());
+		}
+	}
+
+	public String getSpecType() {
+		return this.specType;
+	}
+
+	public void setSpecType(String specType) {
+		this.specType = specType;
+		if(specType != null){
+			putQueryParameter("SpecType", specType);
 		}
 	}
 

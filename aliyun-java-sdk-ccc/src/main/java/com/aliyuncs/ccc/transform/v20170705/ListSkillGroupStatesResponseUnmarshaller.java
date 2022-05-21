@@ -28,29 +28,29 @@ public class ListSkillGroupStatesResponseUnmarshaller {
 	public static ListSkillGroupStatesResponse unmarshall(ListSkillGroupStatesResponse listSkillGroupStatesResponse, UnmarshallerContext _ctx) {
 		
 		listSkillGroupStatesResponse.setRequestId(_ctx.stringValue("ListSkillGroupStatesResponse.RequestId"));
-		listSkillGroupStatesResponse.setSuccess(_ctx.booleanValue("ListSkillGroupStatesResponse.Success"));
+		listSkillGroupStatesResponse.setHttpStatusCode(_ctx.integerValue("ListSkillGroupStatesResponse.HttpStatusCode"));
 		listSkillGroupStatesResponse.setCode(_ctx.stringValue("ListSkillGroupStatesResponse.Code"));
 		listSkillGroupStatesResponse.setMessage(_ctx.stringValue("ListSkillGroupStatesResponse.Message"));
-		listSkillGroupStatesResponse.setHttpStatusCode(_ctx.integerValue("ListSkillGroupStatesResponse.HttpStatusCode"));
+		listSkillGroupStatesResponse.setSuccess(_ctx.booleanValue("ListSkillGroupStatesResponse.Success"));
 
 		Data data = new Data();
-		data.setTotalCount(_ctx.integerValue("ListSkillGroupStatesResponse.Data.TotalCount"));
 		data.setPageNumber(_ctx.integerValue("ListSkillGroupStatesResponse.Data.PageNumber"));
 		data.setPageSize(_ctx.integerValue("ListSkillGroupStatesResponse.Data.PageSize"));
+		data.setTotalCount(_ctx.integerValue("ListSkillGroupStatesResponse.Data.TotalCount"));
 
 		List<RealTimeSkillGroupState> list = new ArrayList<RealTimeSkillGroupState>();
 		for (int i = 0; i < _ctx.lengthValue("ListSkillGroupStatesResponse.Data.List.Length"); i++) {
 			RealTimeSkillGroupState realTimeSkillGroupState = new RealTimeSkillGroupState();
-			realTimeSkillGroupState.setInstanceId(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].InstanceId"));
-			realTimeSkillGroupState.setSkillGroupId(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].SkillGroupId"));
-			realTimeSkillGroupState.setSkillGroupName(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].SkillGroupName"));
-			realTimeSkillGroupState.setWaitingCalls(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].WaitingCalls"));
-			realTimeSkillGroupState.setLongestCall(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].LongestCall"));
-			realTimeSkillGroupState.setLoggedInAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].LoggedInAgents"));
-			realTimeSkillGroupState.setReadyAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].ReadyAgents"));
-			realTimeSkillGroupState.setBreakingAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].BreakingAgents"));
-			realTimeSkillGroupState.setTalkingAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].TalkingAgents"));
 			realTimeSkillGroupState.setWorkingAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].WorkingAgents"));
+			realTimeSkillGroupState.setLoggedInAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].LoggedInAgents"));
+			realTimeSkillGroupState.setBreakingAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].BreakingAgents"));
+			realTimeSkillGroupState.setLongestCall(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].LongestCall"));
+			realTimeSkillGroupState.setWaitingCalls(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].WaitingCalls"));
+			realTimeSkillGroupState.setTalkingAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].TalkingAgents"));
+			realTimeSkillGroupState.setSkillGroupName(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].SkillGroupName"));
+			realTimeSkillGroupState.setSkillGroupId(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].SkillGroupId"));
+			realTimeSkillGroupState.setReadyAgents(_ctx.longValue("ListSkillGroupStatesResponse.Data.List["+ i +"].ReadyAgents"));
+			realTimeSkillGroupState.setInstanceId(_ctx.stringValue("ListSkillGroupStatesResponse.Data.List["+ i +"].InstanceId"));
 
 			list.add(realTimeSkillGroupState);
 		}

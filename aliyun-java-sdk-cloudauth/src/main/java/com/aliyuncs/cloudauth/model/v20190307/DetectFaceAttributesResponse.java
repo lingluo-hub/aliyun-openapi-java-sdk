@@ -25,31 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DetectFaceAttributesResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -67,6 +51,22 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -77,19 +77,11 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 	public static class Data {
 
-		private Integer imgWidth;
-
 		private Integer imgHeight;
 
+		private Integer imgWidth;
+
 		private List<FaceAttributesDetectInfo> faceInfos;
-
-		public Integer getImgWidth() {
-			return this.imgWidth;
-		}
-
-		public void setImgWidth(Integer imgWidth) {
-			this.imgWidth = imgWidth;
-		}
 
 		public Integer getImgHeight() {
 			return this.imgHeight;
@@ -97,6 +89,14 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 		public void setImgHeight(Integer imgHeight) {
 			this.imgHeight = imgHeight;
+		}
+
+		public Integer getImgWidth() {
+			return this.imgWidth;
+		}
+
+		public void setImgWidth(Integer imgWidth) {
+			this.imgWidth = imgWidth;
 		}
 
 		public List<FaceAttributesDetectInfo> getFaceInfos() {
@@ -131,21 +131,13 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 			public static class FaceRect {
 
-				private Integer top;
-
 				private Integer left;
+
+				private Integer top;
 
 				private Integer width;
 
 				private Integer height;
-
-				public Integer getTop() {
-					return this.top;
-				}
-
-				public void setTop(Integer top) {
-					this.top = top;
-				}
 
 				public Integer getLeft() {
 					return this.left;
@@ -153,6 +145,14 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 				public void setLeft(Integer left) {
 					this.left = left;
+				}
+
+				public Integer getTop() {
+					return this.top;
+				}
+
+				public void setTop(Integer top) {
+					this.top = top;
 				}
 
 				public Integer getWidth() {
@@ -174,15 +174,21 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 			public static class FaceAttributes {
 
-				private Integer age;
-
 				private String glasses;
+
+				private Float facequal;
+
+				private Integer integrity;
 
 				private String facetype;
 
-				private Float blur;
+				private String respirator;
 
-				private String ethnicity;
+				private Float appearanceScore;
+
+				private Integer age;
+
+				private Float blur;
 
 				private Gender gender;
 
@@ -190,20 +196,28 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 				private Headpose headpose;
 
-				public Integer getAge() {
-					return this.age;
-				}
-
-				public void setAge(Integer age) {
-					this.age = age;
-				}
-
 				public String getGlasses() {
 					return this.glasses;
 				}
 
 				public void setGlasses(String glasses) {
 					this.glasses = glasses;
+				}
+
+				public Float getFacequal() {
+					return this.facequal;
+				}
+
+				public void setFacequal(Float facequal) {
+					this.facequal = facequal;
+				}
+
+				public Integer getIntegrity() {
+					return this.integrity;
+				}
+
+				public void setIntegrity(Integer integrity) {
+					this.integrity = integrity;
 				}
 
 				public String getFacetype() {
@@ -214,20 +228,36 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 					this.facetype = facetype;
 				}
 
+				public String getRespirator() {
+					return this.respirator;
+				}
+
+				public void setRespirator(String respirator) {
+					this.respirator = respirator;
+				}
+
+				public Float getAppearanceScore() {
+					return this.appearanceScore;
+				}
+
+				public void setAppearanceScore(Float appearanceScore) {
+					this.appearanceScore = appearanceScore;
+				}
+
+				public Integer getAge() {
+					return this.age;
+				}
+
+				public void setAge(Integer age) {
+					this.age = age;
+				}
+
 				public Float getBlur() {
 					return this.blur;
 				}
 
 				public void setBlur(Float blur) {
 					this.blur = blur;
-				}
-
-				public String getEthnicity() {
-					return this.ethnicity;
-				}
-
-				public void setEthnicity(String ethnicity) {
-					this.ethnicity = ethnicity;
 				}
 
 				public Gender getGender() {
@@ -256,17 +286,9 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 				public static class Gender {
 
-					private Float score;
-
 					private String value;
 
-					public Float getScore() {
-						return this.score;
-					}
-
-					public void setScore(Float score) {
-						this.score = score;
-					}
+					private Float score;
 
 					public String getValue() {
 						return this.value;
@@ -274,6 +296,14 @@ public class DetectFaceAttributesResponse extends AcsResponse {
 
 					public void setValue(String value) {
 						this.value = value;
+					}
+
+					public Float getScore() {
+						return this.score;
+					}
+
+					public void setScore(Float score) {
+						this.score = score;
 					}
 				}
 

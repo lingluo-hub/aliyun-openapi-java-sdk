@@ -29,6 +29,8 @@ public class UnassociateHaVipRequest extends RpcAcsRequest<UnassociateHaVipRespo
 
 	private String clientToken;
 
+	private String instanceType;
+
 	private String haVipId;
 
 	private String resourceOwnerAccount;
@@ -41,7 +43,7 @@ public class UnassociateHaVipRequest extends RpcAcsRequest<UnassociateHaVipRespo
 
 	private String force;
 	public UnassociateHaVipRequest() {
-		super("Vpc", "2016-04-28", "UnassociateHaVip", "Vpc");
+		super("Vpc", "2016-04-28", "UnassociateHaVip", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -68,6 +70,17 @@ public class UnassociateHaVipRequest extends RpcAcsRequest<UnassociateHaVipRespo
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
 		}
 	}
 

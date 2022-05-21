@@ -34,6 +34,10 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 
 	private String frequency;
 
+	private String repeatMode;
+
+	private String windowsPasswordName;
+
 	private Boolean timed;
 
 	private String resourceOwnerAccount;
@@ -45,6 +49,8 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 	private List<String> instanceIds;
 
 	private Map<Object,Object> parameters;
+
+	private String username;
 	public InvokeCommandRequest() {
 		super("Ecs", "2014-05-26", "InvokeCommand", "ecs");
 		setMethod(MethodType.POST);
@@ -84,6 +90,28 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 		this.frequency = frequency;
 		if(frequency != null){
 			putQueryParameter("Frequency", frequency);
+		}
+	}
+
+	public String getRepeatMode() {
+		return this.repeatMode;
+	}
+
+	public void setRepeatMode(String repeatMode) {
+		this.repeatMode = repeatMode;
+		if(repeatMode != null){
+			putQueryParameter("RepeatMode", repeatMode);
+		}
+	}
+
+	public String getWindowsPasswordName() {
+		return this.windowsPasswordName;
+	}
+
+	public void setWindowsPasswordName(String windowsPasswordName) {
+		this.windowsPasswordName = windowsPasswordName;
+		if(windowsPasswordName != null){
+			putQueryParameter("WindowsPasswordName", windowsPasswordName);
 		}
 	}
 
@@ -152,6 +180,17 @@ public class InvokeCommandRequest extends RpcAcsRequest<InvokeCommandResponse> {
 		this.parameters = parameters;
 		if(parameters != null){
 			putQueryParameter("Parameters", new Gson().toJson(parameters));
+		}
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+		if(username != null){
+			putQueryParameter("Username", username);
 		}
 	}
 

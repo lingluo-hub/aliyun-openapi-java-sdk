@@ -29,9 +29,7 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private String dBClusterDescription;
 
-	private String clientToken;
-
-	private String clusterNetworkType;
+	private String creationCategory;
 
 	private String resourceGroupId;
 
@@ -41,27 +39,45 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private String sourceResourceId;
 
+	private String backupRetentionPolicyOnClusterDeletion;
+
 	private String period;
 
-	private String resourceOwnerAccount;
-
-	private String ownerAccount;
-
 	private Long ownerId;
-
-	private String usedTime;
 
 	private String vSwitchId;
 
 	private String securityIPList;
 
+	private String dBMinorVersion;
+
 	private Boolean autoRenew;
+
+	private String zoneId;
+
+	private Boolean tDEStatus;
+
+	private String lowerCaseTableNames;
+
+	private String clientToken;
+
+	private String defaultTimeZone;
+
+	private String clusterNetworkType;
+
+	private String parameterGroupId;
+
+	private String gDNId;
+
+	private String resourceOwnerAccount;
+
+	private String ownerAccount;
+
+	private String usedTime;
 
 	private String vPCId;
 
 	private String dBType;
-
-	private String zoneId;
 
 	private String dBVersion;
 
@@ -69,7 +85,7 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private String payType;
 	public CreateDBClusterRequest() {
-		super("polardb", "2017-08-01", "CreateDBCluster", "polardb");
+		super("polardb", "2017-08-01", "CreateDBCluster");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -99,25 +115,14 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
+	public String getCreationCategory() {
+		return this.creationCategory;
 	}
 
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public String getClusterNetworkType() {
-		return this.clusterNetworkType;
-	}
-
-	public void setClusterNetworkType(String clusterNetworkType) {
-		this.clusterNetworkType = clusterNetworkType;
-		if(clusterNetworkType != null){
-			putQueryParameter("ClusterNetworkType", clusterNetworkType);
+	public void setCreationCategory(String creationCategory) {
+		this.creationCategory = creationCategory;
+		if(creationCategory != null){
+			putQueryParameter("CreationCategory", creationCategory);
 		}
 	}
 
@@ -165,6 +170,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public String getBackupRetentionPolicyOnClusterDeletion() {
+		return this.backupRetentionPolicyOnClusterDeletion;
+	}
+
+	public void setBackupRetentionPolicyOnClusterDeletion(String backupRetentionPolicyOnClusterDeletion) {
+		this.backupRetentionPolicyOnClusterDeletion = backupRetentionPolicyOnClusterDeletion;
+		if(backupRetentionPolicyOnClusterDeletion != null){
+			putQueryParameter("BackupRetentionPolicyOnClusterDeletion", backupRetentionPolicyOnClusterDeletion);
+		}
+	}
+
 	public String getPeriod() {
 		return this.period;
 	}
@@ -176,28 +192,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getOwnerAccount() {
-		return this.ownerAccount;
-	}
-
-	public void setOwnerAccount(String ownerAccount) {
-		this.ownerAccount = ownerAccount;
-		if(ownerAccount != null){
-			putQueryParameter("OwnerAccount", ownerAccount);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -206,17 +200,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getUsedTime() {
-		return this.usedTime;
-	}
-
-	public void setUsedTime(String usedTime) {
-		this.usedTime = usedTime;
-		if(usedTime != null){
-			putQueryParameter("UsedTime", usedTime);
 		}
 	}
 
@@ -242,6 +225,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public String getDBMinorVersion() {
+		return this.dBMinorVersion;
+	}
+
+	public void setDBMinorVersion(String dBMinorVersion) {
+		this.dBMinorVersion = dBMinorVersion;
+		if(dBMinorVersion != null){
+			putQueryParameter("DBMinorVersion", dBMinorVersion);
+		}
+	}
+
 	public Boolean getAutoRenew() {
 		return this.autoRenew;
 	}
@@ -250,6 +244,127 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.autoRenew = autoRenew;
 		if(autoRenew != null){
 			putQueryParameter("AutoRenew", autoRenew.toString());
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public Boolean getTDEStatus() {
+		return this.tDEStatus;
+	}
+
+	public void setTDEStatus(Boolean tDEStatus) {
+		this.tDEStatus = tDEStatus;
+		if(tDEStatus != null){
+			putQueryParameter("TDEStatus", tDEStatus.toString());
+		}
+	}
+
+	public String getLowerCaseTableNames() {
+		return this.lowerCaseTableNames;
+	}
+
+	public void setLowerCaseTableNames(String lowerCaseTableNames) {
+		this.lowerCaseTableNames = lowerCaseTableNames;
+		if(lowerCaseTableNames != null){
+			putQueryParameter("LowerCaseTableNames", lowerCaseTableNames);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getDefaultTimeZone() {
+		return this.defaultTimeZone;
+	}
+
+	public void setDefaultTimeZone(String defaultTimeZone) {
+		this.defaultTimeZone = defaultTimeZone;
+		if(defaultTimeZone != null){
+			putQueryParameter("DefaultTimeZone", defaultTimeZone);
+		}
+	}
+
+	public String getClusterNetworkType() {
+		return this.clusterNetworkType;
+	}
+
+	public void setClusterNetworkType(String clusterNetworkType) {
+		this.clusterNetworkType = clusterNetworkType;
+		if(clusterNetworkType != null){
+			putQueryParameter("ClusterNetworkType", clusterNetworkType);
+		}
+	}
+
+	public String getParameterGroupId() {
+		return this.parameterGroupId;
+	}
+
+	public void setParameterGroupId(String parameterGroupId) {
+		this.parameterGroupId = parameterGroupId;
+		if(parameterGroupId != null){
+			putQueryParameter("ParameterGroupId", parameterGroupId);
+		}
+	}
+
+	public String getGDNId() {
+		return this.gDNId;
+	}
+
+	public void setGDNId(String gDNId) {
+		this.gDNId = gDNId;
+		if(gDNId != null){
+			putQueryParameter("GDNId", gDNId);
+		}
+	}
+
+	public String getResourceOwnerAccount() {
+		return this.resourceOwnerAccount;
+	}
+
+	public void setResourceOwnerAccount(String resourceOwnerAccount) {
+		this.resourceOwnerAccount = resourceOwnerAccount;
+		if(resourceOwnerAccount != null){
+			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public String getOwnerAccount() {
+		return this.ownerAccount;
+	}
+
+	public void setOwnerAccount(String ownerAccount) {
+		this.ownerAccount = ownerAccount;
+		if(ownerAccount != null){
+			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getUsedTime() {
+		return this.usedTime;
+	}
+
+	public void setUsedTime(String usedTime) {
+		this.usedTime = usedTime;
+		if(usedTime != null){
+			putQueryParameter("UsedTime", usedTime);
 		}
 	}
 
@@ -272,17 +387,6 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.dBType = dBType;
 		if(dBType != null){
 			putQueryParameter("DBType", dBType);
-		}
-	}
-
-	public String getZoneId() {
-		return this.zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 

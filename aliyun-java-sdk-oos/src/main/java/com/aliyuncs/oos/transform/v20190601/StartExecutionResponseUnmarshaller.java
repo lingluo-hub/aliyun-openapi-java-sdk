@@ -49,10 +49,11 @@ public class StartExecutionResponseUnmarshaller {
 		execution.setOutputs(_ctx.stringValue("StartExecutionResponse.Execution.Outputs"));
 		execution.setSafetyCheck(_ctx.stringValue("StartExecutionResponse.Execution.SafetyCheck"));
 		execution.setIsParent(_ctx.booleanValue("StartExecutionResponse.Execution.IsParent"));
-		execution.setCounters(_ctx.stringValue("StartExecutionResponse.Execution.Counters"));
+		execution.setCounters(_ctx.mapValue("StartExecutionResponse.Execution.Counters"));
 		execution.setRamRole(_ctx.stringValue("StartExecutionResponse.Execution.RamRole"));
 		execution.setTags(_ctx.mapValue("StartExecutionResponse.Execution.Tags"));
 		execution.setDescription(_ctx.stringValue("StartExecutionResponse.Execution.Description"));
+		execution.setResourceGroupId(_ctx.stringValue("StartExecutionResponse.Execution.ResourceGroupId"));
 
 		List<CurrentTask> currentTasks = new ArrayList<CurrentTask>();
 		for (int i = 0; i < _ctx.lengthValue("StartExecutionResponse.Execution.CurrentTasks.Length"); i++) {

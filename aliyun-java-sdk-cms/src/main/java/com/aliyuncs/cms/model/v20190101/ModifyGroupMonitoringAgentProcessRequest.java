@@ -46,11 +46,12 @@ public class ModifyGroupMonitoringAgentProcessRequest extends RpcAcsRequest<Modi
 		if (alertConfigs != null) {
 			for (int depth1 = 0; depth1 < alertConfigs.size(); depth1++) {
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".Times" , alertConfigs.get(depth1).getTimes());
+				putQueryParameter("AlertConfig." + (depth1 + 1) + ".Webhook" , alertConfigs.get(depth1).getWebhook());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".NoEffectiveInterval" , alertConfigs.get(depth1).getNoEffectiveInterval());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".SilenceTime" , alertConfigs.get(depth1).getSilenceTime());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".Threshold" , alertConfigs.get(depth1).getThreshold());
-				putQueryParameter("AlertConfig." + (depth1 + 1) + ".EffectiveInterval" , alertConfigs.get(depth1).getEffectiveInterval());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".ComparisonOperator" , alertConfigs.get(depth1).getComparisonOperator());
+				putQueryParameter("AlertConfig." + (depth1 + 1) + ".EffectiveInterval" , alertConfigs.get(depth1).getEffectiveInterval());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".EscalationsLevel" , alertConfigs.get(depth1).getEscalationsLevel());
 				putQueryParameter("AlertConfig." + (depth1 + 1) + ".Statistics" , alertConfigs.get(depth1).getStatistics());
 			}
@@ -94,15 +95,17 @@ public class ModifyGroupMonitoringAgentProcessRequest extends RpcAcsRequest<Modi
 
 		private String times;
 
+		private String webhook;
+
 		private String noEffectiveInterval;
 
 		private String silenceTime;
 
 		private String threshold;
 
-		private String effectiveInterval;
-
 		private String comparisonOperator;
+
+		private String effectiveInterval;
 
 		private String escalationsLevel;
 
@@ -114,6 +117,14 @@ public class ModifyGroupMonitoringAgentProcessRequest extends RpcAcsRequest<Modi
 
 		public void setTimes(String times) {
 			this.times = times;
+		}
+
+		public String getWebhook() {
+			return this.webhook;
+		}
+
+		public void setWebhook(String webhook) {
+			this.webhook = webhook;
 		}
 
 		public String getNoEffectiveInterval() {
@@ -140,20 +151,20 @@ public class ModifyGroupMonitoringAgentProcessRequest extends RpcAcsRequest<Modi
 			this.threshold = threshold;
 		}
 
-		public String getEffectiveInterval() {
-			return this.effectiveInterval;
-		}
-
-		public void setEffectiveInterval(String effectiveInterval) {
-			this.effectiveInterval = effectiveInterval;
-		}
-
 		public String getComparisonOperator() {
 			return this.comparisonOperator;
 		}
 
 		public void setComparisonOperator(String comparisonOperator) {
 			this.comparisonOperator = comparisonOperator;
+		}
+
+		public String getEffectiveInterval() {
+			return this.effectiveInterval;
+		}
+
+		public void setEffectiveInterval(String effectiveInterval) {
+			this.effectiveInterval = effectiveInterval;
 		}
 
 		public String getEscalationsLevel() {

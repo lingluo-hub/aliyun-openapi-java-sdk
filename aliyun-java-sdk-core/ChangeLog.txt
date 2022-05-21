@@ -1,4 +1,105 @@
-﻿2020-02-07 Version: 4.5.0
+﻿2022-01-04 Version:4.6.0
+1, Support retry policy
+2, Enable throttling control
+3, Return raw content when parse failed in readError
+
+2021-11-08 Version:4.5.30
+1, Fix unmodifiableMap assignment
+
+2021-11-04 Version:4.5.29
+1, Fix get & set method names
+
+2021-11-03 Version:4.5.28
+1, Support signature v3.
+2, Add str to sign for debug.
+3, Add env for isIgnoreSSLCerts.
+4, Remove useless catch for location service.
+
+2021-08-05 Version:4.5.25
+1, Fix regionId conflict among different products in LocationServiceEndpointResolver.
+
+2021-07-23 Version:4.5.24
+1, fix bugs for anonymous credentials
+
+2021-06-28 Version:4.5.23
+1, add anonymous credentials
+
+2021-06-28 Version:4.5.22
+1, Fix the NPE bug of ApacheHttpClient
+2, Add more HTTP request log tests
+3, Add ApachHttpClient NPE bug test
+
+2021-06-22 Version:4.5.21
+1, Add more HTTP request logs
+
+2021-03-29 Version:4.5.20
+1, Fix signature error when RegionId null
+
+2021-03-23 Version:4.5.19
+1, The throw keyword is added to the catch method of the xmlReader class
+2, Fix opentracing when tracing exists
+
+2021-01-22 Version: 4.5.18
+1, Fix default content type while has bodyParameters
+
+2020-11-27 Version: 4.5.17
+1, Support for setting proxy certificates
+2, Improve parse method
+
+2020-11-09 Version: 4.5.16
+1, add region id when region id non-exist
+
+2020-11-09 Version: 4.5.15
+1, Remove region id in the http header
+
+2020-10-29 Version: 4.5.14
+1, Support national secret certificate
+2, Improve dependencies
+3, Delete endpoint for ons
+4, The maximum number of requests is upgraded to 128
+
+2020-10-13 Version: 4.5.13
+1, Turn off automatic retry
+
+2020-09-29 Version: 4.5.12
+1, Improve x-acs-action
+
+2020-09-24 Version: 4.5.11
+1, Improve endpoints.json
+
+2020-09-14 Version: 4.5.10
+1, Add x-acs-version and x-acs-action in header
+
+2020-09-10 Version: 4.5.9
+1, Add accept in commonRequest
+
+2020-08-26 Version: 4.5.8
+1, Add set/get method for the Location service
+
+2020-08-17 Version: 4.5.7
+1, Supports throwing the response header
+2, Improve serialization method
+
+2020-07-31 Version: 4.5.6
+1, Support for complex type serialization
+
+2020-07-22 Version: 4.5.5
+1, Null and enmpty strings are not validated
+
+2020-07-22 Version: 4.5.4
+1, Improve dependencies
+2, Added regionId, network and suffix validation
+
+2020-07-03 Version: 4.5.3
+1, Change DefaultAcsClient parameter to IAcsClient
+
+2020-06-05 Version: 4.5.2
+1, Add return to resolve no error message problem
+
+2020-04-01 Version: 4.5.1
+1, Support for basic types in list
+
+2020-02-07 Version: 4.5.0
 1, Add description in ClientException
 2, Add tracing
 

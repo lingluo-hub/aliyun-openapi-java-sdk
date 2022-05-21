@@ -23,10 +23,10 @@ public class CreateScriptWaveformResponseUnmarshaller {
 	public static CreateScriptWaveformResponse unmarshall(CreateScriptWaveformResponse createScriptWaveformResponse, UnmarshallerContext _ctx) {
 		
 		createScriptWaveformResponse.setRequestId(_ctx.stringValue("CreateScriptWaveformResponse.RequestId"));
+		createScriptWaveformResponse.setHttpStatusCode(_ctx.integerValue("CreateScriptWaveformResponse.HttpStatusCode"));
 		createScriptWaveformResponse.setSuccess(_ctx.booleanValue("CreateScriptWaveformResponse.Success"));
 		createScriptWaveformResponse.setCode(_ctx.stringValue("CreateScriptWaveformResponse.Code"));
 		createScriptWaveformResponse.setMessage(_ctx.stringValue("CreateScriptWaveformResponse.Message"));
-		createScriptWaveformResponse.setHttpStatusCode(_ctx.integerValue("CreateScriptWaveformResponse.HttpStatusCode"));
 		createScriptWaveformResponse.setScriptWaveformId(_ctx.stringValue("CreateScriptWaveformResponse.ScriptWaveformId"));
 	 
 	 	return createScriptWaveformResponse;

@@ -46,21 +46,37 @@ public class ImagePredictResponse extends AcsResponse {
 
 	public static class ImagePredict {
 
+		private String status;
+
+		private String predictResult;
+
 		private String predictId;
-
-		private String modelId;
-
-		private String dataUrl;
 
 		private String predictTime;
 
-		private String status;
+		private String dataUrl;
 
 		private String code;
 
 		private String message;
 
-		private String predictResult;
+		private String modelId;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getPredictResult() {
+			return this.predictResult;
+		}
+
+		public void setPredictResult(String predictResult) {
+			this.predictResult = predictResult;
+		}
 
 		public String getPredictId() {
 			return this.predictId;
@@ -68,22 +84,6 @@ public class ImagePredictResponse extends AcsResponse {
 
 		public void setPredictId(String predictId) {
 			this.predictId = predictId;
-		}
-
-		public String getModelId() {
-			return this.modelId;
-		}
-
-		public void setModelId(String modelId) {
-			this.modelId = modelId;
-		}
-
-		public String getDataUrl() {
-			return this.dataUrl;
-		}
-
-		public void setDataUrl(String dataUrl) {
-			this.dataUrl = dataUrl;
 		}
 
 		public String getPredictTime() {
@@ -94,12 +94,12 @@ public class ImagePredictResponse extends AcsResponse {
 			this.predictTime = predictTime;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getDataUrl() {
+			return this.dataUrl;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setDataUrl(String dataUrl) {
+			this.dataUrl = dataUrl;
 		}
 
 		public String getCode() {
@@ -118,12 +118,12 @@ public class ImagePredictResponse extends AcsResponse {
 			this.message = message;
 		}
 
-		public String getPredictResult() {
-			return this.predictResult;
+		public String getModelId() {
+			return this.modelId;
 		}
 
-		public void setPredictResult(String predictResult) {
-			this.predictResult = predictResult;
+		public void setModelId(String modelId) {
+			this.modelId = modelId;
 		}
 	}
 

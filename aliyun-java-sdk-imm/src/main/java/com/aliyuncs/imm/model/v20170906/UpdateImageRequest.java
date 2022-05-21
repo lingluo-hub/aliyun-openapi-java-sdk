@@ -15,7 +15,11 @@
 package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -36,6 +40,10 @@ public class UpdateImageRequest extends RpcAcsRequest<UpdateImageResponse> {
 
 	private String imageUri;
 
+	private String remarksArrayA;
+
+	private String remarksArrayB;
+
 	private String sourceUri;
 
 	private String sourcePosition;
@@ -45,9 +53,16 @@ public class UpdateImageRequest extends RpcAcsRequest<UpdateImageResponse> {
 	private String remarksC;
 
 	private String setId;
+
+	@SerializedName("faces")
+	private List<Faces> faces;
 	public UpdateImageRequest() {
 		super("imm", "2017-09-06", "UpdateImage", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -116,6 +131,28 @@ public class UpdateImageRequest extends RpcAcsRequest<UpdateImageResponse> {
 		}
 	}
 
+	public String getRemarksArrayA() {
+		return this.remarksArrayA;
+	}
+
+	public void setRemarksArrayA(String remarksArrayA) {
+		this.remarksArrayA = remarksArrayA;
+		if(remarksArrayA != null){
+			putQueryParameter("RemarksArrayA", remarksArrayA);
+		}
+	}
+
+	public String getRemarksArrayB() {
+		return this.remarksArrayB;
+	}
+
+	public void setRemarksArrayB(String remarksArrayB) {
+		this.remarksArrayB = remarksArrayB;
+		if(remarksArrayB != null){
+			putQueryParameter("RemarksArrayB", remarksArrayB);
+		}
+	}
+
 	public String getSourceUri() {
 		return this.sourceUri;
 	}
@@ -168,6 +205,42 @@ public class UpdateImageRequest extends RpcAcsRequest<UpdateImageResponse> {
 		this.setId = setId;
 		if(setId != null){
 			putQueryParameter("SetId", setId);
+		}
+	}
+
+	public List<Faces> getFaces() {
+		return this.faces;
+	}
+
+	public void setFaces(List<Faces> faces) {
+		this.faces = faces;	
+		if (faces != null) {
+			putQueryParameter("Faces" , new Gson().toJson(faces));
+		}	
+	}
+
+	public static class Faces {
+
+		@SerializedName("GroupId")
+		private String groupId;
+
+		@SerializedName("FaceId")
+		private String faceId;
+
+		public String getGroupId() {
+			return this.groupId;
+		}
+
+		public void setGroupId(String groupId) {
+			this.groupId = groupId;
+		}
+
+		public String getFaceId() {
+			return this.faceId;
+		}
+
+		public void setFaceId(String faceId) {
+			this.faceId = faceId;
 		}
 	}
 

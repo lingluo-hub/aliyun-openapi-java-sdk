@@ -16,25 +16,32 @@ package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateLoginProfileRequest extends RpcAcsRequest<UpdateLoginProfileResponse> {
-	
-	public UpdateLoginProfileRequest() {
-		super("Ram", "2015-05-01", "UpdateLoginProfile");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private String password;
 
-	private Boolean passwordResetRequired;
-
 	private Boolean mFABindRequired;
 
+	private Boolean passwordResetRequired;
+
 	private String userName;
+	public UpdateLoginProfileRequest() {
+		super("Ram", "2015-05-01", "UpdateLoginProfile", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getPassword() {
 		return this.password;
@@ -47,17 +54,6 @@ public class UpdateLoginProfileRequest extends RpcAcsRequest<UpdateLoginProfileR
 		}
 	}
 
-	public Boolean getPasswordResetRequired() {
-		return this.passwordResetRequired;
-	}
-
-	public void setPasswordResetRequired(Boolean passwordResetRequired) {
-		this.passwordResetRequired = passwordResetRequired;
-		if(passwordResetRequired != null){
-			putQueryParameter("PasswordResetRequired", passwordResetRequired.toString());
-		}
-	}
-
 	public Boolean getMFABindRequired() {
 		return this.mFABindRequired;
 	}
@@ -66,6 +62,17 @@ public class UpdateLoginProfileRequest extends RpcAcsRequest<UpdateLoginProfileR
 		this.mFABindRequired = mFABindRequired;
 		if(mFABindRequired != null){
 			putQueryParameter("MFABindRequired", mFABindRequired.toString());
+		}
+	}
+
+	public Boolean getPasswordResetRequired() {
+		return this.passwordResetRequired;
+	}
+
+	public void setPasswordResetRequired(Boolean passwordResetRequired) {
+		this.passwordResetRequired = passwordResetRequired;
+		if(passwordResetRequired != null){
+			putQueryParameter("PasswordResetRequired", passwordResetRequired.toString());
 		}
 	}
 

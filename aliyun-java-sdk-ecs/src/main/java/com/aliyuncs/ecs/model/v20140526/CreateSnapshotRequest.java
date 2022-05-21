@@ -30,9 +30,15 @@ public class CreateSnapshotRequest extends RpcAcsRequest<CreateSnapshotResponse>
 
 	private String clientToken;
 
+	private Boolean instantAccess;
+
 	private String description;
 
 	private String snapshotName;
+
+	private String resourceGroupId;
+
+	private Integer instantAccessRetentionDays;
 
 	private String diskId;
 
@@ -78,6 +84,17 @@ public class CreateSnapshotRequest extends RpcAcsRequest<CreateSnapshotResponse>
 		}
 	}
 
+	public Boolean getInstantAccess() {
+		return this.instantAccess;
+	}
+
+	public void setInstantAccess(Boolean instantAccess) {
+		this.instantAccess = instantAccess;
+		if(instantAccess != null){
+			putQueryParameter("InstantAccess", instantAccess.toString());
+		}
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -100,6 +117,28 @@ public class CreateSnapshotRequest extends RpcAcsRequest<CreateSnapshotResponse>
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public Integer getInstantAccessRetentionDays() {
+		return this.instantAccessRetentionDays;
+	}
+
+	public void setInstantAccessRetentionDays(Integer instantAccessRetentionDays) {
+		this.instantAccessRetentionDays = instantAccessRetentionDays;
+		if(instantAccessRetentionDays != null){
+			putQueryParameter("InstantAccessRetentionDays", instantAccessRetentionDays.toString());
+		}
+	}
+
 	public String getDiskId() {
 		return this.diskId;
 	}
@@ -119,7 +158,7 @@ public class CreateSnapshotRequest extends RpcAcsRequest<CreateSnapshotResponse>
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	

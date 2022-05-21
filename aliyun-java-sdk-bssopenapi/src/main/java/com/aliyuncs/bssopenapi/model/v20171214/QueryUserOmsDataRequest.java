@@ -40,7 +40,7 @@ public class QueryUserOmsDataRequest extends RpcAcsRequest<QueryUserOmsDataRespo
 	private String table;
 	public QueryUserOmsDataRequest() {
 		super("BssOpenApi", "2017-12-14", "QueryUserOmsData");
-		setMethod(MethodType.GET);
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);

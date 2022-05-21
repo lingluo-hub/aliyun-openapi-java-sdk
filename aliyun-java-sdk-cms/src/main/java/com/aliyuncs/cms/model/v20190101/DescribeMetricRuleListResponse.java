@@ -25,33 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeMetricRuleListResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private Integer code;
 
 	private String message;
 
+	private String requestId;
+
 	private String total;
 
+	private Boolean success;
+
 	private List<Alarm> alarms;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -69,12 +53,28 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public String getTotal() {
 		return this.total;
 	}
 
 	public void setTotal(String total) {
 		this.total = total;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<Alarm> getAlarms() {
@@ -87,58 +87,68 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 
 	public static class Alarm {
 
-		private String ruleId;
-
-		private String namespace;
+		private Integer silenceTime;
 
 		private String metricName;
 
-		private String period;
-
-		private String effectiveInterval;
-
-		private String noEffectiveInterval;
-
-		private String silenceTime;
-
-		private Boolean enableState;
-
-		private String alertState;
+		private String webhook;
 
 		private String contactGroups;
 
-		private String webhook;
+		private String sourceType;
+
+		private String namespace;
 
 		private String mailSubject;
 
+		private String noEffectiveInterval;
+
+		private String effectiveInterval;
+
 		private String ruleName;
 
-		private String resources;
+		private String alertState;
 
-		private String groupId;
+		private String period;
+
+		private String ruleId;
 
 		private String groupName;
 
+		private String groupId;
+
 		private String dimensions;
 
-		private String sourceType;
+		private Boolean enableState;
+
+		private String groupBy;
+
+		private String resources;
+
+		private String noDataPolicy;
+
+		private String options;
+
+		private String dynamicAlertSensitivity;
+
+		private String dynamicAlertHistoryDataRange;
+
+		private String ruleType;
+
+		private List<LabelsItem> labels;
 
 		private Escalations escalations;
 
-		public String getRuleId() {
-			return this.ruleId;
+		private CompositeExpression compositeExpression;
+
+		private Prometheus prometheus;
+
+		public Integer getSilenceTime() {
+			return this.silenceTime;
 		}
 
-		public void setRuleId(String ruleId) {
-			this.ruleId = ruleId;
-		}
-
-		public String getNamespace() {
-			return this.namespace;
-		}
-
-		public void setNamespace(String namespace) {
-			this.namespace = namespace;
+		public void setSilenceTime(Integer silenceTime) {
+			this.silenceTime = silenceTime;
 		}
 
 		public String getMetricName() {
@@ -149,52 +159,12 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.metricName = metricName;
 		}
 
-		public String getPeriod() {
-			return this.period;
+		public String getWebhook() {
+			return this.webhook;
 		}
 
-		public void setPeriod(String period) {
-			this.period = period;
-		}
-
-		public String getEffectiveInterval() {
-			return this.effectiveInterval;
-		}
-
-		public void setEffectiveInterval(String effectiveInterval) {
-			this.effectiveInterval = effectiveInterval;
-		}
-
-		public String getNoEffectiveInterval() {
-			return this.noEffectiveInterval;
-		}
-
-		public void setNoEffectiveInterval(String noEffectiveInterval) {
-			this.noEffectiveInterval = noEffectiveInterval;
-		}
-
-		public String getSilenceTime() {
-			return this.silenceTime;
-		}
-
-		public void setSilenceTime(String silenceTime) {
-			this.silenceTime = silenceTime;
-		}
-
-		public Boolean getEnableState() {
-			return this.enableState;
-		}
-
-		public void setEnableState(Boolean enableState) {
-			this.enableState = enableState;
-		}
-
-		public String getAlertState() {
-			return this.alertState;
-		}
-
-		public void setAlertState(String alertState) {
-			this.alertState = alertState;
+		public void setWebhook(String webhook) {
+			this.webhook = webhook;
 		}
 
 		public String getContactGroups() {
@@ -205,12 +175,20 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.contactGroups = contactGroups;
 		}
 
-		public String getWebhook() {
-			return this.webhook;
+		public String getSourceType() {
+			return this.sourceType;
 		}
 
-		public void setWebhook(String webhook) {
-			this.webhook = webhook;
+		public void setSourceType(String sourceType) {
+			this.sourceType = sourceType;
+		}
+
+		public String getNamespace() {
+			return this.namespace;
+		}
+
+		public void setNamespace(String namespace) {
+			this.namespace = namespace;
 		}
 
 		public String getMailSubject() {
@@ -221,6 +199,22 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.mailSubject = mailSubject;
 		}
 
+		public String getNoEffectiveInterval() {
+			return this.noEffectiveInterval;
+		}
+
+		public void setNoEffectiveInterval(String noEffectiveInterval) {
+			this.noEffectiveInterval = noEffectiveInterval;
+		}
+
+		public String getEffectiveInterval() {
+			return this.effectiveInterval;
+		}
+
+		public void setEffectiveInterval(String effectiveInterval) {
+			this.effectiveInterval = effectiveInterval;
+		}
+
 		public String getRuleName() {
 			return this.ruleName;
 		}
@@ -229,20 +223,28 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.ruleName = ruleName;
 		}
 
-		public String getResources() {
-			return this.resources;
+		public String getAlertState() {
+			return this.alertState;
 		}
 
-		public void setResources(String resources) {
-			this.resources = resources;
+		public void setAlertState(String alertState) {
+			this.alertState = alertState;
 		}
 
-		public String getGroupId() {
-			return this.groupId;
+		public String getPeriod() {
+			return this.period;
 		}
 
-		public void setGroupId(String groupId) {
-			this.groupId = groupId;
+		public void setPeriod(String period) {
+			this.period = period;
+		}
+
+		public String getRuleId() {
+			return this.ruleId;
+		}
+
+		public void setRuleId(String ruleId) {
+			this.ruleId = ruleId;
 		}
 
 		public String getGroupName() {
@@ -253,6 +255,14 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.groupName = groupName;
 		}
 
+		public String getGroupId() {
+			return this.groupId;
+		}
+
+		public void setGroupId(String groupId) {
+			this.groupId = groupId;
+		}
+
 		public String getDimensions() {
 			return this.dimensions;
 		}
@@ -261,12 +271,76 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 			this.dimensions = dimensions;
 		}
 
-		public String getSourceType() {
-			return this.sourceType;
+		public Boolean getEnableState() {
+			return this.enableState;
 		}
 
-		public void setSourceType(String sourceType) {
-			this.sourceType = sourceType;
+		public void setEnableState(Boolean enableState) {
+			this.enableState = enableState;
+		}
+
+		public String getGroupBy() {
+			return this.groupBy;
+		}
+
+		public void setGroupBy(String groupBy) {
+			this.groupBy = groupBy;
+		}
+
+		public String getResources() {
+			return this.resources;
+		}
+
+		public void setResources(String resources) {
+			this.resources = resources;
+		}
+
+		public String getNoDataPolicy() {
+			return this.noDataPolicy;
+		}
+
+		public void setNoDataPolicy(String noDataPolicy) {
+			this.noDataPolicy = noDataPolicy;
+		}
+
+		public String getOptions() {
+			return this.options;
+		}
+
+		public void setOptions(String options) {
+			this.options = options;
+		}
+
+		public String getDynamicAlertSensitivity() {
+			return this.dynamicAlertSensitivity;
+		}
+
+		public void setDynamicAlertSensitivity(String dynamicAlertSensitivity) {
+			this.dynamicAlertSensitivity = dynamicAlertSensitivity;
+		}
+
+		public String getDynamicAlertHistoryDataRange() {
+			return this.dynamicAlertHistoryDataRange;
+		}
+
+		public void setDynamicAlertHistoryDataRange(String dynamicAlertHistoryDataRange) {
+			this.dynamicAlertHistoryDataRange = dynamicAlertHistoryDataRange;
+		}
+
+		public String getRuleType() {
+			return this.ruleType;
+		}
+
+		public void setRuleType(String ruleType) {
+			this.ruleType = ruleType;
+		}
+
+		public List<LabelsItem> getLabels() {
+			return this.labels;
+		}
+
+		public void setLabels(List<LabelsItem> labels) {
+			this.labels = labels;
 		}
 
 		public Escalations getEscalations() {
@@ -275,6 +349,45 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 
 		public void setEscalations(Escalations escalations) {
 			this.escalations = escalations;
+		}
+
+		public CompositeExpression getCompositeExpression() {
+			return this.compositeExpression;
+		}
+
+		public void setCompositeExpression(CompositeExpression compositeExpression) {
+			this.compositeExpression = compositeExpression;
+		}
+
+		public Prometheus getPrometheus() {
+			return this.prometheus;
+		}
+
+		public void setPrometheus(Prometheus prometheus) {
+			this.prometheus = prometheus;
+		}
+
+		public static class LabelsItem {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 
 		public static class Escalations {
@@ -313,11 +426,13 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 
 				private String comparisonOperator;
 
-				private String statistics;
+				private String preCondition;
+
+				private Integer times;
 
 				private String threshold;
 
-				private String times;
+				private String statistics;
 
 				public String getComparisonOperator() {
 					return this.comparisonOperator;
@@ -327,12 +442,20 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 					this.comparisonOperator = comparisonOperator;
 				}
 
-				public String getStatistics() {
-					return this.statistics;
+				public String getPreCondition() {
+					return this.preCondition;
 				}
 
-				public void setStatistics(String statistics) {
-					this.statistics = statistics;
+				public void setPreCondition(String preCondition) {
+					this.preCondition = preCondition;
+				}
+
+				public Integer getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(Integer times) {
+					this.times = times;
 				}
 
 				public String getThreshold() {
@@ -343,12 +466,12 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 					this.threshold = threshold;
 				}
 
-				public String getTimes() {
-					return this.times;
+				public String getStatistics() {
+					return this.statistics;
 				}
 
-				public void setTimes(String times) {
-					this.times = times;
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
 				}
 			}
 
@@ -356,11 +479,13 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 
 				private String comparisonOperator;
 
-				private String statistics;
+				private String preCondition;
+
+				private Integer times;
 
 				private String threshold;
 
-				private String times;
+				private String statistics;
 
 				public String getComparisonOperator() {
 					return this.comparisonOperator;
@@ -370,12 +495,20 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 					this.comparisonOperator = comparisonOperator;
 				}
 
-				public String getStatistics() {
-					return this.statistics;
+				public String getPreCondition() {
+					return this.preCondition;
 				}
 
-				public void setStatistics(String statistics) {
-					this.statistics = statistics;
+				public void setPreCondition(String preCondition) {
+					this.preCondition = preCondition;
+				}
+
+				public Integer getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(Integer times) {
+					this.times = times;
 				}
 
 				public String getThreshold() {
@@ -386,12 +519,12 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 					this.threshold = threshold;
 				}
 
-				public String getTimes() {
-					return this.times;
+				public String getStatistics() {
+					return this.statistics;
 				}
 
-				public void setTimes(String times) {
-					this.times = times;
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
 				}
 			}
 
@@ -399,11 +532,129 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 
 				private String comparisonOperator;
 
+				private String preCondition;
+
+				private Integer times;
+
+				private String threshold;
+
+				private String statistics;
+
+				public String getComparisonOperator() {
+					return this.comparisonOperator;
+				}
+
+				public void setComparisonOperator(String comparisonOperator) {
+					this.comparisonOperator = comparisonOperator;
+				}
+
+				public String getPreCondition() {
+					return this.preCondition;
+				}
+
+				public void setPreCondition(String preCondition) {
+					this.preCondition = preCondition;
+				}
+
+				public Integer getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(Integer times) {
+					this.times = times;
+				}
+
+				public String getThreshold() {
+					return this.threshold;
+				}
+
+				public void setThreshold(String threshold) {
+					this.threshold = threshold;
+				}
+
+				public String getStatistics() {
+					return this.statistics;
+				}
+
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
+				}
+			}
+		}
+
+		public static class CompositeExpression {
+
+			private String level;
+
+			private String expressionListJoin;
+
+			private String expressionRaw;
+
+			private Integer times;
+
+			private List<ExpressionListItem> expressionList;
+
+			public String getLevel() {
+				return this.level;
+			}
+
+			public void setLevel(String level) {
+				this.level = level;
+			}
+
+			public String getExpressionListJoin() {
+				return this.expressionListJoin;
+			}
+
+			public void setExpressionListJoin(String expressionListJoin) {
+				this.expressionListJoin = expressionListJoin;
+			}
+
+			public String getExpressionRaw() {
+				return this.expressionRaw;
+			}
+
+			public void setExpressionRaw(String expressionRaw) {
+				this.expressionRaw = expressionRaw;
+			}
+
+			public Integer getTimes() {
+				return this.times;
+			}
+
+			public void setTimes(Integer times) {
+				this.times = times;
+			}
+
+			public List<ExpressionListItem> getExpressionList() {
+				return this.expressionList;
+			}
+
+			public void setExpressionList(List<ExpressionListItem> expressionList) {
+				this.expressionList = expressionList;
+			}
+
+			public static class ExpressionListItem {
+
+				private String metricName;
+
+				private String comparisonOperator;
+
 				private String statistics;
 
 				private String threshold;
 
-				private String times;
+				private Integer period;
+
+				private String id;
+
+				public String getMetricName() {
+					return this.metricName;
+				}
+
+				public void setMetricName(String metricName) {
+					this.metricName = metricName;
+				}
 
 				public String getComparisonOperator() {
 					return this.comparisonOperator;
@@ -429,12 +680,86 @@ public class DescribeMetricRuleListResponse extends AcsResponse {
 					this.threshold = threshold;
 				}
 
-				public String getTimes() {
-					return this.times;
+				public Integer getPeriod() {
+					return this.period;
 				}
 
-				public void setTimes(String times) {
-					this.times = times;
+				public void setPeriod(Integer period) {
+					this.period = period;
+				}
+
+				public String getId() {
+					return this.id;
+				}
+
+				public void setId(String id) {
+					this.id = id;
+				}
+			}
+		}
+
+		public static class Prometheus {
+
+			private String promQL;
+
+			private String level;
+
+			private Long times;
+
+			private List<AnnotationsItem> annotations;
+
+			public String getPromQL() {
+				return this.promQL;
+			}
+
+			public void setPromQL(String promQL) {
+				this.promQL = promQL;
+			}
+
+			public String getLevel() {
+				return this.level;
+			}
+
+			public void setLevel(String level) {
+				this.level = level;
+			}
+
+			public Long getTimes() {
+				return this.times;
+			}
+
+			public void setTimes(Long times) {
+				this.times = times;
+			}
+
+			public List<AnnotationsItem> getAnnotations() {
+				return this.annotations;
+			}
+
+			public void setAnnotations(List<AnnotationsItem> annotations) {
+				this.annotations = annotations;
+			}
+
+			public static class AnnotationsItem {
+
+				private String key;
+
+				private String value;
+
+				public String getKey() {
+					return this.key;
+				}
+
+				public void setKey(String key) {
+					this.key = key;
+				}
+
+				public String getValue() {
+					return this.value;
+				}
+
+				public void setValue(String value) {
+					this.value = value;
 				}
 			}
 		}

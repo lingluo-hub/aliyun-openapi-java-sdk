@@ -98,7 +98,7 @@ public class ListExecutionsResponse extends AcsResponse {
 
 		private String parentExecutionId;
 
-		private String parameters;
+		private Map<Object,Object> parameters;
 
 		private String outputs;
 
@@ -108,13 +108,25 @@ public class ListExecutionsResponse extends AcsResponse {
 
 		private String ramRole;
 
-		private String counters;
+		private Map<Object,Object> counters;
 
 		private String category;
 
 		private Map<Object,Object> tags;
 
 		private String description;
+
+		private String targets;
+
+		private String lastTriggerTime;
+
+		private String lastTriggerStatus;
+
+		private String lastSuccessfulTriggerTime;
+
+		private String resourceStatus;
+
+		private String resourceGroupId;
 
 		private List<CurrentTask> currentTasks;
 
@@ -238,11 +250,11 @@ public class ListExecutionsResponse extends AcsResponse {
 			this.parentExecutionId = parentExecutionId;
 		}
 
-		public String getParameters() {
+		public Map<Object,Object> getParameters() {
 			return this.parameters;
 		}
 
-		public void setParameters(String parameters) {
+		public void setParameters(Map<Object,Object> parameters) {
 			this.parameters = parameters;
 		}
 
@@ -278,11 +290,11 @@ public class ListExecutionsResponse extends AcsResponse {
 			this.ramRole = ramRole;
 		}
 
-		public String getCounters() {
+		public Map<Object,Object> getCounters() {
 			return this.counters;
 		}
 
-		public void setCounters(String counters) {
+		public void setCounters(Map<Object,Object> counters) {
 			this.counters = counters;
 		}
 
@@ -308,6 +320,54 @@ public class ListExecutionsResponse extends AcsResponse {
 
 		public void setDescription(String description) {
 			this.description = description;
+		}
+
+		public String getTargets() {
+			return this.targets;
+		}
+
+		public void setTargets(String targets) {
+			this.targets = targets;
+		}
+
+		public String getLastTriggerTime() {
+			return this.lastTriggerTime;
+		}
+
+		public void setLastTriggerTime(String lastTriggerTime) {
+			this.lastTriggerTime = lastTriggerTime;
+		}
+
+		public String getLastTriggerStatus() {
+			return this.lastTriggerStatus;
+		}
+
+		public void setLastTriggerStatus(String lastTriggerStatus) {
+			this.lastTriggerStatus = lastTriggerStatus;
+		}
+
+		public String getLastSuccessfulTriggerTime() {
+			return this.lastSuccessfulTriggerTime;
+		}
+
+		public void setLastSuccessfulTriggerTime(String lastSuccessfulTriggerTime) {
+			this.lastSuccessfulTriggerTime = lastSuccessfulTriggerTime;
+		}
+
+		public String getResourceStatus() {
+			return this.resourceStatus;
+		}
+
+		public void setResourceStatus(String resourceStatus) {
+			this.resourceStatus = resourceStatus;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public List<CurrentTask> getCurrentTasks() {

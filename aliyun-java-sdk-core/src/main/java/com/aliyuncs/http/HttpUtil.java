@@ -67,11 +67,16 @@ public class HttpUtil {
                 debugString.append(entry.getKey() + " : " + entry.getValue() + "\n> ");
             }
             debugString.append("Request URL : " + sysUrl + "\n> ");
+            debugString.append("Request string to sign: [" + request.getSysStrToSign() + "]\n> ");
+            debugString.append("Request isIgnoreSSLCerts : " + request.isIgnoreSSLCerts() + "\n> ");
+            debugString.append("Request connect timeout : " + request.getSysConnectTimeout() + "\n> ");
+            debugString.append("Request read timeout : " + request.getSysReadTimeout() + "\n> ");
+            debugString.append("Encoding : " + request.getSysEncoding() + "\n> ");
             if (isHttpContentDebug) {
                 try {
                     debugString.append("\n" + request.getHttpContentString());
                 } catch (ClientException e) {
-                    debugString.append("\n" + "Can not parse response due to unsupported encoding : " + request
+                    debugString.append("\n" + "Can not parse request content due to unsupported encoding : " + request
                             .getSysEncoding());
                 }
             }

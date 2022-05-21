@@ -27,27 +27,21 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 
 	private String nasId;
 
-	private String webContainer;
-
 	private String jarStartArgs;
 
-	private Integer memory;
-
-	private String slsConfigs;
-
-	private String commandArgs;
-
-	private String readiness;
-
-	private String timezone;
+	private String ossAkSecret;
 
 	private String mountHost;
 
-	private String liveness;
+	private Boolean autoConfig;
 
 	private String envs;
 
-	private String packageVersion;
+	private String kafkaInstanceId;
+
+	private String phpArmsConfigLocation;
+
+	private String programmingLanguage;
 
 	private String customHostAlias;
 
@@ -55,33 +49,85 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 
 	private String jarStartOptions;
 
-	private String edasContainerVersion;
-
 	private String appName;
 
 	private String namespaceId;
 
-	private String packageUrl;
+	private String configMapMountDesc;
 
-	private Integer replicas;
+	private String ossMountDescs;
+
+	private String kafkaEndpoint;
+
+	private String preStop;
 
 	private Integer cpu;
+
+	private String vSwitchId;
+
+	private String packageType;
+
+	private String postStart;
+
+	private Boolean associateEip;
+
+	private String webContainer;
+
+	private Integer memory;
+
+	private String slsConfigs;
+
+	private String kafkaConfigs;
+
+	private Boolean openCollectToKafka;
+
+	private String commandArgs;
+
+	private String acrAssumeRoleArn;
+
+	private String readiness;
+
+	private String timezone;
+
+	private String ossAkId;
+
+	private String liveness;
+
+	private String securityGroupId;
+
+	private String packageVersion;
+
+	private String tomcatConfig;
+
+	private String warStartOptions;
+
+	private String edasContainerVersion;
+
+	private String packageUrl;
+
+	private Integer terminationGracePeriodSeconds;
+
+	private String phpConfig;
+
+	private Integer replicas;
 
 	private String command;
 
 	private String mountDesc;
 
-	private String vSwitchId;
-
 	private String jdk;
 
 	private String appDescription;
+
+	private String kafkaLogfileConfig;
+
+	private String acrInstanceId;
 
 	private String vpcId;
 
 	private String imageUrl;
 
-	private String packageType;
+	private String phpConfigLocation;
 	public CreateApplicationRequest() {
 		super("sae", "2019-05-06", "CreateApplication", "serverless");
 		setUriPattern("/pop/v1/sam/app/createApplication");
@@ -103,17 +149,6 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getWebContainer() {
-		return this.webContainer;
-	}
-
-	public void setWebContainer(String webContainer) {
-		this.webContainer = webContainer;
-		if(webContainer != null){
-			putQueryParameter("WebContainer", webContainer);
-		}
-	}
-
 	public String getJarStartArgs() {
 		return this.jarStartArgs;
 	}
@@ -125,58 +160,14 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public Integer getMemory() {
-		return this.memory;
+	public String getOssAkSecret() {
+		return this.ossAkSecret;
 	}
 
-	public void setMemory(Integer memory) {
-		this.memory = memory;
-		if(memory != null){
-			putQueryParameter("Memory", memory.toString());
-		}
-	}
-
-	public String getSlsConfigs() {
-		return this.slsConfigs;
-	}
-
-	public void setSlsConfigs(String slsConfigs) {
-		this.slsConfigs = slsConfigs;
-		if(slsConfigs != null){
-			putQueryParameter("SlsConfigs", slsConfigs);
-		}
-	}
-
-	public String getCommandArgs() {
-		return this.commandArgs;
-	}
-
-	public void setCommandArgs(String commandArgs) {
-		this.commandArgs = commandArgs;
-		if(commandArgs != null){
-			putQueryParameter("CommandArgs", commandArgs);
-		}
-	}
-
-	public String getReadiness() {
-		return this.readiness;
-	}
-
-	public void setReadiness(String readiness) {
-		this.readiness = readiness;
-		if(readiness != null){
-			putQueryParameter("Readiness", readiness);
-		}
-	}
-
-	public String getTimezone() {
-		return this.timezone;
-	}
-
-	public void setTimezone(String timezone) {
-		this.timezone = timezone;
-		if(timezone != null){
-			putQueryParameter("Timezone", timezone);
+	public void setOssAkSecret(String ossAkSecret) {
+		this.ossAkSecret = ossAkSecret;
+		if(ossAkSecret != null){
+			putBodyParameter("OssAkSecret", ossAkSecret);
 		}
 	}
 
@@ -191,14 +182,14 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getLiveness() {
-		return this.liveness;
+	public Boolean getAutoConfig() {
+		return this.autoConfig;
 	}
 
-	public void setLiveness(String liveness) {
-		this.liveness = liveness;
-		if(liveness != null){
-			putQueryParameter("Liveness", liveness);
+	public void setAutoConfig(Boolean autoConfig) {
+		this.autoConfig = autoConfig;
+		if(autoConfig != null){
+			putQueryParameter("AutoConfig", autoConfig.toString());
 		}
 	}
 
@@ -213,14 +204,36 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getPackageVersion() {
-		return this.packageVersion;
+	public String getKafkaInstanceId() {
+		return this.kafkaInstanceId;
 	}
 
-	public void setPackageVersion(String packageVersion) {
-		this.packageVersion = packageVersion;
-		if(packageVersion != null){
-			putQueryParameter("PackageVersion", packageVersion);
+	public void setKafkaInstanceId(String kafkaInstanceId) {
+		this.kafkaInstanceId = kafkaInstanceId;
+		if(kafkaInstanceId != null){
+			putQueryParameter("KafkaInstanceId", kafkaInstanceId);
+		}
+	}
+
+	public String getPhpArmsConfigLocation() {
+		return this.phpArmsConfigLocation;
+	}
+
+	public void setPhpArmsConfigLocation(String phpArmsConfigLocation) {
+		this.phpArmsConfigLocation = phpArmsConfigLocation;
+		if(phpArmsConfigLocation != null){
+			putQueryParameter("PhpArmsConfigLocation", phpArmsConfigLocation);
+		}
+	}
+
+	public String getProgrammingLanguage() {
+		return this.programmingLanguage;
+	}
+
+	public void setProgrammingLanguage(String programmingLanguage) {
+		this.programmingLanguage = programmingLanguage;
+		if(programmingLanguage != null){
+			putQueryParameter("ProgrammingLanguage", programmingLanguage);
 		}
 	}
 
@@ -257,17 +270,6 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getEdasContainerVersion() {
-		return this.edasContainerVersion;
-	}
-
-	public void setEdasContainerVersion(String edasContainerVersion) {
-		this.edasContainerVersion = edasContainerVersion;
-		if(edasContainerVersion != null){
-			putQueryParameter("EdasContainerVersion", edasContainerVersion);
-		}
-	}
-
 	public String getAppName() {
 		return this.appName;
 	}
@@ -290,25 +292,47 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getPackageUrl() {
-		return this.packageUrl;
+	public String getConfigMapMountDesc() {
+		return this.configMapMountDesc;
 	}
 
-	public void setPackageUrl(String packageUrl) {
-		this.packageUrl = packageUrl;
-		if(packageUrl != null){
-			putQueryParameter("PackageUrl", packageUrl);
+	public void setConfigMapMountDesc(String configMapMountDesc) {
+		this.configMapMountDesc = configMapMountDesc;
+		if(configMapMountDesc != null){
+			putBodyParameter("ConfigMapMountDesc", configMapMountDesc);
 		}
 	}
 
-	public Integer getReplicas() {
-		return this.replicas;
+	public String getOssMountDescs() {
+		return this.ossMountDescs;
 	}
 
-	public void setReplicas(Integer replicas) {
-		this.replicas = replicas;
-		if(replicas != null){
-			putQueryParameter("Replicas", replicas.toString());
+	public void setOssMountDescs(String ossMountDescs) {
+		this.ossMountDescs = ossMountDescs;
+		if(ossMountDescs != null){
+			putBodyParameter("OssMountDescs", ossMountDescs);
+		}
+	}
+
+	public String getKafkaEndpoint() {
+		return this.kafkaEndpoint;
+	}
+
+	public void setKafkaEndpoint(String kafkaEndpoint) {
+		this.kafkaEndpoint = kafkaEndpoint;
+		if(kafkaEndpoint != null){
+			putQueryParameter("KafkaEndpoint", kafkaEndpoint);
+		}
+	}
+
+	public String getPreStop() {
+		return this.preStop;
+	}
+
+	public void setPreStop(String preStop) {
+		this.preStop = preStop;
+		if(preStop != null){
+			putQueryParameter("PreStop", preStop);
 		}
 	}
 
@@ -320,6 +344,270 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		this.cpu = cpu;
 		if(cpu != null){
 			putQueryParameter("Cpu", cpu.toString());
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getPackageType() {
+		return this.packageType;
+	}
+
+	public void setPackageType(String packageType) {
+		this.packageType = packageType;
+		if(packageType != null){
+			putQueryParameter("PackageType", packageType);
+		}
+	}
+
+	public String getPostStart() {
+		return this.postStart;
+	}
+
+	public void setPostStart(String postStart) {
+		this.postStart = postStart;
+		if(postStart != null){
+			putQueryParameter("PostStart", postStart);
+		}
+	}
+
+	public Boolean getAssociateEip() {
+		return this.associateEip;
+	}
+
+	public void setAssociateEip(Boolean associateEip) {
+		this.associateEip = associateEip;
+		if(associateEip != null){
+			putBodyParameter("AssociateEip", associateEip.toString());
+		}
+	}
+
+	public String getWebContainer() {
+		return this.webContainer;
+	}
+
+	public void setWebContainer(String webContainer) {
+		this.webContainer = webContainer;
+		if(webContainer != null){
+			putQueryParameter("WebContainer", webContainer);
+		}
+	}
+
+	public Integer getMemory() {
+		return this.memory;
+	}
+
+	public void setMemory(Integer memory) {
+		this.memory = memory;
+		if(memory != null){
+			putQueryParameter("Memory", memory.toString());
+		}
+	}
+
+	public String getSlsConfigs() {
+		return this.slsConfigs;
+	}
+
+	public void setSlsConfigs(String slsConfigs) {
+		this.slsConfigs = slsConfigs;
+		if(slsConfigs != null){
+			putQueryParameter("SlsConfigs", slsConfigs);
+		}
+	}
+
+	public String getKafkaConfigs() {
+		return this.kafkaConfigs;
+	}
+
+	public void setKafkaConfigs(String kafkaConfigs) {
+		this.kafkaConfigs = kafkaConfigs;
+		if(kafkaConfigs != null){
+			putQueryParameter("KafkaConfigs", kafkaConfigs);
+		}
+	}
+
+	public Boolean getOpenCollectToKafka() {
+		return this.openCollectToKafka;
+	}
+
+	public void setOpenCollectToKafka(Boolean openCollectToKafka) {
+		this.openCollectToKafka = openCollectToKafka;
+		if(openCollectToKafka != null){
+			putQueryParameter("OpenCollectToKafka", openCollectToKafka.toString());
+		}
+	}
+
+	public String getCommandArgs() {
+		return this.commandArgs;
+	}
+
+	public void setCommandArgs(String commandArgs) {
+		this.commandArgs = commandArgs;
+		if(commandArgs != null){
+			putQueryParameter("CommandArgs", commandArgs);
+		}
+	}
+
+	public String getAcrAssumeRoleArn() {
+		return this.acrAssumeRoleArn;
+	}
+
+	public void setAcrAssumeRoleArn(String acrAssumeRoleArn) {
+		this.acrAssumeRoleArn = acrAssumeRoleArn;
+		if(acrAssumeRoleArn != null){
+			putQueryParameter("AcrAssumeRoleArn", acrAssumeRoleArn);
+		}
+	}
+
+	public String getReadiness() {
+		return this.readiness;
+	}
+
+	public void setReadiness(String readiness) {
+		this.readiness = readiness;
+		if(readiness != null){
+			putQueryParameter("Readiness", readiness);
+		}
+	}
+
+	public String getTimezone() {
+		return this.timezone;
+	}
+
+	public void setTimezone(String timezone) {
+		this.timezone = timezone;
+		if(timezone != null){
+			putQueryParameter("Timezone", timezone);
+		}
+	}
+
+	public String getOssAkId() {
+		return this.ossAkId;
+	}
+
+	public void setOssAkId(String ossAkId) {
+		this.ossAkId = ossAkId;
+		if(ossAkId != null){
+			putBodyParameter("OssAkId", ossAkId);
+		}
+	}
+
+	public String getLiveness() {
+		return this.liveness;
+	}
+
+	public void setLiveness(String liveness) {
+		this.liveness = liveness;
+		if(liveness != null){
+			putQueryParameter("Liveness", liveness);
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public String getPackageVersion() {
+		return this.packageVersion;
+	}
+
+	public void setPackageVersion(String packageVersion) {
+		this.packageVersion = packageVersion;
+		if(packageVersion != null){
+			putQueryParameter("PackageVersion", packageVersion);
+		}
+	}
+
+	public String getTomcatConfig() {
+		return this.tomcatConfig;
+	}
+
+	public void setTomcatConfig(String tomcatConfig) {
+		this.tomcatConfig = tomcatConfig;
+		if(tomcatConfig != null){
+			putQueryParameter("TomcatConfig", tomcatConfig);
+		}
+	}
+
+	public String getWarStartOptions() {
+		return this.warStartOptions;
+	}
+
+	public void setWarStartOptions(String warStartOptions) {
+		this.warStartOptions = warStartOptions;
+		if(warStartOptions != null){
+			putQueryParameter("WarStartOptions", warStartOptions);
+		}
+	}
+
+	public String getEdasContainerVersion() {
+		return this.edasContainerVersion;
+	}
+
+	public void setEdasContainerVersion(String edasContainerVersion) {
+		this.edasContainerVersion = edasContainerVersion;
+		if(edasContainerVersion != null){
+			putQueryParameter("EdasContainerVersion", edasContainerVersion);
+		}
+	}
+
+	public String getPackageUrl() {
+		return this.packageUrl;
+	}
+
+	public void setPackageUrl(String packageUrl) {
+		this.packageUrl = packageUrl;
+		if(packageUrl != null){
+			putQueryParameter("PackageUrl", packageUrl);
+		}
+	}
+
+	public Integer getTerminationGracePeriodSeconds() {
+		return this.terminationGracePeriodSeconds;
+	}
+
+	public void setTerminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
+		this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+		if(terminationGracePeriodSeconds != null){
+			putQueryParameter("TerminationGracePeriodSeconds", terminationGracePeriodSeconds.toString());
+		}
+	}
+
+	public String getPhpConfig() {
+		return this.phpConfig;
+	}
+
+	public void setPhpConfig(String phpConfig) {
+		this.phpConfig = phpConfig;
+		if(phpConfig != null){
+			putBodyParameter("PhpConfig", phpConfig);
+		}
+	}
+
+	public Integer getReplicas() {
+		return this.replicas;
+	}
+
+	public void setReplicas(Integer replicas) {
+		this.replicas = replicas;
+		if(replicas != null){
+			putQueryParameter("Replicas", replicas.toString());
 		}
 	}
 
@@ -345,17 +633,6 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
 	public String getJdk() {
 		return this.jdk;
 	}
@@ -375,6 +652,28 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		this.appDescription = appDescription;
 		if(appDescription != null){
 			putQueryParameter("AppDescription", appDescription);
+		}
+	}
+
+	public String getKafkaLogfileConfig() {
+		return this.kafkaLogfileConfig;
+	}
+
+	public void setKafkaLogfileConfig(String kafkaLogfileConfig) {
+		this.kafkaLogfileConfig = kafkaLogfileConfig;
+		if(kafkaLogfileConfig != null){
+			putQueryParameter("KafkaLogfileConfig", kafkaLogfileConfig);
+		}
+	}
+
+	public String getAcrInstanceId() {
+		return this.acrInstanceId;
+	}
+
+	public void setAcrInstanceId(String acrInstanceId) {
+		this.acrInstanceId = acrInstanceId;
+		if(acrInstanceId != null){
+			putBodyParameter("AcrInstanceId", acrInstanceId);
 		}
 	}
 
@@ -400,14 +699,14 @@ public class CreateApplicationRequest extends RoaAcsRequest<CreateApplicationRes
 		}
 	}
 
-	public String getPackageType() {
-		return this.packageType;
+	public String getPhpConfigLocation() {
+		return this.phpConfigLocation;
 	}
 
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
-		if(packageType != null){
-			putQueryParameter("PackageType", packageType);
+	public void setPhpConfigLocation(String phpConfigLocation) {
+		this.phpConfigLocation = phpConfigLocation;
+		if(phpConfigLocation != null){
+			putQueryParameter("PhpConfigLocation", phpConfigLocation);
 		}
 	}
 

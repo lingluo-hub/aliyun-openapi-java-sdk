@@ -29,6 +29,8 @@ public class UpdateSecretRequest extends RpcAcsRequest<UpdateSecretResponse> {
 	private String description;
 
 	private String secretName;
+
+	private String extendedConfigCustomData;
 	public UpdateSecretRequest() {
 		super("Kms", "2016-01-20", "UpdateSecret", "kms");
 		setProtocol(ProtocolType.HTTPS);
@@ -58,6 +60,17 @@ public class UpdateSecretRequest extends RpcAcsRequest<UpdateSecretResponse> {
 		this.secretName = secretName;
 		if(secretName != null){
 			putQueryParameter("SecretName", secretName);
+		}
+	}
+
+	public String getExtendedConfigCustomData() {
+		return this.extendedConfigCustomData;
+	}
+
+	public void setExtendedConfigCustomData(String extendedConfigCustomData) {
+		this.extendedConfigCustomData = extendedConfigCustomData;
+		if(extendedConfigCustomData != null){
+			putQueryParameter("ExtendedConfig.CustomData", extendedConfigCustomData);
 		}
 	}
 

@@ -27,15 +27,27 @@ public class ListNodesRequest extends RpcAcsRequest<ListNodesResponse> {
 
 	private String role;
 
-	private String clusterId;
-
 	private Integer pageNumber;
 
 	private String hostName;
 
 	private Integer pageSize;
+
+	private String hostNamePrefix;
+
+	private String clusterId;
+
+	private String hostNameSuffix;
+
+	private String filter;
+
+	private String privateIpAddress;
+
+	private String sequence;
+
+	private String sortBy;
 	public ListNodesRequest() {
-		super("EHPC", "2018-04-12", "ListNodes", "ehs");
+		super("EHPC", "2018-04-12", "ListNodes");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -51,17 +63,6 @@ public class ListNodesRequest extends RpcAcsRequest<ListNodesResponse> {
 		this.role = role;
 		if(role != null){
 			putQueryParameter("Role", role);
-		}
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 
@@ -95,6 +96,83 @@ public class ListNodesRequest extends RpcAcsRequest<ListNodesResponse> {
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getHostNamePrefix() {
+		return this.hostNamePrefix;
+	}
+
+	public void setHostNamePrefix(String hostNamePrefix) {
+		this.hostNamePrefix = hostNamePrefix;
+		if(hostNamePrefix != null){
+			putQueryParameter("HostNamePrefix", hostNamePrefix);
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getHostNameSuffix() {
+		return this.hostNameSuffix;
+	}
+
+	public void setHostNameSuffix(String hostNameSuffix) {
+		this.hostNameSuffix = hostNameSuffix;
+		if(hostNameSuffix != null){
+			putQueryParameter("HostNameSuffix", hostNameSuffix);
+		}
+	}
+
+	public String getFilter() {
+		return this.filter;
+	}
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+		if(filter != null){
+			putQueryParameter("Filter", filter);
+		}
+	}
+
+	public String getPrivateIpAddress() {
+		return this.privateIpAddress;
+	}
+
+	public void setPrivateIpAddress(String privateIpAddress) {
+		this.privateIpAddress = privateIpAddress;
+		if(privateIpAddress != null){
+			putQueryParameter("PrivateIpAddress", privateIpAddress);
+		}
+	}
+
+	public String getSequence() {
+		return this.sequence;
+	}
+
+	public void setSequence(String sequence) {
+		this.sequence = sequence;
+		if(sequence != null){
+			putQueryParameter("Sequence", sequence);
+		}
+	}
+
+	public String getSortBy() {
+		return this.sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+		if(sortBy != null){
+			putQueryParameter("SortBy", sortBy);
 		}
 	}
 

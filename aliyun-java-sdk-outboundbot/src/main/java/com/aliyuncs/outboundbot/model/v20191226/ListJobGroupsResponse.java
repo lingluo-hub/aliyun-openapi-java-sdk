@@ -25,6 +25,8 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListJobGroupsResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
 	private Boolean success;
@@ -33,9 +35,17 @@ public class ListJobGroupsResponse extends AcsResponse {
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String asyncTaskId;
 
 	private JobGroups jobGroups;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -69,12 +79,12 @@ public class ListJobGroupsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getAsyncTaskId() {
+		return this.asyncTaskId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setAsyncTaskId(String asyncTaskId) {
+		this.asyncTaskId = asyncTaskId;
 	}
 
 	public JobGroups getJobGroups() {
@@ -87,21 +97,13 @@ public class ListJobGroupsResponse extends AcsResponse {
 
 	public static class JobGroups {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<JobGroup> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +121,14 @@ public class ListJobGroupsResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<JobGroup> getList() {
 			return this.list;
 		}
@@ -129,21 +139,41 @@ public class ListJobGroupsResponse extends AcsResponse {
 
 		public static class JobGroup {
 
+			private String status;
+
 			private String jobGroupId;
-
-			private String jobGroupName;
-
-			private String jobGroupDescription;
-
-			private String scriptId;
-
-			private String scriptName;
 
 			private Long creationTime;
 
-			private Strategy strategy;
+			private String jobGroupName;
+
+			private Integer totalCallNum;
+
+			private String scriptId;
+
+			private String jobGroupDescription;
+
+			private String jobDataParsingTaskId;
+
+			private String scriptName;
+
+			private String scriptVersion;
+
+			private String modifyTime;
 
 			private Progress progress;
+
+			private ExportProgress exportProgress;
+
+			private Strategy strategy;
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
 
 			public String getJobGroupId() {
 				return this.jobGroupId;
@@ -151,38 +181,6 @@ public class ListJobGroupsResponse extends AcsResponse {
 
 			public void setJobGroupId(String jobGroupId) {
 				this.jobGroupId = jobGroupId;
-			}
-
-			public String getJobGroupName() {
-				return this.jobGroupName;
-			}
-
-			public void setJobGroupName(String jobGroupName) {
-				this.jobGroupName = jobGroupName;
-			}
-
-			public String getJobGroupDescription() {
-				return this.jobGroupDescription;
-			}
-
-			public void setJobGroupDescription(String jobGroupDescription) {
-				this.jobGroupDescription = jobGroupDescription;
-			}
-
-			public String getScriptId() {
-				return this.scriptId;
-			}
-
-			public void setScriptId(String scriptId) {
-				this.scriptId = scriptId;
-			}
-
-			public String getScriptName() {
-				return this.scriptName;
-			}
-
-			public void setScriptName(String scriptName) {
-				this.scriptName = scriptName;
 			}
 
 			public Long getCreationTime() {
@@ -193,12 +191,68 @@ public class ListJobGroupsResponse extends AcsResponse {
 				this.creationTime = creationTime;
 			}
 
-			public Strategy getStrategy() {
-				return this.strategy;
+			public String getJobGroupName() {
+				return this.jobGroupName;
 			}
 
-			public void setStrategy(Strategy strategy) {
-				this.strategy = strategy;
+			public void setJobGroupName(String jobGroupName) {
+				this.jobGroupName = jobGroupName;
+			}
+
+			public Integer getTotalCallNum() {
+				return this.totalCallNum;
+			}
+
+			public void setTotalCallNum(Integer totalCallNum) {
+				this.totalCallNum = totalCallNum;
+			}
+
+			public String getScriptId() {
+				return this.scriptId;
+			}
+
+			public void setScriptId(String scriptId) {
+				this.scriptId = scriptId;
+			}
+
+			public String getJobGroupDescription() {
+				return this.jobGroupDescription;
+			}
+
+			public void setJobGroupDescription(String jobGroupDescription) {
+				this.jobGroupDescription = jobGroupDescription;
+			}
+
+			public String getJobDataParsingTaskId() {
+				return this.jobDataParsingTaskId;
+			}
+
+			public void setJobDataParsingTaskId(String jobDataParsingTaskId) {
+				this.jobDataParsingTaskId = jobDataParsingTaskId;
+			}
+
+			public String getScriptName() {
+				return this.scriptName;
+			}
+
+			public void setScriptName(String scriptName) {
+				this.scriptName = scriptName;
+			}
+
+			public String getScriptVersion() {
+				return this.scriptVersion;
+			}
+
+			public void setScriptVersion(String scriptVersion) {
+				this.scriptVersion = scriptVersion;
+			}
+
+			public String getModifyTime() {
+				return this.modifyTime;
+			}
+
+			public void setModifyTime(String modifyTime) {
+				this.modifyTime = modifyTime;
 			}
 
 			public Progress getProgress() {
@@ -209,49 +263,52 @@ public class ListJobGroupsResponse extends AcsResponse {
 				this.progress = progress;
 			}
 
-			public static class Strategy {
+			public ExportProgress getExportProgress() {
+				return this.exportProgress;
+			}
 
-				private Long startTime;
+			public void setExportProgress(ExportProgress exportProgress) {
+				this.exportProgress = exportProgress;
+			}
 
-				private Long endTime;
+			public Strategy getStrategy() {
+				return this.strategy;
+			}
 
-				public Long getStartTime() {
-					return this.startTime;
-				}
-
-				public void setStartTime(Long startTime) {
-					this.startTime = startTime;
-				}
-
-				public Long getEndTime() {
-					return this.endTime;
-				}
-
-				public void setEndTime(Long endTime) {
-					this.endTime = endTime;
-				}
+			public void setStrategy(Strategy strategy) {
+				this.strategy = strategy;
 			}
 
 			public static class Progress {
 
-				private Integer totalJobs;
+				private Integer totalNotAnswered;
 
 				private String status;
 
-				private Integer totalNotAnswered;
+				private Long startTime;
+
+				private Integer failedNum;
+
+				private Integer pausedNum;
+
+				private Integer cancelledNum;
+
+				private Integer totalJobs;
 
 				private Integer totalCompleted;
 
-				private Long startTime;
-
 				private Integer duration;
 
-				public Integer getTotalJobs() {
-					return this.totalJobs;
+				private Integer executingNum;
+
+				private Integer scheduling;
+
+				public Integer getTotalNotAnswered() {
+					return this.totalNotAnswered;
 				}
 
-				public void setTotalJobs(Integer totalJobs) {
-					this.totalJobs = totalJobs;
+				public void setTotalNotAnswered(Integer totalNotAnswered) {
+					this.totalNotAnswered = totalNotAnswered;
 				}
 
 				public String getStatus() {
@@ -262,12 +319,44 @@ public class ListJobGroupsResponse extends AcsResponse {
 					this.status = status;
 				}
 
-				public Integer getTotalNotAnswered() {
-					return this.totalNotAnswered;
+				public Long getStartTime() {
+					return this.startTime;
 				}
 
-				public void setTotalNotAnswered(Integer totalNotAnswered) {
-					this.totalNotAnswered = totalNotAnswered;
+				public void setStartTime(Long startTime) {
+					this.startTime = startTime;
+				}
+
+				public Integer getFailedNum() {
+					return this.failedNum;
+				}
+
+				public void setFailedNum(Integer failedNum) {
+					this.failedNum = failedNum;
+				}
+
+				public Integer getPausedNum() {
+					return this.pausedNum;
+				}
+
+				public void setPausedNum(Integer pausedNum) {
+					this.pausedNum = pausedNum;
+				}
+
+				public Integer getCancelledNum() {
+					return this.cancelledNum;
+				}
+
+				public void setCancelledNum(Integer cancelledNum) {
+					this.cancelledNum = cancelledNum;
+				}
+
+				public Integer getTotalJobs() {
+					return this.totalJobs;
+				}
+
+				public void setTotalJobs(Integer totalJobs) {
+					this.totalJobs = totalJobs;
 				}
 
 				public Integer getTotalCompleted() {
@@ -278,20 +367,84 @@ public class ListJobGroupsResponse extends AcsResponse {
 					this.totalCompleted = totalCompleted;
 				}
 
-				public Long getStartTime() {
-					return this.startTime;
-				}
-
-				public void setStartTime(Long startTime) {
-					this.startTime = startTime;
-				}
-
 				public Integer getDuration() {
 					return this.duration;
 				}
 
 				public void setDuration(Integer duration) {
 					this.duration = duration;
+				}
+
+				public Integer getExecutingNum() {
+					return this.executingNum;
+				}
+
+				public void setExecutingNum(Integer executingNum) {
+					this.executingNum = executingNum;
+				}
+
+				public Integer getScheduling() {
+					return this.scheduling;
+				}
+
+				public void setScheduling(Integer scheduling) {
+					this.scheduling = scheduling;
+				}
+			}
+
+			public static class ExportProgress {
+
+				private String status;
+
+				private String fileHttpUrl;
+
+				private String progress;
+
+				public String getStatus() {
+					return this.status;
+				}
+
+				public void setStatus(String status) {
+					this.status = status;
+				}
+
+				public String getFileHttpUrl() {
+					return this.fileHttpUrl;
+				}
+
+				public void setFileHttpUrl(String fileHttpUrl) {
+					this.fileHttpUrl = fileHttpUrl;
+				}
+
+				public String getProgress() {
+					return this.progress;
+				}
+
+				public void setProgress(String progress) {
+					this.progress = progress;
+				}
+			}
+
+			public static class Strategy {
+
+				private Long endTime;
+
+				private Long startTime;
+
+				public Long getEndTime() {
+					return this.endTime;
+				}
+
+				public void setEndTime(Long endTime) {
+					this.endTime = endTime;
+				}
+
+				public Long getStartTime() {
+					return this.startTime;
+				}
+
+				public void setStartTime(Long startTime) {
+					this.startTime = startTime;
 				}
 			}
 		}

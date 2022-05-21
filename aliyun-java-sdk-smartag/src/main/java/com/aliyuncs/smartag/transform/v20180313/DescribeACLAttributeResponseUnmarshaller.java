@@ -28,26 +28,38 @@ public class DescribeACLAttributeResponseUnmarshaller {
 		
 		describeACLAttributeResponse.setRequestId(_ctx.stringValue("DescribeACLAttributeResponse.RequestId"));
 		describeACLAttributeResponse.setTotalCount(_ctx.integerValue("DescribeACLAttributeResponse.TotalCount"));
-		describeACLAttributeResponse.setPageNumber(_ctx.integerValue("DescribeACLAttributeResponse.PageNumber"));
 		describeACLAttributeResponse.setPageSize(_ctx.integerValue("DescribeACLAttributeResponse.PageSize"));
+		describeACLAttributeResponse.setPageNumber(_ctx.integerValue("DescribeACLAttributeResponse.PageNumber"));
 
 		List<Acr> acrs = new ArrayList<Acr>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeACLAttributeResponse.Acrs.Length"); i++) {
 			Acr acr = new Acr();
-			acr.setAcrId(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].AcrId"));
-			acr.setDescription(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Description"));
 			acr.setDirection(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Direction"));
-			acr.setSourceCidr(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].SourceCidr"));
-			acr.setDestCidr(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DestCidr"));
-			acr.setIpProtocol(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].IpProtocol"));
-			acr.setSourcePortRange(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].SourcePortRange"));
-			acr.setDestPortRange(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DestPortRange"));
-			acr.setPolicy(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Policy"));
-			acr.setPriority(_ctx.integerValue("DescribeACLAttributeResponse.Acrs["+ i +"].Priority"));
-			acr.setGmtCreate(_ctx.longValue("DescribeACLAttributeResponse.Acrs["+ i +"].GmtCreate"));
-			acr.setAclId(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].AclId"));
 			acr.setType(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Type"));
+			acr.setIpProtocol(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].IpProtocol"));
+			acr.setPriority(_ctx.integerValue("DescribeACLAttributeResponse.Acrs["+ i +"].Priority"));
+			acr.setAclId(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].AclId"));
+			acr.setPolicy(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Policy"));
+			acr.setDescription(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Description"));
+			acr.setGmtCreate(_ctx.longValue("DescribeACLAttributeResponse.Acrs["+ i +"].GmtCreate"));
+			acr.setDestCidr(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DestCidr"));
+			acr.setDestPortRange(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DestPortRange"));
 			acr.setName(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].Name"));
+			acr.setAcrId(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].AcrId"));
+			acr.setSourceCidr(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].SourceCidr"));
+			acr.setSourcePortRange(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].SourcePortRange"));
+
+			List<String> dpiSignatureIds = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeACLAttributeResponse.Acrs["+ i +"].DpiSignatureIds.Length"); j++) {
+				dpiSignatureIds.add(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DpiSignatureIds["+ j +"]"));
+			}
+			acr.setDpiSignatureIds(dpiSignatureIds);
+
+			List<String> dpiGroupIds = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeACLAttributeResponse.Acrs["+ i +"].DpiGroupIds.Length"); j++) {
+				dpiGroupIds.add(_ctx.stringValue("DescribeACLAttributeResponse.Acrs["+ i +"].DpiGroupIds["+ j +"]"));
+			}
+			acr.setDpiGroupIds(dpiGroupIds);
 
 			acrs.add(acr);
 		}

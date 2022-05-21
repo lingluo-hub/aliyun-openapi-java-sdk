@@ -47,46 +47,58 @@ public class DescribeDedicatedHostTypesResponse extends AcsResponse {
 
 	public static class DedicatedHostType {
 
-		private String dedicatedHostType;
-
-		private Integer sockets;
-
-		private Integer totalVcpus;
-
-		private Integer totalVgpus;
-
 		private Integer cores;
-
-		private Integer physicalGpus;
-
-		private Float memorySize;
-
-		private Long localStorageCapacity;
-
-		private Integer localStorageAmount;
 
 		private String localStorageCategory;
 
 		private String gPUSpec;
 
+		private Integer totalVcpus;
+
+		private String cpuOverCommitRatioRange;
+
+		private Integer physicalGpus;
+
+		private Float memorySize;
+
+		private Boolean supportCpuOverCommitRatio;
+
+		private Long localStorageCapacity;
+
+		private String dedicatedHostType;
+
+		private Integer localStorageAmount;
+
+		private Integer totalVgpus;
+
+		private Integer sockets;
+
 		private List<String> supportedInstanceTypeFamilies;
 
 		private List<String> supportedInstanceTypesList;
 
-		public String getDedicatedHostType() {
-			return this.dedicatedHostType;
+		public Integer getCores() {
+			return this.cores;
 		}
 
-		public void setDedicatedHostType(String dedicatedHostType) {
-			this.dedicatedHostType = dedicatedHostType;
+		public void setCores(Integer cores) {
+			this.cores = cores;
 		}
 
-		public Integer getSockets() {
-			return this.sockets;
+		public String getLocalStorageCategory() {
+			return this.localStorageCategory;
 		}
 
-		public void setSockets(Integer sockets) {
-			this.sockets = sockets;
+		public void setLocalStorageCategory(String localStorageCategory) {
+			this.localStorageCategory = localStorageCategory;
+		}
+
+		public String getGPUSpec() {
+			return this.gPUSpec;
+		}
+
+		public void setGPUSpec(String gPUSpec) {
+			this.gPUSpec = gPUSpec;
 		}
 
 		public Integer getTotalVcpus() {
@@ -97,20 +109,12 @@ public class DescribeDedicatedHostTypesResponse extends AcsResponse {
 			this.totalVcpus = totalVcpus;
 		}
 
-		public Integer getTotalVgpus() {
-			return this.totalVgpus;
+		public String getCpuOverCommitRatioRange() {
+			return this.cpuOverCommitRatioRange;
 		}
 
-		public void setTotalVgpus(Integer totalVgpus) {
-			this.totalVgpus = totalVgpus;
-		}
-
-		public Integer getCores() {
-			return this.cores;
-		}
-
-		public void setCores(Integer cores) {
-			this.cores = cores;
+		public void setCpuOverCommitRatioRange(String cpuOverCommitRatioRange) {
+			this.cpuOverCommitRatioRange = cpuOverCommitRatioRange;
 		}
 
 		public Integer getPhysicalGpus() {
@@ -129,12 +133,28 @@ public class DescribeDedicatedHostTypesResponse extends AcsResponse {
 			this.memorySize = memorySize;
 		}
 
+		public Boolean getSupportCpuOverCommitRatio() {
+			return this.supportCpuOverCommitRatio;
+		}
+
+		public void setSupportCpuOverCommitRatio(Boolean supportCpuOverCommitRatio) {
+			this.supportCpuOverCommitRatio = supportCpuOverCommitRatio;
+		}
+
 		public Long getLocalStorageCapacity() {
 			return this.localStorageCapacity;
 		}
 
 		public void setLocalStorageCapacity(Long localStorageCapacity) {
 			this.localStorageCapacity = localStorageCapacity;
+		}
+
+		public String getDedicatedHostType() {
+			return this.dedicatedHostType;
+		}
+
+		public void setDedicatedHostType(String dedicatedHostType) {
+			this.dedicatedHostType = dedicatedHostType;
 		}
 
 		public Integer getLocalStorageAmount() {
@@ -145,20 +165,20 @@ public class DescribeDedicatedHostTypesResponse extends AcsResponse {
 			this.localStorageAmount = localStorageAmount;
 		}
 
-		public String getLocalStorageCategory() {
-			return this.localStorageCategory;
+		public Integer getTotalVgpus() {
+			return this.totalVgpus;
 		}
 
-		public void setLocalStorageCategory(String localStorageCategory) {
-			this.localStorageCategory = localStorageCategory;
+		public void setTotalVgpus(Integer totalVgpus) {
+			this.totalVgpus = totalVgpus;
 		}
 
-		public String getGPUSpec() {
-			return this.gPUSpec;
+		public Integer getSockets() {
+			return this.sockets;
 		}
 
-		public void setGPUSpec(String gPUSpec) {
-			this.gPUSpec = gPUSpec;
+		public void setSockets(Integer sockets) {
+			this.sockets = sockets;
 		}
 
 		public List<String> getSupportedInstanceTypeFamilies() {

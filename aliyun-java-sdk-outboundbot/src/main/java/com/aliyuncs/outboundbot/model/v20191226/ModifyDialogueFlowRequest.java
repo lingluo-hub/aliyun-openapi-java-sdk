@@ -25,6 +25,8 @@ import com.aliyuncs.outboundbot.Endpoint;
 public class ModifyDialogueFlowRequest extends RpcAcsRequest<ModifyDialogueFlowResponse> {
 	   
 
+	private Boolean isDrafted;
+
 	private String scriptId;
 
 	private String instanceId;
@@ -39,6 +41,17 @@ public class ModifyDialogueFlowRequest extends RpcAcsRequest<ModifyDialogueFlowR
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Boolean getIsDrafted() {
+		return this.isDrafted;
+	}
+
+	public void setIsDrafted(Boolean isDrafted) {
+		this.isDrafted = isDrafted;
+		if(isDrafted != null){
+			putQueryParameter("IsDrafted", isDrafted.toString());
+		}
 	}
 
 	public String getScriptId() {

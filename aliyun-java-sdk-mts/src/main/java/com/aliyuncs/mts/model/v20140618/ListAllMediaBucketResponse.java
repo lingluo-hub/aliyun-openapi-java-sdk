@@ -57,9 +57,19 @@ public class ListAllMediaBucketResponse extends AcsResponse {
 
 	public static class MediaBucket {
 
+		private String type;
+
 		private String bucket;
 
-		private String type;
+		private String referer;
+
+		public String getType() {
+			return this.type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
 
 		public String getBucket() {
 			return this.bucket;
@@ -69,12 +79,12 @@ public class ListAllMediaBucketResponse extends AcsResponse {
 			this.bucket = bucket;
 		}
 
-		public String getType() {
-			return this.type;
+		public String getReferer() {
+			return this.referer;
 		}
 
-		public void setType(String type) {
-			this.type = type;
+		public void setReferer(String referer) {
+			this.referer = referer;
 		}
 	}
 

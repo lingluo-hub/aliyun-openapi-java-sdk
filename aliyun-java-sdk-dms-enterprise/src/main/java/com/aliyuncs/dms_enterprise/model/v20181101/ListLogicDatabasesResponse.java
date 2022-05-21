@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListLogicDatabasesResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<LogicDatabase> logicDatabaseList;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class ListLogicDatabasesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class ListLogicDatabasesResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<LogicDatabase> getLogicDatabaseList() {
@@ -87,29 +87,23 @@ public class ListLogicDatabasesResponse extends AcsResponse {
 
 	public static class LogicDatabase {
 
-		private Boolean logic;
-
 		private String databaseId;
 
-		private String envType;
+		private String dbType;
+
+		private Boolean logic;
 
 		private String schemaName;
 
 		private String searchName;
 
-		private String dbType;
+		private String envType;
+
+		private String alias;
 
 		private List<String> ownerIdList;
 
 		private List<String> ownerNameList;
-
-		public Boolean getLogic() {
-			return this.logic;
-		}
-
-		public void setLogic(Boolean logic) {
-			this.logic = logic;
-		}
 
 		public String getDatabaseId() {
 			return this.databaseId;
@@ -119,12 +113,20 @@ public class ListLogicDatabasesResponse extends AcsResponse {
 			this.databaseId = databaseId;
 		}
 
-		public String getEnvType() {
-			return this.envType;
+		public String getDbType() {
+			return this.dbType;
 		}
 
-		public void setEnvType(String envType) {
-			this.envType = envType;
+		public void setDbType(String dbType) {
+			this.dbType = dbType;
+		}
+
+		public Boolean getLogic() {
+			return this.logic;
+		}
+
+		public void setLogic(Boolean logic) {
+			this.logic = logic;
 		}
 
 		public String getSchemaName() {
@@ -143,12 +145,20 @@ public class ListLogicDatabasesResponse extends AcsResponse {
 			this.searchName = searchName;
 		}
 
-		public String getDbType() {
-			return this.dbType;
+		public String getEnvType() {
+			return this.envType;
 		}
 
-		public void setDbType(String dbType) {
-			this.dbType = dbType;
+		public void setEnvType(String envType) {
+			this.envType = envType;
+		}
+
+		public String getAlias() {
+			return this.alias;
+		}
+
+		public void setAlias(String alias) {
+			this.alias = alias;
 		}
 
 		public List<String> getOwnerIdList() {

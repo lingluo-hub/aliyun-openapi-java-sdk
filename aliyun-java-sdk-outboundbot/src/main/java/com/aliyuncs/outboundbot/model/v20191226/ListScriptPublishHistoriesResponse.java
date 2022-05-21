@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListScriptPublishHistoriesResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private ScriptPublishHistories scriptPublishHistories;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public ScriptPublishHistories getScriptPublishHistories() {
@@ -87,21 +87,13 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 
 	public static class ScriptPublishHistories {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<PublishHistory> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<PublishHistory> getList() {
 			return this.list;
 		}
@@ -129,15 +129,23 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 
 		public static class PublishHistory {
 
+			private Long publishTime;
+
 			private String instanceId;
 
 			private String scriptId;
 
-			private String scriptVersion;
-
 			private String description;
 
-			private Long publishTime;
+			private String scriptVersion;
+
+			public Long getPublishTime() {
+				return this.publishTime;
+			}
+
+			public void setPublishTime(Long publishTime) {
+				this.publishTime = publishTime;
+			}
 
 			public String getInstanceId() {
 				return this.instanceId;
@@ -155,14 +163,6 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 				this.scriptId = scriptId;
 			}
 
-			public String getScriptVersion() {
-				return this.scriptVersion;
-			}
-
-			public void setScriptVersion(String scriptVersion) {
-				this.scriptVersion = scriptVersion;
-			}
-
 			public String getDescription() {
 				return this.description;
 			}
@@ -171,12 +171,12 @@ public class ListScriptPublishHistoriesResponse extends AcsResponse {
 				this.description = description;
 			}
 
-			public Long getPublishTime() {
-				return this.publishTime;
+			public String getScriptVersion() {
+				return this.scriptVersion;
 			}
 
-			public void setPublishTime(Long publishTime) {
-				this.publishTime = publishTime;
+			public void setScriptVersion(String scriptVersion) {
+				this.scriptVersion = scriptVersion;
 			}
 		}
 	}

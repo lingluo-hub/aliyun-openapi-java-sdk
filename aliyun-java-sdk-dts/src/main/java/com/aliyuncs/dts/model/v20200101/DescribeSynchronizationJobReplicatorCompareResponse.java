@@ -24,38 +24,22 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSynchronizationJobReplicatorCompareResponse extends AcsResponse {
 
-	private String success;
-
-	private String errCode;
-
-	private String errMessage;
+	private Boolean synchronizationReplicatorCompareEnable;
 
 	private String requestId;
 
-	private Boolean synchronizationReplicatorCompareEnable;
+	private String errCode;
 
-	public String getSuccess() {
-		return this.success;
+	private String success;
+
+	private String errMessage;
+
+	public Boolean getSynchronizationReplicatorCompareEnable() {
+		return this.synchronizationReplicatorCompareEnable;
 	}
 
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-
-	public String getErrCode() {
-		return this.errCode;
-	}
-
-	public void setErrCode(String errCode) {
-		this.errCode = errCode;
-	}
-
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
+	public void setSynchronizationReplicatorCompareEnable(Boolean synchronizationReplicatorCompareEnable) {
+		this.synchronizationReplicatorCompareEnable = synchronizationReplicatorCompareEnable;
 	}
 
 	public String getRequestId() {
@@ -66,12 +50,28 @@ public class DescribeSynchronizationJobReplicatorCompareResponse extends AcsResp
 		this.requestId = requestId;
 	}
 
-	public Boolean getSynchronizationReplicatorCompareEnable() {
-		return this.synchronizationReplicatorCompareEnable;
+	public String getErrCode() {
+		return this.errCode;
 	}
 
-	public void setSynchronizationReplicatorCompareEnable(Boolean synchronizationReplicatorCompareEnable) {
-		this.synchronizationReplicatorCompareEnable = synchronizationReplicatorCompareEnable;
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

@@ -26,6 +26,8 @@ import com.aliyuncs.cdn.Endpoint;
 public class DescribeUserDomainsRequest extends RpcAcsRequest<DescribeUserDomainsResponse> {
 	   
 
+	private String source;
+
 	private Integer pageNumber;
 
 	private Boolean checkDomainShow;
@@ -41,6 +43,8 @@ public class DescribeUserDomainsRequest extends RpcAcsRequest<DescribeUserDomain
 	private Integer pageSize;
 
 	private List<Tag> tags;
+
+	private String coverage;
 
 	private String domainName;
 
@@ -58,6 +62,17 @@ public class DescribeUserDomainsRequest extends RpcAcsRequest<DescribeUserDomain
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getSource() {
+		return this.source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+		if(source != null){
+			putQueryParameter("Source", source);
+		}
 	}
 
 	public Integer getPageNumber() {
@@ -149,6 +164,17 @@ public class DescribeUserDomainsRequest extends RpcAcsRequest<DescribeUserDomain
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
+	}
+
+	public String getCoverage() {
+		return this.coverage;
+	}
+
+	public void setCoverage(String coverage) {
+		this.coverage = coverage;
+		if(coverage != null){
+			putQueryParameter("Coverage", coverage);
+		}
 	}
 
 	public String getDomainName() {

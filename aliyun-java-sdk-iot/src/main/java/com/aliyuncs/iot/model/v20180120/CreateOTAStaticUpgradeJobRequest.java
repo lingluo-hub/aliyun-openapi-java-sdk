@@ -26,15 +26,33 @@ import com.aliyuncs.iot.Endpoint;
 public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTAStaticUpgradeJobResponse> {
 	   
 
+	private Boolean multiModuleMode;
+
 	private Integer retryCount;
 
 	private Integer timeoutInMinutes;
 
+	private Boolean needConfirm;
+
+	private String groupType;
+
+	private Boolean needPush;
+
 	private String iotInstanceId;
+
+	private String downloadProtocol;
 
 	private String targetSelection;
 
+	private Long scheduleFinishTime;
+
+	private List<Tag> tags;
+
 	private String grayPercent;
+
+	private String dnListFileUrl;
+
+	private String groupId;
 
 	private String firmwareId;
 
@@ -46,16 +64,29 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 
 	private Long scheduleTime;
 
+	private Integer overwriteMode;
+
 	private Integer maximumPerMinute;
 
 	private List<String> targetDeviceNames;
 	public CreateOTAStaticUpgradeJobRequest() {
-		super("Iot", "2018-01-20", "CreateOTAStaticUpgradeJob", "Iot");
+		super("Iot", "2018-01-20", "CreateOTAStaticUpgradeJob");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Boolean getMultiModuleMode() {
+		return this.multiModuleMode;
+	}
+
+	public void setMultiModuleMode(Boolean multiModuleMode) {
+		this.multiModuleMode = multiModuleMode;
+		if(multiModuleMode != null){
+			putQueryParameter("MultiModuleMode", multiModuleMode.toString());
+		}
 	}
 
 	public Integer getRetryCount() {
@@ -80,6 +111,39 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 		}
 	}
 
+	public Boolean getNeedConfirm() {
+		return this.needConfirm;
+	}
+
+	public void setNeedConfirm(Boolean needConfirm) {
+		this.needConfirm = needConfirm;
+		if(needConfirm != null){
+			putQueryParameter("NeedConfirm", needConfirm.toString());
+		}
+	}
+
+	public String getGroupType() {
+		return this.groupType;
+	}
+
+	public void setGroupType(String groupType) {
+		this.groupType = groupType;
+		if(groupType != null){
+			putQueryParameter("GroupType", groupType);
+		}
+	}
+
+	public Boolean getNeedPush() {
+		return this.needPush;
+	}
+
+	public void setNeedPush(Boolean needPush) {
+		this.needPush = needPush;
+		if(needPush != null){
+			putQueryParameter("NeedPush", needPush.toString());
+		}
+	}
+
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -88,6 +152,17 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getDownloadProtocol() {
+		return this.downloadProtocol;
+	}
+
+	public void setDownloadProtocol(String downloadProtocol) {
+		this.downloadProtocol = downloadProtocol;
+		if(downloadProtocol != null){
+			putQueryParameter("DownloadProtocol", downloadProtocol);
 		}
 	}
 
@@ -102,6 +177,31 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 		}
 	}
 
+	public Long getScheduleFinishTime() {
+		return this.scheduleFinishTime;
+	}
+
+	public void setScheduleFinishTime(Long scheduleFinishTime) {
+		this.scheduleFinishTime = scheduleFinishTime;
+		if(scheduleFinishTime != null){
+			putQueryParameter("ScheduleFinishTime", scheduleFinishTime.toString());
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
 	public String getGrayPercent() {
 		return this.grayPercent;
 	}
@@ -110,6 +210,28 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 		this.grayPercent = grayPercent;
 		if(grayPercent != null){
 			putQueryParameter("GrayPercent", grayPercent);
+		}
+	}
+
+	public String getDnListFileUrl() {
+		return this.dnListFileUrl;
+	}
+
+	public void setDnListFileUrl(String dnListFileUrl) {
+		this.dnListFileUrl = dnListFileUrl;
+		if(dnListFileUrl != null){
+			putQueryParameter("DnListFileUrl", dnListFileUrl);
+		}
+	}
+
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
 		}
 	}
 
@@ -170,6 +292,17 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 		}
 	}
 
+	public Integer getOverwriteMode() {
+		return this.overwriteMode;
+	}
+
+	public void setOverwriteMode(Integer overwriteMode) {
+		this.overwriteMode = overwriteMode;
+		if(overwriteMode != null){
+			putQueryParameter("OverwriteMode", overwriteMode.toString());
+		}
+	}
+
 	public Integer getMaximumPerMinute() {
 		return this.maximumPerMinute;
 	}
@@ -192,6 +325,29 @@ public class CreateOTAStaticUpgradeJobRequest extends RpcAcsRequest<CreateOTASta
 				putQueryParameter("TargetDeviceName." + (i + 1) , targetDeviceNames.get(i));
 			}
 		}	
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
 	}
 
 	@Override

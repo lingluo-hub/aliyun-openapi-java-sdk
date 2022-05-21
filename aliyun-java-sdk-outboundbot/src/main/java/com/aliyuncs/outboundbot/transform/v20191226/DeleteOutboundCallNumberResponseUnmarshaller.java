@@ -23,10 +23,10 @@ public class DeleteOutboundCallNumberResponseUnmarshaller {
 	public static DeleteOutboundCallNumberResponse unmarshall(DeleteOutboundCallNumberResponse deleteOutboundCallNumberResponse, UnmarshallerContext _ctx) {
 		
 		deleteOutboundCallNumberResponse.setRequestId(_ctx.stringValue("DeleteOutboundCallNumberResponse.RequestId"));
-		deleteOutboundCallNumberResponse.setSuccess(_ctx.booleanValue("DeleteOutboundCallNumberResponse.Success"));
+		deleteOutboundCallNumberResponse.setHttpStatusCode(_ctx.integerValue("DeleteOutboundCallNumberResponse.HttpStatusCode"));
 		deleteOutboundCallNumberResponse.setCode(_ctx.stringValue("DeleteOutboundCallNumberResponse.Code"));
 		deleteOutboundCallNumberResponse.setMessage(_ctx.stringValue("DeleteOutboundCallNumberResponse.Message"));
-		deleteOutboundCallNumberResponse.setHttpStatusCode(_ctx.integerValue("DeleteOutboundCallNumberResponse.HttpStatusCode"));
+		deleteOutboundCallNumberResponse.setSuccess(_ctx.booleanValue("DeleteOutboundCallNumberResponse.Success"));
 	 
 	 	return deleteOutboundCallNumberResponse;
 	}

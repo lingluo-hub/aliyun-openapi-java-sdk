@@ -25,6 +25,7 @@ public class CreateTemplateResponseUnmarshaller {
 	public static CreateTemplateResponse unmarshall(CreateTemplateResponse createTemplateResponse, UnmarshallerContext _ctx) {
 		
 		createTemplateResponse.setRequestId(_ctx.stringValue("CreateTemplateResponse.RequestId"));
+		createTemplateResponse.setTemplateType(_ctx.stringValue("CreateTemplateResponse.TemplateType"));
 
 		Template template = new Template();
 		template.setTemplateName(_ctx.stringValue("CreateTemplateResponse.Template.TemplateName"));
@@ -40,6 +41,7 @@ public class CreateTemplateResponseUnmarshaller {
 		template.setTemplateVersion(_ctx.stringValue("CreateTemplateResponse.Template.TemplateVersion"));
 		template.setHasTrigger(_ctx.booleanValue("CreateTemplateResponse.Template.HasTrigger"));
 		template.setTags(_ctx.mapValue("CreateTemplateResponse.Template.Tags"));
+		template.setResourceGroupId(_ctx.stringValue("CreateTemplateResponse.Template.ResourceGroupId"));
 		createTemplateResponse.setTemplate(template);
 	 
 	 	return createTemplateResponse;

@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.dms_enterprise.model.v20181101.ListInstancesResponse;
 import com.aliyuncs.dms_enterprise.model.v20181101.ListInstancesResponse.Instance;
+import com.aliyuncs.dms_enterprise.model.v20181101.ListInstancesResponse.Instance.StandardGroup;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,36 +28,53 @@ public class ListInstancesResponseUnmarshaller {
 	public static ListInstancesResponse unmarshall(ListInstancesResponse listInstancesResponse, UnmarshallerContext _ctx) {
 		
 		listInstancesResponse.setRequestId(_ctx.stringValue("ListInstancesResponse.RequestId"));
-		listInstancesResponse.setSuccess(_ctx.booleanValue("ListInstancesResponse.Success"));
-		listInstancesResponse.setErrorMessage(_ctx.stringValue("ListInstancesResponse.ErrorMessage"));
-		listInstancesResponse.setErrorCode(_ctx.stringValue("ListInstancesResponse.ErrorCode"));
 		listInstancesResponse.setTotalCount(_ctx.longValue("ListInstancesResponse.TotalCount"));
+		listInstancesResponse.setErrorCode(_ctx.stringValue("ListInstancesResponse.ErrorCode"));
+		listInstancesResponse.setErrorMessage(_ctx.stringValue("ListInstancesResponse.ErrorMessage"));
+		listInstancesResponse.setSuccess(_ctx.booleanValue("ListInstancesResponse.Success"));
 
 		List<Instance> instanceList = new ArrayList<Instance>();
 		for (int i = 0; i < _ctx.lengthValue("ListInstancesResponse.InstanceList.Length"); i++) {
 			Instance instance = new Instance();
+			instance.setVpcId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].VpcId"));
+			instance.setDatabaseUser(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DatabaseUser"));
+			instance.setDbaId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DbaId"));
+			instance.setUseDsql(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].UseDsql"));
+			instance.setPort(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].Port"));
+			instance.setEcsInstanceId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EcsInstanceId"));
+			instance.setEnvType(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EnvType"));
+			instance.setSid(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].Sid"));
+			instance.setSafeRuleId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].SafeRuleId"));
+			instance.setDbaNickName(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DbaNickName"));
+			instance.setQueryTimeout(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].QueryTimeout"));
+			instance.setInstanceSource(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceSource"));
+			instance.setHost(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].Host"));
+			instance.setState(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].State"));
+			instance.setDataLinkName(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DataLinkName"));
+			instance.setExportTimeout(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].ExportTimeout"));
 			instance.setInstanceId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceId"));
 			instance.setInstanceType(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceType"));
-			instance.setEnvType(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EnvType"));
-			instance.setHost(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].Host"));
-			instance.setPort(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].Port"));
-			instance.setSid(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].Sid"));
-			instance.setInstanceAlias(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceAlias"));
-			instance.setDataLinkName(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DataLinkName"));
-			instance.setDbaNickName(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DbaNickName"));
-			instance.setSafeRuleId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].SafeRuleId"));
-			instance.setQueryTimeout(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].QueryTimeout"));
-			instance.setExportTimeout(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].ExportTimeout"));
-			instance.setState(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].State"));
-			instance.setDbaId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DbaId"));
-			instance.setDdlOnline(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].DdlOnline"));
-			instance.setUseDsql(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].UseDsql"));
-			instance.setEcsInstanceId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EcsInstanceId"));
-			instance.setVpcId(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].VpcId"));
-			instance.setEcsRegion(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EcsRegion"));
-			instance.setDatabaseUser(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DatabaseUser"));
 			instance.setDatabasePassword(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].DatabasePassword"));
-			instance.setInstanceSource(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceSource"));
+			instance.setInstanceAlias(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].InstanceAlias"));
+			instance.setDdlOnline(_ctx.integerValue("ListInstancesResponse.InstanceList["+ i +"].DdlOnline"));
+			instance.setEcsRegion(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].EcsRegion"));
+
+			List<String> ownerIdList = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("ListInstancesResponse.InstanceList["+ i +"].OwnerIdList.Length"); j++) {
+				ownerIdList.add(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].OwnerIdList["+ j +"]"));
+			}
+			instance.setOwnerIdList(ownerIdList);
+
+			List<String> ownerNameList = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("ListInstancesResponse.InstanceList["+ i +"].OwnerNameList.Length"); j++) {
+				ownerNameList.add(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].OwnerNameList["+ j +"]"));
+			}
+			instance.setOwnerNameList(ownerNameList);
+
+			StandardGroup standardGroup = new StandardGroup();
+			standardGroup.setGroupName(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].StandardGroup.GroupName"));
+			standardGroup.setGroupMode(_ctx.stringValue("ListInstancesResponse.InstanceList["+ i +"].StandardGroup.GroupMode"));
+			instance.setStandardGroup(standardGroup);
 
 			instanceList.add(instance);
 		}

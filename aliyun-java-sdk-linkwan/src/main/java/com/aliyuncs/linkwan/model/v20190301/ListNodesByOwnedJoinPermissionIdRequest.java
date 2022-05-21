@@ -26,17 +26,19 @@ import com.aliyuncs.linkwan.Endpoint;
 public class ListNodesByOwnedJoinPermissionIdRequest extends RpcAcsRequest<ListNodesByOwnedJoinPermissionIdResponse> {
 	   
 
-	private Long offset;
-
 	private String joinPermissionId;
+
+	private String iotInstanceId;
 
 	private String fuzzyDevEui;
 
 	private Long limit;
 
-	private String sortingField;
+	private Long offset;
 
 	private Boolean ascending;
+
+	private String sortingField;
 	public ListNodesByOwnedJoinPermissionIdRequest() {
 		super("LinkWAN", "2019-03-01", "ListNodesByOwnedJoinPermissionId", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -47,17 +49,6 @@ public class ListNodesByOwnedJoinPermissionIdRequest extends RpcAcsRequest<ListN
 		} catch (Exception e) {}
 	}
 
-	public Long getOffset() {
-		return this.offset;
-	}
-
-	public void setOffset(Long offset) {
-		this.offset = offset;
-		if(offset != null){
-			putQueryParameter("Offset", offset.toString());
-		}
-	}
-
 	public String getJoinPermissionId() {
 		return this.joinPermissionId;
 	}
@@ -66,6 +57,17 @@ public class ListNodesByOwnedJoinPermissionIdRequest extends RpcAcsRequest<ListN
 		this.joinPermissionId = joinPermissionId;
 		if(joinPermissionId != null){
 			putQueryParameter("JoinPermissionId", joinPermissionId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -91,14 +93,14 @@ public class ListNodesByOwnedJoinPermissionIdRequest extends RpcAcsRequest<ListN
 		}
 	}
 
-	public String getSortingField() {
-		return this.sortingField;
+	public Long getOffset() {
+		return this.offset;
 	}
 
-	public void setSortingField(String sortingField) {
-		this.sortingField = sortingField;
-		if(sortingField != null){
-			putQueryParameter("SortingField", sortingField);
+	public void setOffset(Long offset) {
+		this.offset = offset;
+		if(offset != null){
+			putQueryParameter("Offset", offset.toString());
 		}
 	}
 
@@ -110,6 +112,17 @@ public class ListNodesByOwnedJoinPermissionIdRequest extends RpcAcsRequest<ListN
 		this.ascending = ascending;
 		if(ascending != null){
 			putQueryParameter("Ascending", ascending.toString());
+		}
+	}
+
+	public String getSortingField() {
+		return this.sortingField;
+	}
+
+	public void setSortingField(String sortingField) {
+		this.sortingField = sortingField;
+		if(sortingField != null){
+			putQueryParameter("SortingField", sortingField);
 		}
 	}
 

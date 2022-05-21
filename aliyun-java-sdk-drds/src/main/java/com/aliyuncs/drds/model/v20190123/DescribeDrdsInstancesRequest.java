@@ -28,17 +28,23 @@ public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInst
 
 	private String description;
 
+	private String productVersion;
+
 	private String type;
 
 	private Integer pageNumber;
+
+	private String resourceGroupId;
 
 	private Boolean expired;
 
 	private Integer pageSize;
 
 	private List<Tag> tags;
+
+	private Boolean mix;
 	public DescribeDrdsInstancesRequest() {
-		super("Drds", "2019-01-23", "DescribeDrdsInstances", "Drds");
+		super("Drds", "2019-01-23", "DescribeDrdsInstances", "drds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -54,6 +60,17 @@ public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInst
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getProductVersion() {
+		return this.productVersion;
+	}
+
+	public void setProductVersion(String productVersion) {
+		this.productVersion = productVersion;
+		if(productVersion != null){
+			putQueryParameter("ProductVersion", productVersion);
 		}
 	}
 
@@ -76,6 +93,17 @@ public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInst
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -113,6 +141,17 @@ public class DescribeDrdsInstancesRequest extends RpcAcsRequest<DescribeDrdsInst
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
+	}
+
+	public Boolean getMix() {
+		return this.mix;
+	}
+
+	public void setMix(Boolean mix) {
+		this.mix = mix;
+		if(mix != null){
+			putQueryParameter("Mix", mix.toString());
+		}
 	}
 
 	public static class Tag {

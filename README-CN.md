@@ -10,7 +10,7 @@
 <a href="https://search.maven.org/search?q=g:%22com.aliyun%22%20AND%20a:%22aliyun-java-sdk-core%22"><img src="https://img.shields.io/maven-central/v/com.aliyun/aliyun-java-sdk-core.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
 <a href="https://travis-ci.org/aliyun/aliyun-openapi-java-sdk"><img src="https://travis-ci.org/aliyun/aliyun-openapi-java-sdk.svg?branch=master"/></a>
 <a href="https://codecov.io/gh/aliyun/aliyun-openapi-java-sdk"><img src="https://codecov.io/gh/aliyun/aliyun-openapi-java-sdk/branch/master/graph/badge.svg"/></a>
-<a href="https://www.codacy.com/app/aliyun/aliyun-openapi-java-sdk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aliyun/aliyun-openapi-java-sdk&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/aef3826e57ca444fb217bab8edaed195"/></a>
+<!-- <a href="https://www.codacy.com/app/aliyun/aliyun-openapi-java-sdk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aliyun/aliyun-openapi-java-sdk&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/aef3826e57ca444fb217bab8edaed195"/></a> -->
 <a href="https://ci.appveyor.com/project/aliyun/aliyun-openapi-java-sdk"><img src="https://ci.appveyor.com/api/projects/status/levg38kb55k0pn1v/branch/master?svg=true"/></a>
 </p>
 
@@ -59,6 +59,10 @@
     <version>0.33.0</version>
 </dependency>
 ```
+
+## 使用诊断
+[Troubleshoot](https://troubleshoot.api.aliyun.com/?source=github_sdk) 提供 OpenAPI 使用诊断服务，通过 `RequestID` 或 `报错信息` ，帮助开发者快速定位，为开发者提供解决方案。
+
 ## 快速使用
 
 以下这个代码示例向您展示了调用 Alibaba Cloud SDK for Java 的3个主要步骤：
@@ -105,7 +109,7 @@ public class Main {
 ## 文档
 * [环境要求](./docs/0-Requirements-CN.md)
 * [安装](./docs/1-Installation-CN.md)
-* [客户端](./docs/2-Client-CN.md)
+* [客户端与凭证](./docs/2-Client-CN.md)
 * [连接池](./docs/3-Pool-CN.md)
 * [超时机制](./docs/4-Timeout-CN.md)
 * [HTTPS配置](./docs/5-HTTPS-CN.md)
@@ -113,6 +117,7 @@ public class Main {
 * [调试](./docs/7-Debug-CN.md)
 * [日志](./docs/8-Log-CN.md)
 * [异常](./docs/9-Exception-CN.md)
+* [域名](./docs/10-Endpoint-CN.md)
 
 ## 问题
 [提交 Issue](https://github.com/aliyun/aliyun-openapi-java-sdk/issues/new)，不符合指南的问题可能会立即关闭。
@@ -125,7 +130,7 @@ public class Main {
 
 ## 相关
 * [阿里云服务 Regions & Endpoints](https://developer.aliyun.com/endpoints)
-* [OpenAPI Explorer](https://api.aliyun.com/)
+* [OpenAPI 开发者门户](https://next.api.aliyun.com/)
 * [最新源码](https://github.com/aliyun/aliyun-openapi-java-sdk)
 
 ## 许可证

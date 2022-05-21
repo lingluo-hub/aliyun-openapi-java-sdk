@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.green.model.v20170823.DescribeOssIncrementCheckSettingResponse;
+import com.aliyuncs.green.model.v20170823.DescribeOssIncrementCheckSettingResponse.AudioAntispamFreezeConfig;
 import com.aliyuncs.green.model.v20170823.DescribeOssIncrementCheckSettingResponse.BucketConfig;
 import com.aliyuncs.green.model.v20170823.DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -30,10 +31,15 @@ public class DescribeOssIncrementCheckSettingResponseUnmarshaller {
 		describeOssIncrementCheckSettingResponse.setRequestId(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.RequestId"));
 		describeOssIncrementCheckSettingResponse.setImageEnableLimit(_ctx.booleanValue("DescribeOssIncrementCheckSettingResponse.ImageEnableLimit"));
 		describeOssIncrementCheckSettingResponse.setImageScanLimit(_ctx.longValue("DescribeOssIncrementCheckSettingResponse.ImageScanLimit"));
+		describeOssIncrementCheckSettingResponse.setScanImageNoFileType(_ctx.booleanValue("DescribeOssIncrementCheckSettingResponse.ScanImageNoFileType"));
 		describeOssIncrementCheckSettingResponse.setVideoFrameInterval(_ctx.integerValue("DescribeOssIncrementCheckSettingResponse.VideoFrameInterval"));
 		describeOssIncrementCheckSettingResponse.setVideoMaxFrames(_ctx.integerValue("DescribeOssIncrementCheckSettingResponse.VideoMaxFrames"));
 		describeOssIncrementCheckSettingResponse.setVideoMaxSize(_ctx.integerValue("DescribeOssIncrementCheckSettingResponse.VideoMaxSize"));
 		describeOssIncrementCheckSettingResponse.setAutoFreezeType(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.AutoFreezeType"));
+		describeOssIncrementCheckSettingResponse.setCallbackId(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.CallbackId"));
+		describeOssIncrementCheckSettingResponse.setCallbackName(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.CallbackName"));
+		describeOssIncrementCheckSettingResponse.setAudioMaxSize(_ctx.integerValue("DescribeOssIncrementCheckSettingResponse.AudioMaxSize"));
+		describeOssIncrementCheckSettingResponse.setAudioAutoFreezeOpened(_ctx.booleanValue("DescribeOssIncrementCheckSettingResponse.AudioAutoFreezeOpened"));
 
 		List<String> imageSceneList = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeOssIncrementCheckSettingResponse.ImageSceneList.Length"); i++) {
@@ -53,11 +59,24 @@ public class DescribeOssIncrementCheckSettingResponseUnmarshaller {
 		}
 		describeOssIncrementCheckSettingResponse.setVideoAutoFreezeSceneList(videoAutoFreezeSceneList);
 
+		List<String> audioSceneList = new ArrayList<String>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeOssIncrementCheckSettingResponse.AudioSceneList.Length"); i++) {
+			audioSceneList.add(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.AudioSceneList["+ i +"]"));
+		}
+		describeOssIncrementCheckSettingResponse.setAudioSceneList(audioSceneList);
+
 		ImageAutoFreeze imageAutoFreeze = new ImageAutoFreeze();
 		imageAutoFreeze.setEnabled(_ctx.booleanValue("DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze.Enabled"));
 		imageAutoFreeze.setPorn(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze.Porn"));
 		imageAutoFreeze.setTerrorism(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze.Terrorism"));
+		imageAutoFreeze.setAd(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze.Ad"));
+		imageAutoFreeze.setLive(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.ImageAutoFreeze.Live"));
 		describeOssIncrementCheckSettingResponse.setImageAutoFreeze(imageAutoFreeze);
+
+		AudioAntispamFreezeConfig audioAntispamFreezeConfig = new AudioAntispamFreezeConfig();
+		audioAntispamFreezeConfig.setType(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.AudioAntispamFreezeConfig.Type"));
+		audioAntispamFreezeConfig.setValue(_ctx.stringValue("DescribeOssIncrementCheckSettingResponse.AudioAntispamFreezeConfig.Value"));
+		describeOssIncrementCheckSettingResponse.setAudioAntispamFreezeConfig(audioAntispamFreezeConfig);
 
 		List<BucketConfig> bucketConfigList = new ArrayList<BucketConfig>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeOssIncrementCheckSettingResponse.BucketConfigList.Length"); i++) {

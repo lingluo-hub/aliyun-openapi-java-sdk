@@ -24,19 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeEndpointSwitchStatusResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String status;
 
 	private String errorMessage;
 
-	public String getRequestId() {
-		return this.requestId;
-	}
+	private String requestId;
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
+	private String errCode;
+
+	private String success;
+
+	private String errMessage;
 
 	public String getStatus() {
 		return this.status;
@@ -52,6 +50,38 @@ public class DescribeEndpointSwitchStatusResponse extends AcsResponse {
 
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getErrCode() {
+		return this.errCode;
+	}
+
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

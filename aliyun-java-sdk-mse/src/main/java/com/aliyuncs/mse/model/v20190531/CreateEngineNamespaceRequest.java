@@ -27,9 +27,15 @@ public class CreateEngineNamespaceRequest extends RpcAcsRequest<CreateEngineName
 
 	private String clusterId;
 
+	private String instanceId;
+
 	private Integer serviceCount;
 
 	private String name;
+
+	private String acceptLanguage;
+
+	private String id;
 
 	private String desc;
 	public CreateEngineNamespaceRequest() {
@@ -48,7 +54,18 @@ public class CreateEngineNamespaceRequest extends RpcAcsRequest<CreateEngineName
 	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -59,7 +76,7 @@ public class CreateEngineNamespaceRequest extends RpcAcsRequest<CreateEngineName
 	public void setServiceCount(Integer serviceCount) {
 		this.serviceCount = serviceCount;
 		if(serviceCount != null){
-			putBodyParameter("ServiceCount", serviceCount.toString());
+			putQueryParameter("ServiceCount", serviceCount.toString());
 		}
 	}
 
@@ -70,7 +87,29 @@ public class CreateEngineNamespaceRequest extends RpcAcsRequest<CreateEngineName
 	public void setName(String name) {
 		this.name = name;
 		if(name != null){
-			putBodyParameter("Name", name);
+			putQueryParameter("Name", name);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
+		}
+	}
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+		if(id != null){
+			putQueryParameter("Id", id);
 		}
 	}
 
@@ -81,7 +120,7 @@ public class CreateEngineNamespaceRequest extends RpcAcsRequest<CreateEngineName
 	public void setDesc(String desc) {
 		this.desc = desc;
 		if(desc != null){
-			putBodyParameter("Desc", desc);
+			putQueryParameter("Desc", desc);
 		}
 	}
 

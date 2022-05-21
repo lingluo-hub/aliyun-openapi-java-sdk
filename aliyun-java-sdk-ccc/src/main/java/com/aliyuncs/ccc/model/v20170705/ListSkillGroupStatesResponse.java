@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListSkillGroupStatesResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Data data;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -87,21 +87,13 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 
 	public static class Data {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<RealTimeSkillGroupState> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<RealTimeSkillGroupState> getList() {
 			return this.list;
 		}
@@ -129,64 +129,32 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 
 		public static class RealTimeSkillGroupState {
 
-			private String instanceId;
-
-			private String skillGroupId;
-
-			private String skillGroupName;
-
-			private Long waitingCalls;
-
-			private Long longestCall;
+			private Long workingAgents;
 
 			private Long loggedInAgents;
 
-			private Long readyAgents;
-
 			private Long breakingAgents;
+
+			private Long longestCall;
+
+			private Long waitingCalls;
 
 			private Long talkingAgents;
 
-			private Long workingAgents;
+			private String skillGroupName;
 
-			public String getInstanceId() {
-				return this.instanceId;
+			private String skillGroupId;
+
+			private Long readyAgents;
+
+			private String instanceId;
+
+			public Long getWorkingAgents() {
+				return this.workingAgents;
 			}
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
-			}
-
-			public String getSkillGroupId() {
-				return this.skillGroupId;
-			}
-
-			public void setSkillGroupId(String skillGroupId) {
-				this.skillGroupId = skillGroupId;
-			}
-
-			public String getSkillGroupName() {
-				return this.skillGroupName;
-			}
-
-			public void setSkillGroupName(String skillGroupName) {
-				this.skillGroupName = skillGroupName;
-			}
-
-			public Long getWaitingCalls() {
-				return this.waitingCalls;
-			}
-
-			public void setWaitingCalls(Long waitingCalls) {
-				this.waitingCalls = waitingCalls;
-			}
-
-			public Long getLongestCall() {
-				return this.longestCall;
-			}
-
-			public void setLongestCall(Long longestCall) {
-				this.longestCall = longestCall;
+			public void setWorkingAgents(Long workingAgents) {
+				this.workingAgents = workingAgents;
 			}
 
 			public Long getLoggedInAgents() {
@@ -197,20 +165,28 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 				this.loggedInAgents = loggedInAgents;
 			}
 
-			public Long getReadyAgents() {
-				return this.readyAgents;
-			}
-
-			public void setReadyAgents(Long readyAgents) {
-				this.readyAgents = readyAgents;
-			}
-
 			public Long getBreakingAgents() {
 				return this.breakingAgents;
 			}
 
 			public void setBreakingAgents(Long breakingAgents) {
 				this.breakingAgents = breakingAgents;
+			}
+
+			public Long getLongestCall() {
+				return this.longestCall;
+			}
+
+			public void setLongestCall(Long longestCall) {
+				this.longestCall = longestCall;
+			}
+
+			public Long getWaitingCalls() {
+				return this.waitingCalls;
+			}
+
+			public void setWaitingCalls(Long waitingCalls) {
+				this.waitingCalls = waitingCalls;
 			}
 
 			public Long getTalkingAgents() {
@@ -221,12 +197,36 @@ public class ListSkillGroupStatesResponse extends AcsResponse {
 				this.talkingAgents = talkingAgents;
 			}
 
-			public Long getWorkingAgents() {
-				return this.workingAgents;
+			public String getSkillGroupName() {
+				return this.skillGroupName;
 			}
 
-			public void setWorkingAgents(Long workingAgents) {
-				this.workingAgents = workingAgents;
+			public void setSkillGroupName(String skillGroupName) {
+				this.skillGroupName = skillGroupName;
+			}
+
+			public String getSkillGroupId() {
+				return this.skillGroupId;
+			}
+
+			public void setSkillGroupId(String skillGroupId) {
+				this.skillGroupId = skillGroupId;
+			}
+
+			public Long getReadyAgents() {
+				return this.readyAgents;
+			}
+
+			public void setReadyAgents(Long readyAgents) {
+				this.readyAgents = readyAgents;
+			}
+
+			public String getInstanceId() {
+				return this.instanceId;
+			}
+
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 		}
 	}

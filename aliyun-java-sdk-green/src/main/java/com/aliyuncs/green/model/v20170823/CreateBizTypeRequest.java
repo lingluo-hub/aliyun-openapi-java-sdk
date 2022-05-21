@@ -25,7 +25,11 @@ import com.aliyuncs.green.Endpoint;
 public class CreateBizTypeRequest extends RpcAcsRequest<CreateBizTypeResponse> {
 	   
 
+	private String description;
+
 	private String bizTypeImport;
+
+	private Boolean citeTemplate;
 
 	private String industryInfo;
 
@@ -39,6 +43,17 @@ public class CreateBizTypeRequest extends RpcAcsRequest<CreateBizTypeResponse> {
 		} catch (Exception e) {}
 	}
 
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
+		}
+	}
+
 	public String getBizTypeImport() {
 		return this.bizTypeImport;
 	}
@@ -47,6 +62,17 @@ public class CreateBizTypeRequest extends RpcAcsRequest<CreateBizTypeResponse> {
 		this.bizTypeImport = bizTypeImport;
 		if(bizTypeImport != null){
 			putQueryParameter("BizTypeImport", bizTypeImport);
+		}
+	}
+
+	public Boolean getCiteTemplate() {
+		return this.citeTemplate;
+	}
+
+	public void setCiteTemplate(Boolean citeTemplate) {
+		this.citeTemplate = citeTemplate;
+		if(citeTemplate != null){
+			putQueryParameter("CiteTemplate", citeTemplate.toString());
 		}
 	}
 

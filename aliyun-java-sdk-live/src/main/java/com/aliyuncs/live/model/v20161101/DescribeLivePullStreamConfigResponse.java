@@ -47,24 +47,28 @@ public class DescribeLivePullStreamConfigResponse extends AcsResponse {
 
 	public static class LiveAppRecord {
 
-		private String domainName;
+		private String endTime;
 
 		private String appName;
-
-		private String streamName;
 
 		private String sourceUrl;
 
 		private String startTime;
 
-		private String endTime;
+		private String always;
 
-		public String getDomainName() {
-			return this.domainName;
+		private String streamName;
+
+		private String sourceUsing;
+
+		private String domainName;
+
+		public String getEndTime() {
+			return this.endTime;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
 		}
 
 		public String getAppName() {
@@ -73,14 +77,6 @@ public class DescribeLivePullStreamConfigResponse extends AcsResponse {
 
 		public void setAppName(String appName) {
 			this.appName = appName;
-		}
-
-		public String getStreamName() {
-			return this.streamName;
-		}
-
-		public void setStreamName(String streamName) {
-			this.streamName = streamName;
 		}
 
 		public String getSourceUrl() {
@@ -99,12 +95,36 @@ public class DescribeLivePullStreamConfigResponse extends AcsResponse {
 			this.startTime = startTime;
 		}
 
-		public String getEndTime() {
-			return this.endTime;
+		public String getAlways() {
+			return this.always;
 		}
 
-		public void setEndTime(String endTime) {
-			this.endTime = endTime;
+		public void setAlways(String always) {
+			this.always = always;
+		}
+
+		public String getStreamName() {
+			return this.streamName;
+		}
+
+		public void setStreamName(String streamName) {
+			this.streamName = streamName;
+		}
+
+		public String getSourceUsing() {
+			return this.sourceUsing;
+		}
+
+		public void setSourceUsing(String sourceUsing) {
+			this.sourceUsing = sourceUsing;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
 		}
 	}
 

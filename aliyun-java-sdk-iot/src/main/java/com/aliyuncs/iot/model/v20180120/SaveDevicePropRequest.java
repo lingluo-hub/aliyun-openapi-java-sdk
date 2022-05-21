@@ -25,44 +25,22 @@ import com.aliyuncs.iot.Endpoint;
 public class SaveDevicePropRequest extends RpcAcsRequest<SaveDevicePropResponse> {
 	   
 
-	private String productKey;
-
-	private String props;
-
 	private String iotId;
 
 	private String iotInstanceId;
 
+	private String productKey;
+
+	private String props;
+
 	private String deviceName;
 	public SaveDevicePropRequest() {
-		super("Iot", "2018-01-20", "SaveDeviceProp", "Iot");
+		super("Iot", "2018-01-20", "SaveDeviceProp");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public String getProps() {
-		return this.props;
-	}
-
-	public void setProps(String props) {
-		this.props = props;
-		if(props != null){
-			putQueryParameter("Props", props);
-		}
 	}
 
 	public String getIotId() {
@@ -84,6 +62,28 @@ public class SaveDevicePropRequest extends RpcAcsRequest<SaveDevicePropResponse>
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getProps() {
+		return this.props;
+	}
+
+	public void setProps(String props) {
+		this.props = props;
+		if(props != null){
+			putQueryParameter("Props", props);
 		}
 	}
 

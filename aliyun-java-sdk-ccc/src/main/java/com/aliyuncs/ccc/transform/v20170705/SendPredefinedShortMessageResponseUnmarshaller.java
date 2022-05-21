@@ -23,10 +23,10 @@ public class SendPredefinedShortMessageResponseUnmarshaller {
 	public static SendPredefinedShortMessageResponse unmarshall(SendPredefinedShortMessageResponse sendPredefinedShortMessageResponse, UnmarshallerContext _ctx) {
 		
 		sendPredefinedShortMessageResponse.setRequestId(_ctx.stringValue("SendPredefinedShortMessageResponse.RequestId"));
+		sendPredefinedShortMessageResponse.setHttpStatusCode(_ctx.integerValue("SendPredefinedShortMessageResponse.HttpStatusCode"));
 		sendPredefinedShortMessageResponse.setSuccess(_ctx.booleanValue("SendPredefinedShortMessageResponse.Success"));
 		sendPredefinedShortMessageResponse.setCode(_ctx.stringValue("SendPredefinedShortMessageResponse.Code"));
 		sendPredefinedShortMessageResponse.setMessage(_ctx.stringValue("SendPredefinedShortMessageResponse.Message"));
-		sendPredefinedShortMessageResponse.setHttpStatusCode(_ctx.integerValue("SendPredefinedShortMessageResponse.HttpStatusCode"));
 		sendPredefinedShortMessageResponse.setBizId(_ctx.stringValue("SendPredefinedShortMessageResponse.BizId"));
 	 
 	 	return sendPredefinedShortMessageResponse;

@@ -26,28 +26,68 @@ import com.aliyuncs.iot.Endpoint;
 public class CreateOTADynamicUpgradeJobRequest extends RpcAcsRequest<CreateOTADynamicUpgradeJobResponse> {
 	   
 
+	private Integer dynamicMode;
+
+	private Boolean multiModuleMode;
+
 	private Integer retryCount;
+
+	private Integer timeoutInMinutes;
+
+	private Boolean needConfirm;
+
+	private String groupType;
+
+	private Boolean needPush;
+
+	private String iotInstanceId;
+
+	private String downloadProtocol;
+
+	private List<Tag> tags;
+
+	private String groupId;
 
 	private String firmwareId;
 
 	private String productKey;
 
-	private Integer timeoutInMinutes;
-
 	private Integer retryInterval;
 
 	private List<String> srcVersions;
 
-	private String iotInstanceId;
+	private Integer overwriteMode;
 
 	private Integer maximumPerMinute;
 	public CreateOTADynamicUpgradeJobRequest() {
-		super("Iot", "2018-01-20", "CreateOTADynamicUpgradeJob", "Iot");
+		super("Iot", "2018-01-20", "CreateOTADynamicUpgradeJob");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getDynamicMode() {
+		return this.dynamicMode;
+	}
+
+	public void setDynamicMode(Integer dynamicMode) {
+		this.dynamicMode = dynamicMode;
+		if(dynamicMode != null){
+			putQueryParameter("DynamicMode", dynamicMode.toString());
+		}
+	}
+
+	public Boolean getMultiModuleMode() {
+		return this.multiModuleMode;
+	}
+
+	public void setMultiModuleMode(Boolean multiModuleMode) {
+		this.multiModuleMode = multiModuleMode;
+		if(multiModuleMode != null){
+			putQueryParameter("MultiModuleMode", multiModuleMode.toString());
+		}
 	}
 
 	public Integer getRetryCount() {
@@ -58,6 +98,97 @@ public class CreateOTADynamicUpgradeJobRequest extends RpcAcsRequest<CreateOTADy
 		this.retryCount = retryCount;
 		if(retryCount != null){
 			putQueryParameter("RetryCount", retryCount.toString());
+		}
+	}
+
+	public Integer getTimeoutInMinutes() {
+		return this.timeoutInMinutes;
+	}
+
+	public void setTimeoutInMinutes(Integer timeoutInMinutes) {
+		this.timeoutInMinutes = timeoutInMinutes;
+		if(timeoutInMinutes != null){
+			putQueryParameter("TimeoutInMinutes", timeoutInMinutes.toString());
+		}
+	}
+
+	public Boolean getNeedConfirm() {
+		return this.needConfirm;
+	}
+
+	public void setNeedConfirm(Boolean needConfirm) {
+		this.needConfirm = needConfirm;
+		if(needConfirm != null){
+			putQueryParameter("NeedConfirm", needConfirm.toString());
+		}
+	}
+
+	public String getGroupType() {
+		return this.groupType;
+	}
+
+	public void setGroupType(String groupType) {
+		this.groupType = groupType;
+		if(groupType != null){
+			putQueryParameter("GroupType", groupType);
+		}
+	}
+
+	public Boolean getNeedPush() {
+		return this.needPush;
+	}
+
+	public void setNeedPush(Boolean needPush) {
+		this.needPush = needPush;
+		if(needPush != null){
+			putQueryParameter("NeedPush", needPush.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getDownloadProtocol() {
+		return this.downloadProtocol;
+	}
+
+	public void setDownloadProtocol(String downloadProtocol) {
+		this.downloadProtocol = downloadProtocol;
+		if(downloadProtocol != null){
+			putQueryParameter("DownloadProtocol", downloadProtocol);
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
 		}
 	}
 
@@ -80,17 +211,6 @@ public class CreateOTADynamicUpgradeJobRequest extends RpcAcsRequest<CreateOTADy
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public Integer getTimeoutInMinutes() {
-		return this.timeoutInMinutes;
-	}
-
-	public void setTimeoutInMinutes(Integer timeoutInMinutes) {
-		this.timeoutInMinutes = timeoutInMinutes;
-		if(timeoutInMinutes != null){
-			putQueryParameter("TimeoutInMinutes", timeoutInMinutes.toString());
 		}
 	}
 
@@ -118,14 +238,14 @@ public class CreateOTADynamicUpgradeJobRequest extends RpcAcsRequest<CreateOTADy
 		}	
 	}
 
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
+	public Integer getOverwriteMode() {
+		return this.overwriteMode;
 	}
 
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
+	public void setOverwriteMode(Integer overwriteMode) {
+		this.overwriteMode = overwriteMode;
+		if(overwriteMode != null){
+			putQueryParameter("OverwriteMode", overwriteMode.toString());
 		}
 	}
 
@@ -137,6 +257,29 @@ public class CreateOTADynamicUpgradeJobRequest extends RpcAcsRequest<CreateOTADy
 		this.maximumPerMinute = maximumPerMinute;
 		if(maximumPerMinute != null){
 			putQueryParameter("MaximumPerMinute", maximumPerMinute.toString());
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

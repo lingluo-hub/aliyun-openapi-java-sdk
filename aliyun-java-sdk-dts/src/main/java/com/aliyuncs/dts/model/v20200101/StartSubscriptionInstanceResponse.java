@@ -24,22 +24,22 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class StartSubscriptionInstanceResponse extends AcsResponse {
 
-	private String success;
+	private String requestId;
 
 	private String errCode;
 
-	private String errMessage;
-
-	private String requestId;
-
 	private String taskId;
 
-	public String getSuccess() {
-		return this.success;
+	private String success;
+
+	private String errMessage;
+
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setSuccess(String success) {
-		this.success = success;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getErrCode() {
@@ -50,28 +50,28 @@ public class StartSubscriptionInstanceResponse extends AcsResponse {
 		this.errCode = errCode;
 	}
 
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
-	}
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
 	public String getTaskId() {
 		return this.taskId;
 	}
 
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

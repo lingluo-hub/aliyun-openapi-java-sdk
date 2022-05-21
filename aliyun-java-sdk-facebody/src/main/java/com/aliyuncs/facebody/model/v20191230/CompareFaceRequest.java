@@ -25,16 +25,55 @@ import com.aliyuncs.facebody.Endpoint;
 public class CompareFaceRequest extends RpcAcsRequest<CompareFaceResponse> {
 	   
 
+	private String imageDataA;
+
+	private String imageDataB;
+
+	private Float qualityScoreThreshold;
+
 	private String imageURLB;
 
 	private String imageURLA;
 	public CompareFaceRequest() {
-		super("facebody", "2019-12-30", "CompareFace", "facebody");
+		super("facebody", "2019-12-30", "CompareFace");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getImageDataA() {
+		return this.imageDataA;
+	}
+
+	public void setImageDataA(String imageDataA) {
+		this.imageDataA = imageDataA;
+		if(imageDataA != null){
+			putBodyParameter("ImageDataA", imageDataA);
+		}
+	}
+
+	public String getImageDataB() {
+		return this.imageDataB;
+	}
+
+	public void setImageDataB(String imageDataB) {
+		this.imageDataB = imageDataB;
+		if(imageDataB != null){
+			putBodyParameter("ImageDataB", imageDataB);
+		}
+	}
+
+	public Float getQualityScoreThreshold() {
+		return this.qualityScoreThreshold;
+	}
+
+	public void setQualityScoreThreshold(Float qualityScoreThreshold) {
+		this.qualityScoreThreshold = qualityScoreThreshold;
+		if(qualityScoreThreshold != null){
+			putBodyParameter("QualityScoreThreshold", qualityScoreThreshold.toString());
+		}
 	}
 
 	public String getImageURLB() {

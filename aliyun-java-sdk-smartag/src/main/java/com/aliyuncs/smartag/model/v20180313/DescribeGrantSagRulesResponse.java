@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeGrantSagRulesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<GrantRule> grantRules;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeGrantSagRulesResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<GrantRule> getGrantRules() {
@@ -77,22 +77,24 @@ public class DescribeGrantSagRulesResponse extends AcsResponse {
 
 	public static class GrantRule {
 
-		private String instanceId;
+		private Long createTime;
 
 		private String smartAGId;
 
-		private Long createTime;
+		private Boolean grantTrafficService;
+
+		private String instanceId;
 
 		private Long ccnUid;
 
 		private String ccnInstanceId;
 
-		public String getInstanceId() {
-			return this.instanceId;
+		public Long getCreateTime() {
+			return this.createTime;
 		}
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
+		public void setCreateTime(Long createTime) {
+			this.createTime = createTime;
 		}
 
 		public String getSmartAGId() {
@@ -103,12 +105,20 @@ public class DescribeGrantSagRulesResponse extends AcsResponse {
 			this.smartAGId = smartAGId;
 		}
 
-		public Long getCreateTime() {
-			return this.createTime;
+		public Boolean getGrantTrafficService() {
+			return this.grantTrafficService;
 		}
 
-		public void setCreateTime(Long createTime) {
-			this.createTime = createTime;
+		public void setGrantTrafficService(Boolean grantTrafficService) {
+			this.grantTrafficService = grantTrafficService;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
 		public Long getCcnUid() {

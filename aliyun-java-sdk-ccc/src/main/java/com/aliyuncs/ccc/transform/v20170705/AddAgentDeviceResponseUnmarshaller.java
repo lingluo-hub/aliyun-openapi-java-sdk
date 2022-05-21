@@ -23,11 +23,11 @@ public class AddAgentDeviceResponseUnmarshaller {
 	public static AddAgentDeviceResponse unmarshall(AddAgentDeviceResponse addAgentDeviceResponse, UnmarshallerContext _ctx) {
 		
 		addAgentDeviceResponse.setRequestId(_ctx.stringValue("AddAgentDeviceResponse.RequestId"));
+		addAgentDeviceResponse.setHttpStatusCode(_ctx.integerValue("AddAgentDeviceResponse.HttpStatusCode"));
+		addAgentDeviceResponse.setAgentDeviceId(_ctx.longValue("AddAgentDeviceResponse.AgentDeviceId"));
 		addAgentDeviceResponse.setSuccess(_ctx.booleanValue("AddAgentDeviceResponse.Success"));
 		addAgentDeviceResponse.setCode(_ctx.stringValue("AddAgentDeviceResponse.Code"));
 		addAgentDeviceResponse.setMessage(_ctx.stringValue("AddAgentDeviceResponse.Message"));
-		addAgentDeviceResponse.setHttpStatusCode(_ctx.integerValue("AddAgentDeviceResponse.HttpStatusCode"));
-		addAgentDeviceResponse.setAgentDeviceId(_ctx.longValue("AddAgentDeviceResponse.AgentDeviceId"));
 	 
 	 	return addAgentDeviceResponse;
 	}

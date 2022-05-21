@@ -107,17 +107,21 @@ public class DescribeDBInstanceAttributeResponseUnmarshaller {
 			dBInstanceAttribute.setMultipleTempUpgrade(_ctx.booleanValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].MultipleTempUpgrade"));
 			dBInstanceAttribute.setOriginConfiguration(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].OriginConfiguration"));
 			dBInstanceAttribute.setDedicatedHostGroupId(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].DedicatedHostGroupId"));
+			dBInstanceAttribute.setSuperPermissionMode(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].SuperPermissionMode"));
+			dBInstanceAttribute.setGeneralGroupName(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].GeneralGroupName"));
+			dBInstanceAttribute.setTipsLevel(_ctx.integerValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].TipsLevel"));
+			dBInstanceAttribute.setTips(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Tips"));
 
 			Extra extra = new Extra();
 			extra.setReplicaGroupID(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.ReplicaGroupID"));
 			extra.setReplicaGroupStatus(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.ReplicaGroupStatus"));
 			extra.setActiveReplicaDBInstanceID(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.ActiveReplicaDBInstanceID"));
 
-			List<String> dBInstanceId = new ArrayList<String>();
-			for (int j = 0; j < _ctx.lengthValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.DBInstanceId.Length"); j++) {
-				dBInstanceId.add(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.DBInstanceId["+ j +"]"));
+			List<String> dBInstanceIds = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.DBInstanceIds.Length"); j++) {
+				dBInstanceIds.add(_ctx.stringValue("DescribeDBInstanceAttributeResponse.Items["+ i +"].Extra.DBInstanceIds["+ j +"]"));
 			}
-			extra.setDBInstanceId(dBInstanceId);
+			extra.setDBInstanceIds(dBInstanceIds);
 			dBInstanceAttribute.setExtra(extra);
 
 			List<SlaveZone> slaveZones = new ArrayList<SlaveZone>();

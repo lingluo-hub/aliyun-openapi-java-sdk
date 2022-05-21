@@ -24,26 +24,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DeployApplicationResponse extends AcsResponse {
 
-	private String code;
+	private String requestId;
 
 	private String message;
 
-	private String errorCode;
-
 	private String traceId;
 
-	private String requestId;
+	private String errorCode;
+
+	private String code;
 
 	private Boolean success;
 
 	private Data data;
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getMessage() {
@@ -54,14 +54,6 @@ public class DeployApplicationResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
-
 	public String getTraceId() {
 		return this.traceId;
 	}
@@ -70,12 +62,20 @@ public class DeployApplicationResponse extends AcsResponse {
 		this.traceId = traceId;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Boolean getSuccess() {
@@ -96,9 +96,19 @@ public class DeployApplicationResponse extends AcsResponse {
 
 	public static class Data {
 
+		private String changeOrderId;
+
 		private String appId;
 
-		private String changeOrderId;
+		private Boolean isNeedApproval;
+
+		public String getChangeOrderId() {
+			return this.changeOrderId;
+		}
+
+		public void setChangeOrderId(String changeOrderId) {
+			this.changeOrderId = changeOrderId;
+		}
 
 		public String getAppId() {
 			return this.appId;
@@ -108,12 +118,12 @@ public class DeployApplicationResponse extends AcsResponse {
 			this.appId = appId;
 		}
 
-		public String getChangeOrderId() {
-			return this.changeOrderId;
+		public Boolean getIsNeedApproval() {
+			return this.isNeedApproval;
 		}
 
-		public void setChangeOrderId(String changeOrderId) {
-			this.changeOrderId = changeOrderId;
+		public void setIsNeedApproval(Boolean isNeedApproval) {
+			this.isNeedApproval = isNeedApproval;
 		}
 	}
 

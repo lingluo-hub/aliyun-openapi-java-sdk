@@ -24,7 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateOrUpdateAssetGroupResponse extends AcsResponse {
 
+	private Long groupId;
+
 	private String requestId;
+
+	public Long getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(Long groupId) {
+		this.groupId = groupId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

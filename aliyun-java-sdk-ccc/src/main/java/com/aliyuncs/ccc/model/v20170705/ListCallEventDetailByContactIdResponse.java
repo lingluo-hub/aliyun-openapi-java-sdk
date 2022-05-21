@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Data data;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -87,21 +87,53 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
 	public static class Data {
 
+		private String startTime;
+
+		private String releaseReason;
+
+		private String callType;
+
+		private String releaseAgent;
+
 		private String caller;
 
 		private String callee;
 
-		private String callType;
-
-		private String startTime;
-
 		private String privacyNumber;
 
-		private String releaseAgent;
-
-		private String releaseReason;
-
 		private List<CallEventDetail> events;
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
+		}
+
+		public String getReleaseReason() {
+			return this.releaseReason;
+		}
+
+		public void setReleaseReason(String releaseReason) {
+			this.releaseReason = releaseReason;
+		}
+
+		public String getCallType() {
+			return this.callType;
+		}
+
+		public void setCallType(String callType) {
+			this.callType = callType;
+		}
+
+		public String getReleaseAgent() {
+			return this.releaseAgent;
+		}
+
+		public void setReleaseAgent(String releaseAgent) {
+			this.releaseAgent = releaseAgent;
+		}
 
 		public String getCaller() {
 			return this.caller;
@@ -119,44 +151,12 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 			this.callee = callee;
 		}
 
-		public String getCallType() {
-			return this.callType;
-		}
-
-		public void setCallType(String callType) {
-			this.callType = callType;
-		}
-
-		public String getStartTime() {
-			return this.startTime;
-		}
-
-		public void setStartTime(String startTime) {
-			this.startTime = startTime;
-		}
-
 		public String getPrivacyNumber() {
 			return this.privacyNumber;
 		}
 
 		public void setPrivacyNumber(String privacyNumber) {
 			this.privacyNumber = privacyNumber;
-		}
-
-		public String getReleaseAgent() {
-			return this.releaseAgent;
-		}
-
-		public void setReleaseAgent(String releaseAgent) {
-			this.releaseAgent = releaseAgent;
-		}
-
-		public String getReleaseReason() {
-			return this.releaseReason;
-		}
-
-		public void setReleaseReason(String releaseReason) {
-			this.releaseReason = releaseReason;
 		}
 
 		public List<CallEventDetail> getEvents() {
@@ -169,43 +169,19 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
 		public static class CallEventDetail {
 
-			private String timeStamp;
-
-			private String event;
-
-			private String agentName;
-
 			private String status;
 
 			private String callMode;
 
+			private String event;
+
+			private String timeStamp;
+
+			private String agentName;
+
 			private Integer duration;
 
 			private DetailData detailData;
-
-			public String getTimeStamp() {
-				return this.timeStamp;
-			}
-
-			public void setTimeStamp(String timeStamp) {
-				this.timeStamp = timeStamp;
-			}
-
-			public String getEvent() {
-				return this.event;
-			}
-
-			public void setEvent(String event) {
-				this.event = event;
-			}
-
-			public String getAgentName() {
-				return this.agentName;
-			}
-
-			public void setAgentName(String agentName) {
-				this.agentName = agentName;
-			}
 
 			public String getStatus() {
 				return this.status;
@@ -221,6 +197,30 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
 			public void setCallMode(String callMode) {
 				this.callMode = callMode;
+			}
+
+			public String getEvent() {
+				return this.event;
+			}
+
+			public void setEvent(String event) {
+				this.event = event;
+			}
+
+			public String getTimeStamp() {
+				return this.timeStamp;
+			}
+
+			public void setTimeStamp(String timeStamp) {
+				this.timeStamp = timeStamp;
+			}
+
+			public String getAgentName() {
+				return this.agentName;
+			}
+
+			public void setAgentName(String agentName) {
+				this.agentName = agentName;
 			}
 
 			public Integer getDuration() {
@@ -241,15 +241,23 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
 			public static class DetailData {
 
+				private String hangUper;
+
 				private String eventType;
-
-				private String helper;
-
-				private String satisfactionalResearch;
 
 				private String skillGroup;
 
-				private String hangUper;
+				private String satisfactionalResearch;
+
+				private String helper;
+
+				public String getHangUper() {
+					return this.hangUper;
+				}
+
+				public void setHangUper(String hangUper) {
+					this.hangUper = hangUper;
+				}
 
 				public String getEventType() {
 					return this.eventType;
@@ -257,22 +265,6 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 
 				public void setEventType(String eventType) {
 					this.eventType = eventType;
-				}
-
-				public String getHelper() {
-					return this.helper;
-				}
-
-				public void setHelper(String helper) {
-					this.helper = helper;
-				}
-
-				public String getSatisfactionalResearch() {
-					return this.satisfactionalResearch;
-				}
-
-				public void setSatisfactionalResearch(String satisfactionalResearch) {
-					this.satisfactionalResearch = satisfactionalResearch;
 				}
 
 				public String getSkillGroup() {
@@ -283,12 +275,20 @@ public class ListCallEventDetailByContactIdResponse extends AcsResponse {
 					this.skillGroup = skillGroup;
 				}
 
-				public String getHangUper() {
-					return this.hangUper;
+				public String getSatisfactionalResearch() {
+					return this.satisfactionalResearch;
 				}
 
-				public void setHangUper(String hangUper) {
-					this.hangUper = hangUper;
+				public void setSatisfactionalResearch(String satisfactionalResearch) {
+					this.satisfactionalResearch = satisfactionalResearch;
+				}
+
+				public String getHelper() {
+					return this.helper;
+				}
+
+				public void setHelper(String helper) {
+					this.helper = helper;
 				}
 			}
 		}

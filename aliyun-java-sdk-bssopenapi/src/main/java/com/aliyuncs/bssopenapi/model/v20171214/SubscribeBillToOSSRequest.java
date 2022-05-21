@@ -31,6 +31,10 @@ public class SubscribeBillToOSSRequest extends RpcAcsRequest<SubscribeBillToOSSR
 
 	private String subscribeBucket;
 
+	private String bucketPath;
+
+	private String beginBillingCycle;
+
 	private String multAccountRelSubscribe;
 	public SubscribeBillToOSSRequest() {
 		super("BssOpenApi", "2017-12-14", "SubscribeBillToOSS");
@@ -71,6 +75,28 @@ public class SubscribeBillToOSSRequest extends RpcAcsRequest<SubscribeBillToOSSR
 		this.subscribeBucket = subscribeBucket;
 		if(subscribeBucket != null){
 			putQueryParameter("SubscribeBucket", subscribeBucket);
+		}
+	}
+
+	public String getBucketPath() {
+		return this.bucketPath;
+	}
+
+	public void setBucketPath(String bucketPath) {
+		this.bucketPath = bucketPath;
+		if(bucketPath != null){
+			putQueryParameter("BucketPath", bucketPath);
+		}
+	}
+
+	public String getBeginBillingCycle() {
+		return this.beginBillingCycle;
+	}
+
+	public void setBeginBillingCycle(String beginBillingCycle) {
+		this.beginBillingCycle = beginBillingCycle;
+		if(beginBillingCycle != null){
+			putQueryParameter("BeginBillingCycle", beginBillingCycle);
 		}
 	}
 

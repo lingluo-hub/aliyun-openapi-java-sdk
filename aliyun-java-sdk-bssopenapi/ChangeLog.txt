@@ -1,3 +1,91 @@
+2022-05-19 Version: 1.7.13
+- Update SubscribeBillToOSS and QueryBillToOSSSubscription to support BucketPath.
+
+2022-05-11 Version: 1.7.12
+- Add release api and publish.
+
+2022-04-24 Version: 1.7.10
+- Bill api add query conditions and return data field.
+
+2022-03-28 Version: 1.7.9
+- Refund instance.
+- Refund instance query price.
+
+2021-12-28 Version: 1.7.8
+- Add get account relation API.
+- Support relationId operate account relation.
+
+2021-11-23 Version: 1.7.1
+- Add Create Savingplan Instance API.
+
+2021-08-10 Version: 1.7.7
+- Supported DescribeSavingsPlansUsageTotal.
+- Supported DescribeSavingsPlansUsageDetail.
+- Supported DescribeSavingsPlansCoverageTotal.
+- Supported DescribeSavingsPlansCoverageDetail.
+
+2021-06-25 Version: 1.7.6
+- Update DescribeSplitItemBill to support daily report.
+
+2021-06-24 Version: 1.7.5
+- Update QueryBillOverview, QuerySettleBill, QueryAccountBill, DescribeInstanceBill and support trusteeship bill query.
+
+2021-05-08 Version: 1.7.3
+- Support Coverage.
+- Support Usage.
+
+2021-04-12 Version: 1.7.0
+- Support allocation status.
+
+2021-04-01 Version: 1.6.9
+- Query saving plan instance support tag.
+
+2021-03-25 Version: 1.6.8
+- Add DescribeInstanceBill.
+- Update QuerySettleBill to support RecordID filter.
+
+2021-01-22 Version: 1.6.6
+- Support savingsplans instance Query.
+- Support savingsplans deduct log Query.
+
+2021-01-22 Version: 1.6.6
+- Support savingsplans instance Query.
+- Support savingsplans deduct log Query.
+
+2021-01-18 Version: 1.6.5
+- Add logistics for createinstance.
+
+2021-01-16 Version: 1.6.2
+- Add BillingDate support in QueryAccontBill.
+- Add SplitAccountId, SplitAccountName, SplitBillingCycle, SplitProductDetail, SplitCommodityCode, ServicePeriodUnit support in QuerySplitItemBill.
+
+2021-01-14 Version: 1.6.2
+- Add BillingDate support in QueryAccontBill.
+- Add SplitAccountId, SplitAccountName, SplitBillingCycle, SplitProductDetail, SplitCommodityCode, ServicePeriodUnit support in QuerySplitItemBill.
+
+2020-12-31 Version: 1.6.1
+- Support savingsplans instance Query.
+- Support savingsplans deduct log Query.
+
+2020-12-28 Version: 1.6.0
+- Add CommodityCode For QueryOrderAPI.
+
+2020-08-13 Version: 1.5.9
+- Add PipCode and CommodityCode for QueryInstanceBill, QueryBillOverview, QueryBill, QuerySettleBill, QueryAccountBill, QuerySplitItemBill.
+- Support BillOwnerId filter for QueryInstanceBill, QueryBillOverview, QueryBill, QuerySettleBill, QueryAccountBill, QuerySplitItemBill.
+
+2020-07-09 Version: 1.5.8
+- Add new action of QuerySettleBill.
+
+2020-07-09 Version: 1.5.6
+- Add new action of QuerySettleBill.
+
+2020-06-11 Version: 1.5.7
+- Support ServicePeriodUnit in QueryInstanceBill.
+
+2020-06-05 Version: 1.5.6
+- Support split bill.
+
 2020-01-09 Version: 1.5.5
 - Support DAILY report in QueryInstanBill.
 

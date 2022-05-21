@@ -24,17 +24,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifyScriptResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
 	private Boolean success;
+
+	private String chatbotId;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
-
 	private Script script;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -50,6 +60,14 @@ public class ModifyScriptResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public String getChatbotId() {
+		return this.chatbotId;
+	}
+
+	public void setChatbotId(String chatbotId) {
+		this.chatbotId = chatbotId;
 	}
 
 	public String getCode() {
@@ -68,14 +86,6 @@ public class ModifyScriptResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
 	public Script getScript() {
 		return this.script;
 	}
@@ -86,65 +96,25 @@ public class ModifyScriptResponse extends AcsResponse {
 
 	public static class Script {
 
-		private String scriptId;
-
-		private String scriptName;
-
-		private String scriptDescription;
-
-		private String industry;
-
-		private String scene;
-
 		private String status;
-
-		private String debugStatus;
 
 		private Long updateTime;
 
+		private String industry;
+
+		private String scriptDescription;
+
 		private Boolean isDrafted;
+
+		private String debugStatus;
+
+		private String scriptId;
 
 		private Boolean isDebugDrafted;
 
-		public String getScriptId() {
-			return this.scriptId;
-		}
+		private String scriptName;
 
-		public void setScriptId(String scriptId) {
-			this.scriptId = scriptId;
-		}
-
-		public String getScriptName() {
-			return this.scriptName;
-		}
-
-		public void setScriptName(String scriptName) {
-			this.scriptName = scriptName;
-		}
-
-		public String getScriptDescription() {
-			return this.scriptDescription;
-		}
-
-		public void setScriptDescription(String scriptDescription) {
-			this.scriptDescription = scriptDescription;
-		}
-
-		public String getIndustry() {
-			return this.industry;
-		}
-
-		public void setIndustry(String industry) {
-			this.industry = industry;
-		}
-
-		public String getScene() {
-			return this.scene;
-		}
-
-		public void setScene(String scene) {
-			this.scene = scene;
-		}
+		private String scene;
 
 		public String getStatus() {
 			return this.status;
@@ -152,14 +122,6 @@ public class ModifyScriptResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
-		}
-
-		public String getDebugStatus() {
-			return this.debugStatus;
-		}
-
-		public void setDebugStatus(String debugStatus) {
-			this.debugStatus = debugStatus;
 		}
 
 		public Long getUpdateTime() {
@@ -170,6 +132,22 @@ public class ModifyScriptResponse extends AcsResponse {
 			this.updateTime = updateTime;
 		}
 
+		public String getIndustry() {
+			return this.industry;
+		}
+
+		public void setIndustry(String industry) {
+			this.industry = industry;
+		}
+
+		public String getScriptDescription() {
+			return this.scriptDescription;
+		}
+
+		public void setScriptDescription(String scriptDescription) {
+			this.scriptDescription = scriptDescription;
+		}
+
 		public Boolean getIsDrafted() {
 			return this.isDrafted;
 		}
@@ -178,12 +156,44 @@ public class ModifyScriptResponse extends AcsResponse {
 			this.isDrafted = isDrafted;
 		}
 
+		public String getDebugStatus() {
+			return this.debugStatus;
+		}
+
+		public void setDebugStatus(String debugStatus) {
+			this.debugStatus = debugStatus;
+		}
+
+		public String getScriptId() {
+			return this.scriptId;
+		}
+
+		public void setScriptId(String scriptId) {
+			this.scriptId = scriptId;
+		}
+
 		public Boolean getIsDebugDrafted() {
 			return this.isDebugDrafted;
 		}
 
 		public void setIsDebugDrafted(Boolean isDebugDrafted) {
 			this.isDebugDrafted = isDebugDrafted;
+		}
+
+		public String getScriptName() {
+			return this.scriptName;
+		}
+
+		public void setScriptName(String scriptName) {
+			this.scriptName = scriptName;
+		}
+
+		public String getScene() {
+			return this.scene;
+		}
+
+		public void setScene(String scene) {
+			this.scene = scene;
 		}
 	}
 

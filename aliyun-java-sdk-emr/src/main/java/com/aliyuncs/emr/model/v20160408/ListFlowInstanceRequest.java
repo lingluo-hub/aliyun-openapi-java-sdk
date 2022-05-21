@@ -16,6 +16,7 @@ package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
 import com.aliyuncs.emr.Endpoint;
 
 /**
@@ -23,38 +24,109 @@ import com.aliyuncs.emr.Endpoint;
  * @version 
  */
 public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceResponse> {
-	
+	   
+
+	private List<String> statusLists;
+
+	private String nodeInstanceId;
+
+	private Integer pageNumber;
+
+	private Integer pageSize;
+
+	private String id;
+
+	private String projectId;
+
+	private String owner;
+
+	private String timeRange;
+
+	private String orderBy;
+
+	private String instanceId;
+
+	private String flowName;
+
+	private String flowId;
+
+	private String orderType;
 	public ListFlowInstanceRequest() {
 		super("Emr", "2016-04-08", "ListFlowInstance", "emr");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
 
-	private String owner;
+	public List<String> getStatusLists() {
+		return this.statusLists;
+	}
 
-	private String timeRange;
+	public void setStatusLists(List<String> statusLists) {
+		this.statusLists = statusLists;	
+		if (statusLists != null) {
+			for (int i = 0; i < statusLists.size(); i++) {
+				putQueryParameter("StatusList." + (i + 1) , statusLists.get(i));
+			}
+		}	
+	}
 
-	private List<String> statusLists;
+	public String getNodeInstanceId() {
+		return this.nodeInstanceId;
+	}
 
-	private String orderBy;
+	public void setNodeInstanceId(String nodeInstanceId) {
+		this.nodeInstanceId = nodeInstanceId;
+		if(nodeInstanceId != null){
+			putQueryParameter("NodeInstanceId", nodeInstanceId);
+		}
+	}
 
-	private Integer pageNumber;
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
 
-	private String instanceId;
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
 
-	private Integer pageSize;
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
 
-	private String flowName;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
 
-	private String id;
+	public String getId() {
+		return this.id;
+	}
 
-	private String flowId;
+	public void setId(String id) {
+		this.id = id;
+		if(id != null){
+			putQueryParameter("Id", id);
+		}
+	}
 
-	private String projectId;
+	public String getProjectId() {
+		return this.projectId;
+	}
 
-	private String orderType;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+		if(projectId != null){
+			putQueryParameter("ProjectId", projectId);
+		}
+	}
 
 	public String getOwner() {
 		return this.owner;
@@ -78,19 +150,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}
 	}
 
-	public List<String> getStatusLists() {
-		return this.statusLists;
-	}
-
-	public void setStatusLists(List<String> statusLists) {
-		this.statusLists = statusLists;	
-		if (statusLists != null) {
-			for (int i = 0; i < statusLists.size(); i++) {
-				putQueryParameter("StatusList." + (i + 1) , statusLists.get(i));
-			}
-		}	
-	}
-
 	public String getOrderBy() {
 		return this.orderBy;
 	}
@@ -99,17 +158,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		this.orderBy = orderBy;
 		if(orderBy != null){
 			putQueryParameter("OrderBy", orderBy);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -124,17 +172,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
 	public String getFlowName() {
 		return this.flowName;
 	}
@@ -146,17 +183,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		}
 	}
 
-	public String getId() {
-		return this.id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-		if(id != null){
-			putQueryParameter("Id", id);
-		}
-	}
-
 	public String getFlowId() {
 		return this.flowId;
 	}
@@ -165,17 +191,6 @@ public class ListFlowInstanceRequest extends RpcAcsRequest<ListFlowInstanceRespo
 		this.flowId = flowId;
 		if(flowId != null){
 			putQueryParameter("FlowId", flowId);
-		}
-	}
-
-	public String getProjectId() {
-		return this.projectId;
-	}
-
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
-		if(projectId != null){
-			putQueryParameter("ProjectId", projectId);
 		}
 	}
 

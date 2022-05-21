@@ -1,13 +1,13 @@
 package com.aliyuncs.auth;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
-
+@Deprecated
 public class HmacSHA1Signer extends Signer {
 
     public static final String ENCODING = "UTF-8";
@@ -46,6 +46,16 @@ public class HmacSHA1Signer extends Signer {
 
     @Override
     public String getSignerType() {
+        return null;
+    }
+
+    @Override
+    public byte[] hash(byte[] raw) throws NoSuchAlgorithmException {
+        return null;
+    }
+
+    @Override
+    public String getContent() {
         return null;
     }
 }

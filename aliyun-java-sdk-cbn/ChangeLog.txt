@@ -1,3 +1,38 @@
+2022-03-10 Version: 1.0.15
+- Modify the input parameter Action of CreateCen to be required.
+
+2022-01-11 Version: 1.0.14
+- Support  DeleteTransitRouter API.
+
+2021-12-21 Version: 1.0.13
+- Support Darabonba API.
+
+2021-12-06 Version: 1.0.12
+- Modify the input parameter Action of DescribeCenInterRegionBandwidthLimits to be required.
+
+2021-12-01 Version: 1.0.11
+- Support not switching routes when VBR health check fails.
+- Support order type when cross-account authorization and display.
+
+2021-11-26 Version: 1.0.10
+- Support CEN Qos Apis.
+- Support TransitRouter Latest Apis.
+
+2021-08-11 Version: 1.0.9
+- Support CEN latest Apis.
+
+2021-07-08 Version: 1.0.8
+- Support CEN TransiteRouter latest Apis.
+
+2021-04-22 Version: 1.0.7
+- Support CEN latest Apis.
+
+2020-12-25 Version: 1.0.6
+- Support CenChildInstanceRouteEntryToCen Operation.
+
+2020-05-26 Version: 1.0.5
+- Support Bandwidth Package Tempupgrade.
+
 2020-03-05 Version: 1.0.5
 - Support flow log.
 - Support route map.

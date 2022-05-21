@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -26,10 +27,18 @@ public class DescribeStrategyExecDetailRequest extends RpcAcsRequest<DescribeStr
 
 	private String sourceIp;
 
+	private Integer pageSize;
+
+	private Integer currentPage;
+
 	private Integer strategyId;
 	public DescribeStrategyExecDetailRequest() {
-		super("Sas", "2018-12-03", "DescribeStrategyExecDetail", "sas");
+		super("Sas", "2018-12-03", "DescribeStrategyExecDetail");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getSourceIp() {
@@ -40,6 +49,28 @@ public class DescribeStrategyExecDetailRequest extends RpcAcsRequest<DescribeStr
 		this.sourceIp = sourceIp;
 		if(sourceIp != null){
 			putQueryParameter("SourceIp", sourceIp);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 

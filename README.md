@@ -10,7 +10,7 @@ English | [简体中文](./README-CN.md)
 <a href="https://search.maven.org/search?q=g:%22com.aliyun%22%20AND%20a:%22aliyun-java-sdk-core%22"><img src="https://img.shields.io/maven-central/v/com.aliyun/aliyun-java-sdk-core.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
 <a href="https://travis-ci.org/aliyun/aliyun-openapi-java-sdk"><img src="https://travis-ci.org/aliyun/aliyun-openapi-java-sdk.svg?branch=master"/></a>
 <a href="https://codecov.io/gh/aliyun/aliyun-openapi-java-sdk"><img src="https://codecov.io/gh/aliyun/aliyun-openapi-java-sdk/branch/master/graph/badge.svg"/></a>
-<a href="https://www.codacy.com/app/aliyun/aliyun-openapi-java-sdk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aliyun/aliyun-openapi-java-sdk&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/aef3826e57ca444fb217bab8edaed195"/></a>
+<!-- <a href="https://www.codacy.com/app/aliyun/aliyun-openapi-java-sdk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aliyun/aliyun-openapi-java-sdk&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/aef3826e57ca444fb217bab8edaed195"/></a> -->
 <a href="https://ci.appveyor.com/project/aliyun/aliyun-openapi-java-sdk"><img src="https://ci.appveyor.com/api/projects/status/levg38kb55k0pn1v/branch/master?svg=true"/></a>
 </p>
 
@@ -68,6 +68,9 @@ If maven is not downloading jar packages from a central repository, you need to 
 </dependency>
 ```
 
+## Troubleshoot
+[Troubleshoot](https://troubleshoot.api.aliyun.com/?source=github_sdk) Provide OpenAPI diagnosis service to help developers locate quickly and provide solutions for developers through `RequestID` or `error message`.
+
 ## Quick Examples
 
 The following code example shows the three main steps to use Alibaba Cloud SDK for Java :
@@ -117,7 +120,7 @@ public class Main {
 ## Documentation
 * [Requirements](./docs/0-Requirements-EN.md)
 * [Installation](./docs/1-Installation-EN.md)
-* [Client](./docs/2-Client-EN.md)
+* [Client & Credentials](./docs/2-Client-EN.md)
 * [Connection Pool](./docs/3-Pool-EN.md)
 * [Timeout](./docs/4-Timeout-EN.md)
 * [HTTPS Configurations](./docs/5-HTTPS-EN.md)
@@ -125,6 +128,7 @@ public class Main {
 * [Debug](./docs/7-Debug-EN.md)
 * [Log](./docs/8-Log-EN.md)
 * [Exception](./docs/9-Exception-EN.md)
+* [Endpoint](./docs/10-Endpoint-EN.md)
 
 
 ## Issues
@@ -138,7 +142,7 @@ Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making
 
 ## References
 * [Alibaba Cloud Regions & Endpoints](https://developer.aliyun.com/endpoints)
-* [OpenAPI Explorer](https://api.aliyun.com/)
+* [Alibab Cloud OpenAPI Portal](https://next.api.aliyun.com/)
 * [Latest Release](https://github.com/aliyun/aliyun-openapi-java-sdk)
 
 ## License

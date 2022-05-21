@@ -16,25 +16,32 @@ package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreatePolicyVersionRequest extends RpcAcsRequest<CreatePolicyVersionResponse> {
-	
-	public CreatePolicyVersionRequest() {
-		super("Ram", "2015-05-01", "CreatePolicyVersion");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private Boolean setAsDefault;
+
+	private String rotateStrategy;
 
 	private String policyName;
 
 	private String policyDocument;
-
-	private String rotateStrategy;
+	public CreatePolicyVersionRequest() {
+		super("Ram", "2015-05-01", "CreatePolicyVersion", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Boolean getSetAsDefault() {
 		return this.setAsDefault;
@@ -44,6 +51,17 @@ public class CreatePolicyVersionRequest extends RpcAcsRequest<CreatePolicyVersio
 		this.setAsDefault = setAsDefault;
 		if(setAsDefault != null){
 			putQueryParameter("SetAsDefault", setAsDefault.toString());
+		}
+	}
+
+	public String getRotateStrategy() {
+		return this.rotateStrategy;
+	}
+
+	public void setRotateStrategy(String rotateStrategy) {
+		this.rotateStrategy = rotateStrategy;
+		if(rotateStrategy != null){
+			putQueryParameter("RotateStrategy", rotateStrategy);
 		}
 	}
 
@@ -66,17 +84,6 @@ public class CreatePolicyVersionRequest extends RpcAcsRequest<CreatePolicyVersio
 		this.policyDocument = policyDocument;
 		if(policyDocument != null){
 			putQueryParameter("PolicyDocument", policyDocument);
-		}
-	}
-
-	public String getRotateStrategy() {
-		return this.rotateStrategy;
-	}
-
-	public void setRotateStrategy(String rotateStrategy) {
-		this.rotateStrategy = rotateStrategy;
-		if(rotateStrategy != null){
-			putQueryParameter("RotateStrategy", rotateStrategy);
 		}
 	}
 

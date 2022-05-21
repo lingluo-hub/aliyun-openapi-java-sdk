@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListAgentDevicesResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<AgentDevice> agentDeviceList;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListAgentDevicesResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<AgentDevice> getAgentDeviceList() {
@@ -87,37 +87,21 @@ public class ListAgentDevicesResponse extends AcsResponse {
 
 	public static class AgentDevice {
 
-		private String instanceId;
-
-		private Long ramId;
-
 		private Long loginTime;
-
-		private String clientIp;
 
 		private String clientPort;
 
+		private String remark;
+
 		private String browserVersion;
+
+		private String clientIp;
+
+		private String instanceId;
 
 		private Integer isLogin;
 
-		private String remark;
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public Long getRamId() {
-			return this.ramId;
-		}
-
-		public void setRamId(Long ramId) {
-			this.ramId = ramId;
-		}
+		private Long ramId;
 
 		public Long getLoginTime() {
 			return this.loginTime;
@@ -125,14 +109,6 @@ public class ListAgentDevicesResponse extends AcsResponse {
 
 		public void setLoginTime(Long loginTime) {
 			this.loginTime = loginTime;
-		}
-
-		public String getClientIp() {
-			return this.clientIp;
-		}
-
-		public void setClientIp(String clientIp) {
-			this.clientIp = clientIp;
 		}
 
 		public String getClientPort() {
@@ -143,12 +119,36 @@ public class ListAgentDevicesResponse extends AcsResponse {
 			this.clientPort = clientPort;
 		}
 
+		public String getRemark() {
+			return this.remark;
+		}
+
+		public void setRemark(String remark) {
+			this.remark = remark;
+		}
+
 		public String getBrowserVersion() {
 			return this.browserVersion;
 		}
 
 		public void setBrowserVersion(String browserVersion) {
 			this.browserVersion = browserVersion;
+		}
+
+		public String getClientIp() {
+			return this.clientIp;
+		}
+
+		public void setClientIp(String clientIp) {
+			this.clientIp = clientIp;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
 		public Integer getIsLogin() {
@@ -159,12 +159,12 @@ public class ListAgentDevicesResponse extends AcsResponse {
 			this.isLogin = isLogin;
 		}
 
-		public String getRemark() {
-			return this.remark;
+		public Long getRamId() {
+			return this.ramId;
 		}
 
-		public void setRemark(String remark) {
-			this.remark = remark;
+		public void setRamId(Long ramId) {
+			this.ramId = ramId;
 		}
 	}
 

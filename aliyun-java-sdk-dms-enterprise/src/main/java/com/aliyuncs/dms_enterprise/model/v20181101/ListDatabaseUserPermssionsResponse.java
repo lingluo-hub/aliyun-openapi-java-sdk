@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<UserPermission> userPermissions;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<UserPermission> getUserPermissions() {
@@ -87,59 +87,35 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 
 	public static class UserPermission {
 
-		private String userId;
-
-		private String userNickName;
-
-		private String dsType;
-
 		private String dbId;
 
-		private Boolean logic;
+		private String tableName;
+
+		private String userId;
 
 		private String schemaName;
 
-		private String searchName;
+		private Boolean logic;
+
+		private String userNickName;
 
 		private String instanceId;
 
 		private String envType;
 
-		private String alias;
+		private String columnName;
 
 		private String dbType;
 
-		private String tableName;
+		private String dsType;
 
 		private String tableId;
 
-		private String columnName;
+		private String searchName;
+
+		private String alias;
 
 		private List<PermDetail> permDetails;
-
-		public String getUserId() {
-			return this.userId;
-		}
-
-		public void setUserId(String userId) {
-			this.userId = userId;
-		}
-
-		public String getUserNickName() {
-			return this.userNickName;
-		}
-
-		public void setUserNickName(String userNickName) {
-			this.userNickName = userNickName;
-		}
-
-		public String getDsType() {
-			return this.dsType;
-		}
-
-		public void setDsType(String dsType) {
-			this.dsType = dsType;
-		}
 
 		public String getDbId() {
 			return this.dbId;
@@ -149,12 +125,20 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 			this.dbId = dbId;
 		}
 
-		public Boolean getLogic() {
-			return this.logic;
+		public String getTableName() {
+			return this.tableName;
 		}
 
-		public void setLogic(Boolean logic) {
-			this.logic = logic;
+		public void setTableName(String tableName) {
+			this.tableName = tableName;
+		}
+
+		public String getUserId() {
+			return this.userId;
+		}
+
+		public void setUserId(String userId) {
+			this.userId = userId;
 		}
 
 		public String getSchemaName() {
@@ -165,12 +149,20 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 			this.schemaName = schemaName;
 		}
 
-		public String getSearchName() {
-			return this.searchName;
+		public Boolean getLogic() {
+			return this.logic;
 		}
 
-		public void setSearchName(String searchName) {
-			this.searchName = searchName;
+		public void setLogic(Boolean logic) {
+			this.logic = logic;
+		}
+
+		public String getUserNickName() {
+			return this.userNickName;
+		}
+
+		public void setUserNickName(String userNickName) {
+			this.userNickName = userNickName;
 		}
 
 		public String getInstanceId() {
@@ -189,12 +181,12 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 			this.envType = envType;
 		}
 
-		public String getAlias() {
-			return this.alias;
+		public String getColumnName() {
+			return this.columnName;
 		}
 
-		public void setAlias(String alias) {
-			this.alias = alias;
+		public void setColumnName(String columnName) {
+			this.columnName = columnName;
 		}
 
 		public String getDbType() {
@@ -205,12 +197,12 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 			this.dbType = dbType;
 		}
 
-		public String getTableName() {
-			return this.tableName;
+		public String getDsType() {
+			return this.dsType;
 		}
 
-		public void setTableName(String tableName) {
-			this.tableName = tableName;
+		public void setDsType(String dsType) {
+			this.dsType = dsType;
 		}
 
 		public String getTableId() {
@@ -221,12 +213,20 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 			this.tableId = tableId;
 		}
 
-		public String getColumnName() {
-			return this.columnName;
+		public String getSearchName() {
+			return this.searchName;
 		}
 
-		public void setColumnName(String columnName) {
-			this.columnName = columnName;
+		public void setSearchName(String searchName) {
+			this.searchName = searchName;
+		}
+
+		public String getAlias() {
+			return this.alias;
+		}
+
+		public void setAlias(String alias) {
+			this.alias = alias;
 		}
 
 		public List<PermDetail> getPermDetails() {
@@ -239,17 +239,25 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 
 		public static class PermDetail {
 
+			private String originFrom;
+
 			private String permType;
 
 			private String expireDate;
 
 			private String createDate;
 
-			private String originFrom;
-
 			private String userAccessId;
 
 			private String extraData;
+
+			public String getOriginFrom() {
+				return this.originFrom;
+			}
+
+			public void setOriginFrom(String originFrom) {
+				this.originFrom = originFrom;
+			}
 
 			public String getPermType() {
 				return this.permType;
@@ -273,14 +281,6 @@ public class ListDatabaseUserPermssionsResponse extends AcsResponse {
 
 			public void setCreateDate(String createDate) {
 				this.createDate = createDate;
-			}
-
-			public String getOriginFrom() {
-				return this.originFrom;
-			}
-
-			public void setOriginFrom(String originFrom) {
-				this.originFrom = originFrom;
 			}
 
 			public String getUserAccessId() {

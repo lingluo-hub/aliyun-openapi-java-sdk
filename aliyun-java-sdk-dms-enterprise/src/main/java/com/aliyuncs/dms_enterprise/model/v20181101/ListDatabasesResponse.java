@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListDatabasesResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<Database> databaseList;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class ListDatabasesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class ListDatabasesResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<Database> getDatabaseList() {
@@ -87,45 +87,37 @@ public class ListDatabasesResponse extends AcsResponse {
 
 	public static class Database {
 
-		private String instanceId;
-
 		private String databaseId;
-
-		private String envType;
-
-		private String schemaName;
-
-		private String catalogName;
-
-		private String encoding;
-
-		private String searchName;
-
-		private String state;
-
-		private String dbType;
 
 		private String host;
 
-		private Integer port;
-
-		private String sid;
+		private String catalogName;
 
 		private String dbaName;
 
+		private String state;
+
 		private String dbaId;
+
+		private String schemaName;
+
+		private String instanceId;
+
+		private Integer port;
+
+		private String envType;
+
+		private String sid;
+
+		private String encoding;
+
+		private String dbType;
+
+		private String searchName;
 
 		private List<String> ownerIdList;
 
 		private List<String> ownerNameList;
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
 
 		public String getDatabaseId() {
 			return this.databaseId;
@@ -133,62 +125,6 @@ public class ListDatabasesResponse extends AcsResponse {
 
 		public void setDatabaseId(String databaseId) {
 			this.databaseId = databaseId;
-		}
-
-		public String getEnvType() {
-			return this.envType;
-		}
-
-		public void setEnvType(String envType) {
-			this.envType = envType;
-		}
-
-		public String getSchemaName() {
-			return this.schemaName;
-		}
-
-		public void setSchemaName(String schemaName) {
-			this.schemaName = schemaName;
-		}
-
-		public String getCatalogName() {
-			return this.catalogName;
-		}
-
-		public void setCatalogName(String catalogName) {
-			this.catalogName = catalogName;
-		}
-
-		public String getEncoding() {
-			return this.encoding;
-		}
-
-		public void setEncoding(String encoding) {
-			this.encoding = encoding;
-		}
-
-		public String getSearchName() {
-			return this.searchName;
-		}
-
-		public void setSearchName(String searchName) {
-			this.searchName = searchName;
-		}
-
-		public String getState() {
-			return this.state;
-		}
-
-		public void setState(String state) {
-			this.state = state;
-		}
-
-		public String getDbType() {
-			return this.dbType;
-		}
-
-		public void setDbType(String dbType) {
-			this.dbType = dbType;
 		}
 
 		public String getHost() {
@@ -199,20 +135,12 @@ public class ListDatabasesResponse extends AcsResponse {
 			this.host = host;
 		}
 
-		public Integer getPort() {
-			return this.port;
+		public String getCatalogName() {
+			return this.catalogName;
 		}
 
-		public void setPort(Integer port) {
-			this.port = port;
-		}
-
-		public String getSid() {
-			return this.sid;
-		}
-
-		public void setSid(String sid) {
-			this.sid = sid;
+		public void setCatalogName(String catalogName) {
+			this.catalogName = catalogName;
 		}
 
 		public String getDbaName() {
@@ -223,12 +151,84 @@ public class ListDatabasesResponse extends AcsResponse {
 			this.dbaName = dbaName;
 		}
 
+		public String getState() {
+			return this.state;
+		}
+
+		public void setState(String state) {
+			this.state = state;
+		}
+
 		public String getDbaId() {
 			return this.dbaId;
 		}
 
 		public void setDbaId(String dbaId) {
 			this.dbaId = dbaId;
+		}
+
+		public String getSchemaName() {
+			return this.schemaName;
+		}
+
+		public void setSchemaName(String schemaName) {
+			this.schemaName = schemaName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public Integer getPort() {
+			return this.port;
+		}
+
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public String getEnvType() {
+			return this.envType;
+		}
+
+		public void setEnvType(String envType) {
+			this.envType = envType;
+		}
+
+		public String getSid() {
+			return this.sid;
+		}
+
+		public void setSid(String sid) {
+			this.sid = sid;
+		}
+
+		public String getEncoding() {
+			return this.encoding;
+		}
+
+		public void setEncoding(String encoding) {
+			this.encoding = encoding;
+		}
+
+		public String getDbType() {
+			return this.dbType;
+		}
+
+		public void setDbType(String dbType) {
+			this.dbType = dbType;
+		}
+
+		public String getSearchName() {
+			return this.searchName;
+		}
+
+		public void setSearchName(String searchName) {
+			this.searchName = searchName;
 		}
 
 		public List<String> getOwnerIdList() {

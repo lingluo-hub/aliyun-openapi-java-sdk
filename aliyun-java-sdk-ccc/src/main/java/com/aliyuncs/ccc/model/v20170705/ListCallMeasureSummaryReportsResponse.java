@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListCallMeasureSummaryReportsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<CallMeasureSummaryReport> callMeasureSummaryReportList;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListCallMeasureSummaryReportsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<CallMeasureSummaryReport> getCallMeasureSummaryReportList() {
@@ -87,35 +87,19 @@ public class ListCallMeasureSummaryReportsResponse extends AcsResponse {
 
 	public static class CallMeasureSummaryReport {
 
-		private String year;
-
-		private String month;
-
 		private String day;
 
-		private Long inboundCount;
+		private String year;
+
+		private Long inboundDurationByMinute;
 
 		private Long outboundCount;
 
 		private Long outboundDurationByMinute;
 
-		private Long inboundDurationByMinute;
+		private Long inboundCount;
 
-		public String getYear() {
-			return this.year;
-		}
-
-		public void setYear(String year) {
-			this.year = year;
-		}
-
-		public String getMonth() {
-			return this.month;
-		}
-
-		public void setMonth(String month) {
-			this.month = month;
-		}
+		private String month;
 
 		public String getDay() {
 			return this.day;
@@ -125,12 +109,20 @@ public class ListCallMeasureSummaryReportsResponse extends AcsResponse {
 			this.day = day;
 		}
 
-		public Long getInboundCount() {
-			return this.inboundCount;
+		public String getYear() {
+			return this.year;
 		}
 
-		public void setInboundCount(Long inboundCount) {
-			this.inboundCount = inboundCount;
+		public void setYear(String year) {
+			this.year = year;
+		}
+
+		public Long getInboundDurationByMinute() {
+			return this.inboundDurationByMinute;
+		}
+
+		public void setInboundDurationByMinute(Long inboundDurationByMinute) {
+			this.inboundDurationByMinute = inboundDurationByMinute;
 		}
 
 		public Long getOutboundCount() {
@@ -149,12 +141,20 @@ public class ListCallMeasureSummaryReportsResponse extends AcsResponse {
 			this.outboundDurationByMinute = outboundDurationByMinute;
 		}
 
-		public Long getInboundDurationByMinute() {
-			return this.inboundDurationByMinute;
+		public Long getInboundCount() {
+			return this.inboundCount;
 		}
 
-		public void setInboundDurationByMinute(Long inboundDurationByMinute) {
-			this.inboundDurationByMinute = inboundDurationByMinute;
+		public void setInboundCount(Long inboundCount) {
+			this.inboundCount = inboundCount;
+		}
+
+		public String getMonth() {
+			return this.month;
+		}
+
+		public void setMonth(String month) {
+			this.month = month;
 		}
 	}
 

@@ -29,6 +29,8 @@ public class ModifyDBNodeClassRequest extends RpcAcsRequest<ModifyDBNodeClassRes
 
 	private String clientToken;
 
+	private String plannedEndTime;
+
 	private String dBNodeTargetClass;
 
 	private String resourceOwnerAccount;
@@ -39,9 +41,13 @@ public class ModifyDBNodeClassRequest extends RpcAcsRequest<ModifyDBNodeClassRes
 
 	private Long ownerId;
 
+	private String plannedStartTime;
+
 	private String modifyType;
+
+	private String subCategory;
 	public ModifyDBNodeClassRequest() {
-		super("polardb", "2017-08-01", "ModifyDBNodeClass", "polardb");
+		super("polardb", "2017-08-01", "ModifyDBNodeClass");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -68,6 +74,17 @@ public class ModifyDBNodeClassRequest extends RpcAcsRequest<ModifyDBNodeClassRes
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getPlannedEndTime() {
+		return this.plannedEndTime;
+	}
+
+	public void setPlannedEndTime(String plannedEndTime) {
+		this.plannedEndTime = plannedEndTime;
+		if(plannedEndTime != null){
+			putQueryParameter("PlannedEndTime", plannedEndTime);
 		}
 	}
 
@@ -126,6 +143,17 @@ public class ModifyDBNodeClassRequest extends RpcAcsRequest<ModifyDBNodeClassRes
 		}
 	}
 
+	public String getPlannedStartTime() {
+		return this.plannedStartTime;
+	}
+
+	public void setPlannedStartTime(String plannedStartTime) {
+		this.plannedStartTime = plannedStartTime;
+		if(plannedStartTime != null){
+			putQueryParameter("PlannedStartTime", plannedStartTime);
+		}
+	}
+
 	public String getModifyType() {
 		return this.modifyType;
 	}
@@ -134,6 +162,17 @@ public class ModifyDBNodeClassRequest extends RpcAcsRequest<ModifyDBNodeClassRes
 		this.modifyType = modifyType;
 		if(modifyType != null){
 			putQueryParameter("ModifyType", modifyType);
+		}
+	}
+
+	public String getSubCategory() {
+		return this.subCategory;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+		if(subCategory != null){
+			putQueryParameter("SubCategory", subCategory);
 		}
 	}
 

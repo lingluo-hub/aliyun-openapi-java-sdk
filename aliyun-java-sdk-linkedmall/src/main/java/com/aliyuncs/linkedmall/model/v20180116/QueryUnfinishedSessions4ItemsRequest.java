@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkedmall.Endpoint;
 
 /**
  * @author auto create
@@ -31,9 +32,15 @@ public class QueryUnfinishedSessions4ItemsRequest extends RpcAcsRequest<QueryUnf
 	private List<Object> itemIds;
 
 	private String bizId;
+
+	private Long queryTime;
 	public QueryUnfinishedSessions4ItemsRequest() {
-		super("linkedmall", "2018-01-16", "QueryUnfinishedSessions4Items");
+		super("linkedmall", "2018-01-16", "QueryUnfinishedSessions4Items", "linkedmall");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<Object> getLmItemIds() {
@@ -66,6 +73,17 @@ public class QueryUnfinishedSessions4ItemsRequest extends RpcAcsRequest<QueryUnf
 		this.bizId = bizId;
 		if(bizId != null){
 			putQueryParameter("BizId", bizId);
+		}
+	}
+
+	public Long getQueryTime() {
+		return this.queryTime;
+	}
+
+	public void setQueryTime(Long queryTime) {
+		this.queryTime = queryTime;
+		if(queryTime != null){
+			putQueryParameter("QueryTime", queryTime.toString());
 		}
 	}
 

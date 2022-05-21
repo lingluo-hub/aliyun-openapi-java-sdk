@@ -27,15 +27,15 @@ public class PublishThingModelRequest extends RpcAcsRequest<PublishThingModelRes
 
 	private String description;
 
-	private String productKey;
-
 	private String resourceGroupId;
 
 	private String iotInstanceId;
 
+	private String productKey;
+
 	private String modelVersion;
 	public PublishThingModelRequest() {
-		super("Iot", "2018-01-20", "PublishThingModel", "Iot");
+		super("Iot", "2018-01-20", "PublishThingModel");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -51,17 +51,6 @@ public class PublishThingModelRequest extends RpcAcsRequest<PublishThingModelRes
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
 		}
 	}
 
@@ -84,6 +73,17 @@ public class PublishThingModelRequest extends RpcAcsRequest<PublishThingModelRes
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

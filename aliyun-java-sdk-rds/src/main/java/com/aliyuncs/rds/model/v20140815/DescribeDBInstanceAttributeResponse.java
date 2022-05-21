@@ -193,6 +193,14 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 		private String dedicatedHostGroupId;
 
+		private String superPermissionMode;
+
+		private String generalGroupName;
+
+		private Integer tipsLevel;
+
+		private String tips;
+
 		private List<SlaveZone> slaveZones;
 
 		private List<ReadOnlyDBInstanceId> readOnlyDBInstanceIds;
@@ -783,6 +791,38 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 			this.dedicatedHostGroupId = dedicatedHostGroupId;
 		}
 
+		public String getSuperPermissionMode() {
+			return this.superPermissionMode;
+		}
+
+		public void setSuperPermissionMode(String superPermissionMode) {
+			this.superPermissionMode = superPermissionMode;
+		}
+
+		public String getGeneralGroupName() {
+			return this.generalGroupName;
+		}
+
+		public void setGeneralGroupName(String generalGroupName) {
+			this.generalGroupName = generalGroupName;
+		}
+
+		public Integer getTipsLevel() {
+			return this.tipsLevel;
+		}
+
+		public void setTipsLevel(Integer tipsLevel) {
+			this.tipsLevel = tipsLevel;
+		}
+
+		public String getTips() {
+			return this.tips;
+		}
+
+		public void setTips(String tips) {
+			this.tips = tips;
+		}
+
 		public List<SlaveZone> getSlaveZones() {
 			return this.slaveZones;
 		}
@@ -841,7 +881,7 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 
 			private String activeReplicaDBInstanceID;
 
-			private List<String> dBInstanceId;
+			private List<String> dBInstanceIds;
 
 			public String getReplicaGroupID() {
 				return this.replicaGroupID;
@@ -867,12 +907,12 @@ public class DescribeDBInstanceAttributeResponse extends AcsResponse {
 				this.activeReplicaDBInstanceID = activeReplicaDBInstanceID;
 			}
 
-			public List<String> getDBInstanceId() {
-				return this.dBInstanceId;
+			public List<String> getDBInstanceIds() {
+				return this.dBInstanceIds;
 			}
 
-			public void setDBInstanceId(List<String> dBInstanceId) {
-				this.dBInstanceId = dBInstanceId;
+			public void setDBInstanceIds(List<String> dBInstanceIds) {
+				this.dBInstanceIds = dBInstanceIds;
 			}
 		}
 	}

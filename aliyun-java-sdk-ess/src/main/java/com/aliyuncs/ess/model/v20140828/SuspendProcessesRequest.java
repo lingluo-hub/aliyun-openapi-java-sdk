@@ -17,6 +17,7 @@ package com.aliyuncs.ess.model.v20140828;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
@@ -25,16 +26,44 @@ import com.aliyuncs.http.MethodType;
 public class SuspendProcessesRequest extends RpcAcsRequest<SuspendProcessesResponse> {
 	   
 
+	private String clientToken;
+
+	private String scalingGroupId;
+
 	private List<String> processes;
 
 	private String resourceOwnerAccount;
-
-	private String scalingGroupId;
 
 	private Long ownerId;
 	public SuspendProcessesRequest() {
 		super("Ess", "2014-08-28", "SuspendProcesses", "ess");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getScalingGroupId() {
+		return this.scalingGroupId;
+	}
+
+	public void setScalingGroupId(String scalingGroupId) {
+		this.scalingGroupId = scalingGroupId;
+		if(scalingGroupId != null){
+			putQueryParameter("ScalingGroupId", scalingGroupId);
+		}
 	}
 
 	public List<String> getProcesses() {
@@ -42,7 +71,7 @@ public class SuspendProcessesRequest extends RpcAcsRequest<SuspendProcessesRespo
 	}
 
 	public void setProcesses(List<String> processes) {
-		this.processes = processes;
+		this.processes = processes;	
 		if (processes != null) {
 			for (int i = 0; i < processes.size(); i++) {
 				putQueryParameter("Process." + (i + 1) , processes.get(i));
@@ -58,17 +87,6 @@ public class SuspendProcessesRequest extends RpcAcsRequest<SuspendProcessesRespo
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
-	}
-
-	public String getScalingGroupId() {
-		return this.scalingGroupId;
-	}
-
-	public void setScalingGroupId(String scalingGroupId) {
-		this.scalingGroupId = scalingGroupId;
-		if(scalingGroupId != null){
-			putQueryParameter("ScalingGroupId", scalingGroupId);
 		}
 	}
 

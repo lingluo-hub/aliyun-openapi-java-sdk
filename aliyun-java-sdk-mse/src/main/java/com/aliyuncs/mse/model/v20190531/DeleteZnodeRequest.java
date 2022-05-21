@@ -30,6 +30,8 @@ public class DeleteZnodeRequest extends RpcAcsRequest<DeleteZnodeResponse> {
 	private String path;
 
 	private String requestPars;
+
+	private String acceptLanguage;
 	public DeleteZnodeRequest() {
 		super("mse", "2019-05-31", "DeleteZnode", "mse");
 		setMethod(MethodType.POST);
@@ -46,7 +48,7 @@ public class DeleteZnodeRequest extends RpcAcsRequest<DeleteZnodeResponse> {
 	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+			putQueryParameter("ClusterId", clusterId);
 		}
 	}
 
@@ -57,7 +59,7 @@ public class DeleteZnodeRequest extends RpcAcsRequest<DeleteZnodeResponse> {
 	public void setPath(String path) {
 		this.path = path;
 		if(path != null){
-			putBodyParameter("Path", path);
+			putQueryParameter("Path", path);
 		}
 	}
 
@@ -68,7 +70,18 @@ public class DeleteZnodeRequest extends RpcAcsRequest<DeleteZnodeResponse> {
 	public void setRequestPars(String requestPars) {
 		this.requestPars = requestPars;
 		if(requestPars != null){
-			putBodyParameter("RequestPars", requestPars);
+			putQueryParameter("RequestPars", requestPars);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

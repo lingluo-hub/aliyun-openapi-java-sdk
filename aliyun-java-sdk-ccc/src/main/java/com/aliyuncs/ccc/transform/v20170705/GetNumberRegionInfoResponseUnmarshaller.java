@@ -24,14 +24,14 @@ public class GetNumberRegionInfoResponseUnmarshaller {
 	public static GetNumberRegionInfoResponse unmarshall(GetNumberRegionInfoResponse getNumberRegionInfoResponse, UnmarshallerContext _ctx) {
 		
 		getNumberRegionInfoResponse.setRequestId(_ctx.stringValue("GetNumberRegionInfoResponse.RequestId"));
-		getNumberRegionInfoResponse.setSuccess(_ctx.booleanValue("GetNumberRegionInfoResponse.Success"));
 		getNumberRegionInfoResponse.setCode(_ctx.stringValue("GetNumberRegionInfoResponse.Code"));
 		getNumberRegionInfoResponse.setMessage(_ctx.stringValue("GetNumberRegionInfoResponse.Message"));
+		getNumberRegionInfoResponse.setSuccess(_ctx.booleanValue("GetNumberRegionInfoResponse.Success"));
 
 		PhoneNumber phoneNumber = new PhoneNumber();
 		phoneNumber.setNumber(_ctx.stringValue("GetNumberRegionInfoResponse.PhoneNumber.Number"));
-		phoneNumber.setProvince(_ctx.stringValue("GetNumberRegionInfoResponse.PhoneNumber.Province"));
 		phoneNumber.setCity(_ctx.stringValue("GetNumberRegionInfoResponse.PhoneNumber.City"));
+		phoneNumber.setProvince(_ctx.stringValue("GetNumberRegionInfoResponse.PhoneNumber.Province"));
 		getNumberRegionInfoResponse.setPhoneNumber(phoneNumber);
 	 
 	 	return getNumberRegionInfoResponse;

@@ -27,6 +27,8 @@ public class CompareFaceResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String code;
+
 	private Data data;
 
 	public String getRequestId() {
@@ -35,6 +37,14 @@ public class CompareFaceResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Data getData() {
@@ -49,11 +59,17 @@ public class CompareFaceResponse extends AcsResponse {
 
 		private Float confidence;
 
+		private Float qualityScoreA;
+
+		private Float qualityScoreB;
+
+		private String messageTips;
+
 		private List<Float> thresholds;
 
-		private List<Integer> rectAList;
-
 		private List<Integer> rectBList;
+
+		private List<Integer> rectAList;
 
 		public Float getConfidence() {
 			return this.confidence;
@@ -61,6 +77,30 @@ public class CompareFaceResponse extends AcsResponse {
 
 		public void setConfidence(Float confidence) {
 			this.confidence = confidence;
+		}
+
+		public Float getQualityScoreA() {
+			return this.qualityScoreA;
+		}
+
+		public void setQualityScoreA(Float qualityScoreA) {
+			this.qualityScoreA = qualityScoreA;
+		}
+
+		public Float getQualityScoreB() {
+			return this.qualityScoreB;
+		}
+
+		public void setQualityScoreB(Float qualityScoreB) {
+			this.qualityScoreB = qualityScoreB;
+		}
+
+		public String getMessageTips() {
+			return this.messageTips;
+		}
+
+		public void setMessageTips(String messageTips) {
+			this.messageTips = messageTips;
 		}
 
 		public List<Float> getThresholds() {
@@ -71,20 +111,20 @@ public class CompareFaceResponse extends AcsResponse {
 			this.thresholds = thresholds;
 		}
 
-		public List<Integer> getRectAList() {
-			return this.rectAList;
-		}
-
-		public void setRectAList(List<Integer> rectAList) {
-			this.rectAList = rectAList;
-		}
-
 		public List<Integer> getRectBList() {
 			return this.rectBList;
 		}
 
 		public void setRectBList(List<Integer> rectBList) {
 			this.rectBList = rectBList;
+		}
+
+		public List<Integer> getRectAList() {
+			return this.rectAList;
+		}
+
+		public void setRectAList(List<Integer> rectAList) {
+			this.rectAList = rectAList;
 		}
 	}
 

@@ -32,8 +32,6 @@ public class VerifyMaterialResponse extends AcsResponse {
 
 	private Float authorityComparisionScore;
 
-	private Float faceComparisonScore;
-
 	private Float idCardFaceComparisonScore;
 
 	private Material material;
@@ -70,14 +68,6 @@ public class VerifyMaterialResponse extends AcsResponse {
 		this.authorityComparisionScore = authorityComparisionScore;
 	}
 
-	public Float getFaceComparisonScore() {
-		return this.faceComparisonScore;
-	}
-
-	public void setFaceComparisonScore(Float faceComparisonScore) {
-		this.faceComparisonScore = faceComparisonScore;
-	}
-
 	public Float getIdCardFaceComparisonScore() {
 		return this.idCardFaceComparisonScore;
 	}
@@ -101,6 +91,12 @@ public class VerifyMaterialResponse extends AcsResponse {
 		private String idCardName;
 
 		private String idCardNumber;
+
+		private String faceQuality;
+
+		private String faceGlobalUrl;
+
+		private String faceMask;
 
 		private IdCardInfo idCardInfo;
 
@@ -126,6 +122,30 @@ public class VerifyMaterialResponse extends AcsResponse {
 
 		public void setIdCardNumber(String idCardNumber) {
 			this.idCardNumber = idCardNumber;
+		}
+
+		public String getFaceQuality() {
+			return this.faceQuality;
+		}
+
+		public void setFaceQuality(String faceQuality) {
+			this.faceQuality = faceQuality;
+		}
+
+		public String getFaceGlobalUrl() {
+			return this.faceGlobalUrl;
+		}
+
+		public void setFaceGlobalUrl(String faceGlobalUrl) {
+			this.faceGlobalUrl = faceGlobalUrl;
+		}
+
+		public String getFaceMask() {
+			return this.faceMask;
+		}
+
+		public void setFaceMask(String faceMask) {
+			this.faceMask = faceMask;
 		}
 
 		public IdCardInfo getIdCardInfo() {

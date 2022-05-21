@@ -67,6 +67,8 @@ public class ListClusterInstalledServiceResponse extends AcsResponse {
 
 		private String comment;
 
+		private String state;
+
 		private List<ServiceAction> serviceActionList;
 
 		public String getServiceName() {
@@ -149,6 +151,14 @@ public class ListClusterInstalledServiceResponse extends AcsResponse {
 			this.comment = comment;
 		}
 
+		public String getState() {
+			return this.state;
+		}
+
+		public void setState(String state) {
+			this.state = state;
+		}
+
 		public List<ServiceAction> getServiceActionList() {
 			return this.serviceActionList;
 		}
@@ -185,26 +195,10 @@ public class ListClusterInstalledServiceResponse extends AcsResponse {
 				this.componentName = componentName;
 			}
 
-			public String getBizActionName() {
-				return this.actionName;
-			}
-
-			public void setBizActionName(String actionName) {
-				this.actionName = actionName;
-			}
-
-			/**
-			 * @deprecated use getBizActionName instead of this.
-			 */
-			@Deprecated
 			public String getActionName() {
 				return this.actionName;
 			}
 
-			/**
-			 * @deprecated use setBizActionName instead of this.
-			 */
-			@Deprecated
 			public void setActionName(String actionName) {
 				this.actionName = actionName;
 			}

@@ -16,35 +16,31 @@ package com.aliyuncs.sts.model.v20150401;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sts.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class AssumeRoleRequest extends RpcAcsRequest<AssumeRoleResponse> {
-	
-	public AssumeRoleRequest() {
-		super("Sts", "2015-04-01", "AssumeRole", "sts");
-		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private String roleArn;
+	   
 
 	private String roleSessionName;
 
-	private Long durationSeconds;
-
 	private String policy;
 
-	public String getRoleArn() {
-		return this.roleArn;
-	}
+	private String roleArn;
 
-	public void setRoleArn(String roleArn) {
-		this.roleArn = roleArn;
-		if(roleArn != null){
-			putQueryParameter("RoleArn", roleArn);
-		}
+	private Long durationSeconds;
+	public AssumeRoleRequest() {
+		super("Sts", "2015-04-01", "AssumeRole");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getRoleSessionName() {
@@ -58,17 +54,6 @@ public class AssumeRoleRequest extends RpcAcsRequest<AssumeRoleResponse> {
 		}
 	}
 
-	public Long getDurationSeconds() {
-		return this.durationSeconds;
-	}
-
-	public void setDurationSeconds(Long durationSeconds) {
-		this.durationSeconds = durationSeconds;
-		if(durationSeconds != null){
-			putQueryParameter("DurationSeconds", durationSeconds.toString());
-		}
-	}
-
 	public String getPolicy() {
 		return this.policy;
 	}
@@ -77,6 +62,28 @@ public class AssumeRoleRequest extends RpcAcsRequest<AssumeRoleResponse> {
 		this.policy = policy;
 		if(policy != null){
 			putQueryParameter("Policy", policy);
+		}
+	}
+
+	public String getRoleArn() {
+		return this.roleArn;
+	}
+
+	public void setRoleArn(String roleArn) {
+		this.roleArn = roleArn;
+		if(roleArn != null){
+			putQueryParameter("RoleArn", roleArn);
+		}
+	}
+
+	public Long getDurationSeconds() {
+		return this.durationSeconds;
+	}
+
+	public void setDurationSeconds(Long durationSeconds) {
+		this.durationSeconds = durationSeconds;
+		if(durationSeconds != null){
+			putQueryParameter("DurationSeconds", durationSeconds.toString());
 		}
 	}
 

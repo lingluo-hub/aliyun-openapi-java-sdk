@@ -23,10 +23,10 @@ public class ModifyPrivacyNumberCallDetailResponseUnmarshaller {
 	public static ModifyPrivacyNumberCallDetailResponse unmarshall(ModifyPrivacyNumberCallDetailResponse modifyPrivacyNumberCallDetailResponse, UnmarshallerContext _ctx) {
 		
 		modifyPrivacyNumberCallDetailResponse.setRequestId(_ctx.stringValue("ModifyPrivacyNumberCallDetailResponse.RequestId"));
-		modifyPrivacyNumberCallDetailResponse.setSuccess(_ctx.booleanValue("ModifyPrivacyNumberCallDetailResponse.Success"));
+		modifyPrivacyNumberCallDetailResponse.setHttpStatusCode(_ctx.integerValue("ModifyPrivacyNumberCallDetailResponse.HttpStatusCode"));
 		modifyPrivacyNumberCallDetailResponse.setCode(_ctx.stringValue("ModifyPrivacyNumberCallDetailResponse.Code"));
 		modifyPrivacyNumberCallDetailResponse.setMessage(_ctx.stringValue("ModifyPrivacyNumberCallDetailResponse.Message"));
-		modifyPrivacyNumberCallDetailResponse.setHttpStatusCode(_ctx.integerValue("ModifyPrivacyNumberCallDetailResponse.HttpStatusCode"));
+		modifyPrivacyNumberCallDetailResponse.setSuccess(_ctx.booleanValue("ModifyPrivacyNumberCallDetailResponse.Success"));
 	 
 	 	return modifyPrivacyNumberCallDetailResponse;
 	}

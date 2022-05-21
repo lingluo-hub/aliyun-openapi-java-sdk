@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class RefreshTokenResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Token token;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class RefreshTokenResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Token getToken() {
@@ -86,17 +86,9 @@ public class RefreshTokenResponse extends AcsResponse {
 
 	public static class Token {
 
-		private String signature;
-
 		private String signData;
 
-		public String getSignature() {
-			return this.signature;
-		}
-
-		public void setSignature(String signature) {
-			this.signature = signature;
-		}
+		private String signature;
 
 		public String getSignData() {
 			return this.signData;
@@ -104,6 +96,14 @@ public class RefreshTokenResponse extends AcsResponse {
 
 		public void setSignData(String signData) {
 			this.signData = signData;
+		}
+
+		public String getSignature() {
+			return this.signature;
+		}
+
+		public void setSignature(String signature) {
+			this.signature = signature;
 		}
 	}
 

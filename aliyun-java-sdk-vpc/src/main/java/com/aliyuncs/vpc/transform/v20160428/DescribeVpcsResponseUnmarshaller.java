@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.vpc.model.v20160428.DescribeVpcsResponse;
 import com.aliyuncs.vpc.model.v20160428.DescribeVpcsResponse.Vpc;
+import com.aliyuncs.vpc.model.v20160428.DescribeVpcsResponse.Vpc.Ipv6CidrBlock;
 import com.aliyuncs.vpc.model.v20160428.DescribeVpcsResponse.Vpc.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
@@ -28,25 +29,30 @@ public class DescribeVpcsResponseUnmarshaller {
 	public static DescribeVpcsResponse unmarshall(DescribeVpcsResponse describeVpcsResponse, UnmarshallerContext _ctx) {
 		
 		describeVpcsResponse.setRequestId(_ctx.stringValue("DescribeVpcsResponse.RequestId"));
-		describeVpcsResponse.setTotalCount(_ctx.integerValue("DescribeVpcsResponse.TotalCount"));
-		describeVpcsResponse.setPageNumber(_ctx.integerValue("DescribeVpcsResponse.PageNumber"));
 		describeVpcsResponse.setPageSize(_ctx.integerValue("DescribeVpcsResponse.PageSize"));
+		describeVpcsResponse.setPageNumber(_ctx.integerValue("DescribeVpcsResponse.PageNumber"));
+		describeVpcsResponse.setTotalCount(_ctx.integerValue("DescribeVpcsResponse.TotalCount"));
 
 		List<Vpc> vpcs = new ArrayList<Vpc>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeVpcsResponse.Vpcs.Length"); i++) {
 			Vpc vpc = new Vpc();
-			vpc.setVpcId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VpcId"));
-			vpc.setRegionId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].RegionId"));
-			vpc.setStatus(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Status"));
-			vpc.setVpcName(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VpcName"));
 			vpc.setCreationTime(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].CreationTime"));
-			vpc.setCidrBlock(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].CidrBlock"));
-			vpc.setIpv6CidrBlock(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Ipv6CidrBlock"));
-			vpc.setVRouterId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VRouterId"));
-			vpc.setDescription(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Description"));
+			vpc.setStatus(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Status"));
+			vpc.setVpcId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VpcId"));
 			vpc.setIsDefault(_ctx.booleanValue("DescribeVpcsResponse.Vpcs["+ i +"].IsDefault"));
+			vpc.setAdvancedResource(_ctx.booleanValue("DescribeVpcsResponse.Vpcs["+ i +"].AdvancedResource"));
+			vpc.setOwnerId(_ctx.longValue("DescribeVpcsResponse.Vpcs["+ i +"].OwnerId"));
+			vpc.setRegionId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].RegionId"));
+			vpc.setVpcName(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VpcName"));
+			vpc.setVRouterId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VRouterId"));
+			vpc.setDhcpOptionsSetStatus(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].DhcpOptionsSetStatus"));
+			vpc.setCidrBlock(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].CidrBlock"));
+			vpc.setDescription(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Description"));
 			vpc.setNetworkAclNum(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].NetworkAclNum"));
+			vpc.setSupportAdvancedFeature(_ctx.booleanValue("DescribeVpcsResponse.Vpcs["+ i +"].SupportAdvancedFeature"));
 			vpc.setResourceGroupId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].ResourceGroupId"));
+			vpc.setDhcpOptionsSetId(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].DhcpOptionsSetId"));
+			vpc.setIpv6CidrBlock(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Ipv6CidrBlock"));
 			vpc.setCenStatus(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].CenStatus"));
 
 			List<String> vSwitchIds = new ArrayList<String>();
@@ -54,6 +60,12 @@ public class DescribeVpcsResponseUnmarshaller {
 				vSwitchIds.add(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].VSwitchIds["+ j +"]"));
 			}
 			vpc.setVSwitchIds(vSwitchIds);
+
+			List<String> secondaryCidrBlocks = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeVpcsResponse.Vpcs["+ i +"].SecondaryCidrBlocks.Length"); j++) {
+				secondaryCidrBlocks.add(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].SecondaryCidrBlocks["+ j +"]"));
+			}
+			vpc.setSecondaryCidrBlocks(secondaryCidrBlocks);
 
 			List<String> userCidrs = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeVpcsResponse.Vpcs["+ i +"].UserCidrs.Length"); j++) {
@@ -73,12 +85,6 @@ public class DescribeVpcsResponseUnmarshaller {
 			}
 			vpc.setRouterTableIds(routerTableIds);
 
-			List<String> secondaryCidrBlocks = new ArrayList<String>();
-			for (int j = 0; j < _ctx.lengthValue("DescribeVpcsResponse.Vpcs["+ i +"].SecondaryCidrBlocks.Length"); j++) {
-				secondaryCidrBlocks.add(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].SecondaryCidrBlocks["+ j +"]"));
-			}
-			vpc.setSecondaryCidrBlocks(secondaryCidrBlocks);
-
 			List<Tag> tags = new ArrayList<Tag>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeVpcsResponse.Vpcs["+ i +"].Tags.Length"); j++) {
 				Tag tag = new Tag();
@@ -88,6 +94,16 @@ public class DescribeVpcsResponseUnmarshaller {
 				tags.add(tag);
 			}
 			vpc.setTags(tags);
+
+			List<Ipv6CidrBlock> ipv6CidrBlocks = new ArrayList<Ipv6CidrBlock>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeVpcsResponse.Vpcs["+ i +"].Ipv6CidrBlocks.Length"); j++) {
+				Ipv6CidrBlock ipv6CidrBlock = new Ipv6CidrBlock();
+				ipv6CidrBlock.setIpv6Isp(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Ipv6CidrBlocks["+ j +"].Ipv6Isp"));
+				ipv6CidrBlock.setIpv6CidrBlock(_ctx.stringValue("DescribeVpcsResponse.Vpcs["+ i +"].Ipv6CidrBlocks["+ j +"].Ipv6CidrBlock"));
+
+				ipv6CidrBlocks.add(ipv6CidrBlock);
+			}
+			vpc.setIpv6CidrBlocks(ipv6CidrBlocks);
 
 			vpcs.add(vpc);
 		}

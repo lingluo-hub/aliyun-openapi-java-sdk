@@ -91,29 +91,13 @@ public class RecognizeExpressionResponse extends AcsResponse {
 
 			public static class FaceRectangle {
 
-				private Integer height;
-
-				private Integer left;
-
 				private Integer top;
 
 				private Integer width;
 
-				public Integer getHeight() {
-					return this.height;
-				}
+				private Integer height;
 
-				public void setHeight(Integer height) {
-					this.height = height;
-				}
-
-				public Integer getLeft() {
-					return this.left;
-				}
-
-				public void setLeft(Integer left) {
-					this.left = left;
-				}
+				private Integer left;
 
 				public Integer getTop() {
 					return this.top;
@@ -129,6 +113,22 @@ public class RecognizeExpressionResponse extends AcsResponse {
 
 				public void setWidth(Integer width) {
 					this.width = width;
+				}
+
+				public Integer getHeight() {
+					return this.height;
+				}
+
+				public void setHeight(Integer height) {
+					this.height = height;
+				}
+
+				public Integer getLeft() {
+					return this.left;
+				}
+
+				public void setLeft(Integer left) {
+					this.left = left;
 				}
 			}
 		}

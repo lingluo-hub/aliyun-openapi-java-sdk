@@ -54,6 +54,8 @@ public class DescribeAuditRecordsRequest extends RpcAcsRequest<DescribeAuditReco
 	private String form;
 
 	private String user;
+
+	private String orderType;
 	public DescribeAuditRecordsRequest() {
 		super("Dds", "2015-12-01", "DescribeAuditRecords", "dds");
 		setMethod(MethodType.POST);
@@ -225,6 +227,17 @@ public class DescribeAuditRecordsRequest extends RpcAcsRequest<DescribeAuditReco
 		this.user = user;
 		if(user != null){
 			putQueryParameter("User", user);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

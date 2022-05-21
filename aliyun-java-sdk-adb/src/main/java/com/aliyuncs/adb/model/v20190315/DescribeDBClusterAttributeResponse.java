@@ -47,167 +47,87 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	public static class DBCluster {
 
-		private String regionId;
-
-		private String zoneId;
-
-		private String dBClusterId;
-
-		private String dBClusterType;
-
-		private String dBClusterDescription;
-
-		private String category;
-
-		private String lockMode;
-
-		private String lockReason;
-
-		private String payType;
-
-		private String dBVersion;
-
-		private String dBClusterStatus;
-
-		private Long dBNodeStorage;
-
-		private String dBNodeClass;
-
-		private Long dBNodeCount;
-
 		private String creationTime;
 
-		private String expireTime;
+		private Boolean enableSpark;
+
+		private String dtsJobId;
+
+		private Long dBNodeCount;
 
 		private String expired;
 
 		private String maintainTime;
 
-		private String engine;
+		private String payType;
 
-		private String vPCId;
+		private String diskType;
 
-		private String vSwitchId;
+		private String mode;
 
-		private String vPCCloudInstanceId;
+		private Integer port;
+
+		private String lockMode;
+
+		private String engineVersion;
+
+		private Boolean enableAirflow;
+
+		private String executorCount;
+
+		private String storageResource;
+
+		private String dBClusterId;
+
+		private String connectionString;
+
+		private String rdsInstanceId;
+
+		private String dBClusterType;
 
 		private String commodityCode;
 
+		private String expireTime;
+
+		private Long dBNodeStorage;
+
+		private String dBNodeClass;
+
+		private String lockReason;
+
+		private String vPCId;
+
+		private String computeResource;
+
+		private String regionId;
+
+		private Integer elasticIOResource;
+
+		private String vSwitchId;
+
+		private String dBVersion;
+
+		private String vPCCloudInstanceId;
+
+		private String dBClusterStatus;
+
+		private String resourceGroupId;
+
 		private String dBClusterNetworkType;
 
+		private String dBClusterDescription;
+
+		private Boolean userENIStatus;
+
+		private String zoneId;
+
+		private String category;
+
+		private String engine;
+
+		private String kmsId;
+
 		private List<Tag> tags;
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		public String getZoneId() {
-			return this.zoneId;
-		}
-
-		public void setZoneId(String zoneId) {
-			this.zoneId = zoneId;
-		}
-
-		public String getDBClusterId() {
-			return this.dBClusterId;
-		}
-
-		public void setDBClusterId(String dBClusterId) {
-			this.dBClusterId = dBClusterId;
-		}
-
-		public String getDBClusterType() {
-			return this.dBClusterType;
-		}
-
-		public void setDBClusterType(String dBClusterType) {
-			this.dBClusterType = dBClusterType;
-		}
-
-		public String getDBClusterDescription() {
-			return this.dBClusterDescription;
-		}
-
-		public void setDBClusterDescription(String dBClusterDescription) {
-			this.dBClusterDescription = dBClusterDescription;
-		}
-
-		public String getCategory() {
-			return this.category;
-		}
-
-		public void setCategory(String category) {
-			this.category = category;
-		}
-
-		public String getLockMode() {
-			return this.lockMode;
-		}
-
-		public void setLockMode(String lockMode) {
-			this.lockMode = lockMode;
-		}
-
-		public String getLockReason() {
-			return this.lockReason;
-		}
-
-		public void setLockReason(String lockReason) {
-			this.lockReason = lockReason;
-		}
-
-		public String getPayType() {
-			return this.payType;
-		}
-
-		public void setPayType(String payType) {
-			this.payType = payType;
-		}
-
-		public String getDBVersion() {
-			return this.dBVersion;
-		}
-
-		public void setDBVersion(String dBVersion) {
-			this.dBVersion = dBVersion;
-		}
-
-		public String getDBClusterStatus() {
-			return this.dBClusterStatus;
-		}
-
-		public void setDBClusterStatus(String dBClusterStatus) {
-			this.dBClusterStatus = dBClusterStatus;
-		}
-
-		public Long getDBNodeStorage() {
-			return this.dBNodeStorage;
-		}
-
-		public void setDBNodeStorage(Long dBNodeStorage) {
-			this.dBNodeStorage = dBNodeStorage;
-		}
-
-		public String getDBNodeClass() {
-			return this.dBNodeClass;
-		}
-
-		public void setDBNodeClass(String dBNodeClass) {
-			this.dBNodeClass = dBNodeClass;
-		}
-
-		public Long getDBNodeCount() {
-			return this.dBNodeCount;
-		}
-
-		public void setDBNodeCount(Long dBNodeCount) {
-			this.dBNodeCount = dBNodeCount;
-		}
 
 		public String getCreationTime() {
 			return this.creationTime;
@@ -217,12 +137,28 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 			this.creationTime = creationTime;
 		}
 
-		public String getExpireTime() {
-			return this.expireTime;
+		public Boolean getEnableSpark() {
+			return this.enableSpark;
 		}
 
-		public void setExpireTime(String expireTime) {
-			this.expireTime = expireTime;
+		public void setEnableSpark(Boolean enableSpark) {
+			this.enableSpark = enableSpark;
+		}
+
+		public String getDtsJobId() {
+			return this.dtsJobId;
+		}
+
+		public void setDtsJobId(String dtsJobId) {
+			this.dtsJobId = dtsJobId;
+		}
+
+		public Long getDBNodeCount() {
+			return this.dBNodeCount;
+		}
+
+		public void setDBNodeCount(Long dBNodeCount) {
+			this.dBNodeCount = dBNodeCount;
 		}
 
 		public String getExpired() {
@@ -241,36 +177,108 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 			this.maintainTime = maintainTime;
 		}
 
-		public String getEngine() {
-			return this.engine;
+		public String getPayType() {
+			return this.payType;
 		}
 
-		public void setEngine(String engine) {
-			this.engine = engine;
+		public void setPayType(String payType) {
+			this.payType = payType;
 		}
 
-		public String getVPCId() {
-			return this.vPCId;
+		public String getDiskType() {
+			return this.diskType;
 		}
 
-		public void setVPCId(String vPCId) {
-			this.vPCId = vPCId;
+		public void setDiskType(String diskType) {
+			this.diskType = diskType;
 		}
 
-		public String getVSwitchId() {
-			return this.vSwitchId;
+		public String getMode() {
+			return this.mode;
 		}
 
-		public void setVSwitchId(String vSwitchId) {
-			this.vSwitchId = vSwitchId;
+		public void setMode(String mode) {
+			this.mode = mode;
 		}
 
-		public String getVPCCloudInstanceId() {
-			return this.vPCCloudInstanceId;
+		public Integer getPort() {
+			return this.port;
 		}
 
-		public void setVPCCloudInstanceId(String vPCCloudInstanceId) {
-			this.vPCCloudInstanceId = vPCCloudInstanceId;
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public String getLockMode() {
+			return this.lockMode;
+		}
+
+		public void setLockMode(String lockMode) {
+			this.lockMode = lockMode;
+		}
+
+		public String getEngineVersion() {
+			return this.engineVersion;
+		}
+
+		public void setEngineVersion(String engineVersion) {
+			this.engineVersion = engineVersion;
+		}
+
+		public Boolean getEnableAirflow() {
+			return this.enableAirflow;
+		}
+
+		public void setEnableAirflow(Boolean enableAirflow) {
+			this.enableAirflow = enableAirflow;
+		}
+
+		public String getExecutorCount() {
+			return this.executorCount;
+		}
+
+		public void setExecutorCount(String executorCount) {
+			this.executorCount = executorCount;
+		}
+
+		public String getStorageResource() {
+			return this.storageResource;
+		}
+
+		public void setStorageResource(String storageResource) {
+			this.storageResource = storageResource;
+		}
+
+		public String getDBClusterId() {
+			return this.dBClusterId;
+		}
+
+		public void setDBClusterId(String dBClusterId) {
+			this.dBClusterId = dBClusterId;
+		}
+
+		public String getConnectionString() {
+			return this.connectionString;
+		}
+
+		public void setConnectionString(String connectionString) {
+			this.connectionString = connectionString;
+		}
+
+		public String getRdsInstanceId() {
+			return this.rdsInstanceId;
+		}
+
+		public void setRdsInstanceId(String rdsInstanceId) {
+			this.rdsInstanceId = rdsInstanceId;
+		}
+
+		public String getDBClusterType() {
+			return this.dBClusterType;
+		}
+
+		public void setDBClusterType(String dBClusterType) {
+			this.dBClusterType = dBClusterType;
 		}
 
 		public String getCommodityCode() {
@@ -281,12 +289,164 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 			this.commodityCode = commodityCode;
 		}
 
+		public String getExpireTime() {
+			return this.expireTime;
+		}
+
+		public void setExpireTime(String expireTime) {
+			this.expireTime = expireTime;
+		}
+
+		public Long getDBNodeStorage() {
+			return this.dBNodeStorage;
+		}
+
+		public void setDBNodeStorage(Long dBNodeStorage) {
+			this.dBNodeStorage = dBNodeStorage;
+		}
+
+		public String getDBNodeClass() {
+			return this.dBNodeClass;
+		}
+
+		public void setDBNodeClass(String dBNodeClass) {
+			this.dBNodeClass = dBNodeClass;
+		}
+
+		public String getLockReason() {
+			return this.lockReason;
+		}
+
+		public void setLockReason(String lockReason) {
+			this.lockReason = lockReason;
+		}
+
+		public String getVPCId() {
+			return this.vPCId;
+		}
+
+		public void setVPCId(String vPCId) {
+			this.vPCId = vPCId;
+		}
+
+		public String getComputeResource() {
+			return this.computeResource;
+		}
+
+		public void setComputeResource(String computeResource) {
+			this.computeResource = computeResource;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public Integer getElasticIOResource() {
+			return this.elasticIOResource;
+		}
+
+		public void setElasticIOResource(Integer elasticIOResource) {
+			this.elasticIOResource = elasticIOResource;
+		}
+
+		public String getVSwitchId() {
+			return this.vSwitchId;
+		}
+
+		public void setVSwitchId(String vSwitchId) {
+			this.vSwitchId = vSwitchId;
+		}
+
+		public String getDBVersion() {
+			return this.dBVersion;
+		}
+
+		public void setDBVersion(String dBVersion) {
+			this.dBVersion = dBVersion;
+		}
+
+		public String getVPCCloudInstanceId() {
+			return this.vPCCloudInstanceId;
+		}
+
+		public void setVPCCloudInstanceId(String vPCCloudInstanceId) {
+			this.vPCCloudInstanceId = vPCCloudInstanceId;
+		}
+
+		public String getDBClusterStatus() {
+			return this.dBClusterStatus;
+		}
+
+		public void setDBClusterStatus(String dBClusterStatus) {
+			this.dBClusterStatus = dBClusterStatus;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
 		public String getDBClusterNetworkType() {
 			return this.dBClusterNetworkType;
 		}
 
 		public void setDBClusterNetworkType(String dBClusterNetworkType) {
 			this.dBClusterNetworkType = dBClusterNetworkType;
+		}
+
+		public String getDBClusterDescription() {
+			return this.dBClusterDescription;
+		}
+
+		public void setDBClusterDescription(String dBClusterDescription) {
+			this.dBClusterDescription = dBClusterDescription;
+		}
+
+		public Boolean getUserENIStatus() {
+			return this.userENIStatus;
+		}
+
+		public void setUserENIStatus(Boolean userENIStatus) {
+			this.userENIStatus = userENIStatus;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public String getCategory() {
+			return this.category;
+		}
+
+		public void setCategory(String category) {
+			this.category = category;
+		}
+
+		public String getEngine() {
+			return this.engine;
+		}
+
+		public void setEngine(String engine) {
+			this.engine = engine;
+		}
+
+		public String getKmsId() {
+			return this.kmsId;
+		}
+
+		public void setKmsId(String kmsId) {
+			this.kmsId = kmsId;
 		}
 
 		public List<Tag> getTags() {

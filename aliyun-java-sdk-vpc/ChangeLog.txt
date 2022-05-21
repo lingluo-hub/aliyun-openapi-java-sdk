@@ -1,3 +1,47 @@
+2022-05-07 Version: 3.2.1
+- Supported API for PublicIpAddressPool.
+
+2021-12-16 Version: 3.2.0
+- Support networkACL.
+- Support IPv6.
+
+2021-10-25 Version: 3.1.18
+- Supported SecurityProtectionTypes for AllocateEipAddress.
+- Supported SecurityProtectionTypes for CreateCommonBandwidthPackage.
+
+2021-09-30 Version: 3.1.17
+- Supported Vpconn for ACVS.
+
+2021-06-21 Version: 3.1.16
+- Generated 2016-04-28 for `Vpc`.
+
+2021-06-10 Version: 3.1.15
+- Generated 2016-04-28 for `Vpc`.
+
+2021-06-10 Version: 3.1.14
+- Generated 2016-04-28 for `Vpc`.
+
+2021-03-18 Version: 3.1.13
+- DescribeZones support multiple languages.
+
+2020-12-29 Version: 3.1.12
+- New version 4 nat2.
+
+2020-12-29 Version: 3.0.12
+- New version 4 nat2.
+
+2020-09-21 Version: 3.0.10
+- Generated 2016-04-28 for `Vpc`.
+
+2020-08-07 Version: 3.1.10
+- Supported for eip operation idempotence.
+
+2020-06-03 Version: 3.1.0
+- Add enhanced natgateway sdk.
+
+2020-04-30 Version: 3.1.0
+- Supported share vpc feature.
+
 2020-02-28 Version: 2.7.7
 - Supported for eip operation idempotence.
 

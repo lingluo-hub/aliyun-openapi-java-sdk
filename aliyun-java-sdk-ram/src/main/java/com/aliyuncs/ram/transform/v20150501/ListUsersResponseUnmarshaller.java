@@ -24,23 +24,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ListUsersResponseUnmarshaller {
 
-	public static ListUsersResponse unmarshall(ListUsersResponse listUsersResponse, UnmarshallerContext context) {
+	public static ListUsersResponse unmarshall(ListUsersResponse listUsersResponse, UnmarshallerContext _ctx) {
 		
-		listUsersResponse.setRequestId(context.stringValue("ListUsersResponse.RequestId"));
-		listUsersResponse.setIsTruncated(context.booleanValue("ListUsersResponse.IsTruncated"));
-		listUsersResponse.setMarker(context.stringValue("ListUsersResponse.Marker"));
+		listUsersResponse.setRequestId(_ctx.stringValue("ListUsersResponse.RequestId"));
+		listUsersResponse.setIsTruncated(_ctx.booleanValue("ListUsersResponse.IsTruncated"));
+		listUsersResponse.setMarker(_ctx.stringValue("ListUsersResponse.Marker"));
 
 		List<User> users = new ArrayList<User>();
-		for (int i = 0; i < context.lengthValue("ListUsersResponse.Users.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListUsersResponse.Users.Length"); i++) {
 			User user = new User();
-			user.setUserId(context.stringValue("ListUsersResponse.Users["+ i +"].UserId"));
-			user.setUserName(context.stringValue("ListUsersResponse.Users["+ i +"].UserName"));
-			user.setDisplayName(context.stringValue("ListUsersResponse.Users["+ i +"].DisplayName"));
-			user.setMobilePhone(context.stringValue("ListUsersResponse.Users["+ i +"].MobilePhone"));
-			user.setEmail(context.stringValue("ListUsersResponse.Users["+ i +"].Email"));
-			user.setComments(context.stringValue("ListUsersResponse.Users["+ i +"].Comments"));
-			user.setCreateDate(context.stringValue("ListUsersResponse.Users["+ i +"].CreateDate"));
-			user.setUpdateDate(context.stringValue("ListUsersResponse.Users["+ i +"].UpdateDate"));
+			user.setDisplayName(_ctx.stringValue("ListUsersResponse.Users["+ i +"].DisplayName"));
+			user.setEmail(_ctx.stringValue("ListUsersResponse.Users["+ i +"].Email"));
+			user.setUpdateDate(_ctx.stringValue("ListUsersResponse.Users["+ i +"].UpdateDate"));
+			user.setMobilePhone(_ctx.stringValue("ListUsersResponse.Users["+ i +"].MobilePhone"));
+			user.setUserId(_ctx.stringValue("ListUsersResponse.Users["+ i +"].UserId"));
+			user.setComments(_ctx.stringValue("ListUsersResponse.Users["+ i +"].Comments"));
+			user.setCreateDate(_ctx.stringValue("ListUsersResponse.Users["+ i +"].CreateDate"));
+			user.setUserName(_ctx.stringValue("ListUsersResponse.Users["+ i +"].UserName"));
 
 			users.add(user);
 		}

@@ -24,28 +24,36 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribePrePaidInstanceStockResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer avaliableCount;
+
+	private Integer cores;
 
 	private Integer dataDiskSize;
 
 	private String ensRegionId;
 
-	private Integer cores;
+	private String instanceSpec;
 
 	private Integer memory;
 
-	private Integer avaliableCount;
-
-	private String instanceSpec;
+	private String requestId;
 
 	private Integer systemDiskSize;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getAvaliableCount() {
+		return this.avaliableCount;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setAvaliableCount(Integer avaliableCount) {
+		this.avaliableCount = avaliableCount;
+	}
+
+	public Integer getCores() {
+		return this.cores;
+	}
+
+	public void setCores(Integer cores) {
+		this.cores = cores;
 	}
 
 	public Integer getDataDiskSize() {
@@ -64,12 +72,12 @@ public class DescribePrePaidInstanceStockResponse extends AcsResponse {
 		this.ensRegionId = ensRegionId;
 	}
 
-	public Integer getCores() {
-		return this.cores;
+	public String getInstanceSpec() {
+		return this.instanceSpec;
 	}
 
-	public void setCores(Integer cores) {
-		this.cores = cores;
+	public void setInstanceSpec(String instanceSpec) {
+		this.instanceSpec = instanceSpec;
 	}
 
 	public Integer getMemory() {
@@ -80,20 +88,12 @@ public class DescribePrePaidInstanceStockResponse extends AcsResponse {
 		this.memory = memory;
 	}
 
-	public Integer getAvaliableCount() {
-		return this.avaliableCount;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setAvaliableCount(Integer avaliableCount) {
-		this.avaliableCount = avaliableCount;
-	}
-
-	public String getInstanceSpec() {
-		return this.instanceSpec;
-	}
-
-	public void setInstanceSpec(String instanceSpec) {
-		this.instanceSpec = instanceSpec;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public Integer getSystemDiskSize() {

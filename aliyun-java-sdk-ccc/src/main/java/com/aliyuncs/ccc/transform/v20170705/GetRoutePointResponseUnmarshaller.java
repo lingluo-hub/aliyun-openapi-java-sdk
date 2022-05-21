@@ -23,13 +23,13 @@ public class GetRoutePointResponseUnmarshaller {
 	public static GetRoutePointResponse unmarshall(GetRoutePointResponse getRoutePointResponse, UnmarshallerContext _ctx) {
 		
 		getRoutePointResponse.setRequestId(_ctx.stringValue("GetRoutePointResponse.RequestId"));
+		getRoutePointResponse.setHttpStatusCode(_ctx.integerValue("GetRoutePointResponse.HttpStatusCode"));
+		getRoutePointResponse.setRoutePoint(_ctx.stringValue("GetRoutePointResponse.RoutePoint"));
 		getRoutePointResponse.setSuccess(_ctx.booleanValue("GetRoutePointResponse.Success"));
+		getRoutePointResponse.setStatusCode(_ctx.stringValue("GetRoutePointResponse.StatusCode"));
 		getRoutePointResponse.setCode(_ctx.stringValue("GetRoutePointResponse.Code"));
 		getRoutePointResponse.setMessage(_ctx.stringValue("GetRoutePointResponse.Message"));
-		getRoutePointResponse.setHttpStatusCode(_ctx.integerValue("GetRoutePointResponse.HttpStatusCode"));
-		getRoutePointResponse.setStatusCode(_ctx.stringValue("GetRoutePointResponse.StatusCode"));
 		getRoutePointResponse.setStatusDesc(_ctx.stringValue("GetRoutePointResponse.StatusDesc"));
-		getRoutePointResponse.setRoutePoint(_ctx.stringValue("GetRoutePointResponse.RoutePoint"));
 	 
 	 	return getRoutePointResponse;
 	}

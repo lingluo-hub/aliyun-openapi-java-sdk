@@ -26,6 +26,8 @@ import com.aliyuncs.kms.Endpoint;
 public class TagResourceRequest extends RpcAcsRequest<TagResourceResponse> {
 	   
 
+	private String certificateId;
+
 	private String keyId;
 
 	private String secretName;
@@ -39,6 +41,17 @@ public class TagResourceRequest extends RpcAcsRequest<TagResourceResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getCertificateId() {
+		return this.certificateId;
+	}
+
+	public void setCertificateId(String certificateId) {
+		this.certificateId = certificateId;
+		if(certificateId != null){
+			putQueryParameter("CertificateId", certificateId);
+		}
 	}
 
 	public String getKeyId() {

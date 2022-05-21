@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateInstanceResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Instance instance;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class CreateInstanceResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Instance getInstance() {
@@ -87,17 +87,9 @@ public class CreateInstanceResponse extends AcsResponse {
 
 	public static class Instance {
 
-		private String instanceId;
+		private String status;
 
-		private String instanceName;
-
-		private String instanceDescription;
-
-		private String domainName;
-
-		private String consoleUrl;
-
-		private String storageBucket;
+		private String owner;
 
 		private Integer storageMaxDays;
 
@@ -105,15 +97,23 @@ public class CreateInstanceResponse extends AcsResponse {
 
 		private Integer maxOnlineAgents;
 
-		private String tenantId;
+		private String instanceId;
 
-		private String status;
+		private String instanceDescription;
 
-		private String directoryId;
+		private String domainName;
+
+		private String consoleUrl;
+
+		private String instanceName;
+
+		private String storageBucket;
 
 		private Long createdTime;
 
-		private String owner;
+		private String directoryId;
+
+		private String tenantId;
 
 		private List<User> admin;
 
@@ -121,58 +121,26 @@ public class CreateInstanceResponse extends AcsResponse {
 
 		private List<String> successPhoneNumbers;
 
-		private List<String> failPhoneNumbers;
-
 		private List<String> successLoginNames;
+
+		private List<String> failPhoneNumbers;
 
 		private List<String> failLoginNames;
 
-		public String getInstanceId() {
-			return this.instanceId;
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
-		public String getInstanceName() {
-			return this.instanceName;
+		public String getOwner() {
+			return this.owner;
 		}
 
-		public void setInstanceName(String instanceName) {
-			this.instanceName = instanceName;
-		}
-
-		public String getInstanceDescription() {
-			return this.instanceDescription;
-		}
-
-		public void setInstanceDescription(String instanceDescription) {
-			this.instanceDescription = instanceDescription;
-		}
-
-		public String getDomainName() {
-			return this.domainName;
-		}
-
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
-		}
-
-		public String getConsoleUrl() {
-			return this.consoleUrl;
-		}
-
-		public void setConsoleUrl(String consoleUrl) {
-			this.consoleUrl = consoleUrl;
-		}
-
-		public String getStorageBucket() {
-			return this.storageBucket;
-		}
-
-		public void setStorageBucket(String storageBucket) {
-			this.storageBucket = storageBucket;
+		public void setOwner(String owner) {
+			this.owner = owner;
 		}
 
 		public Integer getStorageMaxDays() {
@@ -199,28 +167,52 @@ public class CreateInstanceResponse extends AcsResponse {
 			this.maxOnlineAgents = maxOnlineAgents;
 		}
 
-		public String getTenantId() {
-			return this.tenantId;
+		public String getInstanceId() {
+			return this.instanceId;
 		}
 
-		public void setTenantId(String tenantId) {
-			this.tenantId = tenantId;
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getInstanceDescription() {
+			return this.instanceDescription;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setInstanceDescription(String instanceDescription) {
+			this.instanceDescription = instanceDescription;
 		}
 
-		public String getDirectoryId() {
-			return this.directoryId;
+		public String getDomainName() {
+			return this.domainName;
 		}
 
-		public void setDirectoryId(String directoryId) {
-			this.directoryId = directoryId;
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
+		}
+
+		public String getConsoleUrl() {
+			return this.consoleUrl;
+		}
+
+		public void setConsoleUrl(String consoleUrl) {
+			this.consoleUrl = consoleUrl;
+		}
+
+		public String getInstanceName() {
+			return this.instanceName;
+		}
+
+		public void setInstanceName(String instanceName) {
+			this.instanceName = instanceName;
+		}
+
+		public String getStorageBucket() {
+			return this.storageBucket;
+		}
+
+		public void setStorageBucket(String storageBucket) {
+			this.storageBucket = storageBucket;
 		}
 
 		public Long getCreatedTime() {
@@ -231,12 +223,20 @@ public class CreateInstanceResponse extends AcsResponse {
 			this.createdTime = createdTime;
 		}
 
-		public String getOwner() {
-			return this.owner;
+		public String getDirectoryId() {
+			return this.directoryId;
 		}
 
-		public void setOwner(String owner) {
-			this.owner = owner;
+		public void setDirectoryId(String directoryId) {
+			this.directoryId = directoryId;
+		}
+
+		public String getTenantId() {
+			return this.tenantId;
+		}
+
+		public void setTenantId(String tenantId) {
+			this.tenantId = tenantId;
 		}
 
 		public List<User> getAdmin() {
@@ -263,20 +263,20 @@ public class CreateInstanceResponse extends AcsResponse {
 			this.successPhoneNumbers = successPhoneNumbers;
 		}
 
-		public List<String> getFailPhoneNumbers() {
-			return this.failPhoneNumbers;
-		}
-
-		public void setFailPhoneNumbers(List<String> failPhoneNumbers) {
-			this.failPhoneNumbers = failPhoneNumbers;
-		}
-
 		public List<String> getSuccessLoginNames() {
 			return this.successLoginNames;
 		}
 
 		public void setSuccessLoginNames(List<String> successLoginNames) {
 			this.successLoginNames = successLoginNames;
+		}
+
+		public List<String> getFailPhoneNumbers() {
+			return this.failPhoneNumbers;
+		}
+
+		public void setFailPhoneNumbers(List<String> failPhoneNumbers) {
+			this.failPhoneNumbers = failPhoneNumbers;
 		}
 
 		public List<String> getFailLoginNames() {
@@ -289,20 +289,20 @@ public class CreateInstanceResponse extends AcsResponse {
 
 		public static class User {
 
-			private String userId;
+			private String instanceId;
 
 			private String ramId;
 
-			private String instanceId;
+			private String userId;
 
 			private Detail detail;
 
-			public String getUserId() {
-				return this.userId;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setUserId(String userId) {
-				this.userId = userId;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
 			public String getRamId() {
@@ -313,12 +313,12 @@ public class CreateInstanceResponse extends AcsResponse {
 				this.ramId = ramId;
 			}
 
-			public String getInstanceId() {
-				return this.instanceId;
+			public String getUserId() {
+				return this.userId;
 			}
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
+			public void setUserId(String userId) {
+				this.userId = userId;
 			}
 
 			public Detail getDetail() {
@@ -331,23 +331,15 @@ public class CreateInstanceResponse extends AcsResponse {
 
 			public static class Detail {
 
-				private String loginName;
-
 				private String displayName;
-
-				private String phone;
 
 				private String email;
 
+				private String loginName;
+
 				private String department;
 
-				public String getLoginName() {
-					return this.loginName;
-				}
-
-				public void setLoginName(String loginName) {
-					this.loginName = loginName;
-				}
+				private String phone;
 
 				public String getDisplayName() {
 					return this.displayName;
@@ -355,14 +347,6 @@ public class CreateInstanceResponse extends AcsResponse {
 
 				public void setDisplayName(String displayName) {
 					this.displayName = displayName;
-				}
-
-				public String getPhone() {
-					return this.phone;
-				}
-
-				public void setPhone(String phone) {
-					this.phone = phone;
 				}
 
 				public String getEmail() {
@@ -373,6 +357,14 @@ public class CreateInstanceResponse extends AcsResponse {
 					this.email = email;
 				}
 
+				public String getLoginName() {
+					return this.loginName;
+				}
+
+				public void setLoginName(String loginName) {
+					this.loginName = loginName;
+				}
+
 				public String getDepartment() {
 					return this.department;
 				}
@@ -380,60 +372,36 @@ public class CreateInstanceResponse extends AcsResponse {
 				public void setDepartment(String department) {
 					this.department = department;
 				}
+
+				public String getPhone() {
+					return this.phone;
+				}
+
+				public void setPhone(String phone) {
+					this.phone = phone;
+				}
 			}
 		}
 
 		public static class PhoneNumber {
 
-			private String phoneNumberId;
-
-			private String instanceId;
-
-			private String number;
-
-			private String phoneNumberDescription;
-
 			private Boolean testOnly;
-
-			private Integer remainingTime;
-
-			private Boolean allowOutbound;
-
-			private String usage;
 
 			private Integer trunks;
 
-			public String getPhoneNumberId() {
-				return this.phoneNumberId;
-			}
+			private Integer remainingTime;
 
-			public void setPhoneNumberId(String phoneNumberId) {
-				this.phoneNumberId = phoneNumberId;
-			}
+			private String number;
 
-			public String getInstanceId() {
-				return this.instanceId;
-			}
+			private String instanceId;
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
-			}
+			private String usage;
 
-			public String getNumber() {
-				return this.number;
-			}
+			private Boolean allowOutbound;
 
-			public void setNumber(String number) {
-				this.number = number;
-			}
+			private String phoneNumberDescription;
 
-			public String getPhoneNumberDescription() {
-				return this.phoneNumberDescription;
-			}
-
-			public void setPhoneNumberDescription(String phoneNumberDescription) {
-				this.phoneNumberDescription = phoneNumberDescription;
-			}
+			private String phoneNumberId;
 
 			public Boolean getTestOnly() {
 				return this.testOnly;
@@ -441,6 +409,14 @@ public class CreateInstanceResponse extends AcsResponse {
 
 			public void setTestOnly(Boolean testOnly) {
 				this.testOnly = testOnly;
+			}
+
+			public Integer getTrunks() {
+				return this.trunks;
+			}
+
+			public void setTrunks(Integer trunks) {
+				this.trunks = trunks;
 			}
 
 			public Integer getRemainingTime() {
@@ -451,12 +427,20 @@ public class CreateInstanceResponse extends AcsResponse {
 				this.remainingTime = remainingTime;
 			}
 
-			public Boolean getAllowOutbound() {
-				return this.allowOutbound;
+			public String getNumber() {
+				return this.number;
 			}
 
-			public void setAllowOutbound(Boolean allowOutbound) {
-				this.allowOutbound = allowOutbound;
+			public void setNumber(String number) {
+				this.number = number;
+			}
+
+			public String getInstanceId() {
+				return this.instanceId;
+			}
+
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
 			public String getUsage() {
@@ -467,12 +451,28 @@ public class CreateInstanceResponse extends AcsResponse {
 				this.usage = usage;
 			}
 
-			public Integer getTrunks() {
-				return this.trunks;
+			public Boolean getAllowOutbound() {
+				return this.allowOutbound;
 			}
 
-			public void setTrunks(Integer trunks) {
-				this.trunks = trunks;
+			public void setAllowOutbound(Boolean allowOutbound) {
+				this.allowOutbound = allowOutbound;
+			}
+
+			public String getPhoneNumberDescription() {
+				return this.phoneNumberDescription;
+			}
+
+			public void setPhoneNumberDescription(String phoneNumberDescription) {
+				this.phoneNumberDescription = phoneNumberDescription;
+			}
+
+			public String getPhoneNumberId() {
+				return this.phoneNumberId;
+			}
+
+			public void setPhoneNumberId(String phoneNumberId) {
+				this.phoneNumberId = phoneNumberId;
 			}
 		}
 	}

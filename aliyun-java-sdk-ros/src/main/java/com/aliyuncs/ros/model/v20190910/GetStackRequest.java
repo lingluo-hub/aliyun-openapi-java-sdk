@@ -28,8 +28,12 @@ public class GetStackRequest extends RpcAcsRequest<GetStackResponse> {
 	private String clientToken;
 
 	private String stackId;
+
+	private String showResourceProgress;
+
+	private String outputOption;
 	public GetStackRequest() {
-		super("ROS", "2019-09-10", "GetStack");
+		super("ROS", "2019-09-10", "GetStack", "ros");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -56,6 +60,28 @@ public class GetStackRequest extends RpcAcsRequest<GetStackResponse> {
 		this.stackId = stackId;
 		if(stackId != null){
 			putQueryParameter("StackId", stackId);
+		}
+	}
+
+	public String getShowResourceProgress() {
+		return this.showResourceProgress;
+	}
+
+	public void setShowResourceProgress(String showResourceProgress) {
+		this.showResourceProgress = showResourceProgress;
+		if(showResourceProgress != null){
+			putQueryParameter("ShowResourceProgress", showResourceProgress);
+		}
+	}
+
+	public String getOutputOption() {
+		return this.outputOption;
+	}
+
+	public void setOutputOption(String outputOption) {
+		this.outputOption = outputOption;
+		if(outputOption != null){
+			putQueryParameter("OutputOption", outputOption);
 		}
 	}
 

@@ -27,13 +27,71 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String nasId;
 
+	private String intranetSlbId;
+
+	private String envs;
+
+	private String annotations;
+
+	private Integer requestsMem;
+
+	private String storageType;
+
+	private String resourceGroupId;
+
+	private String configMountDescs;
+
+	private String appName;
+
+	private Integer requestsmCpu;
+
+	private String deployAcrossZones;
+
+	private Integer intranetSlbPort;
+
+	private String deployAcrossNodes;
+
+	private String preStop;
+
+	private String buildPackId;
+
+	private Boolean enableEmptyPushReject;
+
+	private String localVolume;
+
+	private String labels;
+
+	private Boolean useBodyEncoding;
+
+	private Integer losslessRuleFuncType;
+
+	private String emptyDirs;
+
+	private String packageType;
+
+	private Boolean losslessRuleRelated;
+
+	private String runtimeClassName;
+
+	private String postStart;
+
+	private String customAffinity;
+
+	private Boolean enableLosslessRule;
+
+	private Integer losslessRuleWarmupTime;
+
 	private String repoId;
 
 	private Integer internetTargetPort;
 
 	private String webContainer;
 
-	private String intranetSlbId;
+	private Boolean enableAsm;
+
+	private Boolean enableAhas;
+
+	private String slsConfigs;
 
 	private String commandArgs;
 
@@ -41,15 +99,15 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String liveness;
 
+	private String csClusterId;
+
 	private Integer internetSlbPort;
-
-	private String envs;
-
-	private Integer requestsMem;
 
 	private String packageVersion;
 
-	private String storageType;
+	private Integer timeout;
+
+	private String envFroms;
 
 	private Integer limitMem;
 
@@ -57,21 +115,15 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String edasContainerVersion;
 
-	private String appName;
-
 	private String internetSlbId;
 
 	private String logicalRegionId;
 
 	private String packageUrl;
 
-	private Integer requestsmCpu;
-
 	private String internetSlbProtocol;
 
-	private Integer intranetSlbPort;
-
-	private String preStop;
+	private Integer losslessRuleDelayTime;
 
 	private String mountDescs;
 
@@ -79,17 +131,19 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private Integer limitCpu;
 
+	private String customTolerations;
+
+	private String webContainerConfig;
+
+	private Boolean isMultilingualApp;
+
 	private String clusterId;
 
 	private Integer intranetTargetPort;
 
-	private String localVolume;
-
 	private String command;
 
 	private String jDK;
-
-	private Boolean useBodyEncoding;
 
 	private String uriEncoding;
 
@@ -97,15 +151,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String imageUrl;
 
+	private String pvcMountDescs;
+
 	private String namespace;
 
 	private String applicationDescription;
 
-	private String packageType;
+	private Boolean losslessRuleAligned;
 
 	private Integer requestsCpu;
 
-	private String postStart;
+	private String javaStartUpConfig;
 	public InsertK8sApplicationRequest() {
 		super("Edas", "2017-08-01", "InsertK8sApplication", "Edas");
 		setUriPattern("/pop/v5/k8s/acs/create_k8s_app");
@@ -124,6 +180,303 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.nasId = nasId;
 		if(nasId != null){
 			putQueryParameter("NasId", nasId);
+		}
+	}
+
+	public String getIntranetSlbId() {
+		return this.intranetSlbId;
+	}
+
+	public void setIntranetSlbId(String intranetSlbId) {
+		this.intranetSlbId = intranetSlbId;
+		if(intranetSlbId != null){
+			putQueryParameter("IntranetSlbId", intranetSlbId);
+		}
+	}
+
+	public String getEnvs() {
+		return this.envs;
+	}
+
+	public void setEnvs(String envs) {
+		this.envs = envs;
+		if(envs != null){
+			putQueryParameter("Envs", envs);
+		}
+	}
+
+	public String getAnnotations() {
+		return this.annotations;
+	}
+
+	public void setAnnotations(String annotations) {
+		this.annotations = annotations;
+		if(annotations != null){
+			putQueryParameter("Annotations", annotations);
+		}
+	}
+
+	public Integer getRequestsMem() {
+		return this.requestsMem;
+	}
+
+	public void setRequestsMem(Integer requestsMem) {
+		this.requestsMem = requestsMem;
+		if(requestsMem != null){
+			putQueryParameter("RequestsMem", requestsMem.toString());
+		}
+	}
+
+	public String getStorageType() {
+		return this.storageType;
+	}
+
+	public void setStorageType(String storageType) {
+		this.storageType = storageType;
+		if(storageType != null){
+			putQueryParameter("StorageType", storageType);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getConfigMountDescs() {
+		return this.configMountDescs;
+	}
+
+	public void setConfigMountDescs(String configMountDescs) {
+		this.configMountDescs = configMountDescs;
+		if(configMountDescs != null){
+			putQueryParameter("ConfigMountDescs", configMountDescs);
+		}
+	}
+
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public Integer getRequestsmCpu() {
+		return this.requestsmCpu;
+	}
+
+	public void setRequestsmCpu(Integer requestsmCpu) {
+		this.requestsmCpu = requestsmCpu;
+		if(requestsmCpu != null){
+			putQueryParameter("RequestsmCpu", requestsmCpu.toString());
+		}
+	}
+
+	public String getDeployAcrossZones() {
+		return this.deployAcrossZones;
+	}
+
+	public void setDeployAcrossZones(String deployAcrossZones) {
+		this.deployAcrossZones = deployAcrossZones;
+		if(deployAcrossZones != null){
+			putQueryParameter("DeployAcrossZones", deployAcrossZones);
+		}
+	}
+
+	public Integer getIntranetSlbPort() {
+		return this.intranetSlbPort;
+	}
+
+	public void setIntranetSlbPort(Integer intranetSlbPort) {
+		this.intranetSlbPort = intranetSlbPort;
+		if(intranetSlbPort != null){
+			putQueryParameter("IntranetSlbPort", intranetSlbPort.toString());
+		}
+	}
+
+	public String getDeployAcrossNodes() {
+		return this.deployAcrossNodes;
+	}
+
+	public void setDeployAcrossNodes(String deployAcrossNodes) {
+		this.deployAcrossNodes = deployAcrossNodes;
+		if(deployAcrossNodes != null){
+			putQueryParameter("DeployAcrossNodes", deployAcrossNodes);
+		}
+	}
+
+	public String getPreStop() {
+		return this.preStop;
+	}
+
+	public void setPreStop(String preStop) {
+		this.preStop = preStop;
+		if(preStop != null){
+			putQueryParameter("PreStop", preStop);
+		}
+	}
+
+	public String getBuildPackId() {
+		return this.buildPackId;
+	}
+
+	public void setBuildPackId(String buildPackId) {
+		this.buildPackId = buildPackId;
+		if(buildPackId != null){
+			putQueryParameter("BuildPackId", buildPackId);
+		}
+	}
+
+	public Boolean getEnableEmptyPushReject() {
+		return this.enableEmptyPushReject;
+	}
+
+	public void setEnableEmptyPushReject(Boolean enableEmptyPushReject) {
+		this.enableEmptyPushReject = enableEmptyPushReject;
+		if(enableEmptyPushReject != null){
+			putQueryParameter("EnableEmptyPushReject", enableEmptyPushReject.toString());
+		}
+	}
+
+	public String getLocalVolume() {
+		return this.localVolume;
+	}
+
+	public void setLocalVolume(String localVolume) {
+		this.localVolume = localVolume;
+		if(localVolume != null){
+			putQueryParameter("LocalVolume", localVolume);
+		}
+	}
+
+	public String getLabels() {
+		return this.labels;
+	}
+
+	public void setLabels(String labels) {
+		this.labels = labels;
+		if(labels != null){
+			putQueryParameter("Labels", labels);
+		}
+	}
+
+	public Boolean getUseBodyEncoding() {
+		return this.useBodyEncoding;
+	}
+
+	public void setUseBodyEncoding(Boolean useBodyEncoding) {
+		this.useBodyEncoding = useBodyEncoding;
+		if(useBodyEncoding != null){
+			putQueryParameter("UseBodyEncoding", useBodyEncoding.toString());
+		}
+	}
+
+	public Integer getLosslessRuleFuncType() {
+		return this.losslessRuleFuncType;
+	}
+
+	public void setLosslessRuleFuncType(Integer losslessRuleFuncType) {
+		this.losslessRuleFuncType = losslessRuleFuncType;
+		if(losslessRuleFuncType != null){
+			putQueryParameter("LosslessRuleFuncType", losslessRuleFuncType.toString());
+		}
+	}
+
+	public String getEmptyDirs() {
+		return this.emptyDirs;
+	}
+
+	public void setEmptyDirs(String emptyDirs) {
+		this.emptyDirs = emptyDirs;
+		if(emptyDirs != null){
+			putQueryParameter("EmptyDirs", emptyDirs);
+		}
+	}
+
+	public String getPackageType() {
+		return this.packageType;
+	}
+
+	public void setPackageType(String packageType) {
+		this.packageType = packageType;
+		if(packageType != null){
+			putQueryParameter("PackageType", packageType);
+		}
+	}
+
+	public Boolean getLosslessRuleRelated() {
+		return this.losslessRuleRelated;
+	}
+
+	public void setLosslessRuleRelated(Boolean losslessRuleRelated) {
+		this.losslessRuleRelated = losslessRuleRelated;
+		if(losslessRuleRelated != null){
+			putQueryParameter("LosslessRuleRelated", losslessRuleRelated.toString());
+		}
+	}
+
+	public String getRuntimeClassName() {
+		return this.runtimeClassName;
+	}
+
+	public void setRuntimeClassName(String runtimeClassName) {
+		this.runtimeClassName = runtimeClassName;
+		if(runtimeClassName != null){
+			putQueryParameter("RuntimeClassName", runtimeClassName);
+		}
+	}
+
+	public String getPostStart() {
+		return this.postStart;
+	}
+
+	public void setPostStart(String postStart) {
+		this.postStart = postStart;
+		if(postStart != null){
+			putQueryParameter("PostStart", postStart);
+		}
+	}
+
+	public String getCustomAffinity() {
+		return this.customAffinity;
+	}
+
+	public void setCustomAffinity(String customAffinity) {
+		this.customAffinity = customAffinity;
+		if(customAffinity != null){
+			putQueryParameter("CustomAffinity", customAffinity);
+		}
+	}
+
+	public Boolean getEnableLosslessRule() {
+		return this.enableLosslessRule;
+	}
+
+	public void setEnableLosslessRule(Boolean enableLosslessRule) {
+		this.enableLosslessRule = enableLosslessRule;
+		if(enableLosslessRule != null){
+			putQueryParameter("EnableLosslessRule", enableLosslessRule.toString());
+		}
+	}
+
+	public Integer getLosslessRuleWarmupTime() {
+		return this.losslessRuleWarmupTime;
+	}
+
+	public void setLosslessRuleWarmupTime(Integer losslessRuleWarmupTime) {
+		this.losslessRuleWarmupTime = losslessRuleWarmupTime;
+		if(losslessRuleWarmupTime != null){
+			putQueryParameter("LosslessRuleWarmupTime", losslessRuleWarmupTime.toString());
 		}
 	}
 
@@ -160,14 +513,36 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getIntranetSlbId() {
-		return this.intranetSlbId;
+	public Boolean getEnableAsm() {
+		return this.enableAsm;
 	}
 
-	public void setIntranetSlbId(String intranetSlbId) {
-		this.intranetSlbId = intranetSlbId;
-		if(intranetSlbId != null){
-			putQueryParameter("IntranetSlbId", intranetSlbId);
+	public void setEnableAsm(Boolean enableAsm) {
+		this.enableAsm = enableAsm;
+		if(enableAsm != null){
+			putQueryParameter("EnableAsm", enableAsm.toString());
+		}
+	}
+
+	public Boolean getEnableAhas() {
+		return this.enableAhas;
+	}
+
+	public void setEnableAhas(Boolean enableAhas) {
+		this.enableAhas = enableAhas;
+		if(enableAhas != null){
+			putQueryParameter("EnableAhas", enableAhas.toString());
+		}
+	}
+
+	public String getSlsConfigs() {
+		return this.slsConfigs;
+	}
+
+	public void setSlsConfigs(String slsConfigs) {
+		this.slsConfigs = slsConfigs;
+		if(slsConfigs != null){
+			putQueryParameter("SlsConfigs", slsConfigs);
 		}
 	}
 
@@ -204,6 +579,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getCsClusterId() {
+		return this.csClusterId;
+	}
+
+	public void setCsClusterId(String csClusterId) {
+		this.csClusterId = csClusterId;
+		if(csClusterId != null){
+			putQueryParameter("CsClusterId", csClusterId);
+		}
+	}
+
 	public Integer getInternetSlbPort() {
 		return this.internetSlbPort;
 	}
@@ -212,28 +598,6 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.internetSlbPort = internetSlbPort;
 		if(internetSlbPort != null){
 			putQueryParameter("InternetSlbPort", internetSlbPort.toString());
-		}
-	}
-
-	public String getEnvs() {
-		return this.envs;
-	}
-
-	public void setEnvs(String envs) {
-		this.envs = envs;
-		if(envs != null){
-			putQueryParameter("Envs", envs);
-		}
-	}
-
-	public Integer getRequestsMem() {
-		return this.requestsMem;
-	}
-
-	public void setRequestsMem(Integer requestsMem) {
-		this.requestsMem = requestsMem;
-		if(requestsMem != null){
-			putQueryParameter("RequestsMem", requestsMem.toString());
 		}
 	}
 
@@ -248,14 +612,25 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getStorageType() {
-		return this.storageType;
+	public Integer getTimeout() {
+		return this.timeout;
 	}
 
-	public void setStorageType(String storageType) {
-		this.storageType = storageType;
-		if(storageType != null){
-			putQueryParameter("StorageType", storageType);
+	public void setTimeout(Integer timeout) {
+		this.timeout = timeout;
+		if(timeout != null){
+			putQueryParameter("Timeout", timeout.toString());
+		}
+	}
+
+	public String getEnvFroms() {
+		return this.envFroms;
+	}
+
+	public void setEnvFroms(String envFroms) {
+		this.envFroms = envFroms;
+		if(envFroms != null){
+			putQueryParameter("EnvFroms", envFroms);
 		}
 	}
 
@@ -292,17 +667,6 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getAppName() {
-		return this.appName;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
-		}
-	}
-
 	public String getInternetSlbId() {
 		return this.internetSlbId;
 	}
@@ -336,17 +700,6 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public Integer getRequestsmCpu() {
-		return this.requestsmCpu;
-	}
-
-	public void setRequestsmCpu(Integer requestsmCpu) {
-		this.requestsmCpu = requestsmCpu;
-		if(requestsmCpu != null){
-			putQueryParameter("RequestsmCpu", requestsmCpu.toString());
-		}
-	}
-
 	public String getInternetSlbProtocol() {
 		return this.internetSlbProtocol;
 	}
@@ -358,25 +711,14 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public Integer getIntranetSlbPort() {
-		return this.intranetSlbPort;
+	public Integer getLosslessRuleDelayTime() {
+		return this.losslessRuleDelayTime;
 	}
 
-	public void setIntranetSlbPort(Integer intranetSlbPort) {
-		this.intranetSlbPort = intranetSlbPort;
-		if(intranetSlbPort != null){
-			putQueryParameter("IntranetSlbPort", intranetSlbPort.toString());
-		}
-	}
-
-	public String getPreStop() {
-		return this.preStop;
-	}
-
-	public void setPreStop(String preStop) {
-		this.preStop = preStop;
-		if(preStop != null){
-			putQueryParameter("PreStop", preStop);
+	public void setLosslessRuleDelayTime(Integer losslessRuleDelayTime) {
+		this.losslessRuleDelayTime = losslessRuleDelayTime;
+		if(losslessRuleDelayTime != null){
+			putQueryParameter("LosslessRuleDelayTime", losslessRuleDelayTime.toString());
 		}
 	}
 
@@ -413,6 +755,39 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getCustomTolerations() {
+		return this.customTolerations;
+	}
+
+	public void setCustomTolerations(String customTolerations) {
+		this.customTolerations = customTolerations;
+		if(customTolerations != null){
+			putQueryParameter("CustomTolerations", customTolerations);
+		}
+	}
+
+	public String getWebContainerConfig() {
+		return this.webContainerConfig;
+	}
+
+	public void setWebContainerConfig(String webContainerConfig) {
+		this.webContainerConfig = webContainerConfig;
+		if(webContainerConfig != null){
+			putQueryParameter("WebContainerConfig", webContainerConfig);
+		}
+	}
+
+	public Boolean getIsMultilingualApp() {
+		return this.isMultilingualApp;
+	}
+
+	public void setIsMultilingualApp(Boolean isMultilingualApp) {
+		this.isMultilingualApp = isMultilingualApp;
+		if(isMultilingualApp != null){
+			putQueryParameter("IsMultilingualApp", isMultilingualApp.toString());
+		}
+	}
+
 	public String getClusterId() {
 		return this.clusterId;
 	}
@@ -435,17 +810,6 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getLocalVolume() {
-		return this.localVolume;
-	}
-
-	public void setLocalVolume(String localVolume) {
-		this.localVolume = localVolume;
-		if(localVolume != null){
-			putQueryParameter("LocalVolume", localVolume);
-		}
-	}
-
 	public String getCommand() {
 		return this.command;
 	}
@@ -465,17 +829,6 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.jDK = jDK;
 		if(jDK != null){
 			putQueryParameter("JDK", jDK);
-		}
-	}
-
-	public Boolean getUseBodyEncoding() {
-		return this.useBodyEncoding;
-	}
-
-	public void setUseBodyEncoding(Boolean useBodyEncoding) {
-		this.useBodyEncoding = useBodyEncoding;
-		if(useBodyEncoding != null){
-			putQueryParameter("UseBodyEncoding", useBodyEncoding.toString());
 		}
 	}
 
@@ -512,6 +865,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getPvcMountDescs() {
+		return this.pvcMountDescs;
+	}
+
+	public void setPvcMountDescs(String pvcMountDescs) {
+		this.pvcMountDescs = pvcMountDescs;
+		if(pvcMountDescs != null){
+			putQueryParameter("PvcMountDescs", pvcMountDescs);
+		}
+	}
+
 	public String getNamespace() {
 		return this.namespace;
 	}
@@ -534,14 +898,14 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getPackageType() {
-		return this.packageType;
+	public Boolean getLosslessRuleAligned() {
+		return this.losslessRuleAligned;
 	}
 
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
-		if(packageType != null){
-			putQueryParameter("PackageType", packageType);
+	public void setLosslessRuleAligned(Boolean losslessRuleAligned) {
+		this.losslessRuleAligned = losslessRuleAligned;
+		if(losslessRuleAligned != null){
+			putQueryParameter("LosslessRuleAligned", losslessRuleAligned.toString());
 		}
 	}
 
@@ -556,14 +920,14 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
-	public String getPostStart() {
-		return this.postStart;
+	public String getJavaStartUpConfig() {
+		return this.javaStartUpConfig;
 	}
 
-	public void setPostStart(String postStart) {
-		this.postStart = postStart;
-		if(postStart != null){
-			putQueryParameter("PostStart", postStart);
+	public void setJavaStartUpConfig(String javaStartUpConfig) {
+		this.javaStartUpConfig = javaStartUpConfig;
+		if(javaStartUpConfig != null){
+			putQueryParameter("JavaStartUpConfig", javaStartUpConfig);
 		}
 	}
 

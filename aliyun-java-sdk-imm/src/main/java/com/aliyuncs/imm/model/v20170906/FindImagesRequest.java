@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -23,6 +24,8 @@ import com.aliyuncs.http.MethodType;
  */
 public class FindImagesRequest extends RpcAcsRequest<FindImagesResponse> {
 	   
+
+	private String remarksArrayBIn;
 
 	private String project;
 
@@ -56,6 +59,8 @@ public class FindImagesRequest extends RpcAcsRequest<FindImagesResponse> {
 
 	private String gender;
 
+	private String remarksArrayAIn;
+
 	private String imageSizeRange;
 
 	private String remarksBPrefix;
@@ -80,6 +85,21 @@ public class FindImagesRequest extends RpcAcsRequest<FindImagesResponse> {
 	public FindImagesRequest() {
 		super("imm", "2017-09-06", "FindImages", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getRemarksArrayBIn() {
+		return this.remarksArrayBIn;
+	}
+
+	public void setRemarksArrayBIn(String remarksArrayBIn) {
+		this.remarksArrayBIn = remarksArrayBIn;
+		if(remarksArrayBIn != null){
+			putQueryParameter("RemarksArrayBIn", remarksArrayBIn);
+		}
 	}
 
 	public String getProject() {
@@ -255,6 +275,17 @@ public class FindImagesRequest extends RpcAcsRequest<FindImagesResponse> {
 		this.gender = gender;
 		if(gender != null){
 			putQueryParameter("Gender", gender);
+		}
+	}
+
+	public String getRemarksArrayAIn() {
+		return this.remarksArrayAIn;
+	}
+
+	public void setRemarksArrayAIn(String remarksArrayAIn) {
+		this.remarksArrayAIn = remarksArrayAIn;
+		if(remarksArrayAIn != null){
+			putQueryParameter("RemarksArrayAIn", remarksArrayAIn);
 		}
 	}
 

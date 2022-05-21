@@ -49,6 +49,8 @@ public class QueryEdgeDriverResponseUnmarshaller {
 			driver.setIsBuiltIn(_ctx.booleanValue("QueryEdgeDriverResponse.Data.DriverList["+ i +"].IsBuiltIn"));
 			driver.setGmtCreateTimestamp(_ctx.longValue("QueryEdgeDriverResponse.Data.DriverList["+ i +"].GmtCreateTimestamp"));
 			driver.setGmtModifiedTimestamp(_ctx.longValue("QueryEdgeDriverResponse.Data.DriverList["+ i +"].GmtModifiedTimestamp"));
+			driver.setIsApply(_ctx.booleanValue("QueryEdgeDriverResponse.Data.DriverList["+ i +"].IsApply"));
+			driver.setUseOfficialConfig(_ctx.integerValue("QueryEdgeDriverResponse.Data.DriverList["+ i +"].UseOfficialConfig"));
 
 			driverList.add(driver);
 		}

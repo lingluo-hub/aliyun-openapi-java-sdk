@@ -35,6 +35,8 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 
 	private String ipsecConfig;
 
+	private String bgpConfig;
+
 	private String healthCheckConfig;
 
 	private String localSubnet;
@@ -49,11 +51,17 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 
 	private Long ownerId;
 
+	private Boolean enableDpd;
+
+	private String remoteCaCertificate;
+
 	private String vpnConnectionId;
 
 	private String name;
+
+	private Boolean enableNatTraversal;
 	public ModifyVpnConnectionAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyVpnConnectionAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyVpnConnectionAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -113,6 +121,17 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		this.ipsecConfig = ipsecConfig;
 		if(ipsecConfig != null){
 			putQueryParameter("IpsecConfig", ipsecConfig);
+		}
+	}
+
+	public String getBgpConfig() {
+		return this.bgpConfig;
+	}
+
+	public void setBgpConfig(String bgpConfig) {
+		this.bgpConfig = bgpConfig;
+		if(bgpConfig != null){
+			putQueryParameter("BgpConfig", bgpConfig);
 		}
 	}
 
@@ -193,6 +212,28 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		}
 	}
 
+	public Boolean getEnableDpd() {
+		return this.enableDpd;
+	}
+
+	public void setEnableDpd(Boolean enableDpd) {
+		this.enableDpd = enableDpd;
+		if(enableDpd != null){
+			putQueryParameter("EnableDpd", enableDpd.toString());
+		}
+	}
+
+	public String getRemoteCaCertificate() {
+		return this.remoteCaCertificate;
+	}
+
+	public void setRemoteCaCertificate(String remoteCaCertificate) {
+		this.remoteCaCertificate = remoteCaCertificate;
+		if(remoteCaCertificate != null){
+			putQueryParameter("RemoteCaCertificate", remoteCaCertificate);
+		}
+	}
+
 	public String getVpnConnectionId() {
 		return this.vpnConnectionId;
 	}
@@ -212,6 +253,17 @@ public class ModifyVpnConnectionAttributeRequest extends RpcAcsRequest<ModifyVpn
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public Boolean getEnableNatTraversal() {
+		return this.enableNatTraversal;
+	}
+
+	public void setEnableNatTraversal(Boolean enableNatTraversal) {
+		this.enableNatTraversal = enableNatTraversal;
+		if(enableNatTraversal != null){
+			putQueryParameter("EnableNatTraversal", enableNatTraversal.toString());
 		}
 	}
 

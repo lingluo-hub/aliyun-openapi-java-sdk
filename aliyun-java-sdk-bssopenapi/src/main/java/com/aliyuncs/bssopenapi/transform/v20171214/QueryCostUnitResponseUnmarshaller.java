@@ -28,9 +28,9 @@ public class QueryCostUnitResponseUnmarshaller {
 	public static QueryCostUnitResponse unmarshall(QueryCostUnitResponse queryCostUnitResponse, UnmarshallerContext _ctx) {
 		
 		queryCostUnitResponse.setRequestId(_ctx.stringValue("QueryCostUnitResponse.RequestId"));
-		queryCostUnitResponse.setSuccess(_ctx.booleanValue("QueryCostUnitResponse.Success"));
 		queryCostUnitResponse.setCode(_ctx.stringValue("QueryCostUnitResponse.Code"));
 		queryCostUnitResponse.setMessage(_ctx.stringValue("QueryCostUnitResponse.Message"));
+		queryCostUnitResponse.setSuccess(_ctx.booleanValue("QueryCostUnitResponse.Success"));
 
 		Data data = new Data();
 		data.setPageNum(_ctx.integerValue("QueryCostUnitResponse.Data.PageNum"));
@@ -40,10 +40,10 @@ public class QueryCostUnitResponseUnmarshaller {
 		List<CostUnitDtoListItem> costUnitDtoList = new ArrayList<CostUnitDtoListItem>();
 		for (int i = 0; i < _ctx.lengthValue("QueryCostUnitResponse.Data.CostUnitDtoList.Length"); i++) {
 			CostUnitDtoListItem costUnitDtoListItem = new CostUnitDtoListItem();
-			costUnitDtoListItem.setOwnerUid(_ctx.longValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].OwnerUid"));
 			costUnitDtoListItem.setParentUnitId(_ctx.longValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].ParentUnitId"));
-			costUnitDtoListItem.setUnitId(_ctx.longValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitId"));
 			costUnitDtoListItem.setUnitName(_ctx.stringValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitName"));
+			costUnitDtoListItem.setUnitId(_ctx.longValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitId"));
+			costUnitDtoListItem.setOwnerUid(_ctx.longValue("QueryCostUnitResponse.Data.CostUnitDtoList["+ i +"].OwnerUid"));
 
 			costUnitDtoList.add(costUnitDtoListItem);
 		}

@@ -27,10 +27,10 @@ public class ListConfigResponseUnmarshaller {
 	public static ListConfigResponse unmarshall(ListConfigResponse listConfigResponse, UnmarshallerContext _ctx) {
 		
 		listConfigResponse.setRequestId(_ctx.stringValue("ListConfigResponse.RequestId"));
-		listConfigResponse.setSuccess(_ctx.booleanValue("ListConfigResponse.Success"));
+		listConfigResponse.setHttpStatusCode(_ctx.integerValue("ListConfigResponse.HttpStatusCode"));
 		listConfigResponse.setCode(_ctx.stringValue("ListConfigResponse.Code"));
 		listConfigResponse.setMessage(_ctx.stringValue("ListConfigResponse.Message"));
-		listConfigResponse.setHttpStatusCode(_ctx.integerValue("ListConfigResponse.HttpStatusCode"));
+		listConfigResponse.setSuccess(_ctx.booleanValue("ListConfigResponse.Success"));
 
 		List<ConfigItem> configItems = new ArrayList<ConfigItem>();
 		for (int i = 0; i < _ctx.lengthValue("ListConfigResponse.ConfigItems.Length"); i++) {

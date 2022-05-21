@@ -27,7 +27,11 @@ public class ModifyDiskSpecRequest extends RpcAcsRequest<ModifyDiskSpecResponse>
 
 	private Long resourceOwnerId;
 
+	private String diskCategory;
+
 	private String diskId;
+
+	private Boolean dryRun;
 
 	private String resourceOwnerAccount;
 
@@ -36,6 +40,8 @@ public class ModifyDiskSpecRequest extends RpcAcsRequest<ModifyDiskSpecResponse>
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private Long provisionedIops;
 	public ModifyDiskSpecRequest() {
 		super("Ecs", "2014-05-26", "ModifyDiskSpec", "ecs");
 		setMethod(MethodType.POST);
@@ -56,6 +62,17 @@ public class ModifyDiskSpecRequest extends RpcAcsRequest<ModifyDiskSpecResponse>
 		}
 	}
 
+	public String getDiskCategory() {
+		return this.diskCategory;
+	}
+
+	public void setDiskCategory(String diskCategory) {
+		this.diskCategory = diskCategory;
+		if(diskCategory != null){
+			putQueryParameter("DiskCategory", diskCategory);
+		}
+	}
+
 	public String getDiskId() {
 		return this.diskId;
 	}
@@ -64,6 +81,17 @@ public class ModifyDiskSpecRequest extends RpcAcsRequest<ModifyDiskSpecResponse>
 		this.diskId = diskId;
 		if(diskId != null){
 			putQueryParameter("DiskId", diskId);
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 
@@ -108,6 +136,17 @@ public class ModifyDiskSpecRequest extends RpcAcsRequest<ModifyDiskSpecResponse>
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Long getProvisionedIops() {
+		return this.provisionedIops;
+	}
+
+	public void setProvisionedIops(Long provisionedIops) {
+		this.provisionedIops = provisionedIops;
+		if(provisionedIops != null){
+			putQueryParameter("ProvisionedIops", provisionedIops.toString());
 		}
 	}
 

@@ -27,6 +27,8 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String nextToken;
+
 	private List<InstanceType> instanceTypes;
 
 	public String getRequestId() {
@@ -35,6 +37,14 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
 	}
 
 	public List<InstanceType> getInstanceTypes() {
@@ -47,88 +57,70 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 	public static class InstanceType {
 
-		private String instanceTypeId;
-
-		private Integer cpuCoreCount;
-
-		private Float memorySize;
-
-		private String instanceTypeFamily;
-
-		private Long localStorageCapacity;
-
-		private Integer localStorageAmount;
+		private Integer eniTotalQuantity;
 
 		private String localStorageCategory;
 
-		private Integer gPUAmount;
+		private Integer primaryEniQueueNumber;
 
-		private String gPUSpec;
+		private Float memorySize;
 
-		private Integer initialCredit;
-
-		private Integer baselineCredit;
-
-		private Integer eniQuantity;
-
-		private Integer eniPrivateIpAddressQuantity;
-
-		private Integer instanceBandwidthRx;
-
-		private Integer instanceBandwidthTx;
-
-		private Long instancePpsRx;
-
-		private Long instancePpsTx;
+		private Long localStorageCapacity;
 
 		private String instanceFamilyLevel;
 
-		public String getInstanceTypeId() {
-			return this.instanceTypeId;
+		private Long instancePpsRx;
+
+		private Integer eniIpv6AddressQuantity;
+
+		private Integer maximumQueueNumberPerEni;
+
+		private String instanceTypeId;
+
+		private Integer instanceBandwidthRx;
+
+		private Integer secondaryEniQueueNumber;
+
+		private String gPUSpec;
+
+		private Integer instanceBandwidthTx;
+
+		private Integer queuePairNumber;
+
+		private Integer eriQuantity;
+
+		private Integer gPUAmount;
+
+		private Integer totalEniQueueQuantity;
+
+		private String nvmeSupport;
+
+		private Integer diskQuantity;
+
+		private Integer initialCredit;
+
+		private Integer localStorageAmount;
+
+		private Integer baselineCredit;
+
+		private Long instancePpsTx;
+
+		private Integer eniPrivateIpAddressQuantity;
+
+		private Integer cpuCoreCount;
+
+		private String instanceTypeFamily;
+
+		private Integer eniQuantity;
+
+		private Boolean eniTrunkSupported;
+
+		public Integer getEniTotalQuantity() {
+			return this.eniTotalQuantity;
 		}
 
-		public void setInstanceTypeId(String instanceTypeId) {
-			this.instanceTypeId = instanceTypeId;
-		}
-
-		public Integer getCpuCoreCount() {
-			return this.cpuCoreCount;
-		}
-
-		public void setCpuCoreCount(Integer cpuCoreCount) {
-			this.cpuCoreCount = cpuCoreCount;
-		}
-
-		public Float getMemorySize() {
-			return this.memorySize;
-		}
-
-		public void setMemorySize(Float memorySize) {
-			this.memorySize = memorySize;
-		}
-
-		public String getInstanceTypeFamily() {
-			return this.instanceTypeFamily;
-		}
-
-		public void setInstanceTypeFamily(String instanceTypeFamily) {
-			this.instanceTypeFamily = instanceTypeFamily;
-		}
-
-		public Long getLocalStorageCapacity() {
-			return this.localStorageCapacity;
-		}
-
-		public void setLocalStorageCapacity(Long localStorageCapacity) {
-			this.localStorageCapacity = localStorageCapacity;
-		}
-
-		public Integer getLocalStorageAmount() {
-			return this.localStorageAmount;
-		}
-
-		public void setLocalStorageAmount(Integer localStorageAmount) {
-			this.localStorageAmount = localStorageAmount;
+		public void setEniTotalQuantity(Integer eniTotalQuantity) {
+			this.eniTotalQuantity = eniTotalQuantity;
 		}
 
 		public String getLocalStorageCategory() {
@@ -139,68 +131,36 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 			this.localStorageCategory = localStorageCategory;
 		}
 
-		public Integer getGPUAmount() {
-			return this.gPUAmount;
+		public Integer getPrimaryEniQueueNumber() {
+			return this.primaryEniQueueNumber;
 		}
 
-		public void setGPUAmount(Integer gPUAmount) {
-			this.gPUAmount = gPUAmount;
+		public void setPrimaryEniQueueNumber(Integer primaryEniQueueNumber) {
+			this.primaryEniQueueNumber = primaryEniQueueNumber;
 		}
 
-		public String getGPUSpec() {
-			return this.gPUSpec;
+		public Float getMemorySize() {
+			return this.memorySize;
 		}
 
-		public void setGPUSpec(String gPUSpec) {
-			this.gPUSpec = gPUSpec;
+		public void setMemorySize(Float memorySize) {
+			this.memorySize = memorySize;
 		}
 
-		public Integer getInitialCredit() {
-			return this.initialCredit;
+		public Long getLocalStorageCapacity() {
+			return this.localStorageCapacity;
 		}
 
-		public void setInitialCredit(Integer initialCredit) {
-			this.initialCredit = initialCredit;
+		public void setLocalStorageCapacity(Long localStorageCapacity) {
+			this.localStorageCapacity = localStorageCapacity;
 		}
 
-		public Integer getBaselineCredit() {
-			return this.baselineCredit;
+		public String getInstanceFamilyLevel() {
+			return this.instanceFamilyLevel;
 		}
 
-		public void setBaselineCredit(Integer baselineCredit) {
-			this.baselineCredit = baselineCredit;
-		}
-
-		public Integer getEniQuantity() {
-			return this.eniQuantity;
-		}
-
-		public void setEniQuantity(Integer eniQuantity) {
-			this.eniQuantity = eniQuantity;
-		}
-
-		public Integer getEniPrivateIpAddressQuantity() {
-			return this.eniPrivateIpAddressQuantity;
-		}
-
-		public void setEniPrivateIpAddressQuantity(Integer eniPrivateIpAddressQuantity) {
-			this.eniPrivateIpAddressQuantity = eniPrivateIpAddressQuantity;
-		}
-
-		public Integer getInstanceBandwidthRx() {
-			return this.instanceBandwidthRx;
-		}
-
-		public void setInstanceBandwidthRx(Integer instanceBandwidthRx) {
-			this.instanceBandwidthRx = instanceBandwidthRx;
-		}
-
-		public Integer getInstanceBandwidthTx() {
-			return this.instanceBandwidthTx;
-		}
-
-		public void setInstanceBandwidthTx(Integer instanceBandwidthTx) {
-			this.instanceBandwidthTx = instanceBandwidthTx;
+		public void setInstanceFamilyLevel(String instanceFamilyLevel) {
+			this.instanceFamilyLevel = instanceFamilyLevel;
 		}
 
 		public Long getInstancePpsRx() {
@@ -211,6 +171,134 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 			this.instancePpsRx = instancePpsRx;
 		}
 
+		public Integer getEniIpv6AddressQuantity() {
+			return this.eniIpv6AddressQuantity;
+		}
+
+		public void setEniIpv6AddressQuantity(Integer eniIpv6AddressQuantity) {
+			this.eniIpv6AddressQuantity = eniIpv6AddressQuantity;
+		}
+
+		public Integer getMaximumQueueNumberPerEni() {
+			return this.maximumQueueNumberPerEni;
+		}
+
+		public void setMaximumQueueNumberPerEni(Integer maximumQueueNumberPerEni) {
+			this.maximumQueueNumberPerEni = maximumQueueNumberPerEni;
+		}
+
+		public String getInstanceTypeId() {
+			return this.instanceTypeId;
+		}
+
+		public void setInstanceTypeId(String instanceTypeId) {
+			this.instanceTypeId = instanceTypeId;
+		}
+
+		public Integer getInstanceBandwidthRx() {
+			return this.instanceBandwidthRx;
+		}
+
+		public void setInstanceBandwidthRx(Integer instanceBandwidthRx) {
+			this.instanceBandwidthRx = instanceBandwidthRx;
+		}
+
+		public Integer getSecondaryEniQueueNumber() {
+			return this.secondaryEniQueueNumber;
+		}
+
+		public void setSecondaryEniQueueNumber(Integer secondaryEniQueueNumber) {
+			this.secondaryEniQueueNumber = secondaryEniQueueNumber;
+		}
+
+		public String getGPUSpec() {
+			return this.gPUSpec;
+		}
+
+		public void setGPUSpec(String gPUSpec) {
+			this.gPUSpec = gPUSpec;
+		}
+
+		public Integer getInstanceBandwidthTx() {
+			return this.instanceBandwidthTx;
+		}
+
+		public void setInstanceBandwidthTx(Integer instanceBandwidthTx) {
+			this.instanceBandwidthTx = instanceBandwidthTx;
+		}
+
+		public Integer getQueuePairNumber() {
+			return this.queuePairNumber;
+		}
+
+		public void setQueuePairNumber(Integer queuePairNumber) {
+			this.queuePairNumber = queuePairNumber;
+		}
+
+		public Integer getEriQuantity() {
+			return this.eriQuantity;
+		}
+
+		public void setEriQuantity(Integer eriQuantity) {
+			this.eriQuantity = eriQuantity;
+		}
+
+		public Integer getGPUAmount() {
+			return this.gPUAmount;
+		}
+
+		public void setGPUAmount(Integer gPUAmount) {
+			this.gPUAmount = gPUAmount;
+		}
+
+		public Integer getTotalEniQueueQuantity() {
+			return this.totalEniQueueQuantity;
+		}
+
+		public void setTotalEniQueueQuantity(Integer totalEniQueueQuantity) {
+			this.totalEniQueueQuantity = totalEniQueueQuantity;
+		}
+
+		public String getNvmeSupport() {
+			return this.nvmeSupport;
+		}
+
+		public void setNvmeSupport(String nvmeSupport) {
+			this.nvmeSupport = nvmeSupport;
+		}
+
+		public Integer getDiskQuantity() {
+			return this.diskQuantity;
+		}
+
+		public void setDiskQuantity(Integer diskQuantity) {
+			this.diskQuantity = diskQuantity;
+		}
+
+		public Integer getInitialCredit() {
+			return this.initialCredit;
+		}
+
+		public void setInitialCredit(Integer initialCredit) {
+			this.initialCredit = initialCredit;
+		}
+
+		public Integer getLocalStorageAmount() {
+			return this.localStorageAmount;
+		}
+
+		public void setLocalStorageAmount(Integer localStorageAmount) {
+			this.localStorageAmount = localStorageAmount;
+		}
+
+		public Integer getBaselineCredit() {
+			return this.baselineCredit;
+		}
+
+		public void setBaselineCredit(Integer baselineCredit) {
+			this.baselineCredit = baselineCredit;
+		}
+
 		public Long getInstancePpsTx() {
 			return this.instancePpsTx;
 		}
@@ -219,12 +307,44 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 			this.instancePpsTx = instancePpsTx;
 		}
 
-		public String getInstanceFamilyLevel() {
-			return this.instanceFamilyLevel;
+		public Integer getEniPrivateIpAddressQuantity() {
+			return this.eniPrivateIpAddressQuantity;
 		}
 
-		public void setInstanceFamilyLevel(String instanceFamilyLevel) {
-			this.instanceFamilyLevel = instanceFamilyLevel;
+		public void setEniPrivateIpAddressQuantity(Integer eniPrivateIpAddressQuantity) {
+			this.eniPrivateIpAddressQuantity = eniPrivateIpAddressQuantity;
+		}
+
+		public Integer getCpuCoreCount() {
+			return this.cpuCoreCount;
+		}
+
+		public void setCpuCoreCount(Integer cpuCoreCount) {
+			this.cpuCoreCount = cpuCoreCount;
+		}
+
+		public String getInstanceTypeFamily() {
+			return this.instanceTypeFamily;
+		}
+
+		public void setInstanceTypeFamily(String instanceTypeFamily) {
+			this.instanceTypeFamily = instanceTypeFamily;
+		}
+
+		public Integer getEniQuantity() {
+			return this.eniQuantity;
+		}
+
+		public void setEniQuantity(Integer eniQuantity) {
+			this.eniQuantity = eniQuantity;
+		}
+
+		public Boolean getEniTrunkSupported() {
+			return this.eniTrunkSupported;
+		}
+
+		public void setEniTrunkSupported(Boolean eniTrunkSupported) {
+			this.eniTrunkSupported = eniTrunkSupported;
 		}
 	}
 

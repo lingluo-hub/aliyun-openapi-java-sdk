@@ -23,12 +23,12 @@ public class GetTURNCredentialsResponseUnmarshaller {
 	public static GetTURNCredentialsResponse unmarshall(GetTURNCredentialsResponse getTURNCredentialsResponse, UnmarshallerContext _ctx) {
 		
 		getTURNCredentialsResponse.setRequestId(_ctx.stringValue("GetTURNCredentialsResponse.RequestId"));
+		getTURNCredentialsResponse.setHttpStatusCode(_ctx.integerValue("GetTURNCredentialsResponse.HttpStatusCode"));
+		getTURNCredentialsResponse.setPassword(_ctx.stringValue("GetTURNCredentialsResponse.Password"));
 		getTURNCredentialsResponse.setSuccess(_ctx.booleanValue("GetTURNCredentialsResponse.Success"));
 		getTURNCredentialsResponse.setCode(_ctx.stringValue("GetTURNCredentialsResponse.Code"));
 		getTURNCredentialsResponse.setMessage(_ctx.stringValue("GetTURNCredentialsResponse.Message"));
-		getTURNCredentialsResponse.setHttpStatusCode(_ctx.integerValue("GetTURNCredentialsResponse.HttpStatusCode"));
 		getTURNCredentialsResponse.setUsername(_ctx.stringValue("GetTURNCredentialsResponse.Username"));
-		getTURNCredentialsResponse.setPassword(_ctx.stringValue("GetTURNCredentialsResponse.Password"));
 	 
 	 	return getTURNCredentialsResponse;
 	}

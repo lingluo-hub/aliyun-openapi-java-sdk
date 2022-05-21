@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeTablesResponse extends AcsResponse {
 
+	private Integer currentPage;
+
 	private String requestId;
 
 	private Integer pageSize;
 
-	private Integer currentPage;
-
 	private Integer totalCount;
 
 	private List<Table> items;
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -49,14 +57,6 @@ public class DescribeTablesResponse extends AcsResponse {
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
 	}
 
 	public Integer getTotalCount() {
@@ -77,56 +77,68 @@ public class DescribeTablesResponse extends AcsResponse {
 
 	public static class Table {
 
-		private Long id;
-
-		private String name;
+		private Long creationTime;
 
 		private String owner;
 
-		private Long creationTime;
-
-		private String productId;
-
-		private String productCode;
-
-		private Boolean sensitive;
-
-		private Long riskLevelId;
-
-		private String riskLevelName;
-
-		private String departName;
-
-		private Integer totalCount;
-
-		private Integer sensitiveCount;
+		private String countDetails;
 
 		private String sensitiveRatio;
 
-		private Long instanceId;
+		private String tenantName;
 
-		private Integer s2Count;
+		private String departName;
+
+		private Long riskLevelId;
+
+		private String instanceName;
 
 		private Integer s3Count;
 
-		private Integer totalRows;
+		private Integer s1Count;
+
+		private String productId;
+
+		private String name;
+
+		private Integer s2Count;
+
+		private Long instanceId;
+
+		private Integer totalCount;
+
+		private String instanceDescription;
+
+		private Boolean sensitive;
+
+		private String sensLevelName;
 
 		private Long lastScanTime;
 
-		public Long getId() {
-			return this.id;
+		private String regionName;
+
+		private String riskLevelName;
+
+		private Integer totalRows;
+
+		private Integer sensitiveCount;
+
+		private Long id;
+
+		private String productCode;
+
+		private String objectHex;
+
+		private Integer dataType;
+
+		private List<Rule> ruleList;
+
+		public Long getCreationTime() {
+			return this.creationTime;
 		}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
+		public void setCreationTime(Long creationTime) {
+			this.creationTime = creationTime;
 		}
 
 		public String getOwner() {
@@ -137,76 +149,12 @@ public class DescribeTablesResponse extends AcsResponse {
 			this.owner = owner;
 		}
 
-		public Long getCreationTime() {
-			return this.creationTime;
+		public String getCountDetails() {
+			return this.countDetails;
 		}
 
-		public void setCreationTime(Long creationTime) {
-			this.creationTime = creationTime;
-		}
-
-		public String getProductId() {
-			return this.productId;
-		}
-
-		public void setProductId(String productId) {
-			this.productId = productId;
-		}
-
-		public String getProductCode() {
-			return this.productCode;
-		}
-
-		public void setProductCode(String productCode) {
-			this.productCode = productCode;
-		}
-
-		public Boolean getSensitive() {
-			return this.sensitive;
-		}
-
-		public void setSensitive(Boolean sensitive) {
-			this.sensitive = sensitive;
-		}
-
-		public Long getRiskLevelId() {
-			return this.riskLevelId;
-		}
-
-		public void setRiskLevelId(Long riskLevelId) {
-			this.riskLevelId = riskLevelId;
-		}
-
-		public String getRiskLevelName() {
-			return this.riskLevelName;
-		}
-
-		public void setRiskLevelName(String riskLevelName) {
-			this.riskLevelName = riskLevelName;
-		}
-
-		public String getDepartName() {
-			return this.departName;
-		}
-
-		public void setDepartName(String departName) {
-			this.departName = departName;
-		}
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
-
-		public Integer getSensitiveCount() {
-			return this.sensitiveCount;
-		}
-
-		public void setSensitiveCount(Integer sensitiveCount) {
-			this.sensitiveCount = sensitiveCount;
+		public void setCountDetails(String countDetails) {
+			this.countDetails = countDetails;
 		}
 
 		public String getSensitiveRatio() {
@@ -217,20 +165,36 @@ public class DescribeTablesResponse extends AcsResponse {
 			this.sensitiveRatio = sensitiveRatio;
 		}
 
-		public Long getInstanceId() {
-			return this.instanceId;
+		public String getTenantName() {
+			return this.tenantName;
 		}
 
-		public void setInstanceId(Long instanceId) {
-			this.instanceId = instanceId;
+		public void setTenantName(String tenantName) {
+			this.tenantName = tenantName;
 		}
 
-		public Integer getS2Count() {
-			return this.s2Count;
+		public String getDepartName() {
+			return this.departName;
 		}
 
-		public void setS2Count(Integer s2Count) {
-			this.s2Count = s2Count;
+		public void setDepartName(String departName) {
+			this.departName = departName;
+		}
+
+		public Long getRiskLevelId() {
+			return this.riskLevelId;
+		}
+
+		public void setRiskLevelId(Long riskLevelId) {
+			this.riskLevelId = riskLevelId;
+		}
+
+		public String getInstanceName() {
+			return this.instanceName;
+		}
+
+		public void setInstanceName(String instanceName) {
+			this.instanceName = instanceName;
 		}
 
 		public Integer getS3Count() {
@@ -241,12 +205,76 @@ public class DescribeTablesResponse extends AcsResponse {
 			this.s3Count = s3Count;
 		}
 
-		public Integer getTotalRows() {
-			return this.totalRows;
+		public Integer getS1Count() {
+			return this.s1Count;
 		}
 
-		public void setTotalRows(Integer totalRows) {
-			this.totalRows = totalRows;
+		public void setS1Count(Integer s1Count) {
+			this.s1Count = s1Count;
+		}
+
+		public String getProductId() {
+			return this.productId;
+		}
+
+		public void setProductId(String productId) {
+			this.productId = productId;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Integer getS2Count() {
+			return this.s2Count;
+		}
+
+		public void setS2Count(Integer s2Count) {
+			this.s2Count = s2Count;
+		}
+
+		public Long getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(Long instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
+		public String getInstanceDescription() {
+			return this.instanceDescription;
+		}
+
+		public void setInstanceDescription(String instanceDescription) {
+			this.instanceDescription = instanceDescription;
+		}
+
+		public Boolean getSensitive() {
+			return this.sensitive;
+		}
+
+		public void setSensitive(Boolean sensitive) {
+			this.sensitive = sensitive;
+		}
+
+		public String getSensLevelName() {
+			return this.sensLevelName;
+		}
+
+		public void setSensLevelName(String sensLevelName) {
+			this.sensLevelName = sensLevelName;
 		}
 
 		public Long getLastScanTime() {
@@ -255,6 +283,121 @@ public class DescribeTablesResponse extends AcsResponse {
 
 		public void setLastScanTime(Long lastScanTime) {
 			this.lastScanTime = lastScanTime;
+		}
+
+		public String getRegionName() {
+			return this.regionName;
+		}
+
+		public void setRegionName(String regionName) {
+			this.regionName = regionName;
+		}
+
+		public String getRiskLevelName() {
+			return this.riskLevelName;
+		}
+
+		public void setRiskLevelName(String riskLevelName) {
+			this.riskLevelName = riskLevelName;
+		}
+
+		public Integer getTotalRows() {
+			return this.totalRows;
+		}
+
+		public void setTotalRows(Integer totalRows) {
+			this.totalRows = totalRows;
+		}
+
+		public Integer getSensitiveCount() {
+			return this.sensitiveCount;
+		}
+
+		public void setSensitiveCount(Integer sensitiveCount) {
+			this.sensitiveCount = sensitiveCount;
+		}
+
+		public Long getId() {
+			return this.id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+		public String getProductCode() {
+			return this.productCode;
+		}
+
+		public void setProductCode(String productCode) {
+			this.productCode = productCode;
+		}
+
+		public String getObjectHex() {
+			return this.objectHex;
+		}
+
+		public void setObjectHex(String objectHex) {
+			this.objectHex = objectHex;
+		}
+
+		public Integer getDataType() {
+			return this.dataType;
+		}
+
+		public void setDataType(Integer dataType) {
+			this.dataType = dataType;
+		}
+
+		public List<Rule> getRuleList() {
+			return this.ruleList;
+		}
+
+		public void setRuleList(List<Rule> ruleList) {
+			this.ruleList = ruleList;
+		}
+
+		public static class Rule {
+
+			private String displayName;
+
+			private String name;
+
+			private Long riskLevelId;
+
+			private Long count;
+
+			public String getDisplayName() {
+				return this.displayName;
+			}
+
+			public void setDisplayName(String displayName) {
+				this.displayName = displayName;
+			}
+
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public Long getRiskLevelId() {
+				return this.riskLevelId;
+			}
+
+			public void setRiskLevelId(Long riskLevelId) {
+				this.riskLevelId = riskLevelId;
+			}
+
+			public Long getCount() {
+				return this.count;
+			}
+
+			public void setCount(Long count) {
+				this.count = count;
+			}
 		}
 	}
 

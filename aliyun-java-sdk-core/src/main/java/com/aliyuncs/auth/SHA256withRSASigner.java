@@ -25,10 +25,7 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 
-/**
- * Created by haowei.yao on 2017/9/28.
- */
-
+@Deprecated
 public class SHA256withRSASigner extends Signer {
 
     public static final String ENCODING = "UTF-8";
@@ -44,7 +41,7 @@ public class SHA256withRSASigner extends Signer {
             rsaSign.initSign(privateKey);
             rsaSign.update(stringToSign.getBytes(ENCODING));
             byte[] sign = rsaSign.sign();
-            String signature = new String(DatatypeConverter.printBase64Binary(sign));
+            String signature = DatatypeConverter.printBase64Binary(sign);
             return signature;
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalArgumentException(e.toString());
@@ -77,5 +74,15 @@ public class SHA256withRSASigner extends Signer {
     @Override
     public String getSignerType() {
         return "PRIVATEKEY";
+    }
+
+    @Override
+    public byte[] hash(byte[] raw) throws NoSuchAlgorithmException {
+        return null;
+    }
+
+    @Override
+    public String getContent() {
+        return null;
     }
 }

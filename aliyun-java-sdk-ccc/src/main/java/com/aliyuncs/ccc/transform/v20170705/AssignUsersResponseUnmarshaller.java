@@ -14,7 +14,11 @@
 
 package com.aliyuncs.ccc.transform.v20170705;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aliyuncs.ccc.model.v20170705.AssignUsersResponse;
+import com.aliyuncs.ccc.model.v20170705.AssignUsersResponse.User;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -23,10 +27,22 @@ public class AssignUsersResponseUnmarshaller {
 	public static AssignUsersResponse unmarshall(AssignUsersResponse assignUsersResponse, UnmarshallerContext _ctx) {
 		
 		assignUsersResponse.setRequestId(_ctx.stringValue("AssignUsersResponse.RequestId"));
-		assignUsersResponse.setSuccess(_ctx.booleanValue("AssignUsersResponse.Success"));
+		assignUsersResponse.setHttpStatusCode(_ctx.integerValue("AssignUsersResponse.HttpStatusCode"));
 		assignUsersResponse.setCode(_ctx.stringValue("AssignUsersResponse.Code"));
 		assignUsersResponse.setMessage(_ctx.stringValue("AssignUsersResponse.Message"));
-		assignUsersResponse.setHttpStatusCode(_ctx.integerValue("AssignUsersResponse.HttpStatusCode"));
+		assignUsersResponse.setSuccess(_ctx.booleanValue("AssignUsersResponse.Success"));
+
+		List<User> data = new ArrayList<User>();
+		for (int i = 0; i < _ctx.lengthValue("AssignUsersResponse.Data.Length"); i++) {
+			User user = new User();
+			user.setInstanceId(_ctx.stringValue("AssignUsersResponse.Data["+ i +"].InstanceId"));
+			user.setUserId(_ctx.stringValue("AssignUsersResponse.Data["+ i +"].UserId"));
+			user.setRamId(_ctx.stringValue("AssignUsersResponse.Data["+ i +"].RamId"));
+			user.setPrimary(_ctx.booleanValue("AssignUsersResponse.Data["+ i +"].Primary"));
+
+			data.add(user);
+		}
+		assignUsersResponse.setData(data);
 	 
 	 	return assignUsersResponse;
 	}

@@ -24,36 +24,44 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetRecordOssUploadParamResponse extends AcsResponse {
 
-	private String requestId;
+	private String ossAccessKeyId;
+
+	private String host;
 
 	private Boolean success;
 
-	private String code;
-
 	private String message;
 
+	private String ossFileName;
+
 	private Integer httpStatusCode;
-
-	private String ossAccessKeyId;
-
-	private String policy;
 
 	private String signature;
 
 	private String expires;
 
+	private String requestId;
+
+	private String policy;
+
+	private String code;
+
 	private String dir;
 
-	private String host;
-
-	private String ossFileName;
-
-	public String getRequestId() {
-		return this.requestId;
+	public String getOssAccessKeyId() {
+		return this.ossAccessKeyId;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setOssAccessKeyId(String ossAccessKeyId) {
+		this.ossAccessKeyId = ossAccessKeyId;
+	}
+
+	public String getHost() {
+		return this.host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
 	}
 
 	public Boolean getSuccess() {
@@ -64,14 +72,6 @@ public class GetRecordOssUploadParamResponse extends AcsResponse {
 		this.success = success;
 	}
 
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
 	public String getMessage() {
 		return this.message;
 	}
@@ -80,28 +80,20 @@ public class GetRecordOssUploadParamResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getOssFileName() {
+		return this.ossFileName;
+	}
+
+	public void setOssFileName(String ossFileName) {
+		this.ossFileName = ossFileName;
+	}
+
 	public Integer getHttpStatusCode() {
 		return this.httpStatusCode;
 	}
 
 	public void setHttpStatusCode(Integer httpStatusCode) {
 		this.httpStatusCode = httpStatusCode;
-	}
-
-	public String getOssAccessKeyId() {
-		return this.ossAccessKeyId;
-	}
-
-	public void setOssAccessKeyId(String ossAccessKeyId) {
-		this.ossAccessKeyId = ossAccessKeyId;
-	}
-
-	public String getPolicy() {
-		return this.policy;
-	}
-
-	public void setPolicy(String policy) {
-		this.policy = policy;
 	}
 
 	public String getSignature() {
@@ -120,28 +112,36 @@ public class GetRecordOssUploadParamResponse extends AcsResponse {
 		this.expires = expires;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getPolicy() {
+		return this.policy;
+	}
+
+	public void setPolicy(String policy) {
+		this.policy = policy;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String getDir() {
 		return this.dir;
 	}
 
 	public void setDir(String dir) {
 		this.dir = dir;
-	}
-
-	public String getHost() {
-		return this.host;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	public String getOssFileName() {
-		return this.ossFileName;
-	}
-
-	public void setOssFileName(String ossFileName) {
-		this.ossFileName = ossFileName;
 	}
 
 	@Override

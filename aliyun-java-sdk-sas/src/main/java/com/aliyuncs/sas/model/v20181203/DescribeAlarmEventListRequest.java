@@ -17,6 +17,7 @@ package com.aliyuncs.sas.model.v20181203;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -37,6 +38,8 @@ public class DescribeAlarmEventListRequest extends RpcAcsRequest<DescribeAlarmEv
 
 	private String from;
 
+	private String tacticId;
+
 	private String lang;
 
 	private String groupId;
@@ -49,8 +52,12 @@ public class DescribeAlarmEventListRequest extends RpcAcsRequest<DescribeAlarmEv
 
 	private String levels;
 	public DescribeAlarmEventListRequest() {
-		super("Sas", "2018-12-03", "DescribeAlarmEventList", "sas");
+		super("Sas", "2018-12-03", "DescribeAlarmEventList");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAlarmEventType() {
@@ -116,6 +123,17 @@ public class DescribeAlarmEventListRequest extends RpcAcsRequest<DescribeAlarmEv
 		this.from = from;
 		if(from != null){
 			putQueryParameter("From", from);
+		}
+	}
+
+	public String getTacticId() {
+		return this.tacticId;
+	}
+
+	public void setTacticId(String tacticId) {
+		this.tacticId = tacticId;
+		if(tacticId != null){
+			putQueryParameter("TacticId", tacticId);
 		}
 	}
 

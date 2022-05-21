@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CommitContactFlowVersionModificationResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private ContactFlowVersion contactFlowVersion;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class CommitContactFlowVersionModificationResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public ContactFlowVersion getContactFlowVersion() {
@@ -86,78 +86,30 @@ public class CommitContactFlowVersionModificationResponse extends AcsResponse {
 
 	public static class ContactFlowVersion {
 
-		private String contactFlowVersionId;
-
-		private String version;
-
-		private String contactFlowVersionDescription;
-
-		private String canvas;
-
-		private String content;
+		private String status;
 
 		private String lastModified;
 
-		private String lastModifiedBy;
+		private String canvas;
 
 		private String lockedBy;
 
-		private String status;
+		private String version;
 
-		public String getContactFlowVersionId() {
-			return this.contactFlowVersionId;
+		private String contactFlowVersionId;
+
+		private String lastModifiedBy;
+
+		private String contactFlowVersionDescription;
+
+		private String content;
+
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setContactFlowVersionId(String contactFlowVersionId) {
-			this.contactFlowVersionId = contactFlowVersionId;
-		}
-
-		public String getBizVersion() {
-			return this.version;
-		}
-
-		public void setBizVersion(String version) {
-			this.version = version;
-		}
-
-		/**
-		 * @deprecated use getBizVersion instead of this.
-		 */
-		@Deprecated
-		public String getVersion() {
-			return this.version;
-		}
-
-		/**
-		 * @deprecated use setBizVersion instead of this.
-		 */
-		@Deprecated
-		public void setVersion(String version) {
-			this.version = version;
-		}
-
-		public String getContactFlowVersionDescription() {
-			return this.contactFlowVersionDescription;
-		}
-
-		public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
-			this.contactFlowVersionDescription = contactFlowVersionDescription;
-		}
-
-		public String getCanvas() {
-			return this.canvas;
-		}
-
-		public void setCanvas(String canvas) {
-			this.canvas = canvas;
-		}
-
-		public String getContent() {
-			return this.content;
-		}
-
-		public void setContent(String content) {
-			this.content = content;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
 		public String getLastModified() {
@@ -168,12 +120,12 @@ public class CommitContactFlowVersionModificationResponse extends AcsResponse {
 			this.lastModified = lastModified;
 		}
 
-		public String getLastModifiedBy() {
-			return this.lastModifiedBy;
+		public String getCanvas() {
+			return this.canvas;
 		}
 
-		public void setLastModifiedBy(String lastModifiedBy) {
-			this.lastModifiedBy = lastModifiedBy;
+		public void setCanvas(String canvas) {
+			this.canvas = canvas;
 		}
 
 		public String getLockedBy() {
@@ -184,12 +136,44 @@ public class CommitContactFlowVersionModificationResponse extends AcsResponse {
 			this.lockedBy = lockedBy;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getVersion() {
+			return this.version;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setVersion(String version) {
+			this.version = version;
+		}
+
+		public String getContactFlowVersionId() {
+			return this.contactFlowVersionId;
+		}
+
+		public void setContactFlowVersionId(String contactFlowVersionId) {
+			this.contactFlowVersionId = contactFlowVersionId;
+		}
+
+		public String getLastModifiedBy() {
+			return this.lastModifiedBy;
+		}
+
+		public void setLastModifiedBy(String lastModifiedBy) {
+			this.lastModifiedBy = lastModifiedBy;
+		}
+
+		public String getContactFlowVersionDescription() {
+			return this.contactFlowVersionDescription;
+		}
+
+		public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
+			this.contactFlowVersionDescription = contactFlowVersionDescription;
+		}
+
+		public String getContent() {
+			return this.content;
+		}
+
+		public void setContent(String content) {
+			this.content = content;
 		}
 	}
 

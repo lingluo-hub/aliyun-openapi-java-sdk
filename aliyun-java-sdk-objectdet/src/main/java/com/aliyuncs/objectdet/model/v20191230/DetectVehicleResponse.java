@@ -79,21 +79,13 @@ public class DetectVehicleResponse extends AcsResponse {
 
 		public static class DetectObjectInfo {
 
-			private Float score;
-
 			private String type;
+
+			private Float score;
 
 			private Integer id;
 
 			private List<Integer> boxes;
-
-			public Float getScore() {
-				return this.score;
-			}
-
-			public void setScore(Float score) {
-				this.score = score;
-			}
 
 			public String getType() {
 				return this.type;
@@ -101,6 +93,14 @@ public class DetectVehicleResponse extends AcsResponse {
 
 			public void setType(String type) {
 				this.type = type;
+			}
+
+			public Float getScore() {
+				return this.score;
+			}
+
+			public void setScore(Float score) {
+				this.score = score;
 			}
 
 			public Integer getId() {

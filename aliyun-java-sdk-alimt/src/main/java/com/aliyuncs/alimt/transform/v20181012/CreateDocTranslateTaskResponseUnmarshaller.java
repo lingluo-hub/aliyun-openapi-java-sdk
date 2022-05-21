@@ -23,8 +23,8 @@ public class CreateDocTranslateTaskResponseUnmarshaller {
 	public static CreateDocTranslateTaskResponse unmarshall(CreateDocTranslateTaskResponse createDocTranslateTaskResponse, UnmarshallerContext _ctx) {
 		
 		createDocTranslateTaskResponse.setRequestId(_ctx.stringValue("CreateDocTranslateTaskResponse.RequestId"));
-		createDocTranslateTaskResponse.setTaskId(_ctx.stringValue("CreateDocTranslateTaskResponse.TaskId"));
 		createDocTranslateTaskResponse.setStatus(_ctx.stringValue("CreateDocTranslateTaskResponse.Status"));
+		createDocTranslateTaskResponse.setTaskId(_ctx.stringValue("CreateDocTranslateTaskResponse.TaskId"));
 	 
 	 	return createDocTranslateTaskResponse;
 	}

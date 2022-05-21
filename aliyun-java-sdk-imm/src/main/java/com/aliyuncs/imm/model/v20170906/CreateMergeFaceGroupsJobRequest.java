@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -28,6 +29,8 @@ public class CreateMergeFaceGroupsJobRequest extends RpcAcsRequest<CreateMergeFa
 
 	private String notifyEndpoint;
 
+	private String customMessage;
+
 	private String groupIdFrom;
 
 	private String notifyTopicName;
@@ -38,6 +41,10 @@ public class CreateMergeFaceGroupsJobRequest extends RpcAcsRequest<CreateMergeFa
 	public CreateMergeFaceGroupsJobRequest() {
 		super("imm", "2017-09-06", "CreateMergeFaceGroupsJob", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -59,6 +66,17 @@ public class CreateMergeFaceGroupsJobRequest extends RpcAcsRequest<CreateMergeFa
 		this.notifyEndpoint = notifyEndpoint;
 		if(notifyEndpoint != null){
 			putQueryParameter("NotifyEndpoint", notifyEndpoint);
+		}
+	}
+
+	public String getCustomMessage() {
+		return this.customMessage;
+	}
+
+	public void setCustomMessage(String customMessage) {
+		this.customMessage = customMessage;
+		if(customMessage != null){
+			putQueryParameter("CustomMessage", customMessage);
 		}
 	}
 

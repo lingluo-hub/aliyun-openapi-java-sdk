@@ -31,15 +31,19 @@ public class CreateNodeRequest extends RpcAcsRequest<CreateNodeResponse> {
 
 	private String clientToken;
 
+	private Integer readonlyReplicas;
+
+	private String couponNo;
+
 	private String nodeClass;
 
 	private String securityToken;
 
 	private String dBInstanceId;
 
-	private Boolean autoPay;
+	private String businessInfo;
 
-	private String fromApp;
+	private Boolean autoPay;
 
 	private String resourceOwnerAccount;
 
@@ -90,6 +94,28 @@ public class CreateNodeRequest extends RpcAcsRequest<CreateNodeResponse> {
 		}
 	}
 
+	public Integer getReadonlyReplicas() {
+		return this.readonlyReplicas;
+	}
+
+	public void setReadonlyReplicas(Integer readonlyReplicas) {
+		this.readonlyReplicas = readonlyReplicas;
+		if(readonlyReplicas != null){
+			putQueryParameter("ReadonlyReplicas", readonlyReplicas.toString());
+		}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
 	public String getNodeClass() {
 		return this.nodeClass;
 	}
@@ -123,6 +149,17 @@ public class CreateNodeRequest extends RpcAcsRequest<CreateNodeResponse> {
 		}
 	}
 
+	public String getBusinessInfo() {
+		return this.businessInfo;
+	}
+
+	public void setBusinessInfo(String businessInfo) {
+		this.businessInfo = businessInfo;
+		if(businessInfo != null){
+			putQueryParameter("BusinessInfo", businessInfo);
+		}
+	}
+
 	public Boolean getAutoPay() {
 		return this.autoPay;
 	}
@@ -131,17 +168,6 @@ public class CreateNodeRequest extends RpcAcsRequest<CreateNodeResponse> {
 		this.autoPay = autoPay;
 		if(autoPay != null){
 			putQueryParameter("AutoPay", autoPay.toString());
-		}
-	}
-
-	public String getFromApp() {
-		return this.fromApp;
-	}
-
-	public void setFromApp(String fromApp) {
-		this.fromApp = fromApp;
-		if(fromApp != null){
-			putQueryParameter("FromApp", fromApp);
 		}
 	}
 

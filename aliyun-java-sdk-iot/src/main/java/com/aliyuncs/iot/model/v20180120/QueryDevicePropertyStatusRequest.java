@@ -25,31 +25,22 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDevicePropertyStatusResponse> {
 	   
 
-	private String productKey;
-
 	private String iotId;
 
 	private String iotInstanceId;
 
+	private String productKey;
+
 	private String deviceName;
+
+	private String functionBlockId;
 	public QueryDevicePropertyStatusRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyStatus", "Iot");
+		super("Iot", "2018-01-20", "QueryDevicePropertyStatus");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getIotId() {
@@ -74,6 +65,17 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		}
 	}
 
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public String getDeviceName() {
 		return this.deviceName;
 	}
@@ -82,6 +84,17 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		this.deviceName = deviceName;
 		if(deviceName != null){
 			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
 		}
 	}
 

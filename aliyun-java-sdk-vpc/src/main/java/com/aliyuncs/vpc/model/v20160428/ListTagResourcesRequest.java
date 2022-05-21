@@ -41,8 +41,10 @@ public class ListTagResourcesRequest extends RpcAcsRequest<ListTagResourcesRespo
 	private Long ownerId;
 
 	private String resourceType;
+
+	private Integer maxResults;
 	public ListTagResourcesRequest() {
-		super("Vpc", "2016-04-28", "ListTagResources", "Vpc");
+		super("Vpc", "2016-04-28", "ListTagResources", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -140,6 +142,17 @@ public class ListTagResourcesRequest extends RpcAcsRequest<ListTagResourcesRespo
 		this.resourceType = resourceType;
 		if(resourceType != null){
 			putQueryParameter("ResourceType", resourceType);
+		}
+	}
+
+	public Integer getMaxResults() {
+		return this.maxResults;
+	}
+
+	public void setMaxResults(Integer maxResults) {
+		this.maxResults = maxResults;
+		if(maxResults != null){
+			putQueryParameter("MaxResults", maxResults.toString());
 		}
 	}
 

@@ -1,3 +1,188 @@
+2022-04-24 Version: 4.24.18
+- Support systemdisk encrypt and arns.
+
+
+2022-04-13 Version: 4.24.17
+- Support throughput for API DescribeDisks.
+
+
+2022-03-25 Version: 4.24.16
+- Add Request Param LaunchConfigurationPassword For API CreateAutoProvisioningGroup.
+
+
+2022-03-23 Version: 4.24.15
+- Add Request Param ImageOptions For API RunInstances.
+- Add Request Param LoginAsNonRoot For API ReplaceSystemDisk.
+- Add Request Param LoginAsNonRoot For API ReInitDisk.
+
+2022-01-14 Version: 4.24.14
+- Add Request Param ImageOptions For API RunInstances.
+- Add Request Param LoginAsNonRoot For API ReplaceSystemDisk.
+- Add Request Param LoginAsNonRoot For API ReInitDisk.
+
+2021-12-20 Version: 4.24.13
+- Add Request Param Ipv6AddressCount For API CreateLaunchTemplate AND CreateLaunchTemplateVersion.
+- Add Response Data Ipv6AddressCount For API DescribeLaunchTemplateVersions.
+
+2021-12-06 Version: 4.24.12
+- Support Bond Eni.
+
+2021-10-18 Version: 4.24.11
+- Adjust ecs openapi endpoint.
+- Fix SDK array format.
+
+2021-10-08 Version: 4.24.9
+- Adjust ecs openapi endpoint.
+
+2021-09-15 Version: 4.24.8
+- DescribeSecurityGroups support query by next token.
+
+2021-08-19 Version: 4.24.7
+- Add SupportSessionManager for DescribeCloudAssistantStatus.
+
+2021-08-19 Version: 4.24.6
+- Add SupportSessionManager for DescribeCloudAssistantStatus.
+
+2021-07-27 Version: 4.24.5
+- Add StartTerminalSession.
+
+2021-07-19 Version: 4.24.4
+- CreateNetworkInterface supports to allocate Ipv6.
+
+2021-06-08 Version: 4.24.3
+- Support input parameter LaunchConfigurationHostNames and MinTargetCapacity for CreateAutoProvisioningGroup.
+
+2021-06-04 Version: 4.24.2
+- Supported multi attach feature for disk.
+
+2021-04-22 Version: 4.24.0
+- AcceptInquiredSystemEvent adds Choice parameter.
+- DescribeInstanceHistoryEvents supports multiple resource types.
+
+2021-04-09 Version: 4.23.12
+- Add aliyun cloud assistant add lastHeartbeatTime.
+
+2021-03-31 Version: 4.23.11
+- Ecs support hibernation.
+- DescribeSnapshotGroups add ProgressStatus.
+
+2021-02-22 Version: 4.23.10
+- Support input parameter DeploymentSetId for CreateAutoProvisioningGroup.
+
+2021-02-22 Version: 4.23.10
+- Support input parameter DeploymentSetId for CreateAutoProvisioningGroup.
+
+2021-02-22 Version: 4.23.10
+- Support input parameter DeploymentSetId for CreateAutoProvisioningGroup.
+
+2021-02-08 Version: 4.23.9
+- Add username for RunCommand and InvokeCommand.
+
+2021-02-08 Version: 4.23.8
+- DescribeRecommendInstanceType support ZoneMatchMode.
+
+2021-01-25 Version: 4.23.7
+- Regenerate SDK to override list implement.
+
+2021-01-21 Version: 4.23.6
+- Supported RunInstances specifiy Dedicated Host Cluster Id.
+
+2021-01-06 Version: 4.23.5
+- Support input parameter ClientToken for CreateAutoProvisioningGroup.
+
+2021-01-04 Version: 4.23.4
+- Generated 2014-05-26 for `Ecs`.
+
+2020-12-29 Version: 4.23.3
+- Supported SystemDiskPerformanceLevel, SystemDiskDeleteWithInstance, DataDiskPerformanceLevel, NetworkInterfaceSecurityGroupIds, SecurityGroupIds, PrivateIpAddress for CreateLaunchTemplate, CreateLaunchTemplateVersion, DescribeLaunchTemplateVersion.
+
+2020-12-21 Version: 4.23.2
+- Support Device of LaunchConfiguration_DataDisk.
+
+2020-12-17 Version: 4.23.1
+- Generated 2014-05-26 for `Ecs`.
+
+2020-12-04 Version: 4.23.0
+- ReportInstancesStatus OpenAPI supports IssueCategory parameter.
+
+2020-11-30 Version: 4.22.2
+- Support autoPtovisioning whth DiskConfigs.
+
+2020-11-25 Version: 4.22.1
+- Supported Primary NetworkInterface IP for API DescribeInstances.
+
+2020-11-16 Version: 4.22.0
+- Nat public IP supports the ISP attribute.
+
+2020-11-16 Version: 4.22.0
+- Nat public IP supports the ISP attribute.
+
+2020-11-16 Version: 4.22.0
+- Nat public IP supports the ISP attribute.
+
+2020-11-16 Version: 4.22.0
+- Nat public IP supports the ISP attribute.
+
+2020-10-26 Version: 4.21.0
+- Generated 2014-05-26 for `Ecs`.
+
+2020-10-14 Version: 4.20.0
+- Generated 2014-05-26 for `Ecs`.
+
+2020-09-23 Version: 4.19.12
+- Add spotDuration support.
+
+2020-09-04 Version: 4.19.11
+- Supported QueueNumber for API CreateNetworkInterface.
+- Supported MaximumQueueNumberPerEni, PrimaryEniQueueNumber, SecondaryEniQueueNumber for API DescribeInstanceTypes.
+- Supported NetworkInterfaceQueueNumber for API ModifyInstanceAttribute.
+- Supported NetworkInterfaceQueueNumber for API RunInstances.
+
+2020-08-11 Version: 4.19.10
+- Add ResourceGroup in resource snapshot.
+
+2020-07-15 Version: 4.19.9
+- Support ModifyImageAttribute by LaunchPermission.
+- Support ImageFamily.
+
+2020-07-15 Version: 4.19.9
+- Axt describe invocation results add error code and info.
+
+2020-07-15 Version: 4.19.1
+- Axt describe invocation results add error code and info.
+
+2020-06-17 Version: 4.19.8
+- Supported sync create eni and assign private ip.
+
+2020-06-05 Version: 4.19.7
+- Supported Eni Trunking.
+
+2020-06-04 Version: 4.19.7
+- Supported Eni Trunking.
+
+2020-05-19 Version: 4.19.6
+- ModifyInstanceVpcAttribute supports modification of instance vpc.
+
+2020-05-19 Version: 4.19.5
+- ModifyInstanceVpcAttribute supports modification of instance vpc.
+
+2020-04-17 Version: 4.19.4
+- DescribeInstanceTypes support TotalEniQueueQuantity.
+
+2020-04-16 Version: 4.19.3
+- Add BatchOptimization param in Stop and Start Instances.
+- Add RemoveSymbols in GetInstanceConsoleOutput.
+- Add ImageFamily in ModifyImageAttribute.
+- Customize InstanceType on DedicatedHosts is supported.
+- Add StorageCapacityUnit interfaces.
+- Add param Tag in CreateAutoSnapshotPolicy.
+
+2020-03-24 Version: 4.19.2
+- DescribeInstanceTypes Supports EniIpv6AddressQuantity.
+
+2020-03-24 Version: 4.19.1
+- DescribeInstanceTypes Supports EniIpv6AddressQuantity.
+
 2020-03-16 Version: 4.19.1
 - Add ImageFamily paramters and apis, in Instance creation apis and Image query apis, and add DescribeImageFromFamily.
 - Add Instance batch operation apis RebootInstances StartInstances and StopInstances.

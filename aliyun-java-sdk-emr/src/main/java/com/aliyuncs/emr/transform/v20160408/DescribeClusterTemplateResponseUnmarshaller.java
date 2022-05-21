@@ -22,6 +22,7 @@ import com.aliyuncs.emr.model.v20160408.DescribeClusterTemplateResponse.Template
 import com.aliyuncs.emr.model.v20160408.DescribeClusterTemplateResponse.TemplateInfo.BootstrapAction;
 import com.aliyuncs.emr.model.v20160408.DescribeClusterTemplateResponse.TemplateInfo.Config;
 import com.aliyuncs.emr.model.v20160408.DescribeClusterTemplateResponse.TemplateInfo.HostGroup;
+import com.aliyuncs.emr.model.v20160408.DescribeClusterTemplateResponse.TemplateInfo.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -67,6 +68,8 @@ public class DescribeClusterTemplateResponseUnmarshaller {
 		templateInfo.setMasterPwd(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.MasterPwd"));
 		templateInfo.setMetaStoreType(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.MetaStoreType"));
 		templateInfo.setMetaStoreConf(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.MetaStoreConf"));
+		templateInfo.setDataDiskEncrypted(_ctx.booleanValue("DescribeClusterTemplateResponse.TemplateInfo.DataDiskEncrypted"));
+		templateInfo.setDataDiskKMSKeyId(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.DataDiskKMSKeyId"));
 
 		List<String> softwareInfoList = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeClusterTemplateResponse.TemplateInfo.SoftwareInfoList.Length"); i++) {
@@ -119,6 +122,16 @@ public class DescribeClusterTemplateResponseUnmarshaller {
 			configList.add(config);
 		}
 		templateInfo.setConfigList(configList);
+
+		List<Tag> tags = new ArrayList<Tag>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeClusterTemplateResponse.TemplateInfo.Tags.Length"); i++) {
+			Tag tag = new Tag();
+			tag.setTagKey(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.Tags["+ i +"].TagKey"));
+			tag.setTagValue(_ctx.stringValue("DescribeClusterTemplateResponse.TemplateInfo.Tags["+ i +"].TagValue"));
+
+			tags.add(tag);
+		}
+		templateInfo.setTags(tags);
 		describeClusterTemplateResponse.setTemplateInfo(templateInfo);
 	 
 	 	return describeClusterTemplateResponse;

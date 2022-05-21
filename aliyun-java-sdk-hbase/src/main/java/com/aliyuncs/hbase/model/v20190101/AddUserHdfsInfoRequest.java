@@ -27,9 +27,11 @@ public class AddUserHdfsInfoRequest extends RpcAcsRequest<AddUserHdfsInfoRespons
 
 	private String extInfo;
 
+	private String clientToken;
+
 	private String clusterId;
 	public AddUserHdfsInfoRequest() {
-		super("HBase", "2019-01-01", "AddUserHdfsInfo");
+		super("HBase", "2019-01-01", "AddUserHdfsInfo", "hbase");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -45,6 +47,17 @@ public class AddUserHdfsInfoRequest extends RpcAcsRequest<AddUserHdfsInfoRespons
 		this.extInfo = extInfo;
 		if(extInfo != null){
 			putQueryParameter("ExtInfo", extInfo);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 

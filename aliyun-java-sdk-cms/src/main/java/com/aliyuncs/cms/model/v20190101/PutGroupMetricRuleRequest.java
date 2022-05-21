@@ -15,6 +15,7 @@
 package com.aliyuncs.cms.model.v20190101;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 
 /**
@@ -30,17 +31,13 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 
 	private String ruleName;
 
-	private String escalationsInfoStatistics;
-
 	private String effectiveInterval;
 
-	private String escalationsInfoComparisonOperator;
+	private String noDataPolicy;
 
 	private String noEffectiveInterval;
 
 	private String emailSubject;
-
-	private Integer silenceTime;
 
 	private String metricName;
 
@@ -50,9 +47,27 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 
 	private String escalationsWarnThreshold;
 
+	private String contactGroups;
+
 	private String escalationsCriticalStatistics;
 
 	private String groupId;
+
+	private String extraDimensionJson;
+
+	private List<Labels> labelss;
+
+	private String interval;
+
+	private String ruleId;
+
+	private String escalationsCriticalThreshold;
+
+	private String escalationsInfoStatistics;
+
+	private String escalationsInfoComparisonOperator;
+
+	private Integer silenceTime;
 
 	private Integer escalationsInfoTimes;
 
@@ -64,15 +79,9 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 
 	private String namespace;
 
-	private String interval;
-
-	private String ruleId;
-
 	private String category;
 
 	private String escalationsCriticalComparisonOperator;
-
-	private String escalationsCriticalThreshold;
 
 	private String dimensions;
 	public PutGroupMetricRuleRequest() {
@@ -113,17 +122,6 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		}
 	}
 
-	public String getEscalationsInfoStatistics() {
-		return this.escalationsInfoStatistics;
-	}
-
-	public void setEscalationsInfoStatistics(String escalationsInfoStatistics) {
-		this.escalationsInfoStatistics = escalationsInfoStatistics;
-		if(escalationsInfoStatistics != null){
-			putQueryParameter("Escalations.Info.Statistics", escalationsInfoStatistics);
-		}
-	}
-
 	public String getEffectiveInterval() {
 		return this.effectiveInterval;
 	}
@@ -135,14 +133,14 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		}
 	}
 
-	public String getEscalationsInfoComparisonOperator() {
-		return this.escalationsInfoComparisonOperator;
+	public String getNoDataPolicy() {
+		return this.noDataPolicy;
 	}
 
-	public void setEscalationsInfoComparisonOperator(String escalationsInfoComparisonOperator) {
-		this.escalationsInfoComparisonOperator = escalationsInfoComparisonOperator;
-		if(escalationsInfoComparisonOperator != null){
-			putQueryParameter("Escalations.Info.ComparisonOperator", escalationsInfoComparisonOperator);
+	public void setNoDataPolicy(String noDataPolicy) {
+		this.noDataPolicy = noDataPolicy;
+		if(noDataPolicy != null){
+			putQueryParameter("NoDataPolicy", noDataPolicy);
 		}
 	}
 
@@ -165,17 +163,6 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		this.emailSubject = emailSubject;
 		if(emailSubject != null){
 			putQueryParameter("EmailSubject", emailSubject);
-		}
-	}
-
-	public Integer getSilenceTime() {
-		return this.silenceTime;
-	}
-
-	public void setSilenceTime(Integer silenceTime) {
-		this.silenceTime = silenceTime;
-		if(silenceTime != null){
-			putQueryParameter("SilenceTime", silenceTime.toString());
 		}
 	}
 
@@ -223,6 +210,17 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		}
 	}
 
+	public String getContactGroups() {
+		return this.contactGroups;
+	}
+
+	public void setContactGroups(String contactGroups) {
+		this.contactGroups = contactGroups;
+		if(contactGroups != null){
+			putQueryParameter("ContactGroups", contactGroups);
+		}
+	}
+
 	public String getEscalationsCriticalStatistics() {
 		return this.escalationsCriticalStatistics;
 	}
@@ -242,6 +240,97 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		this.groupId = groupId;
 		if(groupId != null){
 			putQueryParameter("GroupId", groupId);
+		}
+	}
+
+	public String getExtraDimensionJson() {
+		return this.extraDimensionJson;
+	}
+
+	public void setExtraDimensionJson(String extraDimensionJson) {
+		this.extraDimensionJson = extraDimensionJson;
+		if(extraDimensionJson != null){
+			putQueryParameter("ExtraDimensionJson", extraDimensionJson);
+		}
+	}
+
+	public List<Labels> getLabelss() {
+		return this.labelss;
+	}
+
+	public void setLabelss(List<Labels> labelss) {
+		this.labelss = labelss;	
+		if (labelss != null) {
+			for (int depth1 = 0; depth1 < labelss.size(); depth1++) {
+				putQueryParameter("Labels." + (depth1 + 1) + ".Value" , labelss.get(depth1).getValue());
+				putQueryParameter("Labels." + (depth1 + 1) + ".Key" , labelss.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(String interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval);
+		}
+	}
+
+	public String getRuleId() {
+		return this.ruleId;
+	}
+
+	public void setRuleId(String ruleId) {
+		this.ruleId = ruleId;
+		if(ruleId != null){
+			putQueryParameter("RuleId", ruleId);
+		}
+	}
+
+	public String getEscalationsCriticalThreshold() {
+		return this.escalationsCriticalThreshold;
+	}
+
+	public void setEscalationsCriticalThreshold(String escalationsCriticalThreshold) {
+		this.escalationsCriticalThreshold = escalationsCriticalThreshold;
+		if(escalationsCriticalThreshold != null){
+			putQueryParameter("Escalations.Critical.Threshold", escalationsCriticalThreshold);
+		}
+	}
+
+	public String getEscalationsInfoStatistics() {
+		return this.escalationsInfoStatistics;
+	}
+
+	public void setEscalationsInfoStatistics(String escalationsInfoStatistics) {
+		this.escalationsInfoStatistics = escalationsInfoStatistics;
+		if(escalationsInfoStatistics != null){
+			putQueryParameter("Escalations.Info.Statistics", escalationsInfoStatistics);
+		}
+	}
+
+	public String getEscalationsInfoComparisonOperator() {
+		return this.escalationsInfoComparisonOperator;
+	}
+
+	public void setEscalationsInfoComparisonOperator(String escalationsInfoComparisonOperator) {
+		this.escalationsInfoComparisonOperator = escalationsInfoComparisonOperator;
+		if(escalationsInfoComparisonOperator != null){
+			putQueryParameter("Escalations.Info.ComparisonOperator", escalationsInfoComparisonOperator);
+		}
+	}
+
+	public Integer getSilenceTime() {
+		return this.silenceTime;
+	}
+
+	public void setSilenceTime(Integer silenceTime) {
+		this.silenceTime = silenceTime;
+		if(silenceTime != null){
+			putQueryParameter("SilenceTime", silenceTime.toString());
 		}
 	}
 
@@ -300,28 +389,6 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		}
 	}
 
-	public String getInterval() {
-		return this.interval;
-	}
-
-	public void setInterval(String interval) {
-		this.interval = interval;
-		if(interval != null){
-			putQueryParameter("Interval", interval);
-		}
-	}
-
-	public String getRuleId() {
-		return this.ruleId;
-	}
-
-	public void setRuleId(String ruleId) {
-		this.ruleId = ruleId;
-		if(ruleId != null){
-			putQueryParameter("RuleId", ruleId);
-		}
-	}
-
 	public String getCategory() {
 		return this.category;
 	}
@@ -344,17 +411,6 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		}
 	}
 
-	public String getEscalationsCriticalThreshold() {
-		return this.escalationsCriticalThreshold;
-	}
-
-	public void setEscalationsCriticalThreshold(String escalationsCriticalThreshold) {
-		this.escalationsCriticalThreshold = escalationsCriticalThreshold;
-		if(escalationsCriticalThreshold != null){
-			putQueryParameter("Escalations.Critical.Threshold", escalationsCriticalThreshold);
-		}
-	}
-
 	public String getDimensions() {
 		return this.dimensions;
 	}
@@ -363,6 +419,29 @@ public class PutGroupMetricRuleRequest extends RpcAcsRequest<PutGroupMetricRuleR
 		this.dimensions = dimensions;
 		if(dimensions != null){
 			putQueryParameter("Dimensions", dimensions);
+		}
+	}
+
+	public static class Labels {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

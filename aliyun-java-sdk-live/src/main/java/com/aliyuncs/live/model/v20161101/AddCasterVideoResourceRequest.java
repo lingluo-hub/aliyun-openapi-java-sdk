@@ -23,15 +23,7 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoResourceResponse> {
-	
-	public AddCasterVideoResourceRequest() {
-		super("live", "2016-11-01", "AddCasterVideoResource", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
 
 	private Integer endOffset;
 
@@ -39,11 +31,15 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 
 	private String vodUrl;
 
+	private String streamId;
+
 	private String casterId;
 
 	private Long ownerId;
 
 	private Integer beginOffset;
+
+	private Integer fixedDelayDuration;
 
 	private String liveStreamUrl;
 
@@ -54,6 +50,14 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 	private String resourceName;
 
 	private Integer repeatNum;
+	public AddCasterVideoResourceRequest() {
+		super("live", "2016-11-01", "AddCasterVideoResource", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getEndOffset() {
 		return this.endOffset;
@@ -88,6 +92,17 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 		}
 	}
 
+	public String getStreamId() {
+		return this.streamId;
+	}
+
+	public void setStreamId(String streamId) {
+		this.streamId = streamId;
+		if(streamId != null){
+			putQueryParameter("StreamId", streamId);
+		}
+	}
+
 	public String getCasterId() {
 		return this.casterId;
 	}
@@ -118,6 +133,17 @@ public class AddCasterVideoResourceRequest extends RpcAcsRequest<AddCasterVideoR
 		this.beginOffset = beginOffset;
 		if(beginOffset != null){
 			putQueryParameter("BeginOffset", beginOffset.toString());
+		}
+	}
+
+	public Integer getFixedDelayDuration() {
+		return this.fixedDelayDuration;
+	}
+
+	public void setFixedDelayDuration(Integer fixedDelayDuration) {
+		this.fixedDelayDuration = fixedDelayDuration;
+		if(fixedDelayDuration != null){
+			putQueryParameter("FixedDelayDuration", fixedDelayDuration.toString());
 		}
 	}
 

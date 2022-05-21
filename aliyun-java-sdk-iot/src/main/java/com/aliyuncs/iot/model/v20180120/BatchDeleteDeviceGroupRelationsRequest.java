@@ -26,29 +26,18 @@ import com.aliyuncs.iot.Endpoint;
 public class BatchDeleteDeviceGroupRelationsRequest extends RpcAcsRequest<BatchDeleteDeviceGroupRelationsResponse> {
 	   
 
-	private String groupId;
-
 	private String iotInstanceId;
+
+	private String groupId;
 
 	private List<Device> devices;
 	public BatchDeleteDeviceGroupRelationsRequest() {
-		super("Iot", "2018-01-20", "BatchDeleteDeviceGroupRelations", "Iot");
+		super("Iot", "2018-01-20", "BatchDeleteDeviceGroupRelations");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getGroupId() {
-		return this.groupId;
-	}
-
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-		if(groupId != null){
-			putQueryParameter("GroupId", groupId);
-		}
 	}
 
 	public String getIotInstanceId() {
@@ -59,6 +48,17 @@ public class BatchDeleteDeviceGroupRelationsRequest extends RpcAcsRequest<BatchD
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
 		}
 	}
 

@@ -23,10 +23,10 @@ public class GetTURNServerListResponseUnmarshaller {
 	public static GetTURNServerListResponse unmarshall(GetTURNServerListResponse getTURNServerListResponse, UnmarshallerContext _ctx) {
 		
 		getTURNServerListResponse.setRequestId(_ctx.stringValue("GetTURNServerListResponse.RequestId"));
+		getTURNServerListResponse.setHttpStatusCode(_ctx.integerValue("GetTURNServerListResponse.HttpStatusCode"));
 		getTURNServerListResponse.setSuccess(_ctx.booleanValue("GetTURNServerListResponse.Success"));
 		getTURNServerListResponse.setCode(_ctx.stringValue("GetTURNServerListResponse.Code"));
 		getTURNServerListResponse.setMessage(_ctx.stringValue("GetTURNServerListResponse.Message"));
-		getTURNServerListResponse.setHttpStatusCode(_ctx.integerValue("GetTURNServerListResponse.HttpStatusCode"));
 		getTURNServerListResponse.setTurnServerListConfig(_ctx.stringValue("GetTURNServerListResponse.TurnServerListConfig"));
 	 
 	 	return getTURNServerListResponse;

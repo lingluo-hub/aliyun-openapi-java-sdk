@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
@@ -44,7 +44,7 @@ public class LocationServiceEndpointResolverTest {
         ResolveEndpointRequest request = mock(ResolveEndpointRequest.class);
         LocationServiceEndpointResolver resolver = new LocationServiceEndpointResolver(client);
 
-        assertFalse(resolver.isRegionIdValid(request));
+        assertTrue(resolver.isRegionIdValid(request));
 
         request.locationServiceCode = "locationServiceCode";
         request.regionId = "cn-hangzhou";
@@ -66,24 +66,34 @@ public class LocationServiceEndpointResolverTest {
     @Test
     public void testInvalidRegionIdResolver() throws ClientException {
         DefaultAcsClient client = mock(DefaultAcsClient.class);
-        ResolveEndpointRequest request = mock(ResolveEndpointRequest.class);
+        ResolveEndpointRequest request1 = mock(ResolveEndpointRequest.class);
+        ResolveEndpointRequest request2 = mock(ResolveEndpointRequest.class);
         LocationServiceEndpointResolver resolver = new LocationServiceEndpointResolver(client);
 
-        request.regionId = "cn-hangzhou";
-        request.productCode = "oss";
-        request.productCodeLower = "oss";
-        request.endpointType = "openAPI";
-        request.locationServiceCode = "locationServiceCode";
+        request1.regionId = "cn-hangzhou";
+        request1.productCode = "vpc";
+        request1.productCodeLower = "vpc";
+        request1.endpointType = "openAPI";
+        request1.locationServiceCode = "vpc";
+
+        assertTrue(resolver.isRegionIdValid(request1));
+
+        request2.regionId = "cn-hangzhou";
+        request2.productCode = "oss";
+        request2.productCodeLower = "oss";
+        request2.endpointType = "openAPI";
+        request2.locationServiceCode = "oss";
 
         ClientException clientException = mock(ClientException.class);
         when(clientException.getErrCode()).thenReturn("InvalidRegionId");
         when(clientException.getErrMsg()).thenReturn("The specified region does not exist.");
         doThrow(clientException).when(client).getAcsResponse(any(DescribeEndpointsRequest.class));
 
-        assertTrue(resolver.isRegionIdValid(request));
-        assertNull(resolver.resolve(request));
-        assertNull(resolver.resolve(request));
-        assertFalse(resolver.isRegionIdValid(request));
+        assertTrue(resolver.isRegionIdValid(request2));
+        assertNull(resolver.resolve(request2));
+        assertNull(resolver.resolve(request2));
+        assertTrue(resolver.isRegionIdValid(request2));
+        assertNull(resolver.resolve(request1));
     }
 
     @Test
@@ -206,17 +216,21 @@ public class LocationServiceEndpointResolverTest {
     }
 
     @Test
-    public void setLocationServiceEndpointTest() {
-        DefaultAcsClient client = mock(DefaultAcsClient.class);
-        LocationServiceEndpointResolver resolver = new LocationServiceEndpointResolver(client);
-        resolver.setLocationServiceEndpoint("test");
-        assertEquals("test", resolver.locationServiceEndpoint);
-    }
-
-    @Test
     public void testGetValidRegionIdsByProduct() {
         DefaultAcsClient client = mock(DefaultAcsClient.class);
         LocationServiceEndpointResolver resolver = new LocationServiceEndpointResolver(client);
         assertNull(resolver.getValidRegionIdsByProduct("ecs"));
+    }
+
+    @Test
+    public void getSetTest() {
+        String result;
+        LocationServiceEndpointResolver.setLocationServiceApiVersion("2015-06-12");
+        result = LocationServiceEndpointResolver.getLocationServiceApiVersion();
+        assertEquals("2015-06-12", result);
+
+        LocationServiceEndpointResolver.setLocationServiceEndpoint("location-readonly.aliyuncs.com");
+        result = LocationServiceEndpointResolver.getLocationServiceEndpoint();
+        assertEquals("location-readonly.aliyuncs.com", result);
     }
 }

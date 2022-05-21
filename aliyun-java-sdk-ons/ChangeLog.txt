@@ -1,3 +1,33 @@
+2022-03-15 Version: 3.2.1
+- Add tcpInternetEndpoint field for the api OnsInstanceBaseInfo.
+
+2022-02-22 Version: 3.2.0
+- Deprecated the OnsTopicUpdate api, and will be offline soon.
+
+2022-02-17 Version: 3.1.9
+- Adjusted the call frequency limit of some APIs.
+
+2021-11-23 Version: 3.1.8
+- Support the IP restrictions in ram policy.
+
+2021-03-19 Version: 3.1.7
+- Modify the helpUrl parameter of OnsTopicList and OnsGroupList API to be invisible.
+
+2020-09-29 Version: 3.1.6
+- Add API OpenOnsService which can active ons service.
+
+2020-09-29 Version: 3.1.6
+- Add API OpenOnsService which can active ons service.
+
+2020-09-29 Version: 3.1.6
+- Add API OpenOnsService which can active ons service.
+
+2020-09-29 Version: 3.1.6
+- Add API OpenOnsService which can active ons service.
+
+2020-07-03 Version: 3.1.5
+- Supports tag management APIs.
+
 2020-03-06 Version: 3.1.4
 - Add request parameter groupType for OnsGroupCreate.
 - Add request parameter groupType for OnsGroupList.

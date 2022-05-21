@@ -25,34 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private SummaryReport summaryReport;
 
 	private NumberReports numberReports;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -71,12 +63,20 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public SummaryReport getSummaryReport() {
@@ -97,35 +97,19 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 
 	public static class SummaryReport {
 
-		private Integer year;
-
-		private Integer month;
-
 		private Integer day;
 
-		private Long inboundCount;
+		private Integer year;
+
+		private Long inboundDurationByMinute;
 
 		private Long outboundCount;
 
 		private Long outboundDurationByMinute;
 
-		private Long inboundDurationByMinute;
+		private Long inboundCount;
 
-		public Integer getYear() {
-			return this.year;
-		}
-
-		public void setYear(Integer year) {
-			this.year = year;
-		}
-
-		public Integer getMonth() {
-			return this.month;
-		}
-
-		public void setMonth(Integer month) {
-			this.month = month;
-		}
+		private Integer month;
 
 		public Integer getDay() {
 			return this.day;
@@ -135,12 +119,20 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 			this.day = day;
 		}
 
-		public Long getInboundCount() {
-			return this.inboundCount;
+		public Integer getYear() {
+			return this.year;
 		}
 
-		public void setInboundCount(Long inboundCount) {
-			this.inboundCount = inboundCount;
+		public void setYear(Integer year) {
+			this.year = year;
+		}
+
+		public Long getInboundDurationByMinute() {
+			return this.inboundDurationByMinute;
+		}
+
+		public void setInboundDurationByMinute(Long inboundDurationByMinute) {
+			this.inboundDurationByMinute = inboundDurationByMinute;
 		}
 
 		public Long getOutboundCount() {
@@ -159,32 +151,32 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 			this.outboundDurationByMinute = outboundDurationByMinute;
 		}
 
-		public Long getInboundDurationByMinute() {
-			return this.inboundDurationByMinute;
+		public Long getInboundCount() {
+			return this.inboundCount;
 		}
 
-		public void setInboundDurationByMinute(Long inboundDurationByMinute) {
-			this.inboundDurationByMinute = inboundDurationByMinute;
+		public void setInboundCount(Long inboundCount) {
+			this.inboundCount = inboundCount;
+		}
+
+		public Integer getMonth() {
+			return this.month;
+		}
+
+		public void setMonth(Integer month) {
+			this.month = month;
 		}
 	}
 
 	public static class NumberReports {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<NumberReport> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -202,6 +194,14 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<NumberReport> getList() {
 			return this.list;
 		}
@@ -212,28 +212,28 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 
 		public static class NumberReport {
 
-			private String number;
+			private Integer day;
 
 			private Integer year;
 
-			private Integer month;
-
-			private Integer day;
-
-			private Long inboundCount;
+			private Long inboundDurationByMinute;
 
 			private Long outboundCount;
 
 			private Long outboundDurationByMinute;
 
-			private Long inboundDurationByMinute;
+			private String number;
 
-			public String getNumber() {
-				return this.number;
+			private Long inboundCount;
+
+			private Integer month;
+
+			public Integer getDay() {
+				return this.day;
 			}
 
-			public void setNumber(String number) {
-				this.number = number;
+			public void setDay(Integer day) {
+				this.day = day;
 			}
 
 			public Integer getYear() {
@@ -244,28 +244,12 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 				this.year = year;
 			}
 
-			public Integer getMonth() {
-				return this.month;
+			public Long getInboundDurationByMinute() {
+				return this.inboundDurationByMinute;
 			}
 
-			public void setMonth(Integer month) {
-				this.month = month;
-			}
-
-			public Integer getDay() {
-				return this.day;
-			}
-
-			public void setDay(Integer day) {
-				this.day = day;
-			}
-
-			public Long getInboundCount() {
-				return this.inboundCount;
-			}
-
-			public void setInboundCount(Long inboundCount) {
-				this.inboundCount = inboundCount;
+			public void setInboundDurationByMinute(Long inboundDurationByMinute) {
+				this.inboundDurationByMinute = inboundDurationByMinute;
 			}
 
 			public Long getOutboundCount() {
@@ -284,12 +268,28 @@ public class GetCallMeasureSummaryReportResponse extends AcsResponse {
 				this.outboundDurationByMinute = outboundDurationByMinute;
 			}
 
-			public Long getInboundDurationByMinute() {
-				return this.inboundDurationByMinute;
+			public String getNumber() {
+				return this.number;
 			}
 
-			public void setInboundDurationByMinute(Long inboundDurationByMinute) {
-				this.inboundDurationByMinute = inboundDurationByMinute;
+			public void setNumber(String number) {
+				this.number = number;
+			}
+
+			public Long getInboundCount() {
+				return this.inboundCount;
+			}
+
+			public void setInboundCount(Long inboundCount) {
+				this.inboundCount = inboundCount;
+			}
+
+			public Integer getMonth() {
+				return this.month;
+			}
+
+			public void setMonth(Integer month) {
+				this.month = month;
 			}
 		}
 	}

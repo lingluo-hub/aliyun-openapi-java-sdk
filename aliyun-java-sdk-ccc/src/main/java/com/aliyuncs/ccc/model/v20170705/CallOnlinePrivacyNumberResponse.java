@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CallOnlinePrivacyNumberResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Data data;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class CallOnlinePrivacyNumberResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -86,23 +86,15 @@ public class CallOnlinePrivacyNumberResponse extends AcsResponse {
 
 	public static class Data {
 
-		private String statusCode;
-
 		private String dateCreated;
 
 		private String represent;
 
 		private String telX;
 
+		private String statusCode;
+
 		private String callId;
-
-		public String getStatusCode() {
-			return this.statusCode;
-		}
-
-		public void setStatusCode(String statusCode) {
-			this.statusCode = statusCode;
-		}
 
 		public String getDateCreated() {
 			return this.dateCreated;
@@ -126,6 +118,14 @@ public class CallOnlinePrivacyNumberResponse extends AcsResponse {
 
 		public void setTelX(String telX) {
 			this.telX = telX;
+		}
+
+		public String getStatusCode() {
+			return this.statusCode;
+		}
+
+		public void setStatusCode(String statusCode) {
+			this.statusCode = statusCode;
 		}
 
 		public String getCallId() {

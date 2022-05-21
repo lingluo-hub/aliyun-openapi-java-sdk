@@ -14,8 +14,12 @@
 
 package com.aliyuncs.iot.transform.v20180120;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aliyuncs.iot.model.v20180120.QueryOTAJobResponse;
 import com.aliyuncs.iot.model.v20180120.QueryOTAJobResponse.Data;
+import com.aliyuncs.iot.model.v20180120.QueryOTAJobResponse.Data.OtaTagDTO;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,10 +31,6 @@ public class QueryOTAJobResponseUnmarshaller {
 		queryOTAJobResponse.setSuccess(_ctx.booleanValue("QueryOTAJobResponse.Success"));
 		queryOTAJobResponse.setCode(_ctx.stringValue("QueryOTAJobResponse.Code"));
 		queryOTAJobResponse.setErrorMessage(_ctx.stringValue("QueryOTAJobResponse.ErrorMessage"));
-		queryOTAJobResponse.setTotal(_ctx.integerValue("QueryOTAJobResponse.Total"));
-		queryOTAJobResponse.setPageSize(_ctx.integerValue("QueryOTAJobResponse.PageSize"));
-		queryOTAJobResponse.setPageCount(_ctx.integerValue("QueryOTAJobResponse.PageCount"));
-		queryOTAJobResponse.setCurrentPage(_ctx.integerValue("QueryOTAJobResponse.CurrentPage"));
 
 		Data data = new Data();
 		data.setJobId(_ctx.stringValue("QueryOTAJobResponse.Data.JobId"));
@@ -53,7 +53,31 @@ public class QueryOTAJobResponseUnmarshaller {
 		data.setGrayPercent(_ctx.stringValue("QueryOTAJobResponse.Data.GrayPercent"));
 		data.setMaximumPerMinute(_ctx.integerValue("QueryOTAJobResponse.Data.MaximumPerMinute"));
 		data.setDestVersion(_ctx.stringValue("QueryOTAJobResponse.Data.DestVersion"));
-		data.setSrcVersions(_ctx.stringValue("QueryOTAJobResponse.Data.SrcVersions"));
+		data.setUtcScheduleFinishTime(_ctx.stringValue("QueryOTAJobResponse.Data.UtcScheduleFinishTime"));
+		data.setOverwriteMode(_ctx.integerValue("QueryOTAJobResponse.Data.OverwriteMode"));
+		data.setDynamicMode(_ctx.integerValue("QueryOTAJobResponse.Data.DynamicMode"));
+		data.setNeedPush(_ctx.booleanValue("QueryOTAJobResponse.Data.NeedPush"));
+		data.setNeedConfirm(_ctx.booleanValue("QueryOTAJobResponse.Data.NeedConfirm"));
+		data.setGroupId(_ctx.stringValue("QueryOTAJobResponse.Data.GroupId"));
+		data.setGroupName(_ctx.stringValue("QueryOTAJobResponse.Data.GroupName"));
+		data.setDownloadProtocol(_ctx.stringValue("QueryOTAJobResponse.Data.DownloadProtocol"));
+		data.setMultiModuleMode(_ctx.booleanValue("QueryOTAJobResponse.Data.MultiModuleMode"));
+
+		List<String> srcVersions = new ArrayList<String>();
+		for (int i = 0; i < _ctx.lengthValue("QueryOTAJobResponse.Data.SrcVersions.Length"); i++) {
+			srcVersions.add(_ctx.stringValue("QueryOTAJobResponse.Data.SrcVersions["+ i +"]"));
+		}
+		data.setSrcVersions(srcVersions);
+
+		List<OtaTagDTO> tags = new ArrayList<OtaTagDTO>();
+		for (int i = 0; i < _ctx.lengthValue("QueryOTAJobResponse.Data.Tags.Length"); i++) {
+			OtaTagDTO otaTagDTO = new OtaTagDTO();
+			otaTagDTO.setKey(_ctx.stringValue("QueryOTAJobResponse.Data.Tags["+ i +"].Key"));
+			otaTagDTO.setValue(_ctx.stringValue("QueryOTAJobResponse.Data.Tags["+ i +"].Value"));
+
+			tags.add(otaTagDTO);
+		}
+		data.setTags(tags);
 		queryOTAJobResponse.setData(data);
 	 
 	 	return queryOTAJobResponse;

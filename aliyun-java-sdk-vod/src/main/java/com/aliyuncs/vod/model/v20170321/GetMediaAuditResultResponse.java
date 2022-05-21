@@ -47,17 +47,27 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 	public static class MediaAuditResult {
 
+		private String suggestion;
+
 		private String abnormalModules;
 
 		private String label;
 
-		private String suggestion;
+		private List<AudioResultItem> audioResult;
 
 		private List<ImageResultItem> imageResult;
 
 		private List<TextResultItem> textResult;
 
 		private VideoResult videoResult;
+
+		public String getSuggestion() {
+			return this.suggestion;
+		}
+
+		public void setSuggestion(String suggestion) {
+			this.suggestion = suggestion;
+		}
 
 		public String getAbnormalModules() {
 			return this.abnormalModules;
@@ -75,12 +85,12 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 			this.label = label;
 		}
 
-		public String getSuggestion() {
-			return this.suggestion;
+		public List<AudioResultItem> getAudioResult() {
+			return this.audioResult;
 		}
 
-		public void setSuggestion(String suggestion) {
-			this.suggestion = suggestion;
+		public void setAudioResult(List<AudioResultItem> audioResult) {
+			this.audioResult = audioResult;
 		}
 
 		public List<ImageResultItem> getImageResult() {
@@ -107,17 +117,23 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 			this.videoResult = videoResult;
 		}
 
-		public static class ImageResultItem {
+		public static class AudioResultItem {
+
+			private String score;
 
 			private String suggestion;
 
 			private String label;
 
-			private String type;
+			private String scene;
 
-			private String url;
+			public String getScore() {
+				return this.score;
+			}
 
-			private List<ResultItem> result;
+			public void setScore(String score) {
+				this.score = score;
+			}
 
 			public String getSuggestion() {
 				return this.suggestion;
@@ -134,6 +150,27 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 			public void setLabel(String label) {
 				this.label = label;
 			}
+
+			public String getScene() {
+				return this.scene;
+			}
+
+			public void setScene(String scene) {
+				this.scene = scene;
+			}
+		}
+
+		public static class ImageResultItem {
+
+			private String type;
+
+			private String url;
+
+			private String suggestion;
+
+			private String label;
+
+			private List<ResultItem> result;
 
 			public String getType() {
 				return this.type;
@@ -151,6 +188,22 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 				this.url = url;
 			}
 
+			public String getSuggestion() {
+				return this.suggestion;
+			}
+
+			public void setSuggestion(String suggestion) {
+				this.suggestion = suggestion;
+			}
+
+			public String getLabel() {
+				return this.label;
+			}
+
+			public void setLabel(String label) {
+				this.label = label;
+			}
+
 			public List<ResultItem> getResult() {
 				return this.result;
 			}
@@ -161,13 +214,21 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 			public static class ResultItem {
 
+				private String score;
+
 				private String suggestion;
 
 				private String label;
 
-				private String score;
-
 				private String scene;
+
+				public String getScore() {
+					return this.score;
+				}
+
+				public void setScore(String score) {
+					this.score = score;
+				}
 
 				public String getSuggestion() {
 					return this.suggestion;
@@ -185,14 +246,6 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 					this.label = label;
 				}
 
-				public String getScore() {
-					return this.score;
-				}
-
-				public void setScore(String score) {
-					this.score = score;
-				}
-
 				public String getScene() {
 					return this.scene;
 				}
@@ -205,17 +258,25 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 		public static class TextResultItem {
 
-			private String suggestion;
+			private String type;
 
-			private String label;
+			private String suggestion;
 
 			private String score;
 
-			private String scene;
-
-			private String type;
+			private String label;
 
 			private String content;
+
+			private String scene;
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
 
 			public String getSuggestion() {
 				return this.suggestion;
@@ -223,14 +284,6 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 			public void setSuggestion(String suggestion) {
 				this.suggestion = suggestion;
-			}
-
-			public String getLabel() {
-				return this.label;
-			}
-
-			public void setLabel(String label) {
-				this.label = label;
 			}
 
 			public String getScore() {
@@ -241,20 +294,12 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 				this.score = score;
 			}
 
-			public String getScene() {
-				return this.scene;
+			public String getLabel() {
+				return this.label;
 			}
 
-			public void setScene(String scene) {
-				this.scene = scene;
-			}
-
-			public String getType() {
-				return this.type;
-			}
-
-			public void setType(String type) {
-				this.type = type;
+			public void setLabel(String label) {
+				this.label = label;
 			}
 
 			public String getContent() {
@@ -264,25 +309,31 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 			public void setContent(String content) {
 				this.content = content;
 			}
+
+			public String getScene() {
+				return this.scene;
+			}
+
+			public void setScene(String scene) {
+				this.scene = scene;
+			}
 		}
 
 		public static class VideoResult {
 
-			private String suggestion;
-
 			private String label;
 
-			private TerrorismResult terrorismResult;
+			private String suggestion;
 
 			private PornResult pornResult;
 
-			public String getSuggestion() {
-				return this.suggestion;
-			}
+			private AdResult adResult;
 
-			public void setSuggestion(String suggestion) {
-				this.suggestion = suggestion;
-			}
+			private LogoResult logoResult;
+
+			private LiveResult liveResult;
+
+			private TerrorismResult terrorismResult;
 
 			public String getLabel() {
 				return this.label;
@@ -292,12 +343,12 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 				this.label = label;
 			}
 
-			public TerrorismResult getTerrorismResult() {
-				return this.terrorismResult;
+			public String getSuggestion() {
+				return this.suggestion;
 			}
 
-			public void setTerrorismResult(TerrorismResult terrorismResult) {
-				this.terrorismResult = terrorismResult;
+			public void setSuggestion(String suggestion) {
+				this.suggestion = suggestion;
 			}
 
 			public PornResult getPornResult() {
@@ -308,15 +359,47 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 				this.pornResult = pornResult;
 			}
 
-			public static class TerrorismResult {
+			public AdResult getAdResult() {
+				return this.adResult;
+			}
+
+			public void setAdResult(AdResult adResult) {
+				this.adResult = adResult;
+			}
+
+			public LogoResult getLogoResult() {
+				return this.logoResult;
+			}
+
+			public void setLogoResult(LogoResult logoResult) {
+				this.logoResult = logoResult;
+			}
+
+			public LiveResult getLiveResult() {
+				return this.liveResult;
+			}
+
+			public void setLiveResult(LiveResult liveResult) {
+				this.liveResult = liveResult;
+			}
+
+			public TerrorismResult getTerrorismResult() {
+				return this.terrorismResult;
+			}
+
+			public void setTerrorismResult(TerrorismResult terrorismResult) {
+				this.terrorismResult = terrorismResult;
+			}
+
+			public static class PornResult {
 
 				private String suggestion;
+
+				private String averageScore;
 
 				private String label;
 
 				private String maxScore;
-
-				private String averageScore;
 
 				private List<CounterListItem> counterList;
 
@@ -328,6 +411,14 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public void setSuggestion(String suggestion) {
 					this.suggestion = suggestion;
+				}
+
+				public String getAverageScore() {
+					return this.averageScore;
+				}
+
+				public void setAverageScore(String averageScore) {
+					this.averageScore = averageScore;
 				}
 
 				public String getLabel() {
@@ -344,14 +435,6 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public void setMaxScore(String maxScore) {
 					this.maxScore = maxScore;
-				}
-
-				public String getAverageScore() {
-					return this.averageScore;
-				}
-
-				public void setAverageScore(String averageScore) {
-					this.averageScore = averageScore;
 				}
 
 				public List<CounterListItem> getCounterList() {
@@ -395,20 +478,20 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public static class TopListItem {
 
-					private String label;
+					private String url;
 
 					private String score;
 
 					private String timestamp;
 
-					private String url;
+					private String label;
 
-					public String getLabel() {
-						return this.label;
+					public String getUrl() {
+						return this.url;
 					}
 
-					public void setLabel(String label) {
-						this.label = label;
+					public void setUrl(String url) {
+						this.url = url;
 					}
 
 					public String getScore() {
@@ -427,25 +510,25 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 						this.timestamp = timestamp;
 					}
 
-					public String getUrl() {
-						return this.url;
+					public String getLabel() {
+						return this.label;
 					}
 
-					public void setUrl(String url) {
-						this.url = url;
+					public void setLabel(String label) {
+						this.label = label;
 					}
 				}
 			}
 
-			public static class PornResult {
+			public static class AdResult {
 
 				private String suggestion;
+
+				private String averageScore;
 
 				private String label;
 
 				private String maxScore;
-
-				private String averageScore;
 
 				private List<CounterListItem3> counterList1;
 
@@ -457,6 +540,14 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public void setSuggestion(String suggestion) {
 					this.suggestion = suggestion;
+				}
+
+				public String getAverageScore() {
+					return this.averageScore;
+				}
+
+				public void setAverageScore(String averageScore) {
+					this.averageScore = averageScore;
 				}
 
 				public String getLabel() {
@@ -473,14 +564,6 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public void setMaxScore(String maxScore) {
 					this.maxScore = maxScore;
-				}
-
-				public String getAverageScore() {
-					return this.averageScore;
-				}
-
-				public void setAverageScore(String averageScore) {
-					this.averageScore = averageScore;
 				}
 
 				public List<CounterListItem3> getCounterList1() {
@@ -524,20 +607,20 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 
 				public static class TopListItem4 {
 
-					private String label;
+					private String url;
 
 					private String score;
 
 					private String timestamp;
 
-					private String url;
+					private String label;
 
-					public String getLabel() {
-						return this.label;
+					public String getUrl() {
+						return this.url;
 					}
 
-					public void setLabel(String label) {
-						this.label = label;
+					public void setUrl(String url) {
+						this.url = url;
 					}
 
 					public String getScore() {
@@ -556,12 +639,399 @@ public class GetMediaAuditResultResponse extends AcsResponse {
 						this.timestamp = timestamp;
 					}
 
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+				}
+			}
+
+			public static class LogoResult {
+
+				private String suggestion;
+
+				private String averageScore;
+
+				private String label;
+
+				private String maxScore;
+
+				private List<CounterListItem7> counterList5;
+
+				private List<TopListItem8> topList6;
+
+				public String getSuggestion() {
+					return this.suggestion;
+				}
+
+				public void setSuggestion(String suggestion) {
+					this.suggestion = suggestion;
+				}
+
+				public String getAverageScore() {
+					return this.averageScore;
+				}
+
+				public void setAverageScore(String averageScore) {
+					this.averageScore = averageScore;
+				}
+
+				public String getLabel() {
+					return this.label;
+				}
+
+				public void setLabel(String label) {
+					this.label = label;
+				}
+
+				public String getMaxScore() {
+					return this.maxScore;
+				}
+
+				public void setMaxScore(String maxScore) {
+					this.maxScore = maxScore;
+				}
+
+				public List<CounterListItem7> getCounterList5() {
+					return this.counterList5;
+				}
+
+				public void setCounterList5(List<CounterListItem7> counterList5) {
+					this.counterList5 = counterList5;
+				}
+
+				public List<TopListItem8> getTopList6() {
+					return this.topList6;
+				}
+
+				public void setTopList6(List<TopListItem8> topList6) {
+					this.topList6 = topList6;
+				}
+
+				public static class CounterListItem7 {
+
+					private String label;
+
+					private Integer count;
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+
+					public Integer getCount() {
+						return this.count;
+					}
+
+					public void setCount(Integer count) {
+						this.count = count;
+					}
+				}
+
+				public static class TopListItem8 {
+
+					private String url;
+
+					private String score;
+
+					private String timestamp;
+
+					private String label;
+
 					public String getUrl() {
 						return this.url;
 					}
 
 					public void setUrl(String url) {
 						this.url = url;
+					}
+
+					public String getScore() {
+						return this.score;
+					}
+
+					public void setScore(String score) {
+						this.score = score;
+					}
+
+					public String getTimestamp() {
+						return this.timestamp;
+					}
+
+					public void setTimestamp(String timestamp) {
+						this.timestamp = timestamp;
+					}
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+				}
+			}
+
+			public static class LiveResult {
+
+				private String suggestion;
+
+				private String averageScore;
+
+				private String label;
+
+				private String maxScore;
+
+				private List<CounterListItem11> counterList9;
+
+				private List<TopListItem12> topList10;
+
+				public String getSuggestion() {
+					return this.suggestion;
+				}
+
+				public void setSuggestion(String suggestion) {
+					this.suggestion = suggestion;
+				}
+
+				public String getAverageScore() {
+					return this.averageScore;
+				}
+
+				public void setAverageScore(String averageScore) {
+					this.averageScore = averageScore;
+				}
+
+				public String getLabel() {
+					return this.label;
+				}
+
+				public void setLabel(String label) {
+					this.label = label;
+				}
+
+				public String getMaxScore() {
+					return this.maxScore;
+				}
+
+				public void setMaxScore(String maxScore) {
+					this.maxScore = maxScore;
+				}
+
+				public List<CounterListItem11> getCounterList9() {
+					return this.counterList9;
+				}
+
+				public void setCounterList9(List<CounterListItem11> counterList9) {
+					this.counterList9 = counterList9;
+				}
+
+				public List<TopListItem12> getTopList10() {
+					return this.topList10;
+				}
+
+				public void setTopList10(List<TopListItem12> topList10) {
+					this.topList10 = topList10;
+				}
+
+				public static class CounterListItem11 {
+
+					private String label;
+
+					private Integer count;
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+
+					public Integer getCount() {
+						return this.count;
+					}
+
+					public void setCount(Integer count) {
+						this.count = count;
+					}
+				}
+
+				public static class TopListItem12 {
+
+					private String url;
+
+					private String score;
+
+					private String timestamp;
+
+					private String label;
+
+					public String getUrl() {
+						return this.url;
+					}
+
+					public void setUrl(String url) {
+						this.url = url;
+					}
+
+					public String getScore() {
+						return this.score;
+					}
+
+					public void setScore(String score) {
+						this.score = score;
+					}
+
+					public String getTimestamp() {
+						return this.timestamp;
+					}
+
+					public void setTimestamp(String timestamp) {
+						this.timestamp = timestamp;
+					}
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+				}
+			}
+
+			public static class TerrorismResult {
+
+				private String suggestion;
+
+				private String averageScore;
+
+				private String label;
+
+				private String maxScore;
+
+				private List<CounterListItem15> counterList13;
+
+				private List<TopListItem16> topList14;
+
+				public String getSuggestion() {
+					return this.suggestion;
+				}
+
+				public void setSuggestion(String suggestion) {
+					this.suggestion = suggestion;
+				}
+
+				public String getAverageScore() {
+					return this.averageScore;
+				}
+
+				public void setAverageScore(String averageScore) {
+					this.averageScore = averageScore;
+				}
+
+				public String getLabel() {
+					return this.label;
+				}
+
+				public void setLabel(String label) {
+					this.label = label;
+				}
+
+				public String getMaxScore() {
+					return this.maxScore;
+				}
+
+				public void setMaxScore(String maxScore) {
+					this.maxScore = maxScore;
+				}
+
+				public List<CounterListItem15> getCounterList13() {
+					return this.counterList13;
+				}
+
+				public void setCounterList13(List<CounterListItem15> counterList13) {
+					this.counterList13 = counterList13;
+				}
+
+				public List<TopListItem16> getTopList14() {
+					return this.topList14;
+				}
+
+				public void setTopList14(List<TopListItem16> topList14) {
+					this.topList14 = topList14;
+				}
+
+				public static class CounterListItem15 {
+
+					private String label;
+
+					private Integer count;
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
+					}
+
+					public Integer getCount() {
+						return this.count;
+					}
+
+					public void setCount(Integer count) {
+						this.count = count;
+					}
+				}
+
+				public static class TopListItem16 {
+
+					private String url;
+
+					private String score;
+
+					private String timestamp;
+
+					private String label;
+
+					public String getUrl() {
+						return this.url;
+					}
+
+					public void setUrl(String url) {
+						this.url = url;
+					}
+
+					public String getScore() {
+						return this.score;
+					}
+
+					public void setScore(String score) {
+						this.score = score;
+					}
+
+					public String getTimestamp() {
+						return this.timestamp;
+					}
+
+					public void setTimestamp(String timestamp) {
+						this.timestamp = timestamp;
+					}
+
+					public String getLabel() {
+						return this.label;
+					}
+
+					public void setLabel(String label) {
+						this.label = label;
 					}
 				}
 			}

@@ -23,10 +23,10 @@ public class ModifyGlobalQuestionResponseUnmarshaller {
 	public static ModifyGlobalQuestionResponse unmarshall(ModifyGlobalQuestionResponse modifyGlobalQuestionResponse, UnmarshallerContext _ctx) {
 		
 		modifyGlobalQuestionResponse.setRequestId(_ctx.stringValue("ModifyGlobalQuestionResponse.RequestId"));
+		modifyGlobalQuestionResponse.setHttpStatusCode(_ctx.integerValue("ModifyGlobalQuestionResponse.HttpStatusCode"));
 		modifyGlobalQuestionResponse.setSuccess(_ctx.booleanValue("ModifyGlobalQuestionResponse.Success"));
 		modifyGlobalQuestionResponse.setCode(_ctx.stringValue("ModifyGlobalQuestionResponse.Code"));
 		modifyGlobalQuestionResponse.setMessage(_ctx.stringValue("ModifyGlobalQuestionResponse.Message"));
-		modifyGlobalQuestionResponse.setHttpStatusCode(_ctx.integerValue("ModifyGlobalQuestionResponse.HttpStatusCode"));
 		modifyGlobalQuestionResponse.setDialogueQuestionId(_ctx.stringValue("ModifyGlobalQuestionResponse.DialogueQuestionId"));
 	 
 	 	return modifyGlobalQuestionResponse;

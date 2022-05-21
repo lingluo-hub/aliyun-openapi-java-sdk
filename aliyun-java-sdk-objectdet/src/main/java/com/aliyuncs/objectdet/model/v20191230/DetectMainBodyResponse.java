@@ -58,29 +58,13 @@ public class DetectMainBodyResponse extends AcsResponse {
 
 		public static class Location {
 
-			private Integer x;
-
-			private Integer y;
-
 			private Integer width;
 
 			private Integer height;
 
-			public Integer getX() {
-				return this.x;
-			}
+			private Integer y;
 
-			public void setX(Integer x) {
-				this.x = x;
-			}
-
-			public Integer getY() {
-				return this.y;
-			}
-
-			public void setY(Integer y) {
-				this.y = y;
-			}
+			private Integer x;
 
 			public Integer getWidth() {
 				return this.width;
@@ -96,6 +80,22 @@ public class DetectMainBodyResponse extends AcsResponse {
 
 			public void setHeight(Integer height) {
 				this.height = height;
+			}
+
+			public Integer getY() {
+				return this.y;
+			}
+
+			public void setY(Integer y) {
+				this.y = y;
+			}
+
+			public Integer getX() {
+				return this.x;
+			}
+
+			public void setX(Integer x) {
+				this.x = x;
 			}
 		}
 	}

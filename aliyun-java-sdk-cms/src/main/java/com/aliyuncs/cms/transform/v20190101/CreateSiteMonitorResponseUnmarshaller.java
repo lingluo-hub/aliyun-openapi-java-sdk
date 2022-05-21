@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.cms.model.v20190101.CreateSiteMonitorResponse;
+import com.aliyuncs.cms.model.v20190101.CreateSiteMonitorResponse.CreateResultListItem;
 import com.aliyuncs.cms.model.v20190101.CreateSiteMonitorResponse.Data;
 import com.aliyuncs.cms.model.v20190101.CreateSiteMonitorResponse.Data.Contact;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -31,16 +32,15 @@ public class CreateSiteMonitorResponseUnmarshaller {
 		createSiteMonitorResponse.setCode(_ctx.stringValue("CreateSiteMonitorResponse.Code"));
 		createSiteMonitorResponse.setMessage(_ctx.stringValue("CreateSiteMonitorResponse.Message"));
 		createSiteMonitorResponse.setSuccess(_ctx.stringValue("CreateSiteMonitorResponse.Success"));
-		createSiteMonitorResponse.setAlertRule(_ctx.stringValue("CreateSiteMonitorResponse.AlertRule"));
 
 		Data data = new Data();
 
 		List<Contact> attachAlertResult = new ArrayList<Contact>();
 		for (int i = 0; i < _ctx.lengthValue("CreateSiteMonitorResponse.Data.AttachAlertResult.Length"); i++) {
 			Contact contact = new Contact();
+			contact.setCode(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].Code"));
 			contact.setMessage(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].Message"));
 			contact.setRequestId(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].RequestId"));
-			contact.setCode(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].Code"));
 			contact.setSuccess(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].Success"));
 			contact.setRuleId(_ctx.stringValue("CreateSiteMonitorResponse.Data.AttachAlertResult["+ i +"].RuleId"));
 
@@ -48,6 +48,16 @@ public class CreateSiteMonitorResponseUnmarshaller {
 		}
 		data.setAttachAlertResult(attachAlertResult);
 		createSiteMonitorResponse.setData(data);
+
+		List<CreateResultListItem> createResultList = new ArrayList<CreateResultListItem>();
+		for (int i = 0; i < _ctx.lengthValue("CreateSiteMonitorResponse.CreateResultList.Length"); i++) {
+			CreateResultListItem createResultListItem = new CreateResultListItem();
+			createResultListItem.setTaskId(_ctx.stringValue("CreateSiteMonitorResponse.CreateResultList["+ i +"].TaskId"));
+			createResultListItem.setTaskName(_ctx.stringValue("CreateSiteMonitorResponse.CreateResultList["+ i +"].TaskName"));
+
+			createResultList.add(createResultListItem);
+		}
+		createSiteMonitorResponse.setCreateResultList(createResultList);
 	 
 	 	return createSiteMonitorResponse;
 	}

@@ -59,19 +59,21 @@ public class OnsGroupListResponse extends AcsResponse {
 
 		private String owner;
 
-		private String groupId;
-
 		private Long updateTime;
-
-		private String remark;
-
-		private String instanceId;
 
 		private Boolean independentNaming;
 
+		private String groupId;
+
+		private String remark;
+
 		private Long createTime;
 
+		private String instanceId;
+
 		private String groupType;
+
+		private List<Tag> tags;
 
 		public String getOwner() {
 			return this.owner;
@@ -79,14 +81,6 @@ public class OnsGroupListResponse extends AcsResponse {
 
 		public void setOwner(String owner) {
 			this.owner = owner;
-		}
-
-		public String getGroupId() {
-			return this.groupId;
-		}
-
-		public void setGroupId(String groupId) {
-			this.groupId = groupId;
 		}
 
 		public Long getUpdateTime() {
@@ -97,28 +91,28 @@ public class OnsGroupListResponse extends AcsResponse {
 			this.updateTime = updateTime;
 		}
 
-		public String getRemark() {
-			return this.remark;
-		}
-
-		public void setRemark(String remark) {
-			this.remark = remark;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
 		public Boolean getIndependentNaming() {
 			return this.independentNaming;
 		}
 
 		public void setIndependentNaming(Boolean independentNaming) {
 			this.independentNaming = independentNaming;
+		}
+
+		public String getGroupId() {
+			return this.groupId;
+		}
+
+		public void setGroupId(String groupId) {
+			this.groupId = groupId;
+		}
+
+		public String getRemark() {
+			return this.remark;
+		}
+
+		public void setRemark(String remark) {
+			this.remark = remark;
 		}
 
 		public Long getCreateTime() {
@@ -129,12 +123,51 @@ public class OnsGroupListResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
 		public String getGroupType() {
 			return this.groupType;
 		}
 
 		public void setGroupType(String groupType) {
 			this.groupType = groupType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

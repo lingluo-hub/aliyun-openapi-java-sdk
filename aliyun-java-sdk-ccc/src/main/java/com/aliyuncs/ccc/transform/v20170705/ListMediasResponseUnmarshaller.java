@@ -28,28 +28,28 @@ public class ListMediasResponseUnmarshaller {
 	public static ListMediasResponse unmarshall(ListMediasResponse listMediasResponse, UnmarshallerContext _ctx) {
 		
 		listMediasResponse.setRequestId(_ctx.stringValue("ListMediasResponse.RequestId"));
-		listMediasResponse.setSuccess(_ctx.booleanValue("ListMediasResponse.Success"));
+		listMediasResponse.setHttpStatusCode(_ctx.integerValue("ListMediasResponse.HttpStatusCode"));
 		listMediasResponse.setCode(_ctx.stringValue("ListMediasResponse.Code"));
 		listMediasResponse.setMessage(_ctx.stringValue("ListMediasResponse.Message"));
-		listMediasResponse.setHttpStatusCode(_ctx.integerValue("ListMediasResponse.HttpStatusCode"));
+		listMediasResponse.setSuccess(_ctx.booleanValue("ListMediasResponse.Success"));
 
 		Medias medias = new Medias();
-		medias.setTotalCount(_ctx.integerValue("ListMediasResponse.Medias.TotalCount"));
 		medias.setPageNumber(_ctx.integerValue("ListMediasResponse.Medias.PageNumber"));
 		medias.setPageSize(_ctx.integerValue("ListMediasResponse.Medias.PageSize"));
+		medias.setTotalCount(_ctx.integerValue("ListMediasResponse.Medias.TotalCount"));
 
 		List<Media> list = new ArrayList<Media>();
 		for (int i = 0; i < _ctx.lengthValue("ListMediasResponse.Medias.List.Length"); i++) {
 			Media media = new Media();
-			media.setInstance(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Instance"));
-			media.setName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Name"));
-			media.setDescription(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Description"));
-			media.setType(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Type"));
-			media.setContent(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Content"));
-			media.setFilePath(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].FilePath"));
-			media.setFileName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].FileName"));
-			media.setOssFileName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].OssFileName"));
 			media.setStatus(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Status"));
+			media.setType(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Type"));
+			media.setFilePath(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].FilePath"));
+			media.setInstance(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Instance"));
+			media.setDescription(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Description"));
+			media.setFileName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].FileName"));
+			media.setName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Name"));
+			media.setContent(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].Content"));
+			media.setOssFileName(_ctx.stringValue("ListMediasResponse.Medias.List["+ i +"].OssFileName"));
 
 			list.add(media);
 		}

@@ -24,31 +24,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DeleteCostUnitResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -66,6 +50,22 @@ public class DeleteCostUnitResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -76,18 +76,18 @@ public class DeleteCostUnitResponse extends AcsResponse {
 
 	public static class Data {
 
-		private Long ownerUid;
+		private Boolean isSuccess;
 
 		private Long unitId;
 
-		private Boolean isSuccess;
+		private Long ownerUid;
 
-		public Long getOwnerUid() {
-			return this.ownerUid;
+		public Boolean getIsSuccess() {
+			return this.isSuccess;
 		}
 
-		public void setOwnerUid(Long ownerUid) {
-			this.ownerUid = ownerUid;
+		public void setIsSuccess(Boolean isSuccess) {
+			this.isSuccess = isSuccess;
 		}
 
 		public Long getUnitId() {
@@ -98,12 +98,12 @@ public class DeleteCostUnitResponse extends AcsResponse {
 			this.unitId = unitId;
 		}
 
-		public Boolean getIsSuccess() {
-			return this.isSuccess;
+		public Long getOwnerUid() {
+			return this.ownerUid;
 		}
 
-		public void setIsSuccess(Boolean isSuccess) {
-			this.isSuccess = isSuccess;
+		public void setOwnerUid(Long ownerUid) {
+			this.ownerUid = ownerUid;
 		}
 	}
 

@@ -29,36 +29,36 @@ public class ListCallEventDetailByContactIdResponseUnmarshaller {
 	public static ListCallEventDetailByContactIdResponse unmarshall(ListCallEventDetailByContactIdResponse listCallEventDetailByContactIdResponse, UnmarshallerContext _ctx) {
 		
 		listCallEventDetailByContactIdResponse.setRequestId(_ctx.stringValue("ListCallEventDetailByContactIdResponse.RequestId"));
-		listCallEventDetailByContactIdResponse.setSuccess(_ctx.booleanValue("ListCallEventDetailByContactIdResponse.Success"));
+		listCallEventDetailByContactIdResponse.setHttpStatusCode(_ctx.integerValue("ListCallEventDetailByContactIdResponse.HttpStatusCode"));
 		listCallEventDetailByContactIdResponse.setCode(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Code"));
 		listCallEventDetailByContactIdResponse.setMessage(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Message"));
-		listCallEventDetailByContactIdResponse.setHttpStatusCode(_ctx.integerValue("ListCallEventDetailByContactIdResponse.HttpStatusCode"));
+		listCallEventDetailByContactIdResponse.setSuccess(_ctx.booleanValue("ListCallEventDetailByContactIdResponse.Success"));
 
 		Data data = new Data();
+		data.setStartTime(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.StartTime"));
+		data.setReleaseReason(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.ReleaseReason"));
+		data.setCallType(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.CallType"));
+		data.setReleaseAgent(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.ReleaseAgent"));
 		data.setCaller(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Caller"));
 		data.setCallee(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Callee"));
-		data.setCallType(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.CallType"));
-		data.setStartTime(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.StartTime"));
 		data.setPrivacyNumber(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.PrivacyNumber"));
-		data.setReleaseAgent(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.ReleaseAgent"));
-		data.setReleaseReason(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.ReleaseReason"));
 
 		List<CallEventDetail> events = new ArrayList<CallEventDetail>();
 		for (int i = 0; i < _ctx.lengthValue("ListCallEventDetailByContactIdResponse.Data.Events.Length"); i++) {
 			CallEventDetail callEventDetail = new CallEventDetail();
-			callEventDetail.setTimeStamp(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].TimeStamp"));
-			callEventDetail.setEvent(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].Event"));
-			callEventDetail.setAgentName(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].AgentName"));
 			callEventDetail.setStatus(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].Status"));
 			callEventDetail.setCallMode(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].CallMode"));
+			callEventDetail.setEvent(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].Event"));
+			callEventDetail.setTimeStamp(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].TimeStamp"));
+			callEventDetail.setAgentName(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].AgentName"));
 			callEventDetail.setDuration(_ctx.integerValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].Duration"));
 
 			DetailData detailData = new DetailData();
-			detailData.setEventType(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.EventType"));
-			detailData.setHelper(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.Helper"));
-			detailData.setSatisfactionalResearch(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.SatisfactionalResearch"));
-			detailData.setSkillGroup(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.SkillGroup"));
 			detailData.setHangUper(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.HangUper"));
+			detailData.setEventType(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.EventType"));
+			detailData.setSkillGroup(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.SkillGroup"));
+			detailData.setSatisfactionalResearch(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.SatisfactionalResearch"));
+			detailData.setHelper(_ctx.stringValue("ListCallEventDetailByContactIdResponse.Data.Events["+ i +"].DetailData.Helper"));
 			callEventDetail.setDetailData(detailData);
 
 			events.add(callEventDetail);

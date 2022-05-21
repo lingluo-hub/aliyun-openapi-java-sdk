@@ -47,36 +47,32 @@ public class ListAllNodeResponse extends AcsResponse {
 
 	public static class ResultItem {
 
-		private String host;
-
-		private Integer port;
+		private String heapPercent;
 
 		private String zoneId;
 
-		private String nodeType;
+		private String hostName;
 
 		private String cpuPercent;
 
-		private String loadFiveM;
+		private String host;
 
-		private String heapPercent;
+		private String nodeType;
+
+		private String diskUsedPercent;
+
+		private Integer port;
+
+		private String loadOneM;
 
 		private String health;
 
-		public String getHost() {
-			return this.host;
+		public String getHeapPercent() {
+			return this.heapPercent;
 		}
 
-		public void setHost(String host) {
-			this.host = host;
-		}
-
-		public Integer getPort() {
-			return this.port;
-		}
-
-		public void setPort(Integer port) {
-			this.port = port;
+		public void setHeapPercent(String heapPercent) {
+			this.heapPercent = heapPercent;
 		}
 
 		public String getZoneId() {
@@ -87,12 +83,12 @@ public class ListAllNodeResponse extends AcsResponse {
 			this.zoneId = zoneId;
 		}
 
-		public String getNodeType() {
-			return this.nodeType;
+		public String getHostName() {
+			return this.hostName;
 		}
 
-		public void setNodeType(String nodeType) {
-			this.nodeType = nodeType;
+		public void setHostName(String hostName) {
+			this.hostName = hostName;
 		}
 
 		public String getCpuPercent() {
@@ -103,20 +99,44 @@ public class ListAllNodeResponse extends AcsResponse {
 			this.cpuPercent = cpuPercent;
 		}
 
-		public String getLoadFiveM() {
-			return this.loadFiveM;
+		public String getHost() {
+			return this.host;
 		}
 
-		public void setLoadFiveM(String loadFiveM) {
-			this.loadFiveM = loadFiveM;
+		public void setHost(String host) {
+			this.host = host;
 		}
 
-		public String getHeapPercent() {
-			return this.heapPercent;
+		public String getNodeType() {
+			return this.nodeType;
 		}
 
-		public void setHeapPercent(String heapPercent) {
-			this.heapPercent = heapPercent;
+		public void setNodeType(String nodeType) {
+			this.nodeType = nodeType;
+		}
+
+		public String getDiskUsedPercent() {
+			return this.diskUsedPercent;
+		}
+
+		public void setDiskUsedPercent(String diskUsedPercent) {
+			this.diskUsedPercent = diskUsedPercent;
+		}
+
+		public Integer getPort() {
+			return this.port;
+		}
+
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public String getLoadOneM() {
+			return this.loadOneM;
+		}
+
+		public void setLoadOneM(String loadOneM) {
+			this.loadOneM = loadOneM;
 		}
 
 		public String getHealth() {

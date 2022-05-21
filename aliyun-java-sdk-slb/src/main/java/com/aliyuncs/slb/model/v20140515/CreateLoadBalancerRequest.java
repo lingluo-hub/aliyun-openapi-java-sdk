@@ -27,25 +27,37 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 
 	private Long resourceOwnerId;
 
-	private String clientToken;
-
 	private String addressIPVersion;
 
 	private String masterZoneId;
-
-	private Integer duration;
 
 	private String resourceGroupId;
 
 	private String loadBalancerName;
 
-	private String addressType;
-
 	private String slaveZoneId;
 
-	private String deleteProtection;
-
 	private String loadBalancerSpec;
+
+	private Long ownerId;
+
+	private String vSwitchId;
+
+	private String internetChargeType;
+
+	private String pricingCycle;
+
+	private String modificationProtectionReason;
+
+	private String clientToken;
+
+	private Integer duration;
+
+	private String addressType;
+
+	private String instanceChargeType;
+
+	private String deleteProtection;
 
 	private Boolean autoPay;
 
@@ -57,17 +69,11 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 
 	private String ownerAccount;
 
-	private Long ownerId;
-
-	private String vSwitchId;
-
-	private String internetChargeType;
+	private String modificationProtectionStatus;
 
 	private String vpcId;
 
 	private String payType;
-
-	private String pricingCycle;
 	public CreateLoadBalancerRequest() {
 		super("Slb", "2014-05-15", "CreateLoadBalancer", "slb");
 		setMethod(MethodType.POST);
@@ -85,17 +91,6 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -121,17 +116,6 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		}
 	}
 
-	public Integer getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration.toString());
-		}
-	}
-
 	public String getResourceGroupId() {
 		return this.resourceGroupId;
 	}
@@ -154,17 +138,6 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		}
 	}
 
-	public String getAddressType() {
-		return this.addressType;
-	}
-
-	public void setAddressType(String addressType) {
-		this.addressType = addressType;
-		if(addressType != null){
-			putQueryParameter("AddressType", addressType);
-		}
-	}
-
 	public String getSlaveZoneId() {
 		return this.slaveZoneId;
 	}
@@ -176,17 +149,6 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		}
 	}
 
-	public String getDeleteProtection() {
-		return this.deleteProtection;
-	}
-
-	public void setDeleteProtection(String deleteProtection) {
-		this.deleteProtection = deleteProtection;
-		if(deleteProtection != null){
-			putQueryParameter("DeleteProtection", deleteProtection);
-		}
-	}
-
 	public String getLoadBalancerSpec() {
 		return this.loadBalancerSpec;
 	}
@@ -195,6 +157,116 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		this.loadBalancerSpec = loadBalancerSpec;
 		if(loadBalancerSpec != null){
 			putQueryParameter("LoadBalancerSpec", loadBalancerSpec);
+		}
+	}
+
+	public Long getOwnerId() {
+		return this.ownerId;
+	}
+
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getInternetChargeType() {
+		return this.internetChargeType;
+	}
+
+	public void setInternetChargeType(String internetChargeType) {
+		this.internetChargeType = internetChargeType;
+		if(internetChargeType != null){
+			putQueryParameter("InternetChargeType", internetChargeType);
+		}
+	}
+
+	public String getPricingCycle() {
+		return this.pricingCycle;
+	}
+
+	public void setPricingCycle(String pricingCycle) {
+		this.pricingCycle = pricingCycle;
+		if(pricingCycle != null){
+			putQueryParameter("PricingCycle", pricingCycle);
+		}
+	}
+
+	public String getModificationProtectionReason() {
+		return this.modificationProtectionReason;
+	}
+
+	public void setModificationProtectionReason(String modificationProtectionReason) {
+		this.modificationProtectionReason = modificationProtectionReason;
+		if(modificationProtectionReason != null){
+			putQueryParameter("ModificationProtectionReason", modificationProtectionReason);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public Integer getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+		if(duration != null){
+			putQueryParameter("Duration", duration.toString());
+		}
+	}
+
+	public String getAddressType() {
+		return this.addressType;
+	}
+
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+		if(addressType != null){
+			putQueryParameter("AddressType", addressType);
+		}
+	}
+
+	public String getInstanceChargeType() {
+		return this.instanceChargeType;
+	}
+
+	public void setInstanceChargeType(String instanceChargeType) {
+		this.instanceChargeType = instanceChargeType;
+		if(instanceChargeType != null){
+			putQueryParameter("InstanceChargeType", instanceChargeType);
+		}
+	}
+
+	public String getDeleteProtection() {
+		return this.deleteProtection;
+	}
+
+	public void setDeleteProtection(String deleteProtection) {
+		this.deleteProtection = deleteProtection;
+		if(deleteProtection != null){
+			putQueryParameter("DeleteProtection", deleteProtection);
 		}
 	}
 
@@ -253,36 +325,14 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
+	public String getModificationProtectionStatus() {
+		return this.modificationProtectionStatus;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
-	public String getInternetChargeType() {
-		return this.internetChargeType;
-	}
-
-	public void setInternetChargeType(String internetChargeType) {
-		this.internetChargeType = internetChargeType;
-		if(internetChargeType != null){
-			putQueryParameter("InternetChargeType", internetChargeType);
+	public void setModificationProtectionStatus(String modificationProtectionStatus) {
+		this.modificationProtectionStatus = modificationProtectionStatus;
+		if(modificationProtectionStatus != null){
+			putQueryParameter("ModificationProtectionStatus", modificationProtectionStatus);
 		}
 	}
 
@@ -305,17 +355,6 @@ public class CreateLoadBalancerRequest extends RpcAcsRequest<CreateLoadBalancerR
 		this.payType = payType;
 		if(payType != null){
 			putQueryParameter("PayType", payType);
-		}
-	}
-
-	public String getPricingCycle() {
-		return this.pricingCycle;
-	}
-
-	public void setPricingCycle(String pricingCycle) {
-		this.pricingCycle = pricingCycle;
-		if(pricingCycle != null){
-			putQueryParameter("PricingCycle", pricingCycle);
 		}
 	}
 

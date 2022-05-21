@@ -24,39 +24,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateSubscriptionInstanceResponse extends AcsResponse {
 
-	private String success;
-
-	private String errCode;
-
-	private String errMessage;
-
 	private String requestId;
 
 	private String subscriptionInstanceId;
 
-	public String getSuccess() {
-		return this.success;
-	}
+	private String errCode;
 
-	public void setSuccess(String success) {
-		this.success = success;
-	}
+	private String success;
 
-	public String getErrCode() {
-		return this.errCode;
-	}
-
-	public void setErrCode(String errCode) {
-		this.errCode = errCode;
-	}
-
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
-	}
+	private String errMessage;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -72,6 +48,30 @@ public class CreateSubscriptionInstanceResponse extends AcsResponse {
 
 	public void setSubscriptionInstanceId(String subscriptionInstanceId) {
 		this.subscriptionInstanceId = subscriptionInstanceId;
+	}
+
+	public String getErrCode() {
+		return this.errCode;
+	}
+
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

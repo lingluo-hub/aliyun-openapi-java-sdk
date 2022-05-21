@@ -29,11 +29,13 @@ public class ListNodesNoPagingRequest extends RpcAcsRequest<ListNodesNoPagingRes
 
 	private String clusterId;
 
+	private String sequence;
+
 	private String hostName;
 
 	private Boolean onlyDetached;
 	public ListNodesNoPagingRequest() {
-		super("EHPC", "2018-04-12", "ListNodesNoPaging", "ehs");
+		super("EHPC", "2018-04-12", "ListNodesNoPaging");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -60,6 +62,17 @@ public class ListNodesNoPagingRequest extends RpcAcsRequest<ListNodesNoPagingRes
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getSequence() {
+		return this.sequence;
+	}
+
+	public void setSequence(String sequence) {
+		this.sequence = sequence;
+		if(sequence != null){
+			putQueryParameter("Sequence", sequence);
 		}
 	}
 

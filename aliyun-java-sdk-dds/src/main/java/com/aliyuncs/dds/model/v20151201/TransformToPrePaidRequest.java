@@ -37,8 +37,6 @@ public class TransformToPrePaidRequest extends RpcAcsRequest<TransformToPrePaidR
 
 	private Boolean autoPay;
 
-	private String fromApp;
-
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -120,17 +118,6 @@ public class TransformToPrePaidRequest extends RpcAcsRequest<TransformToPrePaidR
 		this.autoPay = autoPay;
 		if(autoPay != null){
 			putQueryParameter("AutoPay", autoPay.toString());
-		}
-	}
-
-	public String getFromApp() {
-		return this.fromApp;
-	}
-
-	public void setFromApp(String fromApp) {
-		this.fromApp = fromApp;
-		if(fromApp != null){
-			putQueryParameter("FromApp", fromApp);
 		}
 	}
 

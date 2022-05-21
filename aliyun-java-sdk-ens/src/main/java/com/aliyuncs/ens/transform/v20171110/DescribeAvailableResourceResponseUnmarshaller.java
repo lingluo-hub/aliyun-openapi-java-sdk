@@ -45,8 +45,8 @@ public class DescribeAvailableResourceResponseUnmarshaller {
 			SupportResource supportResource = new SupportResource();
 			supportResource.setDataDiskSize(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].DataDiskSize"));
 			supportResource.setEnsRegionId(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].EnsRegionId"));
-			supportResource.setSupportResourcesCount(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].SupportResourcesCount"));
 			supportResource.setInstanceSpec(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].InstanceSpec"));
+			supportResource.setSupportResourcesCount(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].SupportResourcesCount"));
 			supportResource.setSystemDiskSize(_ctx.stringValue("DescribeAvailableResourceResponse.SupportResources["+ i +"].SystemDiskSize"));
 
 			supportResources.add(supportResource);

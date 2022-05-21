@@ -39,6 +39,8 @@ public class CreateFlowLogRequest extends RpcAcsRequest<CreateFlowLogResponse> {
 
 	private String ownerAccount;
 
+	private Integer aggregationInterval;
+
 	private Long ownerId;
 
 	private String resourceType;
@@ -47,7 +49,7 @@ public class CreateFlowLogRequest extends RpcAcsRequest<CreateFlowLogResponse> {
 
 	private String flowLogName;
 	public CreateFlowLogRequest() {
-		super("Vpc", "2016-04-28", "CreateFlowLog", "Vpc");
+		super("Vpc", "2016-04-28", "CreateFlowLog", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -129,6 +131,17 @@ public class CreateFlowLogRequest extends RpcAcsRequest<CreateFlowLogResponse> {
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Integer getAggregationInterval() {
+		return this.aggregationInterval;
+	}
+
+	public void setAggregationInterval(Integer aggregationInterval) {
+		this.aggregationInterval = aggregationInterval;
+		if(aggregationInterval != null){
+			putQueryParameter("AggregationInterval", aggregationInterval.toString());
 		}
 	}
 

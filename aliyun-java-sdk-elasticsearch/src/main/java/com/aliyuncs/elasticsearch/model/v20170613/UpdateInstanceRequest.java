@@ -25,9 +25,13 @@ import com.aliyuncs.elasticsearch.Endpoint;
 public class UpdateInstanceRequest extends RoaAcsRequest<UpdateInstanceResponse> {
 	   
 
+	private Boolean ignoreStatus;
+
 	private String instanceId;
 
 	private String clientToken;
+
+	private String orderActionType;
 	public UpdateInstanceRequest() {
 		super("elasticsearch", "2017-06-13", "UpdateInstance", "elasticsearch");
 		setUriPattern("/openapi/instances/[InstanceId]");
@@ -36,6 +40,17 @@ public class UpdateInstanceRequest extends RoaAcsRequest<UpdateInstanceResponse>
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Boolean getIgnoreStatus() {
+		return this.ignoreStatus;
+	}
+
+	public void setIgnoreStatus(Boolean ignoreStatus) {
+		this.ignoreStatus = ignoreStatus;
+		if(ignoreStatus != null){
+			putQueryParameter("ignoreStatus", ignoreStatus.toString());
+		}
 	}
 
 	public String getInstanceId() {
@@ -57,6 +72,17 @@ public class UpdateInstanceRequest extends RoaAcsRequest<UpdateInstanceResponse>
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("clientToken", clientToken);
+		}
+	}
+
+	public String getOrderActionType() {
+		return this.orderActionType;
+	}
+
+	public void setOrderActionType(String orderActionType) {
+		this.orderActionType = orderActionType;
+		if(orderActionType != null){
+			putQueryParameter("orderActionType", orderActionType);
 		}
 	}
 

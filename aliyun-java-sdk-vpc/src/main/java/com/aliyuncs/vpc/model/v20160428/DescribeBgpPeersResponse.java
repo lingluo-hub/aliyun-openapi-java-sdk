@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeBgpPeersResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer pageSize;
 
-	private Integer totalCount;
+	private String requestId;
 
 	private Integer pageNumber;
 
-	private Integer pageSize;
+	private Integer totalCount;
 
 	private List<BgpPeer> bgpPeers;
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -59,12 +59,12 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Integer getTotalCount() {
+		return this.totalCount;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<BgpPeer> getBgpPeers() {
@@ -77,70 +77,56 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 
 	public static class BgpPeer {
 
-		private String name;
-
-		private String description;
-
-		private String bgpPeerId;
-
-		private String bgpGroupId;
+		private String status;
 
 		private String peerIpAddress;
 
-		private String peerAsn;
-
-		private String authKey;
-
 		private String routerId;
+
+		private String bgpGroupId;
 
 		private String bgpStatus;
 
-		private String status;
+		private Integer bfdMultiHop;
 
-		private String keepalive;
+		private String peerAsn;
 
 		private String localAsn;
 
-		private String hold;
-
-		private String isFake;
-
-		private String routeLimit;
-
 		private String regionId;
+
+		private String bgpPeerId;
 
 		private Boolean enableBfd;
 
-		public String getName() {
-			return this.name;
+		private String hold;
+
+		private String ipVersion;
+
+		private String keepalive;
+
+		private String description;
+
+		private String routeLimit;
+
+		private String isFake;
+
+		private String authKey;
+
+		private String name;
+
+		private Integer advertisedRouteCount;
+
+		private Integer receivedRouteCount;
+
+		private String gmtModified;
+
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
-		}
-
-		public String getBgpPeerId() {
-			return this.bgpPeerId;
-		}
-
-		public void setBgpPeerId(String bgpPeerId) {
-			this.bgpPeerId = bgpPeerId;
-		}
-
-		public String getBgpGroupId() {
-			return this.bgpGroupId;
-		}
-
-		public void setBgpGroupId(String bgpGroupId) {
-			this.bgpGroupId = bgpGroupId;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
 		public String getPeerIpAddress() {
@@ -151,28 +137,20 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 			this.peerIpAddress = peerIpAddress;
 		}
 
-		public String getPeerAsn() {
-			return this.peerAsn;
-		}
-
-		public void setPeerAsn(String peerAsn) {
-			this.peerAsn = peerAsn;
-		}
-
-		public String getAuthKey() {
-			return this.authKey;
-		}
-
-		public void setAuthKey(String authKey) {
-			this.authKey = authKey;
-		}
-
 		public String getRouterId() {
 			return this.routerId;
 		}
 
 		public void setRouterId(String routerId) {
 			this.routerId = routerId;
+		}
+
+		public String getBgpGroupId() {
+			return this.bgpGroupId;
+		}
+
+		public void setBgpGroupId(String bgpGroupId) {
+			this.bgpGroupId = bgpGroupId;
 		}
 
 		public String getBgpStatus() {
@@ -183,20 +161,20 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 			this.bgpStatus = bgpStatus;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public Integer getBfdMultiHop() {
+			return this.bfdMultiHop;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setBfdMultiHop(Integer bfdMultiHop) {
+			this.bfdMultiHop = bfdMultiHop;
 		}
 
-		public String getKeepalive() {
-			return this.keepalive;
+		public String getPeerAsn() {
+			return this.peerAsn;
 		}
 
-		public void setKeepalive(String keepalive) {
-			this.keepalive = keepalive;
+		public void setPeerAsn(String peerAsn) {
+			this.peerAsn = peerAsn;
 		}
 
 		public String getLocalAsn() {
@@ -207,6 +185,30 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 			this.localAsn = localAsn;
 		}
 
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getBgpPeerId() {
+			return this.bgpPeerId;
+		}
+
+		public void setBgpPeerId(String bgpPeerId) {
+			this.bgpPeerId = bgpPeerId;
+		}
+
+		public Boolean getEnableBfd() {
+			return this.enableBfd;
+		}
+
+		public void setEnableBfd(Boolean enableBfd) {
+			this.enableBfd = enableBfd;
+		}
+
 		public String getHold() {
 			return this.hold;
 		}
@@ -215,12 +217,28 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 			this.hold = hold;
 		}
 
-		public String getIsFake() {
-			return this.isFake;
+		public String getIpVersion() {
+			return this.ipVersion;
 		}
 
-		public void setIsFake(String isFake) {
-			this.isFake = isFake;
+		public void setIpVersion(String ipVersion) {
+			this.ipVersion = ipVersion;
+		}
+
+		public String getKeepalive() {
+			return this.keepalive;
+		}
+
+		public void setKeepalive(String keepalive) {
+			this.keepalive = keepalive;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public String getRouteLimit() {
@@ -231,20 +249,52 @@ public class DescribeBgpPeersResponse extends AcsResponse {
 			this.routeLimit = routeLimit;
 		}
 
-		public String getRegionId() {
-			return this.regionId;
+		public String getIsFake() {
+			return this.isFake;
 		}
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
+		public void setIsFake(String isFake) {
+			this.isFake = isFake;
 		}
 
-		public Boolean getEnableBfd() {
-			return this.enableBfd;
+		public String getAuthKey() {
+			return this.authKey;
 		}
 
-		public void setEnableBfd(Boolean enableBfd) {
-			this.enableBfd = enableBfd;
+		public void setAuthKey(String authKey) {
+			this.authKey = authKey;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Integer getAdvertisedRouteCount() {
+			return this.advertisedRouteCount;
+		}
+
+		public void setAdvertisedRouteCount(Integer advertisedRouteCount) {
+			this.advertisedRouteCount = advertisedRouteCount;
+		}
+
+		public Integer getReceivedRouteCount() {
+			return this.receivedRouteCount;
+		}
+
+		public void setReceivedRouteCount(Integer receivedRouteCount) {
+			this.receivedRouteCount = receivedRouteCount;
+		}
+
+		public String getGmtModified() {
+			return this.gmtModified;
+		}
+
+		public void setGmtModified(String gmtModified) {
+			this.gmtModified = gmtModified;
 		}
 	}
 

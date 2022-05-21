@@ -24,15 +24,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateSmartAccessGatewayResponse extends AcsResponse {
 
+	private String description;
+
 	private String requestId;
+
+	private String orderId;
 
 	private String smartAGId;
 
 	private String name;
 
-	private String orderId;
+	private String resourceGroupId;
 
-	private String description;
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -40,6 +50,14 @@ public class CreateSmartAccessGatewayResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 	public String getSmartAGId() {
@@ -58,20 +76,12 @@ public class CreateSmartAccessGatewayResponse extends AcsResponse {
 		this.name = name;
 	}
 
-	public String getOrderId() {
-		return this.orderId;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
 	}
 
 	@Override

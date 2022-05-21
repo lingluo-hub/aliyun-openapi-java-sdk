@@ -35,6 +35,8 @@ public class EnableCenVbrHealthCheckRequest extends RpcAcsRequest<EnableCenVbrHe
 
 	private Long vbrInstanceOwnerId;
 
+	private Boolean healthCheckOnly;
+
 	private String vbrInstanceRegionId;
 
 	private String resourceOwnerAccount;
@@ -49,7 +51,7 @@ public class EnableCenVbrHealthCheckRequest extends RpcAcsRequest<EnableCenVbrHe
 
 	private String vbrInstanceId;
 	public EnableCenVbrHealthCheckRequest() {
-		super("Cbn", "2017-09-12", "EnableCenVbrHealthCheck", "Cbn");
+		super("Cbn", "2017-09-12", "EnableCenVbrHealthCheck");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -109,6 +111,17 @@ public class EnableCenVbrHealthCheckRequest extends RpcAcsRequest<EnableCenVbrHe
 		this.vbrInstanceOwnerId = vbrInstanceOwnerId;
 		if(vbrInstanceOwnerId != null){
 			putQueryParameter("VbrInstanceOwnerId", vbrInstanceOwnerId.toString());
+		}
+	}
+
+	public Boolean getHealthCheckOnly() {
+		return this.healthCheckOnly;
+	}
+
+	public void setHealthCheckOnly(Boolean healthCheckOnly) {
+		this.healthCheckOnly = healthCheckOnly;
+		if(healthCheckOnly != null){
+			putQueryParameter("HealthCheckOnly", healthCheckOnly.toString());
 		}
 	}
 

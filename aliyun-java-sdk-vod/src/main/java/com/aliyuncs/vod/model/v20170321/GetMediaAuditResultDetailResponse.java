@@ -69,17 +69,45 @@ public class GetMediaAuditResultDetailResponse extends AcsResponse {
 
 		public static class ListItem {
 
+			private String terrorismScore;
+
+			private String adLabel;
+
 			private String pornLabel;
 
 			private String pornScore;
 
-			private String terrorismLabel;
+			private String liveLabel;
 
-			private String terrorismScore;
+			private String url;
 
 			private String timestamp;
 
-			private String url;
+			private String adScore;
+
+			private String liveScore;
+
+			private String logoScore;
+
+			private String logoLabel;
+
+			private String terrorismLabel;
+
+			public String getTerrorismScore() {
+				return this.terrorismScore;
+			}
+
+			public void setTerrorismScore(String terrorismScore) {
+				this.terrorismScore = terrorismScore;
+			}
+
+			public String getAdLabel() {
+				return this.adLabel;
+			}
+
+			public void setAdLabel(String adLabel) {
+				this.adLabel = adLabel;
+			}
 
 			public String getPornLabel() {
 				return this.pornLabel;
@@ -97,20 +125,20 @@ public class GetMediaAuditResultDetailResponse extends AcsResponse {
 				this.pornScore = pornScore;
 			}
 
-			public String getTerrorismLabel() {
-				return this.terrorismLabel;
+			public String getLiveLabel() {
+				return this.liveLabel;
 			}
 
-			public void setTerrorismLabel(String terrorismLabel) {
-				this.terrorismLabel = terrorismLabel;
+			public void setLiveLabel(String liveLabel) {
+				this.liveLabel = liveLabel;
 			}
 
-			public String getTerrorismScore() {
-				return this.terrorismScore;
+			public String getUrl() {
+				return this.url;
 			}
 
-			public void setTerrorismScore(String terrorismScore) {
-				this.terrorismScore = terrorismScore;
+			public void setUrl(String url) {
+				this.url = url;
 			}
 
 			public String getTimestamp() {
@@ -121,12 +149,44 @@ public class GetMediaAuditResultDetailResponse extends AcsResponse {
 				this.timestamp = timestamp;
 			}
 
-			public String getUrl() {
-				return this.url;
+			public String getAdScore() {
+				return this.adScore;
 			}
 
-			public void setUrl(String url) {
-				this.url = url;
+			public void setAdScore(String adScore) {
+				this.adScore = adScore;
+			}
+
+			public String getLiveScore() {
+				return this.liveScore;
+			}
+
+			public void setLiveScore(String liveScore) {
+				this.liveScore = liveScore;
+			}
+
+			public String getLogoScore() {
+				return this.logoScore;
+			}
+
+			public void setLogoScore(String logoScore) {
+				this.logoScore = logoScore;
+			}
+
+			public String getLogoLabel() {
+				return this.logoLabel;
+			}
+
+			public void setLogoLabel(String logoLabel) {
+				this.logoLabel = logoLabel;
+			}
+
+			public String getTerrorismLabel() {
+				return this.terrorismLabel;
+			}
+
+			public void setTerrorismLabel(String terrorismLabel) {
+				this.terrorismLabel = terrorismLabel;
 			}
 		}
 	}

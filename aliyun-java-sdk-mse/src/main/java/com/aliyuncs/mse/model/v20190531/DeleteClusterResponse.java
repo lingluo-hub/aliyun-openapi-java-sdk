@@ -24,26 +24,22 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DeleteClusterResponse extends AcsResponse {
 
-	private Boolean success;
+	private String httpCode;
 
 	private String message;
 
-	private String errorCode;
-
 	private String requestId;
 
-	private String data;
+	private String errorCode;
 
-	private String httpCode;
+	private Boolean success;
 
-	private String clusterId;
-
-	public Boolean getSuccess() {
-		return this.success;
+	public String getHttpCode() {
+		return this.httpCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpCode(String httpCode) {
+		this.httpCode = httpCode;
 	}
 
 	public String getMessage() {
@@ -54,14 +50,6 @@ public class DeleteClusterResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
-
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -70,28 +58,20 @@ public class DeleteClusterResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getData() {
-		return this.data;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
-	public String getHttpCode() {
-		return this.httpCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setHttpCode(String httpCode) {
-		this.httpCode = httpCode;
-	}
-
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	@Override

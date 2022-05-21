@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetOpLogResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<OpLogDetail> opLogDetails;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class GetOpLogResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class GetOpLogResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<OpLogDetail> getOpLogDetails() {
@@ -87,35 +87,21 @@ public class GetOpLogResponse extends AcsResponse {
 
 	public static class OpLogDetail {
 
-		private Long userId;
-
-		private String userNick;
-
 		private String module;
-
-		private String opContent;
-
-		private String opTime;
 
 		private String database;
 
+		private String userId;
+
+		private Long opUserId;
+
+		private String opContent;
+
+		private String userNick;
+
 		private Long orderId;
 
-		public Long getUserId() {
-			return this.userId;
-		}
-
-		public void setUserId(Long userId) {
-			this.userId = userId;
-		}
-
-		public String getUserNick() {
-			return this.userNick;
-		}
-
-		public void setUserNick(String userNick) {
-			this.userNick = userNick;
-		}
+		private String opTime;
 
 		public String getModule() {
 			return this.module;
@@ -123,22 +109,6 @@ public class GetOpLogResponse extends AcsResponse {
 
 		public void setModule(String module) {
 			this.module = module;
-		}
-
-		public String getOpContent() {
-			return this.opContent;
-		}
-
-		public void setOpContent(String opContent) {
-			this.opContent = opContent;
-		}
-
-		public String getOpTime() {
-			return this.opTime;
-		}
-
-		public void setOpTime(String opTime) {
-			this.opTime = opTime;
 		}
 
 		public String getDatabase() {
@@ -149,12 +119,52 @@ public class GetOpLogResponse extends AcsResponse {
 			this.database = database;
 		}
 
+		public String getUserId() {
+			return this.userId;
+		}
+
+		public void setUserId(String userId) {
+			this.userId = userId;
+		}
+
+		public Long getOpUserId() {
+			return this.opUserId;
+		}
+
+		public void setOpUserId(Long opUserId) {
+			this.opUserId = opUserId;
+		}
+
+		public String getOpContent() {
+			return this.opContent;
+		}
+
+		public void setOpContent(String opContent) {
+			this.opContent = opContent;
+		}
+
+		public String getUserNick() {
+			return this.userNick;
+		}
+
+		public void setUserNick(String userNick) {
+			this.userNick = userNick;
+		}
+
 		public Long getOrderId() {
 			return this.orderId;
 		}
 
 		public void setOrderId(Long orderId) {
 			this.orderId = orderId;
+		}
+
+		public String getOpTime() {
+			return this.opTime;
+		}
+
+		public void setOpTime(String opTime) {
+			this.opTime = opTime;
 		}
 	}
 

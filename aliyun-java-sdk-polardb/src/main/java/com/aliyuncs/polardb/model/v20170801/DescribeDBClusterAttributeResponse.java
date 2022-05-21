@@ -25,161 +25,77 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String regionId;
-
-	private String dBClusterNetworkType;
-
-	private String vPCId;
-
-	private String vSwitchId;
-
-	private String payType;
-
-	private String dBClusterId;
-
-	private String dBClusterStatus;
-
-	private String dBClusterDescription;
-
-	private String engine;
-
-	private String dBType;
-
-	private String dBVersion;
-
-	private String lockMode;
-
 	private Integer deletionLock;
 
-	private String creationTime;
-
-	private String expireTime;
-
-	private String expired;
-
-	private String maintainTime;
-
-	private Long storageUsed;
-
-	private Long storageMax;
-
-	private String zoneIds;
-
-	private Long sQLSize;
-
-	private Boolean isLatestVersion;
+	private String category;
 
 	private String resourceGroupId;
 
-	private List<Tag> tags;
+	private Long dataLevel1BackupChainSize;
+
+	private String dBClusterId;
+
+	private String dBType;
+
+	private String dBClusterNetworkType;
+
+	private Boolean isLatestVersion;
+
+	private Long storageMax;
+
+	private String dBVersion;
+
+	private String zoneIds;
+
+	private String maintainTime;
+
+	private String engine;
+
+	private String requestId;
+
+	private String vPCId;
+
+	private String dBClusterStatus;
+
+	private String vSwitchId;
+
+	private String dBClusterDescription;
+
+	private String expired;
+
+	private String payType;
+
+	private String lockMode;
+
+	private Long storageUsed;
+
+	private String dBVersionStatus;
+
+	private String creationTime;
+
+	private Long sQLSize;
+
+	private String regionId;
+
+	private String expireTime;
+
+	private String subCategory;
+
+	private Boolean isProxyLatestVersion;
+
+	private String storageType;
+
+	private String proxyCpuCores;
+
+	private String proxyStandardCpuCores;
+
+	private String proxyType;
+
+	private String proxyStatus;
 
 	private List<DBNode> dBNodes;
 
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public String getRegionId() {
-		return this.regionId;
-	}
-
-	public void setRegionId(String regionId) {
-		this.regionId = regionId;
-	}
-
-	public String getDBClusterNetworkType() {
-		return this.dBClusterNetworkType;
-	}
-
-	public void setDBClusterNetworkType(String dBClusterNetworkType) {
-		this.dBClusterNetworkType = dBClusterNetworkType;
-	}
-
-	public String getVPCId() {
-		return this.vPCId;
-	}
-
-	public void setVPCId(String vPCId) {
-		this.vPCId = vPCId;
-	}
-
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-	}
-
-	public String getPayType() {
-		return this.payType;
-	}
-
-	public void setPayType(String payType) {
-		this.payType = payType;
-	}
-
-	public String getDBClusterId() {
-		return this.dBClusterId;
-	}
-
-	public void setDBClusterId(String dBClusterId) {
-		this.dBClusterId = dBClusterId;
-	}
-
-	public String getDBClusterStatus() {
-		return this.dBClusterStatus;
-	}
-
-	public void setDBClusterStatus(String dBClusterStatus) {
-		this.dBClusterStatus = dBClusterStatus;
-	}
-
-	public String getDBClusterDescription() {
-		return this.dBClusterDescription;
-	}
-
-	public void setDBClusterDescription(String dBClusterDescription) {
-		this.dBClusterDescription = dBClusterDescription;
-	}
-
-	public String getEngine() {
-		return this.engine;
-	}
-
-	public void setEngine(String engine) {
-		this.engine = engine;
-	}
-
-	public String getDBType() {
-		return this.dBType;
-	}
-
-	public void setDBType(String dBType) {
-		this.dBType = dBType;
-	}
-
-	public String getDBVersion() {
-		return this.dBVersion;
-	}
-
-	public void setDBVersion(String dBVersion) {
-		this.dBVersion = dBVersion;
-	}
-
-	public String getLockMode() {
-		return this.lockMode;
-	}
-
-	public void setLockMode(String lockMode) {
-		this.lockMode = lockMode;
-	}
+	private List<Tag> tags;
 
 	public Integer getDeletionLock() {
 		return this.deletionLock;
@@ -189,76 +105,12 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 		this.deletionLock = deletionLock;
 	}
 
-	public String getCreationTime() {
-		return this.creationTime;
+	public String getCategory() {
+		return this.category;
 	}
 
-	public void setCreationTime(String creationTime) {
-		this.creationTime = creationTime;
-	}
-
-	public String getExpireTime() {
-		return this.expireTime;
-	}
-
-	public void setExpireTime(String expireTime) {
-		this.expireTime = expireTime;
-	}
-
-	public String getExpired() {
-		return this.expired;
-	}
-
-	public void setExpired(String expired) {
-		this.expired = expired;
-	}
-
-	public String getMaintainTime() {
-		return this.maintainTime;
-	}
-
-	public void setMaintainTime(String maintainTime) {
-		this.maintainTime = maintainTime;
-	}
-
-	public Long getStorageUsed() {
-		return this.storageUsed;
-	}
-
-	public void setStorageUsed(Long storageUsed) {
-		this.storageUsed = storageUsed;
-	}
-
-	public Long getStorageMax() {
-		return this.storageMax;
-	}
-
-	public void setStorageMax(Long storageMax) {
-		this.storageMax = storageMax;
-	}
-
-	public String getZoneIds() {
-		return this.zoneIds;
-	}
-
-	public void setZoneIds(String zoneIds) {
-		this.zoneIds = zoneIds;
-	}
-
-	public Long getSQLSize() {
-		return this.sQLSize;
-	}
-
-	public void setSQLSize(Long sQLSize) {
-		this.sQLSize = sQLSize;
-	}
-
-	public Boolean getIsLatestVersion() {
-		return this.isLatestVersion;
-	}
-
-	public void setIsLatestVersion(Boolean isLatestVersion) {
-		this.isLatestVersion = isLatestVersion;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getResourceGroupId() {
@@ -269,12 +121,252 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 		this.resourceGroupId = resourceGroupId;
 	}
 
-	public List<Tag> getTags() {
-		return this.tags;
+	public Long getDataLevel1BackupChainSize() {
+		return this.dataLevel1BackupChainSize;
 	}
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
+	public void setDataLevel1BackupChainSize(Long dataLevel1BackupChainSize) {
+		this.dataLevel1BackupChainSize = dataLevel1BackupChainSize;
+	}
+
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
+	}
+
+	public String getDBType() {
+		return this.dBType;
+	}
+
+	public void setDBType(String dBType) {
+		this.dBType = dBType;
+	}
+
+	public String getDBClusterNetworkType() {
+		return this.dBClusterNetworkType;
+	}
+
+	public void setDBClusterNetworkType(String dBClusterNetworkType) {
+		this.dBClusterNetworkType = dBClusterNetworkType;
+	}
+
+	public Boolean getIsLatestVersion() {
+		return this.isLatestVersion;
+	}
+
+	public void setIsLatestVersion(Boolean isLatestVersion) {
+		this.isLatestVersion = isLatestVersion;
+	}
+
+	public Long getStorageMax() {
+		return this.storageMax;
+	}
+
+	public void setStorageMax(Long storageMax) {
+		this.storageMax = storageMax;
+	}
+
+	public String getDBVersion() {
+		return this.dBVersion;
+	}
+
+	public void setDBVersion(String dBVersion) {
+		this.dBVersion = dBVersion;
+	}
+
+	public String getZoneIds() {
+		return this.zoneIds;
+	}
+
+	public void setZoneIds(String zoneIds) {
+		this.zoneIds = zoneIds;
+	}
+
+	public String getMaintainTime() {
+		return this.maintainTime;
+	}
+
+	public void setMaintainTime(String maintainTime) {
+		this.maintainTime = maintainTime;
+	}
+
+	public String getEngine() {
+		return this.engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getVPCId() {
+		return this.vPCId;
+	}
+
+	public void setVPCId(String vPCId) {
+		this.vPCId = vPCId;
+	}
+
+	public String getDBClusterStatus() {
+		return this.dBClusterStatus;
+	}
+
+	public void setDBClusterStatus(String dBClusterStatus) {
+		this.dBClusterStatus = dBClusterStatus;
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+	}
+
+	public String getDBClusterDescription() {
+		return this.dBClusterDescription;
+	}
+
+	public void setDBClusterDescription(String dBClusterDescription) {
+		this.dBClusterDescription = dBClusterDescription;
+	}
+
+	public String getExpired() {
+		return this.expired;
+	}
+
+	public void setExpired(String expired) {
+		this.expired = expired;
+	}
+
+	public String getPayType() {
+		return this.payType;
+	}
+
+	public void setPayType(String payType) {
+		this.payType = payType;
+	}
+
+	public String getLockMode() {
+		return this.lockMode;
+	}
+
+	public void setLockMode(String lockMode) {
+		this.lockMode = lockMode;
+	}
+
+	public Long getStorageUsed() {
+		return this.storageUsed;
+	}
+
+	public void setStorageUsed(Long storageUsed) {
+		this.storageUsed = storageUsed;
+	}
+
+	public String getDBVersionStatus() {
+		return this.dBVersionStatus;
+	}
+
+	public void setDBVersionStatus(String dBVersionStatus) {
+		this.dBVersionStatus = dBVersionStatus;
+	}
+
+	public String getCreationTime() {
+		return this.creationTime;
+	}
+
+	public void setCreationTime(String creationTime) {
+		this.creationTime = creationTime;
+	}
+
+	public Long getSQLSize() {
+		return this.sQLSize;
+	}
+
+	public void setSQLSize(Long sQLSize) {
+		this.sQLSize = sQLSize;
+	}
+
+	public String getRegionId() {
+		return this.regionId;
+	}
+
+	public void setRegionId(String regionId) {
+		this.regionId = regionId;
+	}
+
+	public String getExpireTime() {
+		return this.expireTime;
+	}
+
+	public void setExpireTime(String expireTime) {
+		this.expireTime = expireTime;
+	}
+
+	public String getSubCategory() {
+		return this.subCategory;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+	public Boolean getIsProxyLatestVersion() {
+		return this.isProxyLatestVersion;
+	}
+
+	public void setIsProxyLatestVersion(Boolean isProxyLatestVersion) {
+		this.isProxyLatestVersion = isProxyLatestVersion;
+	}
+
+	public String getStorageType() {
+		return this.storageType;
+	}
+
+	public void setStorageType(String storageType) {
+		this.storageType = storageType;
+	}
+
+	public String getProxyCpuCores() {
+		return this.proxyCpuCores;
+	}
+
+	public void setProxyCpuCores(String proxyCpuCores) {
+		this.proxyCpuCores = proxyCpuCores;
+	}
+
+	public String getProxyStandardCpuCores() {
+		return this.proxyStandardCpuCores;
+	}
+
+	public void setProxyStandardCpuCores(String proxyStandardCpuCores) {
+		this.proxyStandardCpuCores = proxyStandardCpuCores;
+	}
+
+	public String getProxyType() {
+		return this.proxyType;
+	}
+
+	public void setProxyType(String proxyType) {
+		this.proxyType = proxyType;
+	}
+
+	public String getProxyStatus() {
+		return this.proxyStatus;
+	}
+
+	public void setProxyStatus(String proxyStatus) {
+		this.proxyStatus = proxyStatus;
 	}
 
 	public List<DBNode> getDBNodes() {
@@ -283,6 +375,147 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	public void setDBNodes(List<DBNode> dBNodes) {
 		this.dBNodes = dBNodes;
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public static class DBNode {
+
+		private String creationTime;
+
+		private Integer failoverPriority;
+
+		private Integer maxIOPS;
+
+		private String dBNodeClass;
+
+		private String dBNodeRole;
+
+		private String zoneId;
+
+		private Integer maxConnections;
+
+		private String dBNodeStatus;
+
+		private String dBNodeId;
+
+		private String imciSwitch;
+
+		private String hotReplicaMode;
+
+		private String addedCpuCores;
+
+		private String masterId;
+
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
+		}
+
+		public Integer getFailoverPriority() {
+			return this.failoverPriority;
+		}
+
+		public void setFailoverPriority(Integer failoverPriority) {
+			this.failoverPriority = failoverPriority;
+		}
+
+		public Integer getMaxIOPS() {
+			return this.maxIOPS;
+		}
+
+		public void setMaxIOPS(Integer maxIOPS) {
+			this.maxIOPS = maxIOPS;
+		}
+
+		public String getDBNodeClass() {
+			return this.dBNodeClass;
+		}
+
+		public void setDBNodeClass(String dBNodeClass) {
+			this.dBNodeClass = dBNodeClass;
+		}
+
+		public String getDBNodeRole() {
+			return this.dBNodeRole;
+		}
+
+		public void setDBNodeRole(String dBNodeRole) {
+			this.dBNodeRole = dBNodeRole;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public Integer getMaxConnections() {
+			return this.maxConnections;
+		}
+
+		public void setMaxConnections(Integer maxConnections) {
+			this.maxConnections = maxConnections;
+		}
+
+		public String getDBNodeStatus() {
+			return this.dBNodeStatus;
+		}
+
+		public void setDBNodeStatus(String dBNodeStatus) {
+			this.dBNodeStatus = dBNodeStatus;
+		}
+
+		public String getDBNodeId() {
+			return this.dBNodeId;
+		}
+
+		public void setDBNodeId(String dBNodeId) {
+			this.dBNodeId = dBNodeId;
+		}
+
+		public String getImciSwitch() {
+			return this.imciSwitch;
+		}
+
+		public void setImciSwitch(String imciSwitch) {
+			this.imciSwitch = imciSwitch;
+		}
+
+		public String getHotReplicaMode() {
+			return this.hotReplicaMode;
+		}
+
+		public void setHotReplicaMode(String hotReplicaMode) {
+			this.hotReplicaMode = hotReplicaMode;
+		}
+
+		public String getAddedCpuCores() {
+			return this.addedCpuCores;
+		}
+
+		public void setAddedCpuCores(String addedCpuCores) {
+			this.addedCpuCores = addedCpuCores;
+		}
+
+		public String getMasterId() {
+			return this.masterId;
+		}
+
+		public void setMasterId(String masterId) {
+			this.masterId = masterId;
+		}
 	}
 
 	public static class Tag {
@@ -305,99 +538,6 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 		public void setValue(String value) {
 			this.value = value;
-		}
-	}
-
-	public static class DBNode {
-
-		private String dBNodeId;
-
-		private String zoneId;
-
-		private String dBNodeStatus;
-
-		private String creationTime;
-
-		private String dBNodeClass;
-
-		private String dBNodeRole;
-
-		private Integer maxIOPS;
-
-		private Integer maxConnections;
-
-		private Integer failoverPriority;
-
-		public String getDBNodeId() {
-			return this.dBNodeId;
-		}
-
-		public void setDBNodeId(String dBNodeId) {
-			this.dBNodeId = dBNodeId;
-		}
-
-		public String getZoneId() {
-			return this.zoneId;
-		}
-
-		public void setZoneId(String zoneId) {
-			this.zoneId = zoneId;
-		}
-
-		public String getDBNodeStatus() {
-			return this.dBNodeStatus;
-		}
-
-		public void setDBNodeStatus(String dBNodeStatus) {
-			this.dBNodeStatus = dBNodeStatus;
-		}
-
-		public String getCreationTime() {
-			return this.creationTime;
-		}
-
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
-		}
-
-		public String getDBNodeClass() {
-			return this.dBNodeClass;
-		}
-
-		public void setDBNodeClass(String dBNodeClass) {
-			this.dBNodeClass = dBNodeClass;
-		}
-
-		public String getDBNodeRole() {
-			return this.dBNodeRole;
-		}
-
-		public void setDBNodeRole(String dBNodeRole) {
-			this.dBNodeRole = dBNodeRole;
-		}
-
-		public Integer getMaxIOPS() {
-			return this.maxIOPS;
-		}
-
-		public void setMaxIOPS(Integer maxIOPS) {
-			this.maxIOPS = maxIOPS;
-		}
-
-		public Integer getMaxConnections() {
-			return this.maxConnections;
-		}
-
-		public void setMaxConnections(Integer maxConnections) {
-			this.maxConnections = maxConnections;
-		}
-
-		public Integer getFailoverPriority() {
-			return this.failoverPriority;
-		}
-
-		public void setFailoverPriority(Integer failoverPriority) {
-			this.failoverPriority = failoverPriority;
 		}
 	}
 

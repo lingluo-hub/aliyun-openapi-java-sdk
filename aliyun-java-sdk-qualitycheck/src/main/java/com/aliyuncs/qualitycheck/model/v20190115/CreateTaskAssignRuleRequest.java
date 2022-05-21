@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class CreateTaskAssignRuleRequest extends RpcAcsRequest<CreateTaskAssignRuleResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public CreateTaskAssignRuleRequest() {
 		super("Qualitycheck", "2019-01-15", "CreateTaskAssignRule");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

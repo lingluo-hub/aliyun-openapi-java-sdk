@@ -23,7 +23,15 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class DeleteLivePullStreamInfoConfigRequest extends RpcAcsRequest<DeleteLivePullStreamInfoConfigResponse> {
-	
+	   
+
+	private String appName;
+
+	private String streamName;
+
+	private String domainName;
+
+	private Long ownerId;
 	public DeleteLivePullStreamInfoConfigRequest() {
 		super("live", "2016-11-01", "DeleteLivePullStreamInfoConfig", "live");
 		setMethod(MethodType.POST);
@@ -33,16 +41,6 @@ public class DeleteLivePullStreamInfoConfigRequest extends RpcAcsRequest<DeleteL
 		} catch (Exception e) {}
 	}
 
-	private String appName;
-
-	private String securityToken;
-
-	private String streamName;
-
-	private String domainName;
-
-	private Long ownerId;
-
 	public String getAppName() {
 		return this.appName;
 	}
@@ -51,36 +49,6 @@ public class DeleteLivePullStreamInfoConfigRequest extends RpcAcsRequest<DeleteL
 		this.appName = appName;
 		if(appName != null){
 			putQueryParameter("AppName", appName);
-		}
-	}
-
-	public String getBizSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setBizSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	/**
-	 * @deprecated use setBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

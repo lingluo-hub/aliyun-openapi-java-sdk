@@ -14,6 +14,7 @@
 
 package com.aliyuncs.baas.model.v20181221;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.baas.transform.v20181221.DescribeFabricOrganizationResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -26,9 +27,9 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
-
 	private Integer errorCode;
+
+	private Boolean success;
 
 	private Result result;
 
@@ -40,20 +41,20 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
 	public Integer getErrorCode() {
 		return this.errorCode;
 	}
 
 	public void setErrorCode(Integer errorCode) {
 		this.errorCode = errorCode;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Result getResult() {
@@ -66,85 +67,47 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 
 	public static class Result {
 
-		private String organizationId;
-
-		private String organizationName;
-
-		private String regionId;
-
-		private String zoneId;
-
-		private String codeName;
-
 		private String domain;
-
-		private String organizationDescription;
-
-		private String ownerBid;
-
-		private Long ownerUid;
-
-		private String ownerName;
 
 		private Integer peerCount;
 
-		private Integer userCount;
+		private String state;
+
+		private String createTime;
 
 		private Integer consortiumCount;
 
 		private String specName;
 
-		private String requestId;
+		private String ownerName;
 
-		private String createTime;
+		private Long ownerUid;
 
-		private String state;
+		private String ownerBid;
 
-		private String cANAME;
+		private String codeName;
 
-		private String cAUrl;
+		private String organizationDescription;
+
+		private String regionId;
+
+		private String organizationId;
 
 		private String mSP;
 
-		public String getOrganizationId() {
-			return this.organizationId;
-		}
+		private String requestId;
 
-		public void setOrganizationId(String organizationId) {
-			this.organizationId = organizationId;
-		}
+		private String cAUrl;
 
-		public String getOrganizationName() {
-			return this.organizationName;
-		}
+		private String cANAME;
 
-		public void setOrganizationName(String organizationName) {
-			this.organizationName = organizationName;
-		}
+		private String zoneId;
 
-		public String getRegionId() {
-			return this.regionId;
-		}
+		private Integer userCount;
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
+		private String organizationName;
 
-		public String getZoneId() {
-			return this.zoneId;
-		}
-
-		public void setZoneId(String zoneId) {
-			this.zoneId = zoneId;
-		}
-
-		public String getCodeName() {
-			return this.codeName;
-		}
-
-		public void setCodeName(String codeName) {
-			this.codeName = codeName;
-		}
+		private List<TagsItem> tags;
 
 		public String getDomain() {
 			return this.domain;
@@ -152,38 +115,6 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 
 		public void setDomain(String domain) {
 			this.domain = domain;
-		}
-
-		public String getOrganizationDescription() {
-			return this.organizationDescription;
-		}
-
-		public void setOrganizationDescription(String organizationDescription) {
-			this.organizationDescription = organizationDescription;
-		}
-
-		public String getOwnerBid() {
-			return this.ownerBid;
-		}
-
-		public void setOwnerBid(String ownerBid) {
-			this.ownerBid = ownerBid;
-		}
-
-		public Long getOwnerUid() {
-			return this.ownerUid;
-		}
-
-		public void setOwnerUid(Long ownerUid) {
-			this.ownerUid = ownerUid;
-		}
-
-		public String getOwnerName() {
-			return this.ownerName;
-		}
-
-		public void setOwnerName(String ownerName) {
-			this.ownerName = ownerName;
 		}
 
 		public Integer getPeerCount() {
@@ -194,12 +125,20 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 			this.peerCount = peerCount;
 		}
 
-		public Integer getUserCount() {
-			return this.userCount;
+		public String getState() {
+			return this.state;
 		}
 
-		public void setUserCount(Integer userCount) {
-			this.userCount = userCount;
+		public void setState(String state) {
+			this.state = state;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
 		}
 
 		public Integer getConsortiumCount() {
@@ -218,36 +157,76 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 			this.specName = specName;
 		}
 
+		public String getOwnerName() {
+			return this.ownerName;
+		}
+
+		public void setOwnerName(String ownerName) {
+			this.ownerName = ownerName;
+		}
+
+		public Long getOwnerUid() {
+			return this.ownerUid;
+		}
+
+		public void setOwnerUid(Long ownerUid) {
+			this.ownerUid = ownerUid;
+		}
+
+		public String getOwnerBid() {
+			return this.ownerBid;
+		}
+
+		public void setOwnerBid(String ownerBid) {
+			this.ownerBid = ownerBid;
+		}
+
+		public String getCodeName() {
+			return this.codeName;
+		}
+
+		public void setCodeName(String codeName) {
+			this.codeName = codeName;
+		}
+
+		public String getOrganizationDescription() {
+			return this.organizationDescription;
+		}
+
+		public void setOrganizationDescription(String organizationDescription) {
+			this.organizationDescription = organizationDescription;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getOrganizationId() {
+			return this.organizationId;
+		}
+
+		public void setOrganizationId(String organizationId) {
+			this.organizationId = organizationId;
+		}
+
+		public String getMSP() {
+			return this.mSP;
+		}
+
+		public void setMSP(String mSP) {
+			this.mSP = mSP;
+		}
+
 		public String getRequestId() {
 			return this.requestId;
 		}
 
 		public void setRequestId(String requestId) {
 			this.requestId = requestId;
-		}
-
-		public String getCreateTime() {
-			return this.createTime;
-		}
-
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
-
-		public String getState() {
-			return this.state;
-		}
-
-		public void setState(String state) {
-			this.state = state;
-		}
-
-		public String getCANAME() {
-			return this.cANAME;
-		}
-
-		public void setCANAME(String cANAME) {
-			this.cANAME = cANAME;
 		}
 
 		public String getCAUrl() {
@@ -258,12 +237,67 @@ public class DescribeFabricOrganizationResponse extends AcsResponse {
 			this.cAUrl = cAUrl;
 		}
 
-		public String getMSP() {
-			return this.mSP;
+		public String getCANAME() {
+			return this.cANAME;
 		}
 
-		public void setMSP(String mSP) {
-			this.mSP = mSP;
+		public void setCANAME(String cANAME) {
+			this.cANAME = cANAME;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public Integer getUserCount() {
+			return this.userCount;
+		}
+
+		public void setUserCount(Integer userCount) {
+			this.userCount = userCount;
+		}
+
+		public String getOrganizationName() {
+			return this.organizationName;
+		}
+
+		public void setOrganizationName(String organizationName) {
+			this.organizationName = organizationName;
+		}
+
+		public List<TagsItem> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<TagsItem> tags) {
+			this.tags = tags;
+		}
+
+		public static class TagsItem {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

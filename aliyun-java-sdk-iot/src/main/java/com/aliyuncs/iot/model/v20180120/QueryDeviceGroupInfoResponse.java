@@ -90,6 +90,8 @@ public class QueryDeviceGroupInfoResponse extends AcsResponse {
 
 		private Integer deviceOnline;
 
+		private String dynamicGroupExpression;
+
 		public String getGroupId() {
 			return this.groupId;
 		}
@@ -144,6 +146,14 @@ public class QueryDeviceGroupInfoResponse extends AcsResponse {
 
 		public void setDeviceOnline(Integer deviceOnline) {
 			this.deviceOnline = deviceOnline;
+		}
+
+		public String getDynamicGroupExpression() {
+			return this.dynamicGroupExpression;
+		}
+
+		public void setDynamicGroupExpression(String dynamicGroupExpression) {
+			this.dynamicGroupExpression = dynamicGroupExpression;
 		}
 	}
 

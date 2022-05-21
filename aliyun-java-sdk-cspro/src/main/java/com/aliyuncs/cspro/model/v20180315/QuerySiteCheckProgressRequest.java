@@ -16,6 +16,7 @@ package com.aliyuncs.cspro.model.v20180315;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cspro.Endpoint;
 
 /**
  * @author auto create
@@ -34,6 +35,10 @@ public class QuerySiteCheckProgressRequest extends RpcAcsRequest<QuerySiteCheckP
 	public QuerySiteCheckProgressRequest() {
 		super("cspro", "2018-03-15", "QuerySiteCheckProgress", "cspro");
 		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getCheckId() {

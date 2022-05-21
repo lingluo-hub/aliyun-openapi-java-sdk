@@ -14,6 +14,7 @@
 
 package com.aliyuncs.smartag.model.v20180313;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.smartag.transform.v20180313.AddACLRuleResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,58 +25,46 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class AddACLRuleResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String acrId;
-
-	private String aclId;
+	private String policy;
 
 	private String description;
 
-	private String direction;
+	private String requestId;
+
+	private String sourcePortRange;
 
 	private String sourceCidr;
+
+	private Integer priority;
+
+	private String aclId;
+
+	private String acrId;
+
+	private String destPortRange;
+
+	private String direction;
+
+	private String name;
+
+	private String type;
+
+	private Long gmtCreate;
 
 	private String destCidr;
 
 	private String ipProtocol;
 
-	private String sourcePortRange;
+	private List<String> dpiGroupIds;
 
-	private String destPortRange;
+	private List<String> dpiSignatureIds;
 
-	private String policy;
-
-	private Integer priority;
-
-	private Long gmtCreate;
-
-	private String type;
-
-	private String name;
-
-	public String getRequestId() {
-		return this.requestId;
+	public String getPolicy() {
+		return this.policy;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public String getAcrId() {
-		return this.acrId;
-	}
-
-	public void setAcrId(String acrId) {
-		this.acrId = acrId;
-	}
-
-	public String getAclId() {
-		return this.aclId;
-	}
-
-	public void setAclId(String aclId) {
-		this.aclId = aclId;
+	public void setPolicy(String policy) {
+		this.policy = policy;
 	}
 
 	public String getDescription() {
@@ -86,12 +75,20 @@ public class AddACLRuleResponse extends AcsResponse {
 		this.description = description;
 	}
 
-	public String getDirection() {
-		return this.direction;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setDirection(String direction) {
-		this.direction = direction;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getSourcePortRange() {
+		return this.sourcePortRange;
+	}
+
+	public void setSourcePortRange(String sourcePortRange) {
+		this.sourcePortRange = sourcePortRange;
 	}
 
 	public String getSourceCidr() {
@@ -100,6 +97,70 @@ public class AddACLRuleResponse extends AcsResponse {
 
 	public void setSourceCidr(String sourceCidr) {
 		this.sourceCidr = sourceCidr;
+	}
+
+	public Integer getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(Integer priority) {
+		this.priority = priority;
+	}
+
+	public String getAclId() {
+		return this.aclId;
+	}
+
+	public void setAclId(String aclId) {
+		this.aclId = aclId;
+	}
+
+	public String getAcrId() {
+		return this.acrId;
+	}
+
+	public void setAcrId(String acrId) {
+		this.acrId = acrId;
+	}
+
+	public String getDestPortRange() {
+		return this.destPortRange;
+	}
+
+	public void setDestPortRange(String destPortRange) {
+		this.destPortRange = destPortRange;
+	}
+
+	public String getDirection() {
+		return this.direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Long getGmtCreate() {
+		return this.gmtCreate;
+	}
+
+	public void setGmtCreate(Long gmtCreate) {
+		this.gmtCreate = gmtCreate;
 	}
 
 	public String getDestCidr() {
@@ -118,60 +179,20 @@ public class AddACLRuleResponse extends AcsResponse {
 		this.ipProtocol = ipProtocol;
 	}
 
-	public String getSourcePortRange() {
-		return this.sourcePortRange;
+	public List<String> getDpiGroupIds() {
+		return this.dpiGroupIds;
 	}
 
-	public void setSourcePortRange(String sourcePortRange) {
-		this.sourcePortRange = sourcePortRange;
+	public void setDpiGroupIds(List<String> dpiGroupIds) {
+		this.dpiGroupIds = dpiGroupIds;
 	}
 
-	public String getDestPortRange() {
-		return this.destPortRange;
+	public List<String> getDpiSignatureIds() {
+		return this.dpiSignatureIds;
 	}
 
-	public void setDestPortRange(String destPortRange) {
-		this.destPortRange = destPortRange;
-	}
-
-	public String getPolicy() {
-		return this.policy;
-	}
-
-	public void setPolicy(String policy) {
-		this.policy = policy;
-	}
-
-	public Integer getPriority() {
-		return this.priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
-	public Long getGmtCreate() {
-		return this.gmtCreate;
-	}
-
-	public void setGmtCreate(Long gmtCreate) {
-		this.gmtCreate = gmtCreate;
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setDpiSignatureIds(List<String> dpiSignatureIds) {
+		this.dpiSignatureIds = dpiSignatureIds;
 	}
 
 	@Override

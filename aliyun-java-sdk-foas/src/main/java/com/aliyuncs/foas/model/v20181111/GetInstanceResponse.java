@@ -92,6 +92,10 @@ public class GetInstanceResponse extends AcsResponse {
 
 		private Long endTime;
 
+		private String autoScaleParams;
+
+		private Integer priority;
+
 		public Long getId() {
 			return this.id;
 		}
@@ -274,6 +278,22 @@ public class GetInstanceResponse extends AcsResponse {
 
 		public void setEndTime(Long endTime) {
 			this.endTime = endTime;
+		}
+
+		public String getAutoScaleParams() {
+			return this.autoScaleParams;
+		}
+
+		public void setAutoScaleParams(String autoScaleParams) {
+			this.autoScaleParams = autoScaleParams;
+		}
+
+		public Integer getPriority() {
+			return this.priority;
+		}
+
+		public void setPriority(Integer priority) {
+			this.priority = priority;
 		}
 	}
 

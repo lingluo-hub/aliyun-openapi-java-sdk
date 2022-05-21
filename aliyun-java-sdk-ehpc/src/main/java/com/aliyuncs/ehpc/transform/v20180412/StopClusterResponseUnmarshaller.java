@@ -23,6 +23,7 @@ public class StopClusterResponseUnmarshaller {
 	public static StopClusterResponse unmarshall(StopClusterResponse stopClusterResponse, UnmarshallerContext _ctx) {
 		
 		stopClusterResponse.setRequestId(_ctx.stringValue("StopClusterResponse.RequestId"));
+		stopClusterResponse.setTaskId(_ctx.stringValue("StopClusterResponse.TaskId"));
 	 
 	 	return stopClusterResponse;
 	}

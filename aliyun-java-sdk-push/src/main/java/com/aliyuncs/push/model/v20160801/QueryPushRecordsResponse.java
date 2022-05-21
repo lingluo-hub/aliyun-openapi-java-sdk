@@ -25,21 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryPushRecordsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String nextToken;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer total;
+
+	private Integer page;
+
 	private List<PushInfo> pushInfos;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getNextToken() {
 		return this.nextToken;
@@ -57,6 +53,30 @@ public class QueryPushRecordsResponse extends AcsResponse {
 		this.pageSize = pageSize;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	public Integer getPage() {
+		return this.page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
 	public List<PushInfo> getPushInfos() {
 		return this.pushInfos;
 	}
@@ -67,25 +87,41 @@ public class QueryPushRecordsResponse extends AcsResponse {
 
 	public static class PushInfo {
 
+		private String status;
+
+		private String messageId;
+
 		private Long appKey;
-
-		private Long messageId;
-
-		private String pushType;
 
 		private String deviceType;
 
-		private String target;
+		private String pushType;
+
+		private String body;
+
+		private String title;
 
 		private String source;
 
 		private String pushTime;
 
-		private String title;
+		private String target;
 
-		private String body;
+		public String getStatus() {
+			return this.status;
+		}
 
-		private String status;
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getMessageId() {
+			return this.messageId;
+		}
+
+		public void setMessageId(String messageId) {
+			this.messageId = messageId;
+		}
 
 		public Long getAppKey() {
 			return this.appKey;
@@ -93,22 +129,6 @@ public class QueryPushRecordsResponse extends AcsResponse {
 
 		public void setAppKey(Long appKey) {
 			this.appKey = appKey;
-		}
-
-		public Long getMessageId() {
-			return this.messageId;
-		}
-
-		public void setMessageId(Long messageId) {
-			this.messageId = messageId;
-		}
-
-		public String getPushType() {
-			return this.pushType;
-		}
-
-		public void setPushType(String pushType) {
-			this.pushType = pushType;
 		}
 
 		public String getDeviceType() {
@@ -119,12 +139,28 @@ public class QueryPushRecordsResponse extends AcsResponse {
 			this.deviceType = deviceType;
 		}
 
-		public String getTarget() {
-			return this.target;
+		public String getPushType() {
+			return this.pushType;
 		}
 
-		public void setTarget(String target) {
-			this.target = target;
+		public void setPushType(String pushType) {
+			this.pushType = pushType;
+		}
+
+		public String getBody() {
+			return this.body;
+		}
+
+		public void setBody(String body) {
+			this.body = body;
+		}
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public void setTitle(String title) {
+			this.title = title;
 		}
 
 		public String getSource() {
@@ -143,28 +179,12 @@ public class QueryPushRecordsResponse extends AcsResponse {
 			this.pushTime = pushTime;
 		}
 
-		public String getTitle() {
-			return this.title;
+		public String getTarget() {
+			return this.target;
 		}
 
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public String getBody() {
-			return this.body;
-		}
-
-		public void setBody(String body) {
-			this.body = body;
-		}
-
-		public String getStatus() {
-			return this.status;
-		}
-
-		public void setStatus(String status) {
-			this.status = status;
+		public void setTarget(String target) {
+			this.target = target;
 		}
 	}
 

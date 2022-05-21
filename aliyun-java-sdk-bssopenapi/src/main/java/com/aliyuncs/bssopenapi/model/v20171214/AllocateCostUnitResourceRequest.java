@@ -54,6 +54,7 @@ public class AllocateCostUnitResourceRequest extends RpcAcsRequest<AllocateCostU
 			for (int depth1 = 0; depth1 < resourceInstanceLists.size(); depth1++) {
 				putQueryParameter("ResourceInstanceList." + (depth1 + 1) + ".ResourceId" , resourceInstanceLists.get(depth1).getResourceId());
 				putQueryParameter("ResourceInstanceList." + (depth1 + 1) + ".CommodityCode" , resourceInstanceLists.get(depth1).getCommodityCode());
+				putQueryParameter("ResourceInstanceList." + (depth1 + 1) + ".ApportionCode" , resourceInstanceLists.get(depth1).getApportionCode());
 				putQueryParameter("ResourceInstanceList." + (depth1 + 1) + ".ResourceUserId" , resourceInstanceLists.get(depth1).getResourceUserId());
 			}
 		}	
@@ -109,6 +110,8 @@ public class AllocateCostUnitResourceRequest extends RpcAcsRequest<AllocateCostU
 
 		private String commodityCode;
 
+		private String apportionCode;
+
 		private Long resourceUserId;
 
 		public String getResourceId() {
@@ -125,6 +128,14 @@ public class AllocateCostUnitResourceRequest extends RpcAcsRequest<AllocateCostU
 
 		public void setCommodityCode(String commodityCode) {
 			this.commodityCode = commodityCode;
+		}
+
+		public String getApportionCode() {
+			return this.apportionCode;
+		}
+
+		public void setApportionCode(String apportionCode) {
+			this.apportionCode = apportionCode;
 		}
 
 		public Long getResourceUserId() {

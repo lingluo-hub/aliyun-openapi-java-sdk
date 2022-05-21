@@ -25,11 +25,13 @@ import com.aliyuncs.sddp.Endpoint;
 public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitResponse> {
 	   
 
+	private Integer ocrStatus;
+
 	private String parentId;
 
 	private String password;
 
-	private Boolean batchCreate;
+	private Integer enable;
 
 	private String lang;
 
@@ -39,11 +41,15 @@ public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitRespons
 
 	private Integer auditStatus;
 
+	private Integer autoScan;
+
 	private Integer logStoreDay;
 
 	private Integer resourceType;
 
 	private Integer port;
+
+	private Integer eventStatus;
 
 	private String userName;
 	public CreateDataLimitRequest() {
@@ -53,6 +59,17 @@ public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitRespons
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getOcrStatus() {
+		return this.ocrStatus;
+	}
+
+	public void setOcrStatus(Integer ocrStatus) {
+		this.ocrStatus = ocrStatus;
+		if(ocrStatus != null){
+			putQueryParameter("OcrStatus", ocrStatus.toString());
+		}
 	}
 
 	public String getParentId() {
@@ -77,14 +94,14 @@ public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitRespons
 		}
 	}
 
-	public Boolean getBatchCreate() {
-		return this.batchCreate;
+	public Integer getEnable() {
+		return this.enable;
 	}
 
-	public void setBatchCreate(Boolean batchCreate) {
-		this.batchCreate = batchCreate;
-		if(batchCreate != null){
-			putQueryParameter("BatchCreate", batchCreate.toString());
+	public void setEnable(Integer enable) {
+		this.enable = enable;
+		if(enable != null){
+			putQueryParameter("Enable", enable.toString());
 		}
 	}
 
@@ -132,6 +149,17 @@ public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitRespons
 		}
 	}
 
+	public Integer getAutoScan() {
+		return this.autoScan;
+	}
+
+	public void setAutoScan(Integer autoScan) {
+		this.autoScan = autoScan;
+		if(autoScan != null){
+			putQueryParameter("AutoScan", autoScan.toString());
+		}
+	}
+
 	public Integer getLogStoreDay() {
 		return this.logStoreDay;
 	}
@@ -162,6 +190,17 @@ public class CreateDataLimitRequest extends RpcAcsRequest<CreateDataLimitRespons
 		this.port = port;
 		if(port != null){
 			putQueryParameter("Port", port.toString());
+		}
+	}
+
+	public Integer getEventStatus() {
+		return this.eventStatus;
+	}
+
+	public void setEventStatus(Integer eventStatus) {
+		this.eventStatus = eventStatus;
+		if(eventStatus != null){
+			putQueryParameter("EventStatus", eventStatus.toString());
 		}
 	}
 

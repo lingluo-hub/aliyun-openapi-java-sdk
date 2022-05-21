@@ -16,20 +16,25 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateNamespaceRequest extends RoaAcsRequest<UpdateNamespaceResponse> {
-	
-	public UpdateNamespaceRequest() {
-		super("cr", "2016-06-07", "UpdateNamespace", "cr");
-		setUriPattern("/namespace/[Namespace]");
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String namespace;
+	public UpdateNamespaceRequest() {
+		super("cr", "2016-06-07", "UpdateNamespace", "acr");
+		setUriPattern("/namespace/[Namespace]");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getNamespace() {
 		return this.namespace;

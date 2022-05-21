@@ -14,7 +14,7 @@
 
 package com.aliyuncs.iot.model.v20180120;
 
-import java.util.Map;
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.iot.transform.v20180120.GisQueryDeviceLocationResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -33,7 +33,7 @@ public class GisQueryDeviceLocationResponse extends AcsResponse {
 
 	private String errorMessage;
 
-	private Map<Object,Object> data;
+	private List<DataItem> data;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -67,16 +67,124 @@ public class GisQueryDeviceLocationResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public Map<Object,Object> getData() {
+	public List<DataItem> getData() {
 		return this.data;
 	}
 
-	public void setData(Map<Object,Object> data) {
+	public void setData(List<DataItem> data) {
 		this.data = data;
+	}
+
+	public static class DataItem {
+
+		private String productKey;
+
+		private String deviceName;
+
+		private String ip;
+
+		private String country;
+
+		private String province;
+
+		private String city;
+
+		private Float longitude;
+
+		private Float latitude;
+
+		private Integer coordinateSystem;
+
+		private Long adcode;
+
+		public String getProductKey() {
+			return this.productKey;
+		}
+
+		public void setProductKey(String productKey) {
+			this.productKey = productKey;
+		}
+
+		public String getDeviceName() {
+			return this.deviceName;
+		}
+
+		public void setDeviceName(String deviceName) {
+			this.deviceName = deviceName;
+		}
+
+		public String getIp() {
+			return this.ip;
+		}
+
+		public void setIp(String ip) {
+			this.ip = ip;
+		}
+
+		public String getCountry() {
+			return this.country;
+		}
+
+		public void setCountry(String country) {
+			this.country = country;
+		}
+
+		public String getProvince() {
+			return this.province;
+		}
+
+		public void setProvince(String province) {
+			this.province = province;
+		}
+
+		public String getCity() {
+			return this.city;
+		}
+
+		public void setCity(String city) {
+			this.city = city;
+		}
+
+		public Float getLongitude() {
+			return this.longitude;
+		}
+
+		public void setLongitude(Float longitude) {
+			this.longitude = longitude;
+		}
+
+		public Float getLatitude() {
+			return this.latitude;
+		}
+
+		public void setLatitude(Float latitude) {
+			this.latitude = latitude;
+		}
+
+		public Integer getCoordinateSystem() {
+			return this.coordinateSystem;
+		}
+
+		public void setCoordinateSystem(Integer coordinateSystem) {
+			this.coordinateSystem = coordinateSystem;
+		}
+
+		public Long getAdcode() {
+			return this.adcode;
+		}
+
+		public void setAdcode(Long adcode) {
+			this.adcode = adcode;
+		}
 	}
 
 	@Override
 	public GisQueryDeviceLocationResponse getInstance(UnmarshallerContext context) {
 		return	GisQueryDeviceLocationResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

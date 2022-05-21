@@ -20,9 +20,9 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class UnbindInstance2VpcResponseUnmarshaller {
 
-	public static UnbindInstance2VpcResponse unmarshall(UnbindInstance2VpcResponse unbindInstance2VpcResponse, UnmarshallerContext context) {
+	public static UnbindInstance2VpcResponse unmarshall(UnbindInstance2VpcResponse unbindInstance2VpcResponse, UnmarshallerContext _ctx) {
 		
-		unbindInstance2VpcResponse.setRequestId(context.stringValue("UnbindInstance2VpcResponse.RequestId"));
+		unbindInstance2VpcResponse.setRequestId(_ctx.stringValue("UnbindInstance2VpcResponse.RequestId"));
 	 
 	 	return unbindInstance2VpcResponse;
 	}

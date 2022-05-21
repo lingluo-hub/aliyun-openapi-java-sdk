@@ -27,6 +27,8 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 
 	private String taskOptionHttpMethod;
 
+	private String taskOptionHttpHeader;
+
 	private List<AlertConfigEscalationList> alertConfigEscalationLists;
 
 	private String taskName;
@@ -36,6 +38,8 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 	private String taskOptionHttpResponseCharset;
 
 	private Boolean taskOptionHttpNegative;
+
+	private Integer taskOptionInterval;
 
 	private Integer alertConfigNotifyType;
 
@@ -55,6 +59,8 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 
 	private String taskScope;
 
+	private String taskOptionHttpPostContent;
+
 	private Integer alertConfigStartTime;
 
 	private String alertConfigWebHook;
@@ -71,6 +77,17 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 		this.taskOptionHttpMethod = taskOptionHttpMethod;
 		if(taskOptionHttpMethod != null){
 			putQueryParameter("TaskOption.HttpMethod", taskOptionHttpMethod);
+		}
+	}
+
+	public String getTaskOptionHttpHeader() {
+		return this.taskOptionHttpHeader;
+	}
+
+	public void setTaskOptionHttpHeader(String taskOptionHttpHeader) {
+		this.taskOptionHttpHeader = taskOptionHttpHeader;
+		if(taskOptionHttpHeader != null){
+			putQueryParameter("TaskOption.HttpHeader", taskOptionHttpHeader);
 		}
 	}
 
@@ -132,6 +149,17 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 		this.taskOptionHttpNegative = taskOptionHttpNegative;
 		if(taskOptionHttpNegative != null){
 			putQueryParameter("TaskOption.HttpNegative", taskOptionHttpNegative.toString());
+		}
+	}
+
+	public Integer getTaskOptionInterval() {
+		return this.taskOptionInterval;
+	}
+
+	public void setTaskOptionInterval(Integer taskOptionInterval) {
+		this.taskOptionInterval = taskOptionInterval;
+		if(taskOptionInterval != null){
+			putQueryParameter("TaskOption.Interval", taskOptionInterval.toString());
 		}
 	}
 
@@ -233,6 +261,17 @@ public class CreateHostAvailabilityRequest extends RpcAcsRequest<CreateHostAvail
 		this.taskScope = taskScope;
 		if(taskScope != null){
 			putQueryParameter("TaskScope", taskScope);
+		}
+	}
+
+	public String getTaskOptionHttpPostContent() {
+		return this.taskOptionHttpPostContent;
+	}
+
+	public void setTaskOptionHttpPostContent(String taskOptionHttpPostContent) {
+		this.taskOptionHttpPostContent = taskOptionHttpPostContent;
+		if(taskOptionHttpPostContent != null){
+			putQueryParameter("TaskOption.HttpPostContent", taskOptionHttpPostContent);
 		}
 	}
 

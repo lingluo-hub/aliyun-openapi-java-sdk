@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -30,12 +31,18 @@ public class DecodeBlindWatermarkRequest extends RpcAcsRequest<DecodeBlindWaterm
 
 	private String targetUri;
 
+	private String model;
+
 	private String imageUri;
 
 	private String originalImageUri;
 	public DecodeBlindWatermarkRequest() {
 		super("imm", "2017-09-06", "DecodeBlindWatermark", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Integer getImageQuality() {
@@ -68,6 +75,17 @@ public class DecodeBlindWatermarkRequest extends RpcAcsRequest<DecodeBlindWaterm
 		this.targetUri = targetUri;
 		if(targetUri != null){
 			putQueryParameter("TargetUri", targetUri);
+		}
+	}
+
+	public String getModel() {
+		return this.model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+		if(model != null){
+			putQueryParameter("Model", model);
 		}
 	}
 

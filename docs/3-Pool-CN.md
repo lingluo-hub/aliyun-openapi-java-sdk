@@ -1,4 +1,4 @@
-[← 客户端](2-Client-CN.md) | 连接池[(English)](3-Pool-EN.md) | [超时机制 →](4-Timeout-CN.md)
+[← 客户端与凭证](2-Client-CN.md) | 连接池[(English)](3-Pool-EN.md) | [超时机制 →](4-Timeout-CN.md)
 ***
 
 ## 配置连接池
@@ -14,11 +14,12 @@ DefaultProfile profile = DefaultProfile.getProfile(
 // 比如每个host的最大连接数，超时时间等
 HttpClientConfig clientConfig = HttpClientConfig.getDefault();
 clientConfig.setMaxRequestsPerHost(6);
-clientConfig.setConnectionTimeoutMillis(10000L);
+clientConfig.setConnectionTimeoutMillis(30000L);
+clientConfig.setMaxIdleConnections(20);
 
 profile.setHttpClientConfig(clientConfig);
 IAcsClient client = new DefaultAcsClient(profile);
 ```
 
 ***
-[← 客户端](2-Client-CN.md) | 连接池[(English)](3-Pool-EN.md) | [超时机制 →](4-Timeout-CN.md)
+[← 客户端与凭证](2-Client-CN.md) | 连接池[(English)](3-Pool-EN.md) | [超时机制 →](4-Timeout-CN.md)

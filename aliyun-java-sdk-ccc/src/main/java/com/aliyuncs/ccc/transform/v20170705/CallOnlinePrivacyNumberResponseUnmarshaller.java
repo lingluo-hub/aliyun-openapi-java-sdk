@@ -24,16 +24,16 @@ public class CallOnlinePrivacyNumberResponseUnmarshaller {
 	public static CallOnlinePrivacyNumberResponse unmarshall(CallOnlinePrivacyNumberResponse callOnlinePrivacyNumberResponse, UnmarshallerContext _ctx) {
 		
 		callOnlinePrivacyNumberResponse.setRequestId(_ctx.stringValue("CallOnlinePrivacyNumberResponse.RequestId"));
-		callOnlinePrivacyNumberResponse.setSuccess(_ctx.booleanValue("CallOnlinePrivacyNumberResponse.Success"));
+		callOnlinePrivacyNumberResponse.setHttpStatusCode(_ctx.integerValue("CallOnlinePrivacyNumberResponse.HttpStatusCode"));
 		callOnlinePrivacyNumberResponse.setCode(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Code"));
 		callOnlinePrivacyNumberResponse.setMessage(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Message"));
-		callOnlinePrivacyNumberResponse.setHttpStatusCode(_ctx.integerValue("CallOnlinePrivacyNumberResponse.HttpStatusCode"));
+		callOnlinePrivacyNumberResponse.setSuccess(_ctx.booleanValue("CallOnlinePrivacyNumberResponse.Success"));
 
 		Data data = new Data();
-		data.setStatusCode(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.StatusCode"));
 		data.setDateCreated(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.DateCreated"));
 		data.setRepresent(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.Represent"));
 		data.setTelX(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.TelX"));
+		data.setStatusCode(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.StatusCode"));
 		data.setCallId(_ctx.stringValue("CallOnlinePrivacyNumberResponse.Data.CallId"));
 		callOnlinePrivacyNumberResponse.setData(data);
 	 

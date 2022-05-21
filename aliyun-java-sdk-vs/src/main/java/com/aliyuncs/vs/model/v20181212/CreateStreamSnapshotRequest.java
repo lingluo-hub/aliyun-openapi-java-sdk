@@ -28,8 +28,10 @@ public class CreateStreamSnapshotRequest extends RpcAcsRequest<CreateStreamSnaps
 	private String id;
 
 	private Long ownerId;
+
+	private String location;
 	public CreateStreamSnapshotRequest() {
-		super("vs", "2018-12-12", "CreateStreamSnapshot", "vs");
+		super("vs", "2018-12-12", "CreateStreamSnapshot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -56,6 +58,17 @@ public class CreateStreamSnapshotRequest extends RpcAcsRequest<CreateStreamSnaps
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+		if(location != null){
+			putQueryParameter("Location", location);
 		}
 	}
 

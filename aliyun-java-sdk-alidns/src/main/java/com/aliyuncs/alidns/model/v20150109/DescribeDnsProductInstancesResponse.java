@@ -33,6 +33,8 @@ public class DescribeDnsProductInstancesResponse extends AcsResponse {
 
 	private Long pageSize;
 
+	private String domainType;
+
 	private List<DnsProduct> dnsProducts;
 
 	public String getRequestId() {
@@ -65,6 +67,14 @@ public class DescribeDnsProductInstancesResponse extends AcsResponse {
 
 	public void setPageSize(Long pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getDomainType() {
+		return this.domainType;
+	}
+
+	public void setDomainType(String domainType) {
+		this.domainType = domainType;
 	}
 
 	public List<DnsProduct> getDnsProducts() {
@@ -138,6 +148,8 @@ public class DescribeDnsProductInstancesResponse extends AcsResponse {
 		private Long bindDomainUsedCount;
 
 		private String dnsSecurity;
+
+		private String paymentType;
 
 		public String getInstanceId() {
 			return this.instanceId;
@@ -385,6 +397,14 @@ public class DescribeDnsProductInstancesResponse extends AcsResponse {
 
 		public void setDnsSecurity(String dnsSecurity) {
 			this.dnsSecurity = dnsSecurity;
+		}
+
+		public String getPaymentType() {
+			return this.paymentType;
+		}
+
+		public void setPaymentType(String paymentType) {
+			this.paymentType = paymentType;
 		}
 	}
 

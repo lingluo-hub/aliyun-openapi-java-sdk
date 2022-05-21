@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -26,7 +27,7 @@ public class DescribeCloudCenterInstancesRequest extends RpcAcsRequest<DescribeC
 
 	private String criteria;
 
-	private Boolean noPage;
+	private Integer importance;
 
 	private Integer pageSize;
 
@@ -35,9 +36,15 @@ public class DescribeCloudCenterInstancesRequest extends RpcAcsRequest<DescribeC
 	private Integer currentPage;
 
 	private String machineTypes;
+
+	private Boolean noGroupTrace;
 	public DescribeCloudCenterInstancesRequest() {
-		super("Sas", "2018-12-03", "DescribeCloudCenterInstances", "sas");
+		super("Sas", "2018-12-03", "DescribeCloudCenterInstances");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getCriteria() {
@@ -51,14 +58,14 @@ public class DescribeCloudCenterInstancesRequest extends RpcAcsRequest<DescribeC
 		}
 	}
 
-	public Boolean getNoPage() {
-		return this.noPage;
+	public Integer getImportance() {
+		return this.importance;
 	}
 
-	public void setNoPage(Boolean noPage) {
-		this.noPage = noPage;
-		if(noPage != null){
-			putQueryParameter("NoPage", noPage.toString());
+	public void setImportance(Integer importance) {
+		this.importance = importance;
+		if(importance != null){
+			putQueryParameter("Importance", importance.toString());
 		}
 	}
 
@@ -103,6 +110,17 @@ public class DescribeCloudCenterInstancesRequest extends RpcAcsRequest<DescribeC
 		this.machineTypes = machineTypes;
 		if(machineTypes != null){
 			putQueryParameter("MachineTypes", machineTypes);
+		}
+	}
+
+	public Boolean getNoGroupTrace() {
+		return this.noGroupTrace;
+	}
+
+	public void setNoGroupTrace(Boolean noGroupTrace) {
+		this.noGroupTrace = noGroupTrace;
+		if(noGroupTrace != null){
+			putQueryParameter("NoGroupTrace", noGroupTrace.toString());
 		}
 	}
 

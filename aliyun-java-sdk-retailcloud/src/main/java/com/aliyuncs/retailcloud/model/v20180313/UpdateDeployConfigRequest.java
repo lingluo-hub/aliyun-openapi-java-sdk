@@ -36,11 +36,15 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 
 	private Long appId;
 
+	private List<String> secretLists;
+
 	private Long id;
+
+	private String cronJob;
 
 	private String deployment;
 	public UpdateDeployConfigRequest() {
-		super("retailcloud", "2018-03-13", "UpdateDeployConfig", "retailcloud");
+		super("retailcloud", "2018-03-13", "UpdateDeployConfig");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -105,6 +109,19 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 		}
 	}
 
+	public List<String> getSecretLists() {
+		return this.secretLists;
+	}
+
+	public void setSecretLists(List<String> secretLists) {
+		this.secretLists = secretLists;	
+		if (secretLists != null) {
+			for (int i = 0; i < secretLists.size(); i++) {
+				putQueryParameter("SecretList." + (i + 1) , secretLists.get(i));
+			}
+		}	
+	}
+
 	public Long getId() {
 		return this.id;
 	}
@@ -113,6 +130,17 @@ public class UpdateDeployConfigRequest extends RpcAcsRequest<UpdateDeployConfigR
 		this.id = id;
 		if(id != null){
 			putQueryParameter("Id", id.toString());
+		}
+	}
+
+	public String getCronJob() {
+		return this.cronJob;
+	}
+
+	public void setCronJob(String cronJob) {
+		this.cronJob = cronJob;
+		if(cronJob != null){
+			putQueryParameter("CronJob", cronJob);
 		}
 	}
 

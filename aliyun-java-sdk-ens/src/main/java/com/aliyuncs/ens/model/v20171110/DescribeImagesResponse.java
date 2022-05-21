@@ -25,25 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeImagesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
-
-	private Integer totalCount;
 
 	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer totalCount;
+
 	private List<Image> images;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -51,14 +43,6 @@ public class DescribeImagesResponse extends AcsResponse {
 
 	public void setCode(Integer code) {
 		this.code = code;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -77,6 +61,22 @@ public class DescribeImagesResponse extends AcsResponse {
 		this.pageSize = pageSize;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
+
 	public List<Image> getImages() {
 		return this.images;
 	}
@@ -87,19 +87,35 @@ public class DescribeImagesResponse extends AcsResponse {
 
 	public static class Image {
 
+		private String architecture;
+
+		private String creationTime;
+
 		private String imageId;
 
 		private String imageName;
 
 		private String imageOwnerAlias;
 
+		private String imageSize;
+
 		private String platform;
 
-		private String architecture;
+		public String getArchitecture() {
+			return this.architecture;
+		}
 
-		private String creationTime;
+		public void setArchitecture(String architecture) {
+			this.architecture = architecture;
+		}
 
-		private String imageSize;
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
+		}
 
 		public String getImageId() {
 			return this.imageId;
@@ -125,36 +141,20 @@ public class DescribeImagesResponse extends AcsResponse {
 			this.imageOwnerAlias = imageOwnerAlias;
 		}
 
-		public String getPlatform() {
-			return this.platform;
-		}
-
-		public void setPlatform(String platform) {
-			this.platform = platform;
-		}
-
-		public String getArchitecture() {
-			return this.architecture;
-		}
-
-		public void setArchitecture(String architecture) {
-			this.architecture = architecture;
-		}
-
-		public String getCreationTime() {
-			return this.creationTime;
-		}
-
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
-		}
-
 		public String getImageSize() {
 			return this.imageSize;
 		}
 
 		public void setImageSize(String imageSize) {
 			this.imageSize = imageSize;
+		}
+
+		public String getPlatform() {
+			return this.platform;
+		}
+
+		public void setPlatform(String platform) {
+			this.platform = platform;
 		}
 	}
 

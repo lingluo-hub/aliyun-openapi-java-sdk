@@ -1,3 +1,39 @@
+2021-09-22 Version: 2.6.32
+- Supported API for GTM.
+
+2021-03-02 Version: 2.6.29
+- Update default endpoints.
+
+2021-03-02 Version: 2.6.28
+- Supported API for dnsCache.
+- Supported API for GTM.
+
+2021-01-04 Version: 2.6.20
+- Supported API for GTM.
+
+2020-10-26 Version: 2.6.19
+- Supported PaymentType for DescribeDnsProductInstance.
+
+2020-07-14 Version: 2.6.18
+- Fixed bug for service code.
+
+2020-07-14 Version: 2.6.18
+- Supported API for DescribeDohUserInfo.
+- Supported API for DescribeDohAccountStatistics.
+- Supported API for DescribeDohDomainStatistics.
+- Supported API for DescribeDohDomainStatisticsSummary.
+- Supported API for DescribeDohSubDomainStatistics.
+- Supported API for DescribeDohSubDomainStatisticsSummary.
+
+2020-04-21 Version: 2.0.18
+- Supported API for DescribeTags.
+- Supported API for ListTagResources.
+- Supported API for TagResources.
+- Supported API for UntagResources.
+
+2020-03-18 Version: 2.0.17
+- Supported API for DescribeInstanceDomains.
+
 2020-02-14 Version: 2.0.16
 - Update default endpoints.
 

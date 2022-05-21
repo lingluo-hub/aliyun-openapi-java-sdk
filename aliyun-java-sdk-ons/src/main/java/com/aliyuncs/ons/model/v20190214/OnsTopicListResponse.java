@@ -57,46 +57,34 @@ public class OnsTopicListResponse extends AcsResponse {
 
 	public static class PublishInfoDo {
 
-		private String topic;
-
-		private String owner;
-
-		private Integer relation;
+		private Integer messageType;
 
 		private String relationName;
 
-		private Long createTime;
-
-		private String remark;
-
-		private Integer messageType;
-
-		private String instanceId;
+		private String owner;
 
 		private Boolean independentNaming;
 
-		public String getTopic() {
-			return this.topic;
+		private String remark;
+
+		private Integer relation;
+
+		private Long createTime;
+
+		private String topic;
+
+		private String instanceId;
+
+		private Integer serviceStatus;
+
+		private List<Tag> tags;
+
+		public Integer getMessageType() {
+			return this.messageType;
 		}
 
-		public void setTopic(String topic) {
-			this.topic = topic;
-		}
-
-		public String getOwner() {
-			return this.owner;
-		}
-
-		public void setOwner(String owner) {
-			this.owner = owner;
-		}
-
-		public Integer getRelation() {
-			return this.relation;
-		}
-
-		public void setRelation(Integer relation) {
-			this.relation = relation;
+		public void setMessageType(Integer messageType) {
+			this.messageType = messageType;
 		}
 
 		public String getRelationName() {
@@ -107,12 +95,20 @@ public class OnsTopicListResponse extends AcsResponse {
 			this.relationName = relationName;
 		}
 
-		public Long getCreateTime() {
-			return this.createTime;
+		public String getOwner() {
+			return this.owner;
 		}
 
-		public void setCreateTime(Long createTime) {
-			this.createTime = createTime;
+		public void setOwner(String owner) {
+			this.owner = owner;
+		}
+
+		public Boolean getIndependentNaming() {
+			return this.independentNaming;
+		}
+
+		public void setIndependentNaming(Boolean independentNaming) {
+			this.independentNaming = independentNaming;
 		}
 
 		public String getRemark() {
@@ -123,12 +119,28 @@ public class OnsTopicListResponse extends AcsResponse {
 			this.remark = remark;
 		}
 
-		public Integer getMessageType() {
-			return this.messageType;
+		public Integer getRelation() {
+			return this.relation;
 		}
 
-		public void setMessageType(Integer messageType) {
-			this.messageType = messageType;
+		public void setRelation(Integer relation) {
+			this.relation = relation;
+		}
+
+		public Long getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(Long createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getTopic() {
+			return this.topic;
+		}
+
+		public void setTopic(String topic) {
+			this.topic = topic;
 		}
 
 		public String getInstanceId() {
@@ -139,12 +151,43 @@ public class OnsTopicListResponse extends AcsResponse {
 			this.instanceId = instanceId;
 		}
 
-		public Boolean getIndependentNaming() {
-			return this.independentNaming;
+		public Integer getServiceStatus() {
+			return this.serviceStatus;
 		}
 
-		public void setIndependentNaming(Boolean independentNaming) {
-			this.independentNaming = independentNaming;
+		public void setServiceStatus(Integer serviceStatus) {
+			this.serviceStatus = serviceStatus;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

@@ -27,11 +27,13 @@ public class DescribeCdnDomainConfigsRequest extends RpcAcsRequest<DescribeCdnDo
 
 	private String functionNames;
 
+	private String securityToken;
+
 	private String domainName;
 
 	private Long ownerId;
 
-	private String securityToken;
+	private String configId;
 	public DescribeCdnDomainConfigsRequest() {
 		super("Cdn", "2018-05-10", "DescribeCdnDomainConfigs");
 		setMethod(MethodType.POST);
@@ -49,6 +51,17 @@ public class DescribeCdnDomainConfigsRequest extends RpcAcsRequest<DescribeCdnDo
 		this.functionNames = functionNames;
 		if(functionNames != null){
 			putQueryParameter("FunctionNames", functionNames);
+		}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 
@@ -74,14 +87,14 @@ public class DescribeCdnDomainConfigsRequest extends RpcAcsRequest<DescribeCdnDo
 		}
 	}
 
-	public String getSecurityToken() {
-		return this.securityToken;
+	public String getConfigId() {
+		return this.configId;
 	}
 
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
+	public void setConfigId(String configId) {
+		this.configId = configId;
+		if(configId != null){
+			putQueryParameter("ConfigId", configId);
 		}
 	}
 

@@ -109,15 +109,53 @@ public class ListMqSofamqGroupResponse extends AcsResponse {
 
 		public static class ContentItem {
 
+			private String cluster;
+
+			private String deleteMark;
+
 			private Long gmtCreate;
 
 			private Long gmtModified;
 
 			private String groupId;
 
+			private String groupType;
+
+			private Long id;
+
 			private String instanceId;
 
+			private String operator;
+
+			private Boolean readEnable;
+
 			private String remark;
+
+			private Long retryPerm;
+
+			private Long retryReadQueueNum;
+
+			private Long retryWriteQueueNum;
+
+			private String scope;
+
+			private Long version;
+
+			public String getCluster() {
+				return this.cluster;
+			}
+
+			public void setCluster(String cluster) {
+				this.cluster = cluster;
+			}
+
+			public String getDeleteMark() {
+				return this.deleteMark;
+			}
+
+			public void setDeleteMark(String deleteMark) {
+				this.deleteMark = deleteMark;
+			}
 
 			public Long getGmtCreate() {
 				return this.gmtCreate;
@@ -143,6 +181,22 @@ public class ListMqSofamqGroupResponse extends AcsResponse {
 				this.groupId = groupId;
 			}
 
+			public String getGroupType() {
+				return this.groupType;
+			}
+
+			public void setGroupType(String groupType) {
+				this.groupType = groupType;
+			}
+
+			public Long getId() {
+				return this.id;
+			}
+
+			public void setId(Long id) {
+				this.id = id;
+			}
+
 			public String getInstanceId() {
 				return this.instanceId;
 			}
@@ -151,12 +205,68 @@ public class ListMqSofamqGroupResponse extends AcsResponse {
 				this.instanceId = instanceId;
 			}
 
+			public String getOperator() {
+				return this.operator;
+			}
+
+			public void setOperator(String operator) {
+				this.operator = operator;
+			}
+
+			public Boolean getReadEnable() {
+				return this.readEnable;
+			}
+
+			public void setReadEnable(Boolean readEnable) {
+				this.readEnable = readEnable;
+			}
+
 			public String getRemark() {
 				return this.remark;
 			}
 
 			public void setRemark(String remark) {
 				this.remark = remark;
+			}
+
+			public Long getRetryPerm() {
+				return this.retryPerm;
+			}
+
+			public void setRetryPerm(Long retryPerm) {
+				this.retryPerm = retryPerm;
+			}
+
+			public Long getRetryReadQueueNum() {
+				return this.retryReadQueueNum;
+			}
+
+			public void setRetryReadQueueNum(Long retryReadQueueNum) {
+				this.retryReadQueueNum = retryReadQueueNum;
+			}
+
+			public Long getRetryWriteQueueNum() {
+				return this.retryWriteQueueNum;
+			}
+
+			public void setRetryWriteQueueNum(Long retryWriteQueueNum) {
+				this.retryWriteQueueNum = retryWriteQueueNum;
+			}
+
+			public String getScope() {
+				return this.scope;
+			}
+
+			public void setScope(String scope) {
+				this.scope = scope;
+			}
+
+			public Long getVersion() {
+				return this.version;
+			}
+
+			public void setVersion(Long version) {
+				this.version = version;
 			}
 		}
 	}

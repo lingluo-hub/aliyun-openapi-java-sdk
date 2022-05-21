@@ -17,6 +17,7 @@ package com.aliyuncs.sas.model.v20181203;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -35,6 +36,8 @@ public class DescribeRiskCheckResultRequest extends RpcAcsRequest<DescribeRiskCh
 
 	private String assetType;
 
+	private String queryFlag;
+
 	private Long groupId;
 
 	private List<String> itemIdss;
@@ -47,8 +50,12 @@ public class DescribeRiskCheckResultRequest extends RpcAcsRequest<DescribeRiskCh
 
 	private String status;
 	public DescribeRiskCheckResultRequest() {
-		super("Sas", "2018-12-03", "DescribeRiskCheckResult", "sas");
+		super("Sas", "2018-12-03", "DescribeRiskCheckResult");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -103,6 +110,17 @@ public class DescribeRiskCheckResultRequest extends RpcAcsRequest<DescribeRiskCh
 		this.assetType = assetType;
 		if(assetType != null){
 			putQueryParameter("AssetType", assetType);
+		}
+	}
+
+	public String getQueryFlag() {
+		return this.queryFlag;
+	}
+
+	public void setQueryFlag(String queryFlag) {
+		this.queryFlag = queryFlag;
+		if(queryFlag != null){
+			putQueryParameter("QueryFlag", queryFlag);
 		}
 	}
 

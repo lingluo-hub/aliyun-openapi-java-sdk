@@ -25,15 +25,17 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDeviceRequest extends RpcAcsRequest<QueryDeviceResponse> {
 	   
 
-	private Integer currentPage;
-
-	private String productKey;
+	private String nextToken;
 
 	private String iotInstanceId;
 
 	private Integer pageSize;
+
+	private Integer currentPage;
+
+	private String productKey;
 	public QueryDeviceRequest() {
-		super("Iot", "2018-01-20", "QueryDevice", "Iot");
+		super("Iot", "2018-01-20", "QueryDevice");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -41,25 +43,14 @@ public class QueryDeviceRequest extends RpcAcsRequest<QueryDeviceResponse> {
 		} catch (Exception e) {}
 	}
 
-	public Integer getCurrentPage() {
-		return this.currentPage;
+	public String getNextToken() {
+		return this.nextToken;
 	}
 
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
+		if(nextToken != null){
+			putQueryParameter("NextToken", nextToken);
 		}
 	}
 
@@ -82,6 +73,28 @@ public class QueryDeviceRequest extends RpcAcsRequest<QueryDeviceResponse> {
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

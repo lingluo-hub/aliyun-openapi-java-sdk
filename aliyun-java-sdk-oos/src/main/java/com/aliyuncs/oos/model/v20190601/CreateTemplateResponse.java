@@ -27,6 +27,8 @@ public class CreateTemplateResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String templateType;
+
 	private Template template;
 
 	public String getRequestId() {
@@ -35,6 +37,14 @@ public class CreateTemplateResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getTemplateType() {
+		return this.templateType;
+	}
+
+	public void setTemplateType(String templateType) {
+		this.templateType = templateType;
 	}
 
 	public Template getTemplate() {
@@ -72,6 +82,8 @@ public class CreateTemplateResponse extends AcsResponse {
 		private Boolean hasTrigger;
 
 		private Map<Object,Object> tags;
+
+		private String resourceGroupId;
 
 		public String getTemplateName() {
 			return this.templateName;
@@ -175,6 +187,14 @@ public class CreateTemplateResponse extends AcsResponse {
 
 		public void setTags(Map<Object,Object> tags) {
 			this.tags = tags;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

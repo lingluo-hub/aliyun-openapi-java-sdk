@@ -24,7 +24,23 @@ import com.aliyuncs.dg.Endpoint;
  * @version 
  */
 public class GetUserDatabasesRequest extends RpcAcsRequest<GetUserDatabasesResponse> {
-	
+	   
+
+	private String searchKey;
+
+	private String pageNumber;
+
+	private String pageSize;
+
+	private String host;
+
+	private String gatewayId;
+
+	private String instanceId;
+
+	private Integer port;
+
+	private String dbType;
 	public GetUserDatabasesRequest() {
 		super("dg", "2019-03-27", "GetUserDatabases", "dg");
 		setProtocol(ProtocolType.HTTPS);
@@ -34,16 +50,6 @@ public class GetUserDatabasesRequest extends RpcAcsRequest<GetUserDatabasesRespo
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
-
-	private String searchKey;
-
-	private String pageNumber;
-
-	private String pageSize;
-
-	private String dbType;
-
-	private String gatewayId;
 
 	public String getSearchKey() {
 		return this.searchKey;
@@ -78,14 +84,14 @@ public class GetUserDatabasesRequest extends RpcAcsRequest<GetUserDatabasesRespo
 		}
 	}
 
-	public String getDbType() {
-		return this.dbType;
+	public String getHost() {
+		return this.host;
 	}
 
-	public void setDbType(String dbType) {
-		this.dbType = dbType;
-		if(dbType != null){
-			putBodyParameter("DbType", dbType);
+	public void setHost(String host) {
+		this.host = host;
+		if(host != null){
+			putBodyParameter("Host", host);
 		}
 	}
 
@@ -97,6 +103,39 @@ public class GetUserDatabasesRequest extends RpcAcsRequest<GetUserDatabasesRespo
 		this.gatewayId = gatewayId;
 		if(gatewayId != null){
 			putBodyParameter("GatewayId", gatewayId);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putBodyParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Integer getPort() {
+		return this.port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+		if(port != null){
+			putBodyParameter("Port", port.toString());
+		}
+	}
+
+	public String getDbType() {
+		return this.dbType;
+	}
+
+	public void setDbType(String dbType) {
+		this.dbType = dbType;
+		if(dbType != null){
+			putBodyParameter("DbType", dbType);
 		}
 	}
 

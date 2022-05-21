@@ -27,19 +27,31 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 
 	private String videoSceneList;
 
+	private Boolean scanImageNoFileType;
+
 	private String imageSceneList;
+
+	private String audioSceneList;
 
 	private Integer videoFrameInterval;
 
+	private Boolean audioAutoFreezeOpened;
+
 	private String sourceIp;
+
+	private String callbackId;
 
 	private String imageScanLimit;
 
 	private String videoAutoFreezeSceneList;
 
+	private Integer audioMaxSize;
+
 	private String lang;
 
 	private String imageAutoFreeze;
+
+	private String audioAntispamFreezeConfig;
 
 	private Integer videoMaxSize;
 
@@ -68,6 +80,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		}
 	}
 
+	public Boolean getScanImageNoFileType() {
+		return this.scanImageNoFileType;
+	}
+
+	public void setScanImageNoFileType(Boolean scanImageNoFileType) {
+		this.scanImageNoFileType = scanImageNoFileType;
+		if(scanImageNoFileType != null){
+			putQueryParameter("ScanImageNoFileType", scanImageNoFileType.toString());
+		}
+	}
+
 	public String getImageSceneList() {
 		return this.imageSceneList;
 	}
@@ -76,6 +99,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		this.imageSceneList = imageSceneList;
 		if(imageSceneList != null){
 			putQueryParameter("ImageSceneList", imageSceneList);
+		}
+	}
+
+	public String getAudioSceneList() {
+		return this.audioSceneList;
+	}
+
+	public void setAudioSceneList(String audioSceneList) {
+		this.audioSceneList = audioSceneList;
+		if(audioSceneList != null){
+			putQueryParameter("AudioSceneList", audioSceneList);
 		}
 	}
 
@@ -90,6 +124,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		}
 	}
 
+	public Boolean getAudioAutoFreezeOpened() {
+		return this.audioAutoFreezeOpened;
+	}
+
+	public void setAudioAutoFreezeOpened(Boolean audioAutoFreezeOpened) {
+		this.audioAutoFreezeOpened = audioAutoFreezeOpened;
+		if(audioAutoFreezeOpened != null){
+			putQueryParameter("AudioAutoFreezeOpened", audioAutoFreezeOpened.toString());
+		}
+	}
+
 	public String getSourceIp() {
 		return this.sourceIp;
 	}
@@ -98,6 +143,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		this.sourceIp = sourceIp;
 		if(sourceIp != null){
 			putQueryParameter("SourceIp", sourceIp);
+		}
+	}
+
+	public String getCallbackId() {
+		return this.callbackId;
+	}
+
+	public void setCallbackId(String callbackId) {
+		this.callbackId = callbackId;
+		if(callbackId != null){
+			putQueryParameter("CallbackId", callbackId);
 		}
 	}
 
@@ -123,6 +179,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		}
 	}
 
+	public Integer getAudioMaxSize() {
+		return this.audioMaxSize;
+	}
+
+	public void setAudioMaxSize(Integer audioMaxSize) {
+		this.audioMaxSize = audioMaxSize;
+		if(audioMaxSize != null){
+			putQueryParameter("AudioMaxSize", audioMaxSize.toString());
+		}
+	}
+
 	public String getLang() {
 		return this.lang;
 	}
@@ -142,6 +209,17 @@ public class UpdateOssIncrementCheckSettingRequest extends RpcAcsRequest<UpdateO
 		this.imageAutoFreeze = imageAutoFreeze;
 		if(imageAutoFreeze != null){
 			putQueryParameter("ImageAutoFreeze", imageAutoFreeze);
+		}
+	}
+
+	public String getAudioAntispamFreezeConfig() {
+		return this.audioAntispamFreezeConfig;
+	}
+
+	public void setAudioAntispamFreezeConfig(String audioAntispamFreezeConfig) {
+		this.audioAntispamFreezeConfig = audioAntispamFreezeConfig;
+		if(audioAntispamFreezeConfig != null){
+			putQueryParameter("AudioAntispamFreezeConfig", audioAntispamFreezeConfig);
 		}
 	}
 

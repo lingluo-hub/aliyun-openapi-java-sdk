@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ecs.Endpoint;
 
@@ -31,6 +32,8 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String dataDisk3Category;
 
+	private String isp;
+
 	private Integer dataDisk4Size;
 
 	private String priceUnit;
@@ -39,13 +42,23 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String dataDisk1PerformanceLevel;
 
+	private String assuranceTimes;
+
 	private Long ownerId;
 
+	private Integer instanceCpuCoreCount;
+
+	private String spotStrategy;
+
 	private String internetChargeType;
+
+	private String zoneId;
 
 	private String instanceNetworkType;
 
 	private Integer instanceAmount;
+
+	private List<String> instanceTypeLists;
 
 	private String dataDisk3PerformanceLevel;
 
@@ -71,6 +84,8 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String instanceType;
 
+	private String dedicatedHostType;
+
 	private String dataDisk2Category;
 
 	private Integer dataDisk1Size;
@@ -82,6 +97,8 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 	private String ownerAccount;
 
 	private Integer dataDisk2Size;
+
+	private Integer spotDuration;
 
 	private String resourceType;
 
@@ -134,6 +151,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getIsp() {
+		return this.isp;
+	}
+
+	public void setIsp(String isp) {
+		this.isp = isp;
+		if(isp != null){
+			putQueryParameter("Isp", isp);
+		}
+	}
+
 	public Integer getDataDisk4Size() {
 		return this.dataDisk4Size;
 	}
@@ -178,6 +206,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getAssuranceTimes() {
+		return this.assuranceTimes;
+	}
+
+	public void setAssuranceTimes(String assuranceTimes) {
+		this.assuranceTimes = assuranceTimes;
+		if(assuranceTimes != null){
+			putQueryParameter("AssuranceTimes", assuranceTimes);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -189,6 +228,28 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public Integer getInstanceCpuCoreCount() {
+		return this.instanceCpuCoreCount;
+	}
+
+	public void setInstanceCpuCoreCount(Integer instanceCpuCoreCount) {
+		this.instanceCpuCoreCount = instanceCpuCoreCount;
+		if(instanceCpuCoreCount != null){
+			putQueryParameter("InstanceCpuCoreCount", instanceCpuCoreCount.toString());
+		}
+	}
+
+	public String getSpotStrategy() {
+		return this.spotStrategy;
+	}
+
+	public void setSpotStrategy(String spotStrategy) {
+		this.spotStrategy = spotStrategy;
+		if(spotStrategy != null){
+			putQueryParameter("SpotStrategy", spotStrategy);
+		}
+	}
+
 	public String getInternetChargeType() {
 		return this.internetChargeType;
 	}
@@ -197,6 +258,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.internetChargeType = internetChargeType;
 		if(internetChargeType != null){
 			putQueryParameter("InternetChargeType", internetChargeType);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 
@@ -220,6 +292,19 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		if(instanceAmount != null){
 			putQueryParameter("InstanceAmount", instanceAmount.toString());
 		}
+	}
+
+	public List<String> getInstanceTypeLists() {
+		return this.instanceTypeLists;
+	}
+
+	public void setInstanceTypeLists(List<String> instanceTypeLists) {
+		this.instanceTypeLists = instanceTypeLists;	
+		if (instanceTypeLists != null) {
+			for (int i = 0; i < instanceTypeLists.size(); i++) {
+				putQueryParameter("InstanceTypeList." + (i + 1) , instanceTypeLists.get(i));
+			}
+		}	
 	}
 
 	public String getDataDisk3PerformanceLevel() {
@@ -354,6 +439,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getDedicatedHostType() {
+		return this.dedicatedHostType;
+	}
+
+	public void setDedicatedHostType(String dedicatedHostType) {
+		this.dedicatedHostType = dedicatedHostType;
+		if(dedicatedHostType != null){
+			putQueryParameter("DedicatedHostType", dedicatedHostType);
+		}
+	}
+
 	public String getDataDisk2Category() {
 		return this.dataDisk2Category;
 	}
@@ -417,6 +513,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dataDisk2Size = dataDisk2Size;
 		if(dataDisk2Size != null){
 			putQueryParameter("DataDisk.2.Size", dataDisk2Size.toString());
+		}
+	}
+
+	public Integer getSpotDuration() {
+		return this.spotDuration;
+	}
+
+	public void setSpotDuration(Integer spotDuration) {
+		this.spotDuration = spotDuration;
+		if(spotDuration != null){
+			putQueryParameter("SpotDuration", spotDuration.toString());
 		}
 	}
 

@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.Map;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.oos.Endpoint;
 
 /**
  * @author auto create
@@ -30,10 +31,18 @@ public class CreateTemplateRequest extends RpcAcsRequest<CreateTemplateResponse>
 
 	private Map<Object,Object> tags;
 
+	private String resourceGroupId;
+
 	private String templateName;
+
+	private String versionName;
 	public CreateTemplateRequest() {
 		super("oos", "2019-06-01", "CreateTemplate", "oos");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getContent() {
@@ -58,6 +67,17 @@ public class CreateTemplateRequest extends RpcAcsRequest<CreateTemplateResponse>
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getTemplateName() {
 		return this.templateName;
 	}
@@ -66,6 +86,17 @@ public class CreateTemplateRequest extends RpcAcsRequest<CreateTemplateResponse>
 		this.templateName = templateName;
 		if(templateName != null){
 			putQueryParameter("TemplateName", templateName);
+		}
+	}
+
+	public String getVersionName() {
+		return this.versionName;
+	}
+
+	public void setVersionName(String versionName) {
+		this.versionName = versionName;
+		if(versionName != null){
+			putQueryParameter("VersionName", versionName);
 		}
 	}
 

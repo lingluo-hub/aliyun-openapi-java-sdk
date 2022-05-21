@@ -27,9 +27,13 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 
 	private Long resourceOwnerId;
 
+	private String trunkNetworkInstanceId;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
+
+	private Boolean waitForNetworkConfigurationReady;
 
 	private Long ownerId;
 
@@ -56,6 +60,17 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 		}
 	}
 
+	public String getTrunkNetworkInstanceId() {
+		return this.trunkNetworkInstanceId;
+	}
+
+	public void setTrunkNetworkInstanceId(String trunkNetworkInstanceId) {
+		this.trunkNetworkInstanceId = trunkNetworkInstanceId;
+		if(trunkNetworkInstanceId != null){
+			putQueryParameter("TrunkNetworkInstanceId", trunkNetworkInstanceId);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -75,6 +90,17 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getWaitForNetworkConfigurationReady() {
+		return this.waitForNetworkConfigurationReady;
+	}
+
+	public void setWaitForNetworkConfigurationReady(Boolean waitForNetworkConfigurationReady) {
+		this.waitForNetworkConfigurationReady = waitForNetworkConfigurationReady;
+		if(waitForNetworkConfigurationReady != null){
+			putQueryParameter("WaitForNetworkConfigurationReady", waitForNetworkConfigurationReady.toString());
 		}
 	}
 

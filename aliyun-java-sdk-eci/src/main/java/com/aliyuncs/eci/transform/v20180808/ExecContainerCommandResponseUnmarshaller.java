@@ -24,6 +24,8 @@ public class ExecContainerCommandResponseUnmarshaller {
 		
 		execContainerCommandResponse.setRequestId(context.stringValue("ExecContainerCommandResponse.RequestId"));
 		execContainerCommandResponse.setWebSocketUri(context.stringValue("ExecContainerCommandResponse.WebSocketUri"));
+		execContainerCommandResponse.setHttpUrl(context.stringValue("ExecContainerCommandResponse.HttpUrl"));
+		execContainerCommandResponse.setSyncResponse(context.stringValue("ExecContainerCommandResponse.SyncResponse"));
 	 
 	 	return execContainerCommandResponse;
 	}

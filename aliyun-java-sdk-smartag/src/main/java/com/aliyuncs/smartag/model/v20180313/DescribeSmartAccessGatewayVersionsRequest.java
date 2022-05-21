@@ -33,7 +33,11 @@ public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<Des
 
 	private Long ownerId;
 
+	private String versionType;
+
 	private String smartAGId;
+
+	private String smartAGSn;
 	public DescribeSmartAccessGatewayVersionsRequest() {
 		super("Smartag", "2018-03-13", "DescribeSmartAccessGatewayVersions", "smartag");
 		setMethod(MethodType.POST);
@@ -87,6 +91,17 @@ public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<Des
 		}
 	}
 
+	public String getVersionType() {
+		return this.versionType;
+	}
+
+	public void setVersionType(String versionType) {
+		this.versionType = versionType;
+		if(versionType != null){
+			putQueryParameter("VersionType", versionType);
+		}
+	}
+
 	public String getSmartAGId() {
 		return this.smartAGId;
 	}
@@ -95,6 +110,17 @@ public class DescribeSmartAccessGatewayVersionsRequest extends RpcAcsRequest<Des
 		this.smartAGId = smartAGId;
 		if(smartAGId != null){
 			putQueryParameter("SmartAGId", smartAGId);
+		}
+	}
+
+	public String getSmartAGSn() {
+		return this.smartAGSn;
+	}
+
+	public void setSmartAGSn(String smartAGSn) {
+		this.smartAGSn = smartAGSn;
+		if(smartAGSn != null){
+			putQueryParameter("SmartAGSn", smartAGSn);
 		}
 	}
 

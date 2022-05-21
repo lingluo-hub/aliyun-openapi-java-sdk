@@ -26,12 +26,12 @@ public class DescribeRiskCheckItemResultResponseUnmarshaller {
 		describeRiskCheckItemResultResponse.setRequestId(_ctx.stringValue("DescribeRiskCheckItemResultResponse.RequestId"));
 
 		PageContentResource pageContentResource = new PageContentResource();
-		pageContentResource.setContentResource(_ctx.stringValue("DescribeRiskCheckItemResultResponse.PageContentResource.ContentResource"));
 		pageContentResource.setCurrentPage(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.CurrentPage"));
+		pageContentResource.setContentResource(_ctx.stringValue("DescribeRiskCheckItemResultResponse.PageContentResource.ContentResource"));
 		pageContentResource.setPageSize(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.PageSize"));
 		pageContentResource.setTotalCount(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.TotalCount"));
-		pageContentResource.setCount(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.Count"));
 		pageContentResource.setPageCount(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.PageCount"));
+		pageContentResource.setCount(_ctx.integerValue("DescribeRiskCheckItemResultResponse.PageContentResource.Count"));
 		describeRiskCheckItemResultResponse.setPageContentResource(pageContentResource);
 	 
 	 	return describeRiskCheckItemResultResponse;

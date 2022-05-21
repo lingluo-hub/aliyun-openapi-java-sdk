@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryScriptsByStatusResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Scripts scripts;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Scripts getScripts() {
@@ -87,21 +87,13 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 
 	public static class Scripts {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<Script> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<Script> getList() {
 			return this.list;
 		}
@@ -129,29 +129,45 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 
 		public static class Script {
 
+			private String status;
+
+			private Long updateTime;
+
 			private String scriptId;
 
-			private String scriptName;
+			private String appliedVersion;
 
-			private String scriptDescription;
+			private Boolean isDebugDrafted;
 
 			private String industry;
 
-			private String scene;
+			private String scriptDescription;
 
-			private String status;
+			private Boolean isDrafted;
 
 			private String debugStatus;
 
 			private String debugVersion;
 
-			private String appliedVersion;
+			private String scene;
 
-			private Long updateTime;
+			private String scriptName;
 
-			private Boolean isDrafted;
+			public String getStatus() {
+				return this.status;
+			}
 
-			private Boolean isDebugDrafted;
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public Long getUpdateTime() {
+				return this.updateTime;
+			}
+
+			public void setUpdateTime(Long updateTime) {
+				this.updateTime = updateTime;
+			}
 
 			public String getScriptId() {
 				return this.scriptId;
@@ -161,20 +177,20 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 				this.scriptId = scriptId;
 			}
 
-			public String getScriptName() {
-				return this.scriptName;
+			public String getAppliedVersion() {
+				return this.appliedVersion;
 			}
 
-			public void setScriptName(String scriptName) {
-				this.scriptName = scriptName;
+			public void setAppliedVersion(String appliedVersion) {
+				this.appliedVersion = appliedVersion;
 			}
 
-			public String getScriptDescription() {
-				return this.scriptDescription;
+			public Boolean getIsDebugDrafted() {
+				return this.isDebugDrafted;
 			}
 
-			public void setScriptDescription(String scriptDescription) {
-				this.scriptDescription = scriptDescription;
+			public void setIsDebugDrafted(Boolean isDebugDrafted) {
+				this.isDebugDrafted = isDebugDrafted;
 			}
 
 			public String getIndustry() {
@@ -185,20 +201,20 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 				this.industry = industry;
 			}
 
-			public String getScene() {
-				return this.scene;
+			public String getScriptDescription() {
+				return this.scriptDescription;
 			}
 
-			public void setScene(String scene) {
-				this.scene = scene;
+			public void setScriptDescription(String scriptDescription) {
+				this.scriptDescription = scriptDescription;
 			}
 
-			public String getStatus() {
-				return this.status;
+			public Boolean getIsDrafted() {
+				return this.isDrafted;
 			}
 
-			public void setStatus(String status) {
-				this.status = status;
+			public void setIsDrafted(Boolean isDrafted) {
+				this.isDrafted = isDrafted;
 			}
 
 			public String getDebugStatus() {
@@ -217,36 +233,20 @@ public class QueryScriptsByStatusResponse extends AcsResponse {
 				this.debugVersion = debugVersion;
 			}
 
-			public String getAppliedVersion() {
-				return this.appliedVersion;
+			public String getScene() {
+				return this.scene;
 			}
 
-			public void setAppliedVersion(String appliedVersion) {
-				this.appliedVersion = appliedVersion;
+			public void setScene(String scene) {
+				this.scene = scene;
 			}
 
-			public Long getUpdateTime() {
-				return this.updateTime;
+			public String getScriptName() {
+				return this.scriptName;
 			}
 
-			public void setUpdateTime(Long updateTime) {
-				this.updateTime = updateTime;
-			}
-
-			public Boolean getIsDrafted() {
-				return this.isDrafted;
-			}
-
-			public void setIsDrafted(Boolean isDrafted) {
-				this.isDrafted = isDrafted;
-			}
-
-			public Boolean getIsDebugDrafted() {
-				return this.isDebugDrafted;
-			}
-
-			public void setIsDebugDrafted(Boolean isDebugDrafted) {
-				this.isDebugDrafted = isDebugDrafted;
+			public void setScriptName(String scriptName) {
+				this.scriptName = scriptName;
 			}
 		}
 	}

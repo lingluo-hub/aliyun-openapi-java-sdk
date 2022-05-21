@@ -15,6 +15,7 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.iot.Endpoint;
 
@@ -33,9 +34,11 @@ public class ListOTATaskByJobRequest extends RpcAcsRequest<ListOTATaskByJobRespo
 
 	private Integer pageSize;
 
+	private List<String> deviceNamess;
+
 	private Integer currentPage;
 	public ListOTATaskByJobRequest() {
-		super("Iot", "2018-01-20", "ListOTATaskByJob", "Iot");
+		super("Iot", "2018-01-20", "ListOTATaskByJob");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -85,6 +88,19 @@ public class ListOTATaskByJobRequest extends RpcAcsRequest<ListOTATaskByJobRespo
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
 		}
+	}
+
+	public List<String> getDeviceNamess() {
+		return this.deviceNamess;
+	}
+
+	public void setDeviceNamess(List<String> deviceNamess) {
+		this.deviceNamess = deviceNamess;	
+		if (deviceNamess != null) {
+			for (int i = 0; i < deviceNamess.size(); i++) {
+				putQueryParameter("DeviceNames." + (i + 1) , deviceNamess.get(i));
+			}
+		}	
 	}
 
 	public Integer getCurrentPage() {

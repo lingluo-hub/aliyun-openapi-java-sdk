@@ -28,32 +28,32 @@ public class ListRecordingsResponseUnmarshaller {
 	public static ListRecordingsResponse unmarshall(ListRecordingsResponse listRecordingsResponse, UnmarshallerContext _ctx) {
 		
 		listRecordingsResponse.setRequestId(_ctx.stringValue("ListRecordingsResponse.RequestId"));
-		listRecordingsResponse.setSuccess(_ctx.booleanValue("ListRecordingsResponse.Success"));
+		listRecordingsResponse.setHttpStatusCode(_ctx.integerValue("ListRecordingsResponse.HttpStatusCode"));
 		listRecordingsResponse.setCode(_ctx.stringValue("ListRecordingsResponse.Code"));
 		listRecordingsResponse.setMessage(_ctx.stringValue("ListRecordingsResponse.Message"));
-		listRecordingsResponse.setHttpStatusCode(_ctx.integerValue("ListRecordingsResponse.HttpStatusCode"));
+		listRecordingsResponse.setSuccess(_ctx.booleanValue("ListRecordingsResponse.Success"));
 
 		Recordings recordings = new Recordings();
-		recordings.setTotalCount(_ctx.integerValue("ListRecordingsResponse.Recordings.TotalCount"));
 		recordings.setPageNumber(_ctx.integerValue("ListRecordingsResponse.Recordings.PageNumber"));
 		recordings.setPageSize(_ctx.integerValue("ListRecordingsResponse.Recordings.PageSize"));
+		recordings.setTotalCount(_ctx.integerValue("ListRecordingsResponse.Recordings.TotalCount"));
 
 		List<Recording> list = new ArrayList<Recording>();
 		for (int i = 0; i < _ctx.lengthValue("ListRecordingsResponse.Recordings.List.Length"); i++) {
 			Recording recording = new Recording();
-			recording.setContactId(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].ContactId"));
 			recording.setContactType(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].ContactType"));
 			recording.setAgentId(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].AgentId"));
 			recording.setAgentName(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].AgentName"));
-			recording.setCallingNumber(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].CallingNumber"));
+			recording.setInstanceId(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].InstanceId"));
+			recording.setFileName(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].FileName"));
 			recording.setCalledNumber(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].CalledNumber"));
 			recording.setStartTime(_ctx.longValue("ListRecordingsResponse.Recordings.List["+ i +"].StartTime"));
-			recording.setDuration(_ctx.integerValue("ListRecordingsResponse.Recordings.List["+ i +"].Duration"));
-			recording.setFileName(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].FileName"));
 			recording.setFilePath(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].FilePath"));
+			recording.setContactId(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].ContactId"));
+			recording.setCallingNumber(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].CallingNumber"));
+			recording.setDuration(_ctx.integerValue("ListRecordingsResponse.Recordings.List["+ i +"].Duration"));
 			recording.setFileDescription(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].FileDescription"));
 			recording.setChannel(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].Channel"));
-			recording.setInstanceId(_ctx.stringValue("ListRecordingsResponse.Recordings.List["+ i +"].InstanceId"));
 
 			list.add(recording);
 		}

@@ -26,6 +26,8 @@ public class StartStreamResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String name;
+
 	private String id;
 
 	public String getRequestId() {
@@ -34,6 +36,14 @@ public class StartStreamResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getId() {

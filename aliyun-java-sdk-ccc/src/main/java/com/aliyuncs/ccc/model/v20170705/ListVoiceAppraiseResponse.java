@@ -25,19 +25,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListVoiceAppraiseResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
 	private Boolean success;
+
+	private String notice;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
-
-	private String notice;
-
 	private ContactFlow contactFlow;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -53,6 +61,14 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public String getNotice() {
+		return this.notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 
 	public String getCode() {
@@ -71,22 +87,6 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
-	public String getNotice() {
-		return this.notice;
-	}
-
-	public void setNotice(String notice) {
-		this.notice = notice;
-	}
-
 	public ContactFlow getContactFlow() {
 		return this.contactFlow;
 	}
@@ -97,45 +97,21 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 
 	public static class ContactFlow {
 
-		private String contactFlowId;
-
-		private String instanceId;
-
-		private String contactFlowName;
-
 		private String contactFlowDescription;
 
 		private String type;
+
+		private String contactFlowName;
+
+		private String instanceId;
+
+		private String contactFlowId;
 
 		private String appliedVersion;
 
 		private List<ContactFlowVersion> versions;
 
 		private List<PhoneNumber> phoneNumbers;
-
-		public String getContactFlowId() {
-			return this.contactFlowId;
-		}
-
-		public void setContactFlowId(String contactFlowId) {
-			this.contactFlowId = contactFlowId;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getContactFlowName() {
-			return this.contactFlowName;
-		}
-
-		public void setContactFlowName(String contactFlowName) {
-			this.contactFlowName = contactFlowName;
-		}
 
 		public String getContactFlowDescription() {
 			return this.contactFlowDescription;
@@ -151,6 +127,30 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 
 		public void setType(String type) {
 			this.type = type;
+		}
+
+		public String getContactFlowName() {
+			return this.contactFlowName;
+		}
+
+		public void setContactFlowName(String contactFlowName) {
+			this.contactFlowName = contactFlowName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getContactFlowId() {
+			return this.contactFlowId;
+		}
+
+		public void setContactFlowId(String contactFlowId) {
+			this.contactFlowId = contactFlowId;
 		}
 
 		public String getAppliedVersion() {
@@ -179,66 +179,26 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 
 		public static class ContactFlowVersion {
 
-			private String contactFlowVersionId;
-
-			private String version;
-
-			private String contactFlowVersionDescription;
-
-			private String content;
+			private String status;
 
 			private String lastModified;
 
+			private String version;
+
+			private String contactFlowVersionId;
+
+			private String contactFlowVersionDescription;
+
 			private String lastModifiedBy;
 
-			private String status;
+			private String content;
 
-			public String getContactFlowVersionId() {
-				return this.contactFlowVersionId;
+			public String getStatus() {
+				return this.status;
 			}
 
-			public void setContactFlowVersionId(String contactFlowVersionId) {
-				this.contactFlowVersionId = contactFlowVersionId;
-			}
-
-			public String getBizVersion() {
-				return this.version;
-			}
-
-			public void setBizVersion(String version) {
-				this.version = version;
-			}
-
-			/**
-			 * @deprecated use getBizVersion instead of this.
-			 */
-			@Deprecated
-			public String getVersion() {
-				return this.version;
-			}
-
-			/**
-			 * @deprecated use setBizVersion instead of this.
-			 */
-			@Deprecated
-			public void setVersion(String version) {
-				this.version = version;
-			}
-
-			public String getContactFlowVersionDescription() {
-				return this.contactFlowVersionDescription;
-			}
-
-			public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
-				this.contactFlowVersionDescription = contactFlowVersionDescription;
-			}
-
-			public String getContent() {
-				return this.content;
-			}
-
-			public void setContent(String content) {
-				this.content = content;
+			public void setStatus(String status) {
+				this.status = status;
 			}
 
 			public String getLastModified() {
@@ -249,6 +209,30 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 				this.lastModified = lastModified;
 			}
 
+			public String getVersion() {
+				return this.version;
+			}
+
+			public void setVersion(String version) {
+				this.version = version;
+			}
+
+			public String getContactFlowVersionId() {
+				return this.contactFlowVersionId;
+			}
+
+			public void setContactFlowVersionId(String contactFlowVersionId) {
+				this.contactFlowVersionId = contactFlowVersionId;
+			}
+
+			public String getContactFlowVersionDescription() {
+				return this.contactFlowVersionDescription;
+			}
+
+			public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
+				this.contactFlowVersionDescription = contactFlowVersionDescription;
+			}
+
 			public String getLastModifiedBy() {
 				return this.lastModifiedBy;
 			}
@@ -257,43 +241,35 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 				this.lastModifiedBy = lastModifiedBy;
 			}
 
-			public String getStatus() {
-				return this.status;
+			public String getContent() {
+				return this.content;
 			}
 
-			public void setStatus(String status) {
-				this.status = status;
+			public void setContent(String content) {
+				this.content = content;
 			}
 		}
 
 		public static class PhoneNumber {
 
-			private String phoneNumberId;
-
-			private String instanceId;
+			private Integer trunks;
 
 			private String number;
 
-			private String phoneNumberDescription;
-
 			private Integer remainingTime;
 
-			private Integer trunks;
+			private String instanceId;
 
-			public String getPhoneNumberId() {
-				return this.phoneNumberId;
+			private String phoneNumberDescription;
+
+			private String phoneNumberId;
+
+			public Integer getTrunks() {
+				return this.trunks;
 			}
 
-			public void setPhoneNumberId(String phoneNumberId) {
-				this.phoneNumberId = phoneNumberId;
-			}
-
-			public String getInstanceId() {
-				return this.instanceId;
-			}
-
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
+			public void setTrunks(Integer trunks) {
+				this.trunks = trunks;
 			}
 
 			public String getNumber() {
@@ -304,14 +280,6 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 				this.number = number;
 			}
 
-			public String getPhoneNumberDescription() {
-				return this.phoneNumberDescription;
-			}
-
-			public void setPhoneNumberDescription(String phoneNumberDescription) {
-				this.phoneNumberDescription = phoneNumberDescription;
-			}
-
 			public Integer getRemainingTime() {
 				return this.remainingTime;
 			}
@@ -320,12 +288,28 @@ public class ListVoiceAppraiseResponse extends AcsResponse {
 				this.remainingTime = remainingTime;
 			}
 
-			public Integer getTrunks() {
-				return this.trunks;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setTrunks(Integer trunks) {
-				this.trunks = trunks;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
+			}
+
+			public String getPhoneNumberDescription() {
+				return this.phoneNumberDescription;
+			}
+
+			public void setPhoneNumberDescription(String phoneNumberDescription) {
+				this.phoneNumberDescription = phoneNumberDescription;
+			}
+
+			public String getPhoneNumberId() {
+				return this.phoneNumberId;
+			}
+
+			public void setPhoneNumberId(String phoneNumberId) {
+				this.phoneNumberId = phoneNumberId;
 			}
 		}
 	}

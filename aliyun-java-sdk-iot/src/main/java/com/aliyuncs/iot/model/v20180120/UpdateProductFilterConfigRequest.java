@@ -27,11 +27,13 @@ public class UpdateProductFilterConfigRequest extends RpcAcsRequest<UpdateProduc
 
 	private Boolean propertyTimestampFilter;
 
+	private String iotInstanceId;
+
 	private String productKey;
 
 	private Boolean propertyValueFilter;
 	public UpdateProductFilterConfigRequest() {
-		super("Iot", "2018-01-20", "UpdateProductFilterConfig", "Iot");
+		super("Iot", "2018-01-20", "UpdateProductFilterConfig");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -47,6 +49,17 @@ public class UpdateProductFilterConfigRequest extends RpcAcsRequest<UpdateProduc
 		this.propertyTimestampFilter = propertyTimestampFilter;
 		if(propertyTimestampFilter != null){
 			putQueryParameter("PropertyTimestampFilter", propertyTimestampFilter.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 

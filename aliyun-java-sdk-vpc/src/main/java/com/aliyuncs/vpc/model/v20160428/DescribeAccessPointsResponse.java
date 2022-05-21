@@ -77,29 +77,23 @@ public class DescribeAccessPointsResponse extends AcsResponse {
 
 	public static class AccessPointType {
 
-		private String accessPointId;
-
 		private String status;
 
 		private String type;
 
-		private String attachedRegionNo;
-
-		private String location;
-
 		private String hostOperator;
-
-		private String name;
 
 		private String description;
 
-		public String getAccessPointId() {
-			return this.accessPointId;
-		}
+		private String attachedRegionNo;
 
-		public void setAccessPointId(String accessPointId) {
-			this.accessPointId = accessPointId;
-		}
+		private String name;
+
+		private String accessPointId;
+
+		private String location;
+
+		private List<AccessPointFeatureModel> accessPointFeatureModels;
 
 		public String getStatus() {
 			return this.status;
@@ -117,28 +111,28 @@ public class DescribeAccessPointsResponse extends AcsResponse {
 			this.type = type;
 		}
 
-		public String getAttachedRegionNo() {
-			return this.attachedRegionNo;
-		}
-
-		public void setAttachedRegionNo(String attachedRegionNo) {
-			this.attachedRegionNo = attachedRegionNo;
-		}
-
-		public String getLocation() {
-			return this.location;
-		}
-
-		public void setLocation(String location) {
-			this.location = location;
-		}
-
 		public String getHostOperator() {
 			return this.hostOperator;
 		}
 
 		public void setHostOperator(String hostOperator) {
 			this.hostOperator = hostOperator;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getAttachedRegionNo() {
+			return this.attachedRegionNo;
+		}
+
+		public void setAttachedRegionNo(String attachedRegionNo) {
+			this.attachedRegionNo = attachedRegionNo;
 		}
 
 		public String getName() {
@@ -149,12 +143,51 @@ public class DescribeAccessPointsResponse extends AcsResponse {
 			this.name = name;
 		}
 
-		public String getDescription() {
-			return this.description;
+		public String getAccessPointId() {
+			return this.accessPointId;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
+		public void setAccessPointId(String accessPointId) {
+			this.accessPointId = accessPointId;
+		}
+
+		public String getLocation() {
+			return this.location;
+		}
+
+		public void setLocation(String location) {
+			this.location = location;
+		}
+
+		public List<AccessPointFeatureModel> getAccessPointFeatureModels() {
+			return this.accessPointFeatureModels;
+		}
+
+		public void setAccessPointFeatureModels(List<AccessPointFeatureModel> accessPointFeatureModels) {
+			this.accessPointFeatureModels = accessPointFeatureModels;
+		}
+
+		public static class AccessPointFeatureModel {
+
+			private String featureValue;
+
+			private String featureKey;
+
+			public String getFeatureValue() {
+				return this.featureValue;
+			}
+
+			public void setFeatureValue(String featureValue) {
+				this.featureValue = featureValue;
+			}
+
+			public String getFeatureKey() {
+				return this.featureKey;
+			}
+
+			public void setFeatureKey(String featureKey) {
+				this.featureKey = featureKey;
+			}
 		}
 	}
 

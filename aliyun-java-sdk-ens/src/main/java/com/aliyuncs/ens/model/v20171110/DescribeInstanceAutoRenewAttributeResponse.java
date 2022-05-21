@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeInstanceAutoRenewAttributeResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
 
+	private String requestId;
+
 	private List<InstanceRenewAttribute> instanceRenewAttributes;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -45,6 +37,14 @@ public class DescribeInstanceAutoRenewAttributeResponse extends AcsResponse {
 
 	public void setCode(Integer code) {
 		this.code = code;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<InstanceRenewAttribute> getInstanceRenewAttributes() {
@@ -57,19 +57,11 @@ public class DescribeInstanceAutoRenewAttributeResponse extends AcsResponse {
 
 	public static class InstanceRenewAttribute {
 
-		private String instanceId;
-
 		private Boolean autoRenewal;
 
 		private String duration;
 
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
+		private String instanceId;
 
 		public Boolean getAutoRenewal() {
 			return this.autoRenewal;
@@ -85,6 +77,14 @@ public class DescribeInstanceAutoRenewAttributeResponse extends AcsResponse {
 
 		public void setDuration(String duration) {
 			this.duration = duration;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 	}
 

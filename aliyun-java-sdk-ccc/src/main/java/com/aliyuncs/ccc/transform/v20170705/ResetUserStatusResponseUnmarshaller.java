@@ -23,10 +23,10 @@ public class ResetUserStatusResponseUnmarshaller {
 	public static ResetUserStatusResponse unmarshall(ResetUserStatusResponse resetUserStatusResponse, UnmarshallerContext _ctx) {
 		
 		resetUserStatusResponse.setRequestId(_ctx.stringValue("ResetUserStatusResponse.RequestId"));
-		resetUserStatusResponse.setSuccess(_ctx.booleanValue("ResetUserStatusResponse.Success"));
+		resetUserStatusResponse.setHttpStatusCode(_ctx.integerValue("ResetUserStatusResponse.HttpStatusCode"));
 		resetUserStatusResponse.setCode(_ctx.stringValue("ResetUserStatusResponse.Code"));
 		resetUserStatusResponse.setMessage(_ctx.stringValue("ResetUserStatusResponse.Message"));
-		resetUserStatusResponse.setHttpStatusCode(_ctx.integerValue("ResetUserStatusResponse.HttpStatusCode"));
+		resetUserStatusResponse.setSuccess(_ctx.booleanValue("ResetUserStatusResponse.Success"));
 	 
 	 	return resetUserStatusResponse;
 	}

@@ -28,15 +28,15 @@ public class BindSlbResponseUnmarshaller {
 		bindSlbResponse.setMessage(_ctx.stringValue("BindSlbResponse.Message"));
 
 		Data data = new Data();
-		data.setSlbName(_ctx.stringValue("BindSlbResponse.Data.SlbName"));
+		data.setVServerGroupId(_ctx.stringValue("BindSlbResponse.Data.VServerGroupId"));
 		data.setSlbId(_ctx.stringValue("BindSlbResponse.Data.SlbId"));
-		data.setSlbIp(_ctx.stringValue("BindSlbResponse.Data.SlbIp"));
-		data.setExtSlbName(_ctx.stringValue("BindSlbResponse.Data.ExtSlbName"));
-		data.setExtSlbId(_ctx.stringValue("BindSlbResponse.Data.ExtSlbId"));
 		data.setExtSlbIp(_ctx.stringValue("BindSlbResponse.Data.ExtSlbIp"));
 		data.setSlbPort(_ctx.integerValue("BindSlbResponse.Data.SlbPort"));
-		data.setVServerGroupId(_ctx.stringValue("BindSlbResponse.Data.VServerGroupId"));
+		data.setExtSlbName(_ctx.stringValue("BindSlbResponse.Data.ExtSlbName"));
+		data.setExtSlbId(_ctx.stringValue("BindSlbResponse.Data.ExtSlbId"));
 		data.setExtVServerGroupId(_ctx.stringValue("BindSlbResponse.Data.ExtVServerGroupId"));
+		data.setSlbName(_ctx.stringValue("BindSlbResponse.Data.SlbName"));
+		data.setSlbIp(_ctx.stringValue("BindSlbResponse.Data.SlbIp"));
 		bindSlbResponse.setData(data);
 	 
 	 	return bindSlbResponse;

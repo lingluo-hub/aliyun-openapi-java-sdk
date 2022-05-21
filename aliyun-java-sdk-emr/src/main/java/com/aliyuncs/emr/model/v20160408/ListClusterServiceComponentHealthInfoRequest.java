@@ -15,6 +15,7 @@
 package com.aliyuncs.emr.model.v20160408;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.http.MethodType;
 import com.aliyuncs.emr.Endpoint;
 
 /**
@@ -22,20 +23,23 @@ import com.aliyuncs.emr.Endpoint;
  * @version 
  */
 public class ListClusterServiceComponentHealthInfoRequest extends RpcAcsRequest<ListClusterServiceComponentHealthInfoResponse> {
-	
+	   
+
+	private Long resourceOwnerId;
+
+	private String componentName;
+
+	private String clusterId;
+
+	private String serviceName;
 	public ListClusterServiceComponentHealthInfoRequest() {
 		super("Emr", "2016-04-08", "ListClusterServiceComponentHealthInfo", "emr");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
-
-	private Long resourceOwnerId;
-
-	private String serviceName;
-
-	private String clusterId;
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
@@ -48,14 +52,14 @@ public class ListClusterServiceComponentHealthInfoRequest extends RpcAcsRequest<
 		}
 	}
 
-	public String getServiceName() {
-		return this.serviceName;
+	public String getComponentName() {
+		return this.componentName;
 	}
 
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-		if(serviceName != null){
-			putQueryParameter("ServiceName", serviceName);
+	public void setComponentName(String componentName) {
+		this.componentName = componentName;
+		if(componentName != null){
+			putQueryParameter("ComponentName", componentName);
 		}
 	}
 
@@ -67,6 +71,17 @@ public class ListClusterServiceComponentHealthInfoRequest extends RpcAcsRequest<
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getServiceName() {
+		return this.serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+		if(serviceName != null){
+			putQueryParameter("ServiceName", serviceName);
 		}
 	}
 

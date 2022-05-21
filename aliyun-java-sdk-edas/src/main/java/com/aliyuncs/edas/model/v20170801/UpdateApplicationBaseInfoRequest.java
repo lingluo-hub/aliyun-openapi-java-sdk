@@ -25,6 +25,8 @@ import com.aliyuncs.edas.Endpoint;
 public class UpdateApplicationBaseInfoRequest extends RoaAcsRequest<UpdateApplicationBaseInfoResponse> {
 	   
 
+	private String owner;
+
 	private String appName;
 
 	private String appId;
@@ -38,6 +40,17 @@ public class UpdateApplicationBaseInfoRequest extends RoaAcsRequest<UpdateApplic
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getOwner() {
+		return this.owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+		if(owner != null){
+			putQueryParameter("Owner", owner);
+		}
 	}
 
 	public String getAppName() {
@@ -69,7 +82,7 @@ public class UpdateApplicationBaseInfoRequest extends RoaAcsRequest<UpdateApplic
 	public void setDesc(String desc) {
 		this.desc = desc;
 		if(desc != null){
-			putQueryParameter("desc", desc);
+			putQueryParameter("Desc", desc);
 		}
 	}
 

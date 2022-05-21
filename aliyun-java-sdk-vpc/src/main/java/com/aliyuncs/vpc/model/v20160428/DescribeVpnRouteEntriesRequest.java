@@ -31,6 +31,8 @@ public class DescribeVpnRouteEntriesRequest extends RpcAcsRequest<DescribeVpnRou
 
 	private Integer pageSize;
 
+	private String routeEntryType;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -39,7 +41,7 @@ public class DescribeVpnRouteEntriesRequest extends RpcAcsRequest<DescribeVpnRou
 
 	private Long ownerId;
 	public DescribeVpnRouteEntriesRequest() {
-		super("Vpc", "2016-04-28", "DescribeVpnRouteEntries", "Vpc");
+		super("Vpc", "2016-04-28", "DescribeVpnRouteEntries", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -77,6 +79,17 @@ public class DescribeVpnRouteEntriesRequest extends RpcAcsRequest<DescribeVpnRou
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getRouteEntryType() {
+		return this.routeEntryType;
+	}
+
+	public void setRouteEntryType(String routeEntryType) {
+		this.routeEntryType = routeEntryType;
+		if(routeEntryType != null){
+			putQueryParameter("RouteEntryType", routeEntryType);
 		}
 	}
 

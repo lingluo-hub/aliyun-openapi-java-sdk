@@ -14,6 +14,7 @@
 
 package com.aliyuncs.ccc.model.v20170705;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.ccc.transform.v20170705.AssignUsersResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,30 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class AssignUsersResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
 
-	public String getRequestId() {
-		return this.requestId;
+	private Boolean success;
+
+	private List<User> data;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -66,12 +61,71 @@ public class AssignUsersResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
+	public List<User> getData() {
+		return this.data;
+	}
+
+	public void setData(List<User> data) {
+		this.data = data;
+	}
+
+	public static class User {
+
+		private String instanceId;
+
+		private String userId;
+
+		private String ramId;
+
+		private Boolean primary;
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getUserId() {
+			return this.userId;
+		}
+
+		public void setUserId(String userId) {
+			this.userId = userId;
+		}
+
+		public String getRamId() {
+			return this.ramId;
+		}
+
+		public void setRamId(String ramId) {
+			this.ramId = ramId;
+		}
+
+		public Boolean getPrimary() {
+			return this.primary;
+		}
+
+		public void setPrimary(Boolean primary) {
+			this.primary = primary;
+		}
 	}
 
 	@Override

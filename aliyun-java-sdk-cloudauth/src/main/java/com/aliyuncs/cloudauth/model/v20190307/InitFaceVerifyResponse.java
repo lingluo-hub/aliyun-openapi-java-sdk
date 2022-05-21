@@ -24,20 +24,20 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class InitFaceVerifyResponse extends AcsResponse {
 
-	private String requestId;
+	private String code;
 
 	private String message;
 
-	private String code;
+	private String requestId;
 
 	private ResultObject resultObject;
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getMessage() {
@@ -48,12 +48,12 @@ public class InitFaceVerifyResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public ResultObject getResultObject() {
@@ -68,12 +68,22 @@ public class InitFaceVerifyResponse extends AcsResponse {
 
 		private String certifyId;
 
+		private String certifyUrl;
+
 		public String getCertifyId() {
 			return this.certifyId;
 		}
 
 		public void setCertifyId(String certifyId) {
 			this.certifyId = certifyId;
+		}
+
+		public String getCertifyUrl() {
+			return this.certifyUrl;
+		}
+
+		public void setCertifyUrl(String certifyUrl) {
+			this.certifyUrl = certifyUrl;
 		}
 	}
 

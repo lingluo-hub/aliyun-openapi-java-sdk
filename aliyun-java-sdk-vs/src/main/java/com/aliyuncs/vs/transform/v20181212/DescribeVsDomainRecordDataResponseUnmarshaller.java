@@ -27,14 +27,12 @@ public class DescribeVsDomainRecordDataResponseUnmarshaller {
 	public static DescribeVsDomainRecordDataResponse unmarshall(DescribeVsDomainRecordDataResponse describeVsDomainRecordDataResponse, UnmarshallerContext _ctx) {
 		
 		describeVsDomainRecordDataResponse.setRequestId(_ctx.stringValue("DescribeVsDomainRecordDataResponse.RequestId"));
-		describeVsDomainRecordDataResponse.setDomainName(_ctx.stringValue("DescribeVsDomainRecordDataResponse.DomainName"));
-		describeVsDomainRecordDataResponse.setStartTime(_ctx.stringValue("DescribeVsDomainRecordDataResponse.StartTime"));
-		describeVsDomainRecordDataResponse.setEndTime(_ctx.stringValue("DescribeVsDomainRecordDataResponse.EndTime"));
 
 		List<DataModule> recordDataPerInterval = new ArrayList<DataModule>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeVsDomainRecordDataResponse.RecordDataPerInterval.Length"); i++) {
 			DataModule dataModule = new DataModule();
 			dataModule.setTimeStamp(_ctx.stringValue("DescribeVsDomainRecordDataResponse.RecordDataPerInterval["+ i +"].TimeStamp"));
+			dataModule.setStreamCountValue(_ctx.stringValue("DescribeVsDomainRecordDataResponse.RecordDataPerInterval["+ i +"].StreamCountValue"));
 			dataModule.setRecordValue(_ctx.stringValue("DescribeVsDomainRecordDataResponse.RecordDataPerInterval["+ i +"].RecordValue"));
 
 			recordDataPerInterval.add(dataModule);

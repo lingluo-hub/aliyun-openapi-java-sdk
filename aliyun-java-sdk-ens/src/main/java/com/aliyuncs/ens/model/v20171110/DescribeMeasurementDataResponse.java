@@ -51,11 +51,13 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 
 		private String costCycle;
 
-		private String costStartTime;
-
 		private String costEndTime;
 
+		private String costStartTime;
+
 		private List<BandWidthFeeData> bandWidthFeeDatas;
+
+		private List<ResourceFeeDataDetail> resourceFeeDataDetails;
 
 		private ResourceFeeData resourceFeeData;
 
@@ -75,14 +77,6 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 			this.costCycle = costCycle;
 		}
 
-		public String getCostStartTime() {
-			return this.costStartTime;
-		}
-
-		public void setCostStartTime(String costStartTime) {
-			this.costStartTime = costStartTime;
-		}
-
 		public String getCostEndTime() {
 			return this.costEndTime;
 		}
@@ -91,12 +85,28 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 			this.costEndTime = costEndTime;
 		}
 
+		public String getCostStartTime() {
+			return this.costStartTime;
+		}
+
+		public void setCostStartTime(String costStartTime) {
+			this.costStartTime = costStartTime;
+		}
+
 		public List<BandWidthFeeData> getBandWidthFeeDatas() {
 			return this.bandWidthFeeDatas;
 		}
 
 		public void setBandWidthFeeDatas(List<BandWidthFeeData> bandWidthFeeDatas) {
 			this.bandWidthFeeDatas = bandWidthFeeDatas;
+		}
+
+		public List<ResourceFeeDataDetail> getResourceFeeDataDetails() {
+			return this.resourceFeeDataDetails;
+		}
+
+		public void setResourceFeeDataDetails(List<ResourceFeeDataDetail> resourceFeeDataDetails) {
+			this.resourceFeeDataDetails = resourceFeeDataDetails;
 		}
 
 		public ResourceFeeData getResourceFeeData() {
@@ -109,19 +119,11 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 
 		public static class BandWidthFeeData {
 
-			private Integer costVal;
-
 			private String costCode;
 
 			private String costName;
 
-			public Integer getCostVal() {
-				return this.costVal;
-			}
-
-			public void setCostVal(Integer costVal) {
-				this.costVal = costVal;
-			}
+			private Integer costVal;
 
 			public String getCostCode() {
 				return this.costCode;
@@ -138,23 +140,66 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 			public void setCostName(String costName) {
 				this.costName = costName;
 			}
+
+			public Integer getCostVal() {
+				return this.costVal;
+			}
+
+			public void setCostVal(Integer costVal) {
+				this.costVal = costVal;
+			}
+		}
+
+		public static class ResourceFeeDataDetail {
+
+			private String costCode;
+
+			private String costName;
+
+			private Integer costVal;
+
+			private String resourceType;
+
+			public String getCostCode() {
+				return this.costCode;
+			}
+
+			public void setCostCode(String costCode) {
+				this.costCode = costCode;
+			}
+
+			public String getCostName() {
+				return this.costName;
+			}
+
+			public void setCostName(String costName) {
+				this.costName = costName;
+			}
+
+			public Integer getCostVal() {
+				return this.costVal;
+			}
+
+			public void setCostVal(Integer costVal) {
+				this.costVal = costVal;
+			}
+
+			public String getResourceType() {
+				return this.resourceType;
+			}
+
+			public void setResourceType(String resourceType) {
+				this.resourceType = resourceType;
+			}
 		}
 
 		public static class ResourceFeeData {
 
-			private Integer storage;
-
 			private Integer memory;
 
+			private Integer storage;
+
 			private Integer vcpu;
-
-			public Integer getStorage() {
-				return this.storage;
-			}
-
-			public void setStorage(Integer storage) {
-				this.storage = storage;
-			}
 
 			public Integer getMemory() {
 				return this.memory;
@@ -162,6 +207,14 @@ public class DescribeMeasurementDataResponse extends AcsResponse {
 
 			public void setMemory(Integer memory) {
 				this.memory = memory;
+			}
+
+			public Integer getStorage() {
+				return this.storage;
+			}
+
+			public void setStorage(Integer storage) {
+				this.storage = storage;
 			}
 
 			public Integer getVcpu() {

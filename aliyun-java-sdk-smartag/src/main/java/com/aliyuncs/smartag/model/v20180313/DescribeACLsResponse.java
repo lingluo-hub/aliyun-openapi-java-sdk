@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeACLsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<Acl> acls;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeACLsResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<Acl> getAcls() {
@@ -77,11 +77,21 @@ public class DescribeACLsResponse extends AcsResponse {
 
 	public static class Acl {
 
+		private String sagCount;
+
 		private String aclId;
 
 		private String name;
 
-		private String sagCount;
+		private String resourceGroupId;
+
+		public String getSagCount() {
+			return this.sagCount;
+		}
+
+		public void setSagCount(String sagCount) {
+			this.sagCount = sagCount;
+		}
 
 		public String getAclId() {
 			return this.aclId;
@@ -99,12 +109,12 @@ public class DescribeACLsResponse extends AcsResponse {
 			this.name = name;
 		}
 
-		public String getSagCount() {
-			return this.sagCount;
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
 		}
 
-		public void setSagCount(String sagCount) {
-			this.sagCount = sagCount;
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

@@ -27,34 +27,34 @@ public class GetOrderBaseInfoResponseUnmarshaller {
 	public static GetOrderBaseInfoResponse unmarshall(GetOrderBaseInfoResponse getOrderBaseInfoResponse, UnmarshallerContext _ctx) {
 		
 		getOrderBaseInfoResponse.setRequestId(_ctx.stringValue("GetOrderBaseInfoResponse.RequestId"));
-		getOrderBaseInfoResponse.setSuccess(_ctx.booleanValue("GetOrderBaseInfoResponse.Success"));
-		getOrderBaseInfoResponse.setErrorMessage(_ctx.stringValue("GetOrderBaseInfoResponse.ErrorMessage"));
 		getOrderBaseInfoResponse.setErrorCode(_ctx.stringValue("GetOrderBaseInfoResponse.ErrorCode"));
+		getOrderBaseInfoResponse.setErrorMessage(_ctx.stringValue("GetOrderBaseInfoResponse.ErrorMessage"));
+		getOrderBaseInfoResponse.setSuccess(_ctx.booleanValue("GetOrderBaseInfoResponse.Success"));
 
 		OrderBaseInfo orderBaseInfo = new OrderBaseInfo();
 		orderBaseInfo.setComment(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.Comment"));
-		orderBaseInfo.setCommitter(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.Committer"));
-		orderBaseInfo.setCommitterId(_ctx.longValue("GetOrderBaseInfoResponse.OrderBaseInfo.CommitterId"));
 		orderBaseInfo.setCreateTime(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.CreateTime"));
-		orderBaseInfo.setLastModifyTime(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.LastModifyTime"));
-		orderBaseInfo.setOrderId(_ctx.longValue("GetOrderBaseInfoResponse.OrderBaseInfo.OrderId"));
-		orderBaseInfo.setPluginType(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.PluginType"));
-		orderBaseInfo.setStatusCode(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.StatusCode"));
-		orderBaseInfo.setStatusDesc(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.StatusDesc"));
+		orderBaseInfo.setCommitter(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.Committer"));
 		orderBaseInfo.setWorkflowInstanceId(_ctx.longValue("GetOrderBaseInfoResponse.OrderBaseInfo.WorkflowInstanceId"));
+		orderBaseInfo.setCommitterId(_ctx.longValue("GetOrderBaseInfoResponse.OrderBaseInfo.CommitterId"));
+		orderBaseInfo.setLastModifyTime(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.LastModifyTime"));
+		orderBaseInfo.setStatusCode(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.StatusCode"));
 		orderBaseInfo.setWorkflowStatusDesc(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.WorkflowStatusDesc"));
-
-		List<String> relatedUserList = new ArrayList<String>();
-		for (int i = 0; i < _ctx.lengthValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserList.Length"); i++) {
-			relatedUserList.add(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserList["+ i +"]"));
-		}
-		orderBaseInfo.setRelatedUserList(relatedUserList);
+		orderBaseInfo.setStatusDesc(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.StatusDesc"));
+		orderBaseInfo.setPluginType(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.PluginType"));
+		orderBaseInfo.setOrderId(_ctx.longValue("GetOrderBaseInfoResponse.OrderBaseInfo.OrderId"));
 
 		List<String> relatedUserNickList = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserNickList.Length"); i++) {
 			relatedUserNickList.add(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserNickList["+ i +"]"));
 		}
 		orderBaseInfo.setRelatedUserNickList(relatedUserNickList);
+
+		List<String> relatedUserList = new ArrayList<String>();
+		for (int i = 0; i < _ctx.lengthValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserList.Length"); i++) {
+			relatedUserList.add(_ctx.stringValue("GetOrderBaseInfoResponse.OrderBaseInfo.RelatedUserList["+ i +"]"));
+		}
+		orderBaseInfo.setRelatedUserList(relatedUserList);
 		getOrderBaseInfoResponse.setOrderBaseInfo(orderBaseInfo);
 	 
 	 	return getOrderBaseInfoResponse;

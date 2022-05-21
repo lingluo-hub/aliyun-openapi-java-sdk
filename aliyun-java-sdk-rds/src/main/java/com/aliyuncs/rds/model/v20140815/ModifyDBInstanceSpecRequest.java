@@ -31,13 +31,19 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 
 	private String engineVersion;
 
+	private String resourceGroupId;
+
 	private String effectiveTime;
 
 	private String dBInstanceId;
 
+	private String switchTime;
+
 	private String dBInstanceStorageType;
 
 	private String sourceBiz;
+
+	private String dedicatedHostGroupId;
 
 	private String direction;
 
@@ -47,7 +53,11 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 
 	private Long ownerId;
 
+	private Long usedTime;
+
 	private String dBInstanceClass;
+
+	private String zoneId;
 
 	private String payType;
 	public ModifyDBInstanceSpecRequest() {
@@ -92,6 +102,17 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getEffectiveTime() {
 		return this.effectiveTime;
 	}
@@ -114,6 +135,17 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 		}
 	}
 
+	public String getSwitchTime() {
+		return this.switchTime;
+	}
+
+	public void setSwitchTime(String switchTime) {
+		this.switchTime = switchTime;
+		if(switchTime != null){
+			putQueryParameter("SwitchTime", switchTime);
+		}
+	}
+
 	public String getDBInstanceStorageType() {
 		return this.dBInstanceStorageType;
 	}
@@ -133,6 +165,17 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 		this.sourceBiz = sourceBiz;
 		if(sourceBiz != null){
 			putQueryParameter("SourceBiz", sourceBiz);
+		}
+	}
+
+	public String getDedicatedHostGroupId() {
+		return this.dedicatedHostGroupId;
+	}
+
+	public void setDedicatedHostGroupId(String dedicatedHostGroupId) {
+		this.dedicatedHostGroupId = dedicatedHostGroupId;
+		if(dedicatedHostGroupId != null){
+			putQueryParameter("DedicatedHostGroupId", dedicatedHostGroupId);
 		}
 	}
 
@@ -180,6 +223,17 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 		}
 	}
 
+	public Long getUsedTime() {
+		return this.usedTime;
+	}
+
+	public void setUsedTime(Long usedTime) {
+		this.usedTime = usedTime;
+		if(usedTime != null){
+			putQueryParameter("UsedTime", usedTime.toString());
+		}
+	}
+
 	public String getDBInstanceClass() {
 		return this.dBInstanceClass;
 	}
@@ -188,6 +242,17 @@ public class ModifyDBInstanceSpecRequest extends RpcAcsRequest<ModifyDBInstanceS
 		this.dBInstanceClass = dBInstanceClass;
 		if(dBInstanceClass != null){
 			putQueryParameter("DBInstanceClass", dBInstanceClass);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 

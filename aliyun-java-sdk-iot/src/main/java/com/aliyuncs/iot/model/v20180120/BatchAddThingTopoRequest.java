@@ -28,13 +28,13 @@ public class BatchAddThingTopoRequest extends RpcAcsRequest<BatchAddThingTopoRes
 
 	private String gwProductKey;
 
+	private String iotInstanceId;
+
 	private List<TopoAddItem> topoAddItems;
 
 	private String gwDeviceName;
-
-	private String iotInstanceId;
 	public BatchAddThingTopoRequest() {
-		super("Iot", "2018-01-20", "BatchAddThingTopo", "Iot");
+		super("Iot", "2018-01-20", "BatchAddThingTopo");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -50,6 +50,17 @@ public class BatchAddThingTopoRequest extends RpcAcsRequest<BatchAddThingTopoRes
 		this.gwProductKey = gwProductKey;
 		if(gwProductKey != null){
 			putQueryParameter("GwProductKey", gwProductKey);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -79,17 +90,6 @@ public class BatchAddThingTopoRequest extends RpcAcsRequest<BatchAddThingTopoRes
 		this.gwDeviceName = gwDeviceName;
 		if(gwDeviceName != null){
 			putQueryParameter("GwDeviceName", gwDeviceName);
-		}
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 

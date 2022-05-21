@@ -25,18 +25,31 @@ import com.aliyuncs.ehpc.Endpoint;
 public class ListCustomImagesRequest extends RpcAcsRequest<ListCustomImagesResponse> {
 	   
 
+	private String clusterId;
+
 	private String imageOwnerAlias;
 
 	private String baseOsTag;
 
 	private String instanceType;
 	public ListCustomImagesRequest() {
-		super("EHPC", "2018-04-12", "ListCustomImages", "ehs");
+		super("EHPC", "2018-04-12", "ListCustomImages");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
 	}
 
 	public String getImageOwnerAlias() {

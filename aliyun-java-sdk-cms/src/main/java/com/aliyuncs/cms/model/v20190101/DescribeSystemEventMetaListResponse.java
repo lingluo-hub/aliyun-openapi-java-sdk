@@ -25,31 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSystemEventMetaListResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private Integer code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private List<Resource> data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -67,6 +51,22 @@ public class DescribeSystemEventMetaListResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public List<Resource> getData() {
 		return this.data;
 	}
@@ -77,19 +77,37 @@ public class DescribeSystemEventMetaListResponse extends AcsResponse {
 
 	public static class Resource {
 
-		private String product;
+		private String status;
 
-		private String name;
+		private String eventType;
+
+		private String product;
 
 		private String nameDesc;
 
-		private String level;
+		private String nameDescEn;
 
-		private String status;
+		private String name;
 
 		private String statusDesc;
 
-		private String eventType;
+		private String level;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getEventType() {
+			return this.eventType;
+		}
+
+		public void setEventType(String eventType) {
+			this.eventType = eventType;
+		}
 
 		public String getProduct() {
 			return this.product;
@@ -97,14 +115,6 @@ public class DescribeSystemEventMetaListResponse extends AcsResponse {
 
 		public void setProduct(String product) {
 			this.product = product;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
 		}
 
 		public String getNameDesc() {
@@ -115,20 +125,20 @@ public class DescribeSystemEventMetaListResponse extends AcsResponse {
 			this.nameDesc = nameDesc;
 		}
 
-		public String getLevel() {
-			return this.level;
+		public String getNameDescEn() {
+			return this.nameDescEn;
 		}
 
-		public void setLevel(String level) {
-			this.level = level;
+		public void setNameDescEn(String nameDescEn) {
+			this.nameDescEn = nameDescEn;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getName() {
+			return this.name;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setName(String name) {
+			this.name = name;
 		}
 
 		public String getStatusDesc() {
@@ -139,12 +149,12 @@ public class DescribeSystemEventMetaListResponse extends AcsResponse {
 			this.statusDesc = statusDesc;
 		}
 
-		public String getEventType() {
-			return this.eventType;
+		public String getLevel() {
+			return this.level;
 		}
 
-		public void setEventType(String eventType) {
-			this.eventType = eventType;
+		public void setLevel(String level) {
+			this.level = level;
 		}
 	}
 

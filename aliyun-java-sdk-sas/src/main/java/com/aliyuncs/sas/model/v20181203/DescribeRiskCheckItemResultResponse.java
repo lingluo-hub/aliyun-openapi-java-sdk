@@ -46,25 +46,17 @@ public class DescribeRiskCheckItemResultResponse extends AcsResponse {
 
 	public static class PageContentResource {
 
-		private String contentResource;
-
 		private Integer currentPage;
+
+		private String contentResource;
 
 		private Integer pageSize;
 
 		private Integer totalCount;
 
-		private Integer count;
-
 		private Integer pageCount;
 
-		public String getContentResource() {
-			return this.contentResource;
-		}
-
-		public void setContentResource(String contentResource) {
-			this.contentResource = contentResource;
-		}
+		private Integer count;
 
 		public Integer getCurrentPage() {
 			return this.currentPage;
@@ -72,6 +64,14 @@ public class DescribeRiskCheckItemResultResponse extends AcsResponse {
 
 		public void setCurrentPage(Integer currentPage) {
 			this.currentPage = currentPage;
+		}
+
+		public String getContentResource() {
+			return this.contentResource;
+		}
+
+		public void setContentResource(String contentResource) {
+			this.contentResource = contentResource;
 		}
 
 		public Integer getPageSize() {
@@ -90,20 +90,20 @@ public class DescribeRiskCheckItemResultResponse extends AcsResponse {
 			this.totalCount = totalCount;
 		}
 
-		public Integer getCount() {
-			return this.count;
-		}
-
-		public void setCount(Integer count) {
-			this.count = count;
-		}
-
 		public Integer getPageCount() {
 			return this.pageCount;
 		}
 
 		public void setPageCount(Integer pageCount) {
 			this.pageCount = pageCount;
+		}
+
+		public Integer getCount() {
+			return this.count;
+		}
+
+		public void setCount(Integer count) {
+			this.count = count;
 		}
 	}
 

@@ -24,21 +24,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class PutGroupMetricRuleResponse extends AcsResponse {
 
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
 	private String requestId;
 
-	public Boolean getSuccess() {
-		return this.success;
-	}
+	private Boolean success;
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
+	private Result result;
 
 	public String getCode() {
 		return this.code;
@@ -62,6 +56,35 @@ public class PutGroupMetricRuleResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
+	public Result getResult() {
+		return this.result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
+	public static class Result {
+
+		private String ruleId;
+
+		public String getRuleId() {
+			return this.ruleId;
+		}
+
+		public void setRuleId(String ruleId) {
+			this.ruleId = ruleId;
+		}
 	}
 
 	@Override

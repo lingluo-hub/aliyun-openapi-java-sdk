@@ -27,6 +27,8 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 
 	private Long resourceOwnerId;
 
+	private String enableBackupLog;
+
 	private String preferredBackupPeriod;
 
 	private String resourceOwnerAccount;
@@ -40,6 +42,8 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 	private String preferredBackupTime;
 
 	private String backupRetentionPeriod;
+
+	private Integer logBackupRetentionPeriod;
 	public ModifyBackupPolicyRequest() {
 		super("adb", "2019-03-15", "ModifyBackupPolicy", "ads");
 		setMethod(MethodType.POST);
@@ -57,6 +61,17 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getEnableBackupLog() {
+		return this.enableBackupLog;
+	}
+
+	public void setEnableBackupLog(String enableBackupLog) {
+		this.enableBackupLog = enableBackupLog;
+		if(enableBackupLog != null){
+			putQueryParameter("EnableBackupLog", enableBackupLog);
 		}
 	}
 
@@ -134,6 +149,17 @@ public class ModifyBackupPolicyRequest extends RpcAcsRequest<ModifyBackupPolicyR
 		this.backupRetentionPeriod = backupRetentionPeriod;
 		if(backupRetentionPeriod != null){
 			putQueryParameter("BackupRetentionPeriod", backupRetentionPeriod);
+		}
+	}
+
+	public Integer getLogBackupRetentionPeriod() {
+		return this.logBackupRetentionPeriod;
+	}
+
+	public void setLogBackupRetentionPeriod(Integer logBackupRetentionPeriod) {
+		this.logBackupRetentionPeriod = logBackupRetentionPeriod;
+		if(logBackupRetentionPeriod != null){
+			putQueryParameter("LogBackupRetentionPeriod", logBackupRetentionPeriod.toString());
 		}
 	}
 

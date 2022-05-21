@@ -29,6 +29,8 @@ public class CancelOTATaskByJobRequest extends RpcAcsRequest<CancelOTATaskByJobR
 
 	private String jobId;
 
+	private Boolean cancelUnconfirmedTask;
+
 	private String iotInstanceId;
 
 	private Boolean cancelQueuedTask;
@@ -37,7 +39,7 @@ public class CancelOTATaskByJobRequest extends RpcAcsRequest<CancelOTATaskByJobR
 
 	private Boolean cancelNotifiedTask;
 	public CancelOTATaskByJobRequest() {
-		super("Iot", "2018-01-20", "CancelOTATaskByJob", "Iot");
+		super("Iot", "2018-01-20", "CancelOTATaskByJob");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -64,6 +66,17 @@ public class CancelOTATaskByJobRequest extends RpcAcsRequest<CancelOTATaskByJobR
 		this.jobId = jobId;
 		if(jobId != null){
 			putQueryParameter("JobId", jobId);
+		}
+	}
+
+	public Boolean getCancelUnconfirmedTask() {
+		return this.cancelUnconfirmedTask;
+	}
+
+	public void setCancelUnconfirmedTask(Boolean cancelUnconfirmedTask) {
+		this.cancelUnconfirmedTask = cancelUnconfirmedTask;
+		if(cancelUnconfirmedTask != null){
+			putQueryParameter("CancelUnconfirmedTask", cancelUnconfirmedTask.toString());
 		}
 	}
 

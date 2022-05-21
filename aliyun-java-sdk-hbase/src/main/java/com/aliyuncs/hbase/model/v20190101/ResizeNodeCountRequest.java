@@ -27,9 +27,13 @@ public class ResizeNodeCountRequest extends RpcAcsRequest<ResizeNodeCountRespons
 
 	private String clusterId;
 
+	private String vSwitchId;
+
 	private Integer nodeCount;
+
+	private String zoneId;
 	public ResizeNodeCountRequest() {
-		super("HBase", "2019-01-01", "ResizeNodeCount");
+		super("HBase", "2019-01-01", "ResizeNodeCount", "hbase");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -48,6 +52,17 @@ public class ResizeNodeCountRequest extends RpcAcsRequest<ResizeNodeCountRespons
 		}
 	}
 
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
 	public Integer getNodeCount() {
 		return this.nodeCount;
 	}
@@ -56,6 +71,17 @@ public class ResizeNodeCountRequest extends RpcAcsRequest<ResizeNodeCountRespons
 		this.nodeCount = nodeCount;
 		if(nodeCount != null){
 			putQueryParameter("NodeCount", nodeCount.toString());
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 

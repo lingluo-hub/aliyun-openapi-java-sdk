@@ -32,11 +32,11 @@ public class DescribeLogicInstanceTopologyResponseUnmarshaller {
 		List<NodeInfo> redisProxyList = new ArrayList<NodeInfo>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeLogicInstanceTopologyResponse.RedisProxyList.Length"); i++) {
 			NodeInfo nodeInfo = new NodeInfo();
-			nodeInfo.setNodeId(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].NodeId"));
-			nodeInfo.setConnection(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].Connection"));
-			nodeInfo.setBandwidth(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].Bandwidth"));
 			nodeInfo.setCapacity(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].Capacity"));
+			nodeInfo.setConnection(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].Connection"));
 			nodeInfo.setNodeType(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].NodeType"));
+			nodeInfo.setBandwidth(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].Bandwidth"));
+			nodeInfo.setNodeId(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisProxyList["+ i +"].NodeId"));
 
 			redisProxyList.add(nodeInfo);
 		}
@@ -44,14 +44,14 @@ public class DescribeLogicInstanceTopologyResponseUnmarshaller {
 
 		List<NodeInfo> redisShardList = new ArrayList<NodeInfo>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeLogicInstanceTopologyResponse.RedisShardList.Length"); i++) {
-			NodeInfo nodeInfo_ = new NodeInfo();
-			nodeInfo_.setNodeId(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].NodeId"));
-			nodeInfo_.setConnection(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Connection"));
-			nodeInfo_.setBandwidth(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Bandwidth"));
-			nodeInfo_.setCapacity(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Capacity"));
-			nodeInfo_.setNodeType(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].NodeType"));
+			NodeInfo nodeInfo1 = new NodeInfo();
+			nodeInfo1.setCapacity(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Capacity"));
+			nodeInfo1.setConnection(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Connection"));
+			nodeInfo1.setNodeType(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].NodeType"));
+			nodeInfo1.setBandwidth(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].Bandwidth"));
+			nodeInfo1.setNodeId(_ctx.stringValue("DescribeLogicInstanceTopologyResponse.RedisShardList["+ i +"].NodeId"));
 
-			redisShardList.add(nodeInfo_);
+			redisShardList.add(nodeInfo1);
 		}
 		describeLogicInstanceTopologyResponse.setRedisShardList(redisShardList);
 	 

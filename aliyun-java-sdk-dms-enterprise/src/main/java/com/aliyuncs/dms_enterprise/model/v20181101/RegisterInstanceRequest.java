@@ -65,9 +65,11 @@ public class RegisterInstanceRequest extends RpcAcsRequest<RegisterInstanceRespo
 
 	private Long dbaUid;
 
+	private Boolean skipTest;
+
 	private String safeRule;
 	public RegisterInstanceRequest() {
-		super("dms-enterprise", "2018-11-01", "RegisterInstance");
+		super("dms-enterprise", "2018-11-01", "RegisterInstance", "dms-enterprise");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -292,6 +294,17 @@ public class RegisterInstanceRequest extends RpcAcsRequest<RegisterInstanceRespo
 		this.dbaUid = dbaUid;
 		if(dbaUid != null){
 			putQueryParameter("DbaUid", dbaUid.toString());
+		}
+	}
+
+	public Boolean getSkipTest() {
+		return this.skipTest;
+	}
+
+	public void setSkipTest(Boolean skipTest) {
+		this.skipTest = skipTest;
+		if(skipTest != null){
+			putQueryParameter("SkipTest", skipTest.toString());
 		}
 	}
 

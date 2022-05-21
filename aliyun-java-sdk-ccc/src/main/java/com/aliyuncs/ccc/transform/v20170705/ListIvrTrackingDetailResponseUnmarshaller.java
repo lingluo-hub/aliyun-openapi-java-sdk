@@ -28,32 +28,32 @@ public class ListIvrTrackingDetailResponseUnmarshaller {
 	public static ListIvrTrackingDetailResponse unmarshall(ListIvrTrackingDetailResponse listIvrTrackingDetailResponse, UnmarshallerContext _ctx) {
 		
 		listIvrTrackingDetailResponse.setRequestId(_ctx.stringValue("ListIvrTrackingDetailResponse.RequestId"));
-		listIvrTrackingDetailResponse.setSuccess(_ctx.booleanValue("ListIvrTrackingDetailResponse.Success"));
+		listIvrTrackingDetailResponse.setHttpStatusCode(_ctx.integerValue("ListIvrTrackingDetailResponse.HttpStatusCode"));
 		listIvrTrackingDetailResponse.setCode(_ctx.stringValue("ListIvrTrackingDetailResponse.Code"));
 		listIvrTrackingDetailResponse.setMessage(_ctx.stringValue("ListIvrTrackingDetailResponse.Message"));
-		listIvrTrackingDetailResponse.setHttpStatusCode(_ctx.integerValue("ListIvrTrackingDetailResponse.HttpStatusCode"));
+		listIvrTrackingDetailResponse.setSuccess(_ctx.booleanValue("ListIvrTrackingDetailResponse.Success"));
 
 		IvrTrackingDetails ivrTrackingDetails = new IvrTrackingDetails();
-		ivrTrackingDetails.setTotalCount(_ctx.integerValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.TotalCount"));
 		ivrTrackingDetails.setPageNumber(_ctx.integerValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.PageNumber"));
 		ivrTrackingDetails.setPageSize(_ctx.integerValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.PageSize"));
+		ivrTrackingDetails.setTotalCount(_ctx.integerValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.TotalCount"));
 
 		List<IvrTrackingDetail> list = new ArrayList<IvrTrackingDetail>();
 		for (int i = 0; i < _ctx.lengthValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List.Length"); i++) {
 			IvrTrackingDetail ivrTrackingDetail = new IvrTrackingDetail();
+			ivrTrackingDetail.setStatus(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].Status"));
+			ivrTrackingDetail.setDeviceID(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].DeviceID"));
+			ivrTrackingDetail.setInputData(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].InputData"));
 			ivrTrackingDetail.setFlowName(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].FlowName"));
-			ivrTrackingDetail.setNodeName(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].NodeName"));
+			ivrTrackingDetail.setCalledNumber(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].CalledNumber"));
+			ivrTrackingDetail.setStopTime(_ctx.longValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].StopTime"));
+			ivrTrackingDetail.setStartTime(_ctx.longValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].StartTime"));
 			ivrTrackingDetail.setNodeType(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].NodeType"));
+			ivrTrackingDetail.setDescription(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].Description"));
+			ivrTrackingDetail.setNodeName(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].NodeName"));
 			ivrTrackingDetail.setContactId(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].ContactId"));
 			ivrTrackingDetail.setCallingNumber(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].CallingNumber"));
-			ivrTrackingDetail.setCalledNumber(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].CalledNumber"));
-			ivrTrackingDetail.setStartTime(_ctx.longValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].StartTime"));
-			ivrTrackingDetail.setStopTime(_ctx.longValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].StopTime"));
-			ivrTrackingDetail.setStatus(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].Status"));
-			ivrTrackingDetail.setInputData(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].InputData"));
 			ivrTrackingDetail.setOutputData(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].OutputData"));
-			ivrTrackingDetail.setDescription(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].Description"));
-			ivrTrackingDetail.setDeviceID(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].DeviceID"));
 			ivrTrackingDetail.setTenantId(_ctx.stringValue("ListIvrTrackingDetailResponse.IvrTrackingDetails.List["+ i +"].TenantId"));
 
 			list.add(ivrTrackingDetail);

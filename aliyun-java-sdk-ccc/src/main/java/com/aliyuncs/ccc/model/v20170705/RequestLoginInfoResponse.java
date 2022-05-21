@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class RequestLoginInfoResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private LoginInfo loginInfo;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class RequestLoginInfoResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public LoginInfo getLoginInfo() {
@@ -87,35 +87,27 @@ public class RequestLoginInfoResponse extends AcsResponse {
 
 	public static class LoginInfo {
 
-		private String userName;
-
 		private String displayName;
+
+		private String signature;
+
+		private String extension;
+
+		private String signData;
 
 		private String phoneNumber;
 
 		private String region;
 
-		private String webRtcUrl;
-
 		private String agentServerUrl;
 
-		private String extension;
+		private String userName;
+
+		private String webRtcUrl;
 
 		private String tenantId;
 
-		private String signature;
-
-		private String signData;
-
 		private List<Role> roles;
-
-		public String getUserName() {
-			return this.userName;
-		}
-
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
 
 		public String getDisplayName() {
 			return this.displayName;
@@ -123,6 +115,30 @@ public class RequestLoginInfoResponse extends AcsResponse {
 
 		public void setDisplayName(String displayName) {
 			this.displayName = displayName;
+		}
+
+		public String getSignature() {
+			return this.signature;
+		}
+
+		public void setSignature(String signature) {
+			this.signature = signature;
+		}
+
+		public String getExtension() {
+			return this.extension;
+		}
+
+		public void setExtension(String extension) {
+			this.extension = extension;
+		}
+
+		public String getSignData() {
+			return this.signData;
+		}
+
+		public void setSignData(String signData) {
+			this.signData = signData;
 		}
 
 		public String getPhoneNumber() {
@@ -141,14 +157,6 @@ public class RequestLoginInfoResponse extends AcsResponse {
 			this.region = region;
 		}
 
-		public String getWebRtcUrl() {
-			return this.webRtcUrl;
-		}
-
-		public void setWebRtcUrl(String webRtcUrl) {
-			this.webRtcUrl = webRtcUrl;
-		}
-
 		public String getAgentServerUrl() {
 			return this.agentServerUrl;
 		}
@@ -157,12 +165,20 @@ public class RequestLoginInfoResponse extends AcsResponse {
 			this.agentServerUrl = agentServerUrl;
 		}
 
-		public String getExtension() {
-			return this.extension;
+		public String getUserName() {
+			return this.userName;
 		}
 
-		public void setExtension(String extension) {
-			this.extension = extension;
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getWebRtcUrl() {
+			return this.webRtcUrl;
+		}
+
+		public void setWebRtcUrl(String webRtcUrl) {
+			this.webRtcUrl = webRtcUrl;
 		}
 
 		public String getTenantId() {
@@ -171,22 +187,6 @@ public class RequestLoginInfoResponse extends AcsResponse {
 
 		public void setTenantId(String tenantId) {
 			this.tenantId = tenantId;
-		}
-
-		public String getSignature() {
-			return this.signature;
-		}
-
-		public void setSignature(String signature) {
-			this.signature = signature;
-		}
-
-		public String getSignData() {
-			return this.signData;
-		}
-
-		public void setSignData(String signData) {
-			this.signData = signData;
 		}
 
 		public List<Role> getRoles() {
@@ -199,21 +199,13 @@ public class RequestLoginInfoResponse extends AcsResponse {
 
 		public static class Role {
 
-			private String roleId;
-
 			private String instanceId;
 
 			private String roleName;
 
 			private String roleDescription;
 
-			public String getRoleId() {
-				return this.roleId;
-			}
-
-			public void setRoleId(String roleId) {
-				this.roleId = roleId;
-			}
+			private String roleId;
 
 			public String getInstanceId() {
 				return this.instanceId;
@@ -237,6 +229,14 @@ public class RequestLoginInfoResponse extends AcsResponse {
 
 			public void setRoleDescription(String roleDescription) {
 				this.roleDescription = roleDescription;
+			}
+
+			public String getRoleId() {
+				return this.roleId;
+			}
+
+			public void setRoleId(String roleId) {
+				this.roleId = roleId;
 			}
 		}
 	}

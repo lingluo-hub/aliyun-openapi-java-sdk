@@ -25,6 +25,8 @@ import com.aliyuncs.dms_enterprise.Endpoint;
 public class ListUserPermissionsRequest extends RpcAcsRequest<ListUserPermissionsResponse> {
 	   
 
+	private String searchKey;
+
 	private String userId;
 
 	private Long tid;
@@ -43,12 +45,23 @@ public class ListUserPermissionsRequest extends RpcAcsRequest<ListUserPermission
 
 	private Boolean logic;
 	public ListUserPermissionsRequest() {
-		super("dms-enterprise", "2018-11-01", "ListUserPermissions");
-		setMethod(MethodType.GET);
+		super("dms-enterprise", "2018-11-01", "ListUserPermissions", "dms-enterprise");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getSearchKey() {
+		return this.searchKey;
+	}
+
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+		if(searchKey != null){
+			putQueryParameter("SearchKey", searchKey);
+		}
 	}
 
 	public String getUserId() {

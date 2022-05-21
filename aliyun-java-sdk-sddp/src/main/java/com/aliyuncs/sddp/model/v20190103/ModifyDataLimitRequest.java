@@ -39,6 +39,8 @@ public class ModifyDataLimitRequest extends RpcAcsRequest<ModifyDataLimitRespons
 
 	private Integer auditStatus;
 
+	private Integer autoScan;
+
 	private Integer logStoreDay;
 
 	private Integer resourceType;
@@ -129,6 +131,17 @@ public class ModifyDataLimitRequest extends RpcAcsRequest<ModifyDataLimitRespons
 		this.auditStatus = auditStatus;
 		if(auditStatus != null){
 			putQueryParameter("AuditStatus", auditStatus.toString());
+		}
+	}
+
+	public Integer getAutoScan() {
+		return this.autoScan;
+	}
+
+	public void setAutoScan(Integer autoScan) {
+		this.autoScan = autoScan;
+		if(autoScan != null){
+			putQueryParameter("AutoScan", autoScan.toString());
 		}
 	}
 

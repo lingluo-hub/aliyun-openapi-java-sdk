@@ -41,11 +41,11 @@ public class QueryDeviceEventDataRequest extends RpcAcsRequest<QueryDeviceEventD
 
 	private Integer asc;
 
-	private String eventType;
-
 	private String deviceName;
+
+	private String eventType;
 	public QueryDeviceEventDataRequest() {
-		super("Iot", "2018-01-20", "QueryDeviceEventData", "Iot");
+		super("Iot", "2018-01-20", "QueryDeviceEventData");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -141,17 +141,6 @@ public class QueryDeviceEventDataRequest extends RpcAcsRequest<QueryDeviceEventD
 		}
 	}
 
-	public String getEventType() {
-		return this.eventType;
-	}
-
-	public void setEventType(String eventType) {
-		this.eventType = eventType;
-		if(eventType != null){
-			putQueryParameter("EventType", eventType);
-		}
-	}
-
 	public String getDeviceName() {
 		return this.deviceName;
 	}
@@ -160,6 +149,17 @@ public class QueryDeviceEventDataRequest extends RpcAcsRequest<QueryDeviceEventD
 		this.deviceName = deviceName;
 		if(deviceName != null){
 			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getEventType() {
+		return this.eventType;
+	}
+
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
+		if(eventType != null){
+			putQueryParameter("EventType", eventType);
 		}
 	}
 

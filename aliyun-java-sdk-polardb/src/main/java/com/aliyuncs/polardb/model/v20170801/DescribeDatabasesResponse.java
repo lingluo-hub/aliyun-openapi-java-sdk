@@ -25,9 +25,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDatabasesResponse extends AcsResponse {
 
+	private Integer pageRecordCount;
+
 	private String requestId;
 
+	private Integer pageNumber;
+
 	private List<Database> databases;
+
+	public Integer getPageRecordCount() {
+		return this.pageRecordCount;
+	}
+
+	public void setPageRecordCount(Integer pageRecordCount) {
+		this.pageRecordCount = pageRecordCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -35,6 +47,14 @@ public class DescribeDatabasesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<Database> getDatabases() {
@@ -47,24 +67,24 @@ public class DescribeDatabasesResponse extends AcsResponse {
 
 	public static class Database {
 
-		private String dBName;
+		private String dBDescription;
 
 		private String dBStatus;
 
-		private String dBDescription;
-
-		private String characterSetName;
+		private String dBName;
 
 		private String engine;
 
+		private String characterSetName;
+
 		private List<Account> accounts;
 
-		public String getDBName() {
-			return this.dBName;
+		public String getDBDescription() {
+			return this.dBDescription;
 		}
 
-		public void setDBName(String dBName) {
-			this.dBName = dBName;
+		public void setDBDescription(String dBDescription) {
+			this.dBDescription = dBDescription;
 		}
 
 		public String getDBStatus() {
@@ -75,20 +95,12 @@ public class DescribeDatabasesResponse extends AcsResponse {
 			this.dBStatus = dBStatus;
 		}
 
-		public String getDBDescription() {
-			return this.dBDescription;
+		public String getDBName() {
+			return this.dBName;
 		}
 
-		public void setDBDescription(String dBDescription) {
-			this.dBDescription = dBDescription;
-		}
-
-		public String getCharacterSetName() {
-			return this.characterSetName;
-		}
-
-		public void setCharacterSetName(String characterSetName) {
-			this.characterSetName = characterSetName;
+		public void setDBName(String dBName) {
+			this.dBName = dBName;
 		}
 
 		public String getEngine() {
@@ -97,6 +109,14 @@ public class DescribeDatabasesResponse extends AcsResponse {
 
 		public void setEngine(String engine) {
 			this.engine = engine;
+		}
+
+		public String getCharacterSetName() {
+			return this.characterSetName;
+		}
+
+		public void setCharacterSetName(String characterSetName) {
+			this.characterSetName = characterSetName;
 		}
 
 		public List<Account> getAccounts() {
@@ -109,20 +129,20 @@ public class DescribeDatabasesResponse extends AcsResponse {
 
 		public static class Account {
 
-			private String accountName;
+			private String privilegeStatus;
 
 			private String accountStatus;
 
 			private String accountPrivilege;
 
-			private String privilegeStatus;
+			private String accountName;
 
-			public String getAccountName() {
-				return this.accountName;
+			public String getPrivilegeStatus() {
+				return this.privilegeStatus;
 			}
 
-			public void setAccountName(String accountName) {
-				this.accountName = accountName;
+			public void setPrivilegeStatus(String privilegeStatus) {
+				this.privilegeStatus = privilegeStatus;
 			}
 
 			public String getAccountStatus() {
@@ -141,12 +161,12 @@ public class DescribeDatabasesResponse extends AcsResponse {
 				this.accountPrivilege = accountPrivilege;
 			}
 
-			public String getPrivilegeStatus() {
-				return this.privilegeStatus;
+			public String getAccountName() {
+				return this.accountName;
 			}
 
-			public void setPrivilegeStatus(String privilegeStatus) {
-				this.privilegeStatus = privilegeStatus;
+			public void setAccountName(String accountName) {
+				this.accountName = accountName;
 			}
 		}
 	}

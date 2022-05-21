@@ -27,7 +27,7 @@ public class CreateKeywordRequest extends RpcAcsRequest<CreateKeywordResponse> {
 
 	private String keywords;
 
-	private Integer keywordLibId;
+	private Long keywordLibId;
 
 	private String sourceIp;
 
@@ -52,11 +52,11 @@ public class CreateKeywordRequest extends RpcAcsRequest<CreateKeywordResponse> {
 		}
 	}
 
-	public Integer getKeywordLibId() {
+	public Long getKeywordLibId() {
 		return this.keywordLibId;
 	}
 
-	public void setKeywordLibId(Integer keywordLibId) {
+	public void setKeywordLibId(Long keywordLibId) {
 		this.keywordLibId = keywordLibId;
 		if(keywordLibId != null){
 			putQueryParameter("KeywordLibId", keywordLibId.toString());

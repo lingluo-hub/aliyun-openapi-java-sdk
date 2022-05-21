@@ -14,6 +14,7 @@
 
 package com.aliyuncs.dms_enterprise.model.v20181101;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.dms_enterprise.transform.v20181101.GetInstanceResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -26,11 +27,11 @@ public class GetInstanceResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private Instance instance;
 
@@ -42,12 +43,12 @@ public class GetInstanceResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -58,12 +59,12 @@ public class GetInstanceResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Instance getInstance() {
@@ -76,49 +77,183 @@ public class GetInstanceResponse extends AcsResponse {
 
 	public static class Instance {
 
+		private String vpcId;
+
+		private String databaseUser;
+
+		private String dbaId;
+
+		private Integer useDsql;
+
+		private Integer port;
+
+		private String ecsInstanceId;
+
+		private String envType;
+
+		private String sid;
+
+		private String safeRuleId;
+
+		private String dbaNickName;
+
+		private Integer queryTimeout;
+
+		private String instanceSource;
+
+		private String host;
+
+		private String state;
+
+		private String dataLinkName;
+
+		private Integer exportTimeout;
+
 		private String instanceId;
 
 		private String instanceType;
 
-		private String envType;
-
-		private String host;
-
-		private Integer port;
-
-		private String sid;
+		private String databasePassword;
 
 		private String instanceAlias;
 
-		private String dataLinkName;
-
-		private String dbaNickName;
-
-		private String safeRuleId;
-
-		private Integer queryTimeout;
-
-		private Integer exportTimeout;
-
-		private String state;
-
-		private String dbaId;
-
 		private Integer ddlOnline;
-
-		private Integer useDsql;
-
-		private String ecsInstanceId;
-
-		private String vpcId;
 
 		private String ecsRegion;
 
-		private String databaseUser;
+		private List<String> ownerIdList;
 
-		private String databasePassword;
+		private List<String> ownerNameList;
 
-		private String instanceSource;
+		private StandardGroup standardGroup;
+
+		public String getVpcId() {
+			return this.vpcId;
+		}
+
+		public void setVpcId(String vpcId) {
+			this.vpcId = vpcId;
+		}
+
+		public String getDatabaseUser() {
+			return this.databaseUser;
+		}
+
+		public void setDatabaseUser(String databaseUser) {
+			this.databaseUser = databaseUser;
+		}
+
+		public String getDbaId() {
+			return this.dbaId;
+		}
+
+		public void setDbaId(String dbaId) {
+			this.dbaId = dbaId;
+		}
+
+		public Integer getUseDsql() {
+			return this.useDsql;
+		}
+
+		public void setUseDsql(Integer useDsql) {
+			this.useDsql = useDsql;
+		}
+
+		public Integer getPort() {
+			return this.port;
+		}
+
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public String getEcsInstanceId() {
+			return this.ecsInstanceId;
+		}
+
+		public void setEcsInstanceId(String ecsInstanceId) {
+			this.ecsInstanceId = ecsInstanceId;
+		}
+
+		public String getEnvType() {
+			return this.envType;
+		}
+
+		public void setEnvType(String envType) {
+			this.envType = envType;
+		}
+
+		public String getSid() {
+			return this.sid;
+		}
+
+		public void setSid(String sid) {
+			this.sid = sid;
+		}
+
+		public String getSafeRuleId() {
+			return this.safeRuleId;
+		}
+
+		public void setSafeRuleId(String safeRuleId) {
+			this.safeRuleId = safeRuleId;
+		}
+
+		public String getDbaNickName() {
+			return this.dbaNickName;
+		}
+
+		public void setDbaNickName(String dbaNickName) {
+			this.dbaNickName = dbaNickName;
+		}
+
+		public Integer getQueryTimeout() {
+			return this.queryTimeout;
+		}
+
+		public void setQueryTimeout(Integer queryTimeout) {
+			this.queryTimeout = queryTimeout;
+		}
+
+		public String getInstanceSource() {
+			return this.instanceSource;
+		}
+
+		public void setInstanceSource(String instanceSource) {
+			this.instanceSource = instanceSource;
+		}
+
+		public String getHost() {
+			return this.host;
+		}
+
+		public void setHost(String host) {
+			this.host = host;
+		}
+
+		public String getState() {
+			return this.state;
+		}
+
+		public void setState(String state) {
+			this.state = state;
+		}
+
+		public String getDataLinkName() {
+			return this.dataLinkName;
+		}
+
+		public void setDataLinkName(String dataLinkName) {
+			this.dataLinkName = dataLinkName;
+		}
+
+		public Integer getExportTimeout() {
+			return this.exportTimeout;
+		}
+
+		public void setExportTimeout(Integer exportTimeout) {
+			this.exportTimeout = exportTimeout;
+		}
 
 		public String getInstanceId() {
 			return this.instanceId;
@@ -136,36 +271,12 @@ public class GetInstanceResponse extends AcsResponse {
 			this.instanceType = instanceType;
 		}
 
-		public String getEnvType() {
-			return this.envType;
+		public String getDatabasePassword() {
+			return this.databasePassword;
 		}
 
-		public void setEnvType(String envType) {
-			this.envType = envType;
-		}
-
-		public String getHost() {
-			return this.host;
-		}
-
-		public void setHost(String host) {
-			this.host = host;
-		}
-
-		public Integer getPort() {
-			return this.port;
-		}
-
-		public void setPort(Integer port) {
-			this.port = port;
-		}
-
-		public String getSid() {
-			return this.sid;
-		}
-
-		public void setSid(String sid) {
-			this.sid = sid;
+		public void setDatabasePassword(String databasePassword) {
+			this.databasePassword = databasePassword;
 		}
 
 		public String getInstanceAlias() {
@@ -176,92 +287,12 @@ public class GetInstanceResponse extends AcsResponse {
 			this.instanceAlias = instanceAlias;
 		}
 
-		public String getDataLinkName() {
-			return this.dataLinkName;
-		}
-
-		public void setDataLinkName(String dataLinkName) {
-			this.dataLinkName = dataLinkName;
-		}
-
-		public String getDbaNickName() {
-			return this.dbaNickName;
-		}
-
-		public void setDbaNickName(String dbaNickName) {
-			this.dbaNickName = dbaNickName;
-		}
-
-		public String getSafeRuleId() {
-			return this.safeRuleId;
-		}
-
-		public void setSafeRuleId(String safeRuleId) {
-			this.safeRuleId = safeRuleId;
-		}
-
-		public Integer getQueryTimeout() {
-			return this.queryTimeout;
-		}
-
-		public void setQueryTimeout(Integer queryTimeout) {
-			this.queryTimeout = queryTimeout;
-		}
-
-		public Integer getExportTimeout() {
-			return this.exportTimeout;
-		}
-
-		public void setExportTimeout(Integer exportTimeout) {
-			this.exportTimeout = exportTimeout;
-		}
-
-		public String getState() {
-			return this.state;
-		}
-
-		public void setState(String state) {
-			this.state = state;
-		}
-
-		public String getDbaId() {
-			return this.dbaId;
-		}
-
-		public void setDbaId(String dbaId) {
-			this.dbaId = dbaId;
-		}
-
 		public Integer getDdlOnline() {
 			return this.ddlOnline;
 		}
 
 		public void setDdlOnline(Integer ddlOnline) {
 			this.ddlOnline = ddlOnline;
-		}
-
-		public Integer getUseDsql() {
-			return this.useDsql;
-		}
-
-		public void setUseDsql(Integer useDsql) {
-			this.useDsql = useDsql;
-		}
-
-		public String getEcsInstanceId() {
-			return this.ecsInstanceId;
-		}
-
-		public void setEcsInstanceId(String ecsInstanceId) {
-			this.ecsInstanceId = ecsInstanceId;
-		}
-
-		public String getVpcId() {
-			return this.vpcId;
-		}
-
-		public void setVpcId(String vpcId) {
-			this.vpcId = vpcId;
 		}
 
 		public String getEcsRegion() {
@@ -272,28 +303,51 @@ public class GetInstanceResponse extends AcsResponse {
 			this.ecsRegion = ecsRegion;
 		}
 
-		public String getDatabaseUser() {
-			return this.databaseUser;
+		public List<String> getOwnerIdList() {
+			return this.ownerIdList;
 		}
 
-		public void setDatabaseUser(String databaseUser) {
-			this.databaseUser = databaseUser;
+		public void setOwnerIdList(List<String> ownerIdList) {
+			this.ownerIdList = ownerIdList;
 		}
 
-		public String getDatabasePassword() {
-			return this.databasePassword;
+		public List<String> getOwnerNameList() {
+			return this.ownerNameList;
 		}
 
-		public void setDatabasePassword(String databasePassword) {
-			this.databasePassword = databasePassword;
+		public void setOwnerNameList(List<String> ownerNameList) {
+			this.ownerNameList = ownerNameList;
 		}
 
-		public String getInstanceSource() {
-			return this.instanceSource;
+		public StandardGroup getStandardGroup() {
+			return this.standardGroup;
 		}
 
-		public void setInstanceSource(String instanceSource) {
-			this.instanceSource = instanceSource;
+		public void setStandardGroup(StandardGroup standardGroup) {
+			this.standardGroup = standardGroup;
+		}
+
+		public static class StandardGroup {
+
+			private String groupName;
+
+			private String groupMode;
+
+			public String getGroupName() {
+				return this.groupName;
+			}
+
+			public void setGroupName(String groupName) {
+				this.groupName = groupName;
+			}
+
+			public String getGroupMode() {
+				return this.groupMode;
+			}
+
+			public void setGroupMode(String groupMode) {
+				this.groupMode = groupMode;
+			}
 		}
 	}
 

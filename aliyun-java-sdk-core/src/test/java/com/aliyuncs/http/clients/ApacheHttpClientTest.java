@@ -40,8 +40,8 @@ import java.util.concurrent.Future;
 
 import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.mock;
 
 @RunWith(PowerMockRunner.class)
@@ -414,6 +414,38 @@ public class ApacheHttpClientTest {
     }
 
     @Test
+    public void testSyncInvokeNullHttpResponseEntityGetContentType() throws ClientException, IOException, NoSuchFieldException,
+            SecurityException, IllegalArgumentException, IllegalAccessException {
+        HttpClientConfig config = this.getMockHttpClientConfigWithFalseIgnoreSSLCerts();
+        ApacheHttpClient apacheHttpClient = ApacheHttpClient.getInstance();
+        apacheHttpClient.init(config);
+        HttpRequest apiRequest = this.getMockHttpRequest();
+        Mockito.when(apiRequest.getSysMethod()).thenReturn(MethodType.PUT);
+        Mockito.when(apiRequest.getHeaderValue(Mockito.anyString())).thenReturn("contentType");
+        CloseableHttpResponse closeableHttpResponse = this.getMockHttpResponse();
+        Mockito.when(closeableHttpResponse.getEntity().isChunked()).thenReturn(true);
+        Mockito.when(closeableHttpResponse.getEntity().getContentType()).thenReturn(null);
+        Header contentTypeHeader = Mockito.mock(Header.class);
+        Mockito.when(contentTypeHeader.getValue()).thenReturn("value");
+        Mockito.when(closeableHttpResponse.getFirstHeader(Mockito.anyString())).thenReturn(contentTypeHeader);
+
+        Field httpClientReflect = ApacheHttpClient.class.getDeclaredField("httpClient");
+        httpClientReflect.setAccessible(true);
+        CloseableHttpClient closeableHttpClient = Mockito.mock(CloseableHttpClient.class);
+        httpClientReflect.set(apacheHttpClient, closeableHttpClient);
+        Mockito.doReturn(closeableHttpResponse).when(closeableHttpClient).execute(Mockito.any(HttpUriRequest.class));
+        try {
+            Assert.assertTrue(apacheHttpClient.syncInvoke(apiRequest) instanceof HttpResponse);
+        } catch (Exception e) {
+            Assert.assertEquals("contentType cannot be empty", e.getMessage());
+        } finally {
+            apacheHttpClient.close();
+        }
+
+
+    }
+
+    @Test
     public void testSyncInvokeNotNullHttpResponseEntity() throws ClientException, IOException, NoSuchFieldException,
             SecurityException, IllegalArgumentException, IllegalAccessException {
         HttpClientConfig config = this.getMockHttpClientConfigWithFalseIgnoreSSLCerts();
@@ -588,6 +620,28 @@ public class ApacheHttpClientTest {
     public void testExceptionConstructor() throws ClientException {
         thrown.expect(IllegalStateException.class);
         ApacheHttpClient.getInstance(HttpClientConfig.getDefault());
+    }
+
+    @Test
+    public void createSSLConnectionSocketFactoryTest() throws Exception {
+        Method createSSLConnectionSocketFactory = ApacheHttpClient.class.getDeclaredMethod("createSSLConnectionSocketFactory");
+        createSSLConnectionSocketFactory.setAccessible(true);
+        HttpClientConfig httpClientConfig = HttpClientConfig.getDefault();
+        httpClientConfig.setSslSocketFactory(mock(SSLSocketFactory.class));
+        httpClientConfig.setHostnameVerifier(mock(HostnameVerifier.class));
+        ApacheHttpClient client = ApacheHttpClient.getInstance();
+        Field clientConfig = IHttpClient.class.getDeclaredField("clientConfig");
+        clientConfig.setAccessible(true);
+        clientConfig.set(client, httpClientConfig);
+        Object result = createSSLConnectionSocketFactory.invoke(client);
+        Assert.assertTrue(result instanceof SSLConnectionSocketFactory);
+
+        httpClientConfig = HttpClientConfig.getDefault();
+        httpClientConfig.setSslSocketFactory(mock(SSLSocketFactory.class));
+        httpClientConfig.setHostnameVerifier(null);
+        clientConfig.set(client, httpClientConfig);
+        result = createSSLConnectionSocketFactory.invoke(client);
+        Assert.assertTrue(result instanceof SSLConnectionSocketFactory);
     }
 
 

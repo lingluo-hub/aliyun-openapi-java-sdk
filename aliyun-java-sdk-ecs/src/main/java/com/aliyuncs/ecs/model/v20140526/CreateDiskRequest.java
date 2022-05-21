@@ -44,11 +44,13 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 
 	private Integer storageSetPartitionNumber;
 
+	private String multiAttach;
+
 	private List<Tag> tags;
 
-	private List<Arn> arns;
-
 	private String advancedFeatures;
+
+	private List<Arn> arns;
 
 	private String resourceOwnerAccount;
 
@@ -57,6 +59,10 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private Boolean burstingEnabled;
+
+	private Long provisionedIops;
 
 	private String instanceId;
 
@@ -67,6 +73,8 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 	private Boolean encrypted;
 
 	private String zoneId;
+
+	private String storageClusterId;
 
 	private String kMSKeyId;
 	public CreateDiskRequest() {
@@ -177,6 +185,17 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
+	public String getMultiAttach() {
+		return this.multiAttach;
+	}
+
+	public void setMultiAttach(String multiAttach) {
+		this.multiAttach = multiAttach;
+		if(multiAttach != null){
+			putQueryParameter("MultiAttach", multiAttach);
+		}
+	}
+
 	public List<Tag> getTags() {
 		return this.tags;
 	}
@@ -185,10 +204,21 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
+	}
+
+	public String getAdvancedFeatures() {
+		return this.advancedFeatures;
+	}
+
+	public void setAdvancedFeatures(String advancedFeatures) {
+		this.advancedFeatures = advancedFeatures;
+		if(advancedFeatures != null){
+			putQueryParameter("AdvancedFeatures", advancedFeatures);
+		}
 	}
 
 	public List<Arn> getArns() {
@@ -204,17 +234,6 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 				putQueryParameter("Arn." + (depth1 + 1) + ".AssumeRoleFor" , arns.get(depth1).getAssumeRoleFor());
 			}
 		}	
-	}
-
-	public String getAdvancedFeatures() {
-		return this.advancedFeatures;
-	}
-
-	public void setAdvancedFeatures(String advancedFeatures) {
-		this.advancedFeatures = advancedFeatures;
-		if(advancedFeatures != null){
-			putQueryParameter("AdvancedFeatures", advancedFeatures);
-		}
 	}
 
 	public String getResourceOwnerAccount() {
@@ -258,6 +277,28 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Boolean getBurstingEnabled() {
+		return this.burstingEnabled;
+	}
+
+	public void setBurstingEnabled(Boolean burstingEnabled) {
+		this.burstingEnabled = burstingEnabled;
+		if(burstingEnabled != null){
+			putQueryParameter("BurstingEnabled", burstingEnabled.toString());
+		}
+	}
+
+	public Long getProvisionedIops() {
+		return this.provisionedIops;
+	}
+
+	public void setProvisionedIops(Long provisionedIops) {
+		this.provisionedIops = provisionedIops;
+		if(provisionedIops != null){
+			putQueryParameter("ProvisionedIops", provisionedIops.toString());
 		}
 	}
 
@@ -313,6 +354,17 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getStorageClusterId() {
+		return this.storageClusterId;
+	}
+
+	public void setStorageClusterId(String storageClusterId) {
+		this.storageClusterId = storageClusterId;
+		if(storageClusterId != null){
+			putQueryParameter("StorageClusterId", storageClusterId);
 		}
 	}
 

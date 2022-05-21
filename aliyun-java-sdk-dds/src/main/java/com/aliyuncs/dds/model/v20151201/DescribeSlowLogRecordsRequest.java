@@ -31,6 +31,8 @@ public class DescribeSlowLogRecordsRequest extends RpcAcsRequest<DescribeSlowLog
 
 	private Integer pageNumber;
 
+	private String resourceGroupId;
+
 	private String securityToken;
 
 	private Integer pageSize;
@@ -48,6 +50,8 @@ public class DescribeSlowLogRecordsRequest extends RpcAcsRequest<DescribeSlowLog
 	private Long ownerId;
 
 	private String dBName;
+
+	private String orderType;
 	public DescribeSlowLogRecordsRequest() {
 		super("Dds", "2015-12-01", "DescribeSlowLogRecords", "dds");
 		setMethod(MethodType.POST);
@@ -87,6 +91,17 @@ public class DescribeSlowLogRecordsRequest extends RpcAcsRequest<DescribeSlowLog
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -186,6 +201,17 @@ public class DescribeSlowLogRecordsRequest extends RpcAcsRequest<DescribeSlowLog
 		this.dBName = dBName;
 		if(dBName != null){
 			putQueryParameter("DBName", dBName);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

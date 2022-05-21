@@ -25,6 +25,8 @@ import com.aliyuncs.sddp.Endpoint;
 public class ModifyRuleStatusRequest extends RpcAcsRequest<ModifyRuleStatusResponse> {
 	   
 
+	private String ids;
+
 	private Long id;
 
 	private String lang;
@@ -37,6 +39,17 @@ public class ModifyRuleStatusRequest extends RpcAcsRequest<ModifyRuleStatusRespo
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getIds() {
+		return this.ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
+		if(ids != null){
+			putQueryParameter("Ids", ids);
+		}
 	}
 
 	public Long getId() {

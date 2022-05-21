@@ -223,6 +223,20 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 		private Integer maxNodesInQueue;
 
+		private Integer minNodesInQueue;
+
+		private String queueImageId;
+
+		private String hostNamePrefix;
+
+		private String hostNameSuffix;
+
+		private Integer systemDiskSize;
+
+		private String systemDiskCategory;
+
+		private String systemDiskLevel;
+
 		private List<InstanceTypeInfo> instanceTypes;
 
 		public String getQueueName() {
@@ -287,6 +301,62 @@ public class GetAutoScaleConfigResponse extends AcsResponse {
 
 		public void setMaxNodesInQueue(Integer maxNodesInQueue) {
 			this.maxNodesInQueue = maxNodesInQueue;
+		}
+
+		public Integer getMinNodesInQueue() {
+			return this.minNodesInQueue;
+		}
+
+		public void setMinNodesInQueue(Integer minNodesInQueue) {
+			this.minNodesInQueue = minNodesInQueue;
+		}
+
+		public String getQueueImageId() {
+			return this.queueImageId;
+		}
+
+		public void setQueueImageId(String queueImageId) {
+			this.queueImageId = queueImageId;
+		}
+
+		public String getHostNamePrefix() {
+			return this.hostNamePrefix;
+		}
+
+		public void setHostNamePrefix(String hostNamePrefix) {
+			this.hostNamePrefix = hostNamePrefix;
+		}
+
+		public String getHostNameSuffix() {
+			return this.hostNameSuffix;
+		}
+
+		public void setHostNameSuffix(String hostNameSuffix) {
+			this.hostNameSuffix = hostNameSuffix;
+		}
+
+		public Integer getSystemDiskSize() {
+			return this.systemDiskSize;
+		}
+
+		public void setSystemDiskSize(Integer systemDiskSize) {
+			this.systemDiskSize = systemDiskSize;
+		}
+
+		public String getSystemDiskCategory() {
+			return this.systemDiskCategory;
+		}
+
+		public void setSystemDiskCategory(String systemDiskCategory) {
+			this.systemDiskCategory = systemDiskCategory;
+		}
+
+		public String getSystemDiskLevel() {
+			return this.systemDiskLevel;
+		}
+
+		public void setSystemDiskLevel(String systemDiskLevel) {
+			this.systemDiskLevel = systemDiskLevel;
 		}
 
 		public List<InstanceTypeInfo> getInstanceTypes() {

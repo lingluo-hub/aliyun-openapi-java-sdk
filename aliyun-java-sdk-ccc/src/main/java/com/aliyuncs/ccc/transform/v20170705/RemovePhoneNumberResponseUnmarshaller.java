@@ -23,10 +23,10 @@ public class RemovePhoneNumberResponseUnmarshaller {
 	public static RemovePhoneNumberResponse unmarshall(RemovePhoneNumberResponse removePhoneNumberResponse, UnmarshallerContext _ctx) {
 		
 		removePhoneNumberResponse.setRequestId(_ctx.stringValue("RemovePhoneNumberResponse.RequestId"));
-		removePhoneNumberResponse.setSuccess(_ctx.booleanValue("RemovePhoneNumberResponse.Success"));
+		removePhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("RemovePhoneNumberResponse.HttpStatusCode"));
 		removePhoneNumberResponse.setCode(_ctx.stringValue("RemovePhoneNumberResponse.Code"));
 		removePhoneNumberResponse.setMessage(_ctx.stringValue("RemovePhoneNumberResponse.Message"));
-		removePhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("RemovePhoneNumberResponse.HttpStatusCode"));
+		removePhoneNumberResponse.setSuccess(_ctx.booleanValue("RemovePhoneNumberResponse.Success"));
 	 
 	 	return removePhoneNumberResponse;
 	}

@@ -81,6 +81,8 @@ public class BatchCheckDeviceNamesResponse extends AcsResponse {
 
 		private List<String> invalidDeviceNameList;
 
+		private List<String> invalidDeviceNicknameList;
+
 		public Long getApplyId() {
 			return this.applyId;
 		}
@@ -95,6 +97,14 @@ public class BatchCheckDeviceNamesResponse extends AcsResponse {
 
 		public void setInvalidDeviceNameList(List<String> invalidDeviceNameList) {
 			this.invalidDeviceNameList = invalidDeviceNameList;
+		}
+
+		public List<String> getInvalidDeviceNicknameList() {
+			return this.invalidDeviceNicknameList;
+		}
+
+		public void setInvalidDeviceNicknameList(List<String> invalidDeviceNicknameList) {
+			this.invalidDeviceNicknameList = invalidDeviceNicknameList;
 		}
 	}
 

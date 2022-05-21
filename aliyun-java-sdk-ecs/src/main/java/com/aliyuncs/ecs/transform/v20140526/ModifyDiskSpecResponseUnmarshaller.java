@@ -23,6 +23,8 @@ public class ModifyDiskSpecResponseUnmarshaller {
 	public static ModifyDiskSpecResponse unmarshall(ModifyDiskSpecResponse modifyDiskSpecResponse, UnmarshallerContext _ctx) {
 		
 		modifyDiskSpecResponse.setRequestId(_ctx.stringValue("ModifyDiskSpecResponse.RequestId"));
+		modifyDiskSpecResponse.setTaskId(_ctx.stringValue("ModifyDiskSpecResponse.TaskId"));
+		modifyDiskSpecResponse.setOrderId(_ctx.stringValue("ModifyDiskSpecResponse.OrderId"));
 	 
 	 	return modifyDiskSpecResponse;
 	}

@@ -25,9 +25,11 @@ import com.aliyuncs.cloudauth.Endpoint;
 public class DescribeFaceVerifyRequest extends RpcAcsRequest<DescribeFaceVerifyResponse> {
 	   
 
-	private Long sceneId;
-
 	private String certifyId;
+
+	private String pictureReturnType;
+
+	private Long sceneId;
 	public DescribeFaceVerifyRequest() {
 		super("Cloudauth", "2019-03-07", "DescribeFaceVerify", "cloudauth");
 		setMethod(MethodType.POST);
@@ -35,17 +37,6 @@ public class DescribeFaceVerifyRequest extends RpcAcsRequest<DescribeFaceVerifyR
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public Long getSceneId() {
-		return this.sceneId;
-	}
-
-	public void setSceneId(Long sceneId) {
-		this.sceneId = sceneId;
-		if(sceneId != null){
-			putQueryParameter("SceneId", sceneId.toString());
-		}
 	}
 
 	public String getCertifyId() {
@@ -56,6 +47,28 @@ public class DescribeFaceVerifyRequest extends RpcAcsRequest<DescribeFaceVerifyR
 		this.certifyId = certifyId;
 		if(certifyId != null){
 			putQueryParameter("CertifyId", certifyId);
+		}
+	}
+
+	public String getPictureReturnType() {
+		return this.pictureReturnType;
+	}
+
+	public void setPictureReturnType(String pictureReturnType) {
+		this.pictureReturnType = pictureReturnType;
+		if(pictureReturnType != null){
+			putQueryParameter("PictureReturnType", pictureReturnType);
+		}
+	}
+
+	public Long getSceneId() {
+		return this.sceneId;
+	}
+
+	public void setSceneId(Long sceneId) {
+		this.sceneId = sceneId;
+		if(sceneId != null){
+			putQueryParameter("SceneId", sceneId.toString());
 		}
 	}
 

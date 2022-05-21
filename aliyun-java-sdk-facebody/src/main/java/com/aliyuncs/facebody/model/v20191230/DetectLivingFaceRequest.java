@@ -28,7 +28,7 @@ public class DetectLivingFaceRequest extends RpcAcsRequest<DetectLivingFaceRespo
 
 	private List<Tasks> taskss;
 	public DetectLivingFaceRequest() {
-		super("facebody", "2019-12-30", "DetectLivingFace", "facebody");
+		super("facebody", "2019-12-30", "DetectLivingFace");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -45,6 +45,7 @@ public class DetectLivingFaceRequest extends RpcAcsRequest<DetectLivingFaceRespo
 		if (taskss != null) {
 			for (int depth1 = 0; depth1 < taskss.size(); depth1++) {
 				putBodyParameter("Tasks." + (depth1 + 1) + ".ImageURL" , taskss.get(depth1).getImageURL());
+				putBodyParameter("Tasks." + (depth1 + 1) + ".ImageData" , taskss.get(depth1).getImageData());
 			}
 		}	
 	}
@@ -53,12 +54,22 @@ public class DetectLivingFaceRequest extends RpcAcsRequest<DetectLivingFaceRespo
 
 		private String imageURL;
 
+		private String imageData;
+
 		public String getImageURL() {
 			return this.imageURL;
 		}
 
 		public void setImageURL(String imageURL) {
 			this.imageURL = imageURL;
+		}
+
+		public String getImageData() {
+			return this.imageData;
+		}
+
+		public void setImageData(String imageData) {
+			this.imageData = imageData;
 		}
 	}
 

@@ -24,17 +24,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifySagRemoteAccessResponse extends AcsResponse {
 
+	private String serialNumber;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String code;
 
 	private String message;
 
-	private String serialNumber;
-
 	private String remoteAccessIp;
+
+	private String code;
+
+	private Boolean success;
+
+	public String getSerialNumber() {
+		return this.serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -42,22 +50,6 @@ public class ModifySagRemoteAccessResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public String getMessage() {
@@ -68,20 +60,28 @@ public class ModifySagRemoteAccessResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getSerialNumber() {
-		return this.serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
-	}
-
 	public String getRemoteAccessIp() {
 		return this.remoteAccessIp;
 	}
 
 	public void setRemoteAccessIp(String remoteAccessIp) {
 		this.remoteAccessIp = remoteAccessIp;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	@Override

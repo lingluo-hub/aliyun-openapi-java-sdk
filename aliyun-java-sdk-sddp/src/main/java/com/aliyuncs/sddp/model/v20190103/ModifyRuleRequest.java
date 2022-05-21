@@ -41,10 +41,6 @@ public class ModifyRuleRequest extends RpcAcsRequest<ModifyRuleResponse> {
 
 	private Integer ruleType;
 
-	private String statExpress;
-
-	private Integer customType;
-
 	private String name;
 
 	private Integer category;
@@ -142,28 +138,6 @@ public class ModifyRuleRequest extends RpcAcsRequest<ModifyRuleResponse> {
 		this.ruleType = ruleType;
 		if(ruleType != null){
 			putQueryParameter("RuleType", ruleType.toString());
-		}
-	}
-
-	public String getStatExpress() {
-		return this.statExpress;
-	}
-
-	public void setStatExpress(String statExpress) {
-		this.statExpress = statExpress;
-		if(statExpress != null){
-			putQueryParameter("StatExpress", statExpress);
-		}
-	}
-
-	public Integer getCustomType() {
-		return this.customType;
-	}
-
-	public void setCustomType(Integer customType) {
-		this.customType = customType;
-		if(customType != null){
-			putQueryParameter("CustomType", customType.toString());
 		}
 	}
 

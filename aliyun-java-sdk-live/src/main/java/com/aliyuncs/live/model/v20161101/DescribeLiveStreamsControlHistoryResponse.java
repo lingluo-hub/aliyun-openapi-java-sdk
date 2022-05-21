@@ -47,21 +47,13 @@ public class DescribeLiveStreamsControlHistoryResponse extends AcsResponse {
 
 	public static class LiveStreamControlInfo {
 
-		private String streamName;
-
 		private String clientIP;
-
-		private String action;
 
 		private String timeStamp;
 
-		public String getStreamName() {
-			return this.streamName;
-		}
+		private String action;
 
-		public void setStreamName(String streamName) {
-			this.streamName = streamName;
-		}
+		private String streamName;
 
 		public String getClientIP() {
 			return this.clientIP;
@@ -71,36 +63,28 @@ public class DescribeLiveStreamsControlHistoryResponse extends AcsResponse {
 			this.clientIP = clientIP;
 		}
 
-		public String getBizAction() {
-			return this.action;
-		}
-
-		public void setBizAction(String action) {
-			this.action = action;
-		}
-
-		/**
-		 * @deprecated use getBizAction instead of this.
-		 */
-		@Deprecated
-		public String getAction() {
-			return this.action;
-		}
-
-		/**
-		 * @deprecated use setBizAction instead of this.
-		 */
-		@Deprecated
-		public void setAction(String action) {
-			this.action = action;
-		}
-
 		public String getTimeStamp() {
 			return this.timeStamp;
 		}
 
 		public void setTimeStamp(String timeStamp) {
 			this.timeStamp = timeStamp;
+		}
+
+		public String getAction() {
+			return this.action;
+		}
+
+		public void setAction(String action) {
+			this.action = action;
+		}
+
+		public String getStreamName() {
+			return this.streamName;
+		}
+
+		public void setStreamName(String streamName) {
+			this.streamName = streamName;
 		}
 	}
 

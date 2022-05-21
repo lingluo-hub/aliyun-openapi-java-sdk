@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListSkillGroupsOfUserResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<SkillLevel> skillLevels;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<SkillLevel> getSkillLevels() {
@@ -119,25 +119,17 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 
 		public static class Skill {
 
-			private String skillGroupId;
-
 			private String instanceId;
-
-			private String skillGroupName;
-
-			private String skillGroupDescription;
 
 			private String routingStrategy;
 
+			private String skillGroupDescription;
+
+			private String skillGroupName;
+
+			private String skillGroupId;
+
 			private List<PhoneNumber> outboundPhoneNumbers;
-
-			public String getSkillGroupId() {
-				return this.skillGroupId;
-			}
-
-			public void setSkillGroupId(String skillGroupId) {
-				this.skillGroupId = skillGroupId;
-			}
 
 			public String getInstanceId() {
 				return this.instanceId;
@@ -147,12 +139,12 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 				this.instanceId = instanceId;
 			}
 
-			public String getSkillGroupName() {
-				return this.skillGroupName;
+			public String getRoutingStrategy() {
+				return this.routingStrategy;
 			}
 
-			public void setSkillGroupName(String skillGroupName) {
-				this.skillGroupName = skillGroupName;
+			public void setRoutingStrategy(String routingStrategy) {
+				this.routingStrategy = routingStrategy;
 			}
 
 			public String getSkillGroupDescription() {
@@ -163,12 +155,20 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 				this.skillGroupDescription = skillGroupDescription;
 			}
 
-			public String getRoutingStrategy() {
-				return this.routingStrategy;
+			public String getSkillGroupName() {
+				return this.skillGroupName;
 			}
 
-			public void setRoutingStrategy(String routingStrategy) {
-				this.routingStrategy = routingStrategy;
+			public void setSkillGroupName(String skillGroupName) {
+				this.skillGroupName = skillGroupName;
+			}
+
+			public String getSkillGroupId() {
+				return this.skillGroupId;
+			}
+
+			public void setSkillGroupId(String skillGroupId) {
+				this.skillGroupId = skillGroupId;
 			}
 
 			public List<PhoneNumber> getOutboundPhoneNumbers() {
@@ -181,59 +181,27 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 
 			public static class PhoneNumber {
 
-				private String phoneNumberId;
-
-				private String instanceId;
-
-				private String number;
-
-				private String phoneNumberDescription;
-
 				private Boolean testOnly;
-
-				private Integer remainingTime;
-
-				private Boolean allowOutbound;
-
-				private String usage;
 
 				private Integer trunks;
 
-				private String province;
+				private Integer remainingTime;
+
+				private String number;
 
 				private String city;
 
-				public String getPhoneNumberId() {
-					return this.phoneNumberId;
-				}
+				private String instanceId;
 
-				public void setPhoneNumberId(String phoneNumberId) {
-					this.phoneNumberId = phoneNumberId;
-				}
+				private String usage;
 
-				public String getInstanceId() {
-					return this.instanceId;
-				}
+				private Boolean allowOutbound;
 
-				public void setInstanceId(String instanceId) {
-					this.instanceId = instanceId;
-				}
+				private String phoneNumberDescription;
 
-				public String getNumber() {
-					return this.number;
-				}
+				private String province;
 
-				public void setNumber(String number) {
-					this.number = number;
-				}
-
-				public String getPhoneNumberDescription() {
-					return this.phoneNumberDescription;
-				}
-
-				public void setPhoneNumberDescription(String phoneNumberDescription) {
-					this.phoneNumberDescription = phoneNumberDescription;
-				}
+				private String phoneNumberId;
 
 				public Boolean getTestOnly() {
 					return this.testOnly;
@@ -241,30 +209,6 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 
 				public void setTestOnly(Boolean testOnly) {
 					this.testOnly = testOnly;
-				}
-
-				public Integer getRemainingTime() {
-					return this.remainingTime;
-				}
-
-				public void setRemainingTime(Integer remainingTime) {
-					this.remainingTime = remainingTime;
-				}
-
-				public Boolean getAllowOutbound() {
-					return this.allowOutbound;
-				}
-
-				public void setAllowOutbound(Boolean allowOutbound) {
-					this.allowOutbound = allowOutbound;
-				}
-
-				public String getUsage() {
-					return this.usage;
-				}
-
-				public void setUsage(String usage) {
-					this.usage = usage;
 				}
 
 				public Integer getTrunks() {
@@ -275,12 +219,20 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 					this.trunks = trunks;
 				}
 
-				public String getProvince() {
-					return this.province;
+				public Integer getRemainingTime() {
+					return this.remainingTime;
 				}
 
-				public void setProvince(String province) {
-					this.province = province;
+				public void setRemainingTime(Integer remainingTime) {
+					this.remainingTime = remainingTime;
+				}
+
+				public String getNumber() {
+					return this.number;
+				}
+
+				public void setNumber(String number) {
+					this.number = number;
 				}
 
 				public String getCity() {
@@ -289,6 +241,54 @@ public class ListSkillGroupsOfUserResponse extends AcsResponse {
 
 				public void setCity(String city) {
 					this.city = city;
+				}
+
+				public String getInstanceId() {
+					return this.instanceId;
+				}
+
+				public void setInstanceId(String instanceId) {
+					this.instanceId = instanceId;
+				}
+
+				public String getUsage() {
+					return this.usage;
+				}
+
+				public void setUsage(String usage) {
+					this.usage = usage;
+				}
+
+				public Boolean getAllowOutbound() {
+					return this.allowOutbound;
+				}
+
+				public void setAllowOutbound(Boolean allowOutbound) {
+					this.allowOutbound = allowOutbound;
+				}
+
+				public String getPhoneNumberDescription() {
+					return this.phoneNumberDescription;
+				}
+
+				public void setPhoneNumberDescription(String phoneNumberDescription) {
+					this.phoneNumberDescription = phoneNumberDescription;
+				}
+
+				public String getProvince() {
+					return this.province;
+				}
+
+				public void setProvince(String province) {
+					this.province = province;
+				}
+
+				public String getPhoneNumberId() {
+					return this.phoneNumberId;
+				}
+
+				public void setPhoneNumberId(String phoneNumberId) {
+					this.phoneNumberId = phoneNumberId;
 				}
 			}
 		}

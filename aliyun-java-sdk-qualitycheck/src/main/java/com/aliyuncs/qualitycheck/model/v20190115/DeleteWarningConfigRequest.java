@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class DeleteWarningConfigRequest extends RpcAcsRequest<DeleteWarningConfigResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public DeleteWarningConfigRequest() {
 		super("Qualitycheck", "2019-01-15", "DeleteWarningConfig");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

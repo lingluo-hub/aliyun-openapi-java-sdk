@@ -28,6 +28,8 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 
 	private Long resourceOwnerId;
 
+	private String clientToken;
+
 	private Integer secondaryPrivateIpAddressCount;
 
 	private String resourceOwnerAccount;
@@ -56,6 +58,17 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 

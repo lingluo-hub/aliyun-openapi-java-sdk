@@ -32,6 +32,8 @@ public class SetDeviceDesiredPropertyResponse extends AcsResponse {
 
 	private String code;
 
+	private String messageArguments;
+
 	private Data data;
 
 	public String getRequestId() {
@@ -64,6 +66,14 @@ public class SetDeviceDesiredPropertyResponse extends AcsResponse {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getMessageArguments() {
+		return this.messageArguments;
+	}
+
+	public void setMessageArguments(String messageArguments) {
+		this.messageArguments = messageArguments;
 	}
 
 	public Data getData() {

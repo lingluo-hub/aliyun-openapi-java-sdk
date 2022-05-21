@@ -28,25 +28,25 @@ public class ListAgentEventsResponseUnmarshaller {
 	public static ListAgentEventsResponse unmarshall(ListAgentEventsResponse listAgentEventsResponse, UnmarshallerContext _ctx) {
 		
 		listAgentEventsResponse.setRequestId(_ctx.stringValue("ListAgentEventsResponse.RequestId"));
-		listAgentEventsResponse.setSuccess(_ctx.booleanValue("ListAgentEventsResponse.Success"));
+		listAgentEventsResponse.setHttpStatusCode(_ctx.integerValue("ListAgentEventsResponse.HttpStatusCode"));
 		listAgentEventsResponse.setCode(_ctx.stringValue("ListAgentEventsResponse.Code"));
 		listAgentEventsResponse.setMessage(_ctx.stringValue("ListAgentEventsResponse.Message"));
-		listAgentEventsResponse.setHttpStatusCode(_ctx.integerValue("ListAgentEventsResponse.HttpStatusCode"));
+		listAgentEventsResponse.setSuccess(_ctx.booleanValue("ListAgentEventsResponse.Success"));
 
 		List<AgentEvent> agentEventList = new ArrayList<AgentEvent>();
 		for (int i = 0; i < _ctx.lengthValue("ListAgentEventsResponse.AgentEventList.Length"); i++) {
 			AgentEvent agentEvent = new AgentEvent();
-			agentEvent.setInstanceId(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].InstanceId"));
-			agentEvent.setRamId(_ctx.longValue("ListAgentEventsResponse.AgentEventList["+ i +"].RamId"));
-			agentEvent.setLoginName(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].LoginName"));
 			agentEvent.setEvent(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].Event"));
 			agentEvent.setEventTime(_ctx.longValue("ListAgentEventsResponse.AgentEventList["+ i +"].EventTime"));
+			agentEvent.setLoginName(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].LoginName"));
+			agentEvent.setInstanceId(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].InstanceId"));
+			agentEvent.setRamId(_ctx.longValue("ListAgentEventsResponse.AgentEventList["+ i +"].RamId"));
 
 			List<SkillGroup> skillGroupIds = new ArrayList<SkillGroup>();
 			for (int j = 0; j < _ctx.lengthValue("ListAgentEventsResponse.AgentEventList["+ i +"].SkillGroupIds.Length"); j++) {
 				SkillGroup skillGroup = new SkillGroup();
-				skillGroup.setSkillGroupId(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].SkillGroupIds["+ j +"].SkillGroupId"));
 				skillGroup.setSkillGroupName(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].SkillGroupIds["+ j +"].SkillGroupName"));
+				skillGroup.setSkillGroupId(_ctx.stringValue("ListAgentEventsResponse.AgentEventList["+ i +"].SkillGroupIds["+ j +"].SkillGroupId"));
 
 				skillGroupIds.add(skillGroup);
 			}

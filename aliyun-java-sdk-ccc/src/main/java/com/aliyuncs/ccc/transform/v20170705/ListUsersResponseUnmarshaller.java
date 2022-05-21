@@ -32,40 +32,40 @@ public class ListUsersResponseUnmarshaller {
 	public static ListUsersResponse unmarshall(ListUsersResponse listUsersResponse, UnmarshallerContext _ctx) {
 		
 		listUsersResponse.setRequestId(_ctx.stringValue("ListUsersResponse.RequestId"));
-		listUsersResponse.setSuccess(_ctx.booleanValue("ListUsersResponse.Success"));
+		listUsersResponse.setHttpStatusCode(_ctx.integerValue("ListUsersResponse.HttpStatusCode"));
 		listUsersResponse.setCode(_ctx.stringValue("ListUsersResponse.Code"));
 		listUsersResponse.setMessage(_ctx.stringValue("ListUsersResponse.Message"));
-		listUsersResponse.setHttpStatusCode(_ctx.integerValue("ListUsersResponse.HttpStatusCode"));
+		listUsersResponse.setSuccess(_ctx.booleanValue("ListUsersResponse.Success"));
 
 		Users users = new Users();
-		users.setTotalCount(_ctx.integerValue("ListUsersResponse.Users.TotalCount"));
 		users.setPageNumber(_ctx.integerValue("ListUsersResponse.Users.PageNumber"));
 		users.setPageSize(_ctx.integerValue("ListUsersResponse.Users.PageSize"));
+		users.setTotalCount(_ctx.integerValue("ListUsersResponse.Users.TotalCount"));
 
 		List<User> list = new ArrayList<User>();
 		for (int i = 0; i < _ctx.lengthValue("ListUsersResponse.Users.List.Length"); i++) {
 			User user = new User();
-			user.setUserId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].UserId"));
-			user.setRamId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].RamId"));
-			user.setInstanceId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].InstanceId"));
-			user.setPrimary(_ctx.booleanValue("ListUsersResponse.Users.List["+ i +"].Primary"));
 			user.setPrivateOutboundNumberId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].PrivateOutboundNumberId"));
+			user.setPrimary(_ctx.booleanValue("ListUsersResponse.Users.List["+ i +"].Primary"));
+			user.setInstanceId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].InstanceId"));
+			user.setRamId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].RamId"));
+			user.setUserId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].UserId"));
 
 			Detail detail = new Detail();
-			detail.setLoginName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.LoginName"));
 			detail.setDisplayName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.DisplayName"));
-			detail.setPhone(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.Phone"));
 			detail.setEmail(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.Email"));
+			detail.setLoginName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.LoginName"));
 			detail.setDepartment(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.Department"));
+			detail.setPhone(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Detail.Phone"));
 			user.setDetail(detail);
 
 			List<Role> roles = new ArrayList<Role>();
 			for (int j = 0; j < _ctx.lengthValue("ListUsersResponse.Users.List["+ i +"].Roles.Length"); j++) {
 				Role role = new Role();
-				role.setRoleId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Roles["+ j +"].RoleId"));
 				role.setInstanceId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Roles["+ j +"].InstanceId"));
 				role.setRoleName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Roles["+ j +"].RoleName"));
 				role.setRoleDescription(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Roles["+ j +"].RoleDescription"));
+				role.setRoleId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].Roles["+ j +"].RoleId"));
 
 				roles.add(role);
 			}
@@ -78,10 +78,10 @@ public class ListUsersResponseUnmarshaller {
 				skillLevel.setLevel(_ctx.integerValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Level"));
 
 				Skill skill = new Skill();
-				skill.setSkillGroupId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupId"));
 				skill.setInstanceId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.InstanceId"));
-				skill.setSkillGroupName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupName"));
 				skill.setSkillGroupDescription(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupDescription"));
+				skill.setSkillGroupId(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupId"));
+				skill.setSkillGroupName(_ctx.stringValue("ListUsersResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupName"));
 				skillLevel.setSkill(skill);
 
 				skillLevels.add(skillLevel);

@@ -16,20 +16,15 @@ package com.aliyuncs.schedulerx2.model.v20190430;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
-import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.schedulerx2.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
-	
-	public CreateJobRequest() {
-		super("schedulerx2", "2019-04-30", "CreateJob");
-		setProtocol(ProtocolType.HTTPS);
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String namespaceSource;
 
@@ -63,6 +58,8 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 
 	private Integer maxAttempt;
 
+	private Boolean missWorkerEnable;
+
 	private Integer dispatcherSize;
 
 	private String jobType;
@@ -90,6 +87,14 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 	private Integer timeType;
 
 	private String parameters;
+	public CreateJobRequest() {
+		super("schedulerx2", "2019-04-30", "CreateJob");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getNamespaceSource() {
 		return this.namespaceSource;
@@ -267,6 +272,17 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		}
 	}
 
+	public Boolean getMissWorkerEnable() {
+		return this.missWorkerEnable;
+	}
+
+	public void setMissWorkerEnable(Boolean missWorkerEnable) {
+		this.missWorkerEnable = missWorkerEnable;
+		if(missWorkerEnable != null){
+			putBodyParameter("MissWorkerEnable", missWorkerEnable.toString());
+		}
+	}
+
 	public Integer getDispatcherSize() {
 		return this.dispatcherSize;
 	}
@@ -363,7 +379,9 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		this.contactInfos = contactInfos;	
 		if (contactInfos != null) {
 			for (int depth1 = 0; depth1 < contactInfos.size(); depth1++) {
+				putBodyParameter("ContactInfo." + (depth1 + 1) + ".Ding" , contactInfos.get(depth1).getDing());
 				putBodyParameter("ContactInfo." + (depth1 + 1) + ".UserPhone" , contactInfos.get(depth1).getUserPhone());
+				putBodyParameter("ContactInfo." + (depth1 + 1) + ".UserMail" , contactInfos.get(depth1).getUserMail());
 				putBodyParameter("ContactInfo." + (depth1 + 1) + ".UserName" , contactInfos.get(depth1).getUserName());
 			}
 		}	
@@ -426,9 +444,21 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 
 	public static class ContactInfo {
 
+		private String ding;
+
 		private String userPhone;
 
+		private String userMail;
+
 		private String userName;
+
+		public String getDing() {
+			return this.ding;
+		}
+
+		public void setDing(String ding) {
+			this.ding = ding;
+		}
 
 		public String getUserPhone() {
 			return this.userPhone;
@@ -436,6 +466,14 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 
 		public void setUserPhone(String userPhone) {
 			this.userPhone = userPhone;
+		}
+
+		public String getUserMail() {
+			return this.userMail;
+		}
+
+		public void setUserMail(String userMail) {
+			this.userMail = userMail;
 		}
 
 		public String getUserName() {

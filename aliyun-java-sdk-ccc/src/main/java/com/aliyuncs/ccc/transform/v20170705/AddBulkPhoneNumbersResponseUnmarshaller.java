@@ -29,10 +29,10 @@ public class AddBulkPhoneNumbersResponseUnmarshaller {
 	public static AddBulkPhoneNumbersResponse unmarshall(AddBulkPhoneNumbersResponse addBulkPhoneNumbersResponse, UnmarshallerContext _ctx) {
 		
 		addBulkPhoneNumbersResponse.setRequestId(_ctx.stringValue("AddBulkPhoneNumbersResponse.RequestId"));
-		addBulkPhoneNumbersResponse.setSuccess(_ctx.booleanValue("AddBulkPhoneNumbersResponse.Success"));
+		addBulkPhoneNumbersResponse.setHttpStatusCode(_ctx.integerValue("AddBulkPhoneNumbersResponse.HttpStatusCode"));
 		addBulkPhoneNumbersResponse.setCode(_ctx.stringValue("AddBulkPhoneNumbersResponse.Code"));
 		addBulkPhoneNumbersResponse.setMessage(_ctx.stringValue("AddBulkPhoneNumbersResponse.Message"));
-		addBulkPhoneNumbersResponse.setHttpStatusCode(_ctx.integerValue("AddBulkPhoneNumbersResponse.HttpStatusCode"));
+		addBulkPhoneNumbersResponse.setSuccess(_ctx.booleanValue("AddBulkPhoneNumbersResponse.Success"));
 
 		List<String> arrearagePhoneNumbers = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("AddBulkPhoneNumbersResponse.ArrearagePhoneNumbers.Length"); i++) {
@@ -55,29 +55,29 @@ public class AddBulkPhoneNumbersResponseUnmarshaller {
 		List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
 		for (int i = 0; i < _ctx.lengthValue("AddBulkPhoneNumbersResponse.PhoneNumbers.Length"); i++) {
 			PhoneNumber phoneNumber = new PhoneNumber();
-			phoneNumber.setPhoneNumberId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].PhoneNumberId"));
-			phoneNumber.setInstanceId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].InstanceId"));
-			phoneNumber.setNumber(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].Number"));
-			phoneNumber.setPhoneNumberDescription(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].PhoneNumberDescription"));
 			phoneNumber.setTestOnly(_ctx.booleanValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].TestOnly"));
-			phoneNumber.setRemainingTime(_ctx.integerValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].RemainingTime"));
-			phoneNumber.setAllowOutbound(_ctx.booleanValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].AllowOutbound"));
-			phoneNumber.setUsage(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].Usage"));
 			phoneNumber.setTrunks(_ctx.integerValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].Trunks"));
+			phoneNumber.setRemainingTime(_ctx.integerValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].RemainingTime"));
+			phoneNumber.setNumber(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].Number"));
+			phoneNumber.setInstanceId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].InstanceId"));
+			phoneNumber.setUsage(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].Usage"));
+			phoneNumber.setAllowOutbound(_ctx.booleanValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].AllowOutbound"));
+			phoneNumber.setPhoneNumberDescription(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].PhoneNumberDescription"));
+			phoneNumber.setPhoneNumberId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].PhoneNumberId"));
 
 			ContactFlow contactFlow = new ContactFlow();
-			contactFlow.setContactFlowId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.ContactFlowId"));
+			contactFlow.setType(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.Type"));
+			contactFlow.setContactFlowDescription(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.ContactFlowDescription"));
 			contactFlow.setInstanceId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.InstanceId"));
 			contactFlow.setContactFlowName(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.ContactFlowName"));
-			contactFlow.setContactFlowDescription(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.ContactFlowDescription"));
-			contactFlow.setType(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.Type"));
+			contactFlow.setContactFlowId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].ContactFlow.ContactFlowId"));
 			phoneNumber.setContactFlow(contactFlow);
 
 			List<SkillGroup> skillGroups = new ArrayList<SkillGroup>();
 			for (int j = 0; j < _ctx.lengthValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].SkillGroups.Length"); j++) {
 				SkillGroup skillGroup = new SkillGroup();
-				skillGroup.setSkillGroupId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].SkillGroups["+ j +"].SkillGroupId"));
 				skillGroup.setSkillGroupName(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].SkillGroups["+ j +"].SkillGroupName"));
+				skillGroup.setSkillGroupId(_ctx.stringValue("AddBulkPhoneNumbersResponse.PhoneNumbers["+ i +"].SkillGroups["+ j +"].SkillGroupId"));
 
 				skillGroups.add(skillGroup);
 			}

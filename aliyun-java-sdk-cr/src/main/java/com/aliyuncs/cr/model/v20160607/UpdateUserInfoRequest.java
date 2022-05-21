@@ -16,17 +16,22 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateUserInfoRequest extends RoaAcsRequest<UpdateUserInfoResponse> {
-	
+	   
 	public UpdateUserInfoRequest() {
-		super("cr", "2016-06-07", "UpdateUserInfo", "cr");
+		super("cr", "2016-06-07", "UpdateUserInfo", "acr");
 		setUriPattern("/users");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override

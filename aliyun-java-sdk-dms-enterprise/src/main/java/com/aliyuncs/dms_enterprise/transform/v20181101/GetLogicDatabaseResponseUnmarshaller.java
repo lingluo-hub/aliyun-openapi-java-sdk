@@ -27,17 +27,18 @@ public class GetLogicDatabaseResponseUnmarshaller {
 	public static GetLogicDatabaseResponse unmarshall(GetLogicDatabaseResponse getLogicDatabaseResponse, UnmarshallerContext _ctx) {
 		
 		getLogicDatabaseResponse.setRequestId(_ctx.stringValue("GetLogicDatabaseResponse.RequestId"));
-		getLogicDatabaseResponse.setSuccess(_ctx.booleanValue("GetLogicDatabaseResponse.Success"));
-		getLogicDatabaseResponse.setErrorMessage(_ctx.stringValue("GetLogicDatabaseResponse.ErrorMessage"));
 		getLogicDatabaseResponse.setErrorCode(_ctx.stringValue("GetLogicDatabaseResponse.ErrorCode"));
+		getLogicDatabaseResponse.setErrorMessage(_ctx.stringValue("GetLogicDatabaseResponse.ErrorMessage"));
+		getLogicDatabaseResponse.setSuccess(_ctx.booleanValue("GetLogicDatabaseResponse.Success"));
 
 		LogicDatabase logicDatabase = new LogicDatabase();
+		logicDatabase.setDatabaseId(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.DatabaseId"));
+		logicDatabase.setDbType(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.DbType"));
 		logicDatabase.setLogic(_ctx.booleanValue("GetLogicDatabaseResponse.LogicDatabase.Logic"));
-		logicDatabase.setEnvType(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.EnvType"));
 		logicDatabase.setSchemaName(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.SchemaName"));
 		logicDatabase.setSearchName(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.SearchName"));
-		logicDatabase.setDbType(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.DbType"));
-		logicDatabase.setDatabaseId(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.DatabaseId"));
+		logicDatabase.setEnvType(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.EnvType"));
+		logicDatabase.setAlias(_ctx.stringValue("GetLogicDatabaseResponse.LogicDatabase.Alias"));
 
 		List<String> ownerIdList = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("GetLogicDatabaseResponse.LogicDatabase.OwnerIdList.Length"); i++) {

@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.Map;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.oos.Endpoint;
 
 /**
  * @author auto create
@@ -34,6 +35,8 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 
 	private String executionId;
 
+	private String resourceGroupId;
+
 	private String ramRole;
 
 	private String nextToken;
@@ -43,6 +46,8 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 	private String endDateBefore;
 
 	private String sortOrder;
+
+	private String resourceId;
 
 	private String startDateAfter;
 
@@ -60,10 +65,16 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 
 	private String category;
 
+	private String resourceTemplateName;
+
 	private String status;
 	public ListExecutionsRequest() {
 		super("oos", "2019-06-01", "ListExecutions", "oos");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getExecutedBy() {
@@ -107,6 +118,17 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 		this.executionId = executionId;
 		if(executionId != null){
 			putQueryParameter("ExecutionId", executionId);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -162,6 +184,17 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 		this.sortOrder = sortOrder;
 		if(sortOrder != null){
 			putQueryParameter("SortOrder", sortOrder);
+		}
+	}
+
+	public String getResourceId() {
+		return this.resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+		if(resourceId != null){
+			putQueryParameter("ResourceId", resourceId);
 		}
 	}
 
@@ -250,6 +283,17 @@ public class ListExecutionsRequest extends RpcAcsRequest<ListExecutionsResponse>
 		this.category = category;
 		if(category != null){
 			putQueryParameter("Category", category);
+		}
+	}
+
+	public String getResourceTemplateName() {
+		return this.resourceTemplateName;
+	}
+
+	public void setResourceTemplateName(String resourceTemplateName) {
+		this.resourceTemplateName = resourceTemplateName;
+		if(resourceTemplateName != null){
+			putQueryParameter("ResourceTemplateName", resourceTemplateName);
 		}
 	}
 

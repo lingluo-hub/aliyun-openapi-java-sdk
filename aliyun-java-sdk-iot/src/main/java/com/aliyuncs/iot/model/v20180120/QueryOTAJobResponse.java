@@ -14,6 +14,7 @@
 
 package com.aliyuncs.iot.model.v20180120;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.iot.transform.v20180120.QueryOTAJobResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -31,14 +32,6 @@ public class QueryOTAJobResponse extends AcsResponse {
 	private String code;
 
 	private String errorMessage;
-
-	private Integer total;
-
-	private Integer pageSize;
-
-	private Integer pageCount;
-
-	private Integer currentPage;
 
 	private Data data;
 
@@ -72,38 +65,6 @@ public class QueryOTAJobResponse extends AcsResponse {
 
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
-	}
-
-	public Integer getTotal() {
-		return this.total;
-	}
-
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public Integer getPageCount() {
-		return this.pageCount;
-	}
-
-	public void setPageCount(Integer pageCount) {
-		this.pageCount = pageCount;
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
 	}
 
 	public Data getData() {
@@ -156,7 +117,27 @@ public class QueryOTAJobResponse extends AcsResponse {
 
 		private String destVersion;
 
-		private String srcVersions;
+		private String utcScheduleFinishTime;
+
+		private Integer overwriteMode;
+
+		private Integer dynamicMode;
+
+		private Boolean needPush;
+
+		private Boolean needConfirm;
+
+		private String groupId;
+
+		private String groupName;
+
+		private String downloadProtocol;
+
+		private Boolean multiModuleMode;
+
+		private List<OtaTagDTO> tags;
+
+		private List<String> srcVersions;
 
 		public String getJobId() {
 			return this.jobId;
@@ -318,12 +299,115 @@ public class QueryOTAJobResponse extends AcsResponse {
 			this.destVersion = destVersion;
 		}
 
-		public String getSrcVersions() {
+		public String getUtcScheduleFinishTime() {
+			return this.utcScheduleFinishTime;
+		}
+
+		public void setUtcScheduleFinishTime(String utcScheduleFinishTime) {
+			this.utcScheduleFinishTime = utcScheduleFinishTime;
+		}
+
+		public Integer getOverwriteMode() {
+			return this.overwriteMode;
+		}
+
+		public void setOverwriteMode(Integer overwriteMode) {
+			this.overwriteMode = overwriteMode;
+		}
+
+		public Integer getDynamicMode() {
+			return this.dynamicMode;
+		}
+
+		public void setDynamicMode(Integer dynamicMode) {
+			this.dynamicMode = dynamicMode;
+		}
+
+		public Boolean getNeedPush() {
+			return this.needPush;
+		}
+
+		public void setNeedPush(Boolean needPush) {
+			this.needPush = needPush;
+		}
+
+		public Boolean getNeedConfirm() {
+			return this.needConfirm;
+		}
+
+		public void setNeedConfirm(Boolean needConfirm) {
+			this.needConfirm = needConfirm;
+		}
+
+		public String getGroupId() {
+			return this.groupId;
+		}
+
+		public void setGroupId(String groupId) {
+			this.groupId = groupId;
+		}
+
+		public String getGroupName() {
+			return this.groupName;
+		}
+
+		public void setGroupName(String groupName) {
+			this.groupName = groupName;
+		}
+
+		public String getDownloadProtocol() {
+			return this.downloadProtocol;
+		}
+
+		public void setDownloadProtocol(String downloadProtocol) {
+			this.downloadProtocol = downloadProtocol;
+		}
+
+		public Boolean getMultiModuleMode() {
+			return this.multiModuleMode;
+		}
+
+		public void setMultiModuleMode(Boolean multiModuleMode) {
+			this.multiModuleMode = multiModuleMode;
+		}
+
+		public List<OtaTagDTO> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<OtaTagDTO> tags) {
+			this.tags = tags;
+		}
+
+		public List<String> getSrcVersions() {
 			return this.srcVersions;
 		}
 
-		public void setSrcVersions(String srcVersions) {
+		public void setSrcVersions(List<String> srcVersions) {
 			this.srcVersions = srcVersions;
+		}
+
+		public static class OtaTagDTO {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

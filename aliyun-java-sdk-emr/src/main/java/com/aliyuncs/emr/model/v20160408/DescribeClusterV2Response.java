@@ -59,6 +59,8 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 		private String name;
 
+		private String extraInfo;
+
 		private String relateClusterId;
 
 		private String gatewayClusterIds;
@@ -129,6 +131,8 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 		private Boolean easEnable;
 
+		private String autoScalingVersion;
+
 		private Boolean autoScalingEnable;
 
 		private Boolean autoScalingAllowed;
@@ -137,9 +141,17 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 		private Boolean autoScalingByLoadAllowed;
 
+		private Boolean autoScalingWithGraceAllowed;
+
 		private Boolean resizeDiskEnable;
 
 		private String metaStoreType;
+
+		private String k8sClusterId;
+
+		private Boolean dataDiskEncrypted;
+
+		private String dataDiskKMSKeyId;
 
 		private List<GatewayClusterInfo> gatewayClusterInfoList;
 
@@ -165,26 +177,10 @@ public class DescribeClusterV2Response extends AcsResponse {
 			this.id = id;
 		}
 
-		public String getBizRegionId() {
-			return this.regionId;
-		}
-
-		public void setBizRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		/**
-		 * @deprecated use getBizRegionId instead of this.
-		 */
-		@Deprecated
 		public String getRegionId() {
 			return this.regionId;
 		}
 
-		/**
-		 * @deprecated use setBizRegionId instead of this.
-		 */
-		@Deprecated
 		public void setRegionId(String regionId) {
 			this.regionId = regionId;
 		}
@@ -219,6 +215,14 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
+		}
+
+		public String getExtraInfo() {
+			return this.extraInfo;
+		}
+
+		public void setExtraInfo(String extraInfo) {
+			this.extraInfo = extraInfo;
 		}
 
 		public String getRelateClusterId() {
@@ -501,6 +505,14 @@ public class DescribeClusterV2Response extends AcsResponse {
 			this.easEnable = easEnable;
 		}
 
+		public String getAutoScalingVersion() {
+			return this.autoScalingVersion;
+		}
+
+		public void setAutoScalingVersion(String autoScalingVersion) {
+			this.autoScalingVersion = autoScalingVersion;
+		}
+
 		public Boolean getAutoScalingEnable() {
 			return this.autoScalingEnable;
 		}
@@ -533,6 +545,14 @@ public class DescribeClusterV2Response extends AcsResponse {
 			this.autoScalingByLoadAllowed = autoScalingByLoadAllowed;
 		}
 
+		public Boolean getAutoScalingWithGraceAllowed() {
+			return this.autoScalingWithGraceAllowed;
+		}
+
+		public void setAutoScalingWithGraceAllowed(Boolean autoScalingWithGraceAllowed) {
+			this.autoScalingWithGraceAllowed = autoScalingWithGraceAllowed;
+		}
+
 		public Boolean getResizeDiskEnable() {
 			return this.resizeDiskEnable;
 		}
@@ -547,6 +567,30 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 		public void setMetaStoreType(String metaStoreType) {
 			this.metaStoreType = metaStoreType;
+		}
+
+		public String getK8sClusterId() {
+			return this.k8sClusterId;
+		}
+
+		public void setK8sClusterId(String k8sClusterId) {
+			this.k8sClusterId = k8sClusterId;
+		}
+
+		public Boolean getDataDiskEncrypted() {
+			return this.dataDiskEncrypted;
+		}
+
+		public void setDataDiskEncrypted(Boolean dataDiskEncrypted) {
+			this.dataDiskEncrypted = dataDiskEncrypted;
+		}
+
+		public String getDataDiskKMSKeyId() {
+			return this.dataDiskKMSKeyId;
+		}
+
+		public void setDataDiskKMSKeyId(String dataDiskKMSKeyId) {
+			this.dataDiskKMSKeyId = dataDiskKMSKeyId;
 		}
 
 		public List<GatewayClusterInfo> getGatewayClusterInfoList() {
@@ -1059,6 +1103,8 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 			private String status;
 
+			private String clusterType;
+
 			public String getClusterId() {
 				return this.clusterId;
 			}
@@ -1081,6 +1127,14 @@ public class DescribeClusterV2Response extends AcsResponse {
 
 			public void setStatus(String status) {
 				this.status = status;
+			}
+
+			public String getClusterType() {
+				return this.clusterType;
+			}
+
+			public void setClusterType(String clusterType) {
+				this.clusterType = clusterType;
 			}
 		}
 
@@ -1216,26 +1270,10 @@ public class DescribeClusterV2Response extends AcsResponse {
 					this.startTpe = startTpe;
 				}
 
-				public String getBizVersion() {
-					return this.version;
-				}
-
-				public void setBizVersion(String version) {
-					this.version = version;
-				}
-
-				/**
-				 * @deprecated use getBizVersion instead of this.
-				 */
-				@Deprecated
 				public String getVersion() {
 					return this.version;
 				}
 
-				/**
-				 * @deprecated use setBizVersion instead of this.
-				 */
-				@Deprecated
 				public void setVersion(String version) {
 					this.version = version;
 				}

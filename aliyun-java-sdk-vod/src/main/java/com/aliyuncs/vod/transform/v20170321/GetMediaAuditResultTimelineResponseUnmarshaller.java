@@ -19,6 +19,9 @@ import java.util.List;
 
 import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse;
 import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline;
+import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.AdItem;
+import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.LiveItem;
+import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.LogoItem;
 import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.PornItem;
 import com.aliyuncs.vod.model.v20170321.GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.TerrorismItem;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -35,9 +38,9 @@ public class GetMediaAuditResultTimelineResponseUnmarshaller {
 		List<PornItem> porn = new ArrayList<PornItem>();
 		for (int i = 0; i < _ctx.lengthValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Porn.Length"); i++) {
 			PornItem pornItem = new PornItem();
-			pornItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Porn["+ i +"].Label"));
 			pornItem.setScore(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Porn["+ i +"].Score"));
 			pornItem.setTimestamp(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Porn["+ i +"].Timestamp"));
+			pornItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Porn["+ i +"].Label"));
 
 			porn.add(pornItem);
 		}
@@ -46,13 +49,46 @@ public class GetMediaAuditResultTimelineResponseUnmarshaller {
 		List<TerrorismItem> terrorism = new ArrayList<TerrorismItem>();
 		for (int i = 0; i < _ctx.lengthValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Terrorism.Length"); i++) {
 			TerrorismItem terrorismItem = new TerrorismItem();
-			terrorismItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Terrorism["+ i +"].Label"));
 			terrorismItem.setScore(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Terrorism["+ i +"].Score"));
 			terrorismItem.setTimestamp(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Terrorism["+ i +"].Timestamp"));
+			terrorismItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Terrorism["+ i +"].Label"));
 
 			terrorism.add(terrorismItem);
 		}
 		mediaAuditResultTimeline.setTerrorism(terrorism);
+
+		List<LogoItem> logo = new ArrayList<LogoItem>();
+		for (int i = 0; i < _ctx.lengthValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Logo.Length"); i++) {
+			LogoItem logoItem = new LogoItem();
+			logoItem.setScore(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Logo["+ i +"].Score"));
+			logoItem.setTimestamp(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Logo["+ i +"].Timestamp"));
+			logoItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Logo["+ i +"].Label"));
+
+			logo.add(logoItem);
+		}
+		mediaAuditResultTimeline.setLogo(logo);
+
+		List<LiveItem> live = new ArrayList<LiveItem>();
+		for (int i = 0; i < _ctx.lengthValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Live.Length"); i++) {
+			LiveItem liveItem = new LiveItem();
+			liveItem.setScore(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Live["+ i +"].Score"));
+			liveItem.setTimestamp(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Live["+ i +"].Timestamp"));
+			liveItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Live["+ i +"].Label"));
+
+			live.add(liveItem);
+		}
+		mediaAuditResultTimeline.setLive(live);
+
+		List<AdItem> ad = new ArrayList<AdItem>();
+		for (int i = 0; i < _ctx.lengthValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Ad.Length"); i++) {
+			AdItem adItem = new AdItem();
+			adItem.setScore(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Ad["+ i +"].Score"));
+			adItem.setTimestamp(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Ad["+ i +"].Timestamp"));
+			adItem.setLabel(_ctx.stringValue("GetMediaAuditResultTimelineResponse.MediaAuditResultTimeline.Ad["+ i +"].Label"));
+
+			ad.add(adItem);
+		}
+		mediaAuditResultTimeline.setAd(ad);
 		getMediaAuditResultTimelineResponse.setMediaAuditResultTimeline(mediaAuditResultTimeline);
 	 
 	 	return getMediaAuditResultTimelineResponse;

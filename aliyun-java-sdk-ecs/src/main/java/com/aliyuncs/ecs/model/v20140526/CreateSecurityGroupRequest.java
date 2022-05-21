@@ -30,6 +30,8 @@ public class CreateSecurityGroupRequest extends RpcAcsRequest<CreateSecurityGrou
 
 	private String clientToken;
 
+	private Boolean serviceManaged;
+
 	private String description;
 
 	private String securityGroupName;
@@ -78,6 +80,17 @@ public class CreateSecurityGroupRequest extends RpcAcsRequest<CreateSecurityGrou
 		}
 	}
 
+	public Boolean getServiceManaged() {
+		return this.serviceManaged;
+	}
+
+	public void setServiceManaged(Boolean serviceManaged) {
+		this.serviceManaged = serviceManaged;
+		if(serviceManaged != null){
+			putQueryParameter("ServiceManaged", serviceManaged.toString());
+		}
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -119,7 +132,7 @@ public class CreateSecurityGroupRequest extends RpcAcsRequest<CreateSecurityGrou
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	

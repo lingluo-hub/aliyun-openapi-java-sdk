@@ -1,3 +1,45 @@
+2021-09-01 Version: 1.14.7
+- SDK updated.
+
+2021-08-27 Version: 1.14.6
+- ListAvailableEcsTypes set param ZoneId not required.
+- ListAvailableEcsTypes return ZoneIds.
+
+2021-08-26 Version: 1.14.5
+- ListAvailableEcsTypes set param ZoneId not required.
+- ListAvailableEcsTypes return ZoneIds.
+
+2021-08-19 Version: 1.14.4
+- Support Round and Interval for ApplyNodes API.
+
+2021-05-21 Version: 1.14.3
+- Support StrictResourceProvision in ApplyNodes.
+
+2021-05-18 Version: 1.14.2
+- Support MinCount for AddNodes.
+- Support HostNamePreffix and HostNameSuffix for ListNodes.
+
+2020-12-29 Version: 1.14.1
+- ListNodesNoPaging return with instance type.
+
+2020-08-28 Version: 1.14.0
+- Support multiple security group for one ehpc cluster.
+- Update GWS apis.
+
+2020-06-16 Version: 1.13.3
+- Support TargetImageId in ApplyNodes Interface.
+
+2020-05-21 Version: 1.13.2
+- Support more error Codes.
+
+2020-05-18 Version: 1.13.1
+- Support sequence for listNodes.
+- Support StrictSatisfiedTargetCapacity for applyNodes.
+
+
+2020-05-11 Version: 1.13.0
+- Add new openapi ApplyNodes.
+
 2020-03-05 Version: 1.12.1
 - Add param InstanceType for ListImages and ListCustomImages.
 - Fix error codes for SubmitJobs and so on.

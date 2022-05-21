@@ -15,6 +15,7 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ccc.Endpoint;
 
@@ -23,17 +24,21 @@ import com.aliyuncs.ccc.Endpoint;
  * @version 
  */
 public class ListSkillGroupsRequest extends RpcAcsRequest<ListSkillGroupsResponse> {
-	
+	   
+
+	private String instanceId;
+
+	private List<String> skillGroupIds;
+
+	private List<String> skillGroupNames;
 	public ListSkillGroupsRequest() {
 		super("CCC", "2017-07-05", "ListSkillGroups");
-		setSysMethod(MethodType.POST);
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
-
-	private String instanceId;
 
 	public String getInstanceId() {
 		return this.instanceId;
@@ -44,6 +49,32 @@ public class ListSkillGroupsRequest extends RpcAcsRequest<ListSkillGroupsRespons
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
 		}
+	}
+
+	public List<String> getSkillGroupIds() {
+		return this.skillGroupIds;
+	}
+
+	public void setSkillGroupIds(List<String> skillGroupIds) {
+		this.skillGroupIds = skillGroupIds;	
+		if (skillGroupIds != null) {
+			for (int i = 0; i < skillGroupIds.size(); i++) {
+				putQueryParameter("SkillGroupId." + (i + 1) , skillGroupIds.get(i));
+			}
+		}	
+	}
+
+	public List<String> getSkillGroupNames() {
+		return this.skillGroupNames;
+	}
+
+	public void setSkillGroupNames(List<String> skillGroupNames) {
+		this.skillGroupNames = skillGroupNames;	
+		if (skillGroupNames != null) {
+			for (int i = 0; i < skillGroupNames.size(); i++) {
+				putQueryParameter("SkillGroupName." + (i + 1) , skillGroupNames.get(i));
+			}
+		}	
 	}
 
 	@Override

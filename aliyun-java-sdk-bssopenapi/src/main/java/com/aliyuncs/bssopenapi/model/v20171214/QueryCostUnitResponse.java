@@ -25,31 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryCostUnitResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -65,6 +49,22 @@ public class QueryCostUnitResponse extends AcsResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -119,21 +119,13 @@ public class QueryCostUnitResponse extends AcsResponse {
 
 		public static class CostUnitDtoListItem {
 
-			private Long ownerUid;
-
 			private Long parentUnitId;
-
-			private Long unitId;
 
 			private String unitName;
 
-			public Long getOwnerUid() {
-				return this.ownerUid;
-			}
+			private Long unitId;
 
-			public void setOwnerUid(Long ownerUid) {
-				this.ownerUid = ownerUid;
-			}
+			private Long ownerUid;
 
 			public Long getParentUnitId() {
 				return this.parentUnitId;
@@ -141,6 +133,14 @@ public class QueryCostUnitResponse extends AcsResponse {
 
 			public void setParentUnitId(Long parentUnitId) {
 				this.parentUnitId = parentUnitId;
+			}
+
+			public String getUnitName() {
+				return this.unitName;
+			}
+
+			public void setUnitName(String unitName) {
+				this.unitName = unitName;
 			}
 
 			public Long getUnitId() {
@@ -151,12 +151,12 @@ public class QueryCostUnitResponse extends AcsResponse {
 				this.unitId = unitId;
 			}
 
-			public String getUnitName() {
-				return this.unitName;
+			public Long getOwnerUid() {
+				return this.ownerUid;
 			}
 
-			public void setUnitName(String unitName) {
-				this.unitName = unitName;
+			public void setOwnerUid(Long ownerUid) {
+				this.ownerUid = ownerUid;
 			}
 		}
 	}

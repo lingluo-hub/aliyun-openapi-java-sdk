@@ -25,17 +25,33 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeFaceGroupsResponse extends AcsResponse {
 
+	private Long totalNum;
+
+	private Long pageSize;
+
 	private String requestId;
 
 	private Long currentPage;
 
-	private Long pageSize;
-
 	private String nextPageToken;
 
-	private Long totalNum;
-
 	private List<Group> groups;
+
+	public Long getTotalNum() {
+		return this.totalNum;
+	}
+
+	public void setTotalNum(Long totalNum) {
+		this.totalNum = totalNum;
+	}
+
+	public Long getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Long pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -53,28 +69,12 @@ public class DescribeFaceGroupsResponse extends AcsResponse {
 		this.currentPage = currentPage;
 	}
 
-	public Long getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Long pageSize) {
-		this.pageSize = pageSize;
-	}
-
 	public String getNextPageToken() {
 		return this.nextPageToken;
 	}
 
 	public void setNextPageToken(String nextPageToken) {
 		this.nextPageToken = nextPageToken;
-	}
-
-	public Long getTotalNum() {
-		return this.totalNum;
-	}
-
-	public void setTotalNum(Long totalNum) {
-		this.totalNum = totalNum;
 	}
 
 	public List<Group> getGroups() {
@@ -87,11 +87,19 @@ public class DescribeFaceGroupsResponse extends AcsResponse {
 
 	public static class Group {
 
+		private String creationTime;
+
 		private String groupId;
 
 		private String name;
 
-		private String creationTime;
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
+		}
 
 		public String getGroupId() {
 			return this.groupId;
@@ -107,14 +115,6 @@ public class DescribeFaceGroupsResponse extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
-		}
-
-		public String getCreationTime() {
-			return this.creationTime;
-		}
-
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
 		}
 	}
 

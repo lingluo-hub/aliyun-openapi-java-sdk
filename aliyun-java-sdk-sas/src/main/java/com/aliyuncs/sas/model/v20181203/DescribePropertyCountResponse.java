@@ -24,33 +24,29 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribePropertyCountResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Integer port;
-
 	private Integer process;
 
-	private Integer software;
+	private String requestId;
 
 	private Integer user;
 
+	private Integer software;
+
 	private Integer cron;
 
-	public String getRequestId() {
-		return this.requestId;
-	}
+	private Integer port;
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
+	private Integer sca;
 
-	public Integer getPort() {
-		return this.port;
-	}
+	private Integer web;
 
-	public void setPort(Integer port) {
-		this.port = port;
-	}
+	private Integer database;
+
+	private Integer lkm;
+
+	private Integer autorun;
+
+	private Integer webserver;
 
 	public Integer getProcess() {
 		return this.process;
@@ -60,12 +56,12 @@ public class DescribePropertyCountResponse extends AcsResponse {
 		this.process = process;
 	}
 
-	public Integer getSoftware() {
-		return this.software;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setSoftware(Integer software) {
-		this.software = software;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public Integer getUser() {
@@ -76,12 +72,76 @@ public class DescribePropertyCountResponse extends AcsResponse {
 		this.user = user;
 	}
 
+	public Integer getSoftware() {
+		return this.software;
+	}
+
+	public void setSoftware(Integer software) {
+		this.software = software;
+	}
+
 	public Integer getCron() {
 		return this.cron;
 	}
 
 	public void setCron(Integer cron) {
 		this.cron = cron;
+	}
+
+	public Integer getPort() {
+		return this.port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
+	public Integer getSca() {
+		return this.sca;
+	}
+
+	public void setSca(Integer sca) {
+		this.sca = sca;
+	}
+
+	public Integer getWeb() {
+		return this.web;
+	}
+
+	public void setWeb(Integer web) {
+		this.web = web;
+	}
+
+	public Integer getDatabase() {
+		return this.database;
+	}
+
+	public void setDatabase(Integer database) {
+		this.database = database;
+	}
+
+	public Integer getLkm() {
+		return this.lkm;
+	}
+
+	public void setLkm(Integer lkm) {
+		this.lkm = lkm;
+	}
+
+	public Integer getAutorun() {
+		return this.autorun;
+	}
+
+	public void setAutorun(Integer autorun) {
+		this.autorun = autorun;
+	}
+
+	public Integer getWebserver() {
+		return this.webserver;
+	}
+
+	public void setWebserver(Integer webserver) {
+		this.webserver = webserver;
 	}
 
 	@Override

@@ -28,26 +28,32 @@ public class DescribeApplicationInstancesResponseUnmarshaller {
 	public static DescribeApplicationInstancesResponse unmarshall(DescribeApplicationInstancesResponse describeApplicationInstancesResponse, UnmarshallerContext _ctx) {
 		
 		describeApplicationInstancesResponse.setRequestId(_ctx.stringValue("DescribeApplicationInstancesResponse.RequestId"));
-		describeApplicationInstancesResponse.setCode(_ctx.stringValue("DescribeApplicationInstancesResponse.Code"));
 		describeApplicationInstancesResponse.setMessage(_ctx.stringValue("DescribeApplicationInstancesResponse.Message"));
 		describeApplicationInstancesResponse.setTraceId(_ctx.stringValue("DescribeApplicationInstancesResponse.TraceId"));
-		describeApplicationInstancesResponse.setSuccess(_ctx.booleanValue("DescribeApplicationInstancesResponse.Success"));
 		describeApplicationInstancesResponse.setErrorCode(_ctx.stringValue("DescribeApplicationInstancesResponse.ErrorCode"));
+		describeApplicationInstancesResponse.setCode(_ctx.stringValue("DescribeApplicationInstancesResponse.Code"));
+		describeApplicationInstancesResponse.setSuccess(_ctx.booleanValue("DescribeApplicationInstancesResponse.Success"));
 
 		Data data = new Data();
 		data.setCurrentPage(_ctx.integerValue("DescribeApplicationInstancesResponse.Data.CurrentPage"));
-		data.setPageSize(_ctx.integerValue("DescribeApplicationInstancesResponse.Data.PageSize"));
 		data.setTotalSize(_ctx.integerValue("DescribeApplicationInstancesResponse.Data.TotalSize"));
+		data.setPageSize(_ctx.integerValue("DescribeApplicationInstancesResponse.Data.PageSize"));
 
 		List<Instance> instances = new ArrayList<Instance>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeApplicationInstancesResponse.Data.Instances.Length"); i++) {
 			Instance instance = new Instance();
-			instance.setGroupId(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].GroupId"));
-			instance.setInstanceId(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceId"));
-			instance.setInstanceContainerStatus(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceContainerStatus"));
-			instance.setInstanceContainerIp(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceContainerIp"));
 			instance.setCreateTimeStamp(_ctx.longValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].CreateTimeStamp"));
-			instance.setGroupId1(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].GroupId"));
+			instance.setVSwitchId(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].VSwitchId"));
+			instance.setInstanceContainerStatus(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceContainerStatus"));
+			instance.setInstanceHealthStatus(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceHealthStatus"));
+			instance.setInstanceContainerRestarts(_ctx.longValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceContainerRestarts"));
+			instance.setGroupId(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].GroupId"));
+			instance.setInstanceContainerIp(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceContainerIp"));
+			instance.setInstanceId(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].InstanceId"));
+			instance.setImageUrl(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].ImageUrl"));
+			instance.setPackageVersion(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].PackageVersion"));
+			instance.setEip(_ctx.stringValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].Eip"));
+			instance.setFinishTimeStamp(_ctx.longValue("DescribeApplicationInstancesResponse.Data.Instances["+ i +"].FinishTimeStamp"));
 
 			instances.add(instance);
 		}

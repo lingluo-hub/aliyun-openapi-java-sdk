@@ -16,34 +16,28 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateRepoWebhookRequest extends RoaAcsRequest<UpdateRepoWebhookResponse> {
-	
-	public UpdateRepoWebhookRequest() {
-		super("cr", "2016-06-07", "UpdateRepoWebhook", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/webhooks/[WebhookId]");
-		setMethod(MethodType.POST);
-	}
-
-	private String repoNamespace;
+	   
 
 	private Long webhookId;
 
+	private String repoNamespace;
+
 	private String repoName;
-
-	public String getRepoNamespace() {
-		return this.repoNamespace;
-	}
-
-	public void setRepoNamespace(String repoNamespace) {
-		this.repoNamespace = repoNamespace;
-		if(repoNamespace != null){
-			putPathParameter("RepoNamespace", repoNamespace);
-		}
+	public UpdateRepoWebhookRequest() {
+		super("cr", "2016-06-07", "UpdateRepoWebhook", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/webhooks/[WebhookId]");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getWebhookId() {
@@ -54,6 +48,17 @@ public class UpdateRepoWebhookRequest extends RoaAcsRequest<UpdateRepoWebhookRes
 		this.webhookId = webhookId;
 		if(webhookId != null){
 			putPathParameter("WebhookId", webhookId.toString());
+		}
+	}
+
+	public String getRepoNamespace() {
+		return this.repoNamespace;
+	}
+
+	public void setRepoNamespace(String repoNamespace) {
+		this.repoNamespace = repoNamespace;
+		if(repoNamespace != null){
+			putPathParameter("RepoNamespace", repoNamespace);
 		}
 	}
 

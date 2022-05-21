@@ -33,9 +33,9 @@ public class DescribeInstanceTypesResponseUnmarshaller {
 		for (int i = 0; i < _ctx.lengthValue("DescribeInstanceTypesResponse.InstanceTypes.Length"); i++) {
 			InstanceType instanceType = new InstanceType();
 			instanceType.setCpuCoreCount(_ctx.integerValue("DescribeInstanceTypesResponse.InstanceTypes["+ i +"].CpuCoreCount"));
-			instanceType.setMemorySize(_ctx.integerValue("DescribeInstanceTypesResponse.InstanceTypes["+ i +"].MemorySize"));
 			instanceType.setInstanceTypeId(_ctx.stringValue("DescribeInstanceTypesResponse.InstanceTypes["+ i +"].InstanceTypeId"));
 			instanceType.setInstanceTypeName(_ctx.stringValue("DescribeInstanceTypesResponse.InstanceTypes["+ i +"].InstanceTypeName"));
+			instanceType.setMemorySize(_ctx.integerValue("DescribeInstanceTypesResponse.InstanceTypes["+ i +"].MemorySize"));
 
 			instanceTypes.add(instanceType);
 		}

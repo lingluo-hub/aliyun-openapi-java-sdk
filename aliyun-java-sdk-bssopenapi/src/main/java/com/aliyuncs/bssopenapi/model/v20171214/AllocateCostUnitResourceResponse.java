@@ -24,31 +24,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class AllocateCostUnitResourceResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -66,6 +50,22 @@ public class AllocateCostUnitResourceResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -78,9 +78,9 @@ public class AllocateCostUnitResourceResponse extends AcsResponse {
 
 		private Long toUnitUserId;
 
-		private Long toUnitId;
-
 		private Boolean isSuccess;
+
+		private Long toUnitId;
 
 		public Long getToUnitUserId() {
 			return this.toUnitUserId;
@@ -90,20 +90,20 @@ public class AllocateCostUnitResourceResponse extends AcsResponse {
 			this.toUnitUserId = toUnitUserId;
 		}
 
-		public Long getToUnitId() {
-			return this.toUnitId;
-		}
-
-		public void setToUnitId(Long toUnitId) {
-			this.toUnitId = toUnitId;
-		}
-
 		public Boolean getIsSuccess() {
 			return this.isSuccess;
 		}
 
 		public void setIsSuccess(Boolean isSuccess) {
 			this.isSuccess = isSuccess;
+		}
+
+		public Long getToUnitId() {
+			return this.toUnitId;
+		}
+
+		public void setToUnitId(Long toUnitId) {
+			this.toUnitId = toUnitId;
 		}
 	}
 

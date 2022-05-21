@@ -25,11 +25,12 @@ public class CreateAppGroupResponseUnmarshaller {
 		
 		createAppGroupResponse.setRequestId(_ctx.stringValue("CreateAppGroupResponse.RequestId"));
 		createAppGroupResponse.setCode(_ctx.integerValue("CreateAppGroupResponse.Code"));
-		createAppGroupResponse.setSuccess(_ctx.booleanValue("CreateAppGroupResponse.Success"));
 		createAppGroupResponse.setMessage(_ctx.stringValue("CreateAppGroupResponse.Message"));
+		createAppGroupResponse.setSuccess(_ctx.booleanValue("CreateAppGroupResponse.Success"));
 
 		Data data = new Data();
 		data.setAppGroupId(_ctx.longValue("CreateAppGroupResponse.Data.AppGroupId"));
+		data.setAppKey(_ctx.stringValue("CreateAppGroupResponse.Data.AppKey"));
 		createAppGroupResponse.setData(data);
 	 
 	 	return createAppGroupResponse;

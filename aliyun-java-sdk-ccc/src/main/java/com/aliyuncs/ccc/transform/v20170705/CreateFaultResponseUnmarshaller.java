@@ -23,10 +23,10 @@ public class CreateFaultResponseUnmarshaller {
 	public static CreateFaultResponse unmarshall(CreateFaultResponse createFaultResponse, UnmarshallerContext _ctx) {
 		
 		createFaultResponse.setRequestId(_ctx.stringValue("CreateFaultResponse.RequestId"));
-		createFaultResponse.setSuccess(_ctx.booleanValue("CreateFaultResponse.Success"));
+		createFaultResponse.setHttpStatusCode(_ctx.integerValue("CreateFaultResponse.HttpStatusCode"));
 		createFaultResponse.setCode(_ctx.stringValue("CreateFaultResponse.Code"));
 		createFaultResponse.setMessage(_ctx.stringValue("CreateFaultResponse.Message"));
-		createFaultResponse.setHttpStatusCode(_ctx.integerValue("CreateFaultResponse.HttpStatusCode"));
+		createFaultResponse.setSuccess(_ctx.booleanValue("CreateFaultResponse.Success"));
 	 
 	 	return createFaultResponse;
 	}

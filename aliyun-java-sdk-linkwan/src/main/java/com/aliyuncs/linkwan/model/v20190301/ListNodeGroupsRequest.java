@@ -26,9 +26,7 @@ import com.aliyuncs.linkwan.Endpoint;
 public class ListNodeGroupsRequest extends RpcAcsRequest<ListNodeGroupsResponse> {
 	   
 
-	private String fuzzyName;
-
-	private Long offset;
+	private String iotInstanceId;
 
 	private String fuzzyJoinEui;
 
@@ -36,9 +34,13 @@ public class ListNodeGroupsRequest extends RpcAcsRequest<ListNodeGroupsResponse>
 
 	private Long limit;
 
-	private String sortingField;
+	private String fuzzyName;
+
+	private Long offset;
 
 	private Boolean ascending;
+
+	private String sortingField;
 	public ListNodeGroupsRequest() {
 		super("LinkWAN", "2019-03-01", "ListNodeGroups", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -49,25 +51,14 @@ public class ListNodeGroupsRequest extends RpcAcsRequest<ListNodeGroupsResponse>
 		} catch (Exception e) {}
 	}
 
-	public String getFuzzyName() {
-		return this.fuzzyName;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setFuzzyName(String fuzzyName) {
-		this.fuzzyName = fuzzyName;
-		if(fuzzyName != null){
-			putQueryParameter("FuzzyName", fuzzyName);
-		}
-	}
-
-	public Long getOffset() {
-		return this.offset;
-	}
-
-	public void setOffset(Long offset) {
-		this.offset = offset;
-		if(offset != null){
-			putQueryParameter("Offset", offset.toString());
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -104,14 +95,25 @@ public class ListNodeGroupsRequest extends RpcAcsRequest<ListNodeGroupsResponse>
 		}
 	}
 
-	public String getSortingField() {
-		return this.sortingField;
+	public String getFuzzyName() {
+		return this.fuzzyName;
 	}
 
-	public void setSortingField(String sortingField) {
-		this.sortingField = sortingField;
-		if(sortingField != null){
-			putQueryParameter("SortingField", sortingField);
+	public void setFuzzyName(String fuzzyName) {
+		this.fuzzyName = fuzzyName;
+		if(fuzzyName != null){
+			putQueryParameter("FuzzyName", fuzzyName);
+		}
+	}
+
+	public Long getOffset() {
+		return this.offset;
+	}
+
+	public void setOffset(Long offset) {
+		this.offset = offset;
+		if(offset != null){
+			putQueryParameter("Offset", offset.toString());
 		}
 	}
 
@@ -123,6 +125,17 @@ public class ListNodeGroupsRequest extends RpcAcsRequest<ListNodeGroupsResponse>
 		this.ascending = ascending;
 		if(ascending != null){
 			putQueryParameter("Ascending", ascending.toString());
+		}
+	}
+
+	public String getSortingField() {
+		return this.sortingField;
+	}
+
+	public void setSortingField(String sortingField) {
+		this.sortingField = sortingField;
+		if(sortingField != null){
+			putQueryParameter("SortingField", sortingField);
 		}
 	}
 

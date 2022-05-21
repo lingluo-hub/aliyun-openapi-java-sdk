@@ -66,8 +66,10 @@ public class UpdateInstanceRequest extends RpcAcsRequest<UpdateInstanceResponse>
 	private Integer port;
 
 	private String vpcId;
+
+	private Boolean skipTest;
 	public UpdateInstanceRequest() {
-		super("dms-enterprise", "2018-11-01", "UpdateInstance");
+		super("dms-enterprise", "2018-11-01", "UpdateInstance", "dms-enterprise");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -303,6 +305,17 @@ public class UpdateInstanceRequest extends RpcAcsRequest<UpdateInstanceResponse>
 		this.vpcId = vpcId;
 		if(vpcId != null){
 			putQueryParameter("VpcId", vpcId);
+		}
+	}
+
+	public Boolean getSkipTest() {
+		return this.skipTest;
+	}
+
+	public void setSkipTest(Boolean skipTest) {
+		this.skipTest = skipTest;
+		if(skipTest != null){
+			putQueryParameter("SkipTest", skipTest.toString());
 		}
 	}
 

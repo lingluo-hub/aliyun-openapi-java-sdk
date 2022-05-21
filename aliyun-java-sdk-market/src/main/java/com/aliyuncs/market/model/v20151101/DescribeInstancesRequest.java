@@ -25,18 +25,44 @@ import com.aliyuncs.market.Endpoint;
 public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesResponse> {
 	   
 
+	private String codes;
+
+	private String exceptCodes;
+
 	private Integer pageNumber;
 
 	private String productType;
 
 	private Integer pageSize;
 	public DescribeInstancesRequest() {
-		super("Market", "2015-11-01", "DescribeInstances", "yunmarket");
+		super("Market", "2015-11-01", "DescribeInstances");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getCodes() {
+		return this.codes;
+	}
+
+	public void setCodes(String codes) {
+		this.codes = codes;
+		if(codes != null){
+			putQueryParameter("Codes", codes);
+		}
+	}
+
+	public String getExceptCodes() {
+		return this.exceptCodes;
+	}
+
+	public void setExceptCodes(String exceptCodes) {
+		this.exceptCodes = exceptCodes;
+		if(exceptCodes != null){
+			putQueryParameter("ExceptCodes", exceptCodes);
+		}
 	}
 
 	public Integer getPageNumber() {

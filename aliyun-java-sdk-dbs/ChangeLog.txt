@@ -1,3 +1,86 @@
+2021-03-30 Version: 1.0.33
+- Add CreateAndStartBackupPlan.
+- Add DescribeFullBackupSet.
+- Add DescribeLogicalBackupSet.
+
+2021-03-08 Version: 1.0.32
+- Update CreateAndStartBackupPlan Response with createBackupSet.
+
+2021-02-26 Version: 1.0.31
+- Support SLR by InitializeDbsServiceLinkedRole action.
+- Change DescribeIncrementBackupList and DescribeFullBackupList to Support Range filter by endTimestamp.
+- Change DescribeRestoreTaskList to Support Range filter by createTime.
+
+2021-02-25 Version: 1.0.30
+- Support SLR by InitializeDbsServiceLinkedRole action.
+- Change DescribeIncrementBackupList and DescribeFullBackupList to Support Range filter.
+
+2021-01-07 Version: 1.0.29
+- Add CreateAndStartBackupPlan.
+- Add DescribeDLAService.
+- Add CreateDLAService.
+- Add CloseDLAService.
+
+2020-12-24 Version: 1.0.28
+- Modify ConfigureBackupPlan.
+
+2020-09-10 Version: 1.0.27
+- Add DisableBackupLog.
+- Add EnableBackupLog.
+- Add ReleaseBackupPlan.
+- Add ModifyStorageStrategy.
+- Modify ModifyBackupStrategy.
+- Modify ModifyBackupSetDownloadRules.
+
+2020-08-05 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-30 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-30 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-29 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-29 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-29 Version: 1.0.26
+- Add CreateGetDBListFromAgentTask.
+- Add GetDBListFromAgent.
+
+2020-07-17 Version: 1.0.25
+- Add DescribeRegions.
+- Modify DescribeFullBackupList.
+- Modify DescribeBackupPlanList.
+- Modify DescribeRestoreRangeInfo.
+
+2020-07-15 Version: 1.0.24
+- Modify ConfigureBackupPlan.
+- Modify DescribeFullBackupList.
+- Modify DescribeBackupPlanList.
+- Modify DescribeRestoreRangeInfo.
+
+2020-07-02 Version: 1.0.24
+- Update endpoint.
+
+2020-06-24 Version: 1.0.23
+- Add DescribeBackupPlanBilling.
+- Modify ConfigureBackupPlan.
+- Modify CreateBackupPlan.
+- Modify CreateRestoreTask.
+- Modify DescribeRestoreTaskList.
+- Modify DescribeBackupPlanList.
+- Modify ModifyBackupSourceEndpoint.
+- Modify ModifyBackupStrategy.
+
 2020-03-09 Version: 1.0.22
 - Add BackupStorageType.
 

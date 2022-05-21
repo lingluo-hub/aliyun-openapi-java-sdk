@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.Map;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.oos.Endpoint;
 
 /**
  * @author auto create
@@ -32,6 +33,8 @@ public class StartExecutionRequest extends RpcAcsRequest<StartExecutionResponse>
 
 	private String mode;
 
+	private String resourceGroupId;
+
 	private String templateVersion;
 
 	private String templateName;
@@ -42,12 +45,18 @@ public class StartExecutionRequest extends RpcAcsRequest<StartExecutionResponse>
 
 	private Map<Object,Object> tags;
 
+	private String templateContent;
+
 	private String parentExecutionId;
 
 	private String parameters;
 	public StartExecutionRequest() {
 		super("oos", "2019-06-01", "StartExecution", "oos");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getClientToken() {
@@ -80,6 +89,17 @@ public class StartExecutionRequest extends RpcAcsRequest<StartExecutionResponse>
 		this.mode = mode;
 		if(mode != null){
 			putQueryParameter("Mode", mode);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -135,6 +155,17 @@ public class StartExecutionRequest extends RpcAcsRequest<StartExecutionResponse>
 		this.tags = tags;
 		if(tags != null){
 			putQueryParameter("Tags", new Gson().toJson(tags));
+		}
+	}
+
+	public String getTemplateContent() {
+		return this.templateContent;
+	}
+
+	public void setTemplateContent(String templateContent) {
+		this.templateContent = templateContent;
+		if(templateContent != null){
+			putQueryParameter("TemplateContent", templateContent);
 		}
 	}
 

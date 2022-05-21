@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -32,14 +33,24 @@ public class DescribePropertyProcDetailRequest extends RpcAcsRequest<DescribePro
 
 	private Integer pageSize;
 
+	private Long procTimeStart;
+
 	private Integer currentPage;
+
+	private Long procTimeEnd;
+
+	private String extend;
 
 	private String name;
 
 	private String user;
 	public DescribePropertyProcDetailRequest() {
-		super("Sas", "2018-12-03", "DescribePropertyProcDetail", "sas");
+		super("Sas", "2018-12-03", "DescribePropertyProcDetail");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getRemark() {
@@ -86,6 +97,17 @@ public class DescribePropertyProcDetailRequest extends RpcAcsRequest<DescribePro
 		}
 	}
 
+	public Long getProcTimeStart() {
+		return this.procTimeStart;
+	}
+
+	public void setProcTimeStart(Long procTimeStart) {
+		this.procTimeStart = procTimeStart;
+		if(procTimeStart != null){
+			putQueryParameter("ProcTimeStart", procTimeStart.toString());
+		}
+	}
+
 	public Integer getCurrentPage() {
 		return this.currentPage;
 	}
@@ -94,6 +116,28 @@ public class DescribePropertyProcDetailRequest extends RpcAcsRequest<DescribePro
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public Long getProcTimeEnd() {
+		return this.procTimeEnd;
+	}
+
+	public void setProcTimeEnd(Long procTimeEnd) {
+		this.procTimeEnd = procTimeEnd;
+		if(procTimeEnd != null){
+			putQueryParameter("ProcTimeEnd", procTimeEnd.toString());
+		}
+	}
+
+	public String getExtend() {
+		return this.extend;
+	}
+
+	public void setExtend(String extend) {
+		this.extend = extend;
+		if(extend != null){
+			putQueryParameter("Extend", extend);
 		}
 	}
 

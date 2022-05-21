@@ -28,6 +28,8 @@ public class ListSecretsRequest extends RpcAcsRequest<ListSecretsResponse> {
 
 	private Integer pageSize;
 
+	private String filters;
+
 	private String fetchTags;
 
 	private Integer pageNumber;
@@ -49,6 +51,17 @@ public class ListSecretsRequest extends RpcAcsRequest<ListSecretsResponse> {
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getFilters() {
+		return this.filters;
+	}
+
+	public void setFilters(String filters) {
+		this.filters = filters;
+		if(filters != null){
+			putQueryParameter("Filters", filters);
 		}
 	}
 

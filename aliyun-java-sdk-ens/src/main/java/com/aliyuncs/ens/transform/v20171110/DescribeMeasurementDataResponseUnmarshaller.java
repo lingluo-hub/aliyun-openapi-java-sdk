@@ -21,6 +21,7 @@ import com.aliyuncs.ens.model.v20171110.DescribeMeasurementDataResponse;
 import com.aliyuncs.ens.model.v20171110.DescribeMeasurementDataResponse.MeasurementData;
 import com.aliyuncs.ens.model.v20171110.DescribeMeasurementDataResponse.MeasurementData.BandWidthFeeData;
 import com.aliyuncs.ens.model.v20171110.DescribeMeasurementDataResponse.MeasurementData.ResourceFeeData;
+import com.aliyuncs.ens.model.v20171110.DescribeMeasurementDataResponse.MeasurementData.ResourceFeeDataDetail;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -35,25 +36,37 @@ public class DescribeMeasurementDataResponseUnmarshaller {
 			MeasurementData measurementData = new MeasurementData();
 			measurementData.setChargeModel(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ChargeModel"));
 			measurementData.setCostCycle(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].CostCycle"));
-			measurementData.setCostStartTime(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].CostStartTime"));
 			measurementData.setCostEndTime(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].CostEndTime"));
+			measurementData.setCostStartTime(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].CostStartTime"));
 
 			ResourceFeeData resourceFeeData = new ResourceFeeData();
-			resourceFeeData.setStorage(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeData.Storage"));
 			resourceFeeData.setMemory(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeData.Memory"));
+			resourceFeeData.setStorage(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeData.Storage"));
 			resourceFeeData.setVcpu(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeData.Vcpu"));
 			measurementData.setResourceFeeData(resourceFeeData);
 
 			List<BandWidthFeeData> bandWidthFeeDatas = new ArrayList<BandWidthFeeData>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].BandWidthFeeDatas.Length"); j++) {
 				BandWidthFeeData bandWidthFeeData = new BandWidthFeeData();
-				bandWidthFeeData.setCostVal(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].BandWidthFeeDatas["+ j +"].CostVal"));
 				bandWidthFeeData.setCostCode(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].BandWidthFeeDatas["+ j +"].CostCode"));
 				bandWidthFeeData.setCostName(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].BandWidthFeeDatas["+ j +"].CostName"));
+				bandWidthFeeData.setCostVal(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].BandWidthFeeDatas["+ j +"].CostVal"));
 
 				bandWidthFeeDatas.add(bandWidthFeeData);
 			}
 			measurementData.setBandWidthFeeDatas(bandWidthFeeDatas);
+
+			List<ResourceFeeDataDetail> resourceFeeDataDetails = new ArrayList<ResourceFeeDataDetail>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeDataDetails.Length"); j++) {
+				ResourceFeeDataDetail resourceFeeDataDetail = new ResourceFeeDataDetail();
+				resourceFeeDataDetail.setCostCode(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeDataDetails["+ j +"].CostCode"));
+				resourceFeeDataDetail.setCostName(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeDataDetails["+ j +"].CostName"));
+				resourceFeeDataDetail.setCostVal(_ctx.integerValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeDataDetails["+ j +"].CostVal"));
+				resourceFeeDataDetail.setResourceType(_ctx.stringValue("DescribeMeasurementDataResponse.MeasurementDatas["+ i +"].ResourceFeeDataDetails["+ j +"].ResourceType"));
+
+				resourceFeeDataDetails.add(resourceFeeDataDetail);
+			}
+			measurementData.setResourceFeeDataDetails(resourceFeeDataDetails);
 
 			measurementDatas.add(measurementData);
 		}

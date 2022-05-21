@@ -27,9 +27,13 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 
 	private String clusterId;
 
+	private String instanceId;
+
 	private Integer serviceCount;
 
 	private String name;
+
+	private String acceptLanguage;
 
 	private String id;
 
@@ -50,7 +54,18 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -61,7 +76,7 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 	public void setServiceCount(Integer serviceCount) {
 		this.serviceCount = serviceCount;
 		if(serviceCount != null){
-			putBodyParameter("ServiceCount", serviceCount.toString());
+			putQueryParameter("ServiceCount", serviceCount.toString());
 		}
 	}
 
@@ -72,7 +87,18 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 	public void setName(String name) {
 		this.name = name;
 		if(name != null){
-			putBodyParameter("Name", name);
+			putQueryParameter("Name", name);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 
@@ -83,7 +109,7 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 	public void setId(String id) {
 		this.id = id;
 		if(id != null){
-			putBodyParameter("Id", id);
+			putQueryParameter("Id", id);
 		}
 	}
 
@@ -94,7 +120,7 @@ public class UpdateEngineNamespaceRequest extends RpcAcsRequest<UpdateEngineName
 	public void setDesc(String desc) {
 		this.desc = desc;
 		if(desc != null){
-			putBodyParameter("Desc", desc);
+			putQueryParameter("Desc", desc);
 		}
 	}
 

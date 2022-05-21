@@ -28,30 +28,30 @@ public class RequestLoginInfoResponseUnmarshaller {
 	public static RequestLoginInfoResponse unmarshall(RequestLoginInfoResponse requestLoginInfoResponse, UnmarshallerContext _ctx) {
 		
 		requestLoginInfoResponse.setRequestId(_ctx.stringValue("RequestLoginInfoResponse.RequestId"));
-		requestLoginInfoResponse.setSuccess(_ctx.booleanValue("RequestLoginInfoResponse.Success"));
+		requestLoginInfoResponse.setHttpStatusCode(_ctx.integerValue("RequestLoginInfoResponse.HttpStatusCode"));
 		requestLoginInfoResponse.setCode(_ctx.stringValue("RequestLoginInfoResponse.Code"));
 		requestLoginInfoResponse.setMessage(_ctx.stringValue("RequestLoginInfoResponse.Message"));
-		requestLoginInfoResponse.setHttpStatusCode(_ctx.integerValue("RequestLoginInfoResponse.HttpStatusCode"));
+		requestLoginInfoResponse.setSuccess(_ctx.booleanValue("RequestLoginInfoResponse.Success"));
 
 		LoginInfo loginInfo = new LoginInfo();
-		loginInfo.setUserName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.UserName"));
 		loginInfo.setDisplayName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.DisplayName"));
+		loginInfo.setSignature(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Signature"));
+		loginInfo.setExtension(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Extension"));
+		loginInfo.setSignData(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.SignData"));
 		loginInfo.setPhoneNumber(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.PhoneNumber"));
 		loginInfo.setRegion(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Region"));
-		loginInfo.setWebRtcUrl(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.WebRtcUrl"));
 		loginInfo.setAgentServerUrl(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.AgentServerUrl"));
-		loginInfo.setExtension(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Extension"));
+		loginInfo.setUserName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.UserName"));
+		loginInfo.setWebRtcUrl(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.WebRtcUrl"));
 		loginInfo.setTenantId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.TenantId"));
-		loginInfo.setSignature(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Signature"));
-		loginInfo.setSignData(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.SignData"));
 
 		List<Role> roles = new ArrayList<Role>();
 		for (int i = 0; i < _ctx.lengthValue("RequestLoginInfoResponse.LoginInfo.Roles.Length"); i++) {
 			Role role = new Role();
-			role.setRoleId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleId"));
 			role.setInstanceId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].InstanceId"));
 			role.setRoleName(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleName"));
 			role.setRoleDescription(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleDescription"));
+			role.setRoleId(_ctx.stringValue("RequestLoginInfoResponse.LoginInfo.Roles["+ i +"].RoleId"));
 
 			roles.add(role);
 		}

@@ -1,0 +1,45 @@
+2021-04-13 Version: 1.0.7
+- Release AddFaceVideoTemplate DeleteFaceVideoTemplate QueryFaceVideoTemplate MergeVideoModelFace.
+
+2020-12-28 Version: 1.0.6
+- Release InterpolateVideoFrame ToneSdrVideo ConvertHdrVideo.
+
+2020-12-22 Version: 0.0.8
+- Release InterpolateVideoFrame ToneSdrVideo ConvertHdrVideo.
+
+2020-12-22 Version: 1.0.6
+- Release InterpolateVideoFrame ToneSdrVideo ConvertHdrVideo.
+
+2020-12-02 Version: 1.0.5
+- Release MergeVideoFace EnhanceVideoQuality.
+
+2020-11-16 Version: 1.0.4
+- Update videoenhan.
+
+2020-07-31 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-07-30 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-07-30 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-07-30 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-07-30 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-07-30 Version: 1.0.3
+- Add ChangeVideoSize.
+
+2020-04-26 Version: 1.0.2
+- SDK versioin 101.
+
+2020-03-25 Version: 1.0.1
+- SDK versioin 101.
+
+2020-03-23 Version: 1.0.0
+- SDK versioin 100.
+

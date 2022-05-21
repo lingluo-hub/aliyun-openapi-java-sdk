@@ -29,35 +29,35 @@ public class ModifyPhoneNumberResponseUnmarshaller {
 	public static ModifyPhoneNumberResponse unmarshall(ModifyPhoneNumberResponse modifyPhoneNumberResponse, UnmarshallerContext _ctx) {
 		
 		modifyPhoneNumberResponse.setRequestId(_ctx.stringValue("ModifyPhoneNumberResponse.RequestId"));
-		modifyPhoneNumberResponse.setSuccess(_ctx.booleanValue("ModifyPhoneNumberResponse.Success"));
+		modifyPhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("ModifyPhoneNumberResponse.HttpStatusCode"));
 		modifyPhoneNumberResponse.setCode(_ctx.stringValue("ModifyPhoneNumberResponse.Code"));
 		modifyPhoneNumberResponse.setMessage(_ctx.stringValue("ModifyPhoneNumberResponse.Message"));
-		modifyPhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("ModifyPhoneNumberResponse.HttpStatusCode"));
+		modifyPhoneNumberResponse.setSuccess(_ctx.booleanValue("ModifyPhoneNumberResponse.Success"));
 
 		PhoneNumber phoneNumber = new PhoneNumber();
-		phoneNumber.setPhoneNumberId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.PhoneNumberId"));
-		phoneNumber.setInstanceId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.InstanceId"));
-		phoneNumber.setNumber(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.Number"));
-		phoneNumber.setPhoneNumberDescription(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.PhoneNumberDescription"));
 		phoneNumber.setTestOnly(_ctx.booleanValue("ModifyPhoneNumberResponse.PhoneNumber.TestOnly"));
-		phoneNumber.setRemainingTime(_ctx.integerValue("ModifyPhoneNumberResponse.PhoneNumber.RemainingTime"));
-		phoneNumber.setAllowOutbound(_ctx.booleanValue("ModifyPhoneNumberResponse.PhoneNumber.AllowOutbound"));
-		phoneNumber.setUsage(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.Usage"));
 		phoneNumber.setTrunks(_ctx.integerValue("ModifyPhoneNumberResponse.PhoneNumber.Trunks"));
+		phoneNumber.setRemainingTime(_ctx.integerValue("ModifyPhoneNumberResponse.PhoneNumber.RemainingTime"));
+		phoneNumber.setNumber(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.Number"));
+		phoneNumber.setInstanceId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.InstanceId"));
+		phoneNumber.setUsage(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.Usage"));
+		phoneNumber.setAllowOutbound(_ctx.booleanValue("ModifyPhoneNumberResponse.PhoneNumber.AllowOutbound"));
+		phoneNumber.setPhoneNumberDescription(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.PhoneNumberDescription"));
+		phoneNumber.setPhoneNumberId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.PhoneNumberId"));
 
 		ContactFlow contactFlow = new ContactFlow();
-		contactFlow.setContactFlowId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowId"));
+		contactFlow.setType(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.Type"));
+		contactFlow.setContactFlowDescription(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowDescription"));
 		contactFlow.setInstanceId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.InstanceId"));
 		contactFlow.setContactFlowName(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowName"));
-		contactFlow.setContactFlowDescription(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowDescription"));
-		contactFlow.setType(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.Type"));
+		contactFlow.setContactFlowId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowId"));
 		phoneNumber.setContactFlow(contactFlow);
 
 		List<SkillGroup> skillGroups = new ArrayList<SkillGroup>();
 		for (int i = 0; i < _ctx.lengthValue("ModifyPhoneNumberResponse.PhoneNumber.SkillGroups.Length"); i++) {
 			SkillGroup skillGroup = new SkillGroup();
-			skillGroup.setSkillGroupId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.SkillGroups["+ i +"].SkillGroupId"));
 			skillGroup.setSkillGroupName(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.SkillGroups["+ i +"].SkillGroupName"));
+			skillGroup.setSkillGroupId(_ctx.stringValue("ModifyPhoneNumberResponse.PhoneNumber.SkillGroups["+ i +"].SkillGroupId"));
 
 			skillGroups.add(skillGroup);
 		}

@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListSecretsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
 	private Integer totalCount;
 
 	private List<Secret> secretList;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getPageNumber() {
 		return this.pageNumber;
@@ -57,6 +49,14 @@ public class ListSecretsResponse extends AcsResponse {
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public Integer getTotalCount() {
@@ -77,23 +77,17 @@ public class ListSecretsResponse extends AcsResponse {
 
 	public static class Secret {
 
-		private String secretName;
-
 		private String createTime;
-
-		private String updateTime;
 
 		private String plannedDeleteTime;
 
+		private String secretName;
+
+		private String updateTime;
+
+		private String secretType;
+
 		private List<Tag> tags;
-
-		public String getSecretName() {
-			return this.secretName;
-		}
-
-		public void setSecretName(String secretName) {
-			this.secretName = secretName;
-		}
 
 		public String getCreateTime() {
 			return this.createTime;
@@ -101,6 +95,22 @@ public class ListSecretsResponse extends AcsResponse {
 
 		public void setCreateTime(String createTime) {
 			this.createTime = createTime;
+		}
+
+		public String getPlannedDeleteTime() {
+			return this.plannedDeleteTime;
+		}
+
+		public void setPlannedDeleteTime(String plannedDeleteTime) {
+			this.plannedDeleteTime = plannedDeleteTime;
+		}
+
+		public String getSecretName() {
+			return this.secretName;
+		}
+
+		public void setSecretName(String secretName) {
+			this.secretName = secretName;
 		}
 
 		public String getUpdateTime() {
@@ -111,12 +121,12 @@ public class ListSecretsResponse extends AcsResponse {
 			this.updateTime = updateTime;
 		}
 
-		public String getPlannedDeleteTime() {
-			return this.plannedDeleteTime;
+		public String getSecretType() {
+			return this.secretType;
 		}
 
-		public void setPlannedDeleteTime(String plannedDeleteTime) {
-			this.plannedDeleteTime = plannedDeleteTime;
+		public void setSecretType(String secretType) {
+			this.secretType = secretType;
 		}
 
 		public List<Tag> getTags() {

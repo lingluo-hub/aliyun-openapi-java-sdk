@@ -14,6 +14,7 @@
 
 package com.aliyuncs.rsimganalys.model.v20190801;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.rsimganalys.transform.v20190801.CreateImageResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -28,11 +29,15 @@ public class CreateImageResponse extends AcsResponse {
 
 	private Integer resultCode;
 
-	private String imageId;
-
 	private String resultMessage;
 
-	private Data data;
+	private String imageId;
+
+	private String userResolution;
+
+	private Integer publishStatus;
+
+	private List<Integer> items;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -50,14 +55,6 @@ public class CreateImageResponse extends AcsResponse {
 		this.resultCode = resultCode;
 	}
 
-	public String getImageId() {
-		return this.imageId;
-	}
-
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
-	}
-
 	public String getResultMessage() {
 		return this.resultMessage;
 	}
@@ -66,145 +63,36 @@ public class CreateImageResponse extends AcsResponse {
 		this.resultMessage = resultMessage;
 	}
 
-	public Data getData() {
-		return this.data;
+	public String getImageId() {
+		return this.imageId;
 	}
 
-	public void setData(Data data) {
-		this.data = data;
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
 	}
 
-	public static class Data {
+	public String getUserResolution() {
+		return this.userResolution;
+	}
 
-		private String aliyunPK;
+	public void setUserResolution(String userResolution) {
+		this.userResolution = userResolution;
+	}
 
-		private String description;
+	public Integer getPublishStatus() {
+		return this.publishStatus;
+	}
 
-		private String downloadPath;
+	public void setPublishStatus(Integer publishStatus) {
+		this.publishStatus = publishStatus;
+	}
 
-		private String gmtCreate;
+	public List<Integer> getItems() {
+		return this.items;
+	}
 
-		private String gmtModified;
-
-		private Integer imageId;
-
-		private String jobId;
-
-		private String imageName;
-
-		private Integer runStatus;
-
-		private String urlUploadPath;
-
-		private Long fileTime;
-
-		private String statusCode;
-
-		private String statusMessage;
-
-		public String getAliyunPK() {
-			return this.aliyunPK;
-		}
-
-		public void setAliyunPK(String aliyunPK) {
-			this.aliyunPK = aliyunPK;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
-		}
-
-		public String getDownloadPath() {
-			return this.downloadPath;
-		}
-
-		public void setDownloadPath(String downloadPath) {
-			this.downloadPath = downloadPath;
-		}
-
-		public String getGmtCreate() {
-			return this.gmtCreate;
-		}
-
-		public void setGmtCreate(String gmtCreate) {
-			this.gmtCreate = gmtCreate;
-		}
-
-		public String getGmtModified() {
-			return this.gmtModified;
-		}
-
-		public void setGmtModified(String gmtModified) {
-			this.gmtModified = gmtModified;
-		}
-
-		public Integer getImageId() {
-			return this.imageId;
-		}
-
-		public void setImageId(Integer imageId) {
-			this.imageId = imageId;
-		}
-
-		public String getJobId() {
-			return this.jobId;
-		}
-
-		public void setJobId(String jobId) {
-			this.jobId = jobId;
-		}
-
-		public String getImageName() {
-			return this.imageName;
-		}
-
-		public void setImageName(String imageName) {
-			this.imageName = imageName;
-		}
-
-		public Integer getRunStatus() {
-			return this.runStatus;
-		}
-
-		public void setRunStatus(Integer runStatus) {
-			this.runStatus = runStatus;
-		}
-
-		public String getUrlUploadPath() {
-			return this.urlUploadPath;
-		}
-
-		public void setUrlUploadPath(String urlUploadPath) {
-			this.urlUploadPath = urlUploadPath;
-		}
-
-		public Long getFileTime() {
-			return this.fileTime;
-		}
-
-		public void setFileTime(Long fileTime) {
-			this.fileTime = fileTime;
-		}
-
-		public String getStatusCode() {
-			return this.statusCode;
-		}
-
-		public void setStatusCode(String statusCode) {
-			this.statusCode = statusCode;
-		}
-
-		public String getStatusMessage() {
-			return this.statusMessage;
-		}
-
-		public void setStatusMessage(String statusMessage) {
-			this.statusMessage = statusMessage;
-		}
+	public void setItems(List<Integer> items) {
+		this.items = items;
 	}
 
 	@Override

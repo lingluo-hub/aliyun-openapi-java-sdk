@@ -25,9 +25,9 @@ import com.aliyuncs.mse.Endpoint;
 public class DeleteClusterRequest extends RpcAcsRequest<DeleteClusterResponse> {
 	   
 
-	private String clusterId;
-
 	private String instanceId;
+
+	private String acceptLanguage;
 	public DeleteClusterRequest() {
 		super("mse", "2019-05-31", "DeleteCluster", "mse");
 		setMethod(MethodType.POST);
@@ -37,17 +37,6 @@ public class DeleteClusterRequest extends RpcAcsRequest<DeleteClusterResponse> {
 		} catch (Exception e) {}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
-	}
-
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
-		}
-	}
-
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -55,7 +44,18 @@ public class DeleteClusterRequest extends RpcAcsRequest<DeleteClusterResponse> {
 	public void setInstanceId(String instanceId) {
 		this.instanceId = instanceId;
 		if(instanceId != null){
-			putBodyParameter("InstanceId", instanceId);
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

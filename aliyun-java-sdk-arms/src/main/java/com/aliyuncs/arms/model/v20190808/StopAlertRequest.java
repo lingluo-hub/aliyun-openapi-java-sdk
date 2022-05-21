@@ -26,10 +26,8 @@ public class StopAlertRequest extends RpcAcsRequest<StopAlertResponse> {
 	   
 
 	private String alertId;
-
-	private String proxyUserId;
 	public StopAlertRequest() {
-		super("ARMS", "2019-08-08", "StopAlert", "arms");
+		super("ARMS", "2019-08-08", "StopAlert");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -45,17 +43,6 @@ public class StopAlertRequest extends RpcAcsRequest<StopAlertResponse> {
 		this.alertId = alertId;
 		if(alertId != null){
 			putQueryParameter("AlertId", alertId);
-		}
-	}
-
-	public String getProxyUserId() {
-		return this.proxyUserId;
-	}
-
-	public void setProxyUserId(String proxyUserId) {
-		this.proxyUserId = proxyUserId;
-		if(proxyUserId != null){
-			putQueryParameter("ProxyUserId", proxyUserId);
 		}
 	}
 

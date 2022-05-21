@@ -39,6 +39,8 @@ public class CreateStreamPredictRequest extends RpcAcsRequest<CreateStreamPredic
 
 	private String streamId;
 
+	private String predictTemplateId;
+
 	private String detectIntervals;
 
 	private Long ownerId;
@@ -49,7 +51,7 @@ public class CreateStreamPredictRequest extends RpcAcsRequest<CreateStreamPredic
 
 	private String modelUserData;
 	public CreateStreamPredictRequest() {
-		super("ivision", "2019-03-08", "CreateStreamPredict", "ivision");
+		super("ivision", "2019-03-08", "CreateStreamPredict");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -131,6 +133,17 @@ public class CreateStreamPredictRequest extends RpcAcsRequest<CreateStreamPredic
 		this.streamId = streamId;
 		if(streamId != null){
 			putQueryParameter("StreamId", streamId);
+		}
+	}
+
+	public String getPredictTemplateId() {
+		return this.predictTemplateId;
+	}
+
+	public void setPredictTemplateId(String predictTemplateId) {
+		this.predictTemplateId = predictTemplateId;
+		if(predictTemplateId != null){
+			putQueryParameter("PredictTemplateId", predictTemplateId);
 		}
 	}
 

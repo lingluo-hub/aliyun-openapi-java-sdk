@@ -24,18 +24,18 @@ public class CreateMediaResponseUnmarshaller {
 	public static CreateMediaResponse unmarshall(CreateMediaResponse createMediaResponse, UnmarshallerContext _ctx) {
 		
 		createMediaResponse.setRequestId(_ctx.stringValue("CreateMediaResponse.RequestId"));
-		createMediaResponse.setSuccess(_ctx.booleanValue("CreateMediaResponse.Success"));
+		createMediaResponse.setHttpStatusCode(_ctx.integerValue("CreateMediaResponse.HttpStatusCode"));
 		createMediaResponse.setCode(_ctx.stringValue("CreateMediaResponse.Code"));
 		createMediaResponse.setMessage(_ctx.stringValue("CreateMediaResponse.Message"));
-		createMediaResponse.setHttpStatusCode(_ctx.integerValue("CreateMediaResponse.HttpStatusCode"));
+		createMediaResponse.setSuccess(_ctx.booleanValue("CreateMediaResponse.Success"));
 
 		MediaUploadParam mediaUploadParam = new MediaUploadParam();
-		mediaUploadParam.setId(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.Id"));
 		mediaUploadParam.setInstance(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.Instance"));
-		mediaUploadParam.setName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.Name"));
-		mediaUploadParam.setFileName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.FileName"));
-		mediaUploadParam.setOssFileName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.OssFileName"));
 		mediaUploadParam.setOssFilePath(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.OssFilePath"));
+		mediaUploadParam.setFileName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.FileName"));
+		mediaUploadParam.setName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.Name"));
+		mediaUploadParam.setId(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.Id"));
+		mediaUploadParam.setOssFileName(_ctx.stringValue("CreateMediaResponse.MediaUploadParam.OssFileName"));
 		createMediaResponse.setMediaUploadParam(mediaUploadParam);
 	 
 	 	return createMediaResponse;

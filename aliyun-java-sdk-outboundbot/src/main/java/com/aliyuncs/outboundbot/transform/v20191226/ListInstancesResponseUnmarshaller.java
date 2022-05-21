@@ -19,6 +19,8 @@ import java.util.List;
 
 import com.aliyuncs.outboundbot.model.v20191226.ListInstancesResponse;
 import com.aliyuncs.outboundbot.model.v20191226.ListInstancesResponse.Instance;
+import com.aliyuncs.outboundbot.model.v20191226.ListInstancesResponse.Instance.NluProfile;
+import com.aliyuncs.outboundbot.model.v20191226.ListInstancesResponse.Instance.ResourceTag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,22 +29,43 @@ public class ListInstancesResponseUnmarshaller {
 	public static ListInstancesResponse unmarshall(ListInstancesResponse listInstancesResponse, UnmarshallerContext _ctx) {
 		
 		listInstancesResponse.setRequestId(_ctx.stringValue("ListInstancesResponse.RequestId"));
-		listInstancesResponse.setSuccess(_ctx.booleanValue("ListInstancesResponse.Success"));
+		listInstancesResponse.setHttpStatusCode(_ctx.integerValue("ListInstancesResponse.HttpStatusCode"));
 		listInstancesResponse.setCode(_ctx.stringValue("ListInstancesResponse.Code"));
 		listInstancesResponse.setMessage(_ctx.stringValue("ListInstancesResponse.Message"));
-		listInstancesResponse.setHttpStatusCode(_ctx.integerValue("ListInstancesResponse.HttpStatusCode"));
+		listInstancesResponse.setSuccess(_ctx.booleanValue("ListInstancesResponse.Success"));
 
 		List<Instance> instances = new ArrayList<Instance>();
 		for (int i = 0; i < _ctx.lengthValue("ListInstancesResponse.Instances.Length"); i++) {
 			Instance instance = new Instance();
-			instance.setInstanceId(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceId"));
-			instance.setInstanceName(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceName"));
-			instance.setInstanceDescription(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceDescription"));
-			instance.setMaxConcurrentConversation(_ctx.integerValue("ListInstancesResponse.Instances["+ i +"].MaxConcurrentConversation"));
-			instance.setOwner(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].Owner"));
 			instance.setCreationTime(_ctx.longValue("ListInstancesResponse.Instances["+ i +"].CreationTime"));
 			instance.setCallCenterInstanceId(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].CallCenterInstanceId"));
+			instance.setOwner(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].Owner"));
+			instance.setNluServiceType(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].NluServiceType"));
 			instance.setIsTemplateContainer(_ctx.booleanValue("ListInstancesResponse.Instances["+ i +"].IsTemplateContainer"));
+			instance.setInstanceId(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceId"));
+			instance.setOwnerName(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].OwnerName"));
+			instance.setCreatorId(_ctx.longValue("ListInstancesResponse.Instances["+ i +"].CreatorId"));
+			instance.setInstanceDescription(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceDescription"));
+			instance.setInstanceName(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].InstanceName"));
+			instance.setResourceGroupId(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].ResourceGroupId"));
+			instance.setCreatorName(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].CreatorName"));
+			instance.setMaxConcurrentConversation(_ctx.integerValue("ListInstancesResponse.Instances["+ i +"].MaxConcurrentConversation"));
+
+			NluProfile nluProfile = new NluProfile();
+			nluProfile.setAccessKey(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].NluProfile.AccessKey"));
+			nluProfile.setSecretKey(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].NluProfile.SecretKey"));
+			nluProfile.setEndpoint(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].NluProfile.Endpoint"));
+			instance.setNluProfile(nluProfile);
+
+			List<ResourceTag> resourceTags = new ArrayList<ResourceTag>();
+			for (int j = 0; j < _ctx.lengthValue("ListInstancesResponse.Instances["+ i +"].ResourceTags.Length"); j++) {
+				ResourceTag resourceTag = new ResourceTag();
+				resourceTag.setKey(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].ResourceTags["+ j +"].Key"));
+				resourceTag.setValue(_ctx.stringValue("ListInstancesResponse.Instances["+ i +"].ResourceTags["+ j +"].Value"));
+
+				resourceTags.add(resourceTag);
+			}
+			instance.setResourceTags(resourceTags);
 
 			instances.add(instance);
 		}

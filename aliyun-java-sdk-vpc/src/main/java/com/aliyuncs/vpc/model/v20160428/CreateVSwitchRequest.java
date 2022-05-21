@@ -39,6 +39,8 @@ public class CreateVSwitchRequest extends RpcAcsRequest<CreateVSwitchResponse> {
 
 	private Integer ipv6CidrBlock;
 
+	private String vpcIpv6CidrBlock;
+
 	private String vpcId;
 
 	private String vSwitchName;
@@ -47,7 +49,7 @@ public class CreateVSwitchRequest extends RpcAcsRequest<CreateVSwitchResponse> {
 
 	private String zoneId;
 	public CreateVSwitchRequest() {
-		super("Vpc", "2016-04-28", "CreateVSwitch", "Vpc");
+		super("Vpc", "2016-04-28", "CreateVSwitch", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -129,6 +131,17 @@ public class CreateVSwitchRequest extends RpcAcsRequest<CreateVSwitchResponse> {
 		this.ipv6CidrBlock = ipv6CidrBlock;
 		if(ipv6CidrBlock != null){
 			putQueryParameter("Ipv6CidrBlock", ipv6CidrBlock.toString());
+		}
+	}
+
+	public String getVpcIpv6CidrBlock() {
+		return this.vpcIpv6CidrBlock;
+	}
+
+	public void setVpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+		this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+		if(vpcIpv6CidrBlock != null){
+			putQueryParameter("VpcIpv6CidrBlock", vpcIpv6CidrBlock);
 		}
 	}
 

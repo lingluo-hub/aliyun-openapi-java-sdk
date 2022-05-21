@@ -15,6 +15,7 @@
 package com.aliyuncs.smartag.model.v20180313;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.smartag.Endpoint;
 
@@ -39,11 +40,15 @@ public class DescribeSmartAccessGatewaysRequest extends RpcAcsRequest<DescribeSm
 
 	private String versionComparator;
 
+	private String resourceGroupId;
+
 	private Integer pageSize;
 
 	private String instanceType;
 
 	private String hardwareType;
+
+	private List<String> smartAGIdss;
 
 	private String serialNumber;
 
@@ -54,6 +59,8 @@ public class DescribeSmartAccessGatewaysRequest extends RpcAcsRequest<DescribeSm
 	private String associatedCcnId;
 
 	private Long ownerId;
+
+	private String businessState;
 
 	private String name;
 
@@ -146,6 +153,17 @@ public class DescribeSmartAccessGatewaysRequest extends RpcAcsRequest<DescribeSm
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -177,6 +195,19 @@ public class DescribeSmartAccessGatewaysRequest extends RpcAcsRequest<DescribeSm
 		if(hardwareType != null){
 			putQueryParameter("HardwareType", hardwareType);
 		}
+	}
+
+	public List<String> getSmartAGIdss() {
+		return this.smartAGIdss;
+	}
+
+	public void setSmartAGIdss(List<String> smartAGIdss) {
+		this.smartAGIdss = smartAGIdss;	
+		if (smartAGIdss != null) {
+			for (int i = 0; i < smartAGIdss.size(); i++) {
+				putQueryParameter("SmartAGIds." + (i + 1) , smartAGIdss.get(i));
+			}
+		}	
 	}
 
 	public String getSerialNumber() {
@@ -231,6 +262,17 @@ public class DescribeSmartAccessGatewaysRequest extends RpcAcsRequest<DescribeSm
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getBusinessState() {
+		return this.businessState;
+	}
+
+	public void setBusinessState(String businessState) {
+		this.businessState = businessState;
+		if(businessState != null){
+			putQueryParameter("BusinessState", businessState);
 		}
 	}
 

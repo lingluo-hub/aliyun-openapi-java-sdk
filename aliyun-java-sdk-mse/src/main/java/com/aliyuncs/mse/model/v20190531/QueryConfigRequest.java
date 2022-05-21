@@ -29,7 +29,11 @@ public class QueryConfigRequest extends RpcAcsRequest<QueryConfigResponse> {
 
 	private String clusterId;
 
+	private String instanceId;
+
 	private String requestPars;
+
+	private String acceptLanguage;
 	public QueryConfigRequest() {
 		super("mse", "2019-05-31", "QueryConfig", "mse");
 		setMethod(MethodType.GET);
@@ -46,7 +50,7 @@ public class QueryConfigRequest extends RpcAcsRequest<QueryConfigResponse> {
 	public void setConfigType(String configType) {
 		this.configType = configType;
 		if(configType != null){
-			putBodyParameter("ConfigType", configType);
+			putQueryParameter("ConfigType", configType);
 		}
 	}
 
@@ -57,7 +61,18 @@ public class QueryConfigRequest extends RpcAcsRequest<QueryConfigResponse> {
 	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -69,6 +84,17 @@ public class QueryConfigRequest extends RpcAcsRequest<QueryConfigResponse> {
 		this.requestPars = requestPars;
 		if(requestPars != null){
 			putQueryParameter("RequestPars", requestPars);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -26,18 +27,28 @@ public class QueryDeviceEventRequest extends RpcAcsRequest<QueryDeviceEventRespo
 
 	private String iotId;
 
-	private Integer eventType;
+	private String iotInstanceId;
 
-	private Long beginTime;
+	private Integer pageSize;
 
 	private Long endTime;
 
+	private Long beginTime;
+
 	private Integer currentPage;
 
-	private Integer pageSize;
+	private String productKey;
+
+	private String deviceName;
+
+	private Integer eventType;
 	public QueryDeviceEventRequest() {
-		super("Linkvisual", "2018-01-20", "QueryDeviceEvent", "linkvisual");
+		super("Linkvisual", "2018-01-20", "QueryDeviceEvent", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getIotId() {
@@ -51,25 +62,25 @@ public class QueryDeviceEventRequest extends RpcAcsRequest<QueryDeviceEventRespo
 		}
 	}
 
-	public Integer getEventType() {
-		return this.eventType;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setEventType(Integer eventType) {
-		this.eventType = eventType;
-		if(eventType != null){
-			putQueryParameter("EventType", eventType.toString());
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
-	public Long getBeginTime() {
-		return this.beginTime;
+	public Integer getPageSize() {
+		return this.pageSize;
 	}
 
-	public void setBeginTime(Long beginTime) {
-		this.beginTime = beginTime;
-		if(beginTime != null){
-			putQueryParameter("BeginTime", beginTime.toString());
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
@@ -84,6 +95,17 @@ public class QueryDeviceEventRequest extends RpcAcsRequest<QueryDeviceEventRespo
 		}
 	}
 
+	public Long getBeginTime() {
+		return this.beginTime;
+	}
+
+	public void setBeginTime(Long beginTime) {
+		this.beginTime = beginTime;
+		if(beginTime != null){
+			putQueryParameter("BeginTime", beginTime.toString());
+		}
+	}
+
 	public Integer getCurrentPage() {
 		return this.currentPage;
 	}
@@ -95,14 +117,36 @@ public class QueryDeviceEventRequest extends RpcAcsRequest<QueryDeviceEventRespo
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public String getProductKey() {
+		return this.productKey;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public Integer getEventType() {
+		return this.eventType;
+	}
+
+	public void setEventType(Integer eventType) {
+		this.eventType = eventType;
+		if(eventType != null){
+			putQueryParameter("EventType", eventType.toString());
 		}
 	}
 

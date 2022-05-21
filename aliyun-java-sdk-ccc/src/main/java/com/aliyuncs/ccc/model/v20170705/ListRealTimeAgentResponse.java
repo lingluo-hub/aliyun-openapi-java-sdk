@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListRealTimeAgentResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<User> data;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<User> getData() {
@@ -87,27 +87,19 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 
 	public static class User {
 
-		private String ramId;
-
 		private String displayName;
 
-		private String phone;
+		private String stateDesc;
 
 		private String dn;
 
 		private String state;
 
-		private String stateDesc;
+		private String ramId;
+
+		private String phone;
 
 		private List<SkillLevel> skillLevels;
-
-		public String getRamId() {
-			return this.ramId;
-		}
-
-		public void setRamId(String ramId) {
-			this.ramId = ramId;
-		}
 
 		public String getDisplayName() {
 			return this.displayName;
@@ -117,12 +109,12 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 			this.displayName = displayName;
 		}
 
-		public String getPhone() {
-			return this.phone;
+		public String getStateDesc() {
+			return this.stateDesc;
 		}
 
-		public void setPhone(String phone) {
-			this.phone = phone;
+		public void setStateDesc(String stateDesc) {
+			this.stateDesc = stateDesc;
 		}
 
 		public String getDn() {
@@ -141,12 +133,20 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 			this.state = state;
 		}
 
-		public String getStateDesc() {
-			return this.stateDesc;
+		public String getRamId() {
+			return this.ramId;
 		}
 
-		public void setStateDesc(String stateDesc) {
-			this.stateDesc = stateDesc;
+		public void setRamId(String ramId) {
+			this.ramId = ramId;
+		}
+
+		public String getPhone() {
+			return this.phone;
+		}
+
+		public void setPhone(String phone) {
+			this.phone = phone;
 		}
 
 		public List<SkillLevel> getSkillLevels() {
@@ -191,21 +191,13 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 
 			public static class Skill {
 
-				private String skillGroupId;
-
 				private String instanceId;
-
-				private String skillGroupName;
 
 				private String skillGroupDescription;
 
-				public String getSkillGroupId() {
-					return this.skillGroupId;
-				}
+				private String skillGroupId;
 
-				public void setSkillGroupId(String skillGroupId) {
-					this.skillGroupId = skillGroupId;
-				}
+				private String skillGroupName;
 
 				public String getInstanceId() {
 					return this.instanceId;
@@ -215,20 +207,28 @@ public class ListRealTimeAgentResponse extends AcsResponse {
 					this.instanceId = instanceId;
 				}
 
-				public String getSkillGroupName() {
-					return this.skillGroupName;
-				}
-
-				public void setSkillGroupName(String skillGroupName) {
-					this.skillGroupName = skillGroupName;
-				}
-
 				public String getSkillGroupDescription() {
 					return this.skillGroupDescription;
 				}
 
 				public void setSkillGroupDescription(String skillGroupDescription) {
 					this.skillGroupDescription = skillGroupDescription;
+				}
+
+				public String getSkillGroupId() {
+					return this.skillGroupId;
+				}
+
+				public void setSkillGroupId(String skillGroupId) {
+					this.skillGroupId = skillGroupId;
+				}
+
+				public String getSkillGroupName() {
+					return this.skillGroupName;
+				}
+
+				public void setSkillGroupName(String skillGroupName) {
+					this.skillGroupName = skillGroupName;
 				}
 			}
 		}

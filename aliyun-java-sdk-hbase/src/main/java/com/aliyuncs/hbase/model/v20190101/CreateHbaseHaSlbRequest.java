@@ -25,6 +25,8 @@ import com.aliyuncs.hbase.Endpoint;
 public class CreateHbaseHaSlbRequest extends RpcAcsRequest<CreateHbaseHaSlbResponse> {
 	   
 
+	private String clientToken;
+
 	private String haTypes;
 
 	private String hbaseType;
@@ -33,12 +35,23 @@ public class CreateHbaseHaSlbRequest extends RpcAcsRequest<CreateHbaseHaSlbRespo
 
 	private String haId;
 	public CreateHbaseHaSlbRequest() {
-		super("HBase", "2019-01-01", "CreateHbaseHaSlb");
+		super("HBase", "2019-01-01", "CreateHbaseHaSlb", "hbase");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
 	}
 
 	public String getHaTypes() {

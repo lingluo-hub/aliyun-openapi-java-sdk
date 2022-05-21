@@ -27,22 +27,35 @@ import com.aliyuncs.dms_enterprise.Endpoint;
 public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 	   
 
+	private Long tid;
+
 	private String pluginType;
 
-	private String comment;
+	private String attachmentKey;
 
-	private Long tid;
+	private String comment;
 
 	private Map<Object,Object> pluginParam;
 
 	private String relatedUserList;
 	public CreateOrderRequest() {
-		super("dms-enterprise", "2018-11-01", "CreateOrder");
+		super("dms-enterprise", "2018-11-01", "CreateOrder", "dms-enterprise");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Long getTid() {
+		return this.tid;
+	}
+
+	public void setTid(Long tid) {
+		this.tid = tid;
+		if(tid != null){
+			putQueryParameter("Tid", tid.toString());
+		}
 	}
 
 	public String getPluginType() {
@@ -53,6 +66,17 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 		this.pluginType = pluginType;
 		if(pluginType != null){
 			putQueryParameter("PluginType", pluginType);
+		}
+	}
+
+	public String getAttachmentKey() {
+		return this.attachmentKey;
+	}
+
+	public void setAttachmentKey(String attachmentKey) {
+		this.attachmentKey = attachmentKey;
+		if(attachmentKey != null){
+			putQueryParameter("AttachmentKey", attachmentKey);
 		}
 	}
 
@@ -67,17 +91,6 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 		}
 	}
 
-	public Long getTid() {
-		return this.tid;
-	}
-
-	public void setTid(Long tid) {
-		this.tid = tid;
-		if(tid != null){
-			putQueryParameter("Tid", tid.toString());
-		}
-	}
-
 	public Map<Object,Object> getPluginParam() {
 		return this.pluginParam;
 	}
@@ -85,7 +98,7 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 	public void setPluginParam(Map<Object,Object> pluginParam) {
 		this.pluginParam = pluginParam;
 		if(pluginParam != null){
-			putQueryParameter("PluginParam", new Gson().toJson(pluginParam));
+			putBodyParameter("PluginParam", new Gson().toJson(pluginParam));
 		}
 	}
 

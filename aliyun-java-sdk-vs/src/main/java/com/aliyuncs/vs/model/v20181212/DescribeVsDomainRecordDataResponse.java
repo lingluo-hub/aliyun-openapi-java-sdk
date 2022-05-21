@@ -27,12 +27,6 @@ public class DescribeVsDomainRecordDataResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String domainName;
-
-	private String startTime;
-
-	private String endTime;
-
 	private List<DataModule> recordDataPerInterval;
 
 	public String getRequestId() {
@@ -41,30 +35,6 @@ public class DescribeVsDomainRecordDataResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
 	}
 
 	public List<DataModule> getRecordDataPerInterval() {
@@ -79,6 +49,8 @@ public class DescribeVsDomainRecordDataResponse extends AcsResponse {
 
 		private String timeStamp;
 
+		private String streamCountValue;
+
 		private String recordValue;
 
 		public String getTimeStamp() {
@@ -87,6 +59,14 @@ public class DescribeVsDomainRecordDataResponse extends AcsResponse {
 
 		public void setTimeStamp(String timeStamp) {
 			this.timeStamp = timeStamp;
+		}
+
+		public String getStreamCountValue() {
+			return this.streamCountValue;
+		}
+
+		public void setStreamCountValue(String streamCountValue) {
+			this.streamCountValue = streamCountValue;
 		}
 
 		public String getRecordValue() {

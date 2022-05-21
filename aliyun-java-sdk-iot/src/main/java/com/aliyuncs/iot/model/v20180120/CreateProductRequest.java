@@ -37,6 +37,8 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 
 	private String resourceGroupId;
 
+	private Integer validateType;
+
 	private String iotInstanceId;
 
 	private String productName;
@@ -44,8 +46,6 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 	private String aliyunCommodityCode;
 
 	private Boolean publishAuto;
-
-	private Long categoryId;
 
 	private Integer dataFormat;
 
@@ -55,7 +55,7 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 
 	private String protocolType;
 	public CreateProductRequest() {
-		super("Iot", "2018-01-20", "CreateProduct", "Iot");
+		super("Iot", "2018-01-20", "CreateProduct");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -129,6 +129,17 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		}
 	}
 
+	public Integer getValidateType() {
+		return this.validateType;
+	}
+
+	public void setValidateType(Integer validateType) {
+		this.validateType = validateType;
+		if(validateType != null){
+			putQueryParameter("ValidateType", validateType.toString());
+		}
+	}
+
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -170,17 +181,6 @@ public class CreateProductRequest extends RpcAcsRequest<CreateProductResponse> {
 		this.publishAuto = publishAuto;
 		if(publishAuto != null){
 			putQueryParameter("PublishAuto", publishAuto.toString());
-		}
-	}
-
-	public Long getCategoryId() {
-		return this.categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-		if(categoryId != null){
-			putQueryParameter("CategoryId", categoryId.toString());
 		}
 	}
 

@@ -24,26 +24,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class BindSlbResponse extends AcsResponse {
 
-	private String code;
+	private String requestId;
 
 	private String message;
 
+	private String traceId;
+
 	private String errorCode;
 
-	private String requestId;
+	private String code;
 
 	private Boolean success;
 
-	private String traceId;
-
 	private Data data;
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getMessage() {
@@ -54,6 +54,14 @@ public class BindSlbResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getTraceId() {
+		return this.traceId;
+	}
+
+	public void setTraceId(String traceId) {
+		this.traceId = traceId;
+	}
+
 	public String getErrorCode() {
 		return this.errorCode;
 	}
@@ -62,12 +70,12 @@ public class BindSlbResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Boolean getSuccess() {
@@ -76,14 +84,6 @@ public class BindSlbResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
-	}
-
-	public String getTraceId() {
-		return this.traceId;
-	}
-
-	public void setTraceId(String traceId) {
-		this.traceId = traceId;
 	}
 
 	public Data getData() {

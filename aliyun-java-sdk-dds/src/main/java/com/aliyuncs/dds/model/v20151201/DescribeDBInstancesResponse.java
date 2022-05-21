@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDBInstancesResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer totalCount;
 
-	private Integer pageNumber;
+	private String requestId;
 
 	private Integer pageSize;
 
-	private Integer totalCount;
+	private Integer pageNumber;
 
 	private List<DBInstance> dBInstances;
+
+	public Integer getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
 	}
 
 	public Integer getPageSize() {
@@ -59,12 +59,12 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 		this.pageSize = pageSize;
 	}
 
-	public Integer getTotalCount() {
-		return this.totalCount;
+	public Integer getPageNumber() {
+		return this.pageNumber;
 	}
 
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<DBInstance> getDBInstances() {
@@ -77,33 +77,19 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 	public static class DBInstance {
 
-		private String resourceGroupId;
-
-		private String dBInstanceId;
-
-		private String dBInstanceDescription;
-
-		private String regionId;
-
-		private String zoneId;
-
-		private String engine;
-
-		private String engineVersion;
-
-		private String dBInstanceClass;
-
-		private Integer dBInstanceStorage;
-
-		private String dBInstanceStatus;
-
-		private String lockMode;
+		private String creationTime;
 
 		private String chargeType;
 
+		private String vpcAuthMode;
+
 		private String networkType;
 
-		private String creationTime;
+		private String lockMode;
+
+		private String engineVersion;
+
+		private String dBInstanceDescription;
 
 		private String expireTime;
 
@@ -111,104 +97,44 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		private String lastDowngradeTime;
 
-		private String replicationFactor;
-
 		private String destroyTime;
 
-		private String vpcAuthMode;
+		private String dBInstanceStatus;
+
+		private String regionId;
+
+		private Integer dBInstanceStorage;
+
+		private String resourceGroupId;
+
+		private String zoneId;
+
+		private String dBInstanceId;
+
+		private String dBInstanceClass;
+
+		private String engine;
+
+		private String replicationFactor;
+
+		private String kindCode;
+
+		private String cloudType;
+
+		private String capacityUnit;
+
+		private List<Tag> tags;
 
 		private List<MongosAttribute> mongosList;
 
 		private List<ShardAttribute> shardList;
 
-		private List<Tag> tags;
-
-		public String getResourceGroupId() {
-			return this.resourceGroupId;
+		public String getCreationTime() {
+			return this.creationTime;
 		}
 
-		public void setResourceGroupId(String resourceGroupId) {
-			this.resourceGroupId = resourceGroupId;
-		}
-
-		public String getDBInstanceId() {
-			return this.dBInstanceId;
-		}
-
-		public void setDBInstanceId(String dBInstanceId) {
-			this.dBInstanceId = dBInstanceId;
-		}
-
-		public String getDBInstanceDescription() {
-			return this.dBInstanceDescription;
-		}
-
-		public void setDBInstanceDescription(String dBInstanceDescription) {
-			this.dBInstanceDescription = dBInstanceDescription;
-		}
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		public String getZoneId() {
-			return this.zoneId;
-		}
-
-		public void setZoneId(String zoneId) {
-			this.zoneId = zoneId;
-		}
-
-		public String getEngine() {
-			return this.engine;
-		}
-
-		public void setEngine(String engine) {
-			this.engine = engine;
-		}
-
-		public String getEngineVersion() {
-			return this.engineVersion;
-		}
-
-		public void setEngineVersion(String engineVersion) {
-			this.engineVersion = engineVersion;
-		}
-
-		public String getDBInstanceClass() {
-			return this.dBInstanceClass;
-		}
-
-		public void setDBInstanceClass(String dBInstanceClass) {
-			this.dBInstanceClass = dBInstanceClass;
-		}
-
-		public Integer getDBInstanceStorage() {
-			return this.dBInstanceStorage;
-		}
-
-		public void setDBInstanceStorage(Integer dBInstanceStorage) {
-			this.dBInstanceStorage = dBInstanceStorage;
-		}
-
-		public String getDBInstanceStatus() {
-			return this.dBInstanceStatus;
-		}
-
-		public void setDBInstanceStatus(String dBInstanceStatus) {
-			this.dBInstanceStatus = dBInstanceStatus;
-		}
-
-		public String getLockMode() {
-			return this.lockMode;
-		}
-
-		public void setLockMode(String lockMode) {
-			this.lockMode = lockMode;
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
 		}
 
 		public String getChargeType() {
@@ -219,6 +145,14 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.chargeType = chargeType;
 		}
 
+		public String getVpcAuthMode() {
+			return this.vpcAuthMode;
+		}
+
+		public void setVpcAuthMode(String vpcAuthMode) {
+			this.vpcAuthMode = vpcAuthMode;
+		}
+
 		public String getNetworkType() {
 			return this.networkType;
 		}
@@ -227,12 +161,28 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.networkType = networkType;
 		}
 
-		public String getCreationTime() {
-			return this.creationTime;
+		public String getLockMode() {
+			return this.lockMode;
 		}
 
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
+		public void setLockMode(String lockMode) {
+			this.lockMode = lockMode;
+		}
+
+		public String getEngineVersion() {
+			return this.engineVersion;
+		}
+
+		public void setEngineVersion(String engineVersion) {
+			this.engineVersion = engineVersion;
+		}
+
+		public String getDBInstanceDescription() {
+			return this.dBInstanceDescription;
+		}
+
+		public void setDBInstanceDescription(String dBInstanceDescription) {
+			this.dBInstanceDescription = dBInstanceDescription;
 		}
 
 		public String getExpireTime() {
@@ -259,14 +209,6 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.lastDowngradeTime = lastDowngradeTime;
 		}
 
-		public String getReplicationFactor() {
-			return this.replicationFactor;
-		}
-
-		public void setReplicationFactor(String replicationFactor) {
-			this.replicationFactor = replicationFactor;
-		}
-
 		public String getDestroyTime() {
 			return this.destroyTime;
 		}
@@ -275,12 +217,108 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 			this.destroyTime = destroyTime;
 		}
 
-		public String getVpcAuthMode() {
-			return this.vpcAuthMode;
+		public String getDBInstanceStatus() {
+			return this.dBInstanceStatus;
 		}
 
-		public void setVpcAuthMode(String vpcAuthMode) {
-			this.vpcAuthMode = vpcAuthMode;
+		public void setDBInstanceStatus(String dBInstanceStatus) {
+			this.dBInstanceStatus = dBInstanceStatus;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public Integer getDBInstanceStorage() {
+			return this.dBInstanceStorage;
+		}
+
+		public void setDBInstanceStorage(Integer dBInstanceStorage) {
+			this.dBInstanceStorage = dBInstanceStorage;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getZoneId() {
+			return this.zoneId;
+		}
+
+		public void setZoneId(String zoneId) {
+			this.zoneId = zoneId;
+		}
+
+		public String getDBInstanceId() {
+			return this.dBInstanceId;
+		}
+
+		public void setDBInstanceId(String dBInstanceId) {
+			this.dBInstanceId = dBInstanceId;
+		}
+
+		public String getDBInstanceClass() {
+			return this.dBInstanceClass;
+		}
+
+		public void setDBInstanceClass(String dBInstanceClass) {
+			this.dBInstanceClass = dBInstanceClass;
+		}
+
+		public String getEngine() {
+			return this.engine;
+		}
+
+		public void setEngine(String engine) {
+			this.engine = engine;
+		}
+
+		public String getReplicationFactor() {
+			return this.replicationFactor;
+		}
+
+		public void setReplicationFactor(String replicationFactor) {
+			this.replicationFactor = replicationFactor;
+		}
+
+		public String getKindCode() {
+			return this.kindCode;
+		}
+
+		public void setKindCode(String kindCode) {
+			this.kindCode = kindCode;
+		}
+
+		public String getCloudType() {
+			return this.cloudType;
+		}
+
+		public void setCloudType(String cloudType) {
+			this.cloudType = cloudType;
+		}
+
+		public String getCapacityUnit() {
+			return this.capacityUnit;
+		}
+
+		public void setCapacityUnit(String capacityUnit) {
+			this.capacityUnit = capacityUnit;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public List<MongosAttribute> getMongosList() {
@@ -297,90 +335,6 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		public void setShardList(List<ShardAttribute> shardList) {
 			this.shardList = shardList;
-		}
-
-		public List<Tag> getTags() {
-			return this.tags;
-		}
-
-		public void setTags(List<Tag> tags) {
-			this.tags = tags;
-		}
-
-		public static class MongosAttribute {
-
-			private String nodeId;
-
-			private String nodeDescription;
-
-			private String nodeClass;
-
-			public String getNodeId() {
-				return this.nodeId;
-			}
-
-			public void setNodeId(String nodeId) {
-				this.nodeId = nodeId;
-			}
-
-			public String getNodeDescription() {
-				return this.nodeDescription;
-			}
-
-			public void setNodeDescription(String nodeDescription) {
-				this.nodeDescription = nodeDescription;
-			}
-
-			public String getNodeClass() {
-				return this.nodeClass;
-			}
-
-			public void setNodeClass(String nodeClass) {
-				this.nodeClass = nodeClass;
-			}
-		}
-
-		public static class ShardAttribute {
-
-			private String nodeId;
-
-			private String nodeDescription;
-
-			private String nodeClass;
-
-			private Integer nodeStorage;
-
-			public String getNodeId() {
-				return this.nodeId;
-			}
-
-			public void setNodeId(String nodeId) {
-				this.nodeId = nodeId;
-			}
-
-			public String getNodeDescription() {
-				return this.nodeDescription;
-			}
-
-			public void setNodeDescription(String nodeDescription) {
-				this.nodeDescription = nodeDescription;
-			}
-
-			public String getNodeClass() {
-				return this.nodeClass;
-			}
-
-			public void setNodeClass(String nodeClass) {
-				this.nodeClass = nodeClass;
-			}
-
-			public Integer getNodeStorage() {
-				return this.nodeStorage;
-			}
-
-			public void setNodeStorage(Integer nodeStorage) {
-				this.nodeStorage = nodeStorage;
-			}
 		}
 
 		public static class Tag {
@@ -403,6 +357,92 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 			public void setValue(String value) {
 				this.value = value;
+			}
+		}
+
+		public static class MongosAttribute {
+
+			private String nodeClass;
+
+			private String nodeDescription;
+
+			private String nodeId;
+
+			public String getNodeClass() {
+				return this.nodeClass;
+			}
+
+			public void setNodeClass(String nodeClass) {
+				this.nodeClass = nodeClass;
+			}
+
+			public String getNodeDescription() {
+				return this.nodeDescription;
+			}
+
+			public void setNodeDescription(String nodeDescription) {
+				this.nodeDescription = nodeDescription;
+			}
+
+			public String getNodeId() {
+				return this.nodeId;
+			}
+
+			public void setNodeId(String nodeId) {
+				this.nodeId = nodeId;
+			}
+		}
+
+		public static class ShardAttribute {
+
+			private String nodeClass;
+
+			private String nodeDescription;
+
+			private Integer nodeStorage;
+
+			private String nodeId;
+
+			private Integer readonlyReplicas;
+
+			public String getNodeClass() {
+				return this.nodeClass;
+			}
+
+			public void setNodeClass(String nodeClass) {
+				this.nodeClass = nodeClass;
+			}
+
+			public String getNodeDescription() {
+				return this.nodeDescription;
+			}
+
+			public void setNodeDescription(String nodeDescription) {
+				this.nodeDescription = nodeDescription;
+			}
+
+			public Integer getNodeStorage() {
+				return this.nodeStorage;
+			}
+
+			public void setNodeStorage(Integer nodeStorage) {
+				this.nodeStorage = nodeStorage;
+			}
+
+			public String getNodeId() {
+				return this.nodeId;
+			}
+
+			public void setNodeId(String nodeId) {
+				this.nodeId = nodeId;
+			}
+
+			public Integer getReadonlyReplicas() {
+				return this.readonlyReplicas;
+			}
+
+			public void setReadonlyReplicas(Integer readonlyReplicas) {
+				this.readonlyReplicas = readonlyReplicas;
 			}
 		}
 	}

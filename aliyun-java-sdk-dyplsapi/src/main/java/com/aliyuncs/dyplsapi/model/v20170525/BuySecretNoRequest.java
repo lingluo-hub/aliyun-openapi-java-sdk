@@ -41,7 +41,7 @@ public class BuySecretNoRequest extends RpcAcsRequest<BuySecretNoResponse> {
 
 	private String poolKey;
 	public BuySecretNoRequest() {
-		super("Dyplsapi", "2017-05-25", "BuySecretNo", "dypls");
+		super("Dyplsapi", "2017-05-25", "BuySecretNo");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

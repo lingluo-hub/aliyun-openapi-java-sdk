@@ -29,9 +29,21 @@ public class ListAnsServicesRequest extends RpcAcsRequest<ListAnsServicesRespons
 
 	private Integer pageNum;
 
+	private String groupName;
+
+	private String hasIpCount;
+
+	private String instanceId;
+
+	private String namespaceId;
+
 	private String requestPars;
 
 	private Integer pageSize;
+
+	private String acceptLanguage;
+
+	private String serviceName;
 	public ListAnsServicesRequest() {
 		super("mse", "2019-05-31", "ListAnsServices", "mse");
 		setMethod(MethodType.GET);
@@ -63,6 +75,50 @@ public class ListAnsServicesRequest extends RpcAcsRequest<ListAnsServicesRespons
 		}
 	}
 
+	public String getGroupName() {
+		return this.groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+		if(groupName != null){
+			putQueryParameter("GroupName", groupName);
+		}
+	}
+
+	public String getHasIpCount() {
+		return this.hasIpCount;
+	}
+
+	public void setHasIpCount(String hasIpCount) {
+		this.hasIpCount = hasIpCount;
+		if(hasIpCount != null){
+			putQueryParameter("HasIpCount", hasIpCount);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getNamespaceId() {
+		return this.namespaceId;
+	}
+
+	public void setNamespaceId(String namespaceId) {
+		this.namespaceId = namespaceId;
+		if(namespaceId != null){
+			putQueryParameter("NamespaceId", namespaceId);
+		}
+	}
+
 	public String getRequestPars() {
 		return this.requestPars;
 	}
@@ -82,6 +138,28 @@ public class ListAnsServicesRequest extends RpcAcsRequest<ListAnsServicesRespons
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
+		}
+	}
+
+	public String getServiceName() {
+		return this.serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+		if(serviceName != null){
+			putQueryParameter("ServiceName", serviceName);
 		}
 	}
 

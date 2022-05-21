@@ -46,32 +46,42 @@ public class GetEditingProjectResponse extends AcsResponse {
 
 	public static class Project {
 
-		private String projectId;
+		private String storageLocation;
+
+		private String status;
 
 		private String creationTime;
 
 		private String modifiedTime;
 
-		private String status;
+		private String fEExtend;
 
 		private String description;
 
-		private String title;
+		private String coverURL;
+
+		private String projectId;
 
 		private String timeline;
 
-		private String coverURL;
-
-		private String storageLocation;
+		private String title;
 
 		private String regionId;
 
-		public String getProjectId() {
-			return this.projectId;
+		public String getStorageLocation() {
+			return this.storageLocation;
 		}
 
-		public void setProjectId(String projectId) {
-			this.projectId = projectId;
+		public void setStorageLocation(String storageLocation) {
+			this.storageLocation = storageLocation;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
 		public String getCreationTime() {
@@ -90,12 +100,12 @@ public class GetEditingProjectResponse extends AcsResponse {
 			this.modifiedTime = modifiedTime;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getFEExtend() {
+			return this.fEExtend;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setFEExtend(String fEExtend) {
+			this.fEExtend = fEExtend;
 		}
 
 		public String getDescription() {
@@ -106,12 +116,20 @@ public class GetEditingProjectResponse extends AcsResponse {
 			this.description = description;
 		}
 
-		public String getTitle() {
-			return this.title;
+		public String getCoverURL() {
+			return this.coverURL;
 		}
 
-		public void setTitle(String title) {
-			this.title = title;
+		public void setCoverURL(String coverURL) {
+			this.coverURL = coverURL;
+		}
+
+		public String getProjectId() {
+			return this.projectId;
+		}
+
+		public void setProjectId(String projectId) {
+			this.projectId = projectId;
 		}
 
 		public String getTimeline() {
@@ -122,20 +140,12 @@ public class GetEditingProjectResponse extends AcsResponse {
 			this.timeline = timeline;
 		}
 
-		public String getCoverURL() {
-			return this.coverURL;
+		public String getTitle() {
+			return this.title;
 		}
 
-		public void setCoverURL(String coverURL) {
-			this.coverURL = coverURL;
-		}
-
-		public String getStorageLocation() {
-			return this.storageLocation;
-		}
-
-		public void setStorageLocation(String storageLocation) {
-			this.storageLocation = storageLocation;
+		public void setTitle(String title) {
+			this.title = title;
 		}
 
 		public String getRegionId() {

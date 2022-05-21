@@ -51,6 +51,10 @@ public class ListClusterHostComponentResponseUnmarshaller {
 			component.setMemory(_ctx.integerValue("ListClusterHostComponentResponse.ComponentList["+ i +"].Memory"));
 			component.setHostInstanceId(_ctx.stringValue("ListClusterHostComponentResponse.ComponentList["+ i +"].HostInstanceId"));
 			component.setSerialNumber(_ctx.stringValue("ListClusterHostComponentResponse.ComponentList["+ i +"].SerialNumber"));
+			component.setCommissionStatus(_ctx.stringValue("ListClusterHostComponentResponse.ComponentList["+ i +"].CommissionStatus"));
+			component.setState(_ctx.stringValue("ListClusterHostComponentResponse.ComponentList["+ i +"].State"));
+			component.setHealthStatus(_ctx.stringValue("ListClusterHostComponentResponse.ComponentList["+ i +"].HealthStatus"));
+			component.setHealthReportTime(_ctx.longValue("ListClusterHostComponentResponse.ComponentList["+ i +"].HealthReportTime"));
 
 			componentList.add(component);
 		}

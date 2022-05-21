@@ -65,6 +65,10 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 	private Integer maxResults;
 
 	private List<String> networkInterfaceIds;
+
+	private List<String> ipv6Addresss;
+
+	private String status;
 	public DescribeNetworkInterfacesRequest() {
 		super("Ecs", "2014-05-26", "DescribeNetworkInterfaces", "ecs");
 		setMethod(MethodType.POST);
@@ -299,6 +303,30 @@ public class DescribeNetworkInterfacesRequest extends RpcAcsRequest<DescribeNetw
 				putQueryParameter("NetworkInterfaceId." + (i + 1) , networkInterfaceIds.get(i));
 			}
 		}	
+	}
+
+	public List<String> getIpv6Addresss() {
+		return this.ipv6Addresss;
+	}
+
+	public void setIpv6Addresss(List<String> ipv6Addresss) {
+		this.ipv6Addresss = ipv6Addresss;	
+		if (ipv6Addresss != null) {
+			for (int i = 0; i < ipv6Addresss.size(); i++) {
+				putQueryParameter("Ipv6Address." + (i + 1) , ipv6Addresss.get(i));
+			}
+		}	
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
+		}
 	}
 
 	public static class Tag {

@@ -16,24 +16,40 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class StartRepoBuildByRuleRequest extends RoaAcsRequest<StartRepoBuildByRuleResponse> {
-	
-	public StartRepoBuildByRuleRequest() {
-		super("cr", "2016-06-07", "StartRepoBuildByRule", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/rules/[BuildRuleId]/build");
-		setMethod(MethodType.PUT);
-	}
+	   
+
+	private Long buildRuleId;
 
 	private String repoNamespace;
 
 	private String repoName;
+	public StartRepoBuildByRuleRequest() {
+		super("cr", "2016-06-07", "StartRepoBuildByRule", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/rules/[BuildRuleId]/build");
+		setMethod(MethodType.PUT);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Long buildRuleId;
+	public Long getBuildRuleId() {
+		return this.buildRuleId;
+	}
+
+	public void setBuildRuleId(Long buildRuleId) {
+		this.buildRuleId = buildRuleId;
+		if(buildRuleId != null){
+			putPathParameter("BuildRuleId", buildRuleId.toString());
+		}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;
@@ -54,17 +70,6 @@ public class StartRepoBuildByRuleRequest extends RoaAcsRequest<StartRepoBuildByR
 		this.repoName = repoName;
 		if(repoName != null){
 			putPathParameter("RepoName", repoName);
-		}
-	}
-
-	public Long getBuildRuleId() {
-		return this.buildRuleId;
-	}
-
-	public void setBuildRuleId(Long buildRuleId) {
-		this.buildRuleId = buildRuleId;
-		if(buildRuleId != null){
-			putPathParameter("BuildRuleId", buildRuleId.toString());
 		}
 	}
 

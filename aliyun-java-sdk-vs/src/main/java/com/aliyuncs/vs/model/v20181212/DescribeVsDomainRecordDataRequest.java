@@ -32,8 +32,10 @@ public class DescribeVsDomainRecordDataRequest extends RpcAcsRequest<DescribeVsD
 	private String endTime;
 
 	private Long ownerId;
+
+	private String region;
 	public DescribeVsDomainRecordDataRequest() {
-		super("vs", "2018-12-12", "DescribeVsDomainRecordData", "vs");
+		super("vs", "2018-12-12", "DescribeVsDomainRecordData");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -82,6 +84,17 @@ public class DescribeVsDomainRecordDataRequest extends RpcAcsRequest<DescribeVsD
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getRegion() {
+		return this.region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+		if(region != null){
+			putQueryParameter("Region", region);
 		}
 	}
 

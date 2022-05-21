@@ -32,6 +32,7 @@ public class DescribeRegionsResponseUnmarshaller {
 		List<DdsRegion> regions = new ArrayList<DdsRegion>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeRegionsResponse.Regions.Length"); i++) {
 			DdsRegion ddsRegion = new DdsRegion();
+			ddsRegion.setZoneIds(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].ZoneIds"));
 			ddsRegion.setRegionId(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].RegionId"));
 
 			List<Zone> zones = new ArrayList<Zone>();
@@ -39,6 +40,7 @@ public class DescribeRegionsResponseUnmarshaller {
 				Zone zone = new Zone();
 				zone.setZoneId(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].ZoneId"));
 				zone.setVpcEnabled(_ctx.booleanValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].VpcEnabled"));
+				zone.setZoneName(_ctx.stringValue("DescribeRegionsResponse.Regions["+ i +"].Zones["+ j +"].ZoneName"));
 
 				zones.add(zone);
 			}

@@ -1,3 +1,52 @@
+2022-04-11 Version: 2.16.7
+- Set multiple apis to public.
+
+2022-03-15 Version: 2.16.6
+- Set multiple apis to private.
+
+2021-12-22 Version: 2.16.5
+- Add return fields to UploadStreamByURL.
+- Set DescribeVodDomainSrcTrafficData pulic.
+
+2021-11-24 Version: 2.16.4
+- Set API DescribeVodDomainSrcBpsData to public.
+
+2021-11-16 Version: 2.16.3
+- Add parameter type HDRType.
+
+2021-11-02 Version: 2.16.2
+- Add GetVideoPlayAuth API parameter.
+
+2021-11-02 Version: 2.16.1
+- Add GetVideoPlayAuth API parameter.
+
+2021-10-28 Version: 2.16.0
+- Add API UploadStreamByURL.
+
+2021-09-18 Version: 2.5.13
+- Add copyright invasion detection APIs.
+
+2020-09-24 Version: 2.15.12
+- Add a new api named SubmitAIImageAuditJob to submit image ai detection job.
+- Add a new api named CreateDNADB to create a DNA analysis library.
+- Add a new api named ListDNADB to query the list of DNA analysis libraries.
+- Add a new api named GetDNADB to query specified DNA analysis library.
+- Add a new field DNADBId to the request parameter Config structure for SubmitAIJob api.
+
+2020-09-09 Version: 2.15.11
+- Add support cn-beijing service region.
+- Add ai video cover interface,include submit and query.
+- Add dynamic image query interface.
+- Update SubmitMediaAuditJob support MediaAuditConfiguration to set ResourceType.
+
+2020-06-22 Version: 2.15.10
+- Add support cn-shenzhen region.
+
+2020-06-04 Version: 2.15.9
+- Add SubmitMediaDNADeleteJob and ListMediaDNADeleteJob.
+- Modify GetMediaAuditResult interface, support ad logo and live result.
+- Modify GetMediaAuditResultTimeline interface, support ad logo and live result.
+
 2019-10-23 Version: 2.15.8
 - Add a new api named SubmitDynamicImageJob capture a certain part of the video as a dynamic image.
 - Add a new api named SubmitWorkflowJob to initiate the VoD workflow processing for audio and video.

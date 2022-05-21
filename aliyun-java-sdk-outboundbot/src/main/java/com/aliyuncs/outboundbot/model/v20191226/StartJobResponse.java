@@ -25,32 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class StartJobResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<KeyValuePair> taskIds;
 
-	public String getRequestId() {
-		return this.requestId;
+	private List<KeyValuePair> callIds;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +63,20 @@ public class StartJobResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<KeyValuePair> getTaskIds() {
@@ -83,6 +85,14 @@ public class StartJobResponse extends AcsResponse {
 
 	public void setTaskIds(List<KeyValuePair> taskIds) {
 		this.taskIds = taskIds;
+	}
+
+	public List<KeyValuePair> getCallIds() {
+		return this.callIds;
+	}
+
+	public void setCallIds(List<KeyValuePair> callIds) {
+		this.callIds = callIds;
 	}
 
 	public static class KeyValuePair {

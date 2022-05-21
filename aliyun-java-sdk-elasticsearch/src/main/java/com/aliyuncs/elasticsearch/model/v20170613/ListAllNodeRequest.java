@@ -26,6 +26,8 @@ public class ListAllNodeRequest extends RoaAcsRequest<ListAllNodeResponse> {
 	   
 
 	private String instanceId;
+
+	private Boolean extended;
 	public ListAllNodeRequest() {
 		super("elasticsearch", "2017-06-13", "ListAllNode", "elasticsearch");
 		setUriPattern("/openapi/instances/[InstanceId]/nodes");
@@ -44,6 +46,17 @@ public class ListAllNodeRequest extends RoaAcsRequest<ListAllNodeResponse> {
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putPathParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Boolean getExtended() {
+		return this.extended;
+	}
+
+	public void setExtended(Boolean extended) {
+		this.extended = extended;
+		if(extended != null){
+			putQueryParameter("extended", extended.toString());
 		}
 	}
 

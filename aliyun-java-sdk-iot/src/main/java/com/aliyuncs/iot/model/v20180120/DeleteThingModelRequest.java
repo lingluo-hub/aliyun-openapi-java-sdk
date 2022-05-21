@@ -26,48 +26,26 @@ import com.aliyuncs.iot.Endpoint;
 public class DeleteThingModelRequest extends RpcAcsRequest<DeleteThingModelResponse> {
 	   
 
-	private List<String> serviceIdentifiers;
-
-	private String productKey;
-
 	private String resourceGroupId;
 
 	private List<String> propertyIdentifiers;
 
 	private String iotInstanceId;
 
+	private List<String> serviceIdentifiers;
+
+	private String productKey;
+
 	private List<String> eventIdentifiers;
+
+	private String functionBlockId;
 	public DeleteThingModelRequest() {
-		super("Iot", "2018-01-20", "DeleteThingModel", "Iot");
+		super("Iot", "2018-01-20", "DeleteThingModel");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public List<String> getServiceIdentifiers() {
-		return this.serviceIdentifiers;
-	}
-
-	public void setServiceIdentifiers(List<String> serviceIdentifiers) {
-		this.serviceIdentifiers = serviceIdentifiers;	
-		if (serviceIdentifiers != null) {
-			for (int i = 0; i < serviceIdentifiers.size(); i++) {
-				putQueryParameter("ServiceIdentifier." + (i + 1) , serviceIdentifiers.get(i));
-			}
-		}	
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getResourceGroupId() {
@@ -105,6 +83,30 @@ public class DeleteThingModelRequest extends RpcAcsRequest<DeleteThingModelRespo
 		}
 	}
 
+	public List<String> getServiceIdentifiers() {
+		return this.serviceIdentifiers;
+	}
+
+	public void setServiceIdentifiers(List<String> serviceIdentifiers) {
+		this.serviceIdentifiers = serviceIdentifiers;	
+		if (serviceIdentifiers != null) {
+			for (int i = 0; i < serviceIdentifiers.size(); i++) {
+				putQueryParameter("ServiceIdentifier." + (i + 1) , serviceIdentifiers.get(i));
+			}
+		}	
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public List<String> getEventIdentifiers() {
 		return this.eventIdentifiers;
 	}
@@ -116,6 +118,17 @@ public class DeleteThingModelRequest extends RpcAcsRequest<DeleteThingModelRespo
 				putQueryParameter("EventIdentifier." + (i + 1) , eventIdentifiers.get(i));
 			}
 		}	
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
+		}
 	}
 
 	@Override

@@ -32,6 +32,8 @@ public class FindApprovalOrderListRequest extends RpcAcsRequest<FindApprovalOrde
 
 	private Integer pageNum;
 
+	private String credentialGroupName;
+
 	private String alias;
 
 	private String serviceName;
@@ -40,7 +42,7 @@ public class FindApprovalOrderListRequest extends RpcAcsRequest<FindApprovalOrde
 
 	private Boolean onlyPending;
 	public FindApprovalOrderListRequest() {
-		super("CSB", "2017-11-18", "FindApprovalOrderList", "csb");
+		super("CSB", "2017-11-18", "FindApprovalOrderList");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.GET);
 		try {
@@ -79,6 +81,17 @@ public class FindApprovalOrderListRequest extends RpcAcsRequest<FindApprovalOrde
 		this.pageNum = pageNum;
 		if(pageNum != null){
 			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
+	public String getCredentialGroupName() {
+		return this.credentialGroupName;
+	}
+
+	public void setCredentialGroupName(String credentialGroupName) {
+		this.credentialGroupName = credentialGroupName;
+		if(credentialGroupName != null){
+			putQueryParameter("CredentialGroupName", credentialGroupName);
 		}
 	}
 

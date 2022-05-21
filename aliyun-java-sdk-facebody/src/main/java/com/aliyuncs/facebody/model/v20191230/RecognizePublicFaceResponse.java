@@ -59,19 +59,11 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 		public static class Element {
 
-			private String taskId;
-
 			private String imageURL;
 
+			private String taskId;
+
 			private List<Result> results;
-
-			public String getTaskId() {
-				return this.taskId;
-			}
-
-			public void setTaskId(String taskId) {
-				this.taskId = taskId;
-			}
 
 			public String getImageURL() {
 				return this.imageURL;
@@ -79,6 +71,14 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 			public void setImageURL(String imageURL) {
 				this.imageURL = imageURL;
+			}
+
+			public String getTaskId() {
+				return this.taskId;
+			}
+
+			public void setTaskId(String taskId) {
+				this.taskId = taskId;
 			}
 
 			public List<Result> getResults() {
@@ -91,21 +91,13 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 			public static class Result {
 
-				private String label;
-
 				private String suggestion;
+
+				private String label;
 
 				private Float rate;
 
 				private List<SubResult> subResults;
-
-				public String getLabel() {
-					return this.label;
-				}
-
-				public void setLabel(String label) {
-					this.label = label;
-				}
 
 				public String getSuggestion() {
 					return this.suggestion;
@@ -113,6 +105,14 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 				public void setSuggestion(String suggestion) {
 					this.suggestion = suggestion;
+				}
+
+				public String getLabel() {
+					return this.label;
+				}
+
+				public void setLabel(String label) {
+					this.label = label;
 				}
 
 				public Float getRate() {
@@ -133,23 +133,15 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 				public static class SubResult {
 
-					private Float h;
-
 					private Float w;
 
-					private Float x;
+					private Float h;
 
 					private Float y;
 
+					private Float x;
+
 					private List<Face> faces;
-
-					public Float getH() {
-						return this.h;
-					}
-
-					public void setH(Float h) {
-						this.h = h;
-					}
 
 					public Float getW() {
 						return this.w;
@@ -159,12 +151,12 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 						this.w = w;
 					}
 
-					public Float getX() {
-						return this.x;
+					public Float getH() {
+						return this.h;
 					}
 
-					public void setX(Float x) {
-						this.x = x;
+					public void setH(Float h) {
+						this.h = h;
 					}
 
 					public Float getY() {
@@ -173,6 +165,14 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 					public void setY(Float y) {
 						this.y = y;
+					}
+
+					public Float getX() {
+						return this.x;
+					}
+
+					public void setX(Float x) {
+						this.x = x;
 					}
 
 					public List<Face> getFaces() {
@@ -185,19 +185,11 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 					public static class Face {
 
-						private String id;
-
 						private String name;
 
+						private String id;
+
 						private Float rate;
-
-						public String getId() {
-							return this.id;
-						}
-
-						public void setId(String id) {
-							this.id = id;
-						}
 
 						public String getName() {
 							return this.name;
@@ -205,6 +197,14 @@ public class RecognizePublicFaceResponse extends AcsResponse {
 
 						public void setName(String name) {
 							this.name = name;
+						}
+
+						public String getId() {
+							return this.id;
+						}
+
+						public void setId(String id) {
+							this.id = id;
 						}
 
 						public Float getRate() {

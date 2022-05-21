@@ -24,20 +24,31 @@ import com.aliyuncs.http.MethodType;
 public class DescribeUserBandWidthDataRequest extends RpcAcsRequest<DescribeUserBandWidthDataResponse> {
 	   
 
+	private String isp;
+
 	private String startTime;
 
 	private String ensRegionId;
 
 	private String period;
 
-	private String endTime;
-
-	private String version;
-
 	private String instanceId;
+
+	private String endTime;
 	public DescribeUserBandWidthDataRequest() {
 		super("Ens", "2017-11-10", "DescribeUserBandWidthData", "ens");
 		setMethod(MethodType.POST);
+	}
+
+	public String getIsp() {
+		return this.isp;
+	}
+
+	public void setIsp(String isp) {
+		this.isp = isp;
+		if(isp != null){
+			putQueryParameter("Isp", isp);
+		}
 	}
 
 	public String getStartTime() {
@@ -73,28 +84,6 @@ public class DescribeUserBandWidthDataRequest extends RpcAcsRequest<DescribeUser
 		}
 	}
 
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-		if(endTime != null){
-			putQueryParameter("EndTime", endTime);
-		}
-	}
-
-	public String getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-		if(version != null){
-			putQueryParameter("Version", version);
-		}
-	}
-
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -103,6 +92,17 @@ public class DescribeUserBandWidthDataRequest extends RpcAcsRequest<DescribeUser
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime);
 		}
 	}
 

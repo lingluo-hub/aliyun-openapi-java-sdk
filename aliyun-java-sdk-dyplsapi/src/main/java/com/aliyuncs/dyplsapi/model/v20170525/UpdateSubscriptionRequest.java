@@ -37,6 +37,8 @@ public class UpdateSubscriptionRequest extends RpcAcsRequest<UpdateSubscriptionR
 
 	private String ringConfig;
 
+	private Boolean aSRStatus;
+
 	private String phoneNoB;
 
 	private String phoneNoA;
@@ -57,9 +59,11 @@ public class UpdateSubscriptionRequest extends RpcAcsRequest<UpdateSubscriptionR
 
 	private String operateType;
 
+	private String aSRModelId;
+
 	private String callRestrict;
 	public UpdateSubscriptionRequest() {
-		super("Dyplsapi", "2017-05-25", "UpdateSubscription", "dypls");
+		super("Dyplsapi", "2017-05-25", "UpdateSubscription");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -130,6 +134,17 @@ public class UpdateSubscriptionRequest extends RpcAcsRequest<UpdateSubscriptionR
 		this.ringConfig = ringConfig;
 		if(ringConfig != null){
 			putQueryParameter("RingConfig", ringConfig);
+		}
+	}
+
+	public Boolean getASRStatus() {
+		return this.aSRStatus;
+	}
+
+	public void setASRStatus(Boolean aSRStatus) {
+		this.aSRStatus = aSRStatus;
+		if(aSRStatus != null){
+			putQueryParameter("ASRStatus", aSRStatus.toString());
 		}
 	}
 
@@ -240,6 +255,17 @@ public class UpdateSubscriptionRequest extends RpcAcsRequest<UpdateSubscriptionR
 		this.operateType = operateType;
 		if(operateType != null){
 			putQueryParameter("OperateType", operateType);
+		}
+	}
+
+	public String getASRModelId() {
+		return this.aSRModelId;
+	}
+
+	public void setASRModelId(String aSRModelId) {
+		this.aSRModelId = aSRModelId;
+		if(aSRModelId != null){
+			putQueryParameter("ASRModelId", aSRModelId);
 		}
 	}
 

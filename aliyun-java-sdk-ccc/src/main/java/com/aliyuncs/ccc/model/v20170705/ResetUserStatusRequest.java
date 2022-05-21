@@ -15,6 +15,7 @@
 package com.aliyuncs.ccc.model.v20170705;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ccc.Endpoint;
 
@@ -23,17 +24,19 @@ import com.aliyuncs.ccc.Endpoint;
  * @version 
  */
 public class ResetUserStatusRequest extends RpcAcsRequest<ResetUserStatusResponse> {
-	
+	   
+
+	private String instanceId;
+
+	private List<Long> ramIdLists;
 	public ResetUserStatusRequest() {
 		super("CCC", "2017-07-05", "ResetUserStatus");
-		setSysMethod(MethodType.POST);
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
-
-	private String instanceId;
 
 	public String getInstanceId() {
 		return this.instanceId;
@@ -44,6 +47,19 @@ public class ResetUserStatusRequest extends RpcAcsRequest<ResetUserStatusRespons
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
 		}
+	}
+
+	public List<Long> getRamIdLists() {
+		return this.ramIdLists;
+	}
+
+	public void setRamIdLists(List<Long> ramIdLists) {
+		this.ramIdLists = ramIdLists;	
+		if (ramIdLists != null) {
+			for (int i = 0; i < ramIdLists.size(); i++) {
+				putQueryParameter("RamIdList." + (i + 1) , ramIdLists.get(i));
+			}
+		}	
 	}
 
 	@Override

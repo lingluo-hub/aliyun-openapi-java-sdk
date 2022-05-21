@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -40,6 +41,10 @@ public class IndexImageRequest extends RpcAcsRequest<IndexImageResponse> {
 
 	private String imageUri;
 
+	private String remarksArrayA;
+
+	private String remarksArrayB;
+
 	private String sourceUri;
 
 	private String sourcePosition;
@@ -52,6 +57,10 @@ public class IndexImageRequest extends RpcAcsRequest<IndexImageResponse> {
 	public IndexImageRequest() {
 		super("imm", "2017-09-06", "IndexImage", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -139,6 +148,28 @@ public class IndexImageRequest extends RpcAcsRequest<IndexImageResponse> {
 		this.imageUri = imageUri;
 		if(imageUri != null){
 			putQueryParameter("ImageUri", imageUri);
+		}
+	}
+
+	public String getRemarksArrayA() {
+		return this.remarksArrayA;
+	}
+
+	public void setRemarksArrayA(String remarksArrayA) {
+		this.remarksArrayA = remarksArrayA;
+		if(remarksArrayA != null){
+			putQueryParameter("RemarksArrayA", remarksArrayA);
+		}
+	}
+
+	public String getRemarksArrayB() {
+		return this.remarksArrayB;
+	}
+
+	public void setRemarksArrayB(String remarksArrayB) {
+		this.remarksArrayB = remarksArrayB;
+		if(remarksArrayB != null){
+			putQueryParameter("RemarksArrayB", remarksArrayB);
 		}
 	}
 

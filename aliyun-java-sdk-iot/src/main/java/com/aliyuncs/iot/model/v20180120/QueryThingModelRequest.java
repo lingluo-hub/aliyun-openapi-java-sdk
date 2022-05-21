@@ -25,31 +25,22 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryThingModelRequest extends RpcAcsRequest<QueryThingModelResponse> {
 	   
 
-	private String productKey;
-
 	private String resourceGroupId;
 
 	private String iotInstanceId;
 
+	private String productKey;
+
 	private String modelVersion;
+
+	private String functionBlockId;
 	public QueryThingModelRequest() {
-		super("Iot", "2018-01-20", "QueryThingModel", "Iot");
+		super("Iot", "2018-01-20", "QueryThingModel");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getResourceGroupId() {
@@ -74,6 +65,17 @@ public class QueryThingModelRequest extends RpcAcsRequest<QueryThingModelRespons
 		}
 	}
 
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public String getModelVersion() {
 		return this.modelVersion;
 	}
@@ -82,6 +84,17 @@ public class QueryThingModelRequest extends RpcAcsRequest<QueryThingModelRespons
 		this.modelVersion = modelVersion;
 		if(modelVersion != null){
 			putQueryParameter("ModelVersion", modelVersion);
+		}
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
 		}
 	}
 

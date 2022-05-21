@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.ons.model.v20190214.OnsTopicListResponse;
 import com.aliyuncs.ons.model.v20190214.OnsTopicListResponse.PublishInfoDo;
+import com.aliyuncs.ons.model.v20190214.OnsTopicListResponse.PublishInfoDo.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -32,15 +33,26 @@ public class OnsTopicListResponseUnmarshaller {
 		List<PublishInfoDo> data = new ArrayList<PublishInfoDo>();
 		for (int i = 0; i < _ctx.lengthValue("OnsTopicListResponse.Data.Length"); i++) {
 			PublishInfoDo publishInfoDo = new PublishInfoDo();
-			publishInfoDo.setTopic(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Topic"));
-			publishInfoDo.setOwner(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Owner"));
-			publishInfoDo.setRelation(_ctx.integerValue("OnsTopicListResponse.Data["+ i +"].Relation"));
-			publishInfoDo.setRelationName(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].RelationName"));
-			publishInfoDo.setCreateTime(_ctx.longValue("OnsTopicListResponse.Data["+ i +"].CreateTime"));
-			publishInfoDo.setRemark(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Remark"));
 			publishInfoDo.setMessageType(_ctx.integerValue("OnsTopicListResponse.Data["+ i +"].MessageType"));
-			publishInfoDo.setInstanceId(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].InstanceId"));
+			publishInfoDo.setRelationName(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].RelationName"));
+			publishInfoDo.setOwner(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Owner"));
 			publishInfoDo.setIndependentNaming(_ctx.booleanValue("OnsTopicListResponse.Data["+ i +"].IndependentNaming"));
+			publishInfoDo.setRemark(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Remark"));
+			publishInfoDo.setRelation(_ctx.integerValue("OnsTopicListResponse.Data["+ i +"].Relation"));
+			publishInfoDo.setCreateTime(_ctx.longValue("OnsTopicListResponse.Data["+ i +"].CreateTime"));
+			publishInfoDo.setTopic(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Topic"));
+			publishInfoDo.setInstanceId(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].InstanceId"));
+			publishInfoDo.setServiceStatus(_ctx.integerValue("OnsTopicListResponse.Data["+ i +"].ServiceStatus"));
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("OnsTopicListResponse.Data["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setKey(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Tags["+ j +"].Key"));
+				tag.setValue(_ctx.stringValue("OnsTopicListResponse.Data["+ i +"].Tags["+ j +"].Value"));
+
+				tags.add(tag);
+			}
+			publishInfoDo.setTags(tags);
 
 			data.add(publishInfoDo);
 		}

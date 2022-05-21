@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeVpcsResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer pageSize;
 
-	private Integer totalCount;
+	private String requestId;
 
 	private Integer pageNumber;
 
-	private Integer pageSize;
+	private Integer totalCount;
 
 	private List<Vpc> vpcs;
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -59,12 +59,12 @@ public class DescribeVpcsResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Integer getTotalCount() {
+		return this.totalCount;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<Vpc> getVpcs() {
@@ -77,35 +77,49 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 	public static class Vpc {
 
-		private String vpcId;
-
-		private String regionId;
+		private String creationTime;
 
 		private String status;
 
-		private String vpcName;
-
-		private String creationTime;
-
-		private String cidrBlock;
-
-		private String ipv6CidrBlock;
-
-		private String vRouterId;
-
-		private String description;
+		private String vpcId;
 
 		private Boolean isDefault;
 
+		private Boolean advancedResource;
+
+		private Long ownerId;
+
+		private String regionId;
+
+		private String vpcName;
+
+		private String vRouterId;
+
+		private String dhcpOptionsSetStatus;
+
+		private String cidrBlock;
+
+		private String description;
+
 		private String networkAclNum;
 
+		private Boolean supportAdvancedFeature;
+
 		private String resourceGroupId;
+
+		private String dhcpOptionsSetId;
+
+		private String ipv6CidrBlock;
 
 		private String cenStatus;
 
 		private List<Tag> tags;
 
+		private List<Ipv6CidrBlock> ipv6CidrBlocks;
+
 		private List<String> vSwitchIds;
+
+		private List<String> secondaryCidrBlocks;
 
 		private List<String> userCidrs;
 
@@ -113,22 +127,12 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 		private List<String> routerTableIds;
 
-		private List<String> secondaryCidrBlocks;
-
-		public String getVpcId() {
-			return this.vpcId;
+		public String getCreationTime() {
+			return this.creationTime;
 		}
 
-		public void setVpcId(String vpcId) {
-			this.vpcId = vpcId;
-		}
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
 		}
 
 		public String getStatus() {
@@ -139,52 +143,12 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.status = status;
 		}
 
-		public String getVpcName() {
-			return this.vpcName;
+		public String getVpcId() {
+			return this.vpcId;
 		}
 
-		public void setVpcName(String vpcName) {
-			this.vpcName = vpcName;
-		}
-
-		public String getCreationTime() {
-			return this.creationTime;
-		}
-
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
-		}
-
-		public String getCidrBlock() {
-			return this.cidrBlock;
-		}
-
-		public void setCidrBlock(String cidrBlock) {
-			this.cidrBlock = cidrBlock;
-		}
-
-		public String getIpv6CidrBlock() {
-			return this.ipv6CidrBlock;
-		}
-
-		public void setIpv6CidrBlock(String ipv6CidrBlock) {
-			this.ipv6CidrBlock = ipv6CidrBlock;
-		}
-
-		public String getVRouterId() {
-			return this.vRouterId;
-		}
-
-		public void setVRouterId(String vRouterId) {
-			this.vRouterId = vRouterId;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
+		public void setVpcId(String vpcId) {
+			this.vpcId = vpcId;
 		}
 
 		public Boolean getIsDefault() {
@@ -195,6 +159,70 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.isDefault = isDefault;
 		}
 
+		public Boolean getAdvancedResource() {
+			return this.advancedResource;
+		}
+
+		public void setAdvancedResource(Boolean advancedResource) {
+			this.advancedResource = advancedResource;
+		}
+
+		public Long getOwnerId() {
+			return this.ownerId;
+		}
+
+		public void setOwnerId(Long ownerId) {
+			this.ownerId = ownerId;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getVpcName() {
+			return this.vpcName;
+		}
+
+		public void setVpcName(String vpcName) {
+			this.vpcName = vpcName;
+		}
+
+		public String getVRouterId() {
+			return this.vRouterId;
+		}
+
+		public void setVRouterId(String vRouterId) {
+			this.vRouterId = vRouterId;
+		}
+
+		public String getDhcpOptionsSetStatus() {
+			return this.dhcpOptionsSetStatus;
+		}
+
+		public void setDhcpOptionsSetStatus(String dhcpOptionsSetStatus) {
+			this.dhcpOptionsSetStatus = dhcpOptionsSetStatus;
+		}
+
+		public String getCidrBlock() {
+			return this.cidrBlock;
+		}
+
+		public void setCidrBlock(String cidrBlock) {
+			this.cidrBlock = cidrBlock;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
 		public String getNetworkAclNum() {
 			return this.networkAclNum;
 		}
@@ -203,12 +231,36 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.networkAclNum = networkAclNum;
 		}
 
+		public Boolean getSupportAdvancedFeature() {
+			return this.supportAdvancedFeature;
+		}
+
+		public void setSupportAdvancedFeature(Boolean supportAdvancedFeature) {
+			this.supportAdvancedFeature = supportAdvancedFeature;
+		}
+
 		public String getResourceGroupId() {
 			return this.resourceGroupId;
 		}
 
 		public void setResourceGroupId(String resourceGroupId) {
 			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getDhcpOptionsSetId() {
+			return this.dhcpOptionsSetId;
+		}
+
+		public void setDhcpOptionsSetId(String dhcpOptionsSetId) {
+			this.dhcpOptionsSetId = dhcpOptionsSetId;
+		}
+
+		public String getIpv6CidrBlock() {
+			return this.ipv6CidrBlock;
+		}
+
+		public void setIpv6CidrBlock(String ipv6CidrBlock) {
+			this.ipv6CidrBlock = ipv6CidrBlock;
 		}
 
 		public String getCenStatus() {
@@ -227,12 +279,28 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.tags = tags;
 		}
 
+		public List<Ipv6CidrBlock> getIpv6CidrBlocks() {
+			return this.ipv6CidrBlocks;
+		}
+
+		public void setIpv6CidrBlocks(List<Ipv6CidrBlock> ipv6CidrBlocks) {
+			this.ipv6CidrBlocks = ipv6CidrBlocks;
+		}
+
 		public List<String> getVSwitchIds() {
 			return this.vSwitchIds;
 		}
 
 		public void setVSwitchIds(List<String> vSwitchIds) {
 			this.vSwitchIds = vSwitchIds;
+		}
+
+		public List<String> getSecondaryCidrBlocks() {
+			return this.secondaryCidrBlocks;
+		}
+
+		public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+			this.secondaryCidrBlocks = secondaryCidrBlocks;
 		}
 
 		public List<String> getUserCidrs() {
@@ -259,14 +327,6 @@ public class DescribeVpcsResponse extends AcsResponse {
 			this.routerTableIds = routerTableIds;
 		}
 
-		public List<String> getSecondaryCidrBlocks() {
-			return this.secondaryCidrBlocks;
-		}
-
-		public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
-			this.secondaryCidrBlocks = secondaryCidrBlocks;
-		}
-
 		public static class Tag {
 
 			private String key;
@@ -287,6 +347,29 @@ public class DescribeVpcsResponse extends AcsResponse {
 
 			public void setValue(String value) {
 				this.value = value;
+			}
+		}
+
+		public static class Ipv6CidrBlock {
+
+			private String ipv6Isp;
+
+			private String ipv6CidrBlock;
+
+			public String getIpv6Isp() {
+				return this.ipv6Isp;
+			}
+
+			public void setIpv6Isp(String ipv6Isp) {
+				this.ipv6Isp = ipv6Isp;
+			}
+
+			public String getIpv6CidrBlock() {
+				return this.ipv6CidrBlock;
+			}
+
+			public void setIpv6CidrBlock(String ipv6CidrBlock) {
+				this.ipv6CidrBlock = ipv6CidrBlock;
 			}
 		}
 	}

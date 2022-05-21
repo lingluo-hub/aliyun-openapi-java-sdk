@@ -24,10 +24,10 @@ public class GetConfigResponseUnmarshaller {
 	public static GetConfigResponse unmarshall(GetConfigResponse getConfigResponse, UnmarshallerContext _ctx) {
 		
 		getConfigResponse.setRequestId(_ctx.stringValue("GetConfigResponse.RequestId"));
-		getConfigResponse.setSuccess(_ctx.booleanValue("GetConfigResponse.Success"));
+		getConfigResponse.setHttpStatusCode(_ctx.integerValue("GetConfigResponse.HttpStatusCode"));
 		getConfigResponse.setCode(_ctx.stringValue("GetConfigResponse.Code"));
 		getConfigResponse.setMessage(_ctx.stringValue("GetConfigResponse.Message"));
-		getConfigResponse.setHttpStatusCode(_ctx.integerValue("GetConfigResponse.HttpStatusCode"));
+		getConfigResponse.setSuccess(_ctx.booleanValue("GetConfigResponse.Success"));
 
 		ConfigItem configItem = new ConfigItem();
 		configItem.setName(_ctx.stringValue("GetConfigResponse.ConfigItem.Name"));

@@ -14,7 +14,6 @@
 
 package com.aliyuncs.linkwan.model.v20190301;
 
-import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.linkwan.transform.v20190301.GetNodeResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -67,7 +66,7 @@ public class GetNodeResponse extends AcsResponse {
 
 		private Long boundMillis;
 
-		private List<String> authTypes;
+		private String authTypes;
 
 		public String getDevEui() {
 			return this.devEui;
@@ -109,11 +108,11 @@ public class GetNodeResponse extends AcsResponse {
 			this.boundMillis = boundMillis;
 		}
 
-		public List<String> getAuthTypes() {
+		public String getAuthTypes() {
 			return this.authTypes;
 		}
 
-		public void setAuthTypes(List<String> authTypes) {
+		public void setAuthTypes(String authTypes) {
 			this.authTypes = authTypes;
 		}
 	}

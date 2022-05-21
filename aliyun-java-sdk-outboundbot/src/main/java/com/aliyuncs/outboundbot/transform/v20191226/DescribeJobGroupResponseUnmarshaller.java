@@ -19,8 +19,11 @@ import java.util.List;
 
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse;
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup;
+import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.ExportProgress;
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.Progress;
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.Progress.KeyValuePair;
+import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.RecallStrategy;
+import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.Result;
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.Strategy;
 import com.aliyuncs.outboundbot.model.v20191226.DescribeJobGroupResponse.JobGroup.Strategy.TimeFrame;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -31,20 +34,27 @@ public class DescribeJobGroupResponseUnmarshaller {
 	public static DescribeJobGroupResponse unmarshall(DescribeJobGroupResponse describeJobGroupResponse, UnmarshallerContext _ctx) {
 		
 		describeJobGroupResponse.setRequestId(_ctx.stringValue("DescribeJobGroupResponse.RequestId"));
-		describeJobGroupResponse.setSuccess(_ctx.booleanValue("DescribeJobGroupResponse.Success"));
+		describeJobGroupResponse.setHttpStatusCode(_ctx.integerValue("DescribeJobGroupResponse.HttpStatusCode"));
 		describeJobGroupResponse.setCode(_ctx.stringValue("DescribeJobGroupResponse.Code"));
 		describeJobGroupResponse.setMessage(_ctx.stringValue("DescribeJobGroupResponse.Message"));
-		describeJobGroupResponse.setHttpStatusCode(_ctx.integerValue("DescribeJobGroupResponse.HttpStatusCode"));
+		describeJobGroupResponse.setSuccess(_ctx.booleanValue("DescribeJobGroupResponse.Success"));
 
 		JobGroup jobGroup = new JobGroup();
-		jobGroup.setJobGroupId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupId"));
-		jobGroup.setJobGroupName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupName"));
-		jobGroup.setJobGroupDescription(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupDescription"));
-		jobGroup.setScenarioId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScenarioId"));
-		jobGroup.setScriptId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScriptId"));
-		jobGroup.setScriptName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScriptName"));
-		jobGroup.setJobFilePath(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobFilePath"));
 		jobGroup.setCreationTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.CreationTime"));
+		jobGroup.setStatus(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Status"));
+		jobGroup.setJobGroupName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupName"));
+		jobGroup.setScriptId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScriptId"));
+		jobGroup.setJobGroupId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupId"));
+		jobGroup.setScenarioId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScenarioId"));
+		jobGroup.setJobFilePath(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobFilePath"));
+		jobGroup.setJobGroupDescription(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobGroupDescription"));
+		jobGroup.setJobDataParsingTaskId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.JobDataParsingTaskId"));
+		jobGroup.setScriptName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScriptName"));
+		jobGroup.setModifyTime(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ModifyTime"));
+		jobGroup.setScriptVersion(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ScriptVersion"));
+		jobGroup.setRingingDuration(_ctx.longValue("DescribeJobGroupResponse.JobGroup.RingingDuration"));
+		jobGroup.setPriority(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Priority"));
+		jobGroup.setMinConcurrency(_ctx.longValue("DescribeJobGroupResponse.JobGroup.MinConcurrency"));
 
 		List<String> callingNumbers = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.CallingNumbers.Length"); i++) {
@@ -52,20 +62,60 @@ public class DescribeJobGroupResponseUnmarshaller {
 		}
 		jobGroup.setCallingNumbers(callingNumbers);
 
+		ExportProgress exportProgress = new ExportProgress();
+		exportProgress.setStatus(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ExportProgress.Status"));
+		exportProgress.setFileHttpUrl(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ExportProgress.FileHttpUrl"));
+		exportProgress.setProgress(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.ExportProgress.Progress"));
+		jobGroup.setExportProgress(exportProgress);
+
+		Progress progress = new Progress();
+		progress.setTotalNotAnswered(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalNotAnswered"));
+		progress.setStatus(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Status"));
+		progress.setStartTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Progress.StartTime"));
+		progress.setFailed(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Failed"));
+		progress.setExecuting(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Executing"));
+		progress.setTotalJobs(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalJobs"));
+		progress.setTotalCompleted(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalCompleted"));
+		progress.setDuration(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Duration"));
+		progress.setScheduling(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Scheduling"));
+		progress.setPaused(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Paused"));
+		progress.setCancelled(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Cancelled"));
+
+		List<KeyValuePair> briefs = new ArrayList<KeyValuePair>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs.Length"); i++) {
+			KeyValuePair keyValuePair = new KeyValuePair();
+			keyValuePair.setKey(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs["+ i +"].Key"));
+			keyValuePair.setValue(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs["+ i +"].Value"));
+
+			briefs.add(keyValuePair);
+		}
+		progress.setBriefs(briefs);
+
+		List<KeyValuePair> categories = new ArrayList<KeyValuePair>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Progress.Categories.Length"); i++) {
+			KeyValuePair keyValuePair1 = new KeyValuePair();
+			keyValuePair1.setKey(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Categories["+ i +"].Key"));
+			keyValuePair1.setValue(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Categories["+ i +"].Value"));
+
+			categories.add(keyValuePair1);
+		}
+		progress.setCategories(categories);
+		jobGroup.setProgress(progress);
+
 		Strategy strategy = new Strategy();
-		strategy.setStrategyId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyId"));
-		strategy.setStrategyName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyName"));
-		strategy.setStrategyDescription(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyDescription"));
 		strategy.setType(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.Type"));
-		strategy.setStartTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Strategy.StartTime"));
-		strategy.setEndTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Strategy.EndTime"));
-		strategy.setRepeatBy(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.RepeatBy"));
+		strategy.setStrategyName(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyName"));
 		strategy.setMaxAttemptsPerDay(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Strategy.MaxAttemptsPerDay"));
-		strategy.setMinAttemptInterval(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Strategy.MinAttemptInterval"));
-		strategy.setCustomized(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.Customized"));
-		strategy.setRoutingStrategy(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.RoutingStrategy"));
 		strategy.setFollowUpStrategy(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.FollowUpStrategy"));
+		strategy.setEndTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Strategy.EndTime"));
+		strategy.setCustomized(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.Customized"));
 		strategy.setIsTemplate(_ctx.booleanValue("DescribeJobGroupResponse.JobGroup.Strategy.IsTemplate"));
+		strategy.setStartTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Strategy.StartTime"));
+		strategy.setStrategyId(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyId"));
+		strategy.setRoutingStrategy(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.RoutingStrategy"));
+		strategy.setMinAttemptInterval(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Strategy.MinAttemptInterval"));
+		strategy.setStrategyDescription(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.StrategyDescription"));
+		strategy.setRepeatBy(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.RepeatBy"));
 
 		List<String> repeatDays = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Strategy.RepeatDays.Length"); i++) {
@@ -76,47 +126,27 @@ public class DescribeJobGroupResponseUnmarshaller {
 		List<TimeFrame> workingTime = new ArrayList<TimeFrame>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Strategy.WorkingTime.Length"); i++) {
 			TimeFrame timeFrame = new TimeFrame();
-			timeFrame.setBeginTime(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].BeginTime"));
 			timeFrame.setEndTime(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].EndTime"));
+			timeFrame.setBeginTime(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].BeginTime"));
 
 			workingTime.add(timeFrame);
 		}
 		strategy.setWorkingTime(workingTime);
 		jobGroup.setStrategy(strategy);
 
-		Progress progress = new Progress();
-		progress.setTotalJobs(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalJobs"));
-		progress.setStatus(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Status"));
-		progress.setTotalNotAnswered(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalNotAnswered"));
-		progress.setTotalCompleted(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.TotalCompleted"));
-		progress.setStartTime(_ctx.longValue("DescribeJobGroupResponse.JobGroup.Progress.StartTime"));
-		progress.setDuration(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Duration"));
-		progress.setScheduling(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Scheduling"));
-		progress.setExecuting(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Executing"));
-		progress.setPaused(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Paused"));
-		progress.setFailed(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Failed"));
-		progress.setCancelled(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Progress.Cancelled"));
+		RecallStrategy recallStrategy = new RecallStrategy();
+		recallStrategy.setEmptyNumberIgnore(_ctx.booleanValue("DescribeJobGroupResponse.JobGroup.RecallStrategy.EmptyNumberIgnore"));
+		recallStrategy.setInArrearsIgnore(_ctx.booleanValue("DescribeJobGroupResponse.JobGroup.RecallStrategy.InArrearsIgnore"));
+		recallStrategy.setOutOfServiceIgnore(_ctx.booleanValue("DescribeJobGroupResponse.JobGroup.RecallStrategy.OutOfServiceIgnore"));
+		jobGroup.setRecallStrategy(recallStrategy);
 
-		List<KeyValuePair> categories = new ArrayList<KeyValuePair>();
-		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Progress.Categories.Length"); i++) {
-			KeyValuePair keyValuePair = new KeyValuePair();
-			keyValuePair.setKey(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Categories["+ i +"].Key"));
-			keyValuePair.setValue(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Categories["+ i +"].Value"));
-
-			categories.add(keyValuePair);
-		}
-		progress.setCategories(categories);
-
-		List<KeyValuePair> briefs = new ArrayList<KeyValuePair>();
-		for (int i = 0; i < _ctx.lengthValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs.Length"); i++) {
-			KeyValuePair keyValuePair_ = new KeyValuePair();
-			keyValuePair_.setKey(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs["+ i +"].Key"));
-			keyValuePair_.setValue(_ctx.stringValue("DescribeJobGroupResponse.JobGroup.Progress.Briefs["+ i +"].Value"));
-
-			briefs.add(keyValuePair_);
-		}
-		progress.setBriefs(briefs);
-		jobGroup.setProgress(progress);
+		Result result = new Result();
+		result.setTimeoutHangupNum(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Result.TimeoutHangupNum"));
+		result.setFinishedNum(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Result.FinishedNum"));
+		result.setNoInteractNum(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Result.NoInteractNum"));
+		result.setClientHangupNum(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Result.ClientHangupNum"));
+		result.setUnrecognizedNum(_ctx.integerValue("DescribeJobGroupResponse.JobGroup.Result.UnrecognizedNum"));
+		jobGroup.setResult(result);
 		describeJobGroupResponse.setJobGroup(jobGroup);
 	 
 	 	return describeJobGroupResponse;

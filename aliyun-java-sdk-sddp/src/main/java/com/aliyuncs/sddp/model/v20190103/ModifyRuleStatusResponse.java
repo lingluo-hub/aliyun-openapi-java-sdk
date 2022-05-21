@@ -24,7 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifyRuleStatusResponse extends AcsResponse {
 
+	private String failedIds;
+
 	private String requestId;
+
+	public String getFailedIds() {
+		return this.failedIds;
+	}
+
+	public void setFailedIds(String failedIds) {
+		this.failedIds = failedIds;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

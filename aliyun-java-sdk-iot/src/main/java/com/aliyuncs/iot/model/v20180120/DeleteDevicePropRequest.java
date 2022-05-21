@@ -25,33 +25,22 @@ import com.aliyuncs.iot.Endpoint;
 public class DeleteDevicePropRequest extends RpcAcsRequest<DeleteDevicePropResponse> {
 	   
 
-	private String productKey;
-
 	private String propKey;
 
 	private String iotId;
 
 	private String iotInstanceId;
 
+	private String productKey;
+
 	private String deviceName;
 	public DeleteDevicePropRequest() {
-		super("Iot", "2018-01-20", "DeleteDeviceProp", "Iot");
+		super("Iot", "2018-01-20", "DeleteDeviceProp");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getPropKey() {
@@ -84,6 +73,17 @@ public class DeleteDevicePropRequest extends RpcAcsRequest<DeleteDevicePropRespo
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

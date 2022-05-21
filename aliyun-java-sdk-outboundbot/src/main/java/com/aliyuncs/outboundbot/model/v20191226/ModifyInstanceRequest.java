@@ -15,6 +15,7 @@
 package com.aliyuncs.outboundbot.model.v20191226;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.outboundbot.Endpoint;
 
@@ -27,11 +28,11 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 
 	private Integer maxConcurrentConversation;
 
+	private List<String> callingNumbers;
+
 	private String instanceId;
 
 	private String instanceName;
-
-	private String callCenterInstanceId;
 
 	private String instanceDescription;
 	public ModifyInstanceRequest() {
@@ -54,6 +55,19 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 		}
 	}
 
+	public List<String> getCallingNumbers() {
+		return this.callingNumbers;
+	}
+
+	public void setCallingNumbers(List<String> callingNumbers) {
+		this.callingNumbers = callingNumbers;	
+		if (callingNumbers != null) {
+			for (int i = 0; i < callingNumbers.size(); i++) {
+				putQueryParameter("CallingNumber." + (i + 1) , callingNumbers.get(i));
+			}
+		}	
+	}
+
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -73,17 +87,6 @@ public class ModifyInstanceRequest extends RpcAcsRequest<ModifyInstanceResponse>
 		this.instanceName = instanceName;
 		if(instanceName != null){
 			putQueryParameter("InstanceName", instanceName);
-		}
-	}
-
-	public String getCallCenterInstanceId() {
-		return this.callCenterInstanceId;
-	}
-
-	public void setCallCenterInstanceId(String callCenterInstanceId) {
-		this.callCenterInstanceId = callCenterInstanceId;
-		if(callCenterInstanceId != null){
-			putQueryParameter("CallCenterInstanceId", callCenterInstanceId);
 		}
 	}
 

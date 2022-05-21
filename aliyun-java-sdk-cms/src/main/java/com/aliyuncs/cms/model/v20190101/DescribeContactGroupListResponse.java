@@ -25,25 +25,19 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeContactGroupListResponse extends AcsResponse {
 
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
-	private Integer total;
-
 	private String requestId;
 
+	private Integer total;
+
+	private Boolean success;
+
+	private List<ContactGroup> contactGroupList;
+
 	private List<String> contactGroups;
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -61,14 +55,6 @@ public class DescribeContactGroupListResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getTotal() {
-		return this.total;
-	}
-
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
-
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -77,12 +63,109 @@ public class DescribeContactGroupListResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public Integer getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
+	public List<ContactGroup> getContactGroupList() {
+		return this.contactGroupList;
+	}
+
+	public void setContactGroupList(List<ContactGroup> contactGroupList) {
+		this.contactGroupList = contactGroupList;
+	}
+
 	public List<String> getContactGroups() {
 		return this.contactGroups;
 	}
 
 	public void setContactGroups(List<String> contactGroups) {
 		this.contactGroups = contactGroups;
+	}
+
+	public static class ContactGroup {
+
+		private String describe;
+
+		private Long updateTime;
+
+		private Long createTime;
+
+		private Boolean enabledWeeklyReport;
+
+		private String name;
+
+		private Boolean enableSubscribed;
+
+		private List<String> contacts;
+
+		public String getDescribe() {
+			return this.describe;
+		}
+
+		public void setDescribe(String describe) {
+			this.describe = describe;
+		}
+
+		public Long getUpdateTime() {
+			return this.updateTime;
+		}
+
+		public void setUpdateTime(Long updateTime) {
+			this.updateTime = updateTime;
+		}
+
+		public Long getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(Long createTime) {
+			this.createTime = createTime;
+		}
+
+		public Boolean getEnabledWeeklyReport() {
+			return this.enabledWeeklyReport;
+		}
+
+		public void setEnabledWeeklyReport(Boolean enabledWeeklyReport) {
+			this.enabledWeeklyReport = enabledWeeklyReport;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Boolean getEnableSubscribed() {
+			return this.enableSubscribed;
+		}
+
+		public void setEnableSubscribed(Boolean enableSubscribed) {
+			this.enableSubscribed = enableSubscribed;
+		}
+
+		public List<String> getContacts() {
+			return this.contacts;
+		}
+
+		public void setContacts(List<String> contacts) {
+			this.contacts = contacts;
+		}
 	}
 
 	@Override

@@ -24,21 +24,13 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class TranslateGeneralResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
 
 	private String message;
 
+	private String requestId;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -56,6 +48,14 @@ public class TranslateGeneralResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -68,12 +68,22 @@ public class TranslateGeneralResponse extends AcsResponse {
 
 		private String translated;
 
+		private String wordCount;
+
 		public String getTranslated() {
 			return this.translated;
 		}
 
 		public void setTranslated(String translated) {
 			this.translated = translated;
+		}
+
+		public String getWordCount() {
+			return this.wordCount;
+		}
+
+		public void setWordCount(String wordCount) {
+			this.wordCount = wordCount;
 		}
 	}
 

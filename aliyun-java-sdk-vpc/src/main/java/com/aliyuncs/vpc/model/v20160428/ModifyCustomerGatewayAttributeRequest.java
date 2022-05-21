@@ -25,6 +25,8 @@ import com.aliyuncs.vpc.Endpoint;
 public class ModifyCustomerGatewayAttributeRequest extends RpcAcsRequest<ModifyCustomerGatewayAttributeResponse> {
 	   
 
+	private String authKey;
+
 	private Long resourceOwnerId;
 
 	private String clientToken;
@@ -41,12 +43,23 @@ public class ModifyCustomerGatewayAttributeRequest extends RpcAcsRequest<ModifyC
 
 	private String name;
 	public ModifyCustomerGatewayAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyCustomerGatewayAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyCustomerGatewayAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getAuthKey() {
+		return this.authKey;
+	}
+
+	public void setAuthKey(String authKey) {
+		this.authKey = authKey;
+		if(authKey != null){
+			putQueryParameter("AuthKey", authKey);
+		}
 	}
 
 	public Long getResourceOwnerId() {

@@ -24,13 +24,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetDocTranslateTaskResponse extends AcsResponse {
 
+	private String status;
+
 	private String requestId;
+
+	private String translateFileUrl;
+
+	private String translateErrorCode;
+
+	private Integer pageCount;
 
 	private String taskId;
 
-	private String status;
+	private String translateErrorMessage;
 
-	private String translateFileUrl;
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -38,6 +52,30 @@ public class GetDocTranslateTaskResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getTranslateFileUrl() {
+		return this.translateFileUrl;
+	}
+
+	public void setTranslateFileUrl(String translateFileUrl) {
+		this.translateFileUrl = translateFileUrl;
+	}
+
+	public String getTranslateErrorCode() {
+		return this.translateErrorCode;
+	}
+
+	public void setTranslateErrorCode(String translateErrorCode) {
+		this.translateErrorCode = translateErrorCode;
+	}
+
+	public Integer getPageCount() {
+		return this.pageCount;
+	}
+
+	public void setPageCount(Integer pageCount) {
+		this.pageCount = pageCount;
 	}
 
 	public String getTaskId() {
@@ -48,20 +86,12 @@ public class GetDocTranslateTaskResponse extends AcsResponse {
 		this.taskId = taskId;
 	}
 
-	public String getStatus() {
-		return this.status;
+	public String getTranslateErrorMessage() {
+		return this.translateErrorMessage;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getTranslateFileUrl() {
-		return this.translateFileUrl;
-	}
-
-	public void setTranslateFileUrl(String translateFileUrl) {
-		this.translateFileUrl = translateFileUrl;
+	public void setTranslateErrorMessage(String translateErrorMessage) {
+		this.translateErrorMessage = translateErrorMessage;
 	}
 
 	@Override

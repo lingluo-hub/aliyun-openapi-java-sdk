@@ -23,10 +23,10 @@ public class RemoveUsersResponseUnmarshaller {
 	public static RemoveUsersResponse unmarshall(RemoveUsersResponse removeUsersResponse, UnmarshallerContext _ctx) {
 		
 		removeUsersResponse.setRequestId(_ctx.stringValue("RemoveUsersResponse.RequestId"));
-		removeUsersResponse.setSuccess(_ctx.booleanValue("RemoveUsersResponse.Success"));
+		removeUsersResponse.setHttpStatusCode(_ctx.integerValue("RemoveUsersResponse.HttpStatusCode"));
 		removeUsersResponse.setCode(_ctx.stringValue("RemoveUsersResponse.Code"));
 		removeUsersResponse.setMessage(_ctx.stringValue("RemoveUsersResponse.Message"));
-		removeUsersResponse.setHttpStatusCode(_ctx.integerValue("RemoveUsersResponse.HttpStatusCode"));
+		removeUsersResponse.setSuccess(_ctx.booleanValue("RemoveUsersResponse.Success"));
 	 
 	 	return removeUsersResponse;
 	}

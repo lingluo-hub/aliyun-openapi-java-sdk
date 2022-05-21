@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifyPhoneNumberResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private PhoneNumber phoneNumber;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public PhoneNumber getPhoneNumber() {
@@ -87,59 +87,27 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 
 	public static class PhoneNumber {
 
-		private String phoneNumberId;
-
-		private String instanceId;
-
-		private String number;
-
-		private String phoneNumberDescription;
-
 		private Boolean testOnly;
+
+		private Integer trunks;
 
 		private Integer remainingTime;
 
-		private Boolean allowOutbound;
+		private String number;
+
+		private String instanceId;
 
 		private String usage;
 
-		private Integer trunks;
+		private Boolean allowOutbound;
+
+		private String phoneNumberDescription;
+
+		private String phoneNumberId;
 
 		private List<SkillGroup> skillGroups;
 
 		private ContactFlow contactFlow;
-
-		public String getPhoneNumberId() {
-			return this.phoneNumberId;
-		}
-
-		public void setPhoneNumberId(String phoneNumberId) {
-			this.phoneNumberId = phoneNumberId;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getNumber() {
-			return this.number;
-		}
-
-		public void setNumber(String number) {
-			this.number = number;
-		}
-
-		public String getPhoneNumberDescription() {
-			return this.phoneNumberDescription;
-		}
-
-		public void setPhoneNumberDescription(String phoneNumberDescription) {
-			this.phoneNumberDescription = phoneNumberDescription;
-		}
 
 		public Boolean getTestOnly() {
 			return this.testOnly;
@@ -147,6 +115,14 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 
 		public void setTestOnly(Boolean testOnly) {
 			this.testOnly = testOnly;
+		}
+
+		public Integer getTrunks() {
+			return this.trunks;
+		}
+
+		public void setTrunks(Integer trunks) {
+			this.trunks = trunks;
 		}
 
 		public Integer getRemainingTime() {
@@ -157,12 +133,20 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 			this.remainingTime = remainingTime;
 		}
 
-		public Boolean getAllowOutbound() {
-			return this.allowOutbound;
+		public String getNumber() {
+			return this.number;
 		}
 
-		public void setAllowOutbound(Boolean allowOutbound) {
-			this.allowOutbound = allowOutbound;
+		public void setNumber(String number) {
+			this.number = number;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
 		public String getUsage() {
@@ -173,12 +157,28 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 			this.usage = usage;
 		}
 
-		public Integer getTrunks() {
-			return this.trunks;
+		public Boolean getAllowOutbound() {
+			return this.allowOutbound;
 		}
 
-		public void setTrunks(Integer trunks) {
-			this.trunks = trunks;
+		public void setAllowOutbound(Boolean allowOutbound) {
+			this.allowOutbound = allowOutbound;
+		}
+
+		public String getPhoneNumberDescription() {
+			return this.phoneNumberDescription;
+		}
+
+		public void setPhoneNumberDescription(String phoneNumberDescription) {
+			this.phoneNumberDescription = phoneNumberDescription;
+		}
+
+		public String getPhoneNumberId() {
+			return this.phoneNumberId;
+		}
+
+		public void setPhoneNumberId(String phoneNumberId) {
+			this.phoneNumberId = phoneNumberId;
 		}
 
 		public List<SkillGroup> getSkillGroups() {
@@ -199,17 +199,9 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 
 		public static class SkillGroup {
 
-			private String skillGroupId;
-
 			private String skillGroupName;
 
-			public String getSkillGroupId() {
-				return this.skillGroupId;
-			}
-
-			public void setSkillGroupId(String skillGroupId) {
-				this.skillGroupId = skillGroupId;
-			}
+			private String skillGroupId;
 
 			public String getSkillGroupName() {
 				return this.skillGroupName;
@@ -218,26 +210,42 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 			public void setSkillGroupName(String skillGroupName) {
 				this.skillGroupName = skillGroupName;
 			}
+
+			public String getSkillGroupId() {
+				return this.skillGroupId;
+			}
+
+			public void setSkillGroupId(String skillGroupId) {
+				this.skillGroupId = skillGroupId;
+			}
 		}
 
 		public static class ContactFlow {
 
-			private String contactFlowId;
+			private String type;
+
+			private String contactFlowDescription;
 
 			private String instanceId;
 
 			private String contactFlowName;
 
-			private String contactFlowDescription;
+			private String contactFlowId;
 
-			private String type;
-
-			public String getContactFlowId() {
-				return this.contactFlowId;
+			public String getType() {
+				return this.type;
 			}
 
-			public void setContactFlowId(String contactFlowId) {
-				this.contactFlowId = contactFlowId;
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getContactFlowDescription() {
+				return this.contactFlowDescription;
+			}
+
+			public void setContactFlowDescription(String contactFlowDescription) {
+				this.contactFlowDescription = contactFlowDescription;
 			}
 
 			public String getInstanceId() {
@@ -256,20 +264,12 @@ public class ModifyPhoneNumberResponse extends AcsResponse {
 				this.contactFlowName = contactFlowName;
 			}
 
-			public String getContactFlowDescription() {
-				return this.contactFlowDescription;
+			public String getContactFlowId() {
+				return this.contactFlowId;
 			}
 
-			public void setContactFlowDescription(String contactFlowDescription) {
-				this.contactFlowDescription = contactFlowDescription;
-			}
-
-			public String getType() {
-				return this.type;
-			}
-
-			public void setType(String type) {
-				this.type = type;
+			public void setContactFlowId(String contactFlowId) {
+				this.contactFlowId = contactFlowId;
 			}
 		}
 	}

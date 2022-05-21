@@ -25,9 +25,13 @@ import com.aliyuncs.mse.Endpoint;
 public class QueryClusterDetailRequest extends RpcAcsRequest<QueryClusterDetailResponse> {
 	   
 
-	private String clusterId;
+	private Boolean aclSwitch;
+
+	private String orderId;
 
 	private String instanceId;
+
+	private String acceptLanguage;
 	public QueryClusterDetailRequest() {
 		super("mse", "2019-05-31", "QueryClusterDetail", "mse");
 		setMethod(MethodType.POST);
@@ -37,14 +41,25 @@ public class QueryClusterDetailRequest extends RpcAcsRequest<QueryClusterDetailR
 		} catch (Exception e) {}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
+	public Boolean getAclSwitch() {
+		return this.aclSwitch;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+	public void setAclSwitch(Boolean aclSwitch) {
+		this.aclSwitch = aclSwitch;
+		if(aclSwitch != null){
+			putQueryParameter("AclSwitch", aclSwitch.toString());
+		}
+	}
+
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+		if(orderId != null){
+			putQueryParameter("OrderId", orderId);
 		}
 	}
 
@@ -55,7 +70,18 @@ public class QueryClusterDetailRequest extends RpcAcsRequest<QueryClusterDetailR
 	public void setInstanceId(String instanceId) {
 		this.instanceId = instanceId;
 		if(instanceId != null){
-			putBodyParameter("InstanceId", instanceId);
+			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

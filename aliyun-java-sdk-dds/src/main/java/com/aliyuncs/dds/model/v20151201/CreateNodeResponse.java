@@ -26,6 +26,8 @@ public class CreateNodeResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String nodeId;
+
 	private String orderId;
 
 	public String getRequestId() {
@@ -34,6 +36,14 @@ public class CreateNodeResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
 	}
 
 	public String getOrderId() {

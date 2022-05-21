@@ -25,26 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeInstanceSpecResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer bandwidthLimit;
 
 	private Integer code;
 
+	private Integer dataDiskMaxSize;
+
 	private Integer dataDiskMinSize;
 
-	private Integer dataDiskMaxSize;
+	private String requestId;
 
 	private Integer systemDiskMaxSize;
 
-	private Integer bandwidthLimit;
-
 	private List<InstanceSpec> instanceSpecs;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getBandwidthLimit() {
+		return this.bandwidthLimit;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setBandwidthLimit(Integer bandwidthLimit) {
+		this.bandwidthLimit = bandwidthLimit;
 	}
 
 	public Integer getCode() {
@@ -55,14 +55,6 @@ public class DescribeInstanceSpecResponse extends AcsResponse {
 		this.code = code;
 	}
 
-	public Integer getDataDiskMinSize() {
-		return this.dataDiskMinSize;
-	}
-
-	public void setDataDiskMinSize(Integer dataDiskMinSize) {
-		this.dataDiskMinSize = dataDiskMinSize;
-	}
-
 	public Integer getDataDiskMaxSize() {
 		return this.dataDiskMaxSize;
 	}
@@ -71,20 +63,28 @@ public class DescribeInstanceSpecResponse extends AcsResponse {
 		this.dataDiskMaxSize = dataDiskMaxSize;
 	}
 
+	public Integer getDataDiskMinSize() {
+		return this.dataDiskMinSize;
+	}
+
+	public void setDataDiskMinSize(Integer dataDiskMinSize) {
+		this.dataDiskMinSize = dataDiskMinSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public Integer getSystemDiskMaxSize() {
 		return this.systemDiskMaxSize;
 	}
 
 	public void setSystemDiskMaxSize(Integer systemDiskMaxSize) {
 		this.systemDiskMaxSize = systemDiskMaxSize;
-	}
-
-	public Integer getBandwidthLimit() {
-		return this.bandwidthLimit;
-	}
-
-	public void setBandwidthLimit(Integer bandwidthLimit) {
-		this.bandwidthLimit = bandwidthLimit;
 	}
 
 	public List<InstanceSpec> getInstanceSpecs() {
@@ -97,21 +97,13 @@ public class DescribeInstanceSpecResponse extends AcsResponse {
 
 	public static class InstanceSpec {
 
-		private String instanceType;
-
 		private String core;
-
-		private String memory;
 
 		private String displayName;
 
-		public String getInstanceType() {
-			return this.instanceType;
-		}
+		private String instanceType;
 
-		public void setInstanceType(String instanceType) {
-			this.instanceType = instanceType;
-		}
+		private String memory;
 
 		public String getCore() {
 			return this.core;
@@ -121,20 +113,28 @@ public class DescribeInstanceSpecResponse extends AcsResponse {
 			this.core = core;
 		}
 
-		public String getMemory() {
-			return this.memory;
-		}
-
-		public void setMemory(String memory) {
-			this.memory = memory;
-		}
-
 		public String getDisplayName() {
 			return this.displayName;
 		}
 
 		public void setDisplayName(String displayName) {
 			this.displayName = displayName;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
+		}
+
+		public String getMemory() {
+			return this.memory;
+		}
+
+		public void setMemory(String memory) {
+			this.memory = memory;
 		}
 	}
 

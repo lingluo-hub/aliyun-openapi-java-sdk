@@ -25,25 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeInstancesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
-
-	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private Integer pageNumber;
+
+	private String requestId;
+
+	private Integer totalCount;
+
 	private List<Instance> instances;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -53,12 +45,12 @@ public class DescribeInstancesResponse extends AcsResponse {
 		this.code = code;
 	}
 
-	public Integer getTotalCount() {
-		return this.totalCount;
+	public Integer getPageSize() {
+		return this.pageSize;
 	}
 
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 
 	public Integer getPageNumber() {
@@ -69,12 +61,20 @@ public class DescribeInstancesResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<Instance> getInstances() {
@@ -87,35 +87,37 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 	public static class Instance {
 
+		private String creationTime;
+
+		private String status;
+
+		private String specName;
+
+		private String instanceResourceType;
+
+		private String hostName;
+
 		private String instanceId;
-
-		private String instanceName;
-
-		private String ensRegionId;
-
-		private String cpu;
-
-		private Integer memory;
-
-		private Integer disk;
 
 		private Integer internetMaxBandwidthIn;
 
 		private Integer internetMaxBandwidthOut;
 
-		private String creationTime;
+		private String ensRegionId;
 
-		private String status;
-
-		private String imageId;
+		private String cpu;
 
 		private String expiredTime;
 
-		private String instanceResourceType;
+		private String instanceName;
 
-		private String specName;
+		private Integer disk;
+
+		private Integer memory;
 
 		private String oSName;
+
+		private String imageId;
 
 		private List<DataDiskItem> dataDisk;
 
@@ -123,11 +125,55 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		private List<PrivateIpAddress> privateIpAddresses;
 
+		private List<String> securityGroupIds;
+
 		private List<String> innerIpAddress;
 
 		private List<String> publicIpAddress;
 
 		private SystemDisk systemDisk;
+
+		private NetworkAttributes networkAttributes;
+
+		public String getCreationTime() {
+			return this.creationTime;
+		}
+
+		public void setCreationTime(String creationTime) {
+			this.creationTime = creationTime;
+		}
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getSpecName() {
+			return this.specName;
+		}
+
+		public void setSpecName(String specName) {
+			this.specName = specName;
+		}
+
+		public String getInstanceResourceType() {
+			return this.instanceResourceType;
+		}
+
+		public void setInstanceResourceType(String instanceResourceType) {
+			this.instanceResourceType = instanceResourceType;
+		}
+
+		public String getHostName() {
+			return this.hostName;
+		}
+
+		public void setHostName(String hostName) {
+			this.hostName = hostName;
+		}
 
 		public String getInstanceId() {
 			return this.instanceId;
@@ -135,46 +181,6 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		public void setInstanceId(String instanceId) {
 			this.instanceId = instanceId;
-		}
-
-		public String getInstanceName() {
-			return this.instanceName;
-		}
-
-		public void setInstanceName(String instanceName) {
-			this.instanceName = instanceName;
-		}
-
-		public String getEnsRegionId() {
-			return this.ensRegionId;
-		}
-
-		public void setEnsRegionId(String ensRegionId) {
-			this.ensRegionId = ensRegionId;
-		}
-
-		public String getCpu() {
-			return this.cpu;
-		}
-
-		public void setCpu(String cpu) {
-			this.cpu = cpu;
-		}
-
-		public Integer getMemory() {
-			return this.memory;
-		}
-
-		public void setMemory(Integer memory) {
-			this.memory = memory;
-		}
-
-		public Integer getDisk() {
-			return this.disk;
-		}
-
-		public void setDisk(Integer disk) {
-			this.disk = disk;
 		}
 
 		public Integer getInternetMaxBandwidthIn() {
@@ -193,28 +199,20 @@ public class DescribeInstancesResponse extends AcsResponse {
 			this.internetMaxBandwidthOut = internetMaxBandwidthOut;
 		}
 
-		public String getCreationTime() {
-			return this.creationTime;
+		public String getEnsRegionId() {
+			return this.ensRegionId;
 		}
 
-		public void setCreationTime(String creationTime) {
-			this.creationTime = creationTime;
+		public void setEnsRegionId(String ensRegionId) {
+			this.ensRegionId = ensRegionId;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getCpu() {
+			return this.cpu;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-		public String getImageId() {
-			return this.imageId;
-		}
-
-		public void setImageId(String imageId) {
-			this.imageId = imageId;
+		public void setCpu(String cpu) {
+			this.cpu = cpu;
 		}
 
 		public String getExpiredTime() {
@@ -225,20 +223,28 @@ public class DescribeInstancesResponse extends AcsResponse {
 			this.expiredTime = expiredTime;
 		}
 
-		public String getInstanceResourceType() {
-			return this.instanceResourceType;
+		public String getInstanceName() {
+			return this.instanceName;
 		}
 
-		public void setInstanceResourceType(String instanceResourceType) {
-			this.instanceResourceType = instanceResourceType;
+		public void setInstanceName(String instanceName) {
+			this.instanceName = instanceName;
 		}
 
-		public String getSpecName() {
-			return this.specName;
+		public Integer getDisk() {
+			return this.disk;
 		}
 
-		public void setSpecName(String specName) {
-			this.specName = specName;
+		public void setDisk(Integer disk) {
+			this.disk = disk;
+		}
+
+		public Integer getMemory() {
+			return this.memory;
+		}
+
+		public void setMemory(Integer memory) {
+			this.memory = memory;
 		}
 
 		public String getOSName() {
@@ -247,6 +253,14 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		public void setOSName(String oSName) {
 			this.oSName = oSName;
+		}
+
+		public String getImageId() {
+			return this.imageId;
+		}
+
+		public void setImageId(String imageId) {
+			this.imageId = imageId;
 		}
 
 		public List<DataDiskItem> getDataDisk() {
@@ -273,6 +287,14 @@ public class DescribeInstancesResponse extends AcsResponse {
 			this.privateIpAddresses = privateIpAddresses;
 		}
 
+		public List<String> getSecurityGroupIds() {
+			return this.securityGroupIds;
+		}
+
+		public void setSecurityGroupIds(List<String> securityGroupIds) {
+			this.securityGroupIds = securityGroupIds;
+		}
+
 		public List<String> getInnerIpAddress() {
 			return this.innerIpAddress;
 		}
@@ -297,25 +319,33 @@ public class DescribeInstancesResponse extends AcsResponse {
 			this.systemDisk = systemDisk;
 		}
 
+		public NetworkAttributes getNetworkAttributes() {
+			return this.networkAttributes;
+		}
+
+		public void setNetworkAttributes(NetworkAttributes networkAttributes) {
+			this.networkAttributes = networkAttributes;
+		}
+
 		public static class DataDiskItem {
 
 			private String device_type;
 
-			private Integer storage;
-
-			private String uuid;
-
 			private String disk_type;
-
-			private String name;
-
-			private String category;
 
 			private Integer size;
 
+			private String diskName;
+
+			private String uuid;
+
+			private Integer storage;
+
 			private String diskId;
 
-			private String diskName;
+			private String category;
+
+			private String name;
 
 			public String getDevice_type() {
 				return this.device_type;
@@ -323,22 +353,6 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 			public void setDevice_type(String device_type) {
 				this.device_type = device_type;
-			}
-
-			public Integer getStorage() {
-				return this.storage;
-			}
-
-			public void setStorage(Integer storage) {
-				this.storage = storage;
-			}
-
-			public String getUuid() {
-				return this.uuid;
-			}
-
-			public void setUuid(String uuid) {
-				this.uuid = uuid;
 			}
 
 			public String getDisk_type() {
@@ -349,28 +363,36 @@ public class DescribeInstancesResponse extends AcsResponse {
 				this.disk_type = disk_type;
 			}
 
-			public String getName() {
-				return this.name;
-			}
-
-			public void setName(String name) {
-				this.name = name;
-			}
-
-			public String getCategory() {
-				return this.category;
-			}
-
-			public void setCategory(String category) {
-				this.category = category;
-			}
-
 			public Integer getSize() {
 				return this.size;
 			}
 
 			public void setSize(Integer size) {
 				this.size = size;
+			}
+
+			public String getDiskName() {
+				return this.diskName;
+			}
+
+			public void setDiskName(String diskName) {
+				this.diskName = diskName;
+			}
+
+			public String getUuid() {
+				return this.uuid;
+			}
+
+			public void setUuid(String uuid) {
+				this.uuid = uuid;
+			}
+
+			public Integer getStorage() {
+				return this.storage;
+			}
+
+			public void setStorage(Integer storage) {
+				this.storage = storage;
 			}
 
 			public String getDiskId() {
@@ -381,12 +403,20 @@ public class DescribeInstancesResponse extends AcsResponse {
 				this.diskId = diskId;
 			}
 
-			public String getDiskName() {
-				return this.diskName;
+			public String getCategory() {
+				return this.category;
 			}
 
-			public void setDiskName(String diskName) {
-				this.diskName = diskName;
+			public void setCategory(String category) {
+				this.category = category;
+			}
+
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
 			}
 		}
 
@@ -460,21 +490,21 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 			private String device_type;
 
-			private Integer storage;
-
-			private String uuid;
-
 			private String disk_type;
-
-			private String name;
-
-			private String category;
 
 			private Integer size;
 
+			private String diskName;
+
+			private String uuid;
+
+			private Integer storage;
+
 			private String diskId;
 
-			private String diskName;
+			private String category;
+
+			private String name;
 
 			public String getDevice_type() {
 				return this.device_type;
@@ -482,22 +512,6 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 			public void setDevice_type(String device_type) {
 				this.device_type = device_type;
-			}
-
-			public Integer getStorage() {
-				return this.storage;
-			}
-
-			public void setStorage(Integer storage) {
-				this.storage = storage;
-			}
-
-			public String getUuid() {
-				return this.uuid;
-			}
-
-			public void setUuid(String uuid) {
-				this.uuid = uuid;
 			}
 
 			public String getDisk_type() {
@@ -508,28 +522,36 @@ public class DescribeInstancesResponse extends AcsResponse {
 				this.disk_type = disk_type;
 			}
 
-			public String getName() {
-				return this.name;
-			}
-
-			public void setName(String name) {
-				this.name = name;
-			}
-
-			public String getCategory() {
-				return this.category;
-			}
-
-			public void setCategory(String category) {
-				this.category = category;
-			}
-
 			public Integer getSize() {
 				return this.size;
 			}
 
 			public void setSize(Integer size) {
 				this.size = size;
+			}
+
+			public String getDiskName() {
+				return this.diskName;
+			}
+
+			public void setDiskName(String diskName) {
+				this.diskName = diskName;
+			}
+
+			public String getUuid() {
+				return this.uuid;
+			}
+
+			public void setUuid(String uuid) {
+				this.uuid = uuid;
+			}
+
+			public Integer getStorage() {
+				return this.storage;
+			}
+
+			public void setStorage(Integer storage) {
+				this.storage = storage;
 			}
 
 			public String getDiskId() {
@@ -540,12 +562,53 @@ public class DescribeInstancesResponse extends AcsResponse {
 				this.diskId = diskId;
 			}
 
-			public String getDiskName() {
-				return this.diskName;
+			public String getCategory() {
+				return this.category;
 			}
 
-			public void setDiskName(String diskName) {
-				this.diskName = diskName;
+			public void setCategory(String category) {
+				this.category = category;
+			}
+
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+		}
+
+		public static class NetworkAttributes {
+
+			private String networkId;
+
+			private String vSwitchId;
+
+			private List<String> privateIpAddress;
+
+			public String getNetworkId() {
+				return this.networkId;
+			}
+
+			public void setNetworkId(String networkId) {
+				this.networkId = networkId;
+			}
+
+			public String getVSwitchId() {
+				return this.vSwitchId;
+			}
+
+			public void setVSwitchId(String vSwitchId) {
+				this.vSwitchId = vSwitchId;
+			}
+
+			public List<String> getPrivateIpAddress() {
+				return this.privateIpAddress;
+			}
+
+			public void setPrivateIpAddress(List<String> privateIpAddress) {
+				this.privateIpAddress = privateIpAddress;
 			}
 		}
 	}

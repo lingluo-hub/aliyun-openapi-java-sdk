@@ -24,21 +24,37 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetRoutePointResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
+	private String routePoint;
+
 	private String requestId;
 
 	private Boolean success;
+
+	private String statusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
-
-	private String statusCode;
-
 	private String statusDesc;
 
-	private String routePoint;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
+
+	public String getRoutePoint() {
+		return this.routePoint;
+	}
+
+	public void setRoutePoint(String routePoint) {
+		this.routePoint = routePoint;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -54,6 +70,14 @@ public class GetRoutePointResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public String getStatusCode() {
+		return this.statusCode;
+	}
+
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
 	}
 
 	public String getCode() {
@@ -72,36 +96,12 @@ public class GetRoutePointResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
-	public String getStatusCode() {
-		return this.statusCode;
-	}
-
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
 	public String getStatusDesc() {
 		return this.statusDesc;
 	}
 
 	public void setStatusDesc(String statusDesc) {
 		this.statusDesc = statusDesc;
-	}
-
-	public String getRoutePoint() {
-		return this.routePoint;
-	}
-
-	public void setRoutePoint(String routePoint) {
-		this.routePoint = routePoint;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ package com.aliyuncs.linkedmall.model.v20180116;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkedmall.Endpoint;
 
 /**
  * @author auto create
@@ -30,8 +31,12 @@ public class QueryUpcomingMoviesRequest extends RpcAcsRequest<QueryUpcomingMovie
 
 	private String bizId;
 	public QueryUpcomingMoviesRequest() {
-		super("linkedmall", "2018-01-16", "QueryUpcomingMovies");
+		super("linkedmall", "2018-01-16", "QueryUpcomingMovies", "linkedmall");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getCityCode() {

@@ -29,17 +29,18 @@ public class GetApprovalDetailResponseUnmarshaller {
 	public static GetApprovalDetailResponse unmarshall(GetApprovalDetailResponse getApprovalDetailResponse, UnmarshallerContext _ctx) {
 		
 		getApprovalDetailResponse.setRequestId(_ctx.stringValue("GetApprovalDetailResponse.RequestId"));
-		getApprovalDetailResponse.setSuccess(_ctx.booleanValue("GetApprovalDetailResponse.Success"));
-		getApprovalDetailResponse.setErrorMessage(_ctx.stringValue("GetApprovalDetailResponse.ErrorMessage"));
 		getApprovalDetailResponse.setErrorCode(_ctx.stringValue("GetApprovalDetailResponse.ErrorCode"));
+		getApprovalDetailResponse.setErrorMessage(_ctx.stringValue("GetApprovalDetailResponse.ErrorMessage"));
+		getApprovalDetailResponse.setSuccess(_ctx.booleanValue("GetApprovalDetailResponse.Success"));
 
 		ApprovalDetail approvalDetail = new ApprovalDetail();
-		approvalDetail.setAuditId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.AuditId"));
-		approvalDetail.setOrderId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.OrderId"));
+		approvalDetail.setDescription(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.Description"));
+		approvalDetail.setCreateTime(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.CreateTime"));
 		approvalDetail.setOrderType(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.OrderType"));
 		approvalDetail.setTitle(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.Title"));
+		approvalDetail.setAuditId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.AuditId"));
+		approvalDetail.setOrderId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.OrderId"));
 		approvalDetail.setWorkflowInsCode(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowInsCode"));
-		approvalDetail.setDescription(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.Description"));
 
 		List<String> reasonList = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("GetApprovalDetailResponse.ApprovalDetail.ReasonList.Length"); i++) {
@@ -50,10 +51,10 @@ public class GetApprovalDetailResponseUnmarshaller {
 		List<WorkflowNode> workflowNodes = new ArrayList<WorkflowNode>();
 		for (int i = 0; i < _ctx.lengthValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes.Length"); i++) {
 			WorkflowNode workflowNode = new WorkflowNode();
-			workflowNode.setNodeName(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].NodeName"));
-			workflowNode.setOperateComment(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].OperateComment"));
 			workflowNode.setOperateTime(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].OperateTime"));
 			workflowNode.setOperatorId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].OperatorId"));
+			workflowNode.setNodeName(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].NodeName"));
+			workflowNode.setOperateComment(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].OperateComment"));
 			workflowNode.setWorkflowInsCode(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.WorkflowNodes["+ i +"].WorkflowInsCode"));
 
 			List<String> auditUserIdList = new ArrayList<String>();
@@ -69,8 +70,8 @@ public class GetApprovalDetailResponseUnmarshaller {
 		List<CurrentHandler> currentHandlers = new ArrayList<CurrentHandler>();
 		for (int i = 0; i < _ctx.lengthValue("GetApprovalDetailResponse.ApprovalDetail.CurrentHandlers.Length"); i++) {
 			CurrentHandler currentHandler = new CurrentHandler();
-			currentHandler.setId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.CurrentHandlers["+ i +"].Id"));
 			currentHandler.setNickName(_ctx.stringValue("GetApprovalDetailResponse.ApprovalDetail.CurrentHandlers["+ i +"].NickName"));
+			currentHandler.setId(_ctx.longValue("GetApprovalDetailResponse.ApprovalDetail.CurrentHandlers["+ i +"].Id"));
 
 			currentHandlers.add(currentHandler);
 		}

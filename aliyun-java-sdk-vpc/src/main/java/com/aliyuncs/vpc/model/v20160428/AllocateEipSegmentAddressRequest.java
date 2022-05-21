@@ -29,6 +29,8 @@ public class AllocateEipSegmentAddressRequest extends RpcAcsRequest<AllocateEipS
 
 	private String clientToken;
 
+	private String isp;
+
 	private String resourceGroupId;
 
 	private String netmode;
@@ -45,7 +47,7 @@ public class AllocateEipSegmentAddressRequest extends RpcAcsRequest<AllocateEipS
 
 	private String internetChargeType;
 	public AllocateEipSegmentAddressRequest() {
-		super("Vpc", "2016-04-28", "AllocateEipSegmentAddress", "Vpc");
+		super("Vpc", "2016-04-28", "AllocateEipSegmentAddress", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -72,6 +74,17 @@ public class AllocateEipSegmentAddressRequest extends RpcAcsRequest<AllocateEipS
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getIsp() {
+		return this.isp;
+	}
+
+	public void setIsp(String isp) {
+		this.isp = isp;
+		if(isp != null){
+			putQueryParameter("Isp", isp);
 		}
 	}
 

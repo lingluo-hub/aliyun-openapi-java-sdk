@@ -56,52 +56,48 @@ public class OnsInstanceBaseInfoResponse extends AcsResponse {
 
 	public static class InstanceBaseInfo {
 
-		private String instanceId;
-
-		private Integer instanceStatus;
-
-		private Long releaseTime;
-
-		private Integer instanceType;
-
-		private String instanceName;
-
 		private Boolean independentNaming;
+
+		private Long maxTps;
 
 		private String remark;
 
+		private String instanceName;
+
+		private Long releaseTime;
+
+		private Integer topicCapacity;
+
+		private Integer instanceStatus;
+
+		private String instanceId;
+
+		private Integer instanceType;
+
 		private Endpoints endpoints;
 
-		public String getInstanceId() {
-			return this.instanceId;
+		public Boolean getIndependentNaming() {
+			return this.independentNaming;
 		}
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
+		public void setIndependentNaming(Boolean independentNaming) {
+			this.independentNaming = independentNaming;
 		}
 
-		public Integer getInstanceStatus() {
-			return this.instanceStatus;
+		public Long getMaxTps() {
+			return this.maxTps;
 		}
 
-		public void setInstanceStatus(Integer instanceStatus) {
-			this.instanceStatus = instanceStatus;
+		public void setMaxTps(Long maxTps) {
+			this.maxTps = maxTps;
 		}
 
-		public Long getReleaseTime() {
-			return this.releaseTime;
+		public String getRemark() {
+			return this.remark;
 		}
 
-		public void setReleaseTime(Long releaseTime) {
-			this.releaseTime = releaseTime;
-		}
-
-		public Integer getInstanceType() {
-			return this.instanceType;
-		}
-
-		public void setInstanceType(Integer instanceType) {
-			this.instanceType = instanceType;
+		public void setRemark(String remark) {
+			this.remark = remark;
 		}
 
 		public String getInstanceName() {
@@ -112,20 +108,44 @@ public class OnsInstanceBaseInfoResponse extends AcsResponse {
 			this.instanceName = instanceName;
 		}
 
-		public Boolean getIndependentNaming() {
-			return this.independentNaming;
+		public Long getReleaseTime() {
+			return this.releaseTime;
 		}
 
-		public void setIndependentNaming(Boolean independentNaming) {
-			this.independentNaming = independentNaming;
+		public void setReleaseTime(Long releaseTime) {
+			this.releaseTime = releaseTime;
 		}
 
-		public String getRemark() {
-			return this.remark;
+		public Integer getTopicCapacity() {
+			return this.topicCapacity;
 		}
 
-		public void setRemark(String remark) {
-			this.remark = remark;
+		public void setTopicCapacity(Integer topicCapacity) {
+			this.topicCapacity = topicCapacity;
+		}
+
+		public Integer getInstanceStatus() {
+			return this.instanceStatus;
+		}
+
+		public void setInstanceStatus(Integer instanceStatus) {
+			this.instanceStatus = instanceStatus;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public Integer getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(Integer instanceType) {
+			this.instanceType = instanceType;
 		}
 
 		public Endpoints getEndpoints() {
@@ -142,9 +162,11 @@ public class OnsInstanceBaseInfoResponse extends AcsResponse {
 
 			private String httpInternetEndpoint;
 
+			private String httpInternalEndpoint;
+
 			private String httpInternetSecureEndpoint;
 
-			private String httpInternalEndpoint;
+			private String tcpInternetEndpoint;
 
 			public String getTcpEndpoint() {
 				return this.tcpEndpoint;
@@ -162,6 +184,14 @@ public class OnsInstanceBaseInfoResponse extends AcsResponse {
 				this.httpInternetEndpoint = httpInternetEndpoint;
 			}
 
+			public String getHttpInternalEndpoint() {
+				return this.httpInternalEndpoint;
+			}
+
+			public void setHttpInternalEndpoint(String httpInternalEndpoint) {
+				this.httpInternalEndpoint = httpInternalEndpoint;
+			}
+
 			public String getHttpInternetSecureEndpoint() {
 				return this.httpInternetSecureEndpoint;
 			}
@@ -170,12 +200,12 @@ public class OnsInstanceBaseInfoResponse extends AcsResponse {
 				this.httpInternetSecureEndpoint = httpInternetSecureEndpoint;
 			}
 
-			public String getHttpInternalEndpoint() {
-				return this.httpInternalEndpoint;
+			public String getTcpInternetEndpoint() {
+				return this.tcpInternetEndpoint;
 			}
 
-			public void setHttpInternalEndpoint(String httpInternalEndpoint) {
-				this.httpInternalEndpoint = httpInternalEndpoint;
+			public void setTcpInternetEndpoint(String tcpInternetEndpoint) {
+				this.tcpInternetEndpoint = tcpInternetEndpoint;
 			}
 		}
 	}

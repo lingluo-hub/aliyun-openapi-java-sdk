@@ -27,11 +27,13 @@ public class CreateGWSClusterRequest extends RpcAcsRequest<CreateGWSClusterRespo
 
 	private String clusterType;
 
+	private String vSwitchId;
+
 	private String vpcId;
 
 	private String name;
 	public CreateGWSClusterRequest() {
-		super("EHPC", "2018-04-12", "CreateGWSCluster", "ehs");
+		super("EHPC", "2018-04-12", "CreateGWSCluster");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -47,6 +49,17 @@ public class CreateGWSClusterRequest extends RpcAcsRequest<CreateGWSClusterRespo
 		this.clusterType = clusterType;
 		if(clusterType != null){
 			putQueryParameter("ClusterType", clusterType);
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
 		}
 	}
 

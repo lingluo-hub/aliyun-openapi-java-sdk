@@ -27,20 +27,21 @@ public class ListLogicDatabasesResponseUnmarshaller {
 	public static ListLogicDatabasesResponse unmarshall(ListLogicDatabasesResponse listLogicDatabasesResponse, UnmarshallerContext _ctx) {
 		
 		listLogicDatabasesResponse.setRequestId(_ctx.stringValue("ListLogicDatabasesResponse.RequestId"));
-		listLogicDatabasesResponse.setSuccess(_ctx.booleanValue("ListLogicDatabasesResponse.Success"));
-		listLogicDatabasesResponse.setErrorMessage(_ctx.stringValue("ListLogicDatabasesResponse.ErrorMessage"));
-		listLogicDatabasesResponse.setErrorCode(_ctx.stringValue("ListLogicDatabasesResponse.ErrorCode"));
 		listLogicDatabasesResponse.setTotalCount(_ctx.longValue("ListLogicDatabasesResponse.TotalCount"));
+		listLogicDatabasesResponse.setErrorCode(_ctx.stringValue("ListLogicDatabasesResponse.ErrorCode"));
+		listLogicDatabasesResponse.setErrorMessage(_ctx.stringValue("ListLogicDatabasesResponse.ErrorMessage"));
+		listLogicDatabasesResponse.setSuccess(_ctx.booleanValue("ListLogicDatabasesResponse.Success"));
 
 		List<LogicDatabase> logicDatabaseList = new ArrayList<LogicDatabase>();
 		for (int i = 0; i < _ctx.lengthValue("ListLogicDatabasesResponse.LogicDatabaseList.Length"); i++) {
 			LogicDatabase logicDatabase = new LogicDatabase();
-			logicDatabase.setLogic(_ctx.booleanValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].Logic"));
 			logicDatabase.setDatabaseId(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].DatabaseId"));
-			logicDatabase.setEnvType(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].EnvType"));
+			logicDatabase.setDbType(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].DbType"));
+			logicDatabase.setLogic(_ctx.booleanValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].Logic"));
 			logicDatabase.setSchemaName(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].SchemaName"));
 			logicDatabase.setSearchName(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].SearchName"));
-			logicDatabase.setDbType(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].DbType"));
+			logicDatabase.setEnvType(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].EnvType"));
+			logicDatabase.setAlias(_ctx.stringValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].Alias"));
 
 			List<String> ownerIdList = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("ListLogicDatabasesResponse.LogicDatabaseList["+ i +"].OwnerIdList.Length"); j++) {

@@ -25,33 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class UploadDataSyncResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
-	private Integer count;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<ResultInfo> data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -69,12 +51,20 @@ public class UploadDataSyncResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getCount() {
-		return this.count;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCount(Integer count) {
-		this.count = count;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<ResultInfo> getData() {
@@ -87,37 +77,11 @@ public class UploadDataSyncResponse extends AcsResponse {
 
 	public static class ResultInfo {
 
-		private String tid;
-
-		private String asrMsg;
-
 		private Integer score;
-
-		private Integer reviewStatus;
-
-		private String hitId;
-
-		private String taskId;
 
 		private List<RuleHitInfo> rules;
 
 		private List<String> handScoreIdList;
-
-		public String getTid() {
-			return this.tid;
-		}
-
-		public void setTid(String tid) {
-			this.tid = tid;
-		}
-
-		public String getAsrMsg() {
-			return this.asrMsg;
-		}
-
-		public void setAsrMsg(String asrMsg) {
-			this.asrMsg = asrMsg;
-		}
 
 		public Integer getScore() {
 			return this.score;
@@ -125,30 +89,6 @@ public class UploadDataSyncResponse extends AcsResponse {
 
 		public void setScore(Integer score) {
 			this.score = score;
-		}
-
-		public Integer getReviewStatus() {
-			return this.reviewStatus;
-		}
-
-		public void setReviewStatus(Integer reviewStatus) {
-			this.reviewStatus = reviewStatus;
-		}
-
-		public String getHitId() {
-			return this.hitId;
-		}
-
-		public void setHitId(String hitId) {
-			this.hitId = hitId;
-		}
-
-		public String getTaskId() {
-			return this.taskId;
-		}
-
-		public void setTaskId(String taskId) {
-			this.taskId = taskId;
 		}
 
 		public List<RuleHitInfo> getRules() {
@@ -169,7 +109,7 @@ public class UploadDataSyncResponse extends AcsResponse {
 
 		public static class RuleHitInfo {
 
-			private Integer hitStatus;
+			private String tid;
 
 			private String rid;
 
@@ -177,12 +117,12 @@ public class UploadDataSyncResponse extends AcsResponse {
 
 			private List<ConditionBasicInfo> conditionInfo;
 
-			public Integer getHitStatus() {
-				return this.hitStatus;
+			public String getTid() {
+				return this.tid;
 			}
 
-			public void setHitStatus(Integer hitStatus) {
-				this.hitStatus = hitStatus;
+			public void setTid(String tid) {
+				this.tid = tid;
 			}
 
 			public String getRid() {
@@ -243,30 +183,22 @@ public class UploadDataSyncResponse extends AcsResponse {
 
 				public static class HitKeyWord {
 
-					private String val;
-
-					private Integer pid;
+					private Integer to;
 
 					private Integer from;
 
-					private Integer to;
+					private String val;
 
 					private String tid;
 
-					public String getVal() {
-						return this.val;
+					private Integer pid;
+
+					public Integer getTo() {
+						return this.to;
 					}
 
-					public void setVal(String val) {
-						this.val = val;
-					}
-
-					public Integer getPid() {
-						return this.pid;
-					}
-
-					public void setPid(Integer pid) {
-						this.pid = pid;
+					public void setTo(Integer to) {
+						this.to = to;
 					}
 
 					public Integer getFrom() {
@@ -277,12 +209,12 @@ public class UploadDataSyncResponse extends AcsResponse {
 						this.from = from;
 					}
 
-					public Integer getTo() {
-						return this.to;
+					public String getVal() {
+						return this.val;
 					}
 
-					public void setTo(Integer to) {
-						this.to = to;
+					public void setVal(String val) {
+						this.val = val;
 					}
 
 					public String getTid() {
@@ -292,30 +224,36 @@ public class UploadDataSyncResponse extends AcsResponse {
 					public void setTid(String tid) {
 						this.tid = tid;
 					}
+
+					public Integer getPid() {
+						return this.pid;
+					}
+
+					public void setPid(Integer pid) {
+						this.pid = pid;
+					}
 				}
 
 				public static class Phrase {
 
-					private String role;
+					private String words;
 
 					private String identity;
 
-					private String words;
-
 					private Long begin;
-
-					private Long end;
 
 					private String beginTime;
 
-					private String hourMinSec;
+					private Long end;
 
-					public String getRole() {
-						return this.role;
+					private String role;
+
+					public String getWords() {
+						return this.words;
 					}
 
-					public void setRole(String role) {
-						this.role = role;
+					public void setWords(String words) {
+						this.words = words;
 					}
 
 					public String getIdentity() {
@@ -326,28 +264,12 @@ public class UploadDataSyncResponse extends AcsResponse {
 						this.identity = identity;
 					}
 
-					public String getWords() {
-						return this.words;
-					}
-
-					public void setWords(String words) {
-						this.words = words;
-					}
-
 					public Long getBegin() {
 						return this.begin;
 					}
 
 					public void setBegin(Long begin) {
 						this.begin = begin;
-					}
-
-					public Long getEnd() {
-						return this.end;
-					}
-
-					public void setEnd(Long end) {
-						this.end = end;
 					}
 
 					public String getBeginTime() {
@@ -358,221 +280,13 @@ public class UploadDataSyncResponse extends AcsResponse {
 						this.beginTime = beginTime;
 					}
 
-					public String getHourMinSec() {
-						return this.hourMinSec;
+					public Long getEnd() {
+						return this.end;
 					}
 
-					public void setHourMinSec(String hourMinSec) {
-						this.hourMinSec = hourMinSec;
+					public void setEnd(Long end) {
+						this.end = end;
 					}
-				}
-			}
-
-			public static class ConditionBasicInfo {
-
-				private String conditionInfoCid;
-
-				private String lambda;
-
-				private List<OperatorBasicInfo> operators;
-
-				private CheckRange checkRange;
-
-				public String getConditionInfoCid() {
-					return this.conditionInfoCid;
-				}
-
-				public void setConditionInfoCid(String conditionInfoCid) {
-					this.conditionInfoCid = conditionInfoCid;
-				}
-
-				public String getLambda() {
-					return this.lambda;
-				}
-
-				public void setLambda(String lambda) {
-					this.lambda = lambda;
-				}
-
-				public List<OperatorBasicInfo> getOperators() {
-					return this.operators;
-				}
-
-				public void setOperators(List<OperatorBasicInfo> operators) {
-					this.operators = operators;
-				}
-
-				public CheckRange getCheckRange() {
-					return this.checkRange;
-				}
-
-				public void setCheckRange(CheckRange checkRange) {
-					this.checkRange = checkRange;
-				}
-
-				public static class OperatorBasicInfo {
-
-					private String oid;
-
-					private String type;
-
-					private String name;
-
-					private Param param;
-
-					public String getOid() {
-						return this.oid;
-					}
-
-					public void setOid(String oid) {
-						this.oid = oid;
-					}
-
-					public String getType() {
-						return this.type;
-					}
-
-					public void setType(String type) {
-						this.type = type;
-					}
-
-					public String getName() {
-						return this.name;
-					}
-
-					public void setName(String name) {
-						this.name = name;
-					}
-
-					public Param getParam() {
-						return this.param;
-					}
-
-					public void setParam(Param param) {
-						this.param = param;
-					}
-
-					public static class Param {
-
-						private String regex;
-
-						private String phrase;
-
-						private Integer interval;
-
-						private Float threshold;
-
-						private Boolean inSentence;
-
-						private Integer target;
-
-						private Boolean fromEnd;
-
-						private Boolean differentRole;
-
-						private String targetRole;
-
-						private List<String> operKeyWords;
-
-						private List<String> references;
-
-						public String getRegex() {
-							return this.regex;
-						}
-
-						public void setRegex(String regex) {
-							this.regex = regex;
-						}
-
-						public String getPhrase() {
-							return this.phrase;
-						}
-
-						public void setPhrase(String phrase) {
-							this.phrase = phrase;
-						}
-
-						public Integer getInterval() {
-							return this.interval;
-						}
-
-						public void setInterval(Integer interval) {
-							this.interval = interval;
-						}
-
-						public Float getThreshold() {
-							return this.threshold;
-						}
-
-						public void setThreshold(Float threshold) {
-							this.threshold = threshold;
-						}
-
-						public Boolean getInSentence() {
-							return this.inSentence;
-						}
-
-						public void setInSentence(Boolean inSentence) {
-							this.inSentence = inSentence;
-						}
-
-						public Integer getTarget() {
-							return this.target;
-						}
-
-						public void setTarget(Integer target) {
-							this.target = target;
-						}
-
-						public Boolean getFromEnd() {
-							return this.fromEnd;
-						}
-
-						public void setFromEnd(Boolean fromEnd) {
-							this.fromEnd = fromEnd;
-						}
-
-						public Boolean getDifferentRole() {
-							return this.differentRole;
-						}
-
-						public void setDifferentRole(Boolean differentRole) {
-							this.differentRole = differentRole;
-						}
-
-						public String getTargetRole() {
-							return this.targetRole;
-						}
-
-						public void setTargetRole(String targetRole) {
-							this.targetRole = targetRole;
-						}
-
-						public List<String> getOperKeyWords() {
-							return this.operKeyWords;
-						}
-
-						public void setOperKeyWords(List<String> operKeyWords) {
-							this.operKeyWords = operKeyWords;
-						}
-
-						public List<String> getReferences() {
-							return this.references;
-						}
-
-						public void setReferences(List<String> references) {
-							this.references = references;
-						}
-					}
-				}
-
-				public static class CheckRange {
-
-					private String role;
-
-					private Anchor anchor;
-
-					private Range range;
 
 					public String getRole() {
 						return this.role;
@@ -581,78 +295,19 @@ public class UploadDataSyncResponse extends AcsResponse {
 					public void setRole(String role) {
 						this.role = role;
 					}
+				}
+			}
 
-					public Anchor getAnchor() {
-						return this.anchor;
-					}
+			public static class ConditionBasicInfo {
 
-					public void setAnchor(Anchor anchor) {
-						this.anchor = anchor;
-					}
+				private String conditionInfoCid;
 
-					public Range getRange() {
-						return this.range;
-					}
+				public String getConditionInfoCid() {
+					return this.conditionInfoCid;
+				}
 
-					public void setRange(Range range) {
-						this.range = range;
-					}
-
-					public static class Anchor {
-
-						private String anchorCid;
-
-						private String location;
-
-						private Integer hitTime;
-
-						public String getAnchorCid() {
-							return this.anchorCid;
-						}
-
-						public void setAnchorCid(String anchorCid) {
-							this.anchorCid = anchorCid;
-						}
-
-						public String getLocation() {
-							return this.location;
-						}
-
-						public void setLocation(String location) {
-							this.location = location;
-						}
-
-						public Integer getHitTime() {
-							return this.hitTime;
-						}
-
-						public void setHitTime(Integer hitTime) {
-							this.hitTime = hitTime;
-						}
-					}
-
-					public static class Range {
-
-						private Integer from;
-
-						private Integer to;
-
-						public Integer getFrom() {
-							return this.from;
-						}
-
-						public void setFrom(Integer from) {
-							this.from = from;
-						}
-
-						public Integer getTo() {
-							return this.to;
-						}
-
-						public void setTo(Integer to) {
-							this.to = to;
-						}
-					}
+				public void setConditionInfoCid(String conditionInfoCid) {
+					this.conditionInfoCid = conditionInfoCid;
 				}
 			}
 		}

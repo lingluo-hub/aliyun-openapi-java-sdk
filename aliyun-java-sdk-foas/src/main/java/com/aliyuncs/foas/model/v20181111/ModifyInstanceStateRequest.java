@@ -32,6 +32,8 @@ public class ModifyInstanceStateRequest extends RoaAcsRequest<ModifyInstanceStat
 
 	private Long instanceId;
 
+	private Boolean triggerCheckpoint;
+
 	private String expectState;
 
 	private String jobName;
@@ -76,6 +78,17 @@ public class ModifyInstanceStateRequest extends RoaAcsRequest<ModifyInstanceStat
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putPathParameter("instanceId", instanceId.toString());
+		}
+	}
+
+	public Boolean getTriggerCheckpoint() {
+		return this.triggerCheckpoint;
+	}
+
+	public void setTriggerCheckpoint(Boolean triggerCheckpoint) {
+		this.triggerCheckpoint = triggerCheckpoint;
+		if(triggerCheckpoint != null){
+			putBodyParameter("triggerCheckpoint", triggerCheckpoint.toString());
 		}
 	}
 

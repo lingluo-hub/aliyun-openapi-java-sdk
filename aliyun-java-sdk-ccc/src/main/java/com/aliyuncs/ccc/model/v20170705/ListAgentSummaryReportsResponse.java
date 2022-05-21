@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListAgentSummaryReportsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private PagedAgentSummaryReport pagedAgentSummaryReport;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public PagedAgentSummaryReport getPagedAgentSummaryReport() {
@@ -87,21 +87,13 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 	public static class PagedAgentSummaryReport {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<AgentSummaryReport> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<AgentSummaryReport> getList() {
 			return this.list;
 		}
@@ -129,17 +129,17 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 		public static class AgentSummaryReport {
 
-			private String instanceId;
+			private String loginName;
 
 			private String agentId;
 
-			private String loginName;
-
 			private String agentName;
 
-			private String skillGroupIds;
+			private String instanceId;
 
 			private String skillGroupNames;
+
+			private String skillGroupIds;
 
 			private Overall overall;
 
@@ -147,12 +147,12 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 			private Outbound outbound;
 
-			public String getInstanceId() {
-				return this.instanceId;
+			public String getLoginName() {
+				return this.loginName;
 			}
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
+			public void setLoginName(String loginName) {
+				this.loginName = loginName;
 			}
 
 			public String getAgentId() {
@@ -163,14 +163,6 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 				this.agentId = agentId;
 			}
 
-			public String getLoginName() {
-				return this.loginName;
-			}
-
-			public void setLoginName(String loginName) {
-				this.loginName = loginName;
-			}
-
 			public String getAgentName() {
 				return this.agentName;
 			}
@@ -179,12 +171,12 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 				this.agentName = agentName;
 			}
 
-			public String getSkillGroupIds() {
-				return this.skillGroupIds;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setSkillGroupIds(String skillGroupIds) {
-				this.skillGroupIds = skillGroupIds;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
 			public String getSkillGroupNames() {
@@ -193,6 +185,14 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 			public void setSkillGroupNames(String skillGroupNames) {
 				this.skillGroupNames = skillGroupNames;
+			}
+
+			public String getSkillGroupIds() {
+				return this.skillGroupIds;
+			}
+
+			public void setSkillGroupIds(String skillGroupIds) {
+				this.skillGroupIds = skillGroupIds;
 			}
 
 			public Overall getOverall() {
@@ -221,25 +221,15 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 			public static class Overall {
 
-				private Long totalCalls;
+				private Long totalTalkTime;
 
 				private Long totalLoggedInTime;
 
-				private Long totalBreakTime;
-
 				private Float occupancyRate;
 
-				private Long totalReadyTime;
+				private String lastLogOutTime;
 
-				private Long maxReadyTime;
-
-				private Long averageReadyTime;
-
-				private Long totalTalkTime;
-
-				private Long maxTalkTime;
-
-				private Long averageTalkTime;
+				private String firstLogInTime;
 
 				private Long totalWorkTime;
 
@@ -247,18 +237,34 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				private Long averageWorkTime;
 
+				private Long averageTalkTime;
+
 				private Float satisfactionIndex;
 
 				private Long satisfactionSurveysOffered;
 
 				private Long satisfactionSurveysResponded;
 
-				public Long getTotalCalls() {
-					return this.totalCalls;
+				private Long averageReadyTime;
+
+				private Long maxReadyTime;
+
+				private Long oneTransferCalls;
+
+				private Long maxTalkTime;
+
+				private Long totalReadyTime;
+
+				private Long totalBreakTime;
+
+				private Long totalCalls;
+
+				public Long getTotalTalkTime() {
+					return this.totalTalkTime;
 				}
 
-				public void setTotalCalls(Long totalCalls) {
-					this.totalCalls = totalCalls;
+				public void setTotalTalkTime(Long totalTalkTime) {
+					this.totalTalkTime = totalTalkTime;
 				}
 
 				public Long getTotalLoggedInTime() {
@@ -269,14 +275,6 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.totalLoggedInTime = totalLoggedInTime;
 				}
 
-				public Long getTotalBreakTime() {
-					return this.totalBreakTime;
-				}
-
-				public void setTotalBreakTime(Long totalBreakTime) {
-					this.totalBreakTime = totalBreakTime;
-				}
-
 				public Float getOccupancyRate() {
 					return this.occupancyRate;
 				}
@@ -285,20 +283,76 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.occupancyRate = occupancyRate;
 				}
 
-				public Long getTotalReadyTime() {
-					return this.totalReadyTime;
+				public String getLastLogOutTime() {
+					return this.lastLogOutTime;
 				}
 
-				public void setTotalReadyTime(Long totalReadyTime) {
-					this.totalReadyTime = totalReadyTime;
+				public void setLastLogOutTime(String lastLogOutTime) {
+					this.lastLogOutTime = lastLogOutTime;
 				}
 
-				public Long getMaxReadyTime() {
-					return this.maxReadyTime;
+				public String getFirstLogInTime() {
+					return this.firstLogInTime;
 				}
 
-				public void setMaxReadyTime(Long maxReadyTime) {
-					this.maxReadyTime = maxReadyTime;
+				public void setFirstLogInTime(String firstLogInTime) {
+					this.firstLogInTime = firstLogInTime;
+				}
+
+				public Long getTotalWorkTime() {
+					return this.totalWorkTime;
+				}
+
+				public void setTotalWorkTime(Long totalWorkTime) {
+					this.totalWorkTime = totalWorkTime;
+				}
+
+				public Long getMaxWorkTime() {
+					return this.maxWorkTime;
+				}
+
+				public void setMaxWorkTime(Long maxWorkTime) {
+					this.maxWorkTime = maxWorkTime;
+				}
+
+				public Long getAverageWorkTime() {
+					return this.averageWorkTime;
+				}
+
+				public void setAverageWorkTime(Long averageWorkTime) {
+					this.averageWorkTime = averageWorkTime;
+				}
+
+				public Long getAverageTalkTime() {
+					return this.averageTalkTime;
+				}
+
+				public void setAverageTalkTime(Long averageTalkTime) {
+					this.averageTalkTime = averageTalkTime;
+				}
+
+				public Float getSatisfactionIndex() {
+					return this.satisfactionIndex;
+				}
+
+				public void setSatisfactionIndex(Float satisfactionIndex) {
+					this.satisfactionIndex = satisfactionIndex;
+				}
+
+				public Long getSatisfactionSurveysOffered() {
+					return this.satisfactionSurveysOffered;
+				}
+
+				public void setSatisfactionSurveysOffered(Long satisfactionSurveysOffered) {
+					this.satisfactionSurveysOffered = satisfactionSurveysOffered;
+				}
+
+				public Long getSatisfactionSurveysResponded() {
+					return this.satisfactionSurveysResponded;
+				}
+
+				public void setSatisfactionSurveysResponded(Long satisfactionSurveysResponded) {
+					this.satisfactionSurveysResponded = satisfactionSurveysResponded;
 				}
 
 				public Long getAverageReadyTime() {
@@ -309,12 +363,20 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.averageReadyTime = averageReadyTime;
 				}
 
-				public Long getTotalTalkTime() {
-					return this.totalTalkTime;
+				public Long getMaxReadyTime() {
+					return this.maxReadyTime;
 				}
 
-				public void setTotalTalkTime(Long totalTalkTime) {
-					this.totalTalkTime = totalTalkTime;
+				public void setMaxReadyTime(Long maxReadyTime) {
+					this.maxReadyTime = maxReadyTime;
+				}
+
+				public Long getOneTransferCalls() {
+					return this.oneTransferCalls;
+				}
+
+				public void setOneTransferCalls(Long oneTransferCalls) {
+					this.oneTransferCalls = oneTransferCalls;
 				}
 
 				public Long getMaxTalkTime() {
@@ -325,84 +387,42 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.maxTalkTime = maxTalkTime;
 				}
 
-				public Long getAverageTalkTime() {
-					return this.averageTalkTime;
+				public Long getTotalReadyTime() {
+					return this.totalReadyTime;
 				}
 
-				public void setAverageTalkTime(Long averageTalkTime) {
-					this.averageTalkTime = averageTalkTime;
+				public void setTotalReadyTime(Long totalReadyTime) {
+					this.totalReadyTime = totalReadyTime;
 				}
 
-				public Long getTotalWorkTime() {
-					return this.totalWorkTime;
+				public Long getTotalBreakTime() {
+					return this.totalBreakTime;
 				}
 
-				public void setTotalWorkTime(Long totalWorkTime) {
-					this.totalWorkTime = totalWorkTime;
+				public void setTotalBreakTime(Long totalBreakTime) {
+					this.totalBreakTime = totalBreakTime;
 				}
 
-				public Long getMaxWorkTime() {
-					return this.maxWorkTime;
+				public Long getTotalCalls() {
+					return this.totalCalls;
 				}
 
-				public void setMaxWorkTime(Long maxWorkTime) {
-					this.maxWorkTime = maxWorkTime;
-				}
-
-				public Long getAverageWorkTime() {
-					return this.averageWorkTime;
-				}
-
-				public void setAverageWorkTime(Long averageWorkTime) {
-					this.averageWorkTime = averageWorkTime;
-				}
-
-				public Float getSatisfactionIndex() {
-					return this.satisfactionIndex;
-				}
-
-				public void setSatisfactionIndex(Float satisfactionIndex) {
-					this.satisfactionIndex = satisfactionIndex;
-				}
-
-				public Long getSatisfactionSurveysOffered() {
-					return this.satisfactionSurveysOffered;
-				}
-
-				public void setSatisfactionSurveysOffered(Long satisfactionSurveysOffered) {
-					this.satisfactionSurveysOffered = satisfactionSurveysOffered;
-				}
-
-				public Long getSatisfactionSurveysResponded() {
-					return this.satisfactionSurveysResponded;
-				}
-
-				public void setSatisfactionSurveysResponded(Long satisfactionSurveysResponded) {
-					this.satisfactionSurveysResponded = satisfactionSurveysResponded;
+				public void setTotalCalls(Long totalCalls) {
+					this.totalCalls = totalCalls;
 				}
 			}
 
 			public static class Inbound {
 
+				private Long totalTalkTime;
+
 				private Long callsOffered;
-
-				private Long callsHandled;
-
-				private Float handleRate;
-
-				private Long totalRingTime;
-
-				private Long maxRingTime;
 
 				private Long averageRingTime;
 
+				private Long callsHandled;
+
 				private Float serviceLevel20;
-
-				private Long totalTalkTime;
-
-				private Long maxTalkTime;
-
-				private Long averageTalkTime;
 
 				private Long totalWorkTime;
 
@@ -410,11 +430,29 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				private Long averageWorkTime;
 
+				private Long averageTalkTime;
+
 				private Float satisfactionIndex;
 
 				private Long satisfactionSurveysOffered;
 
+				private Float handleRate;
+
 				private Long satisfactionSurveysResponded;
+
+				private Long totalRingTime;
+
+				private Long maxTalkTime;
+
+				private Long maxRingTime;
+
+				public Long getTotalTalkTime() {
+					return this.totalTalkTime;
+				}
+
+				public void setTotalTalkTime(Long totalTalkTime) {
+					this.totalTalkTime = totalTalkTime;
+				}
 
 				public Long getCallsOffered() {
 					return this.callsOffered;
@@ -422,38 +460,6 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				public void setCallsOffered(Long callsOffered) {
 					this.callsOffered = callsOffered;
-				}
-
-				public Long getCallsHandled() {
-					return this.callsHandled;
-				}
-
-				public void setCallsHandled(Long callsHandled) {
-					this.callsHandled = callsHandled;
-				}
-
-				public Float getHandleRate() {
-					return this.handleRate;
-				}
-
-				public void setHandleRate(Float handleRate) {
-					this.handleRate = handleRate;
-				}
-
-				public Long getTotalRingTime() {
-					return this.totalRingTime;
-				}
-
-				public void setTotalRingTime(Long totalRingTime) {
-					this.totalRingTime = totalRingTime;
-				}
-
-				public Long getMaxRingTime() {
-					return this.maxRingTime;
-				}
-
-				public void setMaxRingTime(Long maxRingTime) {
-					this.maxRingTime = maxRingTime;
 				}
 
 				public Long getAverageRingTime() {
@@ -464,36 +470,20 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.averageRingTime = averageRingTime;
 				}
 
+				public Long getCallsHandled() {
+					return this.callsHandled;
+				}
+
+				public void setCallsHandled(Long callsHandled) {
+					this.callsHandled = callsHandled;
+				}
+
 				public Float getServiceLevel20() {
 					return this.serviceLevel20;
 				}
 
 				public void setServiceLevel20(Float serviceLevel20) {
 					this.serviceLevel20 = serviceLevel20;
-				}
-
-				public Long getTotalTalkTime() {
-					return this.totalTalkTime;
-				}
-
-				public void setTotalTalkTime(Long totalTalkTime) {
-					this.totalTalkTime = totalTalkTime;
-				}
-
-				public Long getMaxTalkTime() {
-					return this.maxTalkTime;
-				}
-
-				public void setMaxTalkTime(Long maxTalkTime) {
-					this.maxTalkTime = maxTalkTime;
-				}
-
-				public Long getAverageTalkTime() {
-					return this.averageTalkTime;
-				}
-
-				public void setAverageTalkTime(Long averageTalkTime) {
-					this.averageTalkTime = averageTalkTime;
 				}
 
 				public Long getTotalWorkTime() {
@@ -520,6 +510,14 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.averageWorkTime = averageWorkTime;
 				}
 
+				public Long getAverageTalkTime() {
+					return this.averageTalkTime;
+				}
+
+				public void setAverageTalkTime(Long averageTalkTime) {
+					this.averageTalkTime = averageTalkTime;
+				}
+
 				public Float getSatisfactionIndex() {
 					return this.satisfactionIndex;
 				}
@@ -536,6 +534,14 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.satisfactionSurveysOffered = satisfactionSurveysOffered;
 				}
 
+				public Float getHandleRate() {
+					return this.handleRate;
+				}
+
+				public void setHandleRate(Float handleRate) {
+					this.handleRate = handleRate;
+				}
+
 				public Long getSatisfactionSurveysResponded() {
 					return this.satisfactionSurveysResponded;
 				}
@@ -543,9 +549,37 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 				public void setSatisfactionSurveysResponded(Long satisfactionSurveysResponded) {
 					this.satisfactionSurveysResponded = satisfactionSurveysResponded;
 				}
+
+				public Long getTotalRingTime() {
+					return this.totalRingTime;
+				}
+
+				public void setTotalRingTime(Long totalRingTime) {
+					this.totalRingTime = totalRingTime;
+				}
+
+				public Long getMaxTalkTime() {
+					return this.maxTalkTime;
+				}
+
+				public void setMaxTalkTime(Long maxTalkTime) {
+					this.maxTalkTime = maxTalkTime;
+				}
+
+				public Long getMaxRingTime() {
+					return this.maxRingTime;
+				}
+
+				public void setMaxRingTime(Long maxRingTime) {
+					this.maxRingTime = maxRingTime;
+				}
 			}
 
 			public static class Outbound {
+
+				private Long totalTalkTime;
+
+				private Long maxDialingTime;
 
 				private Long callsDialed;
 
@@ -553,21 +587,13 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				private Float answerRate;
 
-				private Long totalDialingTime;
-
-				private Long maxDialingTime;
-
-				private Long averageDialingTime;
-
-				private Long totalTalkTime;
-
-				private Long maxTalkTime;
-
-				private Long averageTalkTime;
-
 				private Long totalWorkTime;
 
 				private String maxWorkTime;
+
+				private Long totalDialingTime;
+
+				private Long averageTalkTime;
 
 				private Long averageWorkTime;
 
@@ -576,6 +602,26 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 				private Long satisfactionSurveysOffered;
 
 				private Long satisfactionSurveysResponded;
+
+				private Long maxTalkTime;
+
+				private Long averageDialingTime;
+
+				public Long getTotalTalkTime() {
+					return this.totalTalkTime;
+				}
+
+				public void setTotalTalkTime(Long totalTalkTime) {
+					this.totalTalkTime = totalTalkTime;
+				}
+
+				public Long getMaxDialingTime() {
+					return this.maxDialingTime;
+				}
+
+				public void setMaxDialingTime(Long maxDialingTime) {
+					this.maxDialingTime = maxDialingTime;
+				}
 
 				public Long getCallsDialed() {
 					return this.callsDialed;
@@ -601,54 +647,6 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 					this.answerRate = answerRate;
 				}
 
-				public Long getTotalDialingTime() {
-					return this.totalDialingTime;
-				}
-
-				public void setTotalDialingTime(Long totalDialingTime) {
-					this.totalDialingTime = totalDialingTime;
-				}
-
-				public Long getMaxDialingTime() {
-					return this.maxDialingTime;
-				}
-
-				public void setMaxDialingTime(Long maxDialingTime) {
-					this.maxDialingTime = maxDialingTime;
-				}
-
-				public Long getAverageDialingTime() {
-					return this.averageDialingTime;
-				}
-
-				public void setAverageDialingTime(Long averageDialingTime) {
-					this.averageDialingTime = averageDialingTime;
-				}
-
-				public Long getTotalTalkTime() {
-					return this.totalTalkTime;
-				}
-
-				public void setTotalTalkTime(Long totalTalkTime) {
-					this.totalTalkTime = totalTalkTime;
-				}
-
-				public Long getMaxTalkTime() {
-					return this.maxTalkTime;
-				}
-
-				public void setMaxTalkTime(Long maxTalkTime) {
-					this.maxTalkTime = maxTalkTime;
-				}
-
-				public Long getAverageTalkTime() {
-					return this.averageTalkTime;
-				}
-
-				public void setAverageTalkTime(Long averageTalkTime) {
-					this.averageTalkTime = averageTalkTime;
-				}
-
 				public Long getTotalWorkTime() {
 					return this.totalWorkTime;
 				}
@@ -663,6 +661,22 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				public void setMaxWorkTime(String maxWorkTime) {
 					this.maxWorkTime = maxWorkTime;
+				}
+
+				public Long getTotalDialingTime() {
+					return this.totalDialingTime;
+				}
+
+				public void setTotalDialingTime(Long totalDialingTime) {
+					this.totalDialingTime = totalDialingTime;
+				}
+
+				public Long getAverageTalkTime() {
+					return this.averageTalkTime;
+				}
+
+				public void setAverageTalkTime(Long averageTalkTime) {
+					this.averageTalkTime = averageTalkTime;
 				}
 
 				public Long getAverageWorkTime() {
@@ -695,6 +709,22 @@ public class ListAgentSummaryReportsResponse extends AcsResponse {
 
 				public void setSatisfactionSurveysResponded(Long satisfactionSurveysResponded) {
 					this.satisfactionSurveysResponded = satisfactionSurveysResponded;
+				}
+
+				public Long getMaxTalkTime() {
+					return this.maxTalkTime;
+				}
+
+				public void setMaxTalkTime(Long maxTalkTime) {
+					this.maxTalkTime = maxTalkTime;
+				}
+
+				public Long getAverageDialingTime() {
+					return this.averageDialingTime;
+				}
+
+				public void setAverageDialingTime(Long averageDialingTime) {
+					this.averageDialingTime = averageDialingTime;
 				}
 			}
 		}

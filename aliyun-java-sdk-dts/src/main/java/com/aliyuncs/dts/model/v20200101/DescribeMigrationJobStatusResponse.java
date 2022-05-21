@@ -25,21 +25,31 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeMigrationJobStatusResponse extends AcsResponse {
 
-	private String migrationJobId;
+	private String requestId;
 
 	private String migrationJobName;
 
+	private String migrationJobStatus;
+
+	private String errCode;
+
+	private String success;
+
 	private String payType;
 
-	private String migrationJobClass;
+	private String errMessage;
 
 	private String migrationObject;
 
-	private String migrationJobStatus;
+	private String migrationJobId;
 
-	private String requestId;
+	private String taskId;
 
-	private SourceEndpoint sourceEndpoint;
+	private String migrationJobClass;
+
+	private DataInitializationStatus dataInitializationStatus;
+
+	private DataSynchronizationStatus dataSynchronizationStatus;
 
 	private DestinationEndpoint destinationEndpoint;
 
@@ -47,18 +57,16 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 
 	private PrecheckStatus precheckStatus;
 
+	private SourceEndpoint sourceEndpoint;
+
 	private StructureInitializationStatus structureInitializationStatus;
 
-	private DataInitializationStatus dataInitializationStatus;
-
-	private DataSynchronizationStatus dataSynchronizationStatus;
-
-	public String getMigrationJobId() {
-		return this.migrationJobId;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setMigrationJobId(String migrationJobId) {
-		this.migrationJobId = migrationJobId;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getMigrationJobName() {
@@ -69,6 +77,30 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 		this.migrationJobName = migrationJobName;
 	}
 
+	public String getMigrationJobStatus() {
+		return this.migrationJobStatus;
+	}
+
+	public void setMigrationJobStatus(String migrationJobStatus) {
+		this.migrationJobStatus = migrationJobStatus;
+	}
+
+	public String getErrCode() {
+		return this.errCode;
+	}
+
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
 	public String getPayType() {
 		return this.payType;
 	}
@@ -77,12 +109,12 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 		this.payType = payType;
 	}
 
-	public String getMigrationJobClass() {
-		return this.migrationJobClass;
+	public String getErrMessage() {
+		return this.errMessage;
 	}
 
-	public void setMigrationJobClass(String migrationJobClass) {
-		this.migrationJobClass = migrationJobClass;
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	public String getMigrationObject() {
@@ -93,28 +125,44 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 		this.migrationObject = migrationObject;
 	}
 
-	public String getMigrationJobStatus() {
-		return this.migrationJobStatus;
+	public String getMigrationJobId() {
+		return this.migrationJobId;
 	}
 
-	public void setMigrationJobStatus(String migrationJobStatus) {
-		this.migrationJobStatus = migrationJobStatus;
+	public void setMigrationJobId(String migrationJobId) {
+		this.migrationJobId = migrationJobId;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getTaskId() {
+		return this.taskId;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
 	}
 
-	public SourceEndpoint getSourceEndpoint() {
-		return this.sourceEndpoint;
+	public String getMigrationJobClass() {
+		return this.migrationJobClass;
 	}
 
-	public void setSourceEndpoint(SourceEndpoint sourceEndpoint) {
-		this.sourceEndpoint = sourceEndpoint;
+	public void setMigrationJobClass(String migrationJobClass) {
+		this.migrationJobClass = migrationJobClass;
+	}
+
+	public DataInitializationStatus getDataInitializationStatus() {
+		return this.dataInitializationStatus;
+	}
+
+	public void setDataInitializationStatus(DataInitializationStatus dataInitializationStatus) {
+		this.dataInitializationStatus = dataInitializationStatus;
+	}
+
+	public DataSynchronizationStatus getDataSynchronizationStatus() {
+		return this.dataSynchronizationStatus;
+	}
+
+	public void setDataSynchronizationStatus(DataSynchronizationStatus dataSynchronizationStatus) {
+		this.dataSynchronizationStatus = dataSynchronizationStatus;
 	}
 
 	public DestinationEndpoint getDestinationEndpoint() {
@@ -141,346 +189,20 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 		this.precheckStatus = precheckStatus;
 	}
 
+	public SourceEndpoint getSourceEndpoint() {
+		return this.sourceEndpoint;
+	}
+
+	public void setSourceEndpoint(SourceEndpoint sourceEndpoint) {
+		this.sourceEndpoint = sourceEndpoint;
+	}
+
 	public StructureInitializationStatus getStructureInitializationStatus() {
 		return this.structureInitializationStatus;
 	}
 
 	public void setStructureInitializationStatus(StructureInitializationStatus structureInitializationStatus) {
 		this.structureInitializationStatus = structureInitializationStatus;
-	}
-
-	public DataInitializationStatus getDataInitializationStatus() {
-		return this.dataInitializationStatus;
-	}
-
-	public void setDataInitializationStatus(DataInitializationStatus dataInitializationStatus) {
-		this.dataInitializationStatus = dataInitializationStatus;
-	}
-
-	public DataSynchronizationStatus getDataSynchronizationStatus() {
-		return this.dataSynchronizationStatus;
-	}
-
-	public void setDataSynchronizationStatus(DataSynchronizationStatus dataSynchronizationStatus) {
-		this.dataSynchronizationStatus = dataSynchronizationStatus;
-	}
-
-	public static class SourceEndpoint {
-
-		private String instanceType;
-
-		private String instanceId;
-
-		private String engineName;
-
-		private String iP;
-
-		private String port;
-
-		private String databaseName;
-
-		private String oracleSID;
-
-		private String userName;
-
-		public String getInstanceType() {
-			return this.instanceType;
-		}
-
-		public void setInstanceType(String instanceType) {
-			this.instanceType = instanceType;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getEngineName() {
-			return this.engineName;
-		}
-
-		public void setEngineName(String engineName) {
-			this.engineName = engineName;
-		}
-
-		public String getIP() {
-			return this.iP;
-		}
-
-		public void setIP(String iP) {
-			this.iP = iP;
-		}
-
-		public String getPort() {
-			return this.port;
-		}
-
-		public void setPort(String port) {
-			this.port = port;
-		}
-
-		public String getDatabaseName() {
-			return this.databaseName;
-		}
-
-		public void setDatabaseName(String databaseName) {
-			this.databaseName = databaseName;
-		}
-
-		public String getOracleSID() {
-			return this.oracleSID;
-		}
-
-		public void setOracleSID(String oracleSID) {
-			this.oracleSID = oracleSID;
-		}
-
-		public String getUserName() {
-			return this.userName;
-		}
-
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
-	}
-
-	public static class DestinationEndpoint {
-
-		private String instanceType;
-
-		private String instanceId;
-
-		private String engineName;
-
-		private String iP;
-
-		private String port;
-
-		private String databaseName;
-
-		private String oracleSID;
-
-		private String userName;
-
-		public String getInstanceType() {
-			return this.instanceType;
-		}
-
-		public void setInstanceType(String instanceType) {
-			this.instanceType = instanceType;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getEngineName() {
-			return this.engineName;
-		}
-
-		public void setEngineName(String engineName) {
-			this.engineName = engineName;
-		}
-
-		public String getIP() {
-			return this.iP;
-		}
-
-		public void setIP(String iP) {
-			this.iP = iP;
-		}
-
-		public String getPort() {
-			return this.port;
-		}
-
-		public void setPort(String port) {
-			this.port = port;
-		}
-
-		public String getDatabaseName() {
-			return this.databaseName;
-		}
-
-		public void setDatabaseName(String databaseName) {
-			this.databaseName = databaseName;
-		}
-
-		public String getOracleSID() {
-			return this.oracleSID;
-		}
-
-		public void setOracleSID(String oracleSID) {
-			this.oracleSID = oracleSID;
-		}
-
-		public String getUserName() {
-			return this.userName;
-		}
-
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
-	}
-
-	public static class MigrationMode {
-
-		private Boolean structureInitialization;
-
-		private Boolean dataInitialization;
-
-		private Boolean dataSynchronization;
-
-		public Boolean getStructureInitialization() {
-			return this.structureInitialization;
-		}
-
-		public void setStructureInitialization(Boolean structureInitialization) {
-			this.structureInitialization = structureInitialization;
-		}
-
-		public Boolean getDataInitialization() {
-			return this.dataInitialization;
-		}
-
-		public void setDataInitialization(Boolean dataInitialization) {
-			this.dataInitialization = dataInitialization;
-		}
-
-		public Boolean getDataSynchronization() {
-			return this.dataSynchronization;
-		}
-
-		public void setDataSynchronization(Boolean dataSynchronization) {
-			this.dataSynchronization = dataSynchronization;
-		}
-	}
-
-	public static class PrecheckStatus {
-
-		private String status;
-
-		private String percent;
-
-		private List<CheckItem> detail;
-
-		public String getStatus() {
-			return this.status;
-		}
-
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-		public String getPercent() {
-			return this.percent;
-		}
-
-		public void setPercent(String percent) {
-			this.percent = percent;
-		}
-
-		public List<CheckItem> getDetail() {
-			return this.detail;
-		}
-
-		public void setDetail(List<CheckItem> detail) {
-			this.detail = detail;
-		}
-
-		public static class CheckItem {
-
-			private String itemName;
-
-			private String checkStatus;
-
-			private String errorMessage;
-
-			private String repairMethod;
-
-			public String getItemName() {
-				return this.itemName;
-			}
-
-			public void setItemName(String itemName) {
-				this.itemName = itemName;
-			}
-
-			public String getCheckStatus() {
-				return this.checkStatus;
-			}
-
-			public void setCheckStatus(String checkStatus) {
-				this.checkStatus = checkStatus;
-			}
-
-			public String getErrorMessage() {
-				return this.errorMessage;
-			}
-
-			public void setErrorMessage(String errorMessage) {
-				this.errorMessage = errorMessage;
-			}
-
-			public String getRepairMethod() {
-				return this.repairMethod;
-			}
-
-			public void setRepairMethod(String repairMethod) {
-				this.repairMethod = repairMethod;
-			}
-		}
-	}
-
-	public static class StructureInitializationStatus {
-
-		private String status;
-
-		private String percent;
-
-		private String errorMessage;
-
-		private String progress;
-
-		public String getStatus() {
-			return this.status;
-		}
-
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-		public String getPercent() {
-			return this.percent;
-		}
-
-		public void setPercent(String percent) {
-			this.percent = percent;
-		}
-
-		public String getErrorMessage() {
-			return this.errorMessage;
-		}
-
-		public void setErrorMessage(String errorMessage) {
-			this.errorMessage = errorMessage;
-		}
-
-		public String getProgress() {
-			return this.progress;
-		}
-
-		public void setProgress(String progress) {
-			this.progress = progress;
-		}
 	}
 
 	public static class DataInitializationStatus {
@@ -532,11 +254,337 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 
 		private String percent;
 
-		private String errorMessage;
-
 		private String delay;
 
+		private String errorMessage;
+
 		private String checkpoint;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getPercent() {
+			return this.percent;
+		}
+
+		public void setPercent(String percent) {
+			this.percent = percent;
+		}
+
+		public String getDelay() {
+			return this.delay;
+		}
+
+		public void setDelay(String delay) {
+			this.delay = delay;
+		}
+
+		public String getErrorMessage() {
+			return this.errorMessage;
+		}
+
+		public void setErrorMessage(String errorMessage) {
+			this.errorMessage = errorMessage;
+		}
+
+		public String getCheckpoint() {
+			return this.checkpoint;
+		}
+
+		public void setCheckpoint(String checkpoint) {
+			this.checkpoint = checkpoint;
+		}
+	}
+
+	public static class DestinationEndpoint {
+
+		private String databaseName;
+
+		private String instanceId;
+
+		private String iP;
+
+		private String instanceType;
+
+		private String port;
+
+		private String userName;
+
+		private String oracleSID;
+
+		private String engineName;
+
+		public String getDatabaseName() {
+			return this.databaseName;
+		}
+
+		public void setDatabaseName(String databaseName) {
+			this.databaseName = databaseName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getIP() {
+			return this.iP;
+		}
+
+		public void setIP(String iP) {
+			this.iP = iP;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
+		}
+
+		public String getPort() {
+			return this.port;
+		}
+
+		public void setPort(String port) {
+			this.port = port;
+		}
+
+		public String getUserName() {
+			return this.userName;
+		}
+
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getOracleSID() {
+			return this.oracleSID;
+		}
+
+		public void setOracleSID(String oracleSID) {
+			this.oracleSID = oracleSID;
+		}
+
+		public String getEngineName() {
+			return this.engineName;
+		}
+
+		public void setEngineName(String engineName) {
+			this.engineName = engineName;
+		}
+	}
+
+	public static class MigrationMode {
+
+		private Boolean dataInitialization;
+
+		private Boolean dataSynchronization;
+
+		private Boolean structureInitialization;
+
+		public Boolean getDataInitialization() {
+			return this.dataInitialization;
+		}
+
+		public void setDataInitialization(Boolean dataInitialization) {
+			this.dataInitialization = dataInitialization;
+		}
+
+		public Boolean getDataSynchronization() {
+			return this.dataSynchronization;
+		}
+
+		public void setDataSynchronization(Boolean dataSynchronization) {
+			this.dataSynchronization = dataSynchronization;
+		}
+
+		public Boolean getStructureInitialization() {
+			return this.structureInitialization;
+		}
+
+		public void setStructureInitialization(Boolean structureInitialization) {
+			this.structureInitialization = structureInitialization;
+		}
+	}
+
+	public static class PrecheckStatus {
+
+		private String status;
+
+		private String percent;
+
+		private List<CheckItem> detail;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getPercent() {
+			return this.percent;
+		}
+
+		public void setPercent(String percent) {
+			this.percent = percent;
+		}
+
+		public List<CheckItem> getDetail() {
+			return this.detail;
+		}
+
+		public void setDetail(List<CheckItem> detail) {
+			this.detail = detail;
+		}
+
+		public static class CheckItem {
+
+			private String checkStatus;
+
+			private String errorMessage;
+
+			private String itemName;
+
+			private String repairMethod;
+
+			public String getCheckStatus() {
+				return this.checkStatus;
+			}
+
+			public void setCheckStatus(String checkStatus) {
+				this.checkStatus = checkStatus;
+			}
+
+			public String getErrorMessage() {
+				return this.errorMessage;
+			}
+
+			public void setErrorMessage(String errorMessage) {
+				this.errorMessage = errorMessage;
+			}
+
+			public String getItemName() {
+				return this.itemName;
+			}
+
+			public void setItemName(String itemName) {
+				this.itemName = itemName;
+			}
+
+			public String getRepairMethod() {
+				return this.repairMethod;
+			}
+
+			public void setRepairMethod(String repairMethod) {
+				this.repairMethod = repairMethod;
+			}
+		}
+	}
+
+	public static class SourceEndpoint {
+
+		private String databaseName;
+
+		private String instanceId;
+
+		private String iP;
+
+		private String instanceType;
+
+		private String port;
+
+		private String userName;
+
+		private String oracleSID;
+
+		private String engineName;
+
+		public String getDatabaseName() {
+			return this.databaseName;
+		}
+
+		public void setDatabaseName(String databaseName) {
+			this.databaseName = databaseName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getIP() {
+			return this.iP;
+		}
+
+		public void setIP(String iP) {
+			this.iP = iP;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
+		}
+
+		public String getPort() {
+			return this.port;
+		}
+
+		public void setPort(String port) {
+			this.port = port;
+		}
+
+		public String getUserName() {
+			return this.userName;
+		}
+
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getOracleSID() {
+			return this.oracleSID;
+		}
+
+		public void setOracleSID(String oracleSID) {
+			this.oracleSID = oracleSID;
+		}
+
+		public String getEngineName() {
+			return this.engineName;
+		}
+
+		public void setEngineName(String engineName) {
+			this.engineName = engineName;
+		}
+	}
+
+	public static class StructureInitializationStatus {
+
+		private String status;
+
+		private String percent;
+
+		private String errorMessage;
+
+		private String progress;
 
 		public String getStatus() {
 			return this.status;
@@ -562,20 +610,12 @@ public class DescribeMigrationJobStatusResponse extends AcsResponse {
 			this.errorMessage = errorMessage;
 		}
 
-		public String getDelay() {
-			return this.delay;
+		public String getProgress() {
+			return this.progress;
 		}
 
-		public void setDelay(String delay) {
-			this.delay = delay;
-		}
-
-		public String getCheckpoint() {
-			return this.checkpoint;
-		}
-
-		public void setCheckpoint(String checkpoint) {
-			this.checkpoint = checkpoint;
+		public void setProgress(String progress) {
+			this.progress = progress;
 		}
 	}
 

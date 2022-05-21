@@ -69,27 +69,11 @@ public class RecognizeTableResponse extends AcsResponse {
 
 		public static class Table {
 
-			private String head;
-
-			private String tail;
-
 			private List<TableRow> tableRows;
 
-			public String getHead() {
-				return this.head;
-			}
+			private List<String> head;
 
-			public void setHead(String head) {
-				this.head = head;
-			}
-
-			public String getTail() {
-				return this.tail;
-			}
-
-			public void setTail(String tail) {
-				this.tail = tail;
-			}
+			private List<String> tail;
 
 			public List<TableRow> getTableRows() {
 				return this.tableRows;
@@ -97,6 +81,22 @@ public class RecognizeTableResponse extends AcsResponse {
 
 			public void setTableRows(List<TableRow> tableRows) {
 				this.tableRows = tableRows;
+			}
+
+			public List<String> getHead() {
+				return this.head;
+			}
+
+			public void setHead(List<String> head) {
+				this.head = head;
+			}
+
+			public List<String> getTail() {
+				return this.tail;
+			}
+
+			public void setTail(List<String> tail) {
+				this.tail = tail;
 			}
 
 			public static class TableRow {
@@ -113,34 +113,26 @@ public class RecognizeTableResponse extends AcsResponse {
 
 				public static class TableColumn {
 
-					private Integer startColumn;
-
-					private Integer startRow;
+					private Integer endRow;
 
 					private Integer endColumn;
 
-					private Integer endRow;
+					private Integer width;
 
 					private Integer height;
 
-					private Integer width;
+					private Integer startRow;
+
+					private Integer startColumn;
 
 					private List<String> texts;
 
-					public Integer getStartColumn() {
-						return this.startColumn;
+					public Integer getEndRow() {
+						return this.endRow;
 					}
 
-					public void setStartColumn(Integer startColumn) {
-						this.startColumn = startColumn;
-					}
-
-					public Integer getStartRow() {
-						return this.startRow;
-					}
-
-					public void setStartRow(Integer startRow) {
-						this.startRow = startRow;
+					public void setEndRow(Integer endRow) {
+						this.endRow = endRow;
 					}
 
 					public Integer getEndColumn() {
@@ -151,12 +143,12 @@ public class RecognizeTableResponse extends AcsResponse {
 						this.endColumn = endColumn;
 					}
 
-					public Integer getEndRow() {
-						return this.endRow;
+					public Integer getWidth() {
+						return this.width;
 					}
 
-					public void setEndRow(Integer endRow) {
-						this.endRow = endRow;
+					public void setWidth(Integer width) {
+						this.width = width;
 					}
 
 					public Integer getHeight() {
@@ -167,12 +159,20 @@ public class RecognizeTableResponse extends AcsResponse {
 						this.height = height;
 					}
 
-					public Integer getWidth() {
-						return this.width;
+					public Integer getStartRow() {
+						return this.startRow;
 					}
 
-					public void setWidth(Integer width) {
-						this.width = width;
+					public void setStartRow(Integer startRow) {
+						this.startRow = startRow;
+					}
+
+					public Integer getStartColumn() {
+						return this.startColumn;
+					}
+
+					public void setStartColumn(Integer startColumn) {
+						this.startColumn = startColumn;
 					}
 
 					public List<String> getTexts() {

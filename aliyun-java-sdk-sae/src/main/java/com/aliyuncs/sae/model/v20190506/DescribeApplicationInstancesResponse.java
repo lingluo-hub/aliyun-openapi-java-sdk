@@ -25,26 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeApplicationInstancesResponse extends AcsResponse {
 
-	private String code;
+	private String requestId;
 
 	private String message;
 
 	private String traceId;
 
-	private String requestId;
+	private String errorCode;
+
+	private String code;
 
 	private Boolean success;
 
-	private String errorCode;
-
 	private Data data;
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getMessage() {
@@ -63,12 +63,20 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 		this.traceId = traceId;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Boolean getSuccess() {
@@ -77,14 +85,6 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
-	}
-
-	public String getErrorCode() {
-		return this.errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
 	}
 
 	public Data getData() {
@@ -99,9 +99,9 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 
 		private Integer currentPage;
 
-		private Integer pageSize;
-
 		private Integer totalSize;
+
+		private Integer pageSize;
 
 		private List<Instance> instances;
 
@@ -113,20 +113,20 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 			this.currentPage = currentPage;
 		}
 
-		public Integer getPageSize() {
-			return this.pageSize;
-		}
-
-		public void setPageSize(Integer pageSize) {
-			this.pageSize = pageSize;
-		}
-
 		public Integer getTotalSize() {
 			return this.totalSize;
 		}
 
 		public void setTotalSize(Integer totalSize) {
 			this.totalSize = totalSize;
+		}
+
+		public Integer getPageSize() {
+			return this.pageSize;
+		}
+
+		public void setPageSize(Integer pageSize) {
+			this.pageSize = pageSize;
 		}
 
 		public List<Instance> getInstances() {
@@ -139,32 +139,44 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 
 		public static class Instance {
 
-			private String groupId;
+			private Long createTimeStamp;
 
-			private String instanceId;
+			private String vSwitchId;
 
 			private String instanceContainerStatus;
 
+			private String instanceHealthStatus;
+
+			private Long instanceContainerRestarts;
+
+			private String groupId;
+
 			private String instanceContainerIp;
 
-			private Long createTimeStamp;
+			private String instanceId;
 
-			private String groupId1;
+			private String imageUrl;
 
-			public String getGroupId() {
-				return this.groupId;
+			private String packageVersion;
+
+			private String eip;
+
+			private Long finishTimeStamp;
+
+			public Long getCreateTimeStamp() {
+				return this.createTimeStamp;
 			}
 
-			public void setGroupId(String groupId) {
-				this.groupId = groupId;
+			public void setCreateTimeStamp(Long createTimeStamp) {
+				this.createTimeStamp = createTimeStamp;
 			}
 
-			public String getInstanceId() {
-				return this.instanceId;
+			public String getVSwitchId() {
+				return this.vSwitchId;
 			}
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
+			public void setVSwitchId(String vSwitchId) {
+				this.vSwitchId = vSwitchId;
 			}
 
 			public String getInstanceContainerStatus() {
@@ -175,6 +187,30 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 				this.instanceContainerStatus = instanceContainerStatus;
 			}
 
+			public String getInstanceHealthStatus() {
+				return this.instanceHealthStatus;
+			}
+
+			public void setInstanceHealthStatus(String instanceHealthStatus) {
+				this.instanceHealthStatus = instanceHealthStatus;
+			}
+
+			public Long getInstanceContainerRestarts() {
+				return this.instanceContainerRestarts;
+			}
+
+			public void setInstanceContainerRestarts(Long instanceContainerRestarts) {
+				this.instanceContainerRestarts = instanceContainerRestarts;
+			}
+
+			public String getGroupId() {
+				return this.groupId;
+			}
+
+			public void setGroupId(String groupId) {
+				this.groupId = groupId;
+			}
+
 			public String getInstanceContainerIp() {
 				return this.instanceContainerIp;
 			}
@@ -183,20 +219,44 @@ public class DescribeApplicationInstancesResponse extends AcsResponse {
 				this.instanceContainerIp = instanceContainerIp;
 			}
 
-			public Long getCreateTimeStamp() {
-				return this.createTimeStamp;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setCreateTimeStamp(Long createTimeStamp) {
-				this.createTimeStamp = createTimeStamp;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
-			public String getGroupId1() {
-				return this.groupId1;
+			public String getImageUrl() {
+				return this.imageUrl;
 			}
 
-			public void setGroupId1(String groupId1) {
-				this.groupId1 = groupId1;
+			public void setImageUrl(String imageUrl) {
+				this.imageUrl = imageUrl;
+			}
+
+			public String getPackageVersion() {
+				return this.packageVersion;
+			}
+
+			public void setPackageVersion(String packageVersion) {
+				this.packageVersion = packageVersion;
+			}
+
+			public String getEip() {
+				return this.eip;
+			}
+
+			public void setEip(String eip) {
+				this.eip = eip;
+			}
+
+			public Long getFinishTimeStamp() {
+				return this.finishTimeStamp;
+			}
+
+			public void setFinishTimeStamp(Long finishTimeStamp) {
+				this.finishTimeStamp = finishTimeStamp;
 			}
 		}
 	}

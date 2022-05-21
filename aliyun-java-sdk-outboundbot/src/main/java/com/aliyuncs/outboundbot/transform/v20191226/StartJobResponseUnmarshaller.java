@@ -27,10 +27,10 @@ public class StartJobResponseUnmarshaller {
 	public static StartJobResponse unmarshall(StartJobResponse startJobResponse, UnmarshallerContext _ctx) {
 		
 		startJobResponse.setRequestId(_ctx.stringValue("StartJobResponse.RequestId"));
-		startJobResponse.setSuccess(_ctx.booleanValue("StartJobResponse.Success"));
+		startJobResponse.setHttpStatusCode(_ctx.integerValue("StartJobResponse.HttpStatusCode"));
 		startJobResponse.setCode(_ctx.stringValue("StartJobResponse.Code"));
 		startJobResponse.setMessage(_ctx.stringValue("StartJobResponse.Message"));
-		startJobResponse.setHttpStatusCode(_ctx.integerValue("StartJobResponse.HttpStatusCode"));
+		startJobResponse.setSuccess(_ctx.booleanValue("StartJobResponse.Success"));
 
 		List<KeyValuePair> taskIds = new ArrayList<KeyValuePair>();
 		for (int i = 0; i < _ctx.lengthValue("StartJobResponse.TaskIds.Length"); i++) {
@@ -41,6 +41,16 @@ public class StartJobResponseUnmarshaller {
 			taskIds.add(keyValuePair);
 		}
 		startJobResponse.setTaskIds(taskIds);
+
+		List<KeyValuePair> callIds = new ArrayList<KeyValuePair>();
+		for (int i = 0; i < _ctx.lengthValue("StartJobResponse.CallIds.Length"); i++) {
+			KeyValuePair keyValuePair1 = new KeyValuePair();
+			keyValuePair1.setKey(_ctx.stringValue("StartJobResponse.CallIds["+ i +"].Key"));
+			keyValuePair1.setValue(_ctx.stringValue("StartJobResponse.CallIds["+ i +"].Value"));
+
+			callIds.add(keyValuePair1);
+		}
+		startJobResponse.setCallIds(callIds);
 	 
 	 	return startJobResponse;
 	}

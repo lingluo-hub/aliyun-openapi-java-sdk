@@ -23,15 +23,7 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class DescribeCastersRequest extends RpcAcsRequest<DescribeCastersResponse> {
-	
-	public DescribeCastersRequest() {
-		super("live", "2016-11-01", "DescribeCasters", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
 
 	private String startTime;
 
@@ -47,7 +39,19 @@ public class DescribeCastersRequest extends RpcAcsRequest<DescribeCastersRespons
 
 	private Long ownerId;
 
+	private String orderByModifyAsc;
+
+	private Integer chargeType;
+
 	private Integer status;
+	public DescribeCastersRequest() {
+		super("live", "2016-11-01", "DescribeCasters", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getStartTime() {
 		return this.startTime;
@@ -123,6 +127,28 @@ public class DescribeCastersRequest extends RpcAcsRequest<DescribeCastersRespons
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getOrderByModifyAsc() {
+		return this.orderByModifyAsc;
+	}
+
+	public void setOrderByModifyAsc(String orderByModifyAsc) {
+		this.orderByModifyAsc = orderByModifyAsc;
+		if(orderByModifyAsc != null){
+			putQueryParameter("OrderByModifyAsc", orderByModifyAsc);
+		}
+	}
+
+	public Integer getChargeType() {
+		return this.chargeType;
+	}
+
+	public void setChargeType(Integer chargeType) {
+		this.chargeType = chargeType;
+		if(chargeType != null){
+			putQueryParameter("ChargeType", chargeType.toString());
 		}
 	}
 

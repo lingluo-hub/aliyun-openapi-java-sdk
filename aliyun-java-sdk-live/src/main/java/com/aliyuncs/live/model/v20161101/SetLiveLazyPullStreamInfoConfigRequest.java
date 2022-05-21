@@ -23,25 +23,9 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiveLazyPullStreamInfoConfigResponse> {
-	
-	public SetLiveLazyPullStreamInfoConfigRequest() {
-		super("live", "2016-11-01", "SetLiveLazyPullStreamInfoConfig", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
-
-	private String pullArgs;
+	   
 
 	private String appName;
-
-	private String liveapiRequestFrom;
-
-	private String pullAuthKey;
-
-	private String pullAuthType;
 
 	private String domainName;
 
@@ -52,16 +36,13 @@ public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiv
 	private String pullAppName;
 
 	private String pullProtocol;
-
-	public String getPullArgs() {
-		return this.pullArgs;
-	}
-
-	public void setPullArgs(String pullArgs) {
-		this.pullArgs = pullArgs;
-		if(pullArgs != null){
-			putQueryParameter("PullArgs", pullArgs);
-		}
+	public SetLiveLazyPullStreamInfoConfigRequest() {
+		super("live", "2016-11-01", "SetLiveLazyPullStreamInfoConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAppName() {
@@ -72,39 +53,6 @@ public class SetLiveLazyPullStreamInfoConfigRequest extends RpcAcsRequest<SetLiv
 		this.appName = appName;
 		if(appName != null){
 			putQueryParameter("AppName", appName);
-		}
-	}
-
-	public String getLiveapiRequestFrom() {
-		return this.liveapiRequestFrom;
-	}
-
-	public void setLiveapiRequestFrom(String liveapiRequestFrom) {
-		this.liveapiRequestFrom = liveapiRequestFrom;
-		if(liveapiRequestFrom != null){
-			putQueryParameter("LiveapiRequestFrom", liveapiRequestFrom);
-		}
-	}
-
-	public String getPullAuthKey() {
-		return this.pullAuthKey;
-	}
-
-	public void setPullAuthKey(String pullAuthKey) {
-		this.pullAuthKey = pullAuthKey;
-		if(pullAuthKey != null){
-			putQueryParameter("PullAuthKey", pullAuthKey);
-		}
-	}
-
-	public String getPullAuthType() {
-		return this.pullAuthType;
-	}
-
-	public void setPullAuthType(String pullAuthType) {
-		this.pullAuthType = pullAuthType;
-		if(pullAuthType != null){
-			putQueryParameter("PullAuthType", pullAuthType);
 		}
 	}
 

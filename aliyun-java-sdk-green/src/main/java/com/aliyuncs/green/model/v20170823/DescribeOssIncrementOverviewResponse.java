@@ -36,6 +36,14 @@ public class DescribeOssIncrementOverviewResponse extends AcsResponse {
 
 	private Integer terrorismUnhandleCount;
 
+	private Integer adUnhandleCount;
+
+	private Integer liveUnhandleCount;
+
+	private Integer voiceAntispamUnhandleCount;
+
+	private Integer audioCount;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -82,6 +90,38 @@ public class DescribeOssIncrementOverviewResponse extends AcsResponse {
 
 	public void setTerrorismUnhandleCount(Integer terrorismUnhandleCount) {
 		this.terrorismUnhandleCount = terrorismUnhandleCount;
+	}
+
+	public Integer getAdUnhandleCount() {
+		return this.adUnhandleCount;
+	}
+
+	public void setAdUnhandleCount(Integer adUnhandleCount) {
+		this.adUnhandleCount = adUnhandleCount;
+	}
+
+	public Integer getLiveUnhandleCount() {
+		return this.liveUnhandleCount;
+	}
+
+	public void setLiveUnhandleCount(Integer liveUnhandleCount) {
+		this.liveUnhandleCount = liveUnhandleCount;
+	}
+
+	public Integer getVoiceAntispamUnhandleCount() {
+		return this.voiceAntispamUnhandleCount;
+	}
+
+	public void setVoiceAntispamUnhandleCount(Integer voiceAntispamUnhandleCount) {
+		this.voiceAntispamUnhandleCount = voiceAntispamUnhandleCount;
+	}
+
+	public Integer getAudioCount() {
+		return this.audioCount;
+	}
+
+	public void setAudioCount(Integer audioCount) {
+		this.audioCount = audioCount;
 	}
 
 	@Override

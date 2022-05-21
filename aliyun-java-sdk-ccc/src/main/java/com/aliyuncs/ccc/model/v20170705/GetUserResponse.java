@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetUserResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private User user;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class GetUserResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public User getUser() {
@@ -87,11 +87,11 @@ public class GetUserResponse extends AcsResponse {
 
 	public static class User {
 
-		private String userId;
+		private String instanceId;
 
 		private String ramId;
 
-		private String instanceId;
+		private String userId;
 
 		private List<Role> roles;
 
@@ -99,12 +99,12 @@ public class GetUserResponse extends AcsResponse {
 
 		private Detail detail;
 
-		public String getUserId() {
-			return this.userId;
+		public String getInstanceId() {
+			return this.instanceId;
 		}
 
-		public void setUserId(String userId) {
-			this.userId = userId;
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
 		public String getRamId() {
@@ -115,12 +115,12 @@ public class GetUserResponse extends AcsResponse {
 			this.ramId = ramId;
 		}
 
-		public String getInstanceId() {
-			return this.instanceId;
+		public String getUserId() {
+			return this.userId;
 		}
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
+		public void setUserId(String userId) {
+			this.userId = userId;
 		}
 
 		public List<Role> getRoles() {
@@ -149,21 +149,13 @@ public class GetUserResponse extends AcsResponse {
 
 		public static class Role {
 
-			private String roleId;
-
 			private String instanceId;
 
 			private String roleName;
 
 			private String roleDescription;
 
-			public String getRoleId() {
-				return this.roleId;
-			}
-
-			public void setRoleId(String roleId) {
-				this.roleId = roleId;
-			}
+			private String roleId;
 
 			public String getInstanceId() {
 				return this.instanceId;
@@ -187,6 +179,14 @@ public class GetUserResponse extends AcsResponse {
 
 			public void setRoleDescription(String roleDescription) {
 				this.roleDescription = roleDescription;
+			}
+
+			public String getRoleId() {
+				return this.roleId;
+			}
+
+			public void setRoleId(String roleId) {
+				this.roleId = roleId;
 			}
 		}
 
@@ -224,21 +224,13 @@ public class GetUserResponse extends AcsResponse {
 
 			public static class Skill {
 
-				private String skillGroupId;
-
 				private String instanceId;
-
-				private String skillGroupName;
 
 				private String skillGroupDescription;
 
-				public String getSkillGroupId() {
-					return this.skillGroupId;
-				}
+				private String skillGroupId;
 
-				public void setSkillGroupId(String skillGroupId) {
-					this.skillGroupId = skillGroupId;
-				}
+				private String skillGroupName;
 
 				public String getInstanceId() {
 					return this.instanceId;
@@ -248,14 +240,6 @@ public class GetUserResponse extends AcsResponse {
 					this.instanceId = instanceId;
 				}
 
-				public String getSkillGroupName() {
-					return this.skillGroupName;
-				}
-
-				public void setSkillGroupName(String skillGroupName) {
-					this.skillGroupName = skillGroupName;
-				}
-
 				public String getSkillGroupDescription() {
 					return this.skillGroupDescription;
 				}
@@ -263,28 +247,36 @@ public class GetUserResponse extends AcsResponse {
 				public void setSkillGroupDescription(String skillGroupDescription) {
 					this.skillGroupDescription = skillGroupDescription;
 				}
+
+				public String getSkillGroupId() {
+					return this.skillGroupId;
+				}
+
+				public void setSkillGroupId(String skillGroupId) {
+					this.skillGroupId = skillGroupId;
+				}
+
+				public String getSkillGroupName() {
+					return this.skillGroupName;
+				}
+
+				public void setSkillGroupName(String skillGroupName) {
+					this.skillGroupName = skillGroupName;
+				}
 			}
 		}
 
 		public static class Detail {
 
-			private String loginName;
-
 			private String displayName;
-
-			private String phone;
 
 			private String email;
 
+			private String loginName;
+
 			private String department;
 
-			public String getLoginName() {
-				return this.loginName;
-			}
-
-			public void setLoginName(String loginName) {
-				this.loginName = loginName;
-			}
+			private String phone;
 
 			public String getDisplayName() {
 				return this.displayName;
@@ -292,14 +284,6 @@ public class GetUserResponse extends AcsResponse {
 
 			public void setDisplayName(String displayName) {
 				this.displayName = displayName;
-			}
-
-			public String getPhone() {
-				return this.phone;
-			}
-
-			public void setPhone(String phone) {
-				this.phone = phone;
 			}
 
 			public String getEmail() {
@@ -310,12 +294,28 @@ public class GetUserResponse extends AcsResponse {
 				this.email = email;
 			}
 
+			public String getLoginName() {
+				return this.loginName;
+			}
+
+			public void setLoginName(String loginName) {
+				this.loginName = loginName;
+			}
+
 			public String getDepartment() {
 				return this.department;
 			}
 
 			public void setDepartment(String department) {
 				this.department = department;
+			}
+
+			public String getPhone() {
+				return this.phone;
+			}
+
+			public void setPhone(String phone) {
+				this.phone = phone;
 			}
 		}
 	}

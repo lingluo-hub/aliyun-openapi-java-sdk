@@ -29,7 +29,11 @@ public class ModifyIntranetAttributeRequest extends RpcAcsRequest<ModifyIntranet
 
 	private String securityToken;
 
+	private String nodeId;
+
 	private String resourceOwnerAccount;
+
+	private Long bandWidth;
 
 	private String ownerAccount;
 
@@ -37,7 +41,7 @@ public class ModifyIntranetAttributeRequest extends RpcAcsRequest<ModifyIntranet
 
 	private String instanceId;
 	public ModifyIntranetAttributeRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyIntranetAttribute");
+		super("R-kvstore", "2015-01-01", "ModifyIntranetAttribute", "redisa");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -67,6 +71,17 @@ public class ModifyIntranetAttributeRequest extends RpcAcsRequest<ModifyIntranet
 		}
 	}
 
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+		if(nodeId != null){
+			putQueryParameter("NodeId", nodeId);
+		}
+	}
+
 	public String getResourceOwnerAccount() {
 		return this.resourceOwnerAccount;
 	}
@@ -75,6 +90,17 @@ public class ModifyIntranetAttributeRequest extends RpcAcsRequest<ModifyIntranet
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Long getBandWidth() {
+		return this.bandWidth;
+	}
+
+	public void setBandWidth(Long bandWidth) {
+		this.bandWidth = bandWidth;
+		if(bandWidth != null){
+			putQueryParameter("BandWidth", bandWidth.toString());
 		}
 	}
 

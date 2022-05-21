@@ -16,17 +16,15 @@ package com.aliyuncs.schedulerx2.model.v20190430;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.schedulerx2.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse> {
-	
-	public CreateAppGroupRequest() {
-		super("schedulerx2", "2019-04-30", "CreateAppGroup");
-		setProtocol(ProtocolType.HTTPS);
-	}
+	   
 
 	private Integer maxJobs;
 
@@ -34,17 +32,30 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 
 	private String namespaceSource;
 
-	private String appName;
-
-	private String metricsThresholdJson;
+	private Boolean scheduleBusyWorkers;
 
 	private String groupId;
 
-	private String namespace;
-
 	private String description;
 
-	private String alarmJson;
+	private String monitorConfigJson;
+
+	private String appName;
+
+	private String namespace;
+
+	private String appKey;
+
+	private String monitorContactsJson;
+	public CreateAppGroupRequest() {
+		super("schedulerx2", "2019-04-30", "CreateAppGroup");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getMaxJobs() {
 		return this.maxJobs;
@@ -79,25 +90,14 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 		}
 	}
 
-	public String getAppName() {
-		return this.appName;
+	public Boolean getScheduleBusyWorkers() {
+		return this.scheduleBusyWorkers;
 	}
 
-	public void setAppName(String appName) {
-		this.appName = appName;
-		if(appName != null){
-			putQueryParameter("AppName", appName);
-		}
-	}
-
-	public String getMetricsThresholdJson() {
-		return this.metricsThresholdJson;
-	}
-
-	public void setMetricsThresholdJson(String metricsThresholdJson) {
-		this.metricsThresholdJson = metricsThresholdJson;
-		if(metricsThresholdJson != null){
-			putQueryParameter("MetricsThresholdJson", metricsThresholdJson);
+	public void setScheduleBusyWorkers(Boolean scheduleBusyWorkers) {
+		this.scheduleBusyWorkers = scheduleBusyWorkers;
+		if(scheduleBusyWorkers != null){
+			putQueryParameter("ScheduleBusyWorkers", scheduleBusyWorkers.toString());
 		}
 	}
 
@@ -112,17 +112,6 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 		}
 	}
 
-	public String getNamespace() {
-		return this.namespace;
-	}
-
-	public void setNamespace(String namespace) {
-		this.namespace = namespace;
-		if(namespace != null){
-			putQueryParameter("Namespace", namespace);
-		}
-	}
-
 	public String getDescription() {
 		return this.description;
 	}
@@ -134,14 +123,58 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 		}
 	}
 
-	public String getAlarmJson() {
-		return this.alarmJson;
+	public String getMonitorConfigJson() {
+		return this.monitorConfigJson;
 	}
 
-	public void setAlarmJson(String alarmJson) {
-		this.alarmJson = alarmJson;
-		if(alarmJson != null){
-			putQueryParameter("AlarmJson", alarmJson);
+	public void setMonitorConfigJson(String monitorConfigJson) {
+		this.monitorConfigJson = monitorConfigJson;
+		if(monitorConfigJson != null){
+			putQueryParameter("MonitorConfigJson", monitorConfigJson);
+		}
+	}
+
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getNamespace() {
+		return this.namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+		if(namespace != null){
+			putQueryParameter("Namespace", namespace);
+		}
+	}
+
+	public String getAppKey() {
+		return this.appKey;
+	}
+
+	public void setAppKey(String appKey) {
+		this.appKey = appKey;
+		if(appKey != null){
+			putQueryParameter("AppKey", appKey);
+		}
+	}
+
+	public String getMonitorContactsJson() {
+		return this.monitorContactsJson;
+	}
+
+	public void setMonitorContactsJson(String monitorContactsJson) {
+		this.monitorContactsJson = monitorContactsJson;
+		if(monitorContactsJson != null){
+			putQueryParameter("MonitorContactsJson", monitorContactsJson);
 		}
 	}
 

@@ -27,9 +27,13 @@ public class RestartClusterRequest extends RpcAcsRequest<RestartClusterResponse>
 
 	private String clusterId;
 
+	private String podNameList;
+
 	private String instanceId;
 
 	private String requestPars;
+
+	private String acceptLanguage;
 	public RestartClusterRequest() {
 		super("mse", "2019-05-31", "RestartCluster", "mse");
 		setMethod(MethodType.POST);
@@ -46,7 +50,18 @@ public class RestartClusterRequest extends RpcAcsRequest<RestartClusterResponse>
 	public void setClusterId(String clusterId) {
 		this.clusterId = clusterId;
 		if(clusterId != null){
-			putBodyParameter("ClusterId", clusterId);
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getPodNameList() {
+		return this.podNameList;
+	}
+
+	public void setPodNameList(String podNameList) {
+		this.podNameList = podNameList;
+		if(podNameList != null){
+			putQueryParameter("PodNameList", podNameList);
 		}
 	}
 
@@ -57,7 +72,7 @@ public class RestartClusterRequest extends RpcAcsRequest<RestartClusterResponse>
 	public void setInstanceId(String instanceId) {
 		this.instanceId = instanceId;
 		if(instanceId != null){
-			putBodyParameter("InstanceId", instanceId);
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
@@ -68,7 +83,18 @@ public class RestartClusterRequest extends RpcAcsRequest<RestartClusterResponse>
 	public void setRequestPars(String requestPars) {
 		this.requestPars = requestPars;
 		if(requestPars != null){
-			putBodyParameter("RequestPars", requestPars);
+			putQueryParameter("RequestPars", requestPars);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

@@ -15,7 +15,6 @@
 package com.aliyuncs.linkwan.model.v20190301;
 
 import com.aliyuncs.RpcAcsRequest;
-import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.linkwan.Endpoint;
 
@@ -27,6 +26,8 @@ public class ListGatewaysRequest extends RpcAcsRequest<ListGatewaysResponse> {
 	   
 
 	private String fuzzyGwEui;
+
+	private String iotInstanceId;
 
 	private Long limit;
 
@@ -40,14 +41,13 @@ public class ListGatewaysRequest extends RpcAcsRequest<ListGatewaysResponse> {
 
 	private Long offset;
 
+	private Boolean ascending;
+
 	private Long freqBandPlanGroupId;
 
 	private String sortingField;
-
-	private Boolean ascending;
 	public ListGatewaysRequest() {
 		super("LinkWAN", "2019-03-01", "ListGateways", "linkwan");
-		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -63,6 +63,17 @@ public class ListGatewaysRequest extends RpcAcsRequest<ListGatewaysResponse> {
 		this.fuzzyGwEui = fuzzyGwEui;
 		if(fuzzyGwEui != null){
 			putQueryParameter("FuzzyGwEui", fuzzyGwEui);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -132,6 +143,17 @@ public class ListGatewaysRequest extends RpcAcsRequest<ListGatewaysResponse> {
 		}
 	}
 
+	public Boolean getAscending() {
+		return this.ascending;
+	}
+
+	public void setAscending(Boolean ascending) {
+		this.ascending = ascending;
+		if(ascending != null){
+			putQueryParameter("Ascending", ascending.toString());
+		}
+	}
+
 	public Long getFreqBandPlanGroupId() {
 		return this.freqBandPlanGroupId;
 	}
@@ -151,17 +173,6 @@ public class ListGatewaysRequest extends RpcAcsRequest<ListGatewaysResponse> {
 		this.sortingField = sortingField;
 		if(sortingField != null){
 			putQueryParameter("SortingField", sortingField);
-		}
-	}
-
-	public Boolean getAscending() {
-		return this.ascending;
-	}
-
-	public void setAscending(Boolean ascending) {
-		this.ascending = ascending;
-		if(ascending != null){
-			putQueryParameter("Ascending", ascending.toString());
 		}
 	}
 

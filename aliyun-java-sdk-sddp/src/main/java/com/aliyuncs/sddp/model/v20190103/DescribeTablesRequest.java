@@ -37,6 +37,8 @@ public class DescribeTablesRequest extends RpcAcsRequest<DescribeTablesResponse>
 
 	private String lang;
 
+	private String serviceRegionId;
+
 	private Integer currentPage;
 
 	private Long instanceId;
@@ -116,6 +118,17 @@ public class DescribeTablesRequest extends RpcAcsRequest<DescribeTablesResponse>
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public String getServiceRegionId() {
+		return this.serviceRegionId;
+	}
+
+	public void setServiceRegionId(String serviceRegionId) {
+		this.serviceRegionId = serviceRegionId;
+		if(serviceRegionId != null){
+			putQueryParameter("ServiceRegionId", serviceRegionId);
 		}
 	}
 

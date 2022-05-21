@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkedmall.Endpoint;
 
 /**
  * @author auto create
@@ -32,8 +33,12 @@ public class QueryBestSession4ItemsRequest extends RpcAcsRequest<QueryBestSessio
 
 	private String bizId;
 	public QueryBestSession4ItemsRequest() {
-		super("linkedmall", "2018-01-16", "QueryBestSession4Items");
+		super("linkedmall", "2018-01-16", "QueryBestSession4Items", "linkedmall");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<Object> getLmItemIds() {

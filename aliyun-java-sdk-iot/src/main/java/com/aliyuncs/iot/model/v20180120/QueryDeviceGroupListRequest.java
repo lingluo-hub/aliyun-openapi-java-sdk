@@ -15,6 +15,7 @@
 package com.aliyuncs.iot.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.iot.Endpoint;
 
@@ -25,22 +26,37 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDeviceGroupListRequest extends RpcAcsRequest<QueryDeviceGroupListResponse> {
 	   
 
+	private List<String> groupTypess;
+
 	private String superGroupId;
-
-	private Integer currentPage;
-
-	private String groupName;
 
 	private String iotInstanceId;
 
 	private Integer pageSize;
+
+	private Integer currentPage;
+
+	private String groupName;
 	public QueryDeviceGroupListRequest() {
-		super("Iot", "2018-01-20", "QueryDeviceGroupList", "Iot");
+		super("Iot", "2018-01-20", "QueryDeviceGroupList");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public List<String> getGroupTypess() {
+		return this.groupTypess;
+	}
+
+	public void setGroupTypess(List<String> groupTypess) {
+		this.groupTypess = groupTypess;	
+		if (groupTypess != null) {
+			for (int i = 0; i < groupTypess.size(); i++) {
+				putQueryParameter("GroupTypes." + (i + 1) , groupTypess.get(i));
+			}
+		}	
 	}
 
 	public String getSuperGroupId() {
@@ -51,28 +67,6 @@ public class QueryDeviceGroupListRequest extends RpcAcsRequest<QueryDeviceGroupL
 		this.superGroupId = superGroupId;
 		if(superGroupId != null){
 			putQueryParameter("SuperGroupId", superGroupId);
-		}
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public String getGroupName() {
-		return this.groupName;
-	}
-
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-		if(groupName != null){
-			putQueryParameter("GroupName", groupName);
 		}
 	}
 
@@ -95,6 +89,28 @@ public class QueryDeviceGroupListRequest extends RpcAcsRequest<QueryDeviceGroupL
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getGroupName() {
+		return this.groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+		if(groupName != null){
+			putQueryParameter("GroupName", groupName);
 		}
 	}
 

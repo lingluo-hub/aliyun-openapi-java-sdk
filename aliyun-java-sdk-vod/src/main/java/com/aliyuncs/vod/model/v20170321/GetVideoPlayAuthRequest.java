@@ -25,15 +25,9 @@ import com.aliyuncs.vod.Endpoint;
 public class GetVideoPlayAuthRequest extends RpcAcsRequest<GetVideoPlayAuthResponse> {
 	   
 
-	private Long resourceOwnerId;
-
-	private String playConfig;
-
-	private String resourceOwnerAccount;
-
 	private String videoId;
 
-	private Long ownerId;
+	private String apiVersion;
 
 	private Long authInfoTimeout;
 	public GetVideoPlayAuthRequest() {
@@ -43,39 +37,6 @@ public class GetVideoPlayAuthRequest extends RpcAcsRequest<GetVideoPlayAuthRespo
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getPlayConfig() {
-		return this.playConfig;
-	}
-
-	public void setPlayConfig(String playConfig) {
-		this.playConfig = playConfig;
-		if(playConfig != null){
-			putQueryParameter("PlayConfig", playConfig);
-		}
-	}
-
-	public String getResourceOwnerAccount() {
-		return this.resourceOwnerAccount;
-	}
-
-	public void setResourceOwnerAccount(String resourceOwnerAccount) {
-		this.resourceOwnerAccount = resourceOwnerAccount;
-		if(resourceOwnerAccount != null){
-			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
-		}
 	}
 
 	public String getVideoId() {
@@ -89,14 +50,14 @@ public class GetVideoPlayAuthRequest extends RpcAcsRequest<GetVideoPlayAuthRespo
 		}
 	}
 
-	public Long getOwnerId() {
-		return this.ownerId;
+	public String getApiVersion() {
+		return this.apiVersion;
 	}
 
-	public void setOwnerId(Long ownerId) {
-		this.ownerId = ownerId;
-		if(ownerId != null){
-			putQueryParameter("OwnerId", ownerId.toString());
+	public void setApiVersion(String apiVersion) {
+		this.apiVersion = apiVersion;
+		if(apiVersion != null){
+			putQueryParameter("ApiVersion", apiVersion);
 		}
 	}
 

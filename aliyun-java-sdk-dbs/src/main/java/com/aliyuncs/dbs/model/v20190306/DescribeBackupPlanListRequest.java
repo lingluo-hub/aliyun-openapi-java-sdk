@@ -33,6 +33,10 @@ public class DescribeBackupPlanListRequest extends RpcAcsRequest<DescribeBackupP
 
 	private String ownerId;
 
+	private String backupPlanStatus;
+
+	private String backupPlanName;
+
 	private Integer pageSize;
 
 	private String region;
@@ -86,6 +90,28 @@ public class DescribeBackupPlanListRequest extends RpcAcsRequest<DescribeBackupP
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId);
+		}
+	}
+
+	public String getBackupPlanStatus() {
+		return this.backupPlanStatus;
+	}
+
+	public void setBackupPlanStatus(String backupPlanStatus) {
+		this.backupPlanStatus = backupPlanStatus;
+		if(backupPlanStatus != null){
+			putQueryParameter("BackupPlanStatus", backupPlanStatus);
+		}
+	}
+
+	public String getBackupPlanName() {
+		return this.backupPlanName;
+	}
+
+	public void setBackupPlanName(String backupPlanName) {
+		this.backupPlanName = backupPlanName;
+		if(backupPlanName != null){
+			putQueryParameter("BackupPlanName", backupPlanName);
 		}
 	}
 

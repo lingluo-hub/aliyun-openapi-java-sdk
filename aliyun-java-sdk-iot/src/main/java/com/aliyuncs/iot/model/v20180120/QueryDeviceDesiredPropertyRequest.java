@@ -26,22 +26,46 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDeviceDesiredPropertyRequest extends RpcAcsRequest<QueryDeviceDesiredPropertyResponse> {
 	   
 
-	private List<String> identifiers;
-
-	private String productKey;
-
 	private String iotId;
 
 	private String iotInstanceId;
 
+	private List<String> identifiers;
+
+	private String productKey;
+
 	private String deviceName;
+
+	private String functionBlockId;
 	public QueryDeviceDesiredPropertyRequest() {
-		super("Iot", "2018-01-20", "QueryDeviceDesiredProperty", "Iot");
+		super("Iot", "2018-01-20", "QueryDeviceDesiredProperty");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
 	}
 
 	public List<String> getIdentifiers() {
@@ -68,28 +92,6 @@ public class QueryDeviceDesiredPropertyRequest extends RpcAcsRequest<QueryDevice
 		}
 	}
 
-	public String getIotId() {
-		return this.iotId;
-	}
-
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
-		}
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
-		}
-	}
-
 	public String getDeviceName() {
 		return this.deviceName;
 	}
@@ -98,6 +100,17 @@ public class QueryDeviceDesiredPropertyRequest extends RpcAcsRequest<QueryDevice
 		this.deviceName = deviceName;
 		if(deviceName != null){
 			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
 		}
 	}
 

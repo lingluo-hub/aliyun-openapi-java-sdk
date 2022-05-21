@@ -37,6 +37,8 @@ public class CreateVpcRequest extends RpcAcsRequest<CreateVpcResponse> {
 
 	private String resourceGroupId;
 
+	private String ipv6Isp;
+
 	private String userCidr;
 
 	private Boolean dryRun;
@@ -51,7 +53,7 @@ public class CreateVpcRequest extends RpcAcsRequest<CreateVpcResponse> {
 
 	private String cidrBlock;
 	public CreateVpcRequest() {
-		super("Vpc", "2016-04-28", "CreateVpc", "Vpc");
+		super("Vpc", "2016-04-28", "CreateVpc", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -122,6 +124,17 @@ public class CreateVpcRequest extends RpcAcsRequest<CreateVpcResponse> {
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getIpv6Isp() {
+		return this.ipv6Isp;
+	}
+
+	public void setIpv6Isp(String ipv6Isp) {
+		this.ipv6Isp = ipv6Isp;
+		if(ipv6Isp != null){
+			putQueryParameter("Ipv6Isp", ipv6Isp);
 		}
 	}
 

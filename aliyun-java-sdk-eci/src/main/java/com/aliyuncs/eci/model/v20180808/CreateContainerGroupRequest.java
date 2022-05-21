@@ -28,66 +28,110 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		super("Eci", "2018-08-08", "CreateContainerGroup", "eci");
 	}
 
-	private Float cpu;
-
-	private Float memory;
-
-	private List<Container> containers;
-
 	private Long resourceOwnerId;
 
-	private String securityGroupId;
-
-	private List<Container> initContainers;
-
-	private List<ImageRegistryCredential> imageRegistryCredentials;
-
-	private List<Tag> tags;
-
-	private String eipInstanceId;
-
 	private String resourceOwnerAccount;
-
-	private String restartPolicy;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
-	private String vSwitchId;
+	private String zoneId;
 
-	private List<Volume> volumes;
+	private String securityGroupId;
+
+	private String vSwitchId;
 
 	private String containerGroupName;
 
-	private String zoneId;
+	private String restartPolicy;
 
-	private DnsConfig dnsConfig;
+	private String eipInstanceId;
 
-	private String dnsPolicy;
+	private Float cpu;
 
-	private List<HostAliase> hostAliases;
-
-	private Boolean slsEnable;
-
-	private String clientToken;
-
-	private String imageSnapshotId;
-
-	private Boolean autoMatchImageCache;
+	private Float memory;
 
 	private String resourceGroupId;
 
+	private String dnsPolicy;
+
+	private String clientToken;
+
 	private String instanceType;
 
-	private List<SecurityContextSysctl> securityContextSysctls;
+	private Boolean slsEnable;
+
+	private String imageSnapshotId;
 
 	private String ramRoleName;
 
-	private List<String> ntpServers;
-
 	private Long terminationGracePeriodSeconds;
 
+	private Boolean autoMatchImageCache;
+
+	private Integer ipv6AddressCount;
+
+	private Integer activeDeadlineSeconds;
+
+	private String spotStrategy;
+
+	private Float spotPriceLimit;
+
+	private Integer spotDuration;
+
+	private String scheduleStrategy;
+
+	private String corePattern;
+
+	private Boolean autoCreateEip;
+
+	private Integer eipBandwidth;
+
+	private String eipISP;
+
+	private String eipCommonBandwidthPackage;
+
+	private String hostName;
+
+	private Integer cpuOptionsCore;
+
+	private Integer cpuOptionsHt;
+
+	private Integer ephemeralStorage;
+
+	private List<Tag> tags;
+
+	private List<ImageRegistryCredential> imageRegistryCredentials;
+
+	private List<Container> containers;
+
+	private List<Volume> volumes;
+
+	private List<Container> initContainers;
+
+	private DnsConfig dnsConfig;
+
+	private List<HostAliase> hostAliases;
+
+	private List<Arn> arns;
+
+	private List<SecurityContextSysctl> securityContextSysctls;
+
+	private List<String> ntpServers;
+
+	private List<AcrRegistryInfo> acrRegistryInfos;
+
+    public Integer getEphemeralStorage() {
+        return this.ephemeralStorage;
+    }
+
+    public void setEphemeralStorage(Integer ephemeralStorage) {
+        this.ephemeralStorage = ephemeralStorage;
+        if (ephemeralStorage != null) {
+            putQueryParameter("EphemeralStorage", ephemeralStorage);
+        }
+    }
 
 	public Float getCpu() {
 		return cpu;
@@ -111,6 +155,138 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		}
 	}
 
+	public String getSpotStrategy() {
+		return spotStrategy;
+	}
+
+	public void setSpotStrategy(String spotStrategy) {
+		this.spotStrategy = spotStrategy;
+		if (spotStrategy != null) {
+			putQueryParameter("SpotStrategy", spotStrategy);
+		}
+	}
+
+	public Float getSpotPriceLimit() {
+		return spotPriceLimit;
+	}
+
+	public void setSpotPriceLimit(Float spotPriceLimit) {
+		this.spotPriceLimit = spotPriceLimit;
+		if (spotPriceLimit != null) {
+			putQueryParameter("SpotPriceLimit", spotPriceLimit);
+		}
+	}
+
+	public Integer getSpotDuration() {
+		return this.spotDuration;
+	}
+
+	public void setSpotDuration(Integer spotDuration) {
+		this.spotDuration = spotDuration;
+		if (null != spotDuration) {
+			putQueryParameter("SpotDuration", spotDuration);
+		}
+	}
+
+	public String getScheduleStrategy() {
+		return this.scheduleStrategy;
+	}
+
+	public void setScheduleStrategy(String scheduleStrategy) {
+		this.scheduleStrategy = scheduleStrategy;
+		if (null != scheduleStrategy) {
+			putQueryParameter("ScheduleStrategy", scheduleStrategy);
+		}
+	}
+
+	public String getCorePattern() {
+		return this.corePattern;
+	}
+
+	public void setCorePattern(String corePattern) {
+		this.corePattern = corePattern;
+		if (null != corePattern) {
+			putQueryParameter("CorePattern", corePattern);
+		}
+	}
+
+
+	public Boolean getAutoCreateEip() {
+		return this.autoCreateEip;
+	}
+
+	public void setAutoCreateEip(Boolean autoCreateEip) {
+		this.autoCreateEip = autoCreateEip;
+		if (null != autoCreateEip) {
+			putQueryParameter("AutoCreateEip", autoCreateEip);
+		}
+	}
+
+	public Integer getEipBandwidth() {
+		return this.eipBandwidth;
+	}
+
+	public void setEipBandwidth(Integer eipBandwidth) {
+		this.eipBandwidth = eipBandwidth;
+		if (null != eipBandwidth) {
+			putQueryParameter("EipBandwidth", eipBandwidth);
+		}
+	}
+
+	public String getEipISP() {
+		return this.eipISP;
+	}
+
+	public void setEipISP(String eipISP) {
+		this.eipISP = eipISP;
+		if (null != eipISP) {
+			putQueryParameter("EipISP", eipISP);
+		}
+	}
+
+	public String getEipCommonBandwidthPackage() {
+		return this.eipCommonBandwidthPackage;
+	}
+
+	public void setEipCommonBandwidthPackage(String eipCommonBandwidthPackage) {
+		this.eipCommonBandwidthPackage = eipCommonBandwidthPackage;
+		if (null != eipCommonBandwidthPackage) {
+			putQueryParameter("EipCommonBandwidthPackage", eipCommonBandwidthPackage);
+		}
+	}
+
+	public String getHostName() {
+		return this.hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+		if (null != hostName) {
+			putQueryParameter("HostName", hostName);
+		}
+	}
+
+	public Integer getCpuOptionsCore() {
+		return this.cpuOptionsCore;
+	}
+
+	public void setCpuOptionsCore(Integer cpuOptionsCore) {
+		this.cpuOptionsCore = cpuOptionsCore;
+		if (null != cpuOptionsCore) {
+			putQueryParameter("CpuOptionsCore", cpuOptionsCore);
+		}
+	}
+
+	public Integer getCpuOptionsHt() {
+		return this.cpuOptionsHt;
+	}
+
+	public void setCpuOptionsHt(Integer cpuOptionsHt) {
+		this.cpuOptionsHt = cpuOptionsHt;
+		if (null != cpuOptionsHt) {
+			putQueryParameter("CpuOptionsHt", cpuOptionsHt);
+		}
+	}
 
 	public List<Container> getContainers() {
 		return this.containers;
@@ -324,7 +500,7 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 	public void setRamRoleName(String ramRoleName) {
 		this.ramRoleName = ramRoleName;
 		if (ramRoleName != null) {
-			putQueryParameter("ramRoleName", ramRoleName);
+			putQueryParameter("RamRoleName", ramRoleName);
 		}
 	}
 
@@ -559,6 +735,11 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 				putQueryParameter("Volume." + (depth1 + 1) + ".DiskVolume.DiskId", volumes.get(depth1).getDiskVolumeDiskId());
 				putQueryParameter("Volume." + (depth1 + 1) + ".DiskVolume.FsType", volumes.get(depth1).getDiskVolumeFsType());
 				putQueryParameter("Volume." + (depth1 + 1) + ".DiskVolume.DiskSize", volumes.get(depth1).getDiskVolumeDiskSize());
+				putQueryParameter("Volume." + (depth1 + 1) + ".FlexVolume.FsType", volumes.get(depth1).getFlexVolumeFsType());
+				putQueryParameter("Volume." + (depth1 + 1) + ".FlexVolume.Options", volumes.get(depth1).getFlexVolumeOptions());
+				putQueryParameter("Volume." + (depth1 + 1) + ".FlexVolume.Driver", volumes.get(depth1).getFlexVolumeDriver());
+				putQueryParameter("Volume." + (depth1 + 1) + ".HostPathVolume.Path", volumes.get(depth1).getHostPathVolumePath());
+				putQueryParameter("Volume." + (depth1 + 1) + ".HostPathVolume.Type", volumes.get(depth1).getHostPathVolumeType());
 			}
 		}
 	}
@@ -638,6 +819,21 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		}
 	}
 
+	public List<Arn> getArns() {
+		return this.arns;
+	}
+
+	public void setArns(List<Arn> arns) {
+		this.arns = arns;
+		if (null != arns) {
+			for (int depth1 = 0; depth1 < arns.size(); depth1++) {
+				putQueryParameter("Arn." + (depth1 + 1) + ".RoleArn", arns.get(depth1).getRoleArn());
+				putQueryParameter("Arn." + (depth1 + 1) + ".RoleType", arns.get(depth1).getRoleType());
+				putQueryParameter("Arn." + (depth1 + 1) + ".AssumeRoleFor", arns.get(depth1).getAssumeRoleFor());
+			}
+		}
+	}
+
 	public Boolean getSlsEnable() {
 		return slsEnable;
 	}
@@ -680,6 +876,28 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		this.autoMatchImageCache = autoMatchImageCache;
 		if (autoMatchImageCache != null) {
 			putQueryParameter("AutoMatchImageCache", autoMatchImageCache.toString());
+		}
+	}
+
+	public Integer getIpv6AddressCount() {
+		return this.ipv6AddressCount;
+	}
+
+	public void setIpv6AddressCount(Integer ipv6AddressCount) {
+		this.ipv6AddressCount = ipv6AddressCount;
+		if (null != ipv6AddressCount) {
+			putQueryParameter("Ipv6AddressCount", ipv6AddressCount);
+		}
+	}
+
+	public Integer getActiveDeadlineSeconds() {
+		return this.activeDeadlineSeconds;
+	}
+
+	public void setActiveDeadlineSeconds(Integer activeDeadlineSeconds) {
+		this.activeDeadlineSeconds = activeDeadlineSeconds;
+		if (null != activeDeadlineSeconds) {
+			putQueryParameter("ActiveDeadlineSeconds", activeDeadlineSeconds);
 		}
 	}
 
@@ -1367,6 +1585,70 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		}
 	}
 
+
+	public List<AcrRegistryInfo> getAcrRegistryInfos() {
+        return this.acrRegistryInfos;
+    }
+
+    public void setAcrRegistryInfos(List<AcrRegistryInfo> acrRegistryInfos) {
+        this.acrRegistryInfos = acrRegistryInfos;
+        if (acrRegistryInfos != null) {
+            for (int depth1 = 0; depth1 < acrRegistryInfos.size(); depth1++) {
+                if (acrRegistryInfos.get(depth1).getDomains() != null) {
+                    for (int i = 0; i < acrRegistryInfos.get(depth1).getDomains().size(); i++) {
+                        putQueryParameter("AcrRegistryInfo." + (depth1 + 1) + ".Domain." + (i + 1), acrRegistryInfos.get(depth1).getDomains().get(i));
+                    }
+                }
+                putQueryParameter("AcrRegistryInfo." + (depth1 + 1) + ".InstanceId", acrRegistryInfos.get(depth1).getInstanceId());
+                putQueryParameter("AcrRegistryInfo." + (depth1 + 1) + ".InstanceName", acrRegistryInfos.get(depth1).getInstanceName());
+                putQueryParameter("AcrRegistryInfo." + (depth1 + 1) + ".RegionId", acrRegistryInfos.get(depth1).getRegionId());
+            }
+        }
+    }
+
+    public static class AcrRegistryInfo {
+
+        private String instanceName;
+
+        private String instanceId;
+
+        private String regionId;
+
+        private List<String> domains;
+
+        public List<String> getDomains() {
+            return this.domains;
+        }
+
+        public void setDomains(List<String> domains) {
+            this.domains = domains;
+        }
+
+        public String getInstanceName() {
+            return this.instanceName;
+        }
+
+        public void setInstanceName(String instanceName) {
+            this.instanceName = instanceName;
+        }
+
+        public String getInstanceId() {
+            return this.instanceId;
+        }
+
+        public void setInstanceId(String instanceId) {
+            this.instanceId = instanceId;
+        }
+
+        public String getRegionId() {
+            return this.regionId;
+        }
+
+        public void setRegionId(String regionId) {
+            this.regionId = regionId;
+        }
+    }
+
 	public static class Tag {
 
 		private String key;
@@ -1411,6 +1693,16 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 		private String diskVolumeFsType;
 
 		private Integer diskVolumeDiskSize;
+
+		private String flexVolumeFsType;
+
+		private String flexVolumeOptions;
+
+		private String flexVolumeDriver;
+
+		private String hostPathVolumePath;
+
+		private String hostPathVolumeType;
 
 		private String type;
 
@@ -1492,6 +1784,46 @@ public class CreateContainerGroupRequest extends RpcAcsRequest<CreateContainerGr
 
 		public void setConfigFileVolumeDefaultModel(Integer configFileVolumeDefaultModel) {
 			this.configFileVolumeDefaultModel = configFileVolumeDefaultModel;
+		}
+
+		public String getFlexVolumeFsType() {
+			return flexVolumeFsType;
+		}
+
+		public void setFlexVolumeFsType(String flexVolumeFsType) {
+			this.flexVolumeFsType = flexVolumeFsType;
+		}
+
+		public String getFlexVolumeOptions() {
+			return flexVolumeOptions;
+		}
+
+		public void setFlexVolumeOptions(String flexVolumeOptions) {
+			this.flexVolumeOptions = flexVolumeOptions;
+		}
+
+		public String getFlexVolumeDriver() {
+			return flexVolumeDriver;
+		}
+
+		public void setFlexVolumeDriver(String flexVolumeDriver) {
+			this.flexVolumeDriver = flexVolumeDriver;
+		}
+
+		public String getHostPathVolumePath() {
+			return this.hostPathVolumePath;
+		}
+
+		public void setHostPathVolumePath(String hostPathVolumePath) {
+			this.hostPathVolumePath = hostPathVolumePath;
+		}
+
+		public String getHostPathVolumeType() {
+			return this.hostPathVolumeType;
+		}
+
+		public void setHostPathVolumeType(String hostPathVolumeType) {
+			this.hostPathVolumeType = hostPathVolumeType;
 		}
 
 		public String getType() {

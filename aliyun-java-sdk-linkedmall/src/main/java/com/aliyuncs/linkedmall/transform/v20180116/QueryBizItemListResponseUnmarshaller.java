@@ -20,6 +20,7 @@ import java.util.List;
 import com.aliyuncs.linkedmall.model.v20180116.QueryBizItemListResponse;
 import com.aliyuncs.linkedmall.model.v20180116.QueryBizItemListResponse.Item;
 import com.aliyuncs.linkedmall.model.v20180116.QueryBizItemListResponse.Item.Sku;
+import com.aliyuncs.linkedmall.model.v20180116.QueryBizItemListResponse.Item.Sku.GradePriceModel;
 import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
 
@@ -49,6 +50,7 @@ public class QueryBizItemListResponseUnmarshaller {
 			item.setExtJson(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].ExtJson"));
 			item.setSellerId(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SellerId"));
 			item.setLmItemId(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].LmItemId"));
+			item.setReservePrice1(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].ReservePrice"));
 
 			List<Sku> skuList = new ArrayList<Sku>();
 			for (int j = 0; j < _ctx.lengthValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList.Length"); j++) {
@@ -62,6 +64,40 @@ public class QueryBizItemListResponseUnmarshaller {
 				sku.setBenefitId(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].BenefitId"));
 				sku.setCanSell(_ctx.booleanValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].CanSell"));
 				sku.setCustomizedAttributeMap(_ctx.mapValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].CustomizedAttributeMap"));
+				sku.setTaoBaoCurrentPrice(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].TaoBaoCurrentPrice"));
+
+				List<String> userLabelList = new ArrayList<String>();
+				for (int k = 0; k < _ctx.lengthValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].UserLabelList.Length"); k++) {
+					userLabelList.add(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].UserLabelList["+ k +"]"));
+				}
+				sku.setUserLabelList(userLabelList);
+
+				List<GradePriceModel> gradePriceModels = new ArrayList<GradePriceModel>();
+				for (int k = 0; k < _ctx.lengthValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels.Length"); k++) {
+					GradePriceModel gradePriceModel = new GradePriceModel();
+					gradePriceModel.setCharacteristicCode(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].CharacteristicCode"));
+					gradePriceModel.setCharacteristicName(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].CharacteristicName"));
+					gradePriceModel.setSubBizCode(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].SubBizCode"));
+					gradePriceModel.setCanBuy(_ctx.booleanValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].CanBuy"));
+					gradePriceModel.setExclusive(_ctx.booleanValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].Exclusive"));
+					gradePriceModel.setRecommend(_ctx.booleanValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].Recommend"));
+					gradePriceModel.setPriceCent(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].PriceCent"));
+					gradePriceModel.setPointsAmount(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].PointsAmount"));
+					gradePriceModel.setPoints(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].Points"));
+					gradePriceModel.setPointPrice(_ctx.longValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].PointPrice"));
+					gradePriceModel.setShowName(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].ShowName"));
+					gradePriceModel.setAccessUrl(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].AccessUrl"));
+					gradePriceModel.setIcon(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].Icon"));
+
+					List<String> userLabelList2 = new ArrayList<String>();
+					for (int l = 0; l < _ctx.lengthValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].UserLabelList.Length"); l++) {
+						userLabelList2.add(_ctx.stringValue("QueryBizItemListResponse.ItemList["+ i +"].SkuList["+ j +"].GradePriceModels["+ k +"].UserLabelList["+ l +"]"));
+					}
+					gradePriceModel.setUserLabelList2(userLabelList2);
+
+					gradePriceModels.add(gradePriceModel);
+				}
+				sku.setGradePriceModels(gradePriceModels);
 
 				skuList.add(sku);
 			}

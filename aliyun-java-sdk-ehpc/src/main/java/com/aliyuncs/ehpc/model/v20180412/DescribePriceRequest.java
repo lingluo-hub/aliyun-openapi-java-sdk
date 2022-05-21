@@ -34,7 +34,7 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String orderType;
 	public DescribePriceRequest() {
-		super("EHPC", "2018-04-12", "DescribePrice", "ehs");
+		super("EHPC", "2018-04-12", "DescribePrice");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -54,7 +54,10 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 				putQueryParameter("Commodities." + (depth1 + 1) + ".Period" , commoditiess.get(depth1).getPeriod());
 				putQueryParameter("Commodities." + (depth1 + 1) + ".NodeType" , commoditiess.get(depth1).getNodeType());
 				putQueryParameter("Commodities." + (depth1 + 1) + ".SystemDiskCategory" , commoditiess.get(depth1).getSystemDiskCategory());
+				putQueryParameter("Commodities." + (depth1 + 1) + ".InternetChargeType" , commoditiess.get(depth1).getInternetChargeType());
+				putQueryParameter("Commodities." + (depth1 + 1) + ".SystemDiskPerformanceLevel" , commoditiess.get(depth1).getSystemDiskPerformanceLevel());
 				putQueryParameter("Commodities." + (depth1 + 1) + ".SystemDiskSize" , commoditiess.get(depth1).getSystemDiskSize());
+				putQueryParameter("Commodities." + (depth1 + 1) + ".InternetMaxBandWidthOut" , commoditiess.get(depth1).getInternetMaxBandWidthOut());
 				putQueryParameter("Commodities." + (depth1 + 1) + ".InstanceType" , commoditiess.get(depth1).getInstanceType());
 				putQueryParameter("Commodities." + (depth1 + 1) + ".NetworkType" , commoditiess.get(depth1).getNetworkType());
 			}
@@ -104,7 +107,13 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 		private String systemDiskCategory;
 
+		private String internetChargeType;
+
+		private String systemDiskPerformanceLevel;
+
 		private Integer systemDiskSize;
+
+		private Integer internetMaxBandWidthOut;
 
 		private String instanceType;
 
@@ -142,12 +151,36 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 			this.systemDiskCategory = systemDiskCategory;
 		}
 
+		public String getInternetChargeType() {
+			return this.internetChargeType;
+		}
+
+		public void setInternetChargeType(String internetChargeType) {
+			this.internetChargeType = internetChargeType;
+		}
+
+		public String getSystemDiskPerformanceLevel() {
+			return this.systemDiskPerformanceLevel;
+		}
+
+		public void setSystemDiskPerformanceLevel(String systemDiskPerformanceLevel) {
+			this.systemDiskPerformanceLevel = systemDiskPerformanceLevel;
+		}
+
 		public Integer getSystemDiskSize() {
 			return this.systemDiskSize;
 		}
 
 		public void setSystemDiskSize(Integer systemDiskSize) {
 			this.systemDiskSize = systemDiskSize;
+		}
+
+		public Integer getInternetMaxBandWidthOut() {
+			return this.internetMaxBandWidthOut;
+		}
+
+		public void setInternetMaxBandWidthOut(Integer internetMaxBandWidthOut) {
+			this.internetMaxBandWidthOut = internetMaxBandWidthOut;
 		}
 
 		public String getInstanceType() {

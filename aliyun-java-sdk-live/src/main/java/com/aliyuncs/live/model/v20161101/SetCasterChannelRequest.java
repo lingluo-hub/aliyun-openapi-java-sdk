@@ -23,15 +23,9 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class SetCasterChannelRequest extends RpcAcsRequest<SetCasterChannelResponse> {
-	
-	public SetCasterChannelRequest() {
-		super("live", "2016-11-01", "SetCasterChannel", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
+
+	private String faceBeauty;
 
 	private Integer seekOffset;
 
@@ -44,6 +38,25 @@ public class SetCasterChannelRequest extends RpcAcsRequest<SetCasterChannelRespo
 	private Long ownerId;
 
 	private String channelId;
+	public SetCasterChannelRequest() {
+		super("live", "2016-11-01", "SetCasterChannel", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getFaceBeauty() {
+		return this.faceBeauty;
+	}
+
+	public void setFaceBeauty(String faceBeauty) {
+		this.faceBeauty = faceBeauty;
+		if(faceBeauty != null){
+			putQueryParameter("FaceBeauty", faceBeauty);
+		}
+	}
 
 	public Integer getSeekOffset() {
 		return this.seekOffset;

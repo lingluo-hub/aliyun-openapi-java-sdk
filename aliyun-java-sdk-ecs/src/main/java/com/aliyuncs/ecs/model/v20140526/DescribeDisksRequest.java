@@ -62,15 +62,21 @@ public class DescribeDisksRequest extends RpcAcsRequest<DescribeDisksResponse> {
 
 	private String zoneId;
 
+	private Integer maxResults;
+
 	private String status;
 
 	private String snapshotId;
 
 	private Integer pageNumber;
 
+	private String nextToken;
+
 	private Integer pageSize;
 
 	private String diskIds;
+
+	private String multiAttach;
 
 	private Boolean deleteWithInstance;
 
@@ -207,7 +213,7 @@ public class DescribeDisksRequest extends RpcAcsRequest<DescribeDisksResponse> {
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
@@ -303,6 +309,17 @@ public class DescribeDisksRequest extends RpcAcsRequest<DescribeDisksResponse> {
 		}
 	}
 
+	public Integer getMaxResults() {
+		return this.maxResults;
+	}
+
+	public void setMaxResults(Integer maxResults) {
+		this.maxResults = maxResults;
+		if(maxResults != null){
+			putQueryParameter("MaxResults", maxResults.toString());
+		}
+	}
+
 	public String getStatus() {
 		return this.status;
 	}
@@ -336,6 +353,17 @@ public class DescribeDisksRequest extends RpcAcsRequest<DescribeDisksResponse> {
 		}
 	}
 
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
+		if(nextToken != null){
+			putQueryParameter("NextToken", nextToken);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -355,6 +383,17 @@ public class DescribeDisksRequest extends RpcAcsRequest<DescribeDisksResponse> {
 		this.diskIds = diskIds;
 		if(diskIds != null){
 			putQueryParameter("DiskIds", diskIds);
+		}
+	}
+
+	public String getMultiAttach() {
+		return this.multiAttach;
+	}
+
+	public void setMultiAttach(String multiAttach) {
+		this.multiAttach = multiAttach;
+		if(multiAttach != null){
+			putQueryParameter("MultiAttach", multiAttach);
 		}
 	}
 

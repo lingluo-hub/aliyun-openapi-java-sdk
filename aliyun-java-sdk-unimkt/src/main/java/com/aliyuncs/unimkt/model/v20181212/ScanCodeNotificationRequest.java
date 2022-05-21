@@ -32,6 +32,8 @@ public class ScanCodeNotificationRequest extends RpcAcsRequest<ScanCodeNotificat
 
 	private String commodityId;
 
+	private String tradeTimeStr;
+
 	private String holderId;
 
 	private String deviceType;
@@ -76,7 +78,7 @@ public class ScanCodeNotificationRequest extends RpcAcsRequest<ScanCodeNotificat
 
 	private String cid;
 	public ScanCodeNotificationRequest() {
-		super("UniMkt", "2018-12-12", "ScanCodeNotification", "1.0.0");
+		super("UniMkt", "2018-12-12", "ScanCodeNotification");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
 		try {
@@ -115,6 +117,17 @@ public class ScanCodeNotificationRequest extends RpcAcsRequest<ScanCodeNotificat
 		this.commodityId = commodityId;
 		if(commodityId != null){
 			putQueryParameter("CommodityId", commodityId);
+		}
+	}
+
+	public String getTradeTimeStr() {
+		return this.tradeTimeStr;
+	}
+
+	public void setTradeTimeStr(String tradeTimeStr) {
+		this.tradeTimeStr = tradeTimeStr;
+		if(tradeTimeStr != null){
+			putQueryParameter("TradeTimeStr", tradeTimeStr);
 		}
 	}
 

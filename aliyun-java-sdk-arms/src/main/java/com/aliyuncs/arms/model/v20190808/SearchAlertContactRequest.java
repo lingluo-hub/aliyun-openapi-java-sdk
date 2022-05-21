@@ -27,7 +27,7 @@ public class SearchAlertContactRequest extends RpcAcsRequest<SearchAlertContactR
 
 	private String currentPage;
 
-	private String proxyUserId;
+	private String contactIds;
 
 	private String contactName;
 
@@ -37,7 +37,7 @@ public class SearchAlertContactRequest extends RpcAcsRequest<SearchAlertContactR
 
 	private String email;
 	public SearchAlertContactRequest() {
-		super("ARMS", "2019-08-08", "SearchAlertContact", "arms");
+		super("ARMS", "2019-08-08", "SearchAlertContact");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -56,14 +56,14 @@ public class SearchAlertContactRequest extends RpcAcsRequest<SearchAlertContactR
 		}
 	}
 
-	public String getProxyUserId() {
-		return this.proxyUserId;
+	public String getContactIds() {
+		return this.contactIds;
 	}
 
-	public void setProxyUserId(String proxyUserId) {
-		this.proxyUserId = proxyUserId;
-		if(proxyUserId != null){
-			putQueryParameter("ProxyUserId", proxyUserId);
+	public void setContactIds(String contactIds) {
+		this.contactIds = contactIds;
+		if(contactIds != null){
+			putQueryParameter("ContactIds", contactIds);
 		}
 	}
 

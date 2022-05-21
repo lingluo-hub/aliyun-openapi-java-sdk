@@ -24,6 +24,16 @@ import com.aliyuncs.edas.Endpoint;
  */
 public class ListApplicationRequest extends RoaAcsRequest<ListApplicationResponse> {
 	   
+
+	private String resourceGroupId;
+
+	private String appName;
+
+	private String logicalRegionId;
+
+	private String clusterId;
+
+	private String logicalRegionIdFilter;
 	public ListApplicationRequest() {
 		super("Edas", "2017-08-01", "ListApplication", "Edas");
 		setUriPattern("/pop/v5/app/app_list");
@@ -32,6 +42,61 @@ public class ListApplicationRequest extends RoaAcsRequest<ListApplicationRespons
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getAppName() {
+		return this.appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
+		if(appName != null){
+			putQueryParameter("AppName", appName);
+		}
+	}
+
+	public String getLogicalRegionId() {
+		return this.logicalRegionId;
+	}
+
+	public void setLogicalRegionId(String logicalRegionId) {
+		this.logicalRegionId = logicalRegionId;
+		if(logicalRegionId != null){
+			putQueryParameter("LogicalRegionId", logicalRegionId);
+		}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getLogicalRegionIdFilter() {
+		return this.logicalRegionIdFilter;
+	}
+
+	public void setLogicalRegionIdFilter(String logicalRegionIdFilter) {
+		this.logicalRegionIdFilter = logicalRegionIdFilter;
+		if(logicalRegionIdFilter != null){
+			putQueryParameter("LogicalRegionIdFilter", logicalRegionIdFilter);
+		}
 	}
 
 	@Override

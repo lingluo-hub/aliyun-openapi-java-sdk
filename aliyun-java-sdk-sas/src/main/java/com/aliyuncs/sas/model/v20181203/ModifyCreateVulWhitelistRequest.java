@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -27,9 +28,15 @@ public class ModifyCreateVulWhitelistRequest extends RpcAcsRequest<ModifyCreateV
 	private String reason;
 
 	private String whitelist;
+
+	private String targetInfo;
 	public ModifyCreateVulWhitelistRequest() {
-		super("Sas", "2018-12-03", "ModifyCreateVulWhitelist", "sas");
+		super("Sas", "2018-12-03", "ModifyCreateVulWhitelist");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getReason() {
@@ -51,6 +58,17 @@ public class ModifyCreateVulWhitelistRequest extends RpcAcsRequest<ModifyCreateV
 		this.whitelist = whitelist;
 		if(whitelist != null){
 			putQueryParameter("Whitelist", whitelist);
+		}
+	}
+
+	public String getTargetInfo() {
+		return this.targetInfo;
+	}
+
+	public void setTargetInfo(String targetInfo) {
+		this.targetInfo = targetInfo;
+		if(targetInfo != null){
+			putQueryParameter("TargetInfo", targetInfo);
 		}
 	}
 

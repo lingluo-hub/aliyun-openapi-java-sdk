@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -29,9 +30,15 @@ public class DescribeRiskCheckSummaryRequest extends RpcAcsRequest<DescribeRiskC
 	private String sourceIp;
 
 	private String lang;
+
+	private String resourceDirectoryAccountId;
 	public DescribeRiskCheckSummaryRequest() {
-		super("Sas", "2018-12-03", "DescribeRiskCheckSummary", "sas");
+		super("Sas", "2018-12-03", "DescribeRiskCheckSummary");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -64,6 +71,17 @@ public class DescribeRiskCheckSummaryRequest extends RpcAcsRequest<DescribeRiskC
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public String getResourceDirectoryAccountId() {
+		return this.resourceDirectoryAccountId;
+	}
+
+	public void setResourceDirectoryAccountId(String resourceDirectoryAccountId) {
+		this.resourceDirectoryAccountId = resourceDirectoryAccountId;
+		if(resourceDirectoryAccountId != null){
+			putQueryParameter("ResourceDirectoryAccountId", resourceDirectoryAccountId);
 		}
 	}
 

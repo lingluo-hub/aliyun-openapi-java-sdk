@@ -28,6 +28,8 @@ public class UntagResourcesRequest extends RpcAcsRequest<UntagResourcesResponse>
 
 	private Long resourceOwnerId;
 
+	private Boolean all;
+
 	private List<String> resourceIds;
 
 	private String resourceOwnerAccount;
@@ -40,7 +42,7 @@ public class UntagResourcesRequest extends RpcAcsRequest<UntagResourcesResponse>
 
 	private List<String> tagKeys;
 	public UntagResourcesRequest() {
-		super("Cbn", "2017-09-12", "UntagResources", "Cbn");
+		super("Cbn", "2017-09-12", "UntagResources");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -56,6 +58,17 @@ public class UntagResourcesRequest extends RpcAcsRequest<UntagResourcesResponse>
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getAll() {
+		return this.all;
+	}
+
+	public void setAll(Boolean all) {
+		this.all = all;
+		if(all != null){
+			putQueryParameter("All", all.toString());
 		}
 	}
 

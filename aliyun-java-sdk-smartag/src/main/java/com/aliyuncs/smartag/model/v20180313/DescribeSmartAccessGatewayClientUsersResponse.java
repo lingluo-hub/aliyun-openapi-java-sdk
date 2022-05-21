@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSmartAccessGatewayClientUsersResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<User> users;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeSmartAccessGatewayClientUsersResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<User> getUsers() {
@@ -77,39 +77,17 @@ public class DescribeSmartAccessGatewayClientUsersResponse extends AcsResponse {
 
 	public static class User {
 
-		private String clientIp;
-
-		private String userMail;
-
-		private String userName;
-
 		private Integer bandwidth;
 
 		private Integer state;
 
-		public String getClientIp() {
-			return this.clientIp;
-		}
+		private String clientIp;
 
-		public void setClientIp(String clientIp) {
-			this.clientIp = clientIp;
-		}
+		private String userName;
 
-		public String getUserMail() {
-			return this.userMail;
-		}
+		private String userMail;
 
-		public void setUserMail(String userMail) {
-			this.userMail = userMail;
-		}
-
-		public String getUserName() {
-			return this.userName;
-		}
-
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
+		private Long accelerateBandwidth;
 
 		public Integer getBandwidth() {
 			return this.bandwidth;
@@ -125,6 +103,38 @@ public class DescribeSmartAccessGatewayClientUsersResponse extends AcsResponse {
 
 		public void setState(Integer state) {
 			this.state = state;
+		}
+
+		public String getClientIp() {
+			return this.clientIp;
+		}
+
+		public void setClientIp(String clientIp) {
+			this.clientIp = clientIp;
+		}
+
+		public String getUserName() {
+			return this.userName;
+		}
+
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getUserMail() {
+			return this.userMail;
+		}
+
+		public void setUserMail(String userMail) {
+			this.userMail = userMail;
+		}
+
+		public Long getAccelerateBandwidth() {
+			return this.accelerateBandwidth;
+		}
+
+		public void setAccelerateBandwidth(Long accelerateBandwidth) {
+			this.accelerateBandwidth = accelerateBandwidth;
 		}
 	}
 

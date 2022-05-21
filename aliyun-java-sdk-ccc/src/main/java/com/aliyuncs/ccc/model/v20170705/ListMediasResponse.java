@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListMediasResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Medias medias;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListMediasResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Medias getMedias() {
@@ -87,21 +87,13 @@ public class ListMediasResponse extends AcsResponse {
 
 	public static class Medias {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<Media> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListMediasResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<Media> getList() {
 			return this.list;
 		}
@@ -129,46 +129,30 @@ public class ListMediasResponse extends AcsResponse {
 
 		public static class Media {
 
-			private String instance;
-
-			private String name;
-
-			private String description;
+			private String status;
 
 			private String type;
 
-			private String content;
-
 			private String filePath;
+
+			private String instance;
+
+			private String description;
 
 			private String fileName;
 
+			private String name;
+
+			private String content;
+
 			private String ossFileName;
 
-			private String status;
-
-			public String getInstance() {
-				return this.instance;
+			public String getStatus() {
+				return this.status;
 			}
 
-			public void setInstance(String instance) {
-				this.instance = instance;
-			}
-
-			public String getName() {
-				return this.name;
-			}
-
-			public void setName(String name) {
-				this.name = name;
-			}
-
-			public String getDescription() {
-				return this.description;
-			}
-
-			public void setDescription(String description) {
-				this.description = description;
+			public void setStatus(String status) {
+				this.status = status;
 			}
 
 			public String getType() {
@@ -179,20 +163,28 @@ public class ListMediasResponse extends AcsResponse {
 				this.type = type;
 			}
 
-			public String getContent() {
-				return this.content;
-			}
-
-			public void setContent(String content) {
-				this.content = content;
-			}
-
 			public String getFilePath() {
 				return this.filePath;
 			}
 
 			public void setFilePath(String filePath) {
 				this.filePath = filePath;
+			}
+
+			public String getInstance() {
+				return this.instance;
+			}
+
+			public void setInstance(String instance) {
+				this.instance = instance;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
 			}
 
 			public String getFileName() {
@@ -203,20 +195,28 @@ public class ListMediasResponse extends AcsResponse {
 				this.fileName = fileName;
 			}
 
+			public String getName() {
+				return this.name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+
+			public String getContent() {
+				return this.content;
+			}
+
+			public void setContent(String content) {
+				this.content = content;
+			}
+
 			public String getOssFileName() {
 				return this.ossFileName;
 			}
 
 			public void setOssFileName(String ossFileName) {
 				this.ossFileName = ossFileName;
-			}
-
-			public String getStatus() {
-				return this.status;
-			}
-
-			public void setStatus(String status) {
-				this.status = status;
 			}
 		}
 	}

@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.DescribeDeploymentSetsResponse;
 import com.aliyuncs.ecs.model.v20140526.DescribeDeploymentSetsResponse.DeploymentSet;
+import com.aliyuncs.ecs.model.v20140526.DescribeDeploymentSetsResponse.DeploymentSet.Capacity;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,29 +28,41 @@ public class DescribeDeploymentSetsResponseUnmarshaller {
 	public static DescribeDeploymentSetsResponse unmarshall(DescribeDeploymentSetsResponse describeDeploymentSetsResponse, UnmarshallerContext _ctx) {
 		
 		describeDeploymentSetsResponse.setRequestId(_ctx.stringValue("DescribeDeploymentSetsResponse.RequestId"));
-		describeDeploymentSetsResponse.setRegionId(_ctx.stringValue("DescribeDeploymentSetsResponse.RegionId"));
-		describeDeploymentSetsResponse.setTotalCount(_ctx.integerValue("DescribeDeploymentSetsResponse.TotalCount"));
-		describeDeploymentSetsResponse.setPageNumber(_ctx.integerValue("DescribeDeploymentSetsResponse.PageNumber"));
 		describeDeploymentSetsResponse.setPageSize(_ctx.integerValue("DescribeDeploymentSetsResponse.PageSize"));
+		describeDeploymentSetsResponse.setPageNumber(_ctx.integerValue("DescribeDeploymentSetsResponse.PageNumber"));
+		describeDeploymentSetsResponse.setTotalCount(_ctx.integerValue("DescribeDeploymentSetsResponse.TotalCount"));
+		describeDeploymentSetsResponse.setRegionId(_ctx.stringValue("DescribeDeploymentSetsResponse.RegionId"));
 
 		List<DeploymentSet> deploymentSets = new ArrayList<DeploymentSet>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeDeploymentSetsResponse.DeploymentSets.Length"); i++) {
 			DeploymentSet deploymentSet = new DeploymentSet();
-			deploymentSet.setDeploymentSetId(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetId"));
-			deploymentSet.setDeploymentSetDescription(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetDescription"));
-			deploymentSet.setDeploymentSetName(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetName"));
-			deploymentSet.setStrategy(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Strategy"));
-			deploymentSet.setDeploymentStrategy(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentStrategy"));
-			deploymentSet.setDomain(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Domain"));
-			deploymentSet.setGranularity(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Granularity"));
-			deploymentSet.setInstanceAmount(_ctx.integerValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].InstanceAmount"));
 			deploymentSet.setCreationTime(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].CreationTime"));
+			deploymentSet.setStrategy(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Strategy"));
+			deploymentSet.setDeploymentSetId(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetId"));
+			deploymentSet.setDeploymentStrategy(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentStrategy"));
+			deploymentSet.setDeploymentSetDescription(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetDescription"));
+			deploymentSet.setDomain(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Domain"));
+			deploymentSet.setGroupCount(_ctx.integerValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].GroupCount"));
+			deploymentSet.setGranularity(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Granularity"));
+			deploymentSet.setDeploymentSetName(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].DeploymentSetName"));
+			deploymentSet.setInstanceAmount(_ctx.integerValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].InstanceAmount"));
 
 			List<String> instanceIds = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].InstanceIds.Length"); j++) {
 				instanceIds.add(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].InstanceIds["+ j +"]"));
 			}
 			deploymentSet.setInstanceIds(instanceIds);
+
+			List<Capacity> capacities = new ArrayList<Capacity>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Capacities.Length"); j++) {
+				Capacity capacity = new Capacity();
+				capacity.setZoneId(_ctx.stringValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Capacities["+ j +"].ZoneId"));
+				capacity.setUsedAmount(_ctx.integerValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Capacities["+ j +"].UsedAmount"));
+				capacity.setAvailableAmount(_ctx.integerValue("DescribeDeploymentSetsResponse.DeploymentSets["+ i +"].Capacities["+ j +"].AvailableAmount"));
+
+				capacities.add(capacity);
+			}
+			deploymentSet.setCapacities(capacities);
 
 			deploymentSets.add(deploymentSet);
 		}

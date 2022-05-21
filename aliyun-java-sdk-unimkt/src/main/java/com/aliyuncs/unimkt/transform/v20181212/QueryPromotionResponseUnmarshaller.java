@@ -26,9 +26,9 @@ public class QueryPromotionResponseUnmarshaller {
 		queryPromotionResponse.setStatus(_ctx.booleanValue("QueryPromotionResponse.Status"));
 		queryPromotionResponse.setMsg(_ctx.stringValue("QueryPromotionResponse.Msg"));
 		queryPromotionResponse.setErrorCode(_ctx.stringValue("QueryPromotionResponse.ErrorCode"));
-		queryPromotionResponse.setUrl(_ctx.stringValue("QueryPromotionResponse.Url"));
 		queryPromotionResponse.setUnionAmount(_ctx.stringValue("QueryPromotionResponse.UnionAmount"));
 		queryPromotionResponse.setNoPromotionUrl(_ctx.stringValue("QueryPromotionResponse.NoPromotionUrl"));
+		queryPromotionResponse.setUrl(_ctx.stringValue("QueryPromotionResponse.Url"));
 	 
 	 	return queryPromotionResponse;
 	}

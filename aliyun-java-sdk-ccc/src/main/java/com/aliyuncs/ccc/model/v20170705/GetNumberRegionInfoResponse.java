@@ -24,31 +24,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetNumberRegionInfoResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private PhoneNumber phoneNumber;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -66,6 +50,22 @@ public class GetNumberRegionInfoResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public PhoneNumber getPhoneNumber() {
 		return this.phoneNumber;
 	}
@@ -78,9 +78,9 @@ public class GetNumberRegionInfoResponse extends AcsResponse {
 
 		private String number;
 
-		private String province;
-
 		private String city;
+
+		private String province;
 
 		public String getNumber() {
 			return this.number;
@@ -90,20 +90,20 @@ public class GetNumberRegionInfoResponse extends AcsResponse {
 			this.number = number;
 		}
 
-		public String getProvince() {
-			return this.province;
-		}
-
-		public void setProvince(String province) {
-			this.province = province;
-		}
-
 		public String getCity() {
 			return this.city;
 		}
 
 		public void setCity(String city) {
 			this.city = city;
+		}
+
+		public String getProvince() {
+			return this.province;
+		}
+
+		public void setProvince(String province) {
+			this.province = province;
 		}
 	}
 

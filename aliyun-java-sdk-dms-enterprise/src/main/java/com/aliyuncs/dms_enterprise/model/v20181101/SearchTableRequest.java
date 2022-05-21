@@ -25,11 +25,7 @@ import com.aliyuncs.dms_enterprise.Endpoint;
 public class SearchTableRequest extends RpcAcsRequest<SearchTableResponse> {
 	   
 
-	private String searchTarget;
-
-	private Integer pageSize;
-
-	private String envType;
+	private Boolean returnGuid;
 
 	private String searchKey;
 
@@ -38,45 +34,31 @@ public class SearchTableRequest extends RpcAcsRequest<SearchTableResponse> {
 	private Long tid;
 
 	private Integer pageNumber;
+
+	private String searchTarget;
+
+	private Integer pageSize;
+
+	private String envType;
+
+	private String dbType;
 	public SearchTableRequest() {
-		super("dms-enterprise", "2018-11-01", "SearchTable");
-		setMethod(MethodType.GET);
+		super("dms-enterprise", "2018-11-01", "SearchTable", "dms-enterprise");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
 
-	public String getSearchTarget() {
-		return this.searchTarget;
+	public Boolean getReturnGuid() {
+		return this.returnGuid;
 	}
 
-	public void setSearchTarget(String searchTarget) {
-		this.searchTarget = searchTarget;
-		if(searchTarget != null){
-			putQueryParameter("SearchTarget", searchTarget);
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getEnvType() {
-		return this.envType;
-	}
-
-	public void setEnvType(String envType) {
-		this.envType = envType;
-		if(envType != null){
-			putQueryParameter("EnvType", envType);
+	public void setReturnGuid(Boolean returnGuid) {
+		this.returnGuid = returnGuid;
+		if(returnGuid != null){
+			putQueryParameter("ReturnGuid", returnGuid.toString());
 		}
 	}
 
@@ -121,6 +103,50 @@ public class SearchTableRequest extends RpcAcsRequest<SearchTableResponse> {
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getSearchTarget() {
+		return this.searchTarget;
+	}
+
+	public void setSearchTarget(String searchTarget) {
+		this.searchTarget = searchTarget;
+		if(searchTarget != null){
+			putQueryParameter("SearchTarget", searchTarget);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getEnvType() {
+		return this.envType;
+	}
+
+	public void setEnvType(String envType) {
+		this.envType = envType;
+		if(envType != null){
+			putQueryParameter("EnvType", envType);
+		}
+	}
+
+	public String getDbType() {
+		return this.dbType;
+	}
+
+	public void setDbType(String dbType) {
+		this.dbType = dbType;
+		if(dbType != null){
+			putQueryParameter("DbType", dbType);
 		}
 	}
 

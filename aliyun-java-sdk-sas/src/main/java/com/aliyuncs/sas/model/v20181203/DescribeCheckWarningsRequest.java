@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -24,10 +25,6 @@ import com.aliyuncs.http.MethodType;
 public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWarningsResponse> {
 	   
 
-	private Integer currentPage;
-
-	private Long riskId;
-
 	private String uuid;
 
 	private String sourceIp;
@@ -35,31 +32,19 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 	private Integer pageSize;
 
 	private String lang;
+
+	private Long checkId;
+
+	private Integer currentPage;
+
+	private Long riskId;
 	public DescribeCheckWarningsRequest() {
-		super("Sas", "2018-12-03", "DescribeCheckWarnings", "sas");
+		super("Sas", "2018-12-03", "DescribeCheckWarnings");
 		setMethod(MethodType.POST);
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public Long getRiskId() {
-		return this.riskId;
-	}
-
-	public void setRiskId(Long riskId) {
-		this.riskId = riskId;
-		if(riskId != null){
-			putQueryParameter("RiskId", riskId.toString());
-		}
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getUuid() {
@@ -103,6 +88,39 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 		this.lang = lang;
 		if(lang != null){
 			putQueryParameter("Lang", lang);
+		}
+	}
+
+	public Long getCheckId() {
+		return this.checkId;
+	}
+
+	public void setCheckId(Long checkId) {
+		this.checkId = checkId;
+		if(checkId != null){
+			putQueryParameter("CheckId", checkId.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public Long getRiskId() {
+		return this.riskId;
+	}
+
+	public void setRiskId(Long riskId) {
+		this.riskId = riskId;
+		if(riskId != null){
+			putQueryParameter("RiskId", riskId.toString());
 		}
 	}
 

@@ -1,14 +1,14 @@
 package com.aliyuncs;
 
 import com.aliyuncs.auth.*;
+import com.aliyuncs.auth.signers.SignatureAlgorithm;
 import com.aliyuncs.endpoint.DefaultEndpointResolver;
 import com.aliyuncs.endpoint.EndpointResolver;
 import com.aliyuncs.endpoint.ResolveEndpointRequest;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ErrorCodeConstant;
-import com.aliyuncs.exceptions.ErrorMessageConstant;
-import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.exceptions.*;
 import com.aliyuncs.http.*;
+import com.aliyuncs.policy.retry.RetryPolicy;
+import com.aliyuncs.policy.retry.RetryPolicyContext;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.aliyuncs.reader.Reader;
@@ -18,7 +18,6 @@ import com.aliyuncs.transform.UnmarshallerContext;
 import com.aliyuncs.unmarshaller.Unmarshaller;
 import com.aliyuncs.unmarshaller.UnmarshallerFactory;
 import com.aliyuncs.utils.*;
-import io.opentracing.Scope;
 import io.opentracing.Span;
 import io.opentracing.Tracer;
 import io.opentracing.propagation.Format;
@@ -28,14 +27,10 @@ import org.slf4j.Logger;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.SocketTimeoutException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,12 +45,16 @@ public class DefaultAcsClient implements IAcsClient {
     private boolean autoRetry = true;
     private IClientProfile clientProfile = null;
     private AlibabaCloudCredentialsProvider credentialsProvider;
-    private DefaultCredentialsProvider defaultCredentialsProvider;
 
     private IHttpClient httpClient;
     private EndpointResolver endpointResolver;
     private static final String SIGNATURE_BEGIN = "string to sign is:";
     private final UserAgentConfig userAgentConfig = new UserAgentConfig();
+    private SignatureVersion signatureVersion = SignatureVersion.V1;
+    private SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.ACS3_HMAC_SHA256;
+    private final String SEPARATOR = "::";
+    private RetryPolicy retryPolicy = RetryPolicy.none();
+
 
     /**
      * @Deprecated : Use DefaultAcsClient(String regionId) instead of this
@@ -69,7 +68,7 @@ public class DefaultAcsClient implements IAcsClient {
     public DefaultAcsClient(String regionId) throws ClientException {
         this.clientProfile = DefaultProfile.getProfile(regionId);
         this.httpClient = HttpClientFactory.buildClient(this.clientProfile);
-        this.defaultCredentialsProvider = new DefaultCredentialsProvider();
+        this.credentialsProvider = new DefaultCredentialsProvider();
         this.endpointResolver = new DefaultEndpointResolver(this);
         this.appendUserAgent("HTTPClient", this.httpClient.getClass().getSimpleName());
     }
@@ -112,7 +111,13 @@ public class DefaultAcsClient implements IAcsClient {
     @Override
     public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, String regionId, Credential credential)
             throws ClientException, ServerException {
-        Signer signer = Signer.getSigner(new LegacyCredentials(credential));
+        if (null == request.getSysSignatureVersion()) {
+            request.setSysSignatureVersion(this.signatureVersion);
+        }
+        if (null == request.getSysSignatureAlgorithm()) {
+            request.setSysSignatureAlgorithm(this.signatureAlgorithm);
+        }
+        Signer signer = Signer.getSigner(new LegacyCredentials(credential), request.getSysSignatureVersion(), request.getSysSignatureAlgorithm());
         FormatType format = null;
         if (null == request.getSysRegionId()) {
             request.setSysRegionId(regionId);
@@ -182,7 +187,7 @@ public class DefaultAcsClient implements IAcsClient {
 
     @Override
     public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry, int maxRetryCounts,
-            IClientProfile profile) throws ClientException, ServerException {
+                                                         IClientProfile profile) throws ClientException, ServerException {
         if (null == profile) {
             throw new ClientException("SDK.InvalidProfile", "No active profile found.");
         }
@@ -194,11 +199,17 @@ public class DefaultAcsClient implements IAcsClient {
         }
         AlibabaCloudCredentials credentials;
         if (null == credentialsProvider) {
-            credentials = this.defaultCredentialsProvider.getCredentials();
+            credentials = new AnonymousCredentials();
         } else {
             credentials = this.credentialsProvider.getCredentials();
         }
-        Signer signer = Signer.getSigner(credentials);
+        if (null == request.getSysSignatureVersion()) {
+            request.setSysSignatureVersion(this.signatureVersion);
+        }
+        if (null == request.getSysSignatureAlgorithm()) {
+            request.setSysSignatureAlgorithm(this.signatureAlgorithm);
+        }
+        Signer signer = Signer.getSigner(credentials, request.getSysSignatureVersion(), request.getSysSignatureAlgorithm());
         FormatType format = profile.getFormat();
 
         return this.doAction(request, retry, retryNumber, request.getSysRegionId(), credentials, signer, format);
@@ -207,6 +218,11 @@ public class DefaultAcsClient implements IAcsClient {
     private <T extends AcsResponse> T parseAcsResponse(AcsRequest<T> request, HttpResponse baseResponse)
             throws ServerException, ClientException {
         FormatType format = baseResponse.getHttpContentType();
+        if (FormatType.JSON != format && FormatType.XML != format) {
+            throw new ClientException(String.format("Server response has a bad format type: %s;\nThe original return is: %s;\n" +
+                            "The original header is: %s;",
+                    format, baseResponse.getHttpContentString(), baseResponse.getSysHeaders().toString()));
+        }
         if (baseResponse.isSuccess()) {
             return readResponse(request.getResponseClass(), baseResponse, format);
         } else {
@@ -236,7 +252,7 @@ public class DefaultAcsClient implements IAcsClient {
      */
     @Deprecated
     public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry, int maxRetryNumber,
-            String regionId, Credential credential, Signer signer, FormatType format)
+                                                         String regionId, Credential credential, Signer signer, FormatType format)
             throws ClientException, ServerException {
         return doAction(request, autoRetry, maxRetryNumber, regionId, new LegacyCredentials(credential), signer,
                 format);
@@ -266,22 +282,27 @@ public class DefaultAcsClient implements IAcsClient {
 
         return domain;
     }
+
     private <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry, int maxRetryNumber,
                                                           String regionId, AlibabaCloudCredentials credentials, Signer signer, FormatType format)
             throws ClientException, ServerException {
-        if (!GlobalTracer.isRegistered() || clientProfile.isCloseTrace() ) {
-            return doRealAction(request, autoRetry, maxRetryNumber, regionId, credentials, signer,format);
+        if (!GlobalTracer.isRegistered() || clientProfile.isCloseTrace()) {
+            return doRealAction(request, autoRetry, maxRetryNumber, regionId, credentials, signer, format);
         }
 
         Tracer tracer = GlobalTracer.get();
-        Span  span = tracer.buildSpan(request.getSysUrl())
-                    .withTag(Tags.COMPONENT.getKey(), "aliyunApi")
-                    .withTag("actionName", request.getSysActionName())
-                    .withTag("queryParam", MapUtils.getMapString(request.getQueryParameters()))
-                    .start();
+        Span activeSpan = tracer.activeSpan();
+        Tracer.SpanBuilder sb = tracer.buildSpan(request.getSysUrl());
+        if (activeSpan != null) {
+            sb.asChildOf(activeSpan);
+        }
+        Span span = sb.withTag(Tags.COMPONENT.getKey(), "aliyunApi")
+                .withTag("actionName", request.getSysActionName())
+                .withTag("queryParam", MapUtils.getMapString(request.getQueryParameters()))
+                .start();
         tracer.inject(span.context(), Format.Builtin.HTTP_HEADERS, new HttpHeadersInjectAdapter(request));
         try {
-            HttpResponse response = doRealAction(request, autoRetry, maxRetryNumber, regionId, credentials, signer,format);
+            HttpResponse response = doRealAction(request, autoRetry, maxRetryNumber, regionId, credentials, signer, format);
             span.setTag("status", response.getStatus());
             span.setTag("ReasonPhrase", response.getReasonPhrase());
             return response;
@@ -295,7 +316,7 @@ public class DefaultAcsClient implements IAcsClient {
     }
 
     private <T extends AcsResponse> HttpResponse doRealAction(AcsRequest<T> request, boolean autoRetry, int maxRetryNumber,
-            String regionId, AlibabaCloudCredentials credentials, Signer signer, FormatType format)
+                                                              String regionId, AlibabaCloudCredentials credentials, Signer signer, FormatType format)
             throws ClientException, ServerException {
 
 
@@ -320,34 +341,94 @@ public class DefaultAcsClient implements IAcsClient {
             }
             request.putHeaderParameter("User-Agent",
                     UserAgentConfig.resolve(request.getSysUserAgentConfig(), this.userAgentConfig));
-
-            try {
-                HttpRequest httpRequest = request.signRequest(signer, credentials, format, domain);
-                HttpUtil.debugHttpRequest(request);
-                startTime = LogUtils.localeNow();
-                long start = System.nanoTime();
-
-                response = this.httpClient.syncInvoke(httpRequest);
-                long end = System.nanoTime();
-                timeCost = TimeUnit.NANOSECONDS.toMillis(end - start) + "ms";
-                HttpUtil.debugHttpResponse(response);
-                return response;
-            } catch (SocketTimeoutException exp) {
-                errorMessage = exp.getMessage();
-                throw new ClientException("SDK.ReadTimeout",
-                        "SocketTimeoutException has occurred on a socket read or accept.The url is " +
-                                request.getSysUrl(), exp);
-            } catch (IOException exp) {
-                errorMessage = exp.getMessage();
-                throw new ClientException("SDK.ServerUnreachable",
-                        "Server unreachable: connection " + request.getSysUrl() + " failed", exp);
+            request.putHeaderParameter("x-acs-version", request.getSysVersion());
+            if (null != request.getSysActionName()) {
+                request.putHeaderParameter("x-acs-action", request.getSysActionName());
             }
+            String coordinate = credentials.getAccessKeyId() == null ? "" : credentials.getAccessKeyId()
+                    + SEPARATOR + request.getSysProduct()
+                    + SEPARATOR + request.getSysVersion()
+                    + SEPARATOR + request.getSysActionName()
+                    + SEPARATOR + request.getSysRegionId();
+            RetryPolicy retryPolicy = request.getSysRetryPolicy() != null ? request.getSysRetryPolicy() :
+                    this.retryPolicy != null ? this.retryPolicy : RetryPolicy.none();
+            int retriesAttempted = 0;
+            RetryPolicyContext context = RetryPolicyContext.builder()
+                    .coordinate(coordinate)
+                    .retriesAttempted(retriesAttempted)
+                    .build();
+            while (retryPolicy.shouldRetry(context)) {
+                TimeUnit.MILLISECONDS.sleep(retryPolicy.getBackoffDelay(context));
+                HttpRequest httpRequest = request.signRequest(signer, credentials, format, domain);
+                Exception ex;
+                try {
+                    HttpUtil.debugHttpRequest(httpRequest);
+                    startTime = LogUtils.localeNow();
+                    long start = System.nanoTime();
+                    response = this.httpClient.syncInvoke(httpRequest);
+                    long end = System.nanoTime();
+                    timeCost = TimeUnit.NANOSECONDS.toMillis(end - start) + "ms";
+                    HttpUtil.debugHttpResponse(response);
+                    if (response.isSuccess()) {
+                        return response;
+                    } else {
+                        FormatType responseFormat = response.getHttpContentType();
+                        AcsError error = readError(response, responseFormat);
+                        if (500 <= response.getStatus()) {
+                            ex = new ServerException(error.getErrorCode(), error.getErrorMessage(), error.getRequestId());
+                        } else {
+                            ex = new ClientException(error.getErrorCode(), error.getErrorMessage(), error.getRequestId());
+                        }
+                    }
+                } catch (SocketTimeoutException exp) {
+                    ex = exp;
+                } catch (IOException exp) {
+                    ex = exp;
+                }
+                context = RetryPolicyContext.builder()
+                        .coordinate(coordinate)
+                        .retriesAttempted(++retriesAttempted)
+                        .httpResponse(response)
+                        .exception(ex)
+                        .build();
+            }
+            if (context.exception() != null) {
+                throw context.exception();
+            }
+            errorMessage = "Some errors occurred. Maybe the client triggered throttling policy.";
+            throw new ClientException("SDK.RequestTryOrRetryFailed", errorMessage, context.exception());
+        } catch (InterruptedException exp) {
+            errorMessage = exp.getMessage();
+            throw new ClientException("SDK.InterruptedException",
+                    "Client has been interrupted: connection " + request.getSysUrl() + " failed", exp);
         } catch (InvalidKeyException exp) {
             errorMessage = exp.getMessage();
             throw new ClientException("SDK.InvalidAccessSecret", "Specified access secret is not valid.", exp);
         } catch (NoSuchAlgorithmException exp) {
             errorMessage = exp.getMessage();
             throw new ClientException("SDK.InvalidMD5Algorithm", "MD5 hash is not supported by client side.", exp);
+        } catch (UnsupportedEncodingException exp) {
+            errorMessage = exp.getMessage();
+            throw new ClientException("SDK.UnsupportedEncodingException", "UTF-8 encoding is not supported by client side.", exp);
+        } catch (Throwable exp) {
+            errorMessage = exp.getMessage();
+            if (SocketTimeoutException.class.isAssignableFrom(exp.getClass())) {
+                throw new ClientException("SDK.ReadTimeout",
+                        "SocketTimeoutException has occurred on a socket read or accept.The url is " +
+                                request.getSysUrl(), exp);
+            } else if (IOException.class.isAssignableFrom(exp.getClass())) {
+                throw new ClientException("SDK.ServerUnreachable",
+                        "Server unreachable: connection " + request.getSysUrl() + " failed", exp);
+            } else if (ServerException.class.isAssignableFrom(exp.getClass())) {
+                throw (ServerException) exp;
+            } else if (ThrottlingException.class.isAssignableFrom(exp.getClass())) {
+                throw new ClientException("SDK.RequestTryOrRetryFailed", errorMessage, exp);
+            } else if (ClientException.class.isAssignableFrom(exp.getClass())) {
+                throw (ClientException) exp;
+            } else {
+                throw new ClientException("SDK.RequestTryOrRetryFailed",
+                        "Some errors occurred. Error message for latest request is " + exp.getMessage(), exp);
+            }
         } finally {
             if (null != logger) {
                 try {
@@ -408,11 +489,7 @@ public class DefaultAcsClient implements IAcsClient {
 
     private AcsError readError(HttpResponse httpResponse, FormatType format) throws ClientException {
         AcsError error = new AcsError();
-        String responseEndpoint = "Error";
-        Reader reader = ReaderFactory.createInstance(format);
-        UnmarshallerContext context = new UnmarshallerContext();
         String stringContent = httpResponse.getHttpContentString();
-
         if (stringContent == null) {
             error.setErrorCode("(null)");
             error.setErrorMessage("(null)");
@@ -420,8 +497,20 @@ public class DefaultAcsClient implements IAcsClient {
             error.setStatusCode(httpResponse.getStatus());
             return error;
         } else {
-            context.setResponseMap(reader.read(stringContent, responseEndpoint));
-            return error.getInstance(context);
+            try {
+                String responseEndpoint = "Error";
+                Reader reader = ReaderFactory.createInstance(format);
+                UnmarshallerContext context = new UnmarshallerContext();
+                context.setResponseMap(reader.read(stringContent, responseEndpoint));
+                return error.getInstance(context);
+            } catch (Exception e) {
+                stringContent = "Server response has a bad format type: " + format + ";\nThe original return is: \n" + stringContent;
+                error.setErrorCode("(null)");
+                error.setErrorMessage(stringContent);
+                error.setRequestId("(null)");
+                error.setStatusCode(httpResponse.getStatus());
+                return error;
+            }
         }
     }
 
@@ -510,6 +599,40 @@ public class DefaultAcsClient implements IAcsClient {
 
     public void setHttpClient(IHttpClient httpClient) {
         this.httpClient = httpClient;
+    }
+
+    public AlibabaCloudCredentialsProvider getCredentialsProvider() {
+        return credentialsProvider;
+    }
+
+    @Override
+    public SignatureVersion getSignatureVersion() {
+        return signatureVersion;
+    }
+
+    @Override
+    public void setSignatureVersion(SignatureVersion signatureVersion) {
+        this.signatureVersion = signatureVersion;
+    }
+
+    @Override
+    public SignatureAlgorithm getSignatureAlgorithm() {
+        return signatureAlgorithm;
+    }
+
+    @Override
+    public void setSignatureAlgorithm(SignatureAlgorithm signatureAlgorithm) {
+        this.signatureAlgorithm = signatureAlgorithm;
+    }
+
+    @Override
+    public RetryPolicy getSysRetryPolicy() {
+        return this.retryPolicy;
+    }
+
+    @Override
+    public void setSysRetryPolicy(RetryPolicy retryPolicy) {
+        this.retryPolicy = retryPolicy;
     }
 
 }

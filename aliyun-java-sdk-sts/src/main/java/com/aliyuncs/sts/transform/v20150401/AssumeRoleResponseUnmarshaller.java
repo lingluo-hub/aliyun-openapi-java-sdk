@@ -22,21 +22,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class AssumeRoleResponseUnmarshaller {
 
-	public static AssumeRoleResponse unmarshall(AssumeRoleResponse assumeRoleResponse, UnmarshallerContext context) {
+	public static AssumeRoleResponse unmarshall(AssumeRoleResponse assumeRoleResponse, UnmarshallerContext _ctx) {
 		
-		assumeRoleResponse.setRequestId(context.stringValue("AssumeRoleResponse.RequestId"));
-
-		Credentials credentials = new Credentials();
-		credentials.setSecurityToken(context.stringValue("AssumeRoleResponse.Credentials.SecurityToken"));
-		credentials.setAccessKeySecret(context.stringValue("AssumeRoleResponse.Credentials.AccessKeySecret"));
-		credentials.setAccessKeyId(context.stringValue("AssumeRoleResponse.Credentials.AccessKeyId"));
-		credentials.setExpiration(context.stringValue("AssumeRoleResponse.Credentials.Expiration"));
-		assumeRoleResponse.setCredentials(credentials);
+		assumeRoleResponse.setRequestId(_ctx.stringValue("AssumeRoleResponse.RequestId"));
 
 		AssumedRoleUser assumedRoleUser = new AssumedRoleUser();
-		assumedRoleUser.setArn(context.stringValue("AssumeRoleResponse.AssumedRoleUser.Arn"));
-		assumedRoleUser.setAssumedRoleId(context.stringValue("AssumeRoleResponse.AssumedRoleUser.AssumedRoleId"));
+		assumedRoleUser.setAssumedRoleId(_ctx.stringValue("AssumeRoleResponse.AssumedRoleUser.AssumedRoleId"));
+		assumedRoleUser.setArn(_ctx.stringValue("AssumeRoleResponse.AssumedRoleUser.Arn"));
 		assumeRoleResponse.setAssumedRoleUser(assumedRoleUser);
+
+		Credentials credentials = new Credentials();
+		credentials.setSecurityToken(_ctx.stringValue("AssumeRoleResponse.Credentials.SecurityToken"));
+		credentials.setExpiration(_ctx.stringValue("AssumeRoleResponse.Credentials.Expiration"));
+		credentials.setAccessKeySecret(_ctx.stringValue("AssumeRoleResponse.Credentials.AccessKeySecret"));
+		credentials.setAccessKeyId(_ctx.stringValue("AssumeRoleResponse.Credentials.AccessKeyId"));
+		assumeRoleResponse.setCredentials(credentials);
 	 
 	 	return assumeRoleResponse;
 	}

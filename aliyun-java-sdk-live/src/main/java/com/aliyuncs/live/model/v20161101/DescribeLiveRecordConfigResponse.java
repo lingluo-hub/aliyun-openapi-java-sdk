@@ -25,27 +25,19 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeLiveRecordConfigResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer pageNum;
 
-	private Integer pageSize;
+	private String requestId;
 
 	private String order;
 
-	private Integer totalNum;
-
 	private Integer totalPage;
 
+	private Integer pageSize;
+
+	private Integer totalNum;
+
 	private List<LiveAppRecord> liveAppRecordList;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getPageNum() {
 		return this.pageNum;
@@ -55,12 +47,12 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 		this.pageNum = pageNum;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getOrder() {
@@ -71,20 +63,28 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 		this.order = order;
 	}
 
-	public Integer getTotalNum() {
-		return this.totalNum;
-	}
-
-	public void setTotalNum(Integer totalNum) {
-		this.totalNum = totalNum;
-	}
-
 	public Integer getTotalPage() {
 		return this.totalPage;
 	}
 
 	public void setTotalPage(Integer totalPage) {
 		this.totalPage = totalPage;
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public Integer getTotalNum() {
+		return this.totalNum;
+	}
+
+	public void setTotalNum(Integer totalNum) {
+		this.totalNum = totalNum;
 	}
 
 	public List<LiveAppRecord> getLiveAppRecordList() {
@@ -97,32 +97,44 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 
 	public static class LiveAppRecord {
 
-		private String domainName;
+		private String endTime;
+
+		private String startTime;
 
 		private String appName;
 
 		private String streamName;
 
-		private String ossEndpoint;
-
-		private String ossBucket;
-
 		private String createTime;
-
-		private String startTime;
-
-		private String endTime;
 
 		private Integer onDemond;
 
+		private String ossBucket;
+
+		private String domainName;
+
+		private String ossEndpoint;
+
 		private List<RecordFormat> recordFormatList;
 
-		public String getDomainName() {
-			return this.domainName;
+		private List<RecordFormat> transcodeRecordFormatList;
+
+		private List<String> transcodeTemplates;
+
+		public String getEndTime() {
+			return this.endTime;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
+		}
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
 		}
 
 		public String getAppName() {
@@ -141,44 +153,12 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 			this.streamName = streamName;
 		}
 
-		public String getOssEndpoint() {
-			return this.ossEndpoint;
-		}
-
-		public void setOssEndpoint(String ossEndpoint) {
-			this.ossEndpoint = ossEndpoint;
-		}
-
-		public String getOssBucket() {
-			return this.ossBucket;
-		}
-
-		public void setOssBucket(String ossBucket) {
-			this.ossBucket = ossBucket;
-		}
-
 		public String getCreateTime() {
 			return this.createTime;
 		}
 
 		public void setCreateTime(String createTime) {
 			this.createTime = createTime;
-		}
-
-		public String getStartTime() {
-			return this.startTime;
-		}
-
-		public void setStartTime(String startTime) {
-			this.startTime = startTime;
-		}
-
-		public String getEndTime() {
-			return this.endTime;
-		}
-
-		public void setEndTime(String endTime) {
-			this.endTime = endTime;
 		}
 
 		public Integer getOnDemond() {
@@ -189,6 +169,30 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 			this.onDemond = onDemond;
 		}
 
+		public String getOssBucket() {
+			return this.ossBucket;
+		}
+
+		public void setOssBucket(String ossBucket) {
+			this.ossBucket = ossBucket;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
+		}
+
+		public String getOssEndpoint() {
+			return this.ossEndpoint;
+		}
+
+		public void setOssEndpoint(String ossEndpoint) {
+			this.ossEndpoint = ossEndpoint;
+		}
+
 		public List<RecordFormat> getRecordFormatList() {
 			return this.recordFormatList;
 		}
@@ -197,30 +201,48 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 			this.recordFormatList = recordFormatList;
 		}
 
+		public List<RecordFormat> getTranscodeRecordFormatList() {
+			return this.transcodeRecordFormatList;
+		}
+
+		public void setTranscodeRecordFormatList(List<RecordFormat> transcodeRecordFormatList) {
+			this.transcodeRecordFormatList = transcodeRecordFormatList;
+		}
+
+		public List<String> getTranscodeTemplates() {
+			return this.transcodeTemplates;
+		}
+
+		public void setTranscodeTemplates(List<String> transcodeTemplates) {
+			this.transcodeTemplates = transcodeTemplates;
+		}
+
 		public static class RecordFormat {
 
-			private String format;
-
-			private String ossObjectPrefix;
-
-			private String sliceOssObjectPrefix;
+			private Integer sliceDuration;
 
 			private Integer cycleDuration;
 
-			public String getFormat() {
-				return this.format;
+			private String sliceOssObjectPrefix;
+
+			private String ossObjectPrefix;
+
+			private String format;
+
+			public Integer getSliceDuration() {
+				return this.sliceDuration;
 			}
 
-			public void setFormat(String format) {
-				this.format = format;
+			public void setSliceDuration(Integer sliceDuration) {
+				this.sliceDuration = sliceDuration;
 			}
 
-			public String getOssObjectPrefix() {
-				return this.ossObjectPrefix;
+			public Integer getCycleDuration() {
+				return this.cycleDuration;
 			}
 
-			public void setOssObjectPrefix(String ossObjectPrefix) {
-				this.ossObjectPrefix = ossObjectPrefix;
+			public void setCycleDuration(Integer cycleDuration) {
+				this.cycleDuration = cycleDuration;
 			}
 
 			public String getSliceOssObjectPrefix() {
@@ -231,12 +253,20 @@ public class DescribeLiveRecordConfigResponse extends AcsResponse {
 				this.sliceOssObjectPrefix = sliceOssObjectPrefix;
 			}
 
-			public Integer getCycleDuration() {
-				return this.cycleDuration;
+			public String getOssObjectPrefix() {
+				return this.ossObjectPrefix;
 			}
 
-			public void setCycleDuration(Integer cycleDuration) {
-				this.cycleDuration = cycleDuration;
+			public void setOssObjectPrefix(String ossObjectPrefix) {
+				this.ossObjectPrefix = ossObjectPrefix;
+			}
+
+			public String getFormat() {
+				return this.format;
+			}
+
+			public void setFormat(String format) {
+				this.format = format;
 			}
 		}
 	}

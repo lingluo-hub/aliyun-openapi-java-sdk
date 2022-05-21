@@ -24,25 +24,15 @@ import com.aliyuncs.http.MethodType;
 public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesResponse> {
 	   
 
-	private String imageId;
-
-	private String searchKey;
-
-	private Integer pageNumber;
-
 	private String orderByParams;
 
 	private String ensRegionId;
-
-	private String pageSize;
-
-	private String ensRegionIds;
 
 	private String instanceResourceType;
 
 	private String ensServiceId;
 
-	private String version;
+	private String vSwitchId;
 
 	private String instanceId;
 
@@ -50,43 +40,24 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private String instanceIds;
 
+	private String networkId;
+
 	private String status;
+
+	private String imageId;
+
+	private String securityGroupId;
+
+	private String searchKey;
+
+	private Integer pageNumber;
+
+	private String pageSize;
+
+	private String ensRegionIds;
 	public DescribeInstancesRequest() {
 		super("Ens", "2017-11-10", "DescribeInstances", "ens");
 		setMethod(MethodType.POST);
-	}
-
-	public String getImageId() {
-		return this.imageId;
-	}
-
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
-		if(imageId != null){
-			putQueryParameter("ImageId", imageId);
-		}
-	}
-
-	public String getSearchKey() {
-		return this.searchKey;
-	}
-
-	public void setSearchKey(String searchKey) {
-		this.searchKey = searchKey;
-		if(searchKey != null){
-			putQueryParameter("SearchKey", searchKey);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
-		}
 	}
 
 	public String getOrderByParams() {
@@ -108,28 +79,6 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.ensRegionId = ensRegionId;
 		if(ensRegionId != null){
 			putQueryParameter("EnsRegionId", ensRegionId);
-		}
-	}
-
-	public String getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(String pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize);
-		}
-	}
-
-	public String getEnsRegionIds() {
-		return this.ensRegionIds;
-	}
-
-	public void setEnsRegionIds(String ensRegionIds) {
-		this.ensRegionIds = ensRegionIds;
-		if(ensRegionIds != null){
-			putQueryParameter("EnsRegionIds", ensRegionIds);
 		}
 	}
 
@@ -155,14 +104,14 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		}
 	}
 
-	public String getVersion() {
-		return this.version;
+	public String getVSwitchId() {
+		return this.vSwitchId;
 	}
 
-	public void setVersion(String version) {
-		this.version = version;
-		if(version != null){
-			putQueryParameter("Version", version);
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
 		}
 	}
 
@@ -199,6 +148,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		}
 	}
 
+	public String getNetworkId() {
+		return this.networkId;
+	}
+
+	public void setNetworkId(String networkId) {
+		this.networkId = networkId;
+		if(networkId != null){
+			putQueryParameter("NetworkId", networkId);
+		}
+	}
+
 	public String getStatus() {
 		return this.status;
 	}
@@ -207,6 +167,72 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.status = status;
 		if(status != null){
 			putQueryParameter("Status", status);
+		}
+	}
+
+	public String getImageId() {
+		return this.imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+		if(imageId != null){
+			putQueryParameter("ImageId", imageId);
+		}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public String getSearchKey() {
+		return this.searchKey;
+	}
+
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+		if(searchKey != null){
+			putQueryParameter("SearchKey", searchKey);
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(String pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize);
+		}
+	}
+
+	public String getEnsRegionIds() {
+		return this.ensRegionIds;
+	}
+
+	public void setEnsRegionIds(String ensRegionIds) {
+		this.ensRegionIds = ensRegionIds;
+		if(ensRegionIds != null){
+			putQueryParameter("EnsRegionIds", ensRegionIds);
 		}
 	}
 

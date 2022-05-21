@@ -23,8 +23,8 @@ public class ConfigureSubscriptionInstanceResponseUnmarshaller {
 	public static ConfigureSubscriptionInstanceResponse unmarshall(ConfigureSubscriptionInstanceResponse configureSubscriptionInstanceResponse, UnmarshallerContext _ctx) {
 		
 		configureSubscriptionInstanceResponse.setRequestId(_ctx.stringValue("ConfigureSubscriptionInstanceResponse.RequestId"));
-		configureSubscriptionInstanceResponse.setSuccess(_ctx.stringValue("ConfigureSubscriptionInstanceResponse.Success"));
 		configureSubscriptionInstanceResponse.setErrCode(_ctx.stringValue("ConfigureSubscriptionInstanceResponse.ErrCode"));
+		configureSubscriptionInstanceResponse.setSuccess(_ctx.stringValue("ConfigureSubscriptionInstanceResponse.Success"));
 		configureSubscriptionInstanceResponse.setErrMessage(_ctx.stringValue("ConfigureSubscriptionInstanceResponse.ErrMessage"));
 	 
 	 	return configureSubscriptionInstanceResponse;

@@ -25,11 +25,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QuerySmarttagJobResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String jobStatus;
 
+	private String requestId;
+
+	private String userData;
+
 	private List<Result> results;
+
+	public String getJobStatus() {
+		return this.jobStatus;
+	}
+
+	public void setJobStatus(String jobStatus) {
+		this.jobStatus = jobStatus;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -39,12 +49,12 @@ public class QuerySmarttagJobResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getJobStatus() {
-		return this.jobStatus;
+	public String getUserData() {
+		return this.userData;
 	}
 
-	public void setJobStatus(String jobStatus) {
-		this.jobStatus = jobStatus;
+	public void setUserData(String userData) {
+		this.userData = userData;
 	}
 
 	public List<Result> getResults() {

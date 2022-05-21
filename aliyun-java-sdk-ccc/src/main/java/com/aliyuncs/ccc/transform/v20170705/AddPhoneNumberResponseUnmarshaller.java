@@ -25,28 +25,28 @@ public class AddPhoneNumberResponseUnmarshaller {
 	public static AddPhoneNumberResponse unmarshall(AddPhoneNumberResponse addPhoneNumberResponse, UnmarshallerContext _ctx) {
 		
 		addPhoneNumberResponse.setRequestId(_ctx.stringValue("AddPhoneNumberResponse.RequestId"));
-		addPhoneNumberResponse.setSuccess(_ctx.booleanValue("AddPhoneNumberResponse.Success"));
+		addPhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("AddPhoneNumberResponse.HttpStatusCode"));
 		addPhoneNumberResponse.setCode(_ctx.stringValue("AddPhoneNumberResponse.Code"));
 		addPhoneNumberResponse.setMessage(_ctx.stringValue("AddPhoneNumberResponse.Message"));
-		addPhoneNumberResponse.setHttpStatusCode(_ctx.integerValue("AddPhoneNumberResponse.HttpStatusCode"));
+		addPhoneNumberResponse.setSuccess(_ctx.booleanValue("AddPhoneNumberResponse.Success"));
 
 		PhoneNumber phoneNumber = new PhoneNumber();
-		phoneNumber.setPhoneNumberId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.PhoneNumberId"));
-		phoneNumber.setInstanceId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.InstanceId"));
-		phoneNumber.setNumber(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.Number"));
-		phoneNumber.setPhoneNumberDescription(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.PhoneNumberDescription"));
 		phoneNumber.setTestOnly(_ctx.booleanValue("AddPhoneNumberResponse.PhoneNumber.TestOnly"));
-		phoneNumber.setRemainingTime(_ctx.integerValue("AddPhoneNumberResponse.PhoneNumber.RemainingTime"));
-		phoneNumber.setAllowOutbound(_ctx.booleanValue("AddPhoneNumberResponse.PhoneNumber.AllowOutbound"));
-		phoneNumber.setUsage(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.Usage"));
 		phoneNumber.setTrunks(_ctx.integerValue("AddPhoneNumberResponse.PhoneNumber.Trunks"));
+		phoneNumber.setRemainingTime(_ctx.integerValue("AddPhoneNumberResponse.PhoneNumber.RemainingTime"));
+		phoneNumber.setNumber(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.Number"));
+		phoneNumber.setInstanceId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.InstanceId"));
+		phoneNumber.setUsage(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.Usage"));
+		phoneNumber.setAllowOutbound(_ctx.booleanValue("AddPhoneNumberResponse.PhoneNumber.AllowOutbound"));
+		phoneNumber.setPhoneNumberDescription(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.PhoneNumberDescription"));
+		phoneNumber.setPhoneNumberId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.PhoneNumberId"));
 
 		ContactFlow contactFlow = new ContactFlow();
-		contactFlow.setContactFlowId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowId"));
+		contactFlow.setType(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.Type"));
+		contactFlow.setContactFlowDescription(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowDescription"));
 		contactFlow.setInstanceId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.InstanceId"));
 		contactFlow.setContactFlowName(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowName"));
-		contactFlow.setContactFlowDescription(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowDescription"));
-		contactFlow.setType(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.Type"));
+		contactFlow.setContactFlowId(_ctx.stringValue("AddPhoneNumberResponse.PhoneNumber.ContactFlow.ContactFlowId"));
 		phoneNumber.setContactFlow(contactFlow);
 		addPhoneNumberResponse.setPhoneNumber(phoneNumber);
 	 

@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -26,12 +27,22 @@ public class AddEventRecordPlanDeviceRequest extends RpcAcsRequest<AddEventRecor
 
 	private String iotId;
 
-	private String planId;
+	private String iotInstanceId;
 
 	private Integer streamType;
+
+	private String productKey;
+
+	private String deviceName;
+
+	private String planId;
 	public AddEventRecordPlanDeviceRequest() {
-		super("Linkvisual", "2018-01-20", "AddEventRecordPlanDevice", "linkvisual");
+		super("Linkvisual", "2018-01-20", "AddEventRecordPlanDevice", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getIotId() {
@@ -45,14 +56,14 @@ public class AddEventRecordPlanDeviceRequest extends RpcAcsRequest<AddEventRecor
 		}
 	}
 
-	public String getPlanId() {
-		return this.planId;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setPlanId(String planId) {
-		this.planId = planId;
-		if(planId != null){
-			putQueryParameter("PlanId", planId);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -64,6 +75,39 @@ public class AddEventRecordPlanDeviceRequest extends RpcAcsRequest<AddEventRecor
 		this.streamType = streamType;
 		if(streamType != null){
 			putQueryParameter("StreamType", streamType.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getPlanId() {
+		return this.planId;
+	}
+
+	public void setPlanId(String planId) {
+		this.planId = planId;
+		if(planId != null){
+			putQueryParameter("PlanId", planId);
 		}
 	}
 

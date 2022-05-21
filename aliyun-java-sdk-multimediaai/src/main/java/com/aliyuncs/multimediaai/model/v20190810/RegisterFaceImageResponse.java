@@ -14,6 +14,7 @@
 
 package com.aliyuncs.multimediaai.model.v20190810;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.multimediaai.transform.v20190810.RegisterFaceImageResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -26,12 +27,35 @@ public class RegisterFaceImageResponse extends AcsResponse {
 
 	private String requestId;
 
+	private List<FaceImage> faceImages;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public List<FaceImage> getFaceImages() {
+		return this.faceImages;
+	}
+
+	public void setFaceImages(List<FaceImage> faceImages) {
+		this.faceImages = faceImages;
+	}
+
+	public static class FaceImage {
+
+		private Long faceImageId;
+
+		public Long getFaceImageId() {
+			return this.faceImageId;
+		}
+
+		public void setFaceImageId(Long faceImageId) {
+			this.faceImageId = faceImageId;
+		}
 	}
 
 	@Override

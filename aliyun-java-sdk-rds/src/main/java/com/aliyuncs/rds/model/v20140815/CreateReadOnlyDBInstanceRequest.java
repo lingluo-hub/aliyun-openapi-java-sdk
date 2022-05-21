@@ -31,17 +31,29 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 
 	private String clientToken;
 
+	private String instructionSetArch;
+
 	private String engineVersion;
 
 	private String resourceGroupId;
+
+	private String tddlRegionConfig;
+
+	private String targetDedicatedHostIdForMaster;
 
 	private String dBInstanceId;
 
 	private String dBInstanceDescription;
 
+	private String gdnInstanceName;
+
 	private String dBInstanceStorageType;
 
 	private String dedicatedHostGroupId;
+
+	private String tddlBizType;
+
+	private String period;
 
 	private String resourceOwnerAccount;
 
@@ -49,11 +61,15 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 
 	private Long ownerId;
 
+	private String usedTime;
+
 	private String dBInstanceClass;
 
 	private String vSwitchId;
 
 	private String privateIpAddress;
+
+	private String autoRenew;
 
 	private String vPCId;
 
@@ -106,6 +122,17 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		}
 	}
 
+	public String getInstructionSetArch() {
+		return this.instructionSetArch;
+	}
+
+	public void setInstructionSetArch(String instructionSetArch) {
+		this.instructionSetArch = instructionSetArch;
+		if(instructionSetArch != null){
+			putQueryParameter("InstructionSetArch", instructionSetArch);
+		}
+	}
+
 	public String getEngineVersion() {
 		return this.engineVersion;
 	}
@@ -125,6 +152,28 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		this.resourceGroupId = resourceGroupId;
 		if(resourceGroupId != null){
 			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getTddlRegionConfig() {
+		return this.tddlRegionConfig;
+	}
+
+	public void setTddlRegionConfig(String tddlRegionConfig) {
+		this.tddlRegionConfig = tddlRegionConfig;
+		if(tddlRegionConfig != null){
+			putQueryParameter("TddlRegionConfig", tddlRegionConfig);
+		}
+	}
+
+	public String getTargetDedicatedHostIdForMaster() {
+		return this.targetDedicatedHostIdForMaster;
+	}
+
+	public void setTargetDedicatedHostIdForMaster(String targetDedicatedHostIdForMaster) {
+		this.targetDedicatedHostIdForMaster = targetDedicatedHostIdForMaster;
+		if(targetDedicatedHostIdForMaster != null){
+			putQueryParameter("TargetDedicatedHostIdForMaster", targetDedicatedHostIdForMaster);
 		}
 	}
 
@@ -150,6 +199,17 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		}
 	}
 
+	public String getGdnInstanceName() {
+		return this.gdnInstanceName;
+	}
+
+	public void setGdnInstanceName(String gdnInstanceName) {
+		this.gdnInstanceName = gdnInstanceName;
+		if(gdnInstanceName != null){
+			putQueryParameter("GdnInstanceName", gdnInstanceName);
+		}
+	}
+
 	public String getDBInstanceStorageType() {
 		return this.dBInstanceStorageType;
 	}
@@ -169,6 +229,28 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		this.dedicatedHostGroupId = dedicatedHostGroupId;
 		if(dedicatedHostGroupId != null){
 			putQueryParameter("DedicatedHostGroupId", dedicatedHostGroupId);
+		}
+	}
+
+	public String getTddlBizType() {
+		return this.tddlBizType;
+	}
+
+	public void setTddlBizType(String tddlBizType) {
+		this.tddlBizType = tddlBizType;
+		if(tddlBizType != null){
+			putQueryParameter("TddlBizType", tddlBizType);
+		}
+	}
+
+	public String getPeriod() {
+		return this.period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period);
 		}
 	}
 
@@ -205,6 +287,17 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		}
 	}
 
+	public String getUsedTime() {
+		return this.usedTime;
+	}
+
+	public void setUsedTime(String usedTime) {
+		this.usedTime = usedTime;
+		if(usedTime != null){
+			putQueryParameter("UsedTime", usedTime);
+		}
+	}
+
 	public String getDBInstanceClass() {
 		return this.dBInstanceClass;
 	}
@@ -235,6 +328,17 @@ public class CreateReadOnlyDBInstanceRequest extends RpcAcsRequest<CreateReadOnl
 		this.privateIpAddress = privateIpAddress;
 		if(privateIpAddress != null){
 			putQueryParameter("PrivateIpAddress", privateIpAddress);
+		}
+	}
+
+	public String getAutoRenew() {
+		return this.autoRenew;
+	}
+
+	public void setAutoRenew(String autoRenew) {
+		this.autoRenew = autoRenew;
+		if(autoRenew != null){
+			putQueryParameter("AutoRenew", autoRenew);
 		}
 	}
 

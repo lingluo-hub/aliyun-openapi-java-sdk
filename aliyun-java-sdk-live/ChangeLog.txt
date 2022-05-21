@@ -1,3 +1,63 @@
+2022-05-16 Version: 3.9.18
+- Generated 2016-11-01 for `live`.
+
+2022-04-15 Version: 3.9.17
+- Generated 2016-11-01 for `live`.
+
+2022-03-30 Version: 3.9.16
+- Generated 2016-11-01 for `live`.
+
+2022-03-09 Version: 3.9.15
+- Generated 2016-11-01 for `live`.
+
+2022-01-25 Version: 3.9.14
+- Generated 2016-11-01 for `live`.
+
+2022-01-06 Version: 3.9.13
+- Generated 2016-11-01 for `live`.
+
+2021-11-29 Version: 3.9.12
+- Generated 2016-11-01 for `live`.
+
+2021-10-25 Version: 3.9.11
+- Generated 2016-11-01 for `live`.
+
+2021-09-16 Version: 3.9.10
+- Generated 2016-11-01 for `live`.
+
+2021-07-08 Version: 3.9.9
+- Generated 2016-11-01 for `live`.
+
+2021-06-10 Version: 3.9.8
+- Generated 2016-11-01 for `live`.
+
+2021-05-06 Version: 3.9.7
+- Generated 2016-11-01 for `live`.
+
+2021-04-27 Version: 3.9.6
+- Generated 2016-11-01 for `live`.
+
+2021-01-13 Version: 3.9.5
+- Generated 2016-11-01 for `live`.
+
+2020-10-26 Version: 3.9.4
+- Generated 2016-11-01 for `live`.
+
+2020-10-20 Version: 3.9.3
+- Generated 2016-11-01 for `live`.
+
+2020-10-13 Version: 3.9.2
+- Generated 2016-11-01 for `live`.
+
+2020-09-22 Version: 3.9.1
+- Generated 2016-11-01 for `live`.
+
+2020-08-19 Version: 3.9.1
+- Add DescribeLiveDomainCertificateInfo.
+
+2020-05-18 Version: 3.9.0
+- Support live audio audit config API.
+
 2019-09-18 Version: 3.8.0
 - Generated 2016-11-01 for `live`.
 

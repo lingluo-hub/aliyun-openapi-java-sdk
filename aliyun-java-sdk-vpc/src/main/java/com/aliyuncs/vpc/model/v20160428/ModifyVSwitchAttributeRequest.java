@@ -27,6 +27,8 @@ public class ModifyVSwitchAttributeRequest extends RpcAcsRequest<ModifyVSwitchAt
 
 	private Long resourceOwnerId;
 
+	private Boolean enableIPv6;
+
 	private String description;
 
 	private String resourceOwnerAccount;
@@ -39,9 +41,11 @@ public class ModifyVSwitchAttributeRequest extends RpcAcsRequest<ModifyVSwitchAt
 
 	private String vSwitchId;
 
+	private String vpcIpv6CidrBlock;
+
 	private String vSwitchName;
 	public ModifyVSwitchAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyVSwitchAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyVSwitchAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -57,6 +61,17 @@ public class ModifyVSwitchAttributeRequest extends RpcAcsRequest<ModifyVSwitchAt
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getEnableIPv6() {
+		return this.enableIPv6;
+	}
+
+	public void setEnableIPv6(Boolean enableIPv6) {
+		this.enableIPv6 = enableIPv6;
+		if(enableIPv6 != null){
+			putQueryParameter("EnableIPv6", enableIPv6.toString());
 		}
 	}
 
@@ -123,6 +138,17 @@ public class ModifyVSwitchAttributeRequest extends RpcAcsRequest<ModifyVSwitchAt
 		this.vSwitchId = vSwitchId;
 		if(vSwitchId != null){
 			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getVpcIpv6CidrBlock() {
+		return this.vpcIpv6CidrBlock;
+	}
+
+	public void setVpcIpv6CidrBlock(String vpcIpv6CidrBlock) {
+		this.vpcIpv6CidrBlock = vpcIpv6CidrBlock;
+		if(vpcIpv6CidrBlock != null){
+			putQueryParameter("VpcIpv6CidrBlock", vpcIpv6CidrBlock);
 		}
 	}
 

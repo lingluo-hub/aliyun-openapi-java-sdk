@@ -14,8 +14,11 @@
 
 package com.aliyuncs.iot.transform.v20180120;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aliyuncs.iot.model.v20180120.GisQueryDeviceLocationResponse;
-import java.util.Map;
+import com.aliyuncs.iot.model.v20180120.GisQueryDeviceLocationResponse.DataItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,7 +30,24 @@ public class GisQueryDeviceLocationResponseUnmarshaller {
 		gisQueryDeviceLocationResponse.setSuccess(_ctx.booleanValue("GisQueryDeviceLocationResponse.Success"));
 		gisQueryDeviceLocationResponse.setCode(_ctx.stringValue("GisQueryDeviceLocationResponse.Code"));
 		gisQueryDeviceLocationResponse.setErrorMessage(_ctx.stringValue("GisQueryDeviceLocationResponse.ErrorMessage"));
-		gisQueryDeviceLocationResponse.setData(_ctx.mapValue("GisQueryDeviceLocationResponse.Data"));
+
+		List<DataItem> data = new ArrayList<DataItem>();
+		for (int i = 0; i < _ctx.lengthValue("GisQueryDeviceLocationResponse.Data.Length"); i++) {
+			DataItem dataItem = new DataItem();
+			dataItem.setProductKey(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].ProductKey"));
+			dataItem.setDeviceName(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].DeviceName"));
+			dataItem.setIp(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].Ip"));
+			dataItem.setCountry(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].Country"));
+			dataItem.setProvince(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].Province"));
+			dataItem.setCity(_ctx.stringValue("GisQueryDeviceLocationResponse.Data["+ i +"].City"));
+			dataItem.setLongitude(_ctx.floatValue("GisQueryDeviceLocationResponse.Data["+ i +"].Longitude"));
+			dataItem.setLatitude(_ctx.floatValue("GisQueryDeviceLocationResponse.Data["+ i +"].Latitude"));
+			dataItem.setCoordinateSystem(_ctx.integerValue("GisQueryDeviceLocationResponse.Data["+ i +"].CoordinateSystem"));
+			dataItem.setAdcode(_ctx.longValue("GisQueryDeviceLocationResponse.Data["+ i +"].Adcode"));
+
+			data.add(dataItem);
+		}
+		gisQueryDeviceLocationResponse.setData(data);
 	 
 	 	return gisQueryDeviceLocationResponse;
 	}

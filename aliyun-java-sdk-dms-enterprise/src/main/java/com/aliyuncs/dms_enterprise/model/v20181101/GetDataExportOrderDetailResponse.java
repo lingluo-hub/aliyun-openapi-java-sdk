@@ -26,11 +26,11 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private DataExportOrderDetail dataExportOrderDetail;
 
@@ -42,12 +42,12 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -58,12 +58,12 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public DataExportOrderDetail getDataExportOrderDetail() {
@@ -76,17 +76,9 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 
 	public static class DataExportOrderDetail {
 
-		private OrderDetail orderDetail;
-
 		private KeyInfo keyInfo;
 
-		public OrderDetail getOrderDetail() {
-			return this.orderDetail;
-		}
-
-		public void setOrderDetail(OrderDetail orderDetail) {
-			this.orderDetail = orderDetail;
-		}
+		private OrderDetail orderDetail;
 
 		public KeyInfo getKeyInfo() {
 			return this.keyInfo;
@@ -96,40 +88,63 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 			this.keyInfo = keyInfo;
 		}
 
+		public OrderDetail getOrderDetail() {
+			return this.orderDetail;
+		}
+
+		public void setOrderDetail(OrderDetail orderDetail) {
+			this.orderDetail = orderDetail;
+		}
+
+		public static class KeyInfo {
+
+			private Long preCheckId;
+
+			private String jobStatus;
+
+			public Long getPreCheckId() {
+				return this.preCheckId;
+			}
+
+			public void setPreCheckId(Long preCheckId) {
+				this.preCheckId = preCheckId;
+			}
+
+			public String getJobStatus() {
+				return this.jobStatus;
+			}
+
+			public void setJobStatus(String jobStatus) {
+				this.jobStatus = jobStatus;
+			}
+		}
+
 		public static class OrderDetail {
-
-			private Long actualAffectRows;
-
-			private String classify;
-
-			private String database;
 
 			private Integer dbId;
 
-			private String envType;
+			private String database;
+
+			private String classify;
 
 			private String exeSQL;
+
+			private Boolean logic;
+
+			private Long actualAffectRows;
 
 			private Boolean ignoreAffectRows;
 
 			private String ignoreAffectRowsReason;
 
-			private Boolean logic;
+			private String envType;
 
-			public Long getActualAffectRows() {
-				return this.actualAffectRows;
+			public Integer getDbId() {
+				return this.dbId;
 			}
 
-			public void setActualAffectRows(Long actualAffectRows) {
-				this.actualAffectRows = actualAffectRows;
-			}
-
-			public String getClassify() {
-				return this.classify;
-			}
-
-			public void setClassify(String classify) {
-				this.classify = classify;
+			public void setDbId(Integer dbId) {
+				this.dbId = dbId;
 			}
 
 			public String getDatabase() {
@@ -140,20 +155,12 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 				this.database = database;
 			}
 
-			public Integer getDbId() {
-				return this.dbId;
+			public String getClassify() {
+				return this.classify;
 			}
 
-			public void setDbId(Integer dbId) {
-				this.dbId = dbId;
-			}
-
-			public String getEnvType() {
-				return this.envType;
-			}
-
-			public void setEnvType(String envType) {
-				this.envType = envType;
+			public void setClassify(String classify) {
+				this.classify = classify;
 			}
 
 			public String getExeSQL() {
@@ -162,6 +169,22 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 
 			public void setExeSQL(String exeSQL) {
 				this.exeSQL = exeSQL;
+			}
+
+			public Boolean getLogic() {
+				return this.logic;
+			}
+
+			public void setLogic(Boolean logic) {
+				this.logic = logic;
+			}
+
+			public Long getActualAffectRows() {
+				return this.actualAffectRows;
+			}
+
+			public void setActualAffectRows(Long actualAffectRows) {
+				this.actualAffectRows = actualAffectRows;
 			}
 
 			public Boolean getIgnoreAffectRows() {
@@ -180,35 +203,12 @@ public class GetDataExportOrderDetailResponse extends AcsResponse {
 				this.ignoreAffectRowsReason = ignoreAffectRowsReason;
 			}
 
-			public Boolean getLogic() {
-				return this.logic;
+			public String getEnvType() {
+				return this.envType;
 			}
 
-			public void setLogic(Boolean logic) {
-				this.logic = logic;
-			}
-		}
-
-		public static class KeyInfo {
-
-			private String jobStatus;
-
-			private Long preCheckId;
-
-			public String getJobStatus() {
-				return this.jobStatus;
-			}
-
-			public void setJobStatus(String jobStatus) {
-				this.jobStatus = jobStatus;
-			}
-
-			public Long getPreCheckId() {
-				return this.preCheckId;
-			}
-
-			public void setPreCheckId(Long preCheckId) {
-				this.preCheckId = preCheckId;
+			public void setEnvType(String envType) {
+				this.envType = envType;
 			}
 		}
 	}

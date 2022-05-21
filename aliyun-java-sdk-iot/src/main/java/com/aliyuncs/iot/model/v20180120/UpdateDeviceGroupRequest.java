@@ -25,18 +25,42 @@ import com.aliyuncs.iot.Endpoint;
 public class UpdateDeviceGroupRequest extends RpcAcsRequest<UpdateDeviceGroupResponse> {
 	   
 
+	private String groupType;
+
+	private String iotInstanceId;
+
 	private String groupId;
 
 	private String groupDesc;
-
-	private String iotInstanceId;
 	public UpdateDeviceGroupRequest() {
-		super("Iot", "2018-01-20", "UpdateDeviceGroup", "Iot");
+		super("Iot", "2018-01-20", "UpdateDeviceGroup");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getGroupType() {
+		return this.groupType;
+	}
+
+	public void setGroupType(String groupType) {
+		this.groupType = groupType;
+		if(groupType != null){
+			putQueryParameter("GroupType", groupType);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
 	}
 
 	public String getGroupId() {
@@ -58,17 +82,6 @@ public class UpdateDeviceGroupRequest extends RpcAcsRequest<UpdateDeviceGroupRes
 		this.groupDesc = groupDesc;
 		if(groupDesc != null){
 			putQueryParameter("GroupDesc", groupDesc);
-		}
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 

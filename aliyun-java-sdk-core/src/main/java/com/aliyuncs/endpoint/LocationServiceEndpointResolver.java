@@ -1,6 +1,6 @@
 package com.aliyuncs.endpoint;
 
-import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
 import com.aliyuncs.endpoint.location.model.v20150612.DescribeEndpointsRequest;
 import com.aliyuncs.endpoint.location.model.v20150612.DescribeEndpointsResponse;
 import com.aliyuncs.exceptions.ClientException;
@@ -15,26 +15,24 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
     private final static String DEFAULT_LOCATION_SERVICE_ENDPOINT = "location-readonly.aliyuncs.com";
     private final static String DEFAULT_LOCATION_SERVICE_API_VERSION = "2015-06-12";
     /**
-     *  For test use
+     * For test use
      */
     public int locationServiceCallCounter = 0;
-    protected String locationServiceEndpoint = DEFAULT_LOCATION_SERVICE_ENDPOINT;
-    protected String locationServiceApiVersion = DEFAULT_LOCATION_SERVICE_API_VERSION;
-    private DefaultAcsClient client;
+    protected static String locationServiceEndpoint = DEFAULT_LOCATION_SERVICE_ENDPOINT;
+    protected static String locationServiceApiVersion = DEFAULT_LOCATION_SERVICE_API_VERSION;
+    private IAcsClient client;
     private Set<String> invalidProductCodes;
     private Set<String> validProductCodes;
-    private Set<String> invalidRegionIds;
     private Set<String> validRegionIds;
 
-    public LocationServiceEndpointResolver(DefaultAcsClient client) {
+    public LocationServiceEndpointResolver(IAcsClient client) {
         this.client = client;
         invalidProductCodes = new HashSet<String>();
-        invalidRegionIds = new HashSet<String>();
         validProductCodes = new HashSet<String>();
         validRegionIds = new HashSet<String>();
     }
 
-    public void setLocationServiceEndpoint(String endpoint) {
+    public static void setLocationServiceEndpoint(String endpoint) {
         locationServiceEndpoint = endpoint;
     }
 
@@ -45,10 +43,6 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
         }
 
         if (invalidProductCodes.contains(request.productCodeLower)) {
-            return null;
-        }
-
-        if (invalidRegionIds.contains(request.regionId)) {
             return null;
         }
 
@@ -93,7 +87,6 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
             if ("InvalidRegionId".equals(e.getErrCode())
                     && "The specified region does not exist.".equals(e.getErrMsg())) {
                 // No such region
-                invalidRegionIds.add(request.regionId);
                 putEndpointEntry(key, null);
                 return;
             } else if ("Illegal Parameter".equals(e.getErrCode())
@@ -139,10 +132,7 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
 
     @Override
     public boolean isRegionIdValid(ResolveEndpointRequest request) {
-        if (request.locationServiceCode != null) {
-            return !invalidRegionIds.contains(request.regionId);
-        }
-        return false;
+        return true;
     }
 
     @Override
@@ -153,9 +143,25 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
         );
     }
 
+    public String makeRegionIdKey(ResolveEndpointRequest request) {
+        return request.locationServiceCode + "." + request.regionId + "." + request.endpointType;
+    }
+
     public String makeEndpointKey(String productCode, String locationServiceCode, String regionId,
                                   String endpointType) {
         return productCode.toLowerCase() + "." + locationServiceCode + "."
                 + regionId.toLowerCase() + "." + endpointType;
+    }
+
+    public static String getLocationServiceEndpoint() {
+        return locationServiceEndpoint;
+    }
+
+    public static String getLocationServiceApiVersion() {
+        return locationServiceApiVersion;
+    }
+
+    public static void setLocationServiceApiVersion(String locationServiceApiVersion) {
+        LocationServiceEndpointResolver.locationServiceApiVersion = locationServiceApiVersion;
     }
 }

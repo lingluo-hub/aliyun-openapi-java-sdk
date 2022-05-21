@@ -29,6 +29,8 @@ public class UnbindSlbRequest extends RoaAcsRequest<UnbindSlbResponse> {
 
 	private String appId;
 
+	private String deleteListener;
+
 	private String type;
 	public UnbindSlbRequest() {
 		super("Edas", "2017-08-01", "UnbindSlb", "Edas");
@@ -59,6 +61,17 @@ public class UnbindSlbRequest extends RoaAcsRequest<UnbindSlbResponse> {
 		this.appId = appId;
 		if(appId != null){
 			putQueryParameter("AppId", appId);
+		}
+	}
+
+	public String getDeleteListener() {
+		return this.deleteListener;
+	}
+
+	public void setDeleteListener(String deleteListener) {
+		this.deleteListener = deleteListener;
+		if(deleteListener != null){
+			putQueryParameter("DeleteListener", deleteListener);
 		}
 	}
 

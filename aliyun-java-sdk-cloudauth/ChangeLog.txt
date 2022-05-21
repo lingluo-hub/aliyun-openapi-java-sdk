@@ -1,3 +1,96 @@
+2022-02-23 Version: 2.0.32
+- Add AuthId.
+
+2021-10-28 Version: 2.0.31
+- Generated 2019-03-07, 2020-06-18, 2018-09-16, 2020-11-12 for `Cloudauth`.
+
+2021-10-27 Version: 2.0.30
+- Generated 2019-03-07 for `Cloudauth`.
+
+2021-09-10 Version: 1.0.5
+- Support crop face image.
+
+2021-04-20 Version: 2.0.29
+- LivenessFaceVerify ContrastFaceVerify CompareFaceVerify API Return CertifyId.
+
+2021-04-09 Version: 2.0.28
+- Bank Card Ocr and Verify.
+
+2021-02-24 Version: 2.0.27
+- ALL API.
+
+2021-01-27 Version: 2.0.26
+- DetectFaceAttributes Add Score.
+
+2021-01-14 Version: 2.0.25
+- Support base64 picture return.
+
+2021-01-13 Version: 2.0.24
+- Support base64 picture return.
+
+2020-12-16 Version: 2.0.23
+- Add Face Attributes.
+
+2020-11-26 Version: 2.0.22
+- ContrastFaceVerify Support Video.
+
+2020-11-23 Version: 2.0.21
+- Add LivenessDetect API.
+
+2020-10-20 Version: 2.0.20
+- Add LivenessFaceVerify API.
+
+2020-10-19 Version: 2.0.19
+- Generated 2019-03-07, 2020-06-18, 2018-09-16 for `Cloudauth`.
+
+2020-10-19 Version: 2.0.18
+- Generated 2019-03-07, 2020-06-18 for `Cloudauth`.
+
+2020-10-19 Version: 2.0.18
+- Generated 2019-03-07 for `Cloudauth`.
+
+2020-10-19 Version: 2.0.18
+- Generated 2019-03-07 for `Cloudauth`.
+
+2020-09-24 Version: 2.0.18
+- ContrastFaceVerify API Add Model Parameter.
+
+2020-09-01 Version: 2.0.17
+- Add Smart Verify API.
+
+2020-08-06 Version: 2.0.16
+- Add Smart Cloudauth API.
+
+2020-07-30 Version: 2.0.15
+- Add Smart Cloudauth API.
+
+2020-07-14 Version: 2.0.14
+- Support Web SDK.
+
+2020-06-29 Version: 2.0.13
+- Add Model Parameter For InitFaceVerify API.
+
+2020-05-13 Version: 2.0.12
+- About 2019-03-07 and 2018-09-16 Version.
+
+2020-04-28 Version: 2.0.11
+- Add CompareFaceVerify API.
+
+2020-04-27 Version: 2.0.10
+- ContrastFaceVerify Return SubCode.
+
+2020-04-20 Version: 2.0.9
+- Fix FaceContrastPicture.
+
+2020-04-08 Version: 2.0.8
+- Add SubCode for DescribeFaceVerify.
+
+2020-04-02 Version: 2.0.7
+- Add API ContrastFaceVerify.
+
+2020-04-01 Version: 2.0.6
+- DescribeVerifyToken API Add Parameters-UserIp and UserPhoneNumber and UserRegistTime.
+
 2020-03-16 Version: 2.0.5
 - DescribeFaceVerify API Return DeviceToken Field.
 

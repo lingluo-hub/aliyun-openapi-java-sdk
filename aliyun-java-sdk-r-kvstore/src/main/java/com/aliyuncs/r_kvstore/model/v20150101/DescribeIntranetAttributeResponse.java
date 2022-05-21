@@ -24,11 +24,31 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeIntranetAttributeResponse extends AcsResponse {
 
+	private String bandwidthExpireTime;
+
+	private Boolean autoRenewal;
+
 	private String requestId;
+
+	private String expireTime;
 
 	private Integer intranetBandwidth;
 
-	private String expireTime;
+	public String getBandwidthExpireTime() {
+		return this.bandwidthExpireTime;
+	}
+
+	public void setBandwidthExpireTime(String bandwidthExpireTime) {
+		this.bandwidthExpireTime = bandwidthExpireTime;
+	}
+
+	public Boolean getAutoRenewal() {
+		return this.autoRenewal;
+	}
+
+	public void setAutoRenewal(Boolean autoRenewal) {
+		this.autoRenewal = autoRenewal;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -38,20 +58,20 @@ public class DescribeIntranetAttributeResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Integer getIntranetBandwidth() {
-		return this.intranetBandwidth;
-	}
-
-	public void setIntranetBandwidth(Integer intranetBandwidth) {
-		this.intranetBandwidth = intranetBandwidth;
-	}
-
 	public String getExpireTime() {
 		return this.expireTime;
 	}
 
 	public void setExpireTime(String expireTime) {
 		this.expireTime = expireTime;
+	}
+
+	public Integer getIntranetBandwidth() {
+		return this.intranetBandwidth;
+	}
+
+	public void setIntranetBandwidth(Integer intranetBandwidth) {
+		this.intranetBandwidth = intranetBandwidth;
 	}
 
 	@Override

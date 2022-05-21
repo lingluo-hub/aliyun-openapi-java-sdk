@@ -36,7 +36,7 @@ public class RoaSignatureComposer implements ISignatureComposer {
 
     @Override
     public Map<String, String> refreshSignParameters(Map<String, String> parameters, Signer signer, String accessKeyId,
-            FormatType format) {
+                                                     FormatType format) {
         Map<String, String> immutableMap = new HashMap<String, String>(parameters);
         immutableMap.put("Date", ParameterHelper.getRFC2616Date(new Date()));
         if (null == format) {
@@ -45,6 +45,7 @@ public class RoaSignatureComposer implements ISignatureComposer {
         immutableMap.put("Accept", FormatType.mapFormatToAccept(format));
         immutableMap.put("x-acs-signature-method", signer.getSignerName());
         immutableMap.put("x-acs-signature-version", signer.getSignerVersion());
+        immutableMap.put("x-acs-signature-nonce", ParameterHelper.getUniqueNonce());
         if (signer.getSignerType() != null) {
             immutableMap.put("x-acs-signature-type", signer.getSignerType());
         }
@@ -111,7 +112,7 @@ public class RoaSignatureComposer implements ISignatureComposer {
 
     @Override
     public String composeStringToSign(MethodType method, String uriPattern, Signer signer, Map<String, String> queries,
-            Map<String, String> headers, Map<String, String> paths) {
+                                      Map<String, String> headers, Map<String, String> paths) {
         StringBuilder sb = new StringBuilder();
         sb.append(method).append(HEADER_SEPARATOR);
         if (headers.get("Accept") != null) {
@@ -134,5 +135,10 @@ public class RoaSignatureComposer implements ISignatureComposer {
         sb.append(buildCanonicalHeaders(headers, "x-acs-"));
         sb.append(buildQueryString(uri, queries));
         return sb.toString();
+    }
+
+    @Override
+    public String getAuthorization(Signer signer, String accessKeyId, String signature) {
+        return "acs " + accessKeyId + ":" + signature;
     }
 }

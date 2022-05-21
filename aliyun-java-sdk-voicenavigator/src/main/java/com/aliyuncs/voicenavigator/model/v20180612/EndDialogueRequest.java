@@ -27,7 +27,11 @@ public class EndDialogueRequest extends RpcAcsRequest<EndDialogueResponse> {
 
 	private String conversationId;
 
+	private String hangUpParams;
+
 	private String instanceId;
+
+	private Long instanceOwnerId;
 	public EndDialogueRequest() {
 		super("VoiceNavigator", "2018-06-12", "EndDialogue", "voicebot");
 		setMethod(MethodType.POST);
@@ -48,6 +52,17 @@ public class EndDialogueRequest extends RpcAcsRequest<EndDialogueResponse> {
 		}
 	}
 
+	public String getHangUpParams() {
+		return this.hangUpParams;
+	}
+
+	public void setHangUpParams(String hangUpParams) {
+		this.hangUpParams = hangUpParams;
+		if(hangUpParams != null){
+			putQueryParameter("HangUpParams", hangUpParams);
+		}
+	}
+
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -56,6 +71,17 @@ public class EndDialogueRequest extends RpcAcsRequest<EndDialogueResponse> {
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Long getInstanceOwnerId() {
+		return this.instanceOwnerId;
+	}
+
+	public void setInstanceOwnerId(Long instanceOwnerId) {
+		this.instanceOwnerId = instanceOwnerId;
+		if(instanceOwnerId != null){
+			putQueryParameter("InstanceOwnerId", instanceOwnerId.toString());
 		}
 	}
 

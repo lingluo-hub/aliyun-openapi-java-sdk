@@ -30,7 +30,13 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 
 	private String stackPolicyDuringUpdateBody;
 
+	private String templateVersion;
+
 	private Boolean disableRollback;
+
+	private String templateId;
+
+	private List<Tags> tagss;
 
 	private List<Parameters> parameterss;
 
@@ -46,11 +52,15 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 
 	private String stackPolicyDuringUpdateURL;
 
+	private String ramRoleName;
+
 	private Boolean usePreviousParameters;
+
+	private String replacementOption;
 
 	private String stackPolicyURL;
 	public UpdateStackRequest() {
-		super("ROS", "2019-09-10", "UpdateStack");
+		super("ROS", "2019-09-10", "UpdateStack", "ros");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -80,6 +90,17 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 		}
 	}
 
+	public String getTemplateVersion() {
+		return this.templateVersion;
+	}
+
+	public void setTemplateVersion(String templateVersion) {
+		this.templateVersion = templateVersion;
+		if(templateVersion != null){
+			putQueryParameter("TemplateVersion", templateVersion);
+		}
+	}
+
 	public Boolean getDisableRollback() {
 		return this.disableRollback;
 	}
@@ -89,6 +110,31 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 		if(disableRollback != null){
 			putQueryParameter("DisableRollback", disableRollback.toString());
 		}
+	}
+
+	public String getTemplateId() {
+		return this.templateId;
+	}
+
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
+		if(templateId != null){
+			putQueryParameter("TemplateId", templateId);
+		}
+	}
+
+	public List<Tags> getTagss() {
+		return this.tagss;
+	}
+
+	public void setTagss(List<Tags> tagss) {
+		this.tagss = tagss;	
+		if (tagss != null) {
+			for (int depth1 = 0; depth1 < tagss.size(); depth1++) {
+				putQueryParameter("Tags." + (depth1 + 1) + ".Value" , tagss.get(depth1).getValue());
+				putQueryParameter("Tags." + (depth1 + 1) + ".Key" , tagss.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public List<Parameters> getParameterss() {
@@ -171,6 +217,17 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 		}
 	}
 
+	public String getRamRoleName() {
+		return this.ramRoleName;
+	}
+
+	public void setRamRoleName(String ramRoleName) {
+		this.ramRoleName = ramRoleName;
+		if(ramRoleName != null){
+			putQueryParameter("RamRoleName", ramRoleName);
+		}
+	}
+
 	public Boolean getUsePreviousParameters() {
 		return this.usePreviousParameters;
 	}
@@ -182,6 +239,17 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 		}
 	}
 
+	public String getReplacementOption() {
+		return this.replacementOption;
+	}
+
+	public void setReplacementOption(String replacementOption) {
+		this.replacementOption = replacementOption;
+		if(replacementOption != null){
+			putQueryParameter("ReplacementOption", replacementOption);
+		}
+	}
+
 	public String getStackPolicyURL() {
 		return this.stackPolicyURL;
 	}
@@ -190,6 +258,29 @@ public class UpdateStackRequest extends RpcAcsRequest<UpdateStackResponse> {
 		this.stackPolicyURL = stackPolicyURL;
 		if(stackPolicyURL != null){
 			putQueryParameter("StackPolicyURL", stackPolicyURL);
+		}
+	}
+
+	public static class Tags {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

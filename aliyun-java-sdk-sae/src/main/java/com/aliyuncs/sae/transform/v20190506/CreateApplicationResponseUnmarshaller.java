@@ -24,15 +24,15 @@ public class CreateApplicationResponseUnmarshaller {
 	public static CreateApplicationResponse unmarshall(CreateApplicationResponse createApplicationResponse, UnmarshallerContext _ctx) {
 		
 		createApplicationResponse.setRequestId(_ctx.stringValue("CreateApplicationResponse.RequestId"));
-		createApplicationResponse.setCode(_ctx.stringValue("CreateApplicationResponse.Code"));
 		createApplicationResponse.setMessage(_ctx.stringValue("CreateApplicationResponse.Message"));
-		createApplicationResponse.setErrorCode(_ctx.stringValue("CreateApplicationResponse.ErrorCode"));
 		createApplicationResponse.setTraceId(_ctx.stringValue("CreateApplicationResponse.TraceId"));
+		createApplicationResponse.setErrorCode(_ctx.stringValue("CreateApplicationResponse.ErrorCode"));
+		createApplicationResponse.setCode(_ctx.stringValue("CreateApplicationResponse.Code"));
 		createApplicationResponse.setSuccess(_ctx.booleanValue("CreateApplicationResponse.Success"));
 
 		Data data = new Data();
-		data.setAppId(_ctx.stringValue("CreateApplicationResponse.Data.AppId"));
 		data.setChangeOrderId(_ctx.stringValue("CreateApplicationResponse.Data.ChangeOrderId"));
+		data.setAppId(_ctx.stringValue("CreateApplicationResponse.Data.AppId"));
 		createApplicationResponse.setData(data);
 	 
 	 	return createApplicationResponse;

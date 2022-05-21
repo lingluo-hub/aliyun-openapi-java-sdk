@@ -27,19 +27,19 @@ public class QueryScriptWaveformsResponseUnmarshaller {
 	public static QueryScriptWaveformsResponse unmarshall(QueryScriptWaveformsResponse queryScriptWaveformsResponse, UnmarshallerContext _ctx) {
 		
 		queryScriptWaveformsResponse.setRequestId(_ctx.stringValue("QueryScriptWaveformsResponse.RequestId"));
-		queryScriptWaveformsResponse.setSuccess(_ctx.booleanValue("QueryScriptWaveformsResponse.Success"));
+		queryScriptWaveformsResponse.setHttpStatusCode(_ctx.integerValue("QueryScriptWaveformsResponse.HttpStatusCode"));
 		queryScriptWaveformsResponse.setCode(_ctx.stringValue("QueryScriptWaveformsResponse.Code"));
 		queryScriptWaveformsResponse.setMessage(_ctx.stringValue("QueryScriptWaveformsResponse.Message"));
-		queryScriptWaveformsResponse.setHttpStatusCode(_ctx.integerValue("QueryScriptWaveformsResponse.HttpStatusCode"));
+		queryScriptWaveformsResponse.setSuccess(_ctx.booleanValue("QueryScriptWaveformsResponse.Success"));
 
 		List<ScriptWaveform> scriptWaveforms = new ArrayList<ScriptWaveform>();
 		for (int i = 0; i < _ctx.lengthValue("QueryScriptWaveformsResponse.ScriptWaveforms.Length"); i++) {
 			ScriptWaveform scriptWaveform = new ScriptWaveform();
-			scriptWaveform.setScriptWaveformId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].ScriptWaveformId"));
-			scriptWaveform.setScriptId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].ScriptId"));
 			scriptWaveform.setScriptContent(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].ScriptContent"));
-			scriptWaveform.setFileId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].FileId"));
+			scriptWaveform.setScriptWaveformId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].ScriptWaveformId"));
 			scriptWaveform.setFileName(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].FileName"));
+			scriptWaveform.setScriptId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].ScriptId"));
+			scriptWaveform.setFileId(_ctx.stringValue("QueryScriptWaveformsResponse.ScriptWaveforms["+ i +"].FileId"));
 
 			scriptWaveforms.add(scriptWaveform);
 		}

@@ -28,9 +28,13 @@ public class DescribeAlertingMetricRuleResourcesRequest extends RpcAcsRequest<De
 
 	private Integer pageSize;
 
+	private String namespace;
+
 	private Integer page;
 
 	private String ruleId;
+
+	private String dimensions;
 	public DescribeAlertingMetricRuleResourcesRequest() {
 		super("Cms", "2019-01-01", "DescribeAlertingMetricRuleResources", "cms");
 		setMethod(MethodType.GET);
@@ -58,6 +62,17 @@ public class DescribeAlertingMetricRuleResourcesRequest extends RpcAcsRequest<De
 		}
 	}
 
+	public String getNamespace() {
+		return this.namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+		if(namespace != null){
+			putQueryParameter("Namespace", namespace);
+		}
+	}
+
 	public Integer getPage() {
 		return this.page;
 	}
@@ -77,6 +92,17 @@ public class DescribeAlertingMetricRuleResourcesRequest extends RpcAcsRequest<De
 		this.ruleId = ruleId;
 		if(ruleId != null){
 			putQueryParameter("RuleId", ruleId);
+		}
+	}
+
+	public String getDimensions() {
+		return this.dimensions;
+	}
+
+	public void setDimensions(String dimensions) {
+		this.dimensions = dimensions;
+		if(dimensions != null){
+			putQueryParameter("Dimensions", dimensions);
 		}
 	}
 

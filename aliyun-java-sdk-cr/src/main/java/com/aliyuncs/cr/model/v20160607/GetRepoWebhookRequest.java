@@ -16,22 +16,27 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetRepoWebhookRequest extends RoaAcsRequest<GetRepoWebhookResponse> {
-	
-	public GetRepoWebhookRequest() {
-		super("cr", "2016-06-07", "GetRepoWebhook", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/webhooks");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String repoNamespace;
 
 	private String repoName;
+	public GetRepoWebhookRequest() {
+		super("cr", "2016-06-07", "GetRepoWebhook", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/webhooks");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;

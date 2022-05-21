@@ -30,6 +30,7 @@ public class DescribeDnsProductInstancesResponseUnmarshaller {
 		describeDnsProductInstancesResponse.setTotalCount(_ctx.longValue("DescribeDnsProductInstancesResponse.TotalCount"));
 		describeDnsProductInstancesResponse.setPageNumber(_ctx.longValue("DescribeDnsProductInstancesResponse.PageNumber"));
 		describeDnsProductInstancesResponse.setPageSize(_ctx.longValue("DescribeDnsProductInstancesResponse.PageSize"));
+		describeDnsProductInstancesResponse.setDomainType(_ctx.stringValue("DescribeDnsProductInstancesResponse.DomainType"));
 
 		List<DnsProduct> dnsProducts = new ArrayList<DnsProduct>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeDnsProductInstancesResponse.DnsProducts.Length"); i++) {
@@ -65,6 +66,7 @@ public class DescribeDnsProductInstancesResponseUnmarshaller {
 			dnsProduct.setBindDomainCount(_ctx.longValue("DescribeDnsProductInstancesResponse.DnsProducts["+ i +"].BindDomainCount"));
 			dnsProduct.setBindDomainUsedCount(_ctx.longValue("DescribeDnsProductInstancesResponse.DnsProducts["+ i +"].BindDomainUsedCount"));
 			dnsProduct.setDnsSecurity(_ctx.stringValue("DescribeDnsProductInstancesResponse.DnsProducts["+ i +"].DnsSecurity"));
+			dnsProduct.setPaymentType(_ctx.stringValue("DescribeDnsProductInstancesResponse.DnsProducts["+ i +"].PaymentType"));
 
 			dnsProducts.add(dnsProduct);
 		}

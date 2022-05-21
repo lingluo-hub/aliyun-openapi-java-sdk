@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSslVpnServersResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer pageSize;
 
-	private Integer totalCount;
+	private String requestId;
 
 	private Integer pageNumber;
 
-	private Integer pageSize;
+	private Integer totalCount;
 
 	private List<SslVpnServer> sslVpnServers;
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -59,12 +59,12 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Integer getTotalCount() {
+		return this.totalCount;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<SslVpnServer> getSslVpnServers() {
@@ -77,84 +77,54 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 
 	public static class SslVpnServer {
 
-		private String regionId;
-
-		private String sslVpnServerId;
-
-		private String vpnGatewayId;
-
-		private String name;
-
-		private String localSubnet;
-
-		private String clientIpPool;
-
-		private Long createTime;
-
-		private String cipher;
-
-		private String proto;
-
-		private Integer port;
-
-		private Boolean compress;
-
-		private Integer connections;
-
-		private Integer maxConnections;
-
 		private String internetIp;
-
-		private Boolean enableMultiFactorAuth;
 
 		private String iDaaSInstanceId;
 
-		public String getRegionId() {
-			return this.regionId;
+		private Long createTime;
+
+		private String vpnGatewayId;
+
+		private String iDaaSRegionId;
+
+		private Boolean compress;
+
+		private Integer port;
+
+		private String localSubnet;
+
+		private String regionId;
+
+		private String cipher;
+
+		private Integer connections;
+
+		private String sslVpnServerId;
+
+		private Integer maxConnections;
+
+		private String name;
+
+		private Boolean enableMultiFactorAuth;
+
+		private String clientIpPool;
+
+		private String proto;
+
+		public String getInternetIp() {
+			return this.internetIp;
 		}
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
+		public void setInternetIp(String internetIp) {
+			this.internetIp = internetIp;
 		}
 
-		public String getSslVpnServerId() {
-			return this.sslVpnServerId;
+		public String getIDaaSInstanceId() {
+			return this.iDaaSInstanceId;
 		}
 
-		public void setSslVpnServerId(String sslVpnServerId) {
-			this.sslVpnServerId = sslVpnServerId;
-		}
-
-		public String getVpnGatewayId() {
-			return this.vpnGatewayId;
-		}
-
-		public void setVpnGatewayId(String vpnGatewayId) {
-			this.vpnGatewayId = vpnGatewayId;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getLocalSubnet() {
-			return this.localSubnet;
-		}
-
-		public void setLocalSubnet(String localSubnet) {
-			this.localSubnet = localSubnet;
-		}
-
-		public String getClientIpPool() {
-			return this.clientIpPool;
-		}
-
-		public void setClientIpPool(String clientIpPool) {
-			this.clientIpPool = clientIpPool;
+		public void setIDaaSInstanceId(String iDaaSInstanceId) {
+			this.iDaaSInstanceId = iDaaSInstanceId;
 		}
 
 		public Long getCreateTime() {
@@ -165,28 +135,20 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
-		public String getCipher() {
-			return this.cipher;
+		public String getVpnGatewayId() {
+			return this.vpnGatewayId;
 		}
 
-		public void setCipher(String cipher) {
-			this.cipher = cipher;
+		public void setVpnGatewayId(String vpnGatewayId) {
+			this.vpnGatewayId = vpnGatewayId;
 		}
 
-		public String getProto() {
-			return this.proto;
+		public String getIDaaSRegionId() {
+			return this.iDaaSRegionId;
 		}
 
-		public void setProto(String proto) {
-			this.proto = proto;
-		}
-
-		public Integer getPort() {
-			return this.port;
-		}
-
-		public void setPort(Integer port) {
-			this.port = port;
+		public void setIDaaSRegionId(String iDaaSRegionId) {
+			this.iDaaSRegionId = iDaaSRegionId;
 		}
 
 		public Boolean getCompress() {
@@ -197,12 +159,52 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 			this.compress = compress;
 		}
 
+		public Integer getPort() {
+			return this.port;
+		}
+
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public String getLocalSubnet() {
+			return this.localSubnet;
+		}
+
+		public void setLocalSubnet(String localSubnet) {
+			this.localSubnet = localSubnet;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getCipher() {
+			return this.cipher;
+		}
+
+		public void setCipher(String cipher) {
+			this.cipher = cipher;
+		}
+
 		public Integer getConnections() {
 			return this.connections;
 		}
 
 		public void setConnections(Integer connections) {
 			this.connections = connections;
+		}
+
+		public String getSslVpnServerId() {
+			return this.sslVpnServerId;
+		}
+
+		public void setSslVpnServerId(String sslVpnServerId) {
+			this.sslVpnServerId = sslVpnServerId;
 		}
 
 		public Integer getMaxConnections() {
@@ -213,12 +215,12 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 			this.maxConnections = maxConnections;
 		}
 
-		public String getInternetIp() {
-			return this.internetIp;
+		public String getName() {
+			return this.name;
 		}
 
-		public void setInternetIp(String internetIp) {
-			this.internetIp = internetIp;
+		public void setName(String name) {
+			this.name = name;
 		}
 
 		public Boolean getEnableMultiFactorAuth() {
@@ -229,12 +231,20 @@ public class DescribeSslVpnServersResponse extends AcsResponse {
 			this.enableMultiFactorAuth = enableMultiFactorAuth;
 		}
 
-		public String getIDaaSInstanceId() {
-			return this.iDaaSInstanceId;
+		public String getClientIpPool() {
+			return this.clientIpPool;
 		}
 
-		public void setIDaaSInstanceId(String iDaaSInstanceId) {
-			this.iDaaSInstanceId = iDaaSInstanceId;
+		public void setClientIpPool(String clientIpPool) {
+			this.clientIpPool = clientIpPool;
+		}
+
+		public String getProto() {
+			return this.proto;
+		}
+
+		public void setProto(String proto) {
+			this.proto = proto;
 		}
 	}
 

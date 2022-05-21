@@ -24,26 +24,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateApplicationResponse extends AcsResponse {
 
-	private String code;
+	private String requestId;
 
 	private String message;
 
-	private String requestId;
+	private String traceId;
 
 	private String errorCode;
 
-	private String traceId;
+	private String code;
 
 	private Boolean success;
 
 	private Data data;
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getMessage() {
@@ -54,12 +54,12 @@ public class CreateApplicationResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getTraceId() {
+		return this.traceId;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setTraceId(String traceId) {
+		this.traceId = traceId;
 	}
 
 	public String getErrorCode() {
@@ -70,12 +70,12 @@ public class CreateApplicationResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public String getTraceId() {
-		return this.traceId;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setTraceId(String traceId) {
-		this.traceId = traceId;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Boolean getSuccess() {
@@ -96,17 +96,9 @@ public class CreateApplicationResponse extends AcsResponse {
 
 	public static class Data {
 
-		private String appId;
-
 		private String changeOrderId;
 
-		public String getAppId() {
-			return this.appId;
-		}
-
-		public void setAppId(String appId) {
-			this.appId = appId;
-		}
+		private String appId;
 
 		public String getChangeOrderId() {
 			return this.changeOrderId;
@@ -114,6 +106,14 @@ public class CreateApplicationResponse extends AcsResponse {
 
 		public void setChangeOrderId(String changeOrderId) {
 			this.changeOrderId = changeOrderId;
+		}
+
+		public String getAppId() {
+			return this.appId;
+		}
+
+		public void setAppId(String appId) {
+			this.appId = appId;
 		}
 	}
 

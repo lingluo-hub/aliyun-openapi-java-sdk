@@ -26,21 +26,31 @@ import com.aliyuncs.outboundbot.Endpoint;
 public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse> {
 	   
 
-	private String description;
+	private String recallStrategyJson;
 
-	private List<String> callingNumbers;
+	private String description;
 
 	private String scriptId;
 
-	private String instanceId;
-
 	private String strategyJson;
+
+	private Long ringingDuration;
+
+	private String scenarioId;
+
+	private String jobGroupStatus;
+
+	private String priority;
+
+	private List<String> callingNumbers;
+
+	private String instanceId;
 
 	private String jobGroupId;
 
 	private String name;
 
-	private String scenarioId;
+	private Long minConcurrency;
 	public ModifyJobGroupRequest() {
 		super("OutboundBot", "2019-12-26", "ModifyJobGroup", "outboundbot");
 		setMethod(MethodType.POST);
@@ -48,6 +58,17 @@ public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse>
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getRecallStrategyJson() {
+		return this.recallStrategyJson;
+	}
+
+	public void setRecallStrategyJson(String recallStrategyJson) {
+		this.recallStrategyJson = recallStrategyJson;
+		if(recallStrategyJson != null){
+			putQueryParameter("RecallStrategyJson", recallStrategyJson);
+		}
 	}
 
 	public String getDescription() {
@@ -58,6 +79,72 @@ public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse>
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getScriptId() {
+		return this.scriptId;
+	}
+
+	public void setScriptId(String scriptId) {
+		this.scriptId = scriptId;
+		if(scriptId != null){
+			putQueryParameter("ScriptId", scriptId);
+		}
+	}
+
+	public String getStrategyJson() {
+		return this.strategyJson;
+	}
+
+	public void setStrategyJson(String strategyJson) {
+		this.strategyJson = strategyJson;
+		if(strategyJson != null){
+			putQueryParameter("StrategyJson", strategyJson);
+		}
+	}
+
+	public Long getRingingDuration() {
+		return this.ringingDuration;
+	}
+
+	public void setRingingDuration(Long ringingDuration) {
+		this.ringingDuration = ringingDuration;
+		if(ringingDuration != null){
+			putQueryParameter("RingingDuration", ringingDuration.toString());
+		}
+	}
+
+	public String getScenarioId() {
+		return this.scenarioId;
+	}
+
+	public void setScenarioId(String scenarioId) {
+		this.scenarioId = scenarioId;
+		if(scenarioId != null){
+			putQueryParameter("ScenarioId", scenarioId);
+		}
+	}
+
+	public String getJobGroupStatus() {
+		return this.jobGroupStatus;
+	}
+
+	public void setJobGroupStatus(String jobGroupStatus) {
+		this.jobGroupStatus = jobGroupStatus;
+		if(jobGroupStatus != null){
+			putQueryParameter("JobGroupStatus", jobGroupStatus);
+		}
+	}
+
+	public String getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+		if(priority != null){
+			putQueryParameter("Priority", priority);
 		}
 	}
 
@@ -74,17 +161,6 @@ public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse>
 		}	
 	}
 
-	public String getScriptId() {
-		return this.scriptId;
-	}
-
-	public void setScriptId(String scriptId) {
-		this.scriptId = scriptId;
-		if(scriptId != null){
-			putQueryParameter("ScriptId", scriptId);
-		}
-	}
-
 	public String getInstanceId() {
 		return this.instanceId;
 	}
@@ -93,17 +169,6 @@ public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse>
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getStrategyJson() {
-		return this.strategyJson;
-	}
-
-	public void setStrategyJson(String strategyJson) {
-		this.strategyJson = strategyJson;
-		if(strategyJson != null){
-			putQueryParameter("StrategyJson", strategyJson);
 		}
 	}
 
@@ -129,14 +194,14 @@ public class ModifyJobGroupRequest extends RpcAcsRequest<ModifyJobGroupResponse>
 		}
 	}
 
-	public String getScenarioId() {
-		return this.scenarioId;
+	public Long getMinConcurrency() {
+		return this.minConcurrency;
 	}
 
-	public void setScenarioId(String scenarioId) {
-		this.scenarioId = scenarioId;
-		if(scenarioId != null){
-			putQueryParameter("ScenarioId", scenarioId);
+	public void setMinConcurrency(Long minConcurrency) {
+		this.minConcurrency = minConcurrency;
+		if(minConcurrency != null){
+			putQueryParameter("MinConcurrency", minConcurrency.toString());
 		}
 	}
 

@@ -31,6 +31,8 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 
 	private Integer pageNumber;
 
+	private String resourceGroupId;
+
 	private String securityToken;
 
 	private Integer pageSize;
@@ -43,6 +45,8 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 
 	private String ownerAccount;
 
+	private String queryKeyword;
+
 	private String endTime;
 
 	private Long ownerId;
@@ -50,8 +54,12 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 	private String instanceId;
 
 	private String dBName;
+
+	private String characterType;
+
+	private String orderType;
 	public DescribeRunningLogRecordsRequest() {
-		super("R-kvstore", "2015-01-01", "DescribeRunningLogRecords");
+		super("R-kvstore", "2015-01-01", "DescribeRunningLogRecords", "redisa");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -89,6 +97,17 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -158,6 +177,17 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		}
 	}
 
+	public String getQueryKeyword() {
+		return this.queryKeyword;
+	}
+
+	public void setQueryKeyword(String queryKeyword) {
+		this.queryKeyword = queryKeyword;
+		if(queryKeyword != null){
+			putQueryParameter("QueryKeyword", queryKeyword);
+		}
+	}
+
 	public String getEndTime() {
 		return this.endTime;
 	}
@@ -199,6 +229,28 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		this.dBName = dBName;
 		if(dBName != null){
 			putQueryParameter("DBName", dBName);
+		}
+	}
+
+	public String getCharacterType() {
+		return this.characterType;
+	}
+
+	public void setCharacterType(String characterType) {
+		this.characterType = characterType;
+		if(characterType != null){
+			putQueryParameter("CharacterType", characterType);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

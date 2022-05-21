@@ -16,22 +16,27 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class UpdateRepoRequest extends RoaAcsRequest<UpdateRepoResponse> {
-	
-	public UpdateRepoRequest() {
-		super("cr", "2016-06-07", "UpdateRepo", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]");
-		setMethod(MethodType.POST);
-	}
+	   
 
 	private String repoNamespace;
 
 	private String repoName;
+	public UpdateRepoRequest() {
+		super("cr", "2016-06-07", "UpdateRepo", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;

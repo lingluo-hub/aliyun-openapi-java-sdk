@@ -14,6 +14,7 @@
 
 package com.aliyuncs.slb.model.v20140515;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.slb.transform.v20140515.DescribeDomainExtensionAttributeResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,33 +25,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDomainExtensionAttributeResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String domainExtensionId;
-
 	private String domain;
 
-	private String serverCertificateId;
+	private String requestId;
 
 	private String loadBalancerId;
 
 	private Integer listenerPort;
 
-	public String getRequestId() {
-		return this.requestId;
-	}
+	private String serverCertificateId;
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
+	private String domainExtensionId;
 
-	public String getDomainExtensionId() {
-		return this.domainExtensionId;
-	}
+	private List<Certificate> certificates;
 
-	public void setDomainExtensionId(String domainExtensionId) {
-		this.domainExtensionId = domainExtensionId;
-	}
+	private List<ServerCertificate> serverCertificates;
 
 	public String getDomain() {
 		return this.domain;
@@ -60,12 +49,12 @@ public class DescribeDomainExtensionAttributeResponse extends AcsResponse {
 		this.domain = domain;
 	}
 
-	public String getServerCertificateId() {
-		return this.serverCertificateId;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setServerCertificateId(String serverCertificateId) {
-		this.serverCertificateId = serverCertificateId;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getLoadBalancerId() {
@@ -82,6 +71,104 @@ public class DescribeDomainExtensionAttributeResponse extends AcsResponse {
 
 	public void setListenerPort(Integer listenerPort) {
 		this.listenerPort = listenerPort;
+	}
+
+	public String getServerCertificateId() {
+		return this.serverCertificateId;
+	}
+
+	public void setServerCertificateId(String serverCertificateId) {
+		this.serverCertificateId = serverCertificateId;
+	}
+
+	public String getDomainExtensionId() {
+		return this.domainExtensionId;
+	}
+
+	public void setDomainExtensionId(String domainExtensionId) {
+		this.domainExtensionId = domainExtensionId;
+	}
+
+	public List<Certificate> getCertificates() {
+		return this.certificates;
+	}
+
+	public void setCertificates(List<Certificate> certificates) {
+		this.certificates = certificates;
+	}
+
+	public List<ServerCertificate> getServerCertificates() {
+		return this.serverCertificates;
+	}
+
+	public void setServerCertificates(List<ServerCertificate> serverCertificates) {
+		this.serverCertificates = serverCertificates;
+	}
+
+	public static class Certificate {
+
+		private String encryptionAlgorithm;
+
+		private String certificateId;
+
+		public String getEncryptionAlgorithm() {
+			return this.encryptionAlgorithm;
+		}
+
+		public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+			this.encryptionAlgorithm = encryptionAlgorithm;
+		}
+
+		public String getCertificateId() {
+			return this.certificateId;
+		}
+
+		public void setCertificateId(String certificateId) {
+			this.certificateId = certificateId;
+		}
+	}
+
+	public static class ServerCertificate {
+
+		private String encryptionAlgorithm;
+
+		private String standardType;
+
+		private String bindingType;
+
+		private String certificateId;
+
+		public String getEncryptionAlgorithm() {
+			return this.encryptionAlgorithm;
+		}
+
+		public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+			this.encryptionAlgorithm = encryptionAlgorithm;
+		}
+
+		public String getStandardType() {
+			return this.standardType;
+		}
+
+		public void setStandardType(String standardType) {
+			this.standardType = standardType;
+		}
+
+		public String getBindingType() {
+			return this.bindingType;
+		}
+
+		public void setBindingType(String bindingType) {
+			this.bindingType = bindingType;
+		}
+
+		public String getCertificateId() {
+			return this.certificateId;
+		}
+
+		public void setCertificateId(String certificateId) {
+			this.certificateId = certificateId;
+		}
 	}
 
 	@Override

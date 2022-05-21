@@ -23,7 +23,13 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class DeleteLiveRecordNotifyConfigRequest extends RpcAcsRequest<DeleteLiveRecordNotifyConfigResponse> {
-	
+	   
+
+	private String securityToken;
+
+	private String domainName;
+
+	private Long ownerId;
 	public DeleteLiveRecordNotifyConfigRequest() {
 		super("live", "2016-11-01", "DeleteLiveRecordNotifyConfig", "live");
 		setMethod(MethodType.POST);
@@ -33,11 +39,16 @@ public class DeleteLiveRecordNotifyConfigRequest extends RpcAcsRequest<DeleteLiv
 		} catch (Exception e) {}
 	}
 
-	private String domainName;
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
 
-	private Long ownerId;
-
-	private String securityToken;
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
 
 	public String getDomainName() {
 		return this.domainName;
@@ -58,36 +69,6 @@ public class DeleteLiveRecordNotifyConfigRequest extends RpcAcsRequest<DeleteLiv
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getBizSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setBizSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	/**
-	 * @deprecated use setBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

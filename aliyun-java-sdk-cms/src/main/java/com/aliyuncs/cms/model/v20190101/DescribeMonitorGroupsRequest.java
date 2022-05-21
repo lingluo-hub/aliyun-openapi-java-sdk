@@ -35,7 +35,11 @@ public class DescribeMonitorGroupsRequest extends RpcAcsRequest<DescribeMonitorG
 
 	private Integer pageNumber;
 
+	private String groupFounderTagKey;
+
 	private Integer pageSize;
+
+	private String groupFounderTagValue;
 
 	private List<Tag> tags;
 
@@ -46,8 +50,6 @@ public class DescribeMonitorGroupsRequest extends RpcAcsRequest<DescribeMonitorG
 	private String groupName;
 
 	private String instanceId;
-
-	private String serviceId;
 	public DescribeMonitorGroupsRequest() {
 		super("Cms", "2019-01-01", "DescribeMonitorGroups", "cms");
 		setMethod(MethodType.POST);
@@ -108,6 +110,17 @@ public class DescribeMonitorGroupsRequest extends RpcAcsRequest<DescribeMonitorG
 		}
 	}
 
+	public String getGroupFounderTagKey() {
+		return this.groupFounderTagKey;
+	}
+
+	public void setGroupFounderTagKey(String groupFounderTagKey) {
+		this.groupFounderTagKey = groupFounderTagKey;
+		if(groupFounderTagKey != null){
+			putQueryParameter("GroupFounderTagKey", groupFounderTagKey);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -116,6 +129,17 @@ public class DescribeMonitorGroupsRequest extends RpcAcsRequest<DescribeMonitorG
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getGroupFounderTagValue() {
+		return this.groupFounderTagValue;
+	}
+
+	public void setGroupFounderTagValue(String groupFounderTagValue) {
+		this.groupFounderTagValue = groupFounderTagValue;
+		if(groupFounderTagValue != null){
+			putQueryParameter("GroupFounderTagValue", groupFounderTagValue);
 		}
 	}
 
@@ -174,17 +198,6 @@ public class DescribeMonitorGroupsRequest extends RpcAcsRequest<DescribeMonitorG
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
-		}
-	}
-
-	public String getServiceId() {
-		return this.serviceId;
-	}
-
-	public void setServiceId(String serviceId) {
-		this.serviceId = serviceId;
-		if(serviceId != null){
-			putQueryParameter("ServiceId", serviceId);
 		}
 	}
 

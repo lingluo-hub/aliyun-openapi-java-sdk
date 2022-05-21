@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -24,11 +25,11 @@ import com.aliyuncs.http.MethodType;
 public class CreateVideoCompressTaskRequest extends RpcAcsRequest<CreateVideoCompressTaskResponse> {
 	   
 
+	private String targetSubtitle;
+
 	private String project;
 
 	private String notifyEndpoint;
-
-	private String targetContainer;
 
 	private String customMessage;
 
@@ -37,9 +38,26 @@ public class CreateVideoCompressTaskRequest extends RpcAcsRequest<CreateVideoCom
 	private String targetList;
 
 	private String videoUri;
+
+	private String targetSegment;
 	public CreateVideoCompressTaskRequest() {
 		super("imm", "2017-09-06", "CreateVideoCompressTask", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getTargetSubtitle() {
+		return this.targetSubtitle;
+	}
+
+	public void setTargetSubtitle(String targetSubtitle) {
+		this.targetSubtitle = targetSubtitle;
+		if(targetSubtitle != null){
+			putQueryParameter("TargetSubtitle", targetSubtitle);
+		}
 	}
 
 	public String getProject() {
@@ -61,17 +79,6 @@ public class CreateVideoCompressTaskRequest extends RpcAcsRequest<CreateVideoCom
 		this.notifyEndpoint = notifyEndpoint;
 		if(notifyEndpoint != null){
 			putQueryParameter("NotifyEndpoint", notifyEndpoint);
-		}
-	}
-
-	public String getTargetContainer() {
-		return this.targetContainer;
-	}
-
-	public void setTargetContainer(String targetContainer) {
-		this.targetContainer = targetContainer;
-		if(targetContainer != null){
-			putQueryParameter("TargetContainer", targetContainer);
 		}
 	}
 
@@ -116,6 +123,17 @@ public class CreateVideoCompressTaskRequest extends RpcAcsRequest<CreateVideoCom
 		this.videoUri = videoUri;
 		if(videoUri != null){
 			putQueryParameter("VideoUri", videoUri);
+		}
+	}
+
+	public String getTargetSegment() {
+		return this.targetSegment;
+	}
+
+	public void setTargetSegment(String targetSegment) {
+		this.targetSegment = targetSegment;
+		if(targetSegment != null){
+			putQueryParameter("TargetSegment", targetSegment);
 		}
 	}
 

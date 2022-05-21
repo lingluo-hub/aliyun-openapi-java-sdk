@@ -31,7 +31,7 @@ public class SearchAlertRulesRequest extends RpcAcsRequest<SearchAlertRulesRespo
 
 	private String pid;
 
-	private String proxyUserId;
+	private String systemRegionId;
 
 	private String title;
 
@@ -39,7 +39,7 @@ public class SearchAlertRulesRequest extends RpcAcsRequest<SearchAlertRulesRespo
 
 	private Integer pageSize;
 	public SearchAlertRulesRequest() {
-		super("ARMS", "2019-08-08", "SearchAlertRules", "arms");
+		super("ARMS", "2019-08-08", "SearchAlertRules");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -80,14 +80,14 @@ public class SearchAlertRulesRequest extends RpcAcsRequest<SearchAlertRulesRespo
 		}
 	}
 
-	public String getProxyUserId() {
-		return this.proxyUserId;
+	public String getSystemRegionId() {
+		return this.systemRegionId;
 	}
 
-	public void setProxyUserId(String proxyUserId) {
-		this.proxyUserId = proxyUserId;
-		if(proxyUserId != null){
-			putQueryParameter("ProxyUserId", proxyUserId);
+	public void setSystemRegionId(String systemRegionId) {
+		this.systemRegionId = systemRegionId;
+		if(systemRegionId != null){
+			putQueryParameter("SystemRegionId", systemRegionId);
 		}
 	}
 

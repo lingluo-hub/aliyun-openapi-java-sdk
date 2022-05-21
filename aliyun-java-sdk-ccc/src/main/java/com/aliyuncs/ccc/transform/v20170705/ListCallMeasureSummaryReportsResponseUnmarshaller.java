@@ -27,21 +27,21 @@ public class ListCallMeasureSummaryReportsResponseUnmarshaller {
 	public static ListCallMeasureSummaryReportsResponse unmarshall(ListCallMeasureSummaryReportsResponse listCallMeasureSummaryReportsResponse, UnmarshallerContext _ctx) {
 		
 		listCallMeasureSummaryReportsResponse.setRequestId(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.RequestId"));
-		listCallMeasureSummaryReportsResponse.setSuccess(_ctx.booleanValue("ListCallMeasureSummaryReportsResponse.Success"));
+		listCallMeasureSummaryReportsResponse.setHttpStatusCode(_ctx.integerValue("ListCallMeasureSummaryReportsResponse.HttpStatusCode"));
 		listCallMeasureSummaryReportsResponse.setCode(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.Code"));
 		listCallMeasureSummaryReportsResponse.setMessage(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.Message"));
-		listCallMeasureSummaryReportsResponse.setHttpStatusCode(_ctx.integerValue("ListCallMeasureSummaryReportsResponse.HttpStatusCode"));
+		listCallMeasureSummaryReportsResponse.setSuccess(_ctx.booleanValue("ListCallMeasureSummaryReportsResponse.Success"));
 
 		List<CallMeasureSummaryReport> callMeasureSummaryReportList = new ArrayList<CallMeasureSummaryReport>();
 		for (int i = 0; i < _ctx.lengthValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList.Length"); i++) {
 			CallMeasureSummaryReport callMeasureSummaryReport = new CallMeasureSummaryReport();
-			callMeasureSummaryReport.setYear(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].Year"));
-			callMeasureSummaryReport.setMonth(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].Month"));
 			callMeasureSummaryReport.setDay(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].Day"));
-			callMeasureSummaryReport.setInboundCount(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].InboundCount"));
+			callMeasureSummaryReport.setYear(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].Year"));
+			callMeasureSummaryReport.setInboundDurationByMinute(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].InboundDurationByMinute"));
 			callMeasureSummaryReport.setOutboundCount(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].OutboundCount"));
 			callMeasureSummaryReport.setOutboundDurationByMinute(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].OutboundDurationByMinute"));
-			callMeasureSummaryReport.setInboundDurationByMinute(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].InboundDurationByMinute"));
+			callMeasureSummaryReport.setInboundCount(_ctx.longValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].InboundCount"));
+			callMeasureSummaryReport.setMonth(_ctx.stringValue("ListCallMeasureSummaryReportsResponse.CallMeasureSummaryReportList["+ i +"].Month"));
 
 			callMeasureSummaryReportList.add(callMeasureSummaryReport);
 		}

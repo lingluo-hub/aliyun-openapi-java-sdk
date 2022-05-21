@@ -16,26 +16,42 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetImageManifestRequest extends RoaAcsRequest<GetImageManifestResponse> {
-	
-	public GetImageManifestRequest() {
-		super("cr", "2016-06-07", "GetImageManifest", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/tags/[Tag]/manifest");
-		setMethod(MethodType.GET);
-	}
+	   
+
+	private Integer schemaVersion;
 
 	private String repoNamespace;
 
 	private String repoName;
 
 	private String tag;
+	public GetImageManifestRequest() {
+		super("cr", "2016-06-07", "GetImageManifest", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/tags/[Tag]/manifest");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private Integer schemaVersion;
+	public Integer getSchemaVersion() {
+		return this.schemaVersion;
+	}
+
+	public void setSchemaVersion(Integer schemaVersion) {
+		this.schemaVersion = schemaVersion;
+		if(schemaVersion != null){
+			putQueryParameter("SchemaVersion", schemaVersion.toString());
+		}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;
@@ -67,17 +83,6 @@ public class GetImageManifestRequest extends RoaAcsRequest<GetImageManifestRespo
 		this.tag = tag;
 		if(tag != null){
 			putPathParameter("Tag", tag);
-		}
-	}
-
-	public Integer getSchemaVersion() {
-		return this.schemaVersion;
-	}
-
-	public void setSchemaVersion(Integer schemaVersion) {
-		this.schemaVersion = schemaVersion;
-		if(schemaVersion != null){
-			putQueryParameter("SchemaVersion", schemaVersion.toString());
 		}
 	}
 

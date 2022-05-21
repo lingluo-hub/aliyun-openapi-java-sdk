@@ -16,22 +16,27 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetNamespaceListRequest extends RoaAcsRequest<GetNamespaceListResponse> {
-	
-	public GetNamespaceListRequest() {
-		super("cr", "2016-06-07", "GetNamespaceList", "cr");
-		setUriPattern("/namespace");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String authorize;
 
 	private String status;
+	public GetNamespaceListRequest() {
+		super("cr", "2016-06-07", "GetNamespaceList", "acr");
+		setUriPattern("/namespace");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getAuthorize() {
 		return this.authorize;

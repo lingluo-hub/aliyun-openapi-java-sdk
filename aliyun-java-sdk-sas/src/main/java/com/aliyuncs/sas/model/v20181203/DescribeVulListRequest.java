@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -24,9 +25,21 @@ import com.aliyuncs.http.MethodType;
 public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListResponse> {
 	   
 
-	private String remark;
+	private String attachTypes;
 
 	private String type;
+
+	private String vpcInstanceIds;
+
+	private String groupId;
+
+	private String aliasName;
+
+	private String necessity;
+
+	private String uuids;
+
+	private String remark;
 
 	private Integer pageSize;
 
@@ -35,25 +48,23 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 	private String dealed;
 
 	private Integer currentPage;
-
-	private String aliasName;
-
-	private String necessity;
-
-	private String uuids;
 	public DescribeVulListRequest() {
-		super("Sas", "2018-12-03", "DescribeVulList", "sas");
+		super("Sas", "2018-12-03", "DescribeVulList");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public String getRemark() {
-		return this.remark;
+	public String getAttachTypes() {
+		return this.attachTypes;
 	}
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-		if(remark != null){
-			putQueryParameter("Remark", remark);
+	public void setAttachTypes(String attachTypes) {
+		this.attachTypes = attachTypes;
+		if(attachTypes != null){
+			putQueryParameter("AttachTypes", attachTypes);
 		}
 	}
 
@@ -65,6 +76,72 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		this.type = type;
 		if(type != null){
 			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getVpcInstanceIds() {
+		return this.vpcInstanceIds;
+	}
+
+	public void setVpcInstanceIds(String vpcInstanceIds) {
+		this.vpcInstanceIds = vpcInstanceIds;
+		if(vpcInstanceIds != null){
+			putQueryParameter("VpcInstanceIds", vpcInstanceIds);
+		}
+	}
+
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
+		}
+	}
+
+	public String getAliasName() {
+		return this.aliasName;
+	}
+
+	public void setAliasName(String aliasName) {
+		this.aliasName = aliasName;
+		if(aliasName != null){
+			putQueryParameter("AliasName", aliasName);
+		}
+	}
+
+	public String getNecessity() {
+		return this.necessity;
+	}
+
+	public void setNecessity(String necessity) {
+		this.necessity = necessity;
+		if(necessity != null){
+			putQueryParameter("Necessity", necessity);
+		}
+	}
+
+	public String getUuids() {
+		return this.uuids;
+	}
+
+	public void setUuids(String uuids) {
+		this.uuids = uuids;
+		if(uuids != null){
+			putQueryParameter("Uuids", uuids);
+		}
+	}
+
+	public String getRemark() {
+		return this.remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+		if(remark != null){
+			putQueryParameter("Remark", remark);
 		}
 	}
 
@@ -109,39 +186,6 @@ public class DescribeVulListRequest extends RpcAcsRequest<DescribeVulListRespons
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public String getAliasName() {
-		return this.aliasName;
-	}
-
-	public void setAliasName(String aliasName) {
-		this.aliasName = aliasName;
-		if(aliasName != null){
-			putQueryParameter("AliasName", aliasName);
-		}
-	}
-
-	public String getNecessity() {
-		return this.necessity;
-	}
-
-	public void setNecessity(String necessity) {
-		this.necessity = necessity;
-		if(necessity != null){
-			putQueryParameter("Necessity", necessity);
-		}
-	}
-
-	public String getUuids() {
-		return this.uuids;
-	}
-
-	public void setUuids(String uuids) {
-		this.uuids = uuids;
-		if(uuids != null){
-			putQueryParameter("Uuids", uuids);
 		}
 	}
 

@@ -45,15 +45,25 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 
 	private String sourceEndpointIP;
 
+	private String crossRoleName;
+
 	private Boolean enableBackupLog;
 
 	private String backupStorageType;
 
 	private Integer duplicationArchivePeriod;
 
+	private Integer backupLogIntervalSeconds;
+
+	private String crossAliyunId;
+
+	private Boolean autoStartBackup;
+
 	private String sourceEndpointPassword;
 
 	private String backupObjects;
+
+	private Long backupRateLimit;
 
 	private String ownerId;
 
@@ -63,6 +73,8 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 
 	private String backupPeriod;
 
+	private Long backupSpeedLimit;
+
 	private String sourceEndpointInstanceType;
 
 	private String backupPlanName;
@@ -70,6 +82,8 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 	private String sourceEndpointOracleSID;
 
 	private String oSSBucketName;
+
+	private String backupStrategyType;
 	public ConfigureBackupPlanRequest() {
 		super("Dbs", "2019-03-06", "ConfigureBackupPlan", "cbs");
 		setMethod(MethodType.POST);
@@ -189,6 +203,17 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 		}
 	}
 
+	public String getCrossRoleName() {
+		return this.crossRoleName;
+	}
+
+	public void setCrossRoleName(String crossRoleName) {
+		this.crossRoleName = crossRoleName;
+		if(crossRoleName != null){
+			putQueryParameter("CrossRoleName", crossRoleName);
+		}
+	}
+
 	public Boolean getEnableBackupLog() {
 		return this.enableBackupLog;
 	}
@@ -222,6 +247,39 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 		}
 	}
 
+	public Integer getBackupLogIntervalSeconds() {
+		return this.backupLogIntervalSeconds;
+	}
+
+	public void setBackupLogIntervalSeconds(Integer backupLogIntervalSeconds) {
+		this.backupLogIntervalSeconds = backupLogIntervalSeconds;
+		if(backupLogIntervalSeconds != null){
+			putQueryParameter("BackupLogIntervalSeconds", backupLogIntervalSeconds.toString());
+		}
+	}
+
+	public String getCrossAliyunId() {
+		return this.crossAliyunId;
+	}
+
+	public void setCrossAliyunId(String crossAliyunId) {
+		this.crossAliyunId = crossAliyunId;
+		if(crossAliyunId != null){
+			putQueryParameter("CrossAliyunId", crossAliyunId);
+		}
+	}
+
+	public Boolean getAutoStartBackup() {
+		return this.autoStartBackup;
+	}
+
+	public void setAutoStartBackup(Boolean autoStartBackup) {
+		this.autoStartBackup = autoStartBackup;
+		if(autoStartBackup != null){
+			putQueryParameter("AutoStartBackup", autoStartBackup.toString());
+		}
+	}
+
 	public String getSourceEndpointPassword() {
 		return this.sourceEndpointPassword;
 	}
@@ -241,6 +299,17 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 		this.backupObjects = backupObjects;
 		if(backupObjects != null){
 			putQueryParameter("BackupObjects", backupObjects);
+		}
+	}
+
+	public Long getBackupRateLimit() {
+		return this.backupRateLimit;
+	}
+
+	public void setBackupRateLimit(Long backupRateLimit) {
+		this.backupRateLimit = backupRateLimit;
+		if(backupRateLimit != null){
+			putQueryParameter("BackupRateLimit", backupRateLimit.toString());
 		}
 	}
 
@@ -288,6 +357,17 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 		}
 	}
 
+	public Long getBackupSpeedLimit() {
+		return this.backupSpeedLimit;
+	}
+
+	public void setBackupSpeedLimit(Long backupSpeedLimit) {
+		this.backupSpeedLimit = backupSpeedLimit;
+		if(backupSpeedLimit != null){
+			putQueryParameter("BackupSpeedLimit", backupSpeedLimit.toString());
+		}
+	}
+
 	public String getSourceEndpointInstanceType() {
 		return this.sourceEndpointInstanceType;
 	}
@@ -329,6 +409,17 @@ public class ConfigureBackupPlanRequest extends RpcAcsRequest<ConfigureBackupPla
 		this.oSSBucketName = oSSBucketName;
 		if(oSSBucketName != null){
 			putQueryParameter("OSSBucketName", oSSBucketName);
+		}
+	}
+
+	public String getBackupStrategyType() {
+		return this.backupStrategyType;
+	}
+
+	public void setBackupStrategyType(String backupStrategyType) {
+		this.backupStrategyType = backupStrategyType;
+		if(backupStrategyType != null){
+			putQueryParameter("BackupStrategyType", backupStrategyType);
 		}
 	}
 

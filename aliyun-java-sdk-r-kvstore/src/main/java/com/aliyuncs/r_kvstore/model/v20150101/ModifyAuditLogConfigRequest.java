@@ -29,17 +29,19 @@ public class ModifyAuditLogConfigRequest extends RpcAcsRequest<ModifyAuditLogCon
 
 	private String securityToken;
 
-	private String retention;
+	private Integer retention;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
+	private Boolean dbAudit;
+
 	private Long ownerId;
 
 	private String instanceId;
 	public ModifyAuditLogConfigRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyAuditLogConfig");
+		super("R-kvstore", "2015-01-01", "ModifyAuditLogConfig", "redisa");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -69,14 +71,14 @@ public class ModifyAuditLogConfigRequest extends RpcAcsRequest<ModifyAuditLogCon
 		}
 	}
 
-	public String getRetention() {
+	public Integer getRetention() {
 		return this.retention;
 	}
 
-	public void setRetention(String retention) {
+	public void setRetention(Integer retention) {
 		this.retention = retention;
 		if(retention != null){
-			putQueryParameter("Retention", retention);
+			putQueryParameter("Retention", retention.toString());
 		}
 	}
 
@@ -99,6 +101,17 @@ public class ModifyAuditLogConfigRequest extends RpcAcsRequest<ModifyAuditLogCon
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getDbAudit() {
+		return this.dbAudit;
+	}
+
+	public void setDbAudit(Boolean dbAudit) {
+		this.dbAudit = dbAudit;
+		if(dbAudit != null){
+			putQueryParameter("DbAudit", dbAudit.toString());
 		}
 	}
 

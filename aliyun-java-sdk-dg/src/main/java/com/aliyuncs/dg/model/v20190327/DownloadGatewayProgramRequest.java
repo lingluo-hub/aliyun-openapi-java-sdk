@@ -24,7 +24,11 @@ import com.aliyuncs.dg.Endpoint;
  * @version 
  */
 public class DownloadGatewayProgramRequest extends RpcAcsRequest<DownloadGatewayProgramResponse> {
-	
+	   
+
+	private String userOS;
+
+	private String dgVersion;
 	public DownloadGatewayProgramRequest() {
 		super("dg", "2019-03-27", "DownloadGatewayProgram", "dg");
 		setProtocol(ProtocolType.HTTPS);
@@ -35,8 +39,6 @@ public class DownloadGatewayProgramRequest extends RpcAcsRequest<DownloadGateway
 		} catch (Exception e) {}
 	}
 
-	private String userOS;
-
 	public String getUserOS() {
 		return this.userOS;
 	}
@@ -45,6 +47,17 @@ public class DownloadGatewayProgramRequest extends RpcAcsRequest<DownloadGateway
 		this.userOS = userOS;
 		if(userOS != null){
 			putBodyParameter("UserOS", userOS);
+		}
+	}
+
+	public String getDgVersion() {
+		return this.dgVersion;
+	}
+
+	public void setDgVersion(String dgVersion) {
+		this.dgVersion = dgVersion;
+		if(dgVersion != null){
+			putBodyParameter("DgVersion", dgVersion);
 		}
 	}
 

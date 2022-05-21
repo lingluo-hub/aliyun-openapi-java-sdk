@@ -31,31 +31,31 @@ public class GetUserResponseUnmarshaller {
 	public static GetUserResponse unmarshall(GetUserResponse getUserResponse, UnmarshallerContext _ctx) {
 		
 		getUserResponse.setRequestId(_ctx.stringValue("GetUserResponse.RequestId"));
-		getUserResponse.setSuccess(_ctx.booleanValue("GetUserResponse.Success"));
+		getUserResponse.setHttpStatusCode(_ctx.integerValue("GetUserResponse.HttpStatusCode"));
 		getUserResponse.setCode(_ctx.stringValue("GetUserResponse.Code"));
 		getUserResponse.setMessage(_ctx.stringValue("GetUserResponse.Message"));
-		getUserResponse.setHttpStatusCode(_ctx.integerValue("GetUserResponse.HttpStatusCode"));
+		getUserResponse.setSuccess(_ctx.booleanValue("GetUserResponse.Success"));
 
 		User user = new User();
-		user.setUserId(_ctx.stringValue("GetUserResponse.User.UserId"));
-		user.setRamId(_ctx.stringValue("GetUserResponse.User.RamId"));
 		user.setInstanceId(_ctx.stringValue("GetUserResponse.User.InstanceId"));
+		user.setRamId(_ctx.stringValue("GetUserResponse.User.RamId"));
+		user.setUserId(_ctx.stringValue("GetUserResponse.User.UserId"));
 
 		Detail detail = new Detail();
-		detail.setLoginName(_ctx.stringValue("GetUserResponse.User.Detail.LoginName"));
 		detail.setDisplayName(_ctx.stringValue("GetUserResponse.User.Detail.DisplayName"));
-		detail.setPhone(_ctx.stringValue("GetUserResponse.User.Detail.Phone"));
 		detail.setEmail(_ctx.stringValue("GetUserResponse.User.Detail.Email"));
+		detail.setLoginName(_ctx.stringValue("GetUserResponse.User.Detail.LoginName"));
 		detail.setDepartment(_ctx.stringValue("GetUserResponse.User.Detail.Department"));
+		detail.setPhone(_ctx.stringValue("GetUserResponse.User.Detail.Phone"));
 		user.setDetail(detail);
 
 		List<Role> roles = new ArrayList<Role>();
 		for (int i = 0; i < _ctx.lengthValue("GetUserResponse.User.Roles.Length"); i++) {
 			Role role = new Role();
-			role.setRoleId(_ctx.stringValue("GetUserResponse.User.Roles["+ i +"].RoleId"));
 			role.setInstanceId(_ctx.stringValue("GetUserResponse.User.Roles["+ i +"].InstanceId"));
 			role.setRoleName(_ctx.stringValue("GetUserResponse.User.Roles["+ i +"].RoleName"));
 			role.setRoleDescription(_ctx.stringValue("GetUserResponse.User.Roles["+ i +"].RoleDescription"));
+			role.setRoleId(_ctx.stringValue("GetUserResponse.User.Roles["+ i +"].RoleId"));
 
 			roles.add(role);
 		}
@@ -68,10 +68,10 @@ public class GetUserResponseUnmarshaller {
 			skillLevel.setLevel(_ctx.integerValue("GetUserResponse.User.SkillLevels["+ i +"].Level"));
 
 			Skill skill = new Skill();
-			skill.setSkillGroupId(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.SkillGroupId"));
 			skill.setInstanceId(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.InstanceId"));
-			skill.setSkillGroupName(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.SkillGroupName"));
 			skill.setSkillGroupDescription(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.SkillGroupDescription"));
+			skill.setSkillGroupId(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.SkillGroupId"));
+			skill.setSkillGroupName(_ctx.stringValue("GetUserResponse.User.SkillLevels["+ i +"].Skill.SkillGroupName"));
 			skillLevel.setSkill(skill);
 
 			skillLevels.add(skillLevel);

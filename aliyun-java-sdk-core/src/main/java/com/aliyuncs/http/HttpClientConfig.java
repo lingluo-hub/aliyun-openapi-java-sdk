@@ -1,5 +1,7 @@
 package com.aliyuncs.http;
 
+import org.apache.http.client.CredentialsProvider;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLSocketFactory;
@@ -14,6 +16,8 @@ public class HttpClientConfig {
     public static final long DEFAULT_CONNECTION_TIMEOUT = 5000;
 
     public static final long DEFAULT_READ_TIMEOUT = 10000;
+
+    public static final String IGNORE_SSL_ENV = "ALIBABACLOUD_JAVA_CORE_INGNORE_SSL";
     /**
      * client type
      */
@@ -23,7 +27,7 @@ public class HttpClientConfig {
     /**
      * connectionPool
      **/
-    private int maxIdleConnections = 5;
+    private int maxIdleConnections = 128;
     private long maxIdleTimeMillis = 60 * 1000L;
     private long keepAliveDurationMillis = 5000L;
 
@@ -32,7 +36,7 @@ public class HttpClientConfig {
      **/
     private long connectionTimeoutMillis = DEFAULT_CONNECTION_TIMEOUT;
     private long readTimeoutMillis = DEFAULT_READ_TIMEOUT;
-    private long writeTimeoutMillis = 15000L;
+    private long writeTimeoutMillis = 60 * 1000L;
 
     /**
      * global protocolType
@@ -43,7 +47,6 @@ public class HttpClientConfig {
      * https
      **/
     private boolean ignoreSSLCerts = false;
-    @Deprecated
     private SSLSocketFactory sslSocketFactory = null;
     private KeyManager[] keyManagers = null;
     private X509TrustManager[] x509TrustManagers = null;
@@ -55,8 +58,8 @@ public class HttpClientConfig {
     /**
      * dispatcher
      **/
-    private int maxRequests = 64;
-    private int maxRequestsPerHost = 5;
+    private int maxRequests = 128;
+    private int maxRequestsPerHost = 128;
     private Runnable idleCallback = null;
     private ExecutorService executorService = null;
 
@@ -68,6 +71,7 @@ public class HttpClientConfig {
     private String httpProxy = null;
     private String httpsProxy = null;
     private String noProxy = null;
+    private CredentialsProvider credentialsProvider;
 
     /**
      * extra params
@@ -152,15 +156,10 @@ public class HttpClientConfig {
         this.writeTimeoutMillis = writeTimeoutMillis;
     }
 
-    @Deprecated
     public SSLSocketFactory getSslSocketFactory() {
         return this.sslSocketFactory;
     }
 
-    /**
-     * use HttpClientConfig.setX509TrustManagers() and HttpClientConfig.setKeyManagers() instead
-     */
-    @Deprecated
     public void setSslSocketFactory(SSLSocketFactory sslSocketFactory) {
         this.sslSocketFactory = sslSocketFactory;
     }
@@ -258,7 +257,7 @@ public class HttpClientConfig {
     }
 
     public boolean isIgnoreSSLCerts() {
-        return ignoreSSLCerts;
+        return "YES".equals(System.getProperty(IGNORE_SSL_ENV)) || "YES".equals(System.getenv(IGNORE_SSL_ENV)) || this.ignoreSSLCerts;
     }
 
     public void setIgnoreSSLCerts(boolean ignoreSSLCerts) {
@@ -303,5 +302,13 @@ public class HttpClientConfig {
 
     public void setNoProxy(String noProxy) {
         this.noProxy = noProxy;
+    }
+
+    public CredentialsProvider getCredentialsProvider() {
+        return credentialsProvider;
+    }
+
+    public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+        this.credentialsProvider = credentialsProvider;
     }
 }

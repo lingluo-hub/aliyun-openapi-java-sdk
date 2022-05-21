@@ -33,8 +33,6 @@ public class DescribeStreamURLRequest extends RpcAcsRequest<DescribeStreamURLRes
 
 	private String type;
 
-	private String outHostType;
-
 	private String id;
 
 	private String outProtocol;
@@ -46,10 +44,8 @@ public class DescribeStreamURLRequest extends RpcAcsRequest<DescribeStreamURLRes
 	private Long ownerId;
 
 	private Long expire;
-
-	private String location;
 	public DescribeStreamURLRequest() {
-		super("vs", "2018-12-12", "DescribeStreamURL", "vs");
+		super("vs", "2018-12-12", "DescribeStreamURL");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -98,17 +94,6 @@ public class DescribeStreamURLRequest extends RpcAcsRequest<DescribeStreamURLRes
 		this.type = type;
 		if(type != null){
 			putQueryParameter("Type", type);
-		}
-	}
-
-	public String getOutHostType() {
-		return this.outHostType;
-	}
-
-	public void setOutHostType(String outHostType) {
-		this.outHostType = outHostType;
-		if(outHostType != null){
-			putQueryParameter("OutHostType", outHostType);
 		}
 	}
 
@@ -175,17 +160,6 @@ public class DescribeStreamURLRequest extends RpcAcsRequest<DescribeStreamURLRes
 		this.expire = expire;
 		if(expire != null){
 			putQueryParameter("Expire", expire.toString());
-		}
-	}
-
-	public String getLocation() {
-		return this.location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-		if(location != null){
-			putQueryParameter("Location", location);
 		}
 	}
 

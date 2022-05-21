@@ -25,15 +25,13 @@ import com.aliyuncs.cdn.Endpoint;
 public class DeleteCdnDomainRequest extends RpcAcsRequest<DeleteCdnDomainResponse> {
 	   
 
+	private String securityToken;
+
 	private String ownerAccount;
 
 	private String domainName;
 
 	private Long ownerId;
-
-	private String resourceGroupId;
-
-	private String securityToken;
 	public DeleteCdnDomainRequest() {
 		super("Cdn", "2018-05-10", "DeleteCdnDomain");
 		setMethod(MethodType.POST);
@@ -41,6 +39,17 @@ public class DeleteCdnDomainRequest extends RpcAcsRequest<DeleteCdnDomainRespons
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
+
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
 	}
 
 	public String getOwnerAccount() {
@@ -73,28 +82,6 @@ public class DeleteCdnDomainRequest extends RpcAcsRequest<DeleteCdnDomainRespons
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
-	}
-
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
-	}
-
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
 		}
 	}
 

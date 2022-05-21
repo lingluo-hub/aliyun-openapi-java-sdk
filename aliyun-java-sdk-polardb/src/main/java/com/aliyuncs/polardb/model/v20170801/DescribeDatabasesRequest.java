@@ -27,6 +27,10 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 
 	private Long resourceOwnerId;
 
+	private Integer pageNumber;
+
+	private Integer pageSize;
+
 	private String resourceOwnerAccount;
 
 	private String dBClusterId;
@@ -37,7 +41,7 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 
 	private String dBName;
 	public DescribeDatabasesRequest() {
-		super("polardb", "2017-08-01", "DescribeDatabases", "polardb");
+		super("polardb", "2017-08-01", "DescribeDatabases");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -53,6 +57,28 @@ public class DescribeDatabasesRequest extends RpcAcsRequest<DescribeDatabasesRes
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 

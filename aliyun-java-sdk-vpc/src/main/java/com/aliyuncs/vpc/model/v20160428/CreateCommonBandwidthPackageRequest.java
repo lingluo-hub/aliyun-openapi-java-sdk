@@ -15,6 +15,7 @@
 package com.aliyuncs.vpc.model.v20160428;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.vpc.Endpoint;
 
@@ -49,9 +50,11 @@ public class CreateCommonBandwidthPackageRequest extends RpcAcsRequest<CreateCom
 
 	private String name;
 
+	private List<String> securityProtectionTypess;
+
 	private Integer ratio;
 	public CreateCommonBandwidthPackageRequest() {
-		super("Vpc", "2016-04-28", "CreateCommonBandwidthPackage", "Vpc");
+		super("Vpc", "2016-04-28", "CreateCommonBandwidthPackage", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -189,6 +192,19 @@ public class CreateCommonBandwidthPackageRequest extends RpcAcsRequest<CreateCom
 		if(name != null){
 			putQueryParameter("Name", name);
 		}
+	}
+
+	public List<String> getSecurityProtectionTypess() {
+		return this.securityProtectionTypess;
+	}
+
+	public void setSecurityProtectionTypess(List<String> securityProtectionTypess) {
+		this.securityProtectionTypess = securityProtectionTypess;	
+		if (securityProtectionTypess != null) {
+			for (int i = 0; i < securityProtectionTypess.size(); i++) {
+				putQueryParameter("SecurityProtectionTypes." + (i + 1) , securityProtectionTypess.get(i));
+			}
+		}	
 	}
 
 	public Integer getRatio() {

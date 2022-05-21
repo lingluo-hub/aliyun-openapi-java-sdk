@@ -26,13 +26,13 @@ public class ModifySynchronizationObjectResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String success;
-
 	private String errCode;
 
-	private String errMessage;
-
 	private String taskId;
+
+	private String success;
+
+	private String errMessage;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -40,14 +40,6 @@ public class ModifySynchronizationObjectResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(String success) {
-		this.success = success;
 	}
 
 	public String getErrCode() {
@@ -58,20 +50,28 @@ public class ModifySynchronizationObjectResponse extends AcsResponse {
 		this.errCode = errCode;
 	}
 
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
-	}
-
 	public String getTaskId() {
 		return this.taskId;
 	}
 
 	public void setTaskId(String taskId) {
 		this.taskId = taskId;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

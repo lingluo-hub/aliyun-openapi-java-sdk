@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetConversationDetailByContactIdResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private DataList dataList;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public DataList getDataList() {
@@ -87,21 +87,13 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 
 	public static class DataList {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<QualityCheckPhrase> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<QualityCheckPhrase> getList() {
 			return this.list;
 		}
@@ -129,30 +129,22 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 
 		public static class QualityCheckPhrase {
 
-			private String identity;
-
-			private String role;
+			private Long end;
 
 			private String words;
 
+			private String role;
+
 			private Long begin;
 
-			private Long end;
+			private String identity;
 
-			public String getIdentity() {
-				return this.identity;
+			public Long getEnd() {
+				return this.end;
 			}
 
-			public void setIdentity(String identity) {
-				this.identity = identity;
-			}
-
-			public String getRole() {
-				return this.role;
-			}
-
-			public void setRole(String role) {
-				this.role = role;
+			public void setEnd(Long end) {
+				this.end = end;
 			}
 
 			public String getWords() {
@@ -163,6 +155,14 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 				this.words = words;
 			}
 
+			public String getRole() {
+				return this.role;
+			}
+
+			public void setRole(String role) {
+				this.role = role;
+			}
+
 			public Long getBegin() {
 				return this.begin;
 			}
@@ -171,12 +171,12 @@ public class GetConversationDetailByContactIdResponse extends AcsResponse {
 				this.begin = begin;
 			}
 
-			public Long getEnd() {
-				return this.end;
+			public String getIdentity() {
+				return this.identity;
 			}
 
-			public void setEnd(Long end) {
-				this.end = end;
+			public void setIdentity(String identity) {
+				this.identity = identity;
 			}
 		}
 	}

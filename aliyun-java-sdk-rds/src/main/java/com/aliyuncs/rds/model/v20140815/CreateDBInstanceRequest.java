@@ -15,6 +15,7 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.rds.Endpoint;
 
@@ -25,6 +26,8 @@ import com.aliyuncs.rds.Endpoint;
 public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceResponse> {
 	   
 
+	private String dBParamGroupId;
+
 	private Long resourceOwnerId;
 
 	private Integer dBInstanceStorage;
@@ -33,13 +36,19 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 
 	private String engineVersion;
 
+	private String resourceGroupId;
+
 	private String targetDedicatedHostIdForMaster;
 
 	private String dBInstanceDescription;
 
+	private List<Tag> tags;
+
 	private String businessInfo;
 
 	private String period;
+
+	private Boolean dryRun;
 
 	private String encryptionKey;
 
@@ -59,6 +68,8 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 
 	private String zoneId;
 
+	private String storageAutoScale;
+
 	private String instanceNetworkType;
 
 	private String connectionMode;
@@ -67,15 +78,35 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 
 	private String targetDedicatedHostIdForSlave;
 
+	private String zoneIdSlave1;
+
+	private String zoneIdSlave2;
+
+	private String dBIsIgnoreCase;
+
 	private String engine;
+
+	private String dBTimeZone;
 
 	private String dBInstanceStorageType;
 
 	private String dedicatedHostGroupId;
 
+	private String createStrategy;
+
 	private String dBInstanceNetType;
 
+	private Integer amount;
+
 	private String usedTime;
+
+	private String targetMinorVersion;
+
+	private String userBackupId;
+
+	private Integer storageUpperBound;
+
+	private Integer storageThreshold;
 
 	private String vPCId;
 
@@ -89,6 +120,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getDBParamGroupId() {
+		return this.dBParamGroupId;
+	}
+
+	public void setDBParamGroupId(String dBParamGroupId) {
+		this.dBParamGroupId = dBParamGroupId;
+		if(dBParamGroupId != null){
+			putQueryParameter("DBParamGroupId", dBParamGroupId);
+		}
 	}
 
 	public Long getResourceOwnerId() {
@@ -135,6 +177,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getTargetDedicatedHostIdForMaster() {
 		return this.targetDedicatedHostIdForMaster;
 	}
@@ -157,6 +210,20 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
 	public String getBusinessInfo() {
 		return this.businessInfo;
 	}
@@ -176,6 +243,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		this.period = period;
 		if(period != null){
 			putQueryParameter("Period", period);
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 
@@ -278,6 +356,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public String getStorageAutoScale() {
+		return this.storageAutoScale;
+	}
+
+	public void setStorageAutoScale(String storageAutoScale) {
+		this.storageAutoScale = storageAutoScale;
+		if(storageAutoScale != null){
+			putQueryParameter("StorageAutoScale", storageAutoScale);
+		}
+	}
+
 	public String getInstanceNetworkType() {
 		return this.instanceNetworkType;
 	}
@@ -322,6 +411,39 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public String getZoneIdSlave1() {
+		return this.zoneIdSlave1;
+	}
+
+	public void setZoneIdSlave1(String zoneIdSlave1) {
+		this.zoneIdSlave1 = zoneIdSlave1;
+		if(zoneIdSlave1 != null){
+			putQueryParameter("ZoneIdSlave1", zoneIdSlave1);
+		}
+	}
+
+	public String getZoneIdSlave2() {
+		return this.zoneIdSlave2;
+	}
+
+	public void setZoneIdSlave2(String zoneIdSlave2) {
+		this.zoneIdSlave2 = zoneIdSlave2;
+		if(zoneIdSlave2 != null){
+			putQueryParameter("ZoneIdSlave2", zoneIdSlave2);
+		}
+	}
+
+	public String getDBIsIgnoreCase() {
+		return this.dBIsIgnoreCase;
+	}
+
+	public void setDBIsIgnoreCase(String dBIsIgnoreCase) {
+		this.dBIsIgnoreCase = dBIsIgnoreCase;
+		if(dBIsIgnoreCase != null){
+			putQueryParameter("DBIsIgnoreCase", dBIsIgnoreCase);
+		}
+	}
+
 	public String getEngine() {
 		return this.engine;
 	}
@@ -330,6 +452,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		this.engine = engine;
 		if(engine != null){
 			putQueryParameter("Engine", engine);
+		}
+	}
+
+	public String getDBTimeZone() {
+		return this.dBTimeZone;
+	}
+
+	public void setDBTimeZone(String dBTimeZone) {
+		this.dBTimeZone = dBTimeZone;
+		if(dBTimeZone != null){
+			putQueryParameter("DBTimeZone", dBTimeZone);
 		}
 	}
 
@@ -355,6 +488,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public String getCreateStrategy() {
+		return this.createStrategy;
+	}
+
+	public void setCreateStrategy(String createStrategy) {
+		this.createStrategy = createStrategy;
+		if(createStrategy != null){
+			putQueryParameter("CreateStrategy", createStrategy);
+		}
+	}
+
 	public String getDBInstanceNetType() {
 		return this.dBInstanceNetType;
 	}
@@ -366,6 +510,17 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		}
 	}
 
+	public Integer getAmount() {
+		return this.amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+		if(amount != null){
+			putQueryParameter("Amount", amount.toString());
+		}
+	}
+
 	public String getUsedTime() {
 		return this.usedTime;
 	}
@@ -374,6 +529,50 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		this.usedTime = usedTime;
 		if(usedTime != null){
 			putQueryParameter("UsedTime", usedTime);
+		}
+	}
+
+	public String getTargetMinorVersion() {
+		return this.targetMinorVersion;
+	}
+
+	public void setTargetMinorVersion(String targetMinorVersion) {
+		this.targetMinorVersion = targetMinorVersion;
+		if(targetMinorVersion != null){
+			putQueryParameter("TargetMinorVersion", targetMinorVersion);
+		}
+	}
+
+	public String getUserBackupId() {
+		return this.userBackupId;
+	}
+
+	public void setUserBackupId(String userBackupId) {
+		this.userBackupId = userBackupId;
+		if(userBackupId != null){
+			putQueryParameter("UserBackupId", userBackupId);
+		}
+	}
+
+	public Integer getStorageUpperBound() {
+		return this.storageUpperBound;
+	}
+
+	public void setStorageUpperBound(Integer storageUpperBound) {
+		this.storageUpperBound = storageUpperBound;
+		if(storageUpperBound != null){
+			putQueryParameter("StorageUpperBound", storageUpperBound.toString());
+		}
+	}
+
+	public Integer getStorageThreshold() {
+		return this.storageThreshold;
+	}
+
+	public void setStorageThreshold(Integer storageThreshold) {
+		this.storageThreshold = storageThreshold;
+		if(storageThreshold != null){
+			putQueryParameter("StorageThreshold", storageThreshold.toString());
 		}
 	}
 
@@ -407,6 +606,29 @@ public class CreateDBInstanceRequest extends RpcAcsRequest<CreateDBInstanceRespo
 		this.payType = payType;
 		if(payType != null){
 			putQueryParameter("PayType", payType);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

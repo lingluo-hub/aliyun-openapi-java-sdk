@@ -42,6 +42,8 @@ public class DescribeParameterModificationHistoryRequest extends RpcAcsRequest<D
 	private String endTime;
 
 	private Long ownerId;
+
+	private String characterType;
 	public DescribeParameterModificationHistoryRequest() {
 		super("Dds", "2015-12-01", "DescribeParameterModificationHistory", "dds");
 		setMethod(MethodType.POST);
@@ -147,6 +149,17 @@ public class DescribeParameterModificationHistoryRequest extends RpcAcsRequest<D
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCharacterType() {
+		return this.characterType;
+	}
+
+	public void setCharacterType(String characterType) {
+		this.characterType = characterType;
+		if(characterType != null){
+			putQueryParameter("CharacterType", characterType);
 		}
 	}
 

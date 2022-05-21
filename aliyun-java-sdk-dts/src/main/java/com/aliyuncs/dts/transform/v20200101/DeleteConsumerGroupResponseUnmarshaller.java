@@ -23,8 +23,8 @@ public class DeleteConsumerGroupResponseUnmarshaller {
 	public static DeleteConsumerGroupResponse unmarshall(DeleteConsumerGroupResponse deleteConsumerGroupResponse, UnmarshallerContext _ctx) {
 		
 		deleteConsumerGroupResponse.setRequestId(_ctx.stringValue("DeleteConsumerGroupResponse.RequestId"));
-		deleteConsumerGroupResponse.setSuccess(_ctx.stringValue("DeleteConsumerGroupResponse.Success"));
 		deleteConsumerGroupResponse.setErrCode(_ctx.stringValue("DeleteConsumerGroupResponse.ErrCode"));
+		deleteConsumerGroupResponse.setSuccess(_ctx.stringValue("DeleteConsumerGroupResponse.Success"));
 		deleteConsumerGroupResponse.setErrMessage(_ctx.stringValue("DeleteConsumerGroupResponse.ErrMessage"));
 	 
 	 	return deleteConsumerGroupResponse;

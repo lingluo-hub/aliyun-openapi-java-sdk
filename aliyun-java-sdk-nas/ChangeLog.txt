@@ -1,3 +1,31 @@
+2022-04-29 Version: 3.14.1
+- Supported CPFS Protocol.
+
+2021-12-17 Version: 3.14.0
+- Supported ACL for SMB.
+
+2021-11-18 Version: 3.13.0
+- Add CPFS data flow api.
+
+2021-07-28 Version: 3.12.0
+- NAS all open api.
+
+2021-07-28 Version: 1.0.3
+- NAS all open api.
+
+2021-06-24 Version: 3.11.0
+- Add recyclebin api.
+
+2020-09-14 Version: 3.10.0
+- Add Tag API and OpenNasService API.
+
+2020-07-27 Version: 3.9.0
+- Add Lifecycle management APIs for NAS SDK.
+- Add Quota management APIs for NAS SDK.
+
+2020-04-02 Version: 3.8.0
+- Update CreateFileSystem for NAS SDK.
+
 2020-01-02 Version: 3.7.0
 - Fixed bugs for NAS SDK.
 

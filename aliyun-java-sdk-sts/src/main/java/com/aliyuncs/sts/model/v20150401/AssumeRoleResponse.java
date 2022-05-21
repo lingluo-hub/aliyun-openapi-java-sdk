@@ -26,9 +26,9 @@ public class AssumeRoleResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Credentials credentials;
-
 	private AssumedRoleUser assumedRoleUser;
+
+	private Credentials credentials;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -36,14 +36,6 @@ public class AssumeRoleResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Credentials getCredentials() {
-		return this.credentials;
-	}
-
-	public void setCredentials(Credentials credentials) {
-		this.credentials = credentials;
 	}
 
 	public AssumedRoleUser getAssumedRoleUser() {
@@ -54,38 +46,61 @@ public class AssumeRoleResponse extends AcsResponse {
 		this.assumedRoleUser = assumedRoleUser;
 	}
 
+	public Credentials getCredentials() {
+		return this.credentials;
+	}
+
+	public void setCredentials(Credentials credentials) {
+		this.credentials = credentials;
+	}
+
+	public static class AssumedRoleUser {
+
+		private String assumedRoleId;
+
+		private String arn;
+
+		public String getAssumedRoleId() {
+			return this.assumedRoleId;
+		}
+
+		public void setAssumedRoleId(String assumedRoleId) {
+			this.assumedRoleId = assumedRoleId;
+		}
+
+		public String getArn() {
+			return this.arn;
+		}
+
+		public void setArn(String arn) {
+			this.arn = arn;
+		}
+	}
+
 	public static class Credentials {
 
 		private String securityToken;
+
+		private String expiration;
 
 		private String accessKeySecret;
 
 		private String accessKeyId;
 
-		private String expiration;
-
-		public String getBizSecurityToken() {
-			return this.securityToken;
-		}
-
-		public void setBizSecurityToken(String securityToken) {
-			this.securityToken = securityToken;
-		}
-
-		/**
-		 * @deprecated use getBizSecurityToken instead of this.
-		 */
-		@Deprecated
 		public String getSecurityToken() {
 			return this.securityToken;
 		}
 
-		/**
-		 * @deprecated use setBizSecurityToken instead of this.
-		 */
-		@Deprecated
 		public void setSecurityToken(String securityToken) {
 			this.securityToken = securityToken;
+		}
+
+		public String getExpiration() {
+			return this.expiration;
+		}
+
+		public void setExpiration(String expiration) {
+			this.expiration = expiration;
 		}
 
 		public String getAccessKeySecret() {
@@ -102,37 +117,6 @@ public class AssumeRoleResponse extends AcsResponse {
 
 		public void setAccessKeyId(String accessKeyId) {
 			this.accessKeyId = accessKeyId;
-		}
-
-		public String getExpiration() {
-			return this.expiration;
-		}
-
-		public void setExpiration(String expiration) {
-			this.expiration = expiration;
-		}
-	}
-
-	public static class AssumedRoleUser {
-
-		private String arn;
-
-		private String assumedRoleId;
-
-		public String getArn() {
-			return this.arn;
-		}
-
-		public void setArn(String arn) {
-			this.arn = arn;
-		}
-
-		public String getAssumedRoleId() {
-			return this.assumedRoleId;
-		}
-
-		public void setAssumedRoleId(String assumedRoleId) {
-			this.assumedRoleId = assumedRoleId;
 		}
 	}
 

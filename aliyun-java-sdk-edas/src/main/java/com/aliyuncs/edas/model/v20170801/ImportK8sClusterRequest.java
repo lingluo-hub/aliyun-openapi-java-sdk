@@ -25,6 +25,10 @@ import com.aliyuncs.edas.Endpoint;
 public class ImportK8sClusterRequest extends RoaAcsRequest<ImportK8sClusterResponse> {
 	   
 
+	private Integer mode;
+
+	private Boolean enableAsm;
+
 	private String namespaceId;
 
 	private String clusterId;
@@ -36,6 +40,28 @@ public class ImportK8sClusterRequest extends RoaAcsRequest<ImportK8sClusterRespo
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getMode() {
+		return this.mode;
+	}
+
+	public void setMode(Integer mode) {
+		this.mode = mode;
+		if(mode != null){
+			putQueryParameter("Mode", mode.toString());
+		}
+	}
+
+	public Boolean getEnableAsm() {
+		return this.enableAsm;
+	}
+
+	public void setEnableAsm(Boolean enableAsm) {
+		this.enableAsm = enableAsm;
+		if(enableAsm != null){
+			putQueryParameter("EnableAsm", enableAsm.toString());
+		}
 	}
 
 	public String getNamespaceId() {

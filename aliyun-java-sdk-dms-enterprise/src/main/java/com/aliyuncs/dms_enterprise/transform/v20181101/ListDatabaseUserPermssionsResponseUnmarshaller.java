@@ -28,36 +28,36 @@ public class ListDatabaseUserPermssionsResponseUnmarshaller {
 	public static ListDatabaseUserPermssionsResponse unmarshall(ListDatabaseUserPermssionsResponse listDatabaseUserPermssionsResponse, UnmarshallerContext _ctx) {
 		
 		listDatabaseUserPermssionsResponse.setRequestId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.RequestId"));
-		listDatabaseUserPermssionsResponse.setSuccess(_ctx.booleanValue("ListDatabaseUserPermssionsResponse.Success"));
-		listDatabaseUserPermssionsResponse.setErrorMessage(_ctx.stringValue("ListDatabaseUserPermssionsResponse.ErrorMessage"));
-		listDatabaseUserPermssionsResponse.setErrorCode(_ctx.stringValue("ListDatabaseUserPermssionsResponse.ErrorCode"));
 		listDatabaseUserPermssionsResponse.setTotalCount(_ctx.longValue("ListDatabaseUserPermssionsResponse.TotalCount"));
+		listDatabaseUserPermssionsResponse.setErrorCode(_ctx.stringValue("ListDatabaseUserPermssionsResponse.ErrorCode"));
+		listDatabaseUserPermssionsResponse.setErrorMessage(_ctx.stringValue("ListDatabaseUserPermssionsResponse.ErrorMessage"));
+		listDatabaseUserPermssionsResponse.setSuccess(_ctx.booleanValue("ListDatabaseUserPermssionsResponse.Success"));
 
 		List<UserPermission> userPermissions = new ArrayList<UserPermission>();
 		for (int i = 0; i < _ctx.lengthValue("ListDatabaseUserPermssionsResponse.UserPermissions.Length"); i++) {
 			UserPermission userPermission = new UserPermission();
-			userPermission.setUserId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].UserId"));
-			userPermission.setUserNickName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].UserNickName"));
-			userPermission.setDsType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].DsType"));
 			userPermission.setDbId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].DbId"));
-			userPermission.setLogic(_ctx.booleanValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].Logic"));
+			userPermission.setTableName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].TableName"));
+			userPermission.setUserId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].UserId"));
 			userPermission.setSchemaName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].SchemaName"));
-			userPermission.setSearchName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].SearchName"));
+			userPermission.setLogic(_ctx.booleanValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].Logic"));
+			userPermission.setUserNickName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].UserNickName"));
 			userPermission.setInstanceId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].InstanceId"));
 			userPermission.setEnvType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].EnvType"));
-			userPermission.setAlias(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].Alias"));
-			userPermission.setDbType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].DbType"));
-			userPermission.setTableName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].TableName"));
-			userPermission.setTableId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].TableId"));
 			userPermission.setColumnName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].ColumnName"));
+			userPermission.setDbType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].DbType"));
+			userPermission.setDsType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].DsType"));
+			userPermission.setTableId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].TableId"));
+			userPermission.setSearchName(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].SearchName"));
+			userPermission.setAlias(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].Alias"));
 
 			List<PermDetail> permDetails = new ArrayList<PermDetail>();
 			for (int j = 0; j < _ctx.lengthValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails.Length"); j++) {
 				PermDetail permDetail = new PermDetail();
+				permDetail.setOriginFrom(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].OriginFrom"));
 				permDetail.setPermType(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].PermType"));
 				permDetail.setExpireDate(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].ExpireDate"));
 				permDetail.setCreateDate(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].CreateDate"));
-				permDetail.setOriginFrom(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].OriginFrom"));
 				permDetail.setUserAccessId(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].UserAccessId"));
 				permDetail.setExtraData(_ctx.stringValue("ListDatabaseUserPermssionsResponse.UserPermissions["+ i +"].PermDetails["+ j +"].ExtraData"));
 

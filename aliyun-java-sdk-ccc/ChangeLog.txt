@@ -1,3 +1,141 @@
+2022-04-29 Version: 1.0.35
+- Modify SkillGroup basic information for ModifySkillGroupBasicInfo.
+
+2022-04-26 Version: 2.4.3
+- Support to pass variables to authentication IVR.
+
+2022-04-22 Version: 2.4.2
+- Supported EndConference.
+- Supported StartConference.
+- Supported SignInGroup.
+- Supported RemovePhoneNumbers.
+
+2022-04-20 Version: 2.4.1
+- Supported ListMultiChannelRecordings.
+
+2022-04-11 Version: 1.0.34
+- Add user info for AssignUsersResponse.
+
+2022-03-28 Version: 2.3.6
+- Supported CallsServiceLevel30.
+
+2022-03-14 Version: 1.0.33
+- Add ListInstancesOfInternal api.
+
+2022-03-09 Version: 1.0.32
+- Supported filter for ListSkillGroups.
+
+2022-03-07 Version: 2.3.2
+- Supported RemovePhoneNumbers.
+
+2022-03-02 Version: 2.3.1
+- Support SIP phone management.
+
+2022-03-01 Version: 1.0.31
+- Supported ServiceLevel30s For ListSkillGroupSummaryReportsSinceMidnight.
+
+2022-02-10 Version: 2.2.3-SNAPSHOT
+- Supported GetCaseFileUploadUrl.
+
+2022-01-28 Version: 2.3.0
+- Support SIP phone management.
+
+2022-01-05 Version: 2.2.2
+- Add new interface.
+
+2021-12-30 Version: 1.0.30
+- Add new interface.
+
+2021-12-21 Version: 2.2.1
+- Add RAM ID in resonse of listUsers API.
+
+2021-12-16 Version: 2.2.0
+- Release for sprint 2_2_0.
+
+2021-11-29 Version: 2.1.0
+- Add API for unregister sip phone device, masked callee, etc.
+
+2021-10-14 Version: 2.0.18
+- Add API for predictive dialer.
+
+2021-09-28 Version: 1.0.29
+- Add new internal API.
+
+2021-09-13 Version: 2.0.17
+- Supported CallerLocation, CalleeLocation in CDR API.
+
+2021-08-10 Version: 2.0.15
+- Export instance relative API.
+
+2021-07-23 Version: 2.0.14
+- Export instance relative API.
+
+2021-06-08 Version: 2.0.13
+- Refine API response for GetCallDetailRecord.
+
+2021-05-25 Version: 2.0.12
+- Export new API for IVR tracking.
+
+2021-05-24 Version: 2.0.11
+- Export new API for report.
+
+2021-05-17 Version: 1.0.28
+- Export new API for predictive dialer.
+
+2021-04-28 Version: 2.0.10
+- Export new API.
+
+2021-04-20 Version: 1.0.27
+- Export predictive dialer API.
+
+2021-04-19 Version: 2.0.9
+- Export StartBack2BackCall API.
+
+2021-04-12 Version: 2.0.8
+- Export config api.
+
+2021-03-25 Version: 2.0.7
+- Change indicator date type of ListHistoriticalAgentReport.
+
+2021-03-24 Version: 2.0.6
+- Export new API.
+
+2021-03-19 Version: 2.0.5
+- Export new API.
+
+2021-03-19 Version: 1.0.26
+- Export new API for predictive dialer.
+
+2021-03-09 Version: 1.0.25
+- Export new API for predictive dialer.
+
+2021-01-12 Version: 2.0.4
+- Add new API for recording.
+
+2021-01-08 Version: 2.0.3
+- Add new API for configuration and report, generate SDK again.
+
+2021-01-07 Version: 2.0.1
+- Add new API for configuration and report.
+
+2021-01-06 Version: 2.0.0
+- Initial release.
+
+2020-12-01 Version: 1.0.24
+- Fixed bugs for CCC.
+
+2020-10-29 Version: 1.0.23
+- Add new open api.
+
+2020-08-11 Version: 1.0.23
+- Add features for open api.
+
+2020-06-30 Version: 1.0.22
+- Add new open api.
+
+2020-04-16 Version: 1.0.21
+- Add features for open api.
+
 2019-09-05 Version: 1.0.20
 - Add features for open api.
 

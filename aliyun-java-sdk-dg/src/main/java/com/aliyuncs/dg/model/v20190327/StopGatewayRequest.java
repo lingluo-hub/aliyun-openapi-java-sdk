@@ -24,7 +24,11 @@ import com.aliyuncs.dg.Endpoint;
  * @version 
  */
 public class StopGatewayRequest extends RpcAcsRequest<StopGatewayResponse> {
-	
+	   
+
+	private String gatewayInstanceId;
+
+	private String gatewayId;
 	public StopGatewayRequest() {
 		super("dg", "2019-03-27", "StopGateway", "dg");
 		setProtocol(ProtocolType.HTTPS);
@@ -35,7 +39,16 @@ public class StopGatewayRequest extends RpcAcsRequest<StopGatewayResponse> {
 		} catch (Exception e) {}
 	}
 
-	private String gatewayId;
+	public String getGatewayInstanceId() {
+		return this.gatewayInstanceId;
+	}
+
+	public void setGatewayInstanceId(String gatewayInstanceId) {
+		this.gatewayInstanceId = gatewayInstanceId;
+		if(gatewayInstanceId != null){
+			putBodyParameter("GatewayInstanceId", gatewayInstanceId);
+		}
+	}
 
 	public String getGatewayId() {
 		return this.gatewayId;

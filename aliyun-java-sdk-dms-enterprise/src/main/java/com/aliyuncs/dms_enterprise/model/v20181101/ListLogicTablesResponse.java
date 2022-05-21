@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListLogicTablesResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<LogicTable> logicTableList;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class ListLogicTablesResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class ListLogicTablesResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<LogicTable> getLogicTableList() {
@@ -87,29 +87,25 @@ public class ListLogicTablesResponse extends AcsResponse {
 
 	public static class LogicTable {
 
-		private String tableId;
-
 		private String databaseId;
 
 		private String tableName;
+
+		private String tableCount;
+
+		private String schemaName;
 
 		private Boolean logic;
 
 		private String tableExpr;
 
-		private String tableCount;
+		private String tableGuid;
+
+		private String tableId;
 
 		private List<String> ownerIdList;
 
 		private List<String> ownerNameList;
-
-		public String getTableId() {
-			return this.tableId;
-		}
-
-		public void setTableId(String tableId) {
-			this.tableId = tableId;
-		}
 
 		public String getDatabaseId() {
 			return this.databaseId;
@@ -125,6 +121,22 @@ public class ListLogicTablesResponse extends AcsResponse {
 
 		public void setTableName(String tableName) {
 			this.tableName = tableName;
+		}
+
+		public String getTableCount() {
+			return this.tableCount;
+		}
+
+		public void setTableCount(String tableCount) {
+			this.tableCount = tableCount;
+		}
+
+		public String getSchemaName() {
+			return this.schemaName;
+		}
+
+		public void setSchemaName(String schemaName) {
+			this.schemaName = schemaName;
 		}
 
 		public Boolean getLogic() {
@@ -143,12 +155,20 @@ public class ListLogicTablesResponse extends AcsResponse {
 			this.tableExpr = tableExpr;
 		}
 
-		public String getTableCount() {
-			return this.tableCount;
+		public String getTableGuid() {
+			return this.tableGuid;
 		}
 
-		public void setTableCount(String tableCount) {
-			this.tableCount = tableCount;
+		public void setTableGuid(String tableGuid) {
+			this.tableGuid = tableGuid;
+		}
+
+		public String getTableId() {
+			return this.tableId;
+		}
+
+		public void setTableId(String tableId) {
+			this.tableId = tableId;
 		}
 
 		public List<String> getOwnerIdList() {

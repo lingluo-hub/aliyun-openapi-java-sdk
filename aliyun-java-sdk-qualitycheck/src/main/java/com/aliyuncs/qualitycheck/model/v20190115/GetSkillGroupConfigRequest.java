@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class GetSkillGroupConfigRequest extends RpcAcsRequest<GetSkillGroupConfigResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public GetSkillGroupConfigRequest() {
 		super("Qualitycheck", "2019-01-15", "GetSkillGroupConfig");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

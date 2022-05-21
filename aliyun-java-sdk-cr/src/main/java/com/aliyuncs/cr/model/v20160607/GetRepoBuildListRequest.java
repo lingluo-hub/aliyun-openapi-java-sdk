@@ -16,18 +16,14 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetRepoBuildListRequest extends RoaAcsRequest<GetRepoBuildListResponse> {
-	
-	public GetRepoBuildListRequest() {
-		super("cr", "2016-06-07", "GetRepoBuildList", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/build");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String repoNamespace;
 
@@ -36,6 +32,15 @@ public class GetRepoBuildListRequest extends RoaAcsRequest<GetRepoBuildListRespo
 	private Integer pageSize;
 
 	private Integer page;
+	public GetRepoBuildListRequest() {
+		super("cr", "2016-06-07", "GetRepoBuildList", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/build");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;

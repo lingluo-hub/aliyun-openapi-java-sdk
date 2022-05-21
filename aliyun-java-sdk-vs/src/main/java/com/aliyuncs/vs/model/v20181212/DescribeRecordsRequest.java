@@ -33,6 +33,8 @@ public class DescribeRecordsRequest extends RpcAcsRequest<DescribeRecordsRespons
 
 	private Long pageNum;
 
+	private Boolean privateBucket;
+
 	private Long pageSize;
 
 	private String streamId;
@@ -43,7 +45,7 @@ public class DescribeRecordsRequest extends RpcAcsRequest<DescribeRecordsRespons
 
 	private String sortBy;
 	public DescribeRecordsRequest() {
-		super("vs", "2018-12-12", "DescribeRecords", "vs");
+		super("vs", "2018-12-12", "DescribeRecords");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -92,6 +94,17 @@ public class DescribeRecordsRequest extends RpcAcsRequest<DescribeRecordsRespons
 		this.pageNum = pageNum;
 		if(pageNum != null){
 			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
+	public Boolean getPrivateBucket() {
+		return this.privateBucket;
+	}
+
+	public void setPrivateBucket(Boolean privateBucket) {
+		this.privateBucket = privateBucket;
+		if(privateBucket != null){
+			putQueryParameter("PrivateBucket", privateBucket.toString());
 		}
 	}
 

@@ -24,7 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateRouteEntryResponse extends AcsResponse {
 
+	private String routeEntryId;
+
 	private String requestId;
+
+	public String getRouteEntryId() {
+		return this.routeEntryId;
+	}
+
+	public void setRouteEntryId(String routeEntryId) {
+		this.routeEntryId = routeEntryId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

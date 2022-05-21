@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateMediaResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private MediaUploadParam mediaUploadParam;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class CreateMediaResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public MediaUploadParam getMediaUploadParam() {
@@ -86,25 +86,17 @@ public class CreateMediaResponse extends AcsResponse {
 
 	public static class MediaUploadParam {
 
-		private String id;
-
 		private String instance;
-
-		private String name;
-
-		private String fileName;
-
-		private String ossFileName;
 
 		private String ossFilePath;
 
-		public String getId() {
-			return this.id;
-		}
+		private String fileName;
 
-		public void setId(String id) {
-			this.id = id;
-		}
+		private String name;
+
+		private String id;
+
+		private String ossFileName;
 
 		public String getInstance() {
 			return this.instance;
@@ -114,12 +106,12 @@ public class CreateMediaResponse extends AcsResponse {
 			this.instance = instance;
 		}
 
-		public String getName() {
-			return this.name;
+		public String getOssFilePath() {
+			return this.ossFilePath;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setOssFilePath(String ossFilePath) {
+			this.ossFilePath = ossFilePath;
 		}
 
 		public String getFileName() {
@@ -130,20 +122,28 @@ public class CreateMediaResponse extends AcsResponse {
 			this.fileName = fileName;
 		}
 
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getId() {
+			return this.id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
 		public String getOssFileName() {
 			return this.ossFileName;
 		}
 
 		public void setOssFileName(String ossFileName) {
 			this.ossFileName = ossFileName;
-		}
-
-		public String getOssFilePath() {
-			return this.ossFilePath;
-		}
-
-		public void setOssFilePath(String ossFilePath) {
-			this.ossFilePath = ossFilePath;
 		}
 	}
 

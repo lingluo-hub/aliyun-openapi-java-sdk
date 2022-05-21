@@ -16,6 +16,7 @@ package com.aliyuncs.gpdb.model.v20160503;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.http.MethodType;
 import com.aliyuncs.gpdb.Endpoint;
 
 /**
@@ -23,16 +24,13 @@ import com.aliyuncs.gpdb.Endpoint;
  * @version 
  */
 public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstancesResponse> {
-	
-	public DescribeDBInstancesRequest() {
-		super("gpdb", "2016-05-03", "DescribeDBInstances", "gpdb");
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
 
-	private String dBInstanceIds;
+	private List<String> dBInstanceModes;
+
+	private List<String> dBInstanceStatuses;
+
+	private Integer pageNumber;
 
 	private Integer pageSize;
 
@@ -40,20 +38,68 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 
 	private List<Tag> tags;
 
+	private String dBInstanceIds;
+
 	private Long ownerId;
 
+	private List<String> dBInstanceCategories;
+
+	private List<String> instanceDeployTypes;
+
 	private String instanceNetworkType;
-
-	private Integer pageNumber;
-
-	public String getDBInstanceIds() {
-		return this.dBInstanceIds;
+	public DescribeDBInstancesRequest() {
+		super("gpdb", "2016-05-03", "DescribeDBInstances");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public void setDBInstanceIds(String dBInstanceIds) {
-		this.dBInstanceIds = dBInstanceIds;
-		if(dBInstanceIds != null){
-			putQueryParameter("DBInstanceIds", dBInstanceIds);
+	public List<String> getDBInstanceModes() {
+		return this.dBInstanceModes;
+	}
+
+	public void setDBInstanceModes(List<String> dBInstanceModes) {
+		this.dBInstanceModes = dBInstanceModes;	
+		if (dBInstanceModes != null) {
+			String dBInstanceModesArrVal = "";
+			for(int depth1 = 0; depth1 < dBInstanceModes.size(); depth1++) {
+				dBInstanceModesArrVal += dBInstanceModes.get(depth1) + ",";
+			}
+			if (dBInstanceModesArrVal.length() > 0) {
+				dBInstanceModesArrVal = dBInstanceModesArrVal.substring(0, dBInstanceModesArrVal.length() - 1);
+			}
+			putQueryParameter("DBInstanceModes" , dBInstanceModesArrVal);
+		}	
+	}
+
+	public List<String> getDBInstanceStatuses() {
+		return this.dBInstanceStatuses;
+	}
+
+	public void setDBInstanceStatuses(List<String> dBInstanceStatuses) {
+		this.dBInstanceStatuses = dBInstanceStatuses;	
+		if (dBInstanceStatuses != null) {
+			String dBInstanceStatusesArrVal = "";
+			for(int depth1 = 0; depth1 < dBInstanceStatuses.size(); depth1++) {
+				dBInstanceStatusesArrVal += dBInstanceStatuses.get(depth1) + ",";
+			}
+			if (dBInstanceStatusesArrVal.length() > 0) {
+				dBInstanceStatusesArrVal = dBInstanceStatusesArrVal.substring(0, dBInstanceStatusesArrVal.length() - 1);
+			}
+			putQueryParameter("DBInstanceStatuses" , dBInstanceStatusesArrVal);
+		}	
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 
@@ -93,6 +139,17 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		}	
 	}
 
+	public String getDBInstanceIds() {
+		return this.dBInstanceIds;
+	}
+
+	public void setDBInstanceIds(String dBInstanceIds) {
+		this.dBInstanceIds = dBInstanceIds;
+		if(dBInstanceIds != null){
+			putQueryParameter("DBInstanceIds", dBInstanceIds);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -104,6 +161,42 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		}
 	}
 
+	public List<String> getDBInstanceCategories() {
+		return this.dBInstanceCategories;
+	}
+
+	public void setDBInstanceCategories(List<String> dBInstanceCategories) {
+		this.dBInstanceCategories = dBInstanceCategories;	
+		if (dBInstanceCategories != null) {
+			String dBInstanceCategoriesArrVal = "";
+			for(int depth1 = 0; depth1 < dBInstanceCategories.size(); depth1++) {
+				dBInstanceCategoriesArrVal += dBInstanceCategories.get(depth1) + ",";
+			}
+			if (dBInstanceCategoriesArrVal.length() > 0) {
+				dBInstanceCategoriesArrVal = dBInstanceCategoriesArrVal.substring(0, dBInstanceCategoriesArrVal.length() - 1);
+			}
+			putQueryParameter("DBInstanceCategories" , dBInstanceCategoriesArrVal);
+		}	
+	}
+
+	public List<String> getInstanceDeployTypes() {
+		return this.instanceDeployTypes;
+	}
+
+	public void setInstanceDeployTypes(List<String> instanceDeployTypes) {
+		this.instanceDeployTypes = instanceDeployTypes;	
+		if (instanceDeployTypes != null) {
+			String instanceDeployTypesArrVal = "";
+			for(int depth1 = 0; depth1 < instanceDeployTypes.size(); depth1++) {
+				instanceDeployTypesArrVal += instanceDeployTypes.get(depth1) + ",";
+			}
+			if (instanceDeployTypesArrVal.length() > 0) {
+				instanceDeployTypesArrVal = instanceDeployTypesArrVal.substring(0, instanceDeployTypesArrVal.length() - 1);
+			}
+			putQueryParameter("InstanceDeployTypes" , instanceDeployTypesArrVal);
+		}	
+	}
+
 	public String getInstanceNetworkType() {
 		return this.instanceNetworkType;
 	}
@@ -112,17 +205,6 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		this.instanceNetworkType = instanceNetworkType;
 		if(instanceNetworkType != null){
 			putQueryParameter("InstanceNetworkType", instanceNetworkType);
-		}
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber.toString());
 		}
 	}
 

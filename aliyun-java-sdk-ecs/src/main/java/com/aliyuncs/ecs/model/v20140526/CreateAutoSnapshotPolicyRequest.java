@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ecs.Endpoint;
 
@@ -27,9 +28,17 @@ public class CreateAutoSnapshotPolicyRequest extends RpcAcsRequest<CreateAutoSna
 
 	private Long resourceOwnerId;
 
+	private Integer copiedSnapshotsRetentionDays;
+
 	private String timePoints;
 
 	private String repeatWeekdays;
+
+	private String resourceGroupId;
+
+	private List<Tag> tags;
+
+	private Boolean enableCrossRegionCopy;
 
 	private String resourceOwnerAccount;
 
@@ -38,6 +47,8 @@ public class CreateAutoSnapshotPolicyRequest extends RpcAcsRequest<CreateAutoSna
 	private String autoSnapshotPolicyName;
 
 	private Integer retentionDays;
+
+	private String targetCopyRegions;
 	public CreateAutoSnapshotPolicyRequest() {
 		super("Ecs", "2014-05-26", "CreateAutoSnapshotPolicy", "ecs");
 		setMethod(MethodType.POST);
@@ -55,6 +66,17 @@ public class CreateAutoSnapshotPolicyRequest extends RpcAcsRequest<CreateAutoSna
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Integer getCopiedSnapshotsRetentionDays() {
+		return this.copiedSnapshotsRetentionDays;
+	}
+
+	public void setCopiedSnapshotsRetentionDays(Integer copiedSnapshotsRetentionDays) {
+		this.copiedSnapshotsRetentionDays = copiedSnapshotsRetentionDays;
+		if(copiedSnapshotsRetentionDays != null){
+			putQueryParameter("CopiedSnapshotsRetentionDays", copiedSnapshotsRetentionDays.toString());
 		}
 	}
 
@@ -77,6 +99,42 @@ public class CreateAutoSnapshotPolicyRequest extends RpcAcsRequest<CreateAutoSna
 		this.repeatWeekdays = repeatWeekdays;
 		if(repeatWeekdays != null){
 			putQueryParameter("repeatWeekdays", repeatWeekdays);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public Boolean getEnableCrossRegionCopy() {
+		return this.enableCrossRegionCopy;
+	}
+
+	public void setEnableCrossRegionCopy(Boolean enableCrossRegionCopy) {
+		this.enableCrossRegionCopy = enableCrossRegionCopy;
+		if(enableCrossRegionCopy != null){
+			putQueryParameter("EnableCrossRegionCopy", enableCrossRegionCopy.toString());
 		}
 	}
 
@@ -121,6 +179,40 @@ public class CreateAutoSnapshotPolicyRequest extends RpcAcsRequest<CreateAutoSna
 		this.retentionDays = retentionDays;
 		if(retentionDays != null){
 			putQueryParameter("retentionDays", retentionDays.toString());
+		}
+	}
+
+	public String getTargetCopyRegions() {
+		return this.targetCopyRegions;
+	}
+
+	public void setTargetCopyRegions(String targetCopyRegions) {
+		this.targetCopyRegions = targetCopyRegions;
+		if(targetCopyRegions != null){
+			putQueryParameter("TargetCopyRegions", targetCopyRegions);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

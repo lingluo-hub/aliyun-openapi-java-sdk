@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -27,6 +28,10 @@ public class IndexVideoRequest extends RpcAcsRequest<IndexVideoResponse> {
 	private String project;
 
 	private String externalId;
+
+	private String notifyEndpoint;
+
+	private String notifyTopicName;
 
 	private String remarksB;
 
@@ -44,6 +49,10 @@ public class IndexVideoRequest extends RpcAcsRequest<IndexVideoResponse> {
 	public IndexVideoRequest() {
 		super("imm", "2017-09-06", "IndexVideo", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -65,6 +74,28 @@ public class IndexVideoRequest extends RpcAcsRequest<IndexVideoResponse> {
 		this.externalId = externalId;
 		if(externalId != null){
 			putQueryParameter("ExternalId", externalId);
+		}
+	}
+
+	public String getNotifyEndpoint() {
+		return this.notifyEndpoint;
+	}
+
+	public void setNotifyEndpoint(String notifyEndpoint) {
+		this.notifyEndpoint = notifyEndpoint;
+		if(notifyEndpoint != null){
+			putQueryParameter("NotifyEndpoint", notifyEndpoint);
+		}
+	}
+
+	public String getNotifyTopicName() {
+		return this.notifyTopicName;
+	}
+
+	public void setNotifyTopicName(String notifyTopicName) {
+		this.notifyTopicName = notifyTopicName;
+		if(notifyTopicName != null){
+			putQueryParameter("NotifyTopicName", notifyTopicName);
 		}
 	}
 

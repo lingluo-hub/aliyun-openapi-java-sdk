@@ -24,11 +24,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateDBClusterResponse extends AcsResponse {
 
+	private String resourceGroupId;
+
 	private String requestId;
 
 	private String dBClusterId;
 
 	private String orderId;
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

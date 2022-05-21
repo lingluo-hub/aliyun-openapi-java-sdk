@@ -23,10 +23,10 @@ public class DeleteMediaResponseUnmarshaller {
 	public static DeleteMediaResponse unmarshall(DeleteMediaResponse deleteMediaResponse, UnmarshallerContext _ctx) {
 		
 		deleteMediaResponse.setRequestId(_ctx.stringValue("DeleteMediaResponse.RequestId"));
-		deleteMediaResponse.setSuccess(_ctx.booleanValue("DeleteMediaResponse.Success"));
+		deleteMediaResponse.setHttpStatusCode(_ctx.integerValue("DeleteMediaResponse.HttpStatusCode"));
 		deleteMediaResponse.setCode(_ctx.stringValue("DeleteMediaResponse.Code"));
 		deleteMediaResponse.setMessage(_ctx.stringValue("DeleteMediaResponse.Message"));
-		deleteMediaResponse.setHttpStatusCode(_ctx.integerValue("DeleteMediaResponse.HttpStatusCode"));
+		deleteMediaResponse.setSuccess(_ctx.booleanValue("DeleteMediaResponse.Success"));
 	 
 	 	return deleteMediaResponse;
 	}

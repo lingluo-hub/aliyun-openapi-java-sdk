@@ -24,20 +24,20 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DeleteConsumerGroupResponse extends AcsResponse {
 
-	private String success;
+	private String requestId;
 
 	private String errCode;
 
+	private String success;
+
 	private String errMessage;
 
-	private String requestId;
-
-	public String getSuccess() {
-		return this.success;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setSuccess(String success) {
-		this.success = success;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getErrCode() {
@@ -48,20 +48,20 @@ public class DeleteConsumerGroupResponse extends AcsResponse {
 		this.errCode = errCode;
 	}
 
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
 	public String getErrMessage() {
 		return this.errMessage;
 	}
 
 	public void setErrMessage(String errMessage) {
 		this.errMessage = errMessage;
-	}
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
 	}
 
 	@Override

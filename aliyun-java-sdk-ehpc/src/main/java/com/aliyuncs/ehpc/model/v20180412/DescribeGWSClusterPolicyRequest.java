@@ -26,8 +26,12 @@ public class DescribeGWSClusterPolicyRequest extends RpcAcsRequest<DescribeGWSCl
 	   
 
 	private String clusterId;
+
+	private Boolean asyncMode;
+
+	private String taskId;
 	public DescribeGWSClusterPolicyRequest() {
-		super("EHPC", "2018-04-12", "DescribeGWSClusterPolicy", "ehs");
+		super("EHPC", "2018-04-12", "DescribeGWSClusterPolicy");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -43,6 +47,28 @@ public class DescribeGWSClusterPolicyRequest extends RpcAcsRequest<DescribeGWSCl
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getAsyncMode() {
+		return this.asyncMode;
+	}
+
+	public void setAsyncMode(Boolean asyncMode) {
+		this.asyncMode = asyncMode;
+		if(asyncMode != null){
+			putQueryParameter("AsyncMode", asyncMode.toString());
+		}
+	}
+
+	public String getTaskId() {
+		return this.taskId;
+	}
+
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+		if(taskId != null){
+			putQueryParameter("TaskId", taskId);
 		}
 	}
 

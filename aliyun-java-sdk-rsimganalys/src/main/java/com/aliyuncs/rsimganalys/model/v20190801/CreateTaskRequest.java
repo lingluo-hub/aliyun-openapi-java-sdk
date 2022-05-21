@@ -16,6 +16,7 @@ package com.aliyuncs.rsimganalys.model.v20190801;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rsimganalys.Endpoint;
 
 /**
  * @author auto create
@@ -30,6 +31,8 @@ public class CreateTaskRequest extends RpcAcsRequest<CreateTaskResponse> {
 
 	private String description;
 
+	private String shpFilter;
+
 	private String productType;
 
 	private String zoneList;
@@ -39,9 +42,15 @@ public class CreateTaskRequest extends RpcAcsRequest<CreateTaskResponse> {
 	private String appkey;
 
 	private String dstImageId;
+
+	private String jobName;
 	public CreateTaskRequest() {
-		super("rsimganalys", "2019-08-01", "CreateTask");
+		super("rsimganalys", "2019-08-01", "CreateTask", "rsimganalys");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Float getConfidence() {
@@ -74,6 +83,17 @@ public class CreateTaskRequest extends RpcAcsRequest<CreateTaskResponse> {
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public String getShpFilter() {
+		return this.shpFilter;
+	}
+
+	public void setShpFilter(String shpFilter) {
+		this.shpFilter = shpFilter;
+		if(shpFilter != null){
+			putQueryParameter("ShpFilter", shpFilter);
 		}
 	}
 
@@ -129,6 +149,17 @@ public class CreateTaskRequest extends RpcAcsRequest<CreateTaskResponse> {
 		this.dstImageId = dstImageId;
 		if(dstImageId != null){
 			putQueryParameter("DstImageId", dstImageId);
+		}
+	}
+
+	public String getJobName() {
+		return this.jobName;
+	}
+
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+		if(jobName != null){
+			putQueryParameter("JobName", jobName);
 		}
 	}
 

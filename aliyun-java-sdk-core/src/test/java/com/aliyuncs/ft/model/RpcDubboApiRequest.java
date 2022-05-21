@@ -3,7 +3,7 @@ package com.aliyuncs.ft.model;
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.auth.AlibabaCloudCredentials;
 import com.aliyuncs.auth.BasicSessionCredentials;
-import com.aliyuncs.auth.HmacSHA1Signer;
+import com.aliyuncs.auth.signers.HmacSHA1Signer;
 import com.aliyuncs.auth.Signer;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.HttpRequest;
@@ -53,11 +53,11 @@ public class RpcDubboApiRequest extends RpcAcsRequest<RpcDubboApiResponse> {
         Map<String, String> imutableMap = new HashMap<String, String>(this.getSysQueryParameters());
         if (null != signer && null != credentials) {
             String accessKeyId = credentials.getAccessKeyId();
-
+            imutableMap.put("AccessKeyId", accessKeyId);
             if (credentials instanceof BasicSessionCredentials) {
                 BasicSessionCredentials basicSessionCredentials = (BasicSessionCredentials) credentials;
                 if (basicSessionCredentials.getSessionToken() != null) {
-                    this.putQueryParameter("SecurityToken", basicSessionCredentials.getSessionToken());
+                    imutableMap.put("SecurityToken", basicSessionCredentials.getSessionToken());
                 }
             }
             imutableMap = this.composer.refreshSignParameters(this.getSysQueryParameters(), signer, accessKeyId, format);

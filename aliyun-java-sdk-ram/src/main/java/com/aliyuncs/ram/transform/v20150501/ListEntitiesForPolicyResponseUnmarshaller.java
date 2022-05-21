@@ -26,45 +26,45 @@ import com.aliyuncs.transform.UnmarshallerContext;
 
 public class ListEntitiesForPolicyResponseUnmarshaller {
 
-	public static ListEntitiesForPolicyResponse unmarshall(ListEntitiesForPolicyResponse listEntitiesForPolicyResponse, UnmarshallerContext context) {
+	public static ListEntitiesForPolicyResponse unmarshall(ListEntitiesForPolicyResponse listEntitiesForPolicyResponse, UnmarshallerContext _ctx) {
 		
-		listEntitiesForPolicyResponse.setRequestId(context.stringValue("ListEntitiesForPolicyResponse.RequestId"));
+		listEntitiesForPolicyResponse.setRequestId(_ctx.stringValue("ListEntitiesForPolicyResponse.RequestId"));
 
 		List<Group> groups = new ArrayList<Group>();
-		for (int i = 0; i < context.lengthValue("ListEntitiesForPolicyResponse.Groups.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListEntitiesForPolicyResponse.Groups.Length"); i++) {
 			Group group = new Group();
-			group.setGroupName(context.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].GroupName"));
-			group.setComments(context.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].Comments"));
-			group.setAttachDate(context.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].AttachDate"));
+			group.setGroupName(_ctx.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].GroupName"));
+			group.setComments(_ctx.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].Comments"));
+			group.setAttachDate(_ctx.stringValue("ListEntitiesForPolicyResponse.Groups["+ i +"].AttachDate"));
 
 			groups.add(group);
 		}
 		listEntitiesForPolicyResponse.setGroups(groups);
 
-		List<User> users = new ArrayList<User>();
-		for (int i = 0; i < context.lengthValue("ListEntitiesForPolicyResponse.Users.Length"); i++) {
-			User user = new User();
-			user.setUserId(context.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].UserId"));
-			user.setUserName(context.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].UserName"));
-			user.setDisplayName(context.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].DisplayName"));
-			user.setAttachDate(context.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].AttachDate"));
-
-			users.add(user);
-		}
-		listEntitiesForPolicyResponse.setUsers(users);
-
 		List<Role> roles = new ArrayList<Role>();
-		for (int i = 0; i < context.lengthValue("ListEntitiesForPolicyResponse.Roles.Length"); i++) {
+		for (int i = 0; i < _ctx.lengthValue("ListEntitiesForPolicyResponse.Roles.Length"); i++) {
 			Role role = new Role();
-			role.setRoleId(context.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].RoleId"));
-			role.setRoleName(context.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].RoleName"));
-			role.setArn(context.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].Arn"));
-			role.setDescription(context.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].Description"));
-			role.setAttachDate(context.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].AttachDate"));
+			role.setDescription(_ctx.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].Description"));
+			role.setRoleName(_ctx.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].RoleName"));
+			role.setAttachDate(_ctx.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].AttachDate"));
+			role.setArn(_ctx.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].Arn"));
+			role.setRoleId(_ctx.stringValue("ListEntitiesForPolicyResponse.Roles["+ i +"].RoleId"));
 
 			roles.add(role);
 		}
 		listEntitiesForPolicyResponse.setRoles(roles);
+
+		List<User> users = new ArrayList<User>();
+		for (int i = 0; i < _ctx.lengthValue("ListEntitiesForPolicyResponse.Users.Length"); i++) {
+			User user = new User();
+			user.setDisplayName(_ctx.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].DisplayName"));
+			user.setUserId(_ctx.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].UserId"));
+			user.setUserName(_ctx.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].UserName"));
+			user.setAttachDate(_ctx.stringValue("ListEntitiesForPolicyResponse.Users["+ i +"].AttachDate"));
+
+			users.add(user);
+		}
+		listEntitiesForPolicyResponse.setUsers(users);
 	 
 	 	return listEntitiesForPolicyResponse;
 	}

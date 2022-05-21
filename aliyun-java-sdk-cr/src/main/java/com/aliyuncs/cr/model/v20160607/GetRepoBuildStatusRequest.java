@@ -16,24 +16,40 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetRepoBuildStatusRequest extends RoaAcsRequest<GetRepoBuildStatusResponse> {
-	
-	public GetRepoBuildStatusRequest() {
-		super("cr", "2016-06-07", "GetRepoBuildStatus", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/build/[BuildId]/status");
-		setMethod(MethodType.GET);
-	}
+	   
+
+	private String buildId;
 
 	private String repoNamespace;
 
 	private String repoName;
+	public GetRepoBuildStatusRequest() {
+		super("cr", "2016-06-07", "GetRepoBuildStatus", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/build/[BuildId]/status");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
-	private String buildId;
+	public String getBuildId() {
+		return this.buildId;
+	}
+
+	public void setBuildId(String buildId) {
+		this.buildId = buildId;
+		if(buildId != null){
+			putPathParameter("BuildId", buildId);
+		}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;
@@ -54,17 +70,6 @@ public class GetRepoBuildStatusRequest extends RoaAcsRequest<GetRepoBuildStatusR
 		this.repoName = repoName;
 		if(repoName != null){
 			putPathParameter("RepoName", repoName);
-		}
-	}
-
-	public String getBuildId() {
-		return this.buildId;
-	}
-
-	public void setBuildId(String buildId) {
-		this.buildId = buildId;
-		if(buildId != null){
-			putPathParameter("BuildId", buildId);
 		}
 	}
 

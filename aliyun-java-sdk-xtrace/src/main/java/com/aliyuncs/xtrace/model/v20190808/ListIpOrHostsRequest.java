@@ -31,7 +31,7 @@ public class ListIpOrHostsRequest extends RpcAcsRequest<ListIpOrHostsResponse> {
 
 	private Long startTime;
 	public ListIpOrHostsRequest() {
-		super("xtrace", "2019-08-08", "ListIpOrHosts", "xtrace");
+		super("xtrace", "2019-08-08", "ListIpOrHosts");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

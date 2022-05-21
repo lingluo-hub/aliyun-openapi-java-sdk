@@ -27,12 +27,6 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Integer totalCount;
-
-	private Integer pageNumber;
-
-	private Integer pageSize;
-
 	private List<NodeInfo> nodes;
 
 	public String getRequestId() {
@@ -41,30 +35,6 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
-	}
-
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
 	}
 
 	public List<NodeInfo> getNodes() {
@@ -80,8 +50,6 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 		private String id;
 
 		private String hostName;
-
-		private String regionId;
 
 		private String status;
 
@@ -105,6 +73,8 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 
 		private Boolean htEnabled;
 
+		private String instanceType;
+
 		private List<String> roles;
 
 		private TotalResources totalResources;
@@ -125,14 +95,6 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 
 		public void setHostName(String hostName) {
 			this.hostName = hostName;
-		}
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
 		}
 
 		public String getStatus() {
@@ -221,6 +183,14 @@ public class ListNodesNoPagingResponse extends AcsResponse {
 
 		public void setHtEnabled(Boolean htEnabled) {
 			this.htEnabled = htEnabled;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
 		}
 
 		public List<String> getRoles() {

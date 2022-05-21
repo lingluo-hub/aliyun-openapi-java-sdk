@@ -18,6 +18,7 @@ import com.aliyuncs.RpcAcsRequest;
 import java.util.Map;
 import com.google.gson.Gson;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.oos.Endpoint;
 
 /**
  * @author auto create
@@ -26,11 +27,15 @@ import com.aliyuncs.http.MethodType;
 public class ListTemplatesRequest extends RpcAcsRequest<ListTemplatesResponse> {
 	   
 
+	private String resourceGroupId;
+
 	private String createdDateBefore;
 
 	private String createdBy;
 
 	private String nextToken;
+
+	private String templateType;
 
 	private String templateName;
 
@@ -54,6 +59,21 @@ public class ListTemplatesRequest extends RpcAcsRequest<ListTemplatesResponse> {
 	public ListTemplatesRequest() {
 		super("oos", "2019-06-01", "ListTemplates", "oos");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
 	}
 
 	public String getCreatedDateBefore() {
@@ -86,6 +106,17 @@ public class ListTemplatesRequest extends RpcAcsRequest<ListTemplatesResponse> {
 		this.nextToken = nextToken;
 		if(nextToken != null){
 			putQueryParameter("NextToken", nextToken);
+		}
+	}
+
+	public String getTemplateType() {
+		return this.templateType;
+	}
+
+	public void setTemplateType(String templateType) {
+		this.templateType = templateType;
+		if(templateType != null){
+			putQueryParameter("TemplateType", templateType);
 		}
 	}
 

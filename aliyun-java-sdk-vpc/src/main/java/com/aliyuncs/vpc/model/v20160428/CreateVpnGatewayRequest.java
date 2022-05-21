@@ -27,7 +27,11 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 
 	private Long resourceOwnerId;
 
+	private String clientToken;
+
 	private Boolean enableIpsec;
+
+	private String networkType;
 
 	private String instanceChargeType;
 
@@ -43,6 +47,8 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 
 	private Long ownerId;
 
+	private String vpnType;
+
 	private String vSwitchId;
 
 	private Boolean enableSsl;
@@ -53,7 +59,7 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 
 	private String name;
 	public CreateVpnGatewayRequest() {
-		super("Vpc", "2016-04-28", "CreateVpnGateway", "Vpc");
+		super("Vpc", "2016-04-28", "CreateVpnGateway", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -72,6 +78,17 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 		}
 	}
 
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
 	public Boolean getEnableIpsec() {
 		return this.enableIpsec;
 	}
@@ -80,6 +97,17 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 		this.enableIpsec = enableIpsec;
 		if(enableIpsec != null){
 			putQueryParameter("EnableIpsec", enableIpsec.toString());
+		}
+	}
+
+	public String getNetworkType() {
+		return this.networkType;
+	}
+
+	public void setNetworkType(String networkType) {
+		this.networkType = networkType;
+		if(networkType != null){
+			putQueryParameter("NetworkType", networkType);
 		}
 	}
 
@@ -157,6 +185,17 @@ public class CreateVpnGatewayRequest extends RpcAcsRequest<CreateVpnGatewayRespo
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getVpnType() {
+		return this.vpnType;
+	}
+
+	public void setVpnType(String vpnType) {
+		this.vpnType = vpnType;
+		if(vpnType != null){
+			putQueryParameter("VpnType", vpnType);
 		}
 	}
 

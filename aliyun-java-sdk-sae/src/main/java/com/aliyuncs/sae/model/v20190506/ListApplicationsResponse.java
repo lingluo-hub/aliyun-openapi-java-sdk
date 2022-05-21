@@ -25,17 +25,31 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListApplicationsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String code;
-
 	private String message;
 
-	private Boolean success;
+	private String requestId;
 
 	private String errorCode;
 
+	private String code;
+
+	private Boolean success;
+
+	private Integer currentPage;
+
+	private Integer totalSize;
+
+	private Integer pageSize;
+
 	private Data data;
+
+	public String getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,6 +57,14 @@ public class ListApplicationsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getErrorCode() {
+		return this.errorCode;
+	}
+
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getCode() {
@@ -53,14 +75,6 @@ public class ListApplicationsResponse extends AcsResponse {
 		this.code = code;
 	}
 
-	public String getMessage() {
-		return this.message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public Boolean getSuccess() {
 		return this.success;
 	}
@@ -69,12 +83,28 @@ public class ListApplicationsResponse extends AcsResponse {
 		this.success = success;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Integer getCurrentPage() {
+		return this.currentPage;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public Integer getTotalSize() {
+		return this.totalSize;
+	}
+
+	public void setTotalSize(Integer totalSize) {
+		this.totalSize = totalSize;
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 
 	public Data getData() {
@@ -89,9 +119,9 @@ public class ListApplicationsResponse extends AcsResponse {
 
 		private Integer currentPage;
 
-		private Integer pageSize;
-
 		private Integer totalSize;
+
+		private Integer pageSize;
 
 		private List<Application> applications;
 
@@ -103,20 +133,20 @@ public class ListApplicationsResponse extends AcsResponse {
 			this.currentPage = currentPage;
 		}
 
-		public Integer getPageSize() {
-			return this.pageSize;
-		}
-
-		public void setPageSize(Integer pageSize) {
-			this.pageSize = pageSize;
-		}
-
 		public Integer getTotalSize() {
 			return this.totalSize;
 		}
 
 		public void setTotalSize(Integer totalSize) {
 			this.totalSize = totalSize;
+		}
+
+		public Integer getPageSize() {
+			return this.pageSize;
+		}
+
+		public void setPageSize(Integer pageSize) {
+			this.pageSize = pageSize;
 		}
 
 		public List<Application> getApplications() {
@@ -129,23 +159,43 @@ public class ListApplicationsResponse extends AcsResponse {
 
 		public static class Application {
 
+			private String appName;
+
+			private String namespaceId;
+
 			private Boolean appDeletingStatus;
 
 			private String appId;
 
-			private String appName;
+			private Boolean scaleRuleEnabled;
 
-			private String regionId;
+			private String scaleRuleType;
 
 			private Integer runningInstances;
 
 			private Integer instances;
 
-			private String namespaceId;
+			private String regionId;
 
-			private String scaleRuleType;
+			private String appDescription;
 
-			private Boolean scaleRuleEnabled;
+			private List<TagsItem> tags;
+
+			public String getAppName() {
+				return this.appName;
+			}
+
+			public void setAppName(String appName) {
+				this.appName = appName;
+			}
+
+			public String getNamespaceId() {
+				return this.namespaceId;
+			}
+
+			public void setNamespaceId(String namespaceId) {
+				this.namespaceId = namespaceId;
+			}
 
 			public Boolean getAppDeletingStatus() {
 				return this.appDeletingStatus;
@@ -163,20 +213,20 @@ public class ListApplicationsResponse extends AcsResponse {
 				this.appId = appId;
 			}
 
-			public String getAppName() {
-				return this.appName;
+			public Boolean getScaleRuleEnabled() {
+				return this.scaleRuleEnabled;
 			}
 
-			public void setAppName(String appName) {
-				this.appName = appName;
+			public void setScaleRuleEnabled(Boolean scaleRuleEnabled) {
+				this.scaleRuleEnabled = scaleRuleEnabled;
 			}
 
-			public String getRegionId() {
-				return this.regionId;
+			public String getScaleRuleType() {
+				return this.scaleRuleType;
 			}
 
-			public void setRegionId(String regionId) {
-				this.regionId = regionId;
+			public void setScaleRuleType(String scaleRuleType) {
+				this.scaleRuleType = scaleRuleType;
 			}
 
 			public Integer getRunningInstances() {
@@ -195,28 +245,51 @@ public class ListApplicationsResponse extends AcsResponse {
 				this.instances = instances;
 			}
 
-			public String getNamespaceId() {
-				return this.namespaceId;
+			public String getRegionId() {
+				return this.regionId;
 			}
 
-			public void setNamespaceId(String namespaceId) {
-				this.namespaceId = namespaceId;
+			public void setRegionId(String regionId) {
+				this.regionId = regionId;
 			}
 
-			public String getScaleRuleType() {
-				return this.scaleRuleType;
+			public String getAppDescription() {
+				return this.appDescription;
 			}
 
-			public void setScaleRuleType(String scaleRuleType) {
-				this.scaleRuleType = scaleRuleType;
+			public void setAppDescription(String appDescription) {
+				this.appDescription = appDescription;
 			}
 
-			public Boolean getScaleRuleEnabled() {
-				return this.scaleRuleEnabled;
+			public List<TagsItem> getTags() {
+				return this.tags;
 			}
 
-			public void setScaleRuleEnabled(Boolean scaleRuleEnabled) {
-				this.scaleRuleEnabled = scaleRuleEnabled;
+			public void setTags(List<TagsItem> tags) {
+				this.tags = tags;
+			}
+
+			public static class TagsItem {
+
+				private String key;
+
+				private String value;
+
+				public String getKey() {
+					return this.key;
+				}
+
+				public void setKey(String key) {
+					this.key = key;
+				}
+
+				public String getValue() {
+					return this.value;
+				}
+
+				public void setValue(String value) {
+					this.value = value;
+				}
 			}
 		}
 	}

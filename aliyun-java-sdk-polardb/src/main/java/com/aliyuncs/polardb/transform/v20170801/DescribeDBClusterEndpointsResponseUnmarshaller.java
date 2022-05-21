@@ -32,23 +32,26 @@ public class DescribeDBClusterEndpointsResponseUnmarshaller {
 		List<DBEndpoint> items = new ArrayList<DBEndpoint>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeDBClusterEndpointsResponse.Items.Length"); i++) {
 			DBEndpoint dBEndpoint = new DBEndpoint();
-			dBEndpoint.setDBEndpointId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].DBEndpointId"));
-			dBEndpoint.setEndpointType(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].EndpointType"));
+			dBEndpoint.setNodeWithRoles(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].NodeWithRoles"));
 			dBEndpoint.setNodes(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].Nodes"));
 			dBEndpoint.setReadWriteMode(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].ReadWriteMode"));
-			dBEndpoint.setAutoAddNewNodes(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AutoAddNewNodes"));
+			dBEndpoint.setDBEndpointId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].DBEndpointId"));
 			dBEndpoint.setEndpointConfig(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].EndpointConfig"));
+			dBEndpoint.setDBEndpointDescription(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].DBEndpointDescription"));
+			dBEndpoint.setEndpointType(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].EndpointType"));
+			dBEndpoint.setAutoAddNewNodes(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AutoAddNewNodes"));
 
 			List<Address> addressItems = new ArrayList<Address>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems.Length"); j++) {
 				Address address = new Address();
+				address.setVSwitchId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].VSwitchId"));
+				address.setPrivateZoneConnectionString(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].PrivateZoneConnectionString"));
 				address.setConnectionString(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].ConnectionString"));
-				address.setIPAddress(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].IPAddress"));
 				address.setNetType(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].NetType"));
 				address.setPort(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].Port"));
-				address.setVPCId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].VPCId"));
-				address.setVSwitchId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].VSwitchId"));
 				address.setVpcInstanceId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].VpcInstanceId"));
+				address.setVPCId(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].VPCId"));
+				address.setIPAddress(_ctx.stringValue("DescribeDBClusterEndpointsResponse.Items["+ i +"].AddressItems["+ j +"].IPAddress"));
 
 				addressItems.add(address);
 			}

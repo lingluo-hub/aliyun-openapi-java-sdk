@@ -16,37 +16,33 @@ package com.aliyuncs.schedulerx2.model.v20190430;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.schedulerx2.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetJobInstanceRequest extends RpcAcsRequest<GetJobInstanceResponse> {
-	
-	public GetJobInstanceRequest() {
-		super("schedulerx2", "2019-04-30", "GetJobInstance");
-		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private Long jobId;
+	   
 
 	private String namespaceSource;
 
 	private String groupId;
 
+	private Long jobId;
+
 	private String namespace;
 
 	private Long jobInstanceId;
-
-	public Long getJobId() {
-		return this.jobId;
-	}
-
-	public void setJobId(Long jobId) {
-		this.jobId = jobId;
-		if(jobId != null){
-			putQueryParameter("JobId", jobId.toString());
-		}
+	public GetJobInstanceRequest() {
+		super("schedulerx2", "2019-04-30", "GetJobInstance");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getNamespaceSource() {
@@ -68,6 +64,17 @@ public class GetJobInstanceRequest extends RpcAcsRequest<GetJobInstanceResponse>
 		this.groupId = groupId;
 		if(groupId != null){
 			putQueryParameter("GroupId", groupId);
+		}
+	}
+
+	public Long getJobId() {
+		return this.jobId;
+	}
+
+	public void setJobId(Long jobId) {
+		this.jobId = jobId;
+		if(jobId != null){
+			putQueryParameter("JobId", jobId.toString());
 		}
 	}
 

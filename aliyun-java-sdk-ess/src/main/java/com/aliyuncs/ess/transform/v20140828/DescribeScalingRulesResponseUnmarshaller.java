@@ -52,6 +52,8 @@ public class DescribeScalingRulesResponseUnmarshaller {
 			scalingRule.setMetricName(_ctx.stringValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].MetricName"));
 			scalingRule.setTargetValue(_ctx.floatValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].TargetValue"));
 			scalingRule.setDisableScaleIn(_ctx.booleanValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].DisableScaleIn"));
+			scalingRule.setScaleInEvaluationCount(_ctx.integerValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].ScaleInEvaluationCount"));
+			scalingRule.setScaleOutEvaluationCount(_ctx.integerValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].ScaleOutEvaluationCount"));
 			scalingRule.setPredictiveScalingMode(_ctx.stringValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].PredictiveScalingMode"));
 			scalingRule.setPredictiveValueBehavior(_ctx.stringValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].PredictiveValueBehavior"));
 			scalingRule.setPredictiveValueBuffer(_ctx.integerValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].PredictiveValueBuffer"));
@@ -68,6 +70,7 @@ public class DescribeScalingRulesResponseUnmarshaller {
 				alarm.setMetricName(_ctx.stringValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].Alarms["+ j +"].MetricName"));
 				alarm.setThreshold(_ctx.floatValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].Alarms["+ j +"].Threshold"));
 				alarm.setEvaluationCount(_ctx.integerValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].Alarms["+ j +"].EvaluationCount"));
+				alarm.setMetricType(_ctx.stringValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].Alarms["+ j +"].MetricType"));
 
 				List<Dimension> dimensions = new ArrayList<Dimension>();
 				for (int k = 0; k < _ctx.lengthValue("DescribeScalingRulesResponse.ScalingRules["+ i +"].Alarms["+ j +"].Dimensions.Length"); k++) {

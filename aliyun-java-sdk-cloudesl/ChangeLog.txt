@@ -1,3 +1,42 @@
+2022-03-30 Version: 2.0.9
+- Add DescribeEslDevices TypeEncode search.
+
+2022-03-14 Version: 2.0.8
+- Add exstension Properties.
+
+2021-10-15 Version: 2.0.7
+- Generated 2020-02-01 for `cloudesl`.
+
+2021-07-05 Version: 2.0.6
+- Supported deleteItem for sdk.
+
+2021-06-18 Version: 2.0.5
+- Supported 20210618 version for sdk.
+
+2020-10-27 Version: 1.0.1
+- Fix bug.
+
+2020-10-27 Version: 2.0.4
+- Add role authority management.
+
+2020-09-28 Version: 2.0.3
+- Add dingTalk applets function.
+
+2020-08-04 Version: 2.0.2
+- Add describeClientPackage function.
+
+2020-08-04 Version: 2.0.1
+- Add describeClientPackage function.
+
+2020-04-07 Version: 2.0.0
+- Support shelf type for planogram position.
+
+2020-04-03 Version: 2.0.1
+- Support shelf type for planogram position.
+
+2020-04-01 Version: 2.0.0
+- Support planogram for ESL.
+
 2020-03-06 Version: 1.1.4
 - Support light up led lamp for ESL.
 

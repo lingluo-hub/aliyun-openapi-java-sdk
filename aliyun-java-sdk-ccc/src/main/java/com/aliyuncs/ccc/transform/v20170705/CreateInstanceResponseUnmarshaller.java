@@ -30,26 +30,26 @@ public class CreateInstanceResponseUnmarshaller {
 	public static CreateInstanceResponse unmarshall(CreateInstanceResponse createInstanceResponse, UnmarshallerContext _ctx) {
 		
 		createInstanceResponse.setRequestId(_ctx.stringValue("CreateInstanceResponse.RequestId"));
-		createInstanceResponse.setSuccess(_ctx.booleanValue("CreateInstanceResponse.Success"));
+		createInstanceResponse.setHttpStatusCode(_ctx.integerValue("CreateInstanceResponse.HttpStatusCode"));
 		createInstanceResponse.setCode(_ctx.stringValue("CreateInstanceResponse.Code"));
 		createInstanceResponse.setMessage(_ctx.stringValue("CreateInstanceResponse.Message"));
-		createInstanceResponse.setHttpStatusCode(_ctx.integerValue("CreateInstanceResponse.HttpStatusCode"));
+		createInstanceResponse.setSuccess(_ctx.booleanValue("CreateInstanceResponse.Success"));
 
 		Instance instance = new Instance();
-		instance.setInstanceId(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceId"));
-		instance.setInstanceName(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceName"));
-		instance.setInstanceDescription(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceDescription"));
-		instance.setDomainName(_ctx.stringValue("CreateInstanceResponse.Instance.DomainName"));
-		instance.setConsoleUrl(_ctx.stringValue("CreateInstanceResponse.Instance.ConsoleUrl"));
-		instance.setStorageBucket(_ctx.stringValue("CreateInstanceResponse.Instance.StorageBucket"));
+		instance.setStatus(_ctx.stringValue("CreateInstanceResponse.Instance.Status"));
+		instance.setOwner(_ctx.stringValue("CreateInstanceResponse.Instance.Owner"));
 		instance.setStorageMaxDays(_ctx.integerValue("CreateInstanceResponse.Instance.StorageMaxDays"));
 		instance.setStorageMaxSize(_ctx.integerValue("CreateInstanceResponse.Instance.StorageMaxSize"));
 		instance.setMaxOnlineAgents(_ctx.integerValue("CreateInstanceResponse.Instance.MaxOnlineAgents"));
-		instance.setTenantId(_ctx.stringValue("CreateInstanceResponse.Instance.TenantId"));
-		instance.setStatus(_ctx.stringValue("CreateInstanceResponse.Instance.Status"));
-		instance.setDirectoryId(_ctx.stringValue("CreateInstanceResponse.Instance.DirectoryId"));
+		instance.setInstanceId(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceId"));
+		instance.setInstanceDescription(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceDescription"));
+		instance.setDomainName(_ctx.stringValue("CreateInstanceResponse.Instance.DomainName"));
+		instance.setConsoleUrl(_ctx.stringValue("CreateInstanceResponse.Instance.ConsoleUrl"));
+		instance.setInstanceName(_ctx.stringValue("CreateInstanceResponse.Instance.InstanceName"));
+		instance.setStorageBucket(_ctx.stringValue("CreateInstanceResponse.Instance.StorageBucket"));
 		instance.setCreatedTime(_ctx.longValue("CreateInstanceResponse.Instance.CreatedTime"));
-		instance.setOwner(_ctx.stringValue("CreateInstanceResponse.Instance.Owner"));
+		instance.setDirectoryId(_ctx.stringValue("CreateInstanceResponse.Instance.DirectoryId"));
+		instance.setTenantId(_ctx.stringValue("CreateInstanceResponse.Instance.TenantId"));
 
 		List<String> successPhoneNumbers = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.SuccessPhoneNumbers.Length"); i++) {
@@ -57,17 +57,17 @@ public class CreateInstanceResponseUnmarshaller {
 		}
 		instance.setSuccessPhoneNumbers(successPhoneNumbers);
 
-		List<String> failPhoneNumbers = new ArrayList<String>();
-		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.FailPhoneNumbers.Length"); i++) {
-			failPhoneNumbers.add(_ctx.stringValue("CreateInstanceResponse.Instance.FailPhoneNumbers["+ i +"]"));
-		}
-		instance.setFailPhoneNumbers(failPhoneNumbers);
-
 		List<String> successLoginNames = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.SuccessLoginNames.Length"); i++) {
 			successLoginNames.add(_ctx.stringValue("CreateInstanceResponse.Instance.SuccessLoginNames["+ i +"]"));
 		}
 		instance.setSuccessLoginNames(successLoginNames);
+
+		List<String> failPhoneNumbers = new ArrayList<String>();
+		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.FailPhoneNumbers.Length"); i++) {
+			failPhoneNumbers.add(_ctx.stringValue("CreateInstanceResponse.Instance.FailPhoneNumbers["+ i +"]"));
+		}
+		instance.setFailPhoneNumbers(failPhoneNumbers);
 
 		List<String> failLoginNames = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.FailLoginNames.Length"); i++) {
@@ -78,16 +78,16 @@ public class CreateInstanceResponseUnmarshaller {
 		List<User> admin = new ArrayList<User>();
 		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.Admin.Length"); i++) {
 			User user = new User();
-			user.setUserId(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].UserId"));
-			user.setRamId(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].RamId"));
 			user.setInstanceId(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].InstanceId"));
+			user.setRamId(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].RamId"));
+			user.setUserId(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].UserId"));
 
 			Detail detail = new Detail();
-			detail.setLoginName(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.LoginName"));
 			detail.setDisplayName(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.DisplayName"));
-			detail.setPhone(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.Phone"));
 			detail.setEmail(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.Email"));
+			detail.setLoginName(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.LoginName"));
 			detail.setDepartment(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.Department"));
+			detail.setPhone(_ctx.stringValue("CreateInstanceResponse.Instance.Admin["+ i +"].Detail.Phone"));
 			user.setDetail(detail);
 
 			admin.add(user);
@@ -97,15 +97,15 @@ public class CreateInstanceResponseUnmarshaller {
 		List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
 		for (int i = 0; i < _ctx.lengthValue("CreateInstanceResponse.Instance.PhoneNumbers.Length"); i++) {
 			PhoneNumber phoneNumber = new PhoneNumber();
-			phoneNumber.setPhoneNumberId(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].PhoneNumberId"));
-			phoneNumber.setInstanceId(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].InstanceId"));
-			phoneNumber.setNumber(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].Number"));
-			phoneNumber.setPhoneNumberDescription(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].PhoneNumberDescription"));
 			phoneNumber.setTestOnly(_ctx.booleanValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].TestOnly"));
-			phoneNumber.setRemainingTime(_ctx.integerValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].RemainingTime"));
-			phoneNumber.setAllowOutbound(_ctx.booleanValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].AllowOutbound"));
-			phoneNumber.setUsage(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].Usage"));
 			phoneNumber.setTrunks(_ctx.integerValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].Trunks"));
+			phoneNumber.setRemainingTime(_ctx.integerValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].RemainingTime"));
+			phoneNumber.setNumber(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].Number"));
+			phoneNumber.setInstanceId(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].InstanceId"));
+			phoneNumber.setUsage(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].Usage"));
+			phoneNumber.setAllowOutbound(_ctx.booleanValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].AllowOutbound"));
+			phoneNumber.setPhoneNumberDescription(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].PhoneNumberDescription"));
+			phoneNumber.setPhoneNumberId(_ctx.stringValue("CreateInstanceResponse.Instance.PhoneNumbers["+ i +"].PhoneNumberId"));
 
 			phoneNumbers.add(phoneNumber);
 		}

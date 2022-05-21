@@ -1,3 +1,108 @@
+2021-12-31 Version: 3.7.1
+- Update ErrorCode.
+
+2021-12-27 Version: 3.7.0
+- Update DeleteFCTrigger.
+
+2021-11-29 Version: 3.6.9
+- Update DescribeCdnSMCertificateDetail.
+
+2021-11-16 Version: 3.6.8
+- Update SetCdnDomainSMCertificate.
+
+2021-11-05 Version: 3.6.7
+- Add SetCdnDomainSMCertificate.
+
+2021-11-02 Version: 3.6.6
+- Fixed SDK update delay.
+
+2021-10-08 Version: 3.6.5
+- Fixed SDK update delay.
+
+2021-06-04 Version: 3.6.4
+- Delete live API.
+
+2021-05-10 Version: 3.6.3
+- Delete live API.
+
+2021-03-03 Version: 3.6.2
+- Delete API.
+
+2020-12-17 Version: 3.6.1
+- Update DeleteCdnDomain.
+
+2020-12-03 Version: 3.6.0
+- Update DescribeDomainMax95BpsData.
+
+2020-12-03 Version: 3.6.0
+- Update DescribeDomainMax95BpsData.
+
+2020-12-03 Version: 3.6.0
+- Update DescribeDomainMax95BpsData.
+
+2020-11-30 Version: 3.5.9
+- Update SetVideoSeekConfig.
+
+2020-11-30 Version: 3.5.9
+- Update SetVideoSeekConfig.
+
+2020-11-25 Version: 3.5.8
+- Update SetVideoSeekConfig.
+
+2020-11-19 Version: 3.5.7
+- Update data API.
+
+2020-11-19 Version: 3.5.6
+- Update data API.
+
+2020-11-03 Version: 3.5.6
+- Generated 2018-05-10, 2014-11-11 for `Cdn`.
+
+2020-11-03 Version: 3.5.5
+- Update data API.
+
+2020-10-22 Version: 3.5.4
+- Update data API.
+
+2020-10-22 Version: 3.5.3
+- Update cert API.
+
+2020-10-16 Version: 3.5.2
+- Update cert API.
+
+2020-10-09 Version: 3.5.1
+- Update DescribeCdnUserBillHistory API.
+
+2020-10-09 Version: 3.5.0
+- Update SetVideoSeekConfig API.
+
+2020-09-27 Version: 3.4.8
+- Update domain API.
+
+2020-09-27 Version: 3.4.7
+- Update domain API.
+
+2020-09-23 Version: 3.4.6
+- Update domain API.
+
+2020-09-04 Version: 3.4.5
+- Update domain API.
+
+2020-08-11 Version: 3.4.3
+- Update DescribeRefreshTask.
+
+2020-07-27 Version: 3.4.2
+- Add HSF apis.
+
+2020-05-13 Version: 3.4.1
+- Add ExportTas apis.
+
+2020-05-13 Version: 3.4.0
+- Add ExportTas apis.
+
+2020-04-29 Version: 3.4.0
+- Add ExportTas apis.
+
 2020-03-10 Version: 3.4.0
 - Add ExportTas apis.
 

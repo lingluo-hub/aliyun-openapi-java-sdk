@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -24,7 +25,7 @@ import com.aliyuncs.http.MethodType;
 public class DescribeGroupedVulRequest extends RpcAcsRequest<DescribeGroupedVulResponse> {
 	   
 
-	private String statusList;
+	private String attachTypes;
 
 	private String type;
 
@@ -32,28 +33,36 @@ public class DescribeGroupedVulRequest extends RpcAcsRequest<DescribeGroupedVulR
 
 	private String lang;
 
+	private String groupId;
+
 	private String dealed;
 
 	private Integer currentPage;
 
 	private String aliasName;
 
+	private String searchTags;
+
 	private String necessity;
 
 	private String uuids;
 	public DescribeGroupedVulRequest() {
-		super("Sas", "2018-12-03", "DescribeGroupedVul", "sas");
+		super("Sas", "2018-12-03", "DescribeGroupedVul");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public String getStatusList() {
-		return this.statusList;
+	public String getAttachTypes() {
+		return this.attachTypes;
 	}
 
-	public void setStatusList(String statusList) {
-		this.statusList = statusList;
-		if(statusList != null){
-			putQueryParameter("StatusList", statusList);
+	public void setAttachTypes(String attachTypes) {
+		this.attachTypes = attachTypes;
+		if(attachTypes != null){
+			putQueryParameter("AttachTypes", attachTypes);
 		}
 	}
 
@@ -90,6 +99,17 @@ public class DescribeGroupedVulRequest extends RpcAcsRequest<DescribeGroupedVulR
 		}
 	}
 
+	public String getGroupId() {
+		return this.groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putQueryParameter("GroupId", groupId);
+		}
+	}
+
 	public String getDealed() {
 		return this.dealed;
 	}
@@ -120,6 +140,17 @@ public class DescribeGroupedVulRequest extends RpcAcsRequest<DescribeGroupedVulR
 		this.aliasName = aliasName;
 		if(aliasName != null){
 			putQueryParameter("AliasName", aliasName);
+		}
+	}
+
+	public String getSearchTags() {
+		return this.searchTags;
+	}
+
+	public void setSearchTags(String searchTags) {
+		this.searchTags = searchTags;
+		if(searchTags != null){
+			putQueryParameter("SearchTags", searchTags);
 		}
 	}
 

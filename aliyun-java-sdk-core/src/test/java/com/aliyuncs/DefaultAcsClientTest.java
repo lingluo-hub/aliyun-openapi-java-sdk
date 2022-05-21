@@ -1,9 +1,8 @@
 package com.aliyuncs;
 
-import com.aliyuncs.auth.AlibabaCloudCredentials;
-import com.aliyuncs.auth.Credential;
-import com.aliyuncs.auth.LegacyCredentials;
-import com.aliyuncs.auth.Signer;
+import com.aliyuncs.auth.*;
+import com.aliyuncs.auth.signers.SignatureAlgorithm;
+import com.aliyuncs.auth.sts.AssumeRoleRequest;
 import com.aliyuncs.ecs.v20140526.model.DescribeRegionsResponse;
 import com.aliyuncs.endpoint.DefaultEndpointResolver;
 import com.aliyuncs.endpoint.ResolveEndpointRequest;
@@ -15,6 +14,7 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.*;
 import com.aliyuncs.http.clients.ApacheHttpClient;
 import com.aliyuncs.http.clients.CompatibleUrlConnClient;
+import com.aliyuncs.policy.retry.RetryPolicy;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.regions.ProductDomain;
 import com.aliyuncs.utils.LogUtils;
@@ -39,16 +39,13 @@ import org.slf4j.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.SocketTimeoutException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Iterator;
-import java.util.Map;
 
 import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
 
 @PowerMockIgnore("javax.net.ssl.*")
 @RunWith(PowerMockRunner.class)
@@ -66,6 +63,9 @@ public class DefaultAcsClientTest {
         Assert.assertEquals("cn-test", client.getProfile().getRegionId());
         Assert.assertEquals("ApacheHttpClient",
                 client.getUserAgentConfig().getSysUserAgentsMap().get("HTTPClient"));
+        DefaultProfile profile = DefaultProfile.getProfile("cn-test");
+        client = new DefaultAcsClient(profile);
+        Assert.assertTrue(client.getCredentialsProvider().getCredentials() instanceof AnonymousCredentials);
     }
 
     @SuppressWarnings("deprecation")
@@ -223,6 +223,8 @@ public class DefaultAcsClientTest {
         Mockito.doReturn(ProtocolType.HTTP).when(request).getSysProtocol();
         when(request.getSysAcceptFormat()).thenReturn(FormatType.JSON);
         when(request.getResponseClass()).thenReturn(responseClass);
+        when(request.getSysSignatureVersion()).thenReturn(SignatureVersion.V1);
+        when(request.getSysSignatureAlgorithm()).thenReturn(SignatureAlgorithm.ACS3_HMAC_SHA256);
         return request;
     }
 
@@ -246,6 +248,25 @@ public class DefaultAcsClientTest {
         client.ignoreSSLCertificate();
         verify(getHttpClient(client), Mockito.times(1)).ignoreSSLCertificate();
         verify(getHttpClient(client), Mockito.times(1)).restoreSSLCertificate();
+    }
+
+    @Test
+    public void testSignature() throws NoSuchFieldException, SecurityException, IllegalArgumentException,
+            IllegalAccessException, ClientException {
+        DefaultAcsClient client = initDefaultAcsClient();
+        client.setSignatureVersion(SignatureVersion.V3);
+        client.setSignatureAlgorithm(SignatureAlgorithm.ACS3_HMAC_SHA256);
+        Assert.assertTrue(SignatureVersion.V3 == client.getSignatureVersion());
+        Assert.assertTrue(SignatureAlgorithm.ACS3_HMAC_SHA256 == client.getSignatureAlgorithm());
+    }
+
+    @Test
+    public void testRetryPolicy() throws NoSuchFieldException, SecurityException, IllegalArgumentException,
+            IllegalAccessException, ClientException {
+        DefaultAcsClient client = initDefaultAcsClient();
+        client.setSysRetryPolicy(RetryPolicy.defaultRetryPolicy(true));
+        Assert.assertTrue(3 == client.getSysRetryPolicy().maxNumberOfRetries());
+        Assert.assertTrue(2 * 60 * 1000 == client.getSysRetryPolicy().maxDelayTimeMillis());
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
@@ -282,6 +303,7 @@ public class DefaultAcsClientTest {
         DefaultAcsClient client = initDefaultAcsClient();
         HttpResponse response = mock(HttpResponse.class);
         Mockito.doReturn(response).when(getHttpClient(client)).syncInvoke((HttpRequest) isNull());
+        Mockito.doReturn(true).when(response).isSuccess();
         Mockito.doReturn("http://test.domain").when(response).getSysUrl();
         DefaultEndpointResolver endpointResolver = mock(DefaultEndpointResolver.class);
         client.setEndpointResolver(endpointResolver);
@@ -303,6 +325,7 @@ public class DefaultAcsClientTest {
         DefaultAcsClient client = initDefaultAcsClientWithLogger(logger);
         HttpResponse response = mock(HttpResponse.class);
         Mockito.doReturn(response).when(getHttpClient(client)).syncInvoke((HttpRequest) isNull());
+        Mockito.doReturn(true).when(response).isSuccess();
         Mockito.doReturn("http://test.domain").when(response).getSysUrl();
         DefaultEndpointResolver endpointResolver = mock(DefaultEndpointResolver.class);
         client.setEndpointResolver(endpointResolver);
@@ -325,6 +348,7 @@ public class DefaultAcsClientTest {
         DefaultAcsClient client = initDefaultAcsClientWithLogger(logger);
         HttpResponse response = mock(HttpResponse.class);
         Mockito.doReturn(response).when(getHttpClient(client)).syncInvoke((HttpRequest) isNull());
+        Mockito.doReturn(true).when(response).isSuccess();
         Mockito.doReturn("http://test.domain").when(response).getSysUrl();
         DefaultEndpointResolver endpointResolver = mock(DefaultEndpointResolver.class);
         client.setEndpointResolver(endpointResolver);
@@ -823,6 +847,7 @@ public class DefaultAcsClientTest {
         GlobalTracer.registerIfAbsent(initTracer());
         HttpResponse response = mock(HttpResponse.class);
         Mockito.doReturn(response).when(getHttpClient(client)).syncInvoke((HttpRequest) isNull());
+        Mockito.doReturn(true).when(response).isSuccess();
         Mockito.doReturn("http://test.domain").when(response).getSysUrl();
         DefaultEndpointResolver endpointResolver = mock(DefaultEndpointResolver.class);
         client.setEndpointResolver(endpointResolver);
@@ -833,12 +858,33 @@ public class DefaultAcsClientTest {
     }
 
     @Test
+    public void parseAcsResponseTest() throws Exception {
+        HttpResponse httpResponse = new HttpResponse();
+        httpResponse.setHttpContentType(FormatType.RAW);
+        httpResponse.setHttpContent("test".getBytes("UTF-8"), "UTF-8", FormatType.RAW);
+        Method parseAcsResponse = DefaultAcsClient.class.getDeclaredMethod("parseAcsResponse", AcsRequest.class,
+                HttpResponse.class);
+        parseAcsResponse.setAccessible(true);
+        AssumeRoleRequest roleRequest = new AssumeRoleRequest();
+        try {
+            parseAcsResponse.invoke(new DefaultAcsClient(DefaultProfile.getProfile("test",
+                    "test", "test")), roleRequest, httpResponse);
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertEquals("Server response has a bad format type: RAW;\nThe original return is: test;\n" +
+                            "The original header is: {Content-Type=application/octet-stream};",
+                    e.getCause().getLocalizedMessage());
+        }
+    }
+
+    @Test
     public void doCloseTrace() throws Exception {
         DefaultAcsClient client = initDefaultAcsClient();
         Mockito.doReturn(true).when(client.getProfile()).isCloseTrace();
         GlobalTracer.registerIfAbsent(initTracer());
         HttpResponse response = mock(HttpResponse.class);
         Mockito.doReturn(response).when(getHttpClient(client)).syncInvoke((HttpRequest) isNull());
+        Mockito.doReturn(true).when(response).isSuccess();
         Mockito.doReturn("http://test.domain").when(response).getSysUrl();
         DefaultEndpointResolver endpointResolver = mock(DefaultEndpointResolver.class);
         client.setEndpointResolver(endpointResolver);
@@ -847,9 +893,10 @@ public class DefaultAcsClientTest {
         Assert.assertTrue(client.doAction(request) instanceof HttpResponse);
     }
 
-    private Tracer initTracer(){
+    private Tracer initTracer() {
         Tracer tracer = new Tracer() {
             ScopeManager scopeManager = new ThreadLocalScopeManager();
+
             @Override
             public ScopeManager scopeManager() {
                 return scopeManager;
@@ -888,5 +935,4 @@ public class DefaultAcsClientTest {
         };
         return tracer;
     }
-
 }

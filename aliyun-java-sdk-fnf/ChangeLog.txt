@@ -1,3 +1,15 @@
+2020-11-20 Version: 1.8.0
+- Support ListExecutions with filter functionality.
+
+2020-05-22 Version: 1.7.0
+- Add schedule crud api.
+
+2020-05-21 Version: 1.6.0
+- Add external storage support.
+
+2020-04-02 Version: 1.5.0
+- Support for WaitTimeSeconds for DescribeExecution.
+
 2020-02-14 Version: 1.4.0
 - Add callback params to StartExecution API.
 - Support ListExecutions with Status API.

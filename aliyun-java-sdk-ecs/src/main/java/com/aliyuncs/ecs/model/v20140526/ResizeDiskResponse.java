@@ -24,7 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ResizeDiskResponse extends AcsResponse {
 
+	private String orderId;
+
 	private String requestId;
+
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

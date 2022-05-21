@@ -14,6 +14,8 @@
 
 package com.aliyuncs.mse.model.v20190531;
 
+import java.util.List;
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.mse.transform.v20190531.QueryMonitorResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,23 +26,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryMonitorResponse extends AcsResponse {
 
-	private Boolean success;
-
 	private String message;
-
-	private String errorCode;
 
 	private String requestId;
 
-	private String data;
+	private String errorCode;
 
-	public Boolean getSuccess() {
-		return this.success;
-	}
+	private Boolean success;
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
+	private List<DataItem> data;
 
 	public String getMessage() {
 		return this.message;
@@ -48,14 +42,6 @@ public class QueryMonitorResponse extends AcsResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public String getErrorCode() {
-		return this.errorCode;
-	}
-
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
 	}
 
 	public String getRequestId() {
@@ -66,12 +52,61 @@ public class QueryMonitorResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getData() {
+	public String getErrorCode() {
+		return this.errorCode;
+	}
+
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
+	public List<DataItem> getData() {
 		return this.data;
 	}
 
-	public void setData(String data) {
+	public void setData(List<DataItem> data) {
 		this.data = data;
+	}
+
+	public static class DataItem {
+
+		private String podName;
+
+		private String clusterNamePrefix;
+
+		private List<Map<Object,Object>> values;
+
+		public String getPodName() {
+			return this.podName;
+		}
+
+		public void setPodName(String podName) {
+			this.podName = podName;
+		}
+
+		public String getClusterNamePrefix() {
+			return this.clusterNamePrefix;
+		}
+
+		public void setClusterNamePrefix(String clusterNamePrefix) {
+			this.clusterNamePrefix = clusterNamePrefix;
+		}
+
+		public List<Map<Object,Object>> getValues() {
+			return this.values;
+		}
+
+		public void setValues(List<Map<Object,Object>> values) {
+			this.values = values;
+		}
 	}
 
 	@Override

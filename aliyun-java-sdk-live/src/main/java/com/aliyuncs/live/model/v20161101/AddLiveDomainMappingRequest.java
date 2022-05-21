@@ -23,7 +23,15 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class AddLiveDomainMappingRequest extends RpcAcsRequest<AddLiveDomainMappingResponse> {
-	
+	   
+
+	private String securityToken;
+
+	private String pushDomain;
+
+	private Long ownerId;
+
+	private String pullDomain;
 	public AddLiveDomainMappingRequest() {
 		super("live", "2016-11-01", "AddLiveDomainMapping", "live");
 		setMethod(MethodType.POST);
@@ -33,13 +41,27 @@ public class AddLiveDomainMappingRequest extends RpcAcsRequest<AddLiveDomainMapp
 		} catch (Exception e) {}
 	}
 
-	private Long ownerId;
+	public String getSecurityToken() {
+		return this.securityToken;
+	}
 
-	private String pullDomain;
+	public void setSecurityToken(String securityToken) {
+		this.securityToken = securityToken;
+		if(securityToken != null){
+			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
 
-	private String securityToken;
+	public String getPushDomain() {
+		return this.pushDomain;
+	}
 
-	private String pushDomain;
+	public void setPushDomain(String pushDomain) {
+		this.pushDomain = pushDomain;
+		if(pushDomain != null){
+			putQueryParameter("PushDomain", pushDomain);
+		}
+	}
 
 	public Long getOwnerId() {
 		return this.ownerId;
@@ -60,47 +82,6 @@ public class AddLiveDomainMappingRequest extends RpcAcsRequest<AddLiveDomainMapp
 		this.pullDomain = pullDomain;
 		if(pullDomain != null){
 			putQueryParameter("PullDomain", pullDomain);
-		}
-	}
-
-	public String getBizSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setBizSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public String getSecurityToken() {
-		return this.securityToken;
-	}
-
-	/**
-	 * @deprecated use setBizSecurityToken instead of this.
-	 */
-	@Deprecated
-	public void setSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getPushDomain() {
-		return this.pushDomain;
-	}
-
-	public void setPushDomain(String pushDomain) {
-		this.pushDomain = pushDomain;
-		if(pushDomain != null){
-			putQueryParameter("PushDomain", pushDomain);
 		}
 	}
 

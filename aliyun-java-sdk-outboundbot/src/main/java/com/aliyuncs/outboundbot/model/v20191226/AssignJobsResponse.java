@@ -14,6 +14,7 @@
 
 package com.aliyuncs.outboundbot.model.v20191226;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.outboundbot.transform.v20191226.AssignJobsResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,6 +25,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class AssignJobsResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
+	private String jobGroupId;
+
 	private String requestId;
 
 	private Boolean success;
@@ -32,9 +37,23 @@ public class AssignJobsResponse extends AcsResponse {
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private List<String> jobsId;
 
-	private String jobGroupId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
+
+	public String getJobGroupId() {
+		return this.jobGroupId;
+	}
+
+	public void setJobGroupId(String jobGroupId) {
+		this.jobGroupId = jobGroupId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -68,20 +87,12 @@ public class AssignJobsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public List<String> getJobsId() {
+		return this.jobsId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
-	public String getJobGroupId() {
-		return this.jobGroupId;
-	}
-
-	public void setJobGroupId(String jobGroupId) {
-		this.jobGroupId = jobGroupId;
+	public void setJobsId(List<String> jobsId) {
+		this.jobsId = jobsId;
 	}
 
 	@Override

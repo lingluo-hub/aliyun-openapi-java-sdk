@@ -25,37 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeMonitorGroupDynamicRulesResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private Integer code;
 
 	private String message;
 
-	private Integer pageNumber;
+	private String requestId;
 
-	private Integer pageSize;
-
-	private Integer total;
+	private Boolean success;
 
 	private List<ResourceItem> resource;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -73,28 +51,20 @@ public class DescribeMonitorGroupDynamicRulesResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public Integer getTotal() {
-		return this.total;
-	}
-
-	public void setTotal(Integer total) {
-		this.total = total;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<ResourceItem> getResource() {
@@ -107,21 +77,11 @@ public class DescribeMonitorGroupDynamicRulesResponse extends AcsResponse {
 
 	public static class ResourceItem {
 
-		private Long groupId;
-
 		private String category;
 
 		private String filterRelation;
 
 		private List<Filter> filters;
-
-		public Long getGroupId() {
-			return this.groupId;
-		}
-
-		public void setGroupId(Long groupId) {
-			this.groupId = groupId;
-		}
 
 		public String getCategory() {
 			return this.category;
@@ -149,11 +109,19 @@ public class DescribeMonitorGroupDynamicRulesResponse extends AcsResponse {
 
 		public static class Filter {
 
+			private String value;
+
 			private String function;
 
 			private String name;
 
-			private String value;
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 
 			public String getFunction() {
 				return this.function;
@@ -169,14 +137,6 @@ public class DescribeMonitorGroupDynamicRulesResponse extends AcsResponse {
 
 			public void setName(String name) {
 				this.name = name;
-			}
-
-			public String getValue() {
-				return this.value;
-			}
-
-			public void setValue(String value) {
-				this.value = value;
 			}
 		}
 	}

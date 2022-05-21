@@ -33,6 +33,8 @@ public class ModifyVpnGatewayAttributeRequest extends RpcAcsRequest<ModifyVpnGat
 
 	private String resourceOwnerAccount;
 
+	private Boolean autoPropagate;
+
 	private String ownerAccount;
 
 	private String vpnGatewayId;
@@ -41,7 +43,7 @@ public class ModifyVpnGatewayAttributeRequest extends RpcAcsRequest<ModifyVpnGat
 
 	private String name;
 	public ModifyVpnGatewayAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyVpnGatewayAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyVpnGatewayAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -90,6 +92,17 @@ public class ModifyVpnGatewayAttributeRequest extends RpcAcsRequest<ModifyVpnGat
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Boolean getAutoPropagate() {
+		return this.autoPropagate;
+	}
+
+	public void setAutoPropagate(Boolean autoPropagate) {
+		this.autoPropagate = autoPropagate;
+		if(autoPropagate != null){
+			putQueryParameter("AutoPropagate", autoPropagate.toString());
 		}
 	}
 

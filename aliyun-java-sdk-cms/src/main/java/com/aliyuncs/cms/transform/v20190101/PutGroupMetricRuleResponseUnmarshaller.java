@@ -15,6 +15,7 @@
 package com.aliyuncs.cms.transform.v20190101;
 
 import com.aliyuncs.cms.model.v20190101.PutGroupMetricRuleResponse;
+import com.aliyuncs.cms.model.v20190101.PutGroupMetricRuleResponse.Result;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -23,9 +24,13 @@ public class PutGroupMetricRuleResponseUnmarshaller {
 	public static PutGroupMetricRuleResponse unmarshall(PutGroupMetricRuleResponse putGroupMetricRuleResponse, UnmarshallerContext _ctx) {
 		
 		putGroupMetricRuleResponse.setRequestId(_ctx.stringValue("PutGroupMetricRuleResponse.RequestId"));
-		putGroupMetricRuleResponse.setSuccess(_ctx.booleanValue("PutGroupMetricRuleResponse.Success"));
 		putGroupMetricRuleResponse.setCode(_ctx.stringValue("PutGroupMetricRuleResponse.Code"));
 		putGroupMetricRuleResponse.setMessage(_ctx.stringValue("PutGroupMetricRuleResponse.Message"));
+		putGroupMetricRuleResponse.setSuccess(_ctx.booleanValue("PutGroupMetricRuleResponse.Success"));
+
+		Result result = new Result();
+		result.setRuleId(_ctx.stringValue("PutGroupMetricRuleResponse.Result.RuleId"));
+		putGroupMetricRuleResponse.setResult(result);
 	 
 	 	return putGroupMetricRuleResponse;
 	}

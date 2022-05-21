@@ -30,9 +30,11 @@ public class DeleteNodesRequest extends RpcAcsRequest<DeleteNodesResponse> {
 
 	private String clusterId;
 
+	private Boolean sync;
+
 	private Boolean releaseInstance;
 	public DeleteNodesRequest() {
-		super("EHPC", "2018-04-12", "DeleteNodes", "ehs");
+		super("EHPC", "2018-04-12", "DeleteNodes");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -61,6 +63,17 @@ public class DeleteNodesRequest extends RpcAcsRequest<DeleteNodesResponse> {
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getSync() {
+		return this.sync;
+	}
+
+	public void setSync(Boolean sync) {
+		this.sync = sync;
+		if(sync != null){
+			putQueryParameter("Sync", sync.toString());
 		}
 	}
 

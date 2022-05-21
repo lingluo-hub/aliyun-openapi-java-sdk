@@ -47,36 +47,32 @@ public class SearchTraceAppByNameResponse extends AcsResponse {
 
 	public static class TraceApp {
 
-		private Long appId;
-
-		private String pid;
+		private String type;
 
 		private String appName;
 
-		private String type;
+		private Long updateTime;
+
+		private Boolean show;
+
+		private Long createTime;
+
+		private String pid;
+
+		private Long appId;
 
 		private String userId;
 
 		private String regionId;
 
-		private Long createTime;
+		private List<String> labels;
 
-		private Long updateTime;
-
-		public Long getAppId() {
-			return this.appId;
+		public String getType() {
+			return this.type;
 		}
 
-		public void setAppId(Long appId) {
-			this.appId = appId;
-		}
-
-		public String getPid() {
-			return this.pid;
-		}
-
-		public void setPid(String pid) {
-			this.pid = pid;
+		public void setType(String type) {
+			this.type = type;
 		}
 
 		public String getAppName() {
@@ -87,12 +83,44 @@ public class SearchTraceAppByNameResponse extends AcsResponse {
 			this.appName = appName;
 		}
 
-		public String getType() {
-			return this.type;
+		public Long getUpdateTime() {
+			return this.updateTime;
 		}
 
-		public void setType(String type) {
-			this.type = type;
+		public void setUpdateTime(Long updateTime) {
+			this.updateTime = updateTime;
+		}
+
+		public Boolean getShow() {
+			return this.show;
+		}
+
+		public void setShow(Boolean show) {
+			this.show = show;
+		}
+
+		public Long getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(Long createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getPid() {
+			return this.pid;
+		}
+
+		public void setPid(String pid) {
+			this.pid = pid;
+		}
+
+		public Long getAppId() {
+			return this.appId;
+		}
+
+		public void setAppId(Long appId) {
+			this.appId = appId;
 		}
 
 		public String getUserId() {
@@ -111,20 +139,12 @@ public class SearchTraceAppByNameResponse extends AcsResponse {
 			this.regionId = regionId;
 		}
 
-		public Long getCreateTime() {
-			return this.createTime;
+		public List<String> getLabels() {
+			return this.labels;
 		}
 
-		public void setCreateTime(Long createTime) {
-			this.createTime = createTime;
-		}
-
-		public Long getUpdateTime() {
-			return this.updateTime;
-		}
-
-		public void setUpdateTime(Long updateTime) {
-			this.updateTime = updateTime;
+		public void setLabels(List<String> labels) {
+			this.labels = labels;
 		}
 	}
 

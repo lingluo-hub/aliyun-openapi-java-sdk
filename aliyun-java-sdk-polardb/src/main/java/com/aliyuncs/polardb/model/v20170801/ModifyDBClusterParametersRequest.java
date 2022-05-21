@@ -27,7 +27,7 @@ public class ModifyDBClusterParametersRequest extends RpcAcsRequest<ModifyDBClus
 
 	private Long resourceOwnerId;
 
-	private String effectiveTime;
+	private String parameterGroupId;
 
 	private String resourceOwnerAccount;
 
@@ -39,7 +39,7 @@ public class ModifyDBClusterParametersRequest extends RpcAcsRequest<ModifyDBClus
 
 	private String parameters;
 	public ModifyDBClusterParametersRequest() {
-		super("polardb", "2017-08-01", "ModifyDBClusterParameters", "polardb");
+		super("polardb", "2017-08-01", "ModifyDBClusterParameters");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -58,14 +58,14 @@ public class ModifyDBClusterParametersRequest extends RpcAcsRequest<ModifyDBClus
 		}
 	}
 
-	public String getEffectiveTime() {
-		return this.effectiveTime;
+	public String getParameterGroupId() {
+		return this.parameterGroupId;
 	}
 
-	public void setEffectiveTime(String effectiveTime) {
-		this.effectiveTime = effectiveTime;
-		if(effectiveTime != null){
-			putQueryParameter("EffectiveTime", effectiveTime);
+	public void setParameterGroupId(String parameterGroupId) {
+		this.parameterGroupId = parameterGroupId;
+		if(parameterGroupId != null){
+			putQueryParameter("ParameterGroupId", parameterGroupId);
 		}
 	}
 

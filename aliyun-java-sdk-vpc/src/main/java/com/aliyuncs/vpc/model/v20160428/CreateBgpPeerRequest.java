@@ -33,6 +33,10 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 
 	private String peerIpAddress;
 
+	private Integer bfdMultiHop;
+
+	private String ipVersion;
+
 	private Boolean enableBfd;
 
 	private String resourceOwnerAccount;
@@ -41,7 +45,7 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 
 	private Long ownerId;
 	public CreateBgpPeerRequest() {
-		super("Vpc", "2016-04-28", "CreateBgpPeer", "Vpc");
+		super("Vpc", "2016-04-28", "CreateBgpPeer", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -90,6 +94,28 @@ public class CreateBgpPeerRequest extends RpcAcsRequest<CreateBgpPeerResponse> {
 		this.peerIpAddress = peerIpAddress;
 		if(peerIpAddress != null){
 			putQueryParameter("PeerIpAddress", peerIpAddress);
+		}
+	}
+
+	public Integer getBfdMultiHop() {
+		return this.bfdMultiHop;
+	}
+
+	public void setBfdMultiHop(Integer bfdMultiHop) {
+		this.bfdMultiHop = bfdMultiHop;
+		if(bfdMultiHop != null){
+			putQueryParameter("BfdMultiHop", bfdMultiHop.toString());
+		}
+	}
+
+	public String getIpVersion() {
+		return this.ipVersion;
+	}
+
+	public void setIpVersion(String ipVersion) {
+		this.ipVersion = ipVersion;
+		if(ipVersion != null){
+			putQueryParameter("IpVersion", ipVersion);
 		}
 	}
 

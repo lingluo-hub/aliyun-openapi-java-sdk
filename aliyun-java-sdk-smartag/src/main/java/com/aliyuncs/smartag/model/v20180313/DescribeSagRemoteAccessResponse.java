@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSagRemoteAccessResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
-	private String code;
-
 	private String message;
+
+	private String requestId;
 
 	private String smartAGId;
 
+	private String code;
+
+	private Boolean success;
+
 	private List<RemoteAccess> remoteAccesses;
+
+	public String getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -45,12 +53,12 @@ public class DescribeSagRemoteAccessResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getSmartAGId() {
+		return this.smartAGId;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setSmartAGId(String smartAGId) {
+		this.smartAGId = smartAGId;
 	}
 
 	public String getCode() {
@@ -61,20 +69,12 @@ public class DescribeSagRemoteAccessResponse extends AcsResponse {
 		this.code = code;
 	}
 
-	public String getMessage() {
-		return this.message;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getSmartAGId() {
-		return this.smartAGId;
-	}
-
-	public void setSmartAGId(String smartAGId) {
-		this.smartAGId = smartAGId;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<RemoteAccess> getRemoteAccesses() {

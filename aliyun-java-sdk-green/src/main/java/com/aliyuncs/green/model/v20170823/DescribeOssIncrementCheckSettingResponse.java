@@ -31,6 +31,8 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 
 	private Long imageScanLimit;
 
+	private Boolean scanImageNoFileType;
+
 	private Integer videoFrameInterval;
 
 	private Integer videoMaxFrames;
@@ -38,6 +40,14 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 	private Integer videoMaxSize;
 
 	private String autoFreezeType;
+
+	private String callbackId;
+
+	private String callbackName;
+
+	private Integer audioMaxSize;
+
+	private Boolean audioAutoFreezeOpened;
 
 	private List<BucketConfig> bucketConfigList;
 
@@ -47,7 +57,11 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 
 	private List<String> videoAutoFreezeSceneList;
 
+	private List<String> audioSceneList;
+
 	private ImageAutoFreeze imageAutoFreeze;
+
+	private AudioAntispamFreezeConfig audioAntispamFreezeConfig;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -71,6 +85,14 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 
 	public void setImageScanLimit(Long imageScanLimit) {
 		this.imageScanLimit = imageScanLimit;
+	}
+
+	public Boolean getScanImageNoFileType() {
+		return this.scanImageNoFileType;
+	}
+
+	public void setScanImageNoFileType(Boolean scanImageNoFileType) {
+		this.scanImageNoFileType = scanImageNoFileType;
 	}
 
 	public Integer getVideoFrameInterval() {
@@ -105,6 +127,38 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 		this.autoFreezeType = autoFreezeType;
 	}
 
+	public String getCallbackId() {
+		return this.callbackId;
+	}
+
+	public void setCallbackId(String callbackId) {
+		this.callbackId = callbackId;
+	}
+
+	public String getCallbackName() {
+		return this.callbackName;
+	}
+
+	public void setCallbackName(String callbackName) {
+		this.callbackName = callbackName;
+	}
+
+	public Integer getAudioMaxSize() {
+		return this.audioMaxSize;
+	}
+
+	public void setAudioMaxSize(Integer audioMaxSize) {
+		this.audioMaxSize = audioMaxSize;
+	}
+
+	public Boolean getAudioAutoFreezeOpened() {
+		return this.audioAutoFreezeOpened;
+	}
+
+	public void setAudioAutoFreezeOpened(Boolean audioAutoFreezeOpened) {
+		this.audioAutoFreezeOpened = audioAutoFreezeOpened;
+	}
+
 	public List<BucketConfig> getBucketConfigList() {
 		return this.bucketConfigList;
 	}
@@ -137,12 +191,28 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 		this.videoAutoFreezeSceneList = videoAutoFreezeSceneList;
 	}
 
+	public List<String> getAudioSceneList() {
+		return this.audioSceneList;
+	}
+
+	public void setAudioSceneList(List<String> audioSceneList) {
+		this.audioSceneList = audioSceneList;
+	}
+
 	public ImageAutoFreeze getImageAutoFreeze() {
 		return this.imageAutoFreeze;
 	}
 
 	public void setImageAutoFreeze(ImageAutoFreeze imageAutoFreeze) {
 		this.imageAutoFreeze = imageAutoFreeze;
+	}
+
+	public AudioAntispamFreezeConfig getAudioAntispamFreezeConfig() {
+		return this.audioAntispamFreezeConfig;
+	}
+
+	public void setAudioAntispamFreezeConfig(AudioAntispamFreezeConfig audioAntispamFreezeConfig) {
+		this.audioAntispamFreezeConfig = audioAntispamFreezeConfig;
 	}
 
 	public static class BucketConfig {
@@ -186,6 +256,10 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 
 		private String terrorism;
 
+		private String ad;
+
+		private String live;
+
 		public Boolean getEnabled() {
 			return this.enabled;
 		}
@@ -208,6 +282,45 @@ public class DescribeOssIncrementCheckSettingResponse extends AcsResponse {
 
 		public void setTerrorism(String terrorism) {
 			this.terrorism = terrorism;
+		}
+
+		public String getAd() {
+			return this.ad;
+		}
+
+		public void setAd(String ad) {
+			this.ad = ad;
+		}
+
+		public String getLive() {
+			return this.live;
+		}
+
+		public void setLive(String live) {
+			this.live = live;
+		}
+	}
+
+	public static class AudioAntispamFreezeConfig {
+
+		private String type;
+
+		private String value;
+
+		public String getType() {
+			return this.type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
 		}
 	}
 

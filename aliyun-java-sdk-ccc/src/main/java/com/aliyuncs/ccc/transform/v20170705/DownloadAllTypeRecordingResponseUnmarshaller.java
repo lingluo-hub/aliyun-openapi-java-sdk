@@ -27,10 +27,10 @@ public class DownloadAllTypeRecordingResponseUnmarshaller {
 	public static DownloadAllTypeRecordingResponse unmarshall(DownloadAllTypeRecordingResponse downloadAllTypeRecordingResponse, UnmarshallerContext _ctx) {
 		
 		downloadAllTypeRecordingResponse.setRequestId(_ctx.stringValue("DownloadAllTypeRecordingResponse.RequestId"));
-		downloadAllTypeRecordingResponse.setSuccess(_ctx.booleanValue("DownloadAllTypeRecordingResponse.Success"));
+		downloadAllTypeRecordingResponse.setHttpStatusCode(_ctx.integerValue("DownloadAllTypeRecordingResponse.HttpStatusCode"));
 		downloadAllTypeRecordingResponse.setCode(_ctx.stringValue("DownloadAllTypeRecordingResponse.Code"));
 		downloadAllTypeRecordingResponse.setMessage(_ctx.stringValue("DownloadAllTypeRecordingResponse.Message"));
-		downloadAllTypeRecordingResponse.setHttpStatusCode(_ctx.integerValue("DownloadAllTypeRecordingResponse.HttpStatusCode"));
+		downloadAllTypeRecordingResponse.setSuccess(_ctx.booleanValue("DownloadAllTypeRecordingResponse.Success"));
 
 		List<MediaDownloadParam> mediaDownloadParamList = new ArrayList<MediaDownloadParam>();
 		for (int i = 0; i < _ctx.lengthValue("DownloadAllTypeRecordingResponse.MediaDownloadParamList.Length"); i++) {

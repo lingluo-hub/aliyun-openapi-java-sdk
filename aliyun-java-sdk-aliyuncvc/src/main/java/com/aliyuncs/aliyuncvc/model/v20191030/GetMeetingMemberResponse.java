@@ -14,7 +14,7 @@
 
 package com.aliyuncs.aliyuncvc.model.v20191030;
 
-import java.util.List;
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.aliyuncvc.transform.v20191030.GetMeetingMemberResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -33,7 +33,7 @@ public class GetMeetingMemberResponse extends AcsResponse {
 
 	private Integer errorCode;
 
-	private List<Integer> members;
+	private Map<Object,Object> members;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -67,11 +67,11 @@ public class GetMeetingMemberResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public List<Integer> getMembers() {
+	public Map<Object,Object> getMembers() {
 		return this.members;
 	}
 
-	public void setMembers(List<Integer> members) {
+	public void setMembers(Map<Object,Object> members) {
 		this.members = members;
 	}
 

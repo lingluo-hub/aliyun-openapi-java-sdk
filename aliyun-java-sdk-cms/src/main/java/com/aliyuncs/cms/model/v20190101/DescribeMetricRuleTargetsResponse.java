@@ -31,6 +31,8 @@ public class DescribeMetricRuleTargetsResponse extends AcsResponse {
 
 	private String requestId;
 
+	private Boolean success;
+
 	private List<Target> targets;
 
 	public String getCode() {
@@ -57,6 +59,14 @@ public class DescribeMetricRuleTargetsResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public List<Target> getTargets() {
 		return this.targets;
 	}
@@ -72,6 +82,8 @@ public class DescribeMetricRuleTargetsResponse extends AcsResponse {
 		private String arn;
 
 		private String level;
+
+		private String jsonParams;
 
 		public String getId() {
 			return this.id;
@@ -95,6 +107,14 @@ public class DescribeMetricRuleTargetsResponse extends AcsResponse {
 
 		public void setLevel(String level) {
 			this.level = level;
+		}
+
+		public String getJsonParams() {
+			return this.jsonParams;
+		}
+
+		public void setJsonParams(String jsonParams) {
+			this.jsonParams = jsonParams;
 		}
 	}
 

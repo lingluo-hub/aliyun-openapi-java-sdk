@@ -38,6 +38,8 @@ public class DescribeParametersRequest extends RpcAcsRequest<DescribeParametersR
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String characterType;
 	public DescribeParametersRequest() {
 		super("Dds", "2015-12-01", "DescribeParameters", "dds");
 		setMethod(MethodType.POST);
@@ -121,6 +123,17 @@ public class DescribeParametersRequest extends RpcAcsRequest<DescribeParametersR
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getCharacterType() {
+		return this.characterType;
+	}
+
+	public void setCharacterType(String characterType) {
+		this.characterType = characterType;
+		if(characterType != null){
+			putQueryParameter("CharacterType", characterType);
 		}
 	}
 

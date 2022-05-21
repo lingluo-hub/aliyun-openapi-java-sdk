@@ -25,7 +25,11 @@ import com.aliyuncs.aliyuncvc.Endpoint;
 public class JoinMeetingRequest extends RpcAcsRequest<JoinMeetingResponse> {
 	   
 
+	private String rtcEngine;
+
 	private String userId;
+
+	private String password;
 
 	private String meetingCode;
 	public JoinMeetingRequest() {
@@ -37,6 +41,17 @@ public class JoinMeetingRequest extends RpcAcsRequest<JoinMeetingResponse> {
 		} catch (Exception e) {}
 	}
 
+	public String getRtcEngine() {
+		return this.rtcEngine;
+	}
+
+	public void setRtcEngine(String rtcEngine) {
+		this.rtcEngine = rtcEngine;
+		if(rtcEngine != null){
+			putBodyParameter("RtcEngine", rtcEngine);
+		}
+	}
+
 	public String getUserId() {
 		return this.userId;
 	}
@@ -45,6 +60,17 @@ public class JoinMeetingRequest extends RpcAcsRequest<JoinMeetingResponse> {
 		this.userId = userId;
 		if(userId != null){
 			putBodyParameter("UserId", userId);
+		}
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+		if(password != null){
+			putBodyParameter("Password", password);
 		}
 	}
 

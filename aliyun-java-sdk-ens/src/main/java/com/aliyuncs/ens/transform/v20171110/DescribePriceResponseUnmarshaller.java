@@ -29,10 +29,10 @@ public class DescribePriceResponseUnmarshaller {
 		PriceInfo priceInfo = new PriceInfo();
 
 		Price price = new Price();
+		price.setCurrency(_ctx.stringValue("DescribePriceResponse.PriceInfo.Price.Currency"));
 		price.setDiscountPrice(_ctx.floatValue("DescribePriceResponse.PriceInfo.Price.DiscountPrice"));
 		price.setOriginalPrice(_ctx.floatValue("DescribePriceResponse.PriceInfo.Price.OriginalPrice"));
 		price.setTradePrice(_ctx.floatValue("DescribePriceResponse.PriceInfo.Price.TradePrice"));
-		price.setCurrency(_ctx.stringValue("DescribePriceResponse.PriceInfo.Price.Currency"));
 		priceInfo.setPrice(price);
 		describePriceResponse.setPriceInfo(priceInfo);
 	 

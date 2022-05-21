@@ -24,14 +24,14 @@ public class RefreshTokenResponseUnmarshaller {
 	public static RefreshTokenResponse unmarshall(RefreshTokenResponse refreshTokenResponse, UnmarshallerContext _ctx) {
 		
 		refreshTokenResponse.setRequestId(_ctx.stringValue("RefreshTokenResponse.RequestId"));
-		refreshTokenResponse.setSuccess(_ctx.booleanValue("RefreshTokenResponse.Success"));
+		refreshTokenResponse.setHttpStatusCode(_ctx.integerValue("RefreshTokenResponse.HttpStatusCode"));
 		refreshTokenResponse.setCode(_ctx.stringValue("RefreshTokenResponse.Code"));
 		refreshTokenResponse.setMessage(_ctx.stringValue("RefreshTokenResponse.Message"));
-		refreshTokenResponse.setHttpStatusCode(_ctx.integerValue("RefreshTokenResponse.HttpStatusCode"));
+		refreshTokenResponse.setSuccess(_ctx.booleanValue("RefreshTokenResponse.Success"));
 
 		Token token = new Token();
-		token.setSignature(_ctx.stringValue("RefreshTokenResponse.Token.Signature"));
 		token.setSignData(_ctx.stringValue("RefreshTokenResponse.Token.SignData"));
+		token.setSignature(_ctx.stringValue("RefreshTokenResponse.Token.Signature"));
 		refreshTokenResponse.setToken(token);
 	 
 	 	return refreshTokenResponse;

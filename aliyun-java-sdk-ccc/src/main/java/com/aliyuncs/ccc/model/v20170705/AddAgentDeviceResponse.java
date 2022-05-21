@@ -24,6 +24,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class AddAgentDeviceResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
+	private Long agentDeviceId;
+
 	private String requestId;
 
 	private Boolean success;
@@ -32,9 +36,21 @@ public class AddAgentDeviceResponse extends AcsResponse {
 
 	private String message;
 
-	private Integer httpStatusCode;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
 
-	private Long agentDeviceId;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
+
+	public Long getAgentDeviceId() {
+		return this.agentDeviceId;
+	}
+
+	public void setAgentDeviceId(Long agentDeviceId) {
+		this.agentDeviceId = agentDeviceId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -66,22 +82,6 @@ public class AddAgentDeviceResponse extends AcsResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
-	public Long getAgentDeviceId() {
-		return this.agentDeviceId;
-	}
-
-	public void setAgentDeviceId(Long agentDeviceId) {
-		this.agentDeviceId = agentDeviceId;
 	}
 
 	@Override

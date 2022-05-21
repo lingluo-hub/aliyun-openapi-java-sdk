@@ -16,6 +16,7 @@ package com.aliyuncs.rsimganalys.model.v20190801;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rsimganalys.Endpoint;
 
 /**
  * @author auto create
@@ -24,10 +25,81 @@ import com.aliyuncs.http.MethodType;
 public class ListTasksRequest extends RpcAcsRequest<ListTasksResponse> {
 	   
 
+	private String submitTime;
+
+	private Integer runStatus;
+
+	private Integer productType;
+
+	private Integer pageNo;
+
+	private Integer pageSize;
+
 	private String appkey;
+
+	private String jobName;
 	public ListTasksRequest() {
-		super("rsimganalys", "2019-08-01", "ListTasks");
+		super("rsimganalys", "2019-08-01", "ListTasks", "rsimganalys");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getSubmitTime() {
+		return this.submitTime;
+	}
+
+	public void setSubmitTime(String submitTime) {
+		this.submitTime = submitTime;
+		if(submitTime != null){
+			putQueryParameter("SubmitTime", submitTime);
+		}
+	}
+
+	public Integer getRunStatus() {
+		return this.runStatus;
+	}
+
+	public void setRunStatus(Integer runStatus) {
+		this.runStatus = runStatus;
+		if(runStatus != null){
+			putQueryParameter("RunStatus", runStatus.toString());
+		}
+	}
+
+	public Integer getProductType() {
+		return this.productType;
+	}
+
+	public void setProductType(Integer productType) {
+		this.productType = productType;
+		if(productType != null){
+			putQueryParameter("ProductType", productType.toString());
+		}
+	}
+
+	public Integer getPageNo() {
+		return this.pageNo;
+	}
+
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+		if(pageNo != null){
+			putQueryParameter("PageNo", pageNo.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
 	}
 
 	public String getAppkey() {
@@ -38,6 +110,17 @@ public class ListTasksRequest extends RpcAcsRequest<ListTasksResponse> {
 		this.appkey = appkey;
 		if(appkey != null){
 			putQueryParameter("Appkey", appkey);
+		}
+	}
+
+	public String getJobName() {
+		return this.jobName;
+	}
+
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+		if(jobName != null){
+			putQueryParameter("JobName", jobName);
 		}
 	}
 

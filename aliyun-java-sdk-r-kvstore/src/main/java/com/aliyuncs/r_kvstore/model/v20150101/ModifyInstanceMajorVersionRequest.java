@@ -27,9 +27,9 @@ public class ModifyInstanceMajorVersionRequest extends RpcAcsRequest<ModifyInsta
 
 	private Long resourceOwnerId;
 
-	private String effectTime;
-
 	private String securityToken;
+
+	private String effectiveTime;
 
 	private String majorVersion;
 
@@ -41,7 +41,7 @@ public class ModifyInstanceMajorVersionRequest extends RpcAcsRequest<ModifyInsta
 
 	private String instanceId;
 	public ModifyInstanceMajorVersionRequest() {
-		super("R-kvstore", "2015-01-01", "ModifyInstanceMajorVersion");
+		super("R-kvstore", "2015-01-01", "ModifyInstanceMajorVersion", "redisa");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -60,17 +60,6 @@ public class ModifyInstanceMajorVersionRequest extends RpcAcsRequest<ModifyInsta
 		}
 	}
 
-	public String getEffectTime() {
-		return this.effectTime;
-	}
-
-	public void setEffectTime(String effectTime) {
-		this.effectTime = effectTime;
-		if(effectTime != null){
-			putQueryParameter("EffectTime", effectTime);
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -79,6 +68,17 @@ public class ModifyInstanceMajorVersionRequest extends RpcAcsRequest<ModifyInsta
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getEffectiveTime() {
+		return this.effectiveTime;
+	}
+
+	public void setEffectiveTime(String effectiveTime) {
+		this.effectiveTime = effectiveTime;
+		if(effectiveTime != null){
+			putQueryParameter("EffectiveTime", effectiveTime);
 		}
 	}
 

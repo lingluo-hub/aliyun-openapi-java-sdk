@@ -33,45 +33,45 @@ public class ListUsersOfSkillGroupResponseUnmarshaller {
 	public static ListUsersOfSkillGroupResponse unmarshall(ListUsersOfSkillGroupResponse listUsersOfSkillGroupResponse, UnmarshallerContext _ctx) {
 		
 		listUsersOfSkillGroupResponse.setRequestId(_ctx.stringValue("ListUsersOfSkillGroupResponse.RequestId"));
-		listUsersOfSkillGroupResponse.setSuccess(_ctx.booleanValue("ListUsersOfSkillGroupResponse.Success"));
+		listUsersOfSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("ListUsersOfSkillGroupResponse.HttpStatusCode"));
 		listUsersOfSkillGroupResponse.setCode(_ctx.stringValue("ListUsersOfSkillGroupResponse.Code"));
 		listUsersOfSkillGroupResponse.setMessage(_ctx.stringValue("ListUsersOfSkillGroupResponse.Message"));
-		listUsersOfSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("ListUsersOfSkillGroupResponse.HttpStatusCode"));
+		listUsersOfSkillGroupResponse.setSuccess(_ctx.booleanValue("ListUsersOfSkillGroupResponse.Success"));
 
 		Users users = new Users();
-		users.setTotalCount(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.TotalCount"));
 		users.setPageNumber(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.PageNumber"));
 		users.setPageSize(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.PageSize"));
+		users.setTotalCount(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.TotalCount"));
 
 		List<User> list = new ArrayList<User>();
 		for (int i = 0; i < _ctx.lengthValue("ListUsersOfSkillGroupResponse.Users.List.Length"); i++) {
 			User user = new User();
-			user.setUserId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].UserId"));
-			user.setRamId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].RamId"));
 			user.setInstanceId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].InstanceId"));
+			user.setRamId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].RamId"));
+			user.setUserId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].UserId"));
 
 			Detail detail = new Detail();
-			detail.setLoginName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.LoginName"));
 			detail.setDisplayName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.DisplayName"));
-			detail.setPhone(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.Phone"));
 			detail.setEmail(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.Email"));
+			detail.setLoginName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.LoginName"));
 			detail.setDepartment(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.Department"));
+			detail.setPhone(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Detail.Phone"));
 			user.setDetail(detail);
 
 			List<Role> roles = new ArrayList<Role>();
 			for (int j = 0; j < _ctx.lengthValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles.Length"); j++) {
 				Role role = new Role();
-				role.setRoleId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleId"));
-				role.setInstanceId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].InstanceId"));
-				role.setRoleName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleName"));
-				role.setRoleDescription(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleDescription"));
 				role.setUserCount(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].UserCount"));
+				role.setRoleName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleName"));
+				role.setInstanceId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].InstanceId"));
+				role.setRoleDescription(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleDescription"));
+				role.setRoleId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].RoleId"));
 
 				List<Privilege> privileges = new ArrayList<Privilege>();
 				for (int k = 0; k < _ctx.lengthValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].Privileges.Length"); k++) {
 					Privilege privilege = new Privilege();
-					privilege.setPrivilegeId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].Privileges["+ k +"].PrivilegeId"));
 					privilege.setPrivilegeName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].Privileges["+ k +"].PrivilegeName"));
+					privilege.setPrivilegeId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].Privileges["+ k +"].PrivilegeId"));
 					privilege.setPrivilegeDescription(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].Roles["+ j +"].Privileges["+ k +"].PrivilegeDescription"));
 
 					privileges.add(privilege);
@@ -89,10 +89,10 @@ public class ListUsersOfSkillGroupResponseUnmarshaller {
 				skillLevel.setLevel(_ctx.integerValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Level"));
 
 				Skill skill = new Skill();
-				skill.setSkillGroupId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupId"));
 				skill.setInstanceId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.InstanceId"));
-				skill.setSkillGroupName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupName"));
 				skill.setSkillGroupDescription(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupDescription"));
+				skill.setSkillGroupId(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupId"));
+				skill.setSkillGroupName(_ctx.stringValue("ListUsersOfSkillGroupResponse.Users.List["+ i +"].SkillLevels["+ j +"].Skill.SkillGroupName"));
 				skillLevel.setSkill(skill);
 
 				skillLevels.add(skillLevel);

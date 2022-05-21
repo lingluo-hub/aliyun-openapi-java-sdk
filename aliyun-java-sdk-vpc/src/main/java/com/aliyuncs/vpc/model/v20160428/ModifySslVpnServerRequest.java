@@ -33,6 +33,8 @@ public class ModifySslVpnServerRequest extends RpcAcsRequest<ModifySslVpnServerR
 
 	private String localSubnet;
 
+	private String iDaaSRegionId;
+
 	private Boolean enableMultiFactorAuth;
 
 	private String iDaaSInstanceId;
@@ -55,7 +57,7 @@ public class ModifySslVpnServerRequest extends RpcAcsRequest<ModifySslVpnServerR
 
 	private String name;
 	public ModifySslVpnServerRequest() {
-		super("Vpc", "2016-04-28", "ModifySslVpnServer", "Vpc");
+		super("Vpc", "2016-04-28", "ModifySslVpnServer", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -104,6 +106,17 @@ public class ModifySslVpnServerRequest extends RpcAcsRequest<ModifySslVpnServerR
 		this.localSubnet = localSubnet;
 		if(localSubnet != null){
 			putQueryParameter("LocalSubnet", localSubnet);
+		}
+	}
+
+	public String getIDaaSRegionId() {
+		return this.iDaaSRegionId;
+	}
+
+	public void setIDaaSRegionId(String iDaaSRegionId) {
+		this.iDaaSRegionId = iDaaSRegionId;
+		if(iDaaSRegionId != null){
+			putQueryParameter("IDaaSRegionId", iDaaSRegionId);
 		}
 	}
 

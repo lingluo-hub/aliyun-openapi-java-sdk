@@ -26,8 +26,12 @@ public class GetTokenRequest extends RpcAcsRequest<GetTokenResponse> {
 	   
 
 	private String appType;
+
+	private String proxyUserId;
+
+	private Boolean isForce;
 	public GetTokenRequest() {
-		super("xtrace", "2019-08-08", "GetToken", "xtrace");
+		super("xtrace", "2019-08-08", "GetToken");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -43,6 +47,28 @@ public class GetTokenRequest extends RpcAcsRequest<GetTokenResponse> {
 		this.appType = appType;
 		if(appType != null){
 			putQueryParameter("AppType", appType);
+		}
+	}
+
+	public String getProxyUserId() {
+		return this.proxyUserId;
+	}
+
+	public void setProxyUserId(String proxyUserId) {
+		this.proxyUserId = proxyUserId;
+		if(proxyUserId != null){
+			putQueryParameter("ProxyUserId", proxyUserId);
+		}
+	}
+
+	public Boolean getIsForce() {
+		return this.isForce;
+	}
+
+	public void setIsForce(Boolean isForce) {
+		this.isForce = isForce;
+		if(isForce != null){
+			putQueryParameter("IsForce", isForce.toString());
 		}
 	}
 

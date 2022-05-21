@@ -57,48 +57,26 @@ public class OnsInstanceInServiceListResponse extends AcsResponse {
 
 	public static class InstanceVO {
 
-		private String instanceId;
-
-		private Integer instanceStatus;
-
-		private Long releaseTime;
-
-		private Integer instanceType;
+		private Boolean independentNaming;
 
 		private String instanceName;
 
-		private Boolean independentNaming;
+		private Long releaseTime;
 
-		public String getInstanceId() {
-			return this.instanceId;
+		private Integer instanceStatus;
+
+		private String instanceId;
+
+		private Integer instanceType;
+
+		private List<Tag> tags;
+
+		public Boolean getIndependentNaming() {
+			return this.independentNaming;
 		}
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public Integer getInstanceStatus() {
-			return this.instanceStatus;
-		}
-
-		public void setInstanceStatus(Integer instanceStatus) {
-			this.instanceStatus = instanceStatus;
-		}
-
-		public Long getReleaseTime() {
-			return this.releaseTime;
-		}
-
-		public void setReleaseTime(Long releaseTime) {
-			this.releaseTime = releaseTime;
-		}
-
-		public Integer getInstanceType() {
-			return this.instanceType;
-		}
-
-		public void setInstanceType(Integer instanceType) {
-			this.instanceType = instanceType;
+		public void setIndependentNaming(Boolean independentNaming) {
+			this.independentNaming = independentNaming;
 		}
 
 		public String getInstanceName() {
@@ -109,12 +87,67 @@ public class OnsInstanceInServiceListResponse extends AcsResponse {
 			this.instanceName = instanceName;
 		}
 
-		public Boolean getIndependentNaming() {
-			return this.independentNaming;
+		public Long getReleaseTime() {
+			return this.releaseTime;
 		}
 
-		public void setIndependentNaming(Boolean independentNaming) {
-			this.independentNaming = independentNaming;
+		public void setReleaseTime(Long releaseTime) {
+			this.releaseTime = releaseTime;
+		}
+
+		public Integer getInstanceStatus() {
+			return this.instanceStatus;
+		}
+
+		public void setInstanceStatus(Integer instanceStatus) {
+			this.instanceStatus = instanceStatus;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public Integer getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(Integer instanceType) {
+			this.instanceType = instanceType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

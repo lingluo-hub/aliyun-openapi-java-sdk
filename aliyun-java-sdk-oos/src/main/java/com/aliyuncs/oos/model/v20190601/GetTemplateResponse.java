@@ -83,6 +83,12 @@ public class GetTemplateResponse extends AcsResponse {
 
 		private Map<Object,Object> tags;
 
+		private String templateType;
+
+		private String versionName;
+
+		private String resourceGroupId;
+
 		public String getTemplateName() {
 			return this.templateName;
 		}
@@ -185,6 +191,30 @@ public class GetTemplateResponse extends AcsResponse {
 
 		public void setTags(Map<Object,Object> tags) {
 			this.tags = tags;
+		}
+
+		public String getTemplateType() {
+			return this.templateType;
+		}
+
+		public void setTemplateType(String templateType) {
+			this.templateType = templateType;
+		}
+
+		public String getVersionName() {
+			return this.versionName;
+		}
+
+		public void setVersionName(String versionName) {
+			this.versionName = versionName;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

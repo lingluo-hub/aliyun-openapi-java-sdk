@@ -28,9 +28,19 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 
 	private Long timeoutInMinutes;
 
+	private String deletionProtection;
+
+	private String resourceGroupId;
+
+	private String templateVersion;
+
 	private String stackName;
 
 	private Boolean disableRollback;
+
+	private String templateId;
+
+	private List<Tags> tagss;
 
 	private List<Parameters> parameterss;
 
@@ -44,9 +54,13 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 
 	private String stackPolicyBody;
 
+	private String ramRoleName;
+
+	private String createOption;
+
 	private String stackPolicyURL;
 	public CreateStackRequest() {
-		super("ROS", "2019-09-10", "CreateStack");
+		super("ROS", "2019-09-10", "CreateStack", "ros");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -62,6 +76,39 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 		this.timeoutInMinutes = timeoutInMinutes;
 		if(timeoutInMinutes != null){
 			putQueryParameter("TimeoutInMinutes", timeoutInMinutes.toString());
+		}
+	}
+
+	public String getDeletionProtection() {
+		return this.deletionProtection;
+	}
+
+	public void setDeletionProtection(String deletionProtection) {
+		this.deletionProtection = deletionProtection;
+		if(deletionProtection != null){
+			putQueryParameter("DeletionProtection", deletionProtection);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getTemplateVersion() {
+		return this.templateVersion;
+	}
+
+	public void setTemplateVersion(String templateVersion) {
+		this.templateVersion = templateVersion;
+		if(templateVersion != null){
+			putQueryParameter("TemplateVersion", templateVersion);
 		}
 	}
 
@@ -85,6 +132,31 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 		if(disableRollback != null){
 			putQueryParameter("DisableRollback", disableRollback.toString());
 		}
+	}
+
+	public String getTemplateId() {
+		return this.templateId;
+	}
+
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
+		if(templateId != null){
+			putQueryParameter("TemplateId", templateId);
+		}
+	}
+
+	public List<Tags> getTagss() {
+		return this.tagss;
+	}
+
+	public void setTagss(List<Tags> tagss) {
+		this.tagss = tagss;	
+		if (tagss != null) {
+			for (int depth1 = 0; depth1 < tagss.size(); depth1++) {
+				putQueryParameter("Tags." + (depth1 + 1) + ".Value" , tagss.get(depth1).getValue());
+				putQueryParameter("Tags." + (depth1 + 1) + ".Key" , tagss.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public List<Parameters> getParameterss() {
@@ -158,6 +230,28 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 		}
 	}
 
+	public String getRamRoleName() {
+		return this.ramRoleName;
+	}
+
+	public void setRamRoleName(String ramRoleName) {
+		this.ramRoleName = ramRoleName;
+		if(ramRoleName != null){
+			putQueryParameter("RamRoleName", ramRoleName);
+		}
+	}
+
+	public String getCreateOption() {
+		return this.createOption;
+	}
+
+	public void setCreateOption(String createOption) {
+		this.createOption = createOption;
+		if(createOption != null){
+			putQueryParameter("CreateOption", createOption);
+		}
+	}
+
 	public String getStackPolicyURL() {
 		return this.stackPolicyURL;
 	}
@@ -166,6 +260,29 @@ public class CreateStackRequest extends RpcAcsRequest<CreateStackResponse> {
 		this.stackPolicyURL = stackPolicyURL;
 		if(stackPolicyURL != null){
 			putQueryParameter("StackPolicyURL", stackPolicyURL);
+		}
+	}
+
+	public static class Tags {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

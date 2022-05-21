@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeBackupsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String totalRecordCount;
-
-	private String pageNumber;
 
 	private String pageRecordCount;
 
+	private String requestId;
+
+	private String pageNumber;
+
 	private List<Backup> items;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getTotalRecordCount() {
 		return this.totalRecordCount;
@@ -51,20 +43,28 @@ public class DescribeBackupsResponse extends AcsResponse {
 		this.totalRecordCount = totalRecordCount;
 	}
 
-	public String getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(String pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public String getPageRecordCount() {
 		return this.pageRecordCount;
 	}
 
 	public void setPageRecordCount(String pageRecordCount) {
 		this.pageRecordCount = pageRecordCount;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(String pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<Backup> getItems() {
@@ -77,27 +77,95 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 	public static class Backup {
 
+		private String backupSetSize;
+
+		private String consistentTime;
+
+		private String storeStatus;
+
+		private String backupStatus;
+
+		private String backupType;
+
+		private String backupStartTime;
+
+		private String isAvail;
+
+		private String backupEndTime;
+
 		private String backupId;
 
 		private String dBClusterId;
 
-		private String backupStatus;
-
-		private String backupStartTime;
-
-		private String backupEndTime;
-
-		private String backupType;
+		private String backupsLevel;
 
 		private String backupMode;
 
 		private String backupMethod;
 
-		private String storeStatus;
+		public String getBackupSetSize() {
+			return this.backupSetSize;
+		}
 
-		private String backupSetSize;
+		public void setBackupSetSize(String backupSetSize) {
+			this.backupSetSize = backupSetSize;
+		}
 
-		private String consistentTime;
+		public String getConsistentTime() {
+			return this.consistentTime;
+		}
+
+		public void setConsistentTime(String consistentTime) {
+			this.consistentTime = consistentTime;
+		}
+
+		public String getStoreStatus() {
+			return this.storeStatus;
+		}
+
+		public void setStoreStatus(String storeStatus) {
+			this.storeStatus = storeStatus;
+		}
+
+		public String getBackupStatus() {
+			return this.backupStatus;
+		}
+
+		public void setBackupStatus(String backupStatus) {
+			this.backupStatus = backupStatus;
+		}
+
+		public String getBackupType() {
+			return this.backupType;
+		}
+
+		public void setBackupType(String backupType) {
+			this.backupType = backupType;
+		}
+
+		public String getBackupStartTime() {
+			return this.backupStartTime;
+		}
+
+		public void setBackupStartTime(String backupStartTime) {
+			this.backupStartTime = backupStartTime;
+		}
+
+		public String getIsAvail() {
+			return this.isAvail;
+		}
+
+		public void setIsAvail(String isAvail) {
+			this.isAvail = isAvail;
+		}
+
+		public String getBackupEndTime() {
+			return this.backupEndTime;
+		}
+
+		public void setBackupEndTime(String backupEndTime) {
+			this.backupEndTime = backupEndTime;
+		}
 
 		public String getBackupId() {
 			return this.backupId;
@@ -115,36 +183,12 @@ public class DescribeBackupsResponse extends AcsResponse {
 			this.dBClusterId = dBClusterId;
 		}
 
-		public String getBackupStatus() {
-			return this.backupStatus;
+		public String getBackupsLevel() {
+			return this.backupsLevel;
 		}
 
-		public void setBackupStatus(String backupStatus) {
-			this.backupStatus = backupStatus;
-		}
-
-		public String getBackupStartTime() {
-			return this.backupStartTime;
-		}
-
-		public void setBackupStartTime(String backupStartTime) {
-			this.backupStartTime = backupStartTime;
-		}
-
-		public String getBackupEndTime() {
-			return this.backupEndTime;
-		}
-
-		public void setBackupEndTime(String backupEndTime) {
-			this.backupEndTime = backupEndTime;
-		}
-
-		public String getBackupType() {
-			return this.backupType;
-		}
-
-		public void setBackupType(String backupType) {
-			this.backupType = backupType;
+		public void setBackupsLevel(String backupsLevel) {
+			this.backupsLevel = backupsLevel;
 		}
 
 		public String getBackupMode() {
@@ -161,30 +205,6 @@ public class DescribeBackupsResponse extends AcsResponse {
 
 		public void setBackupMethod(String backupMethod) {
 			this.backupMethod = backupMethod;
-		}
-
-		public String getStoreStatus() {
-			return this.storeStatus;
-		}
-
-		public void setStoreStatus(String storeStatus) {
-			this.storeStatus = storeStatus;
-		}
-
-		public String getBackupSetSize() {
-			return this.backupSetSize;
-		}
-
-		public void setBackupSetSize(String backupSetSize) {
-			this.backupSetSize = backupSetSize;
-		}
-
-		public String getConsistentTime() {
-			return this.consistentTime;
-		}
-
-		public void setConsistentTime(String consistentTime) {
-			this.consistentTime = consistentTime;
 		}
 	}
 

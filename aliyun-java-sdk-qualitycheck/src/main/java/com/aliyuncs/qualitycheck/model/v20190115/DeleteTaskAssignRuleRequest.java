@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class DeleteTaskAssignRuleRequest extends RpcAcsRequest<DeleteTaskAssignRuleResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public DeleteTaskAssignRuleRequest() {
 		super("Qualitycheck", "2019-01-15", "DeleteTaskAssignRule");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

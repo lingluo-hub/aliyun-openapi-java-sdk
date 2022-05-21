@@ -24,6 +24,10 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetTURNCredentialsResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
+	private String password;
+
 	private String requestId;
 
 	private Boolean success;
@@ -32,11 +36,23 @@ public class GetTURNCredentialsResponse extends AcsResponse {
 
 	private String message;
 
-	private Integer httpStatusCode;
-
 	private String username;
 
-	private String password;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -70,28 +86,12 @@ public class GetTURNCredentialsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
-	}
-
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
 	public String getUsername() {
 		return this.username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override

@@ -34,6 +34,8 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private String hpcClusterId;
 
+	private Integer httpPutResponseHopLimit;
+
 	private String filter2Value;
 
 	private String keyPairName;
@@ -60,6 +62,8 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private String vSwitchId;
 
+	private List<String> additionalAttributess;
+
 	private String instanceName;
 
 	private String instanceIds;
@@ -67,6 +71,10 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 	private String internetChargeType;
 
 	private String zoneId;
+
+	private Integer maxResults;
+
+	private List<String> ipv6Addresss;
 
 	private String instanceNetworkType;
 
@@ -84,7 +92,11 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private Integer pageNumber;
 
+	private String nextToken;
+
 	private String rdmaIpAddresses;
+
+	private String httpEndpoint;
 
 	private Integer pageSize;
 
@@ -105,6 +117,8 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 	private String eipAddresses;
 
 	private String vpcId;
+
+	private String httpTokens;
 
 	private String filter3Key;
 	public DescribeInstancesRequest() {
@@ -157,6 +171,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.hpcClusterId = hpcClusterId;
 		if(hpcClusterId != null){
 			putQueryParameter("HpcClusterId", hpcClusterId);
+		}
+	}
+
+	public Integer getHttpPutResponseHopLimit() {
+		return this.httpPutResponseHopLimit;
+	}
+
+	public void setHttpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
+		this.httpPutResponseHopLimit = httpPutResponseHopLimit;
+		if(httpPutResponseHopLimit != null){
+			putQueryParameter("HttpPutResponseHopLimit", httpPutResponseHopLimit.toString());
 		}
 	}
 
@@ -234,7 +259,7 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
@@ -306,6 +331,19 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		}
 	}
 
+	public List<String> getAdditionalAttributess() {
+		return this.additionalAttributess;
+	}
+
+	public void setAdditionalAttributess(List<String> additionalAttributess) {
+		this.additionalAttributess = additionalAttributess;	
+		if (additionalAttributess != null) {
+			for (int i = 0; i < additionalAttributess.size(); i++) {
+				putQueryParameter("AdditionalAttributes." + (i + 1) , additionalAttributess.get(i));
+			}
+		}	
+	}
+
 	public String getInstanceName() {
 		return this.instanceName;
 	}
@@ -348,6 +386,30 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
 		}
+	}
+
+	public Integer getMaxResults() {
+		return this.maxResults;
+	}
+
+	public void setMaxResults(Integer maxResults) {
+		this.maxResults = maxResults;
+		if(maxResults != null){
+			putQueryParameter("MaxResults", maxResults.toString());
+		}
+	}
+
+	public List<String> getIpv6Addresss() {
+		return this.ipv6Addresss;
+	}
+
+	public void setIpv6Addresss(List<String> ipv6Addresss) {
+		this.ipv6Addresss = ipv6Addresss;	
+		if (ipv6Addresss != null) {
+			for (int i = 0; i < ipv6Addresss.size(); i++) {
+				putQueryParameter("Ipv6Address." + (i + 1) , ipv6Addresss.get(i));
+			}
+		}	
 	}
 
 	public String getInstanceNetworkType() {
@@ -438,6 +500,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		}
 	}
 
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
+		if(nextToken != null){
+			putQueryParameter("NextToken", nextToken);
+		}
+	}
+
 	public String getRdmaIpAddresses() {
 		return this.rdmaIpAddresses;
 	}
@@ -446,6 +519,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.rdmaIpAddresses = rdmaIpAddresses;
 		if(rdmaIpAddresses != null){
 			putQueryParameter("RdmaIpAddresses", rdmaIpAddresses);
+		}
+	}
+
+	public String getHttpEndpoint() {
+		return this.httpEndpoint;
+	}
+
+	public void setHttpEndpoint(String httpEndpoint) {
+		this.httpEndpoint = httpEndpoint;
+		if(httpEndpoint != null){
+			putQueryParameter("HttpEndpoint", httpEndpoint);
 		}
 	}
 
@@ -556,6 +640,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.vpcId = vpcId;
 		if(vpcId != null){
 			putQueryParameter("VpcId", vpcId);
+		}
+	}
+
+	public String getHttpTokens() {
+		return this.httpTokens;
+	}
+
+	public void setHttpTokens(String httpTokens) {
+		this.httpTokens = httpTokens;
+		if(httpTokens != null){
+			putQueryParameter("HttpTokens", httpTokens);
 		}
 	}
 

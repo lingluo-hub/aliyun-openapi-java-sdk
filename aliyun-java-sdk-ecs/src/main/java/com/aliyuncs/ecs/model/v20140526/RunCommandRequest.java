@@ -44,6 +44,10 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 
 	private String contentEncoding;
 
+	private String repeatMode;
+
+	private String windowsPasswordName;
+
 	private Boolean keepCommand;
 
 	private Boolean timed;
@@ -61,6 +65,8 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 	private Map<Object,Object> parameters;
 
 	private Boolean enableParameter;
+
+	private String username;
 	public RunCommandRequest() {
 		super("Ecs", "2014-05-26", "RunCommand", "ecs");
 		setMethod(MethodType.POST);
@@ -155,6 +161,28 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		this.contentEncoding = contentEncoding;
 		if(contentEncoding != null){
 			putQueryParameter("ContentEncoding", contentEncoding);
+		}
+	}
+
+	public String getRepeatMode() {
+		return this.repeatMode;
+	}
+
+	public void setRepeatMode(String repeatMode) {
+		this.repeatMode = repeatMode;
+		if(repeatMode != null){
+			putQueryParameter("RepeatMode", repeatMode);
+		}
+	}
+
+	public String getWindowsPasswordName() {
+		return this.windowsPasswordName;
+	}
+
+	public void setWindowsPasswordName(String windowsPasswordName) {
+		this.windowsPasswordName = windowsPasswordName;
+		if(windowsPasswordName != null){
+			putQueryParameter("WindowsPasswordName", windowsPasswordName);
 		}
 	}
 
@@ -256,6 +284,17 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		this.enableParameter = enableParameter;
 		if(enableParameter != null){
 			putQueryParameter("EnableParameter", enableParameter.toString());
+		}
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+		if(username != null){
+			putQueryParameter("Username", username);
 		}
 	}
 

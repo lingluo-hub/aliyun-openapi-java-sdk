@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class DeleteBusinessCategoryRequest extends RpcAcsRequest<DeleteBusinessCategoryResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public DeleteBusinessCategoryRequest() {
 		super("Qualitycheck", "2019-01-15", "DeleteBusinessCategory");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

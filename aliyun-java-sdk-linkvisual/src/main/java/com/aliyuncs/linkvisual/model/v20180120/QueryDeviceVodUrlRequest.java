@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -24,52 +25,55 @@ import com.aliyuncs.http.MethodType;
 public class QueryDeviceVodUrlRequest extends RpcAcsRequest<QueryDeviceVodUrlResponse> {
 	   
 
-	private String iotId;
+	private String scheme;
 
-	private String fileName;
-
-	private Boolean shouldEncrypt;
+	private Boolean playUnLimited;
 
 	private Integer encryptType;
 
-	private String scheme;
+	private String iotId;
+
+	private String iotInstanceId;
+
+	private Boolean shouldEncrypt;
+
+	private String productKey;
+
+	private String fileName;
 
 	private Integer seekTime;
+
+	private String deviceName;
+
+	private Integer urlValidDuration;
 	public QueryDeviceVodUrlRequest() {
-		super("Linkvisual", "2018-01-20", "QueryDeviceVodUrl", "linkvisual");
+		super("Linkvisual", "2018-01-20", "QueryDeviceVodUrl", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public String getScheme() {
+		return this.scheme;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
+	public void setScheme(String scheme) {
+		this.scheme = scheme;
+		if(scheme != null){
+			putQueryParameter("Scheme", scheme);
 		}
 	}
 
-	public String getFileName() {
-		return this.fileName;
+	public Boolean getPlayUnLimited() {
+		return this.playUnLimited;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-		if(fileName != null){
-			putQueryParameter("FileName", fileName);
-		}
-	}
-
-	public Boolean getShouldEncrypt() {
-		return this.shouldEncrypt;
-	}
-
-	public void setShouldEncrypt(Boolean shouldEncrypt) {
-		this.shouldEncrypt = shouldEncrypt;
-		if(shouldEncrypt != null){
-			putQueryParameter("ShouldEncrypt", shouldEncrypt.toString());
+	public void setPlayUnLimited(Boolean playUnLimited) {
+		this.playUnLimited = playUnLimited;
+		if(playUnLimited != null){
+			putQueryParameter("PlayUnLimited", playUnLimited.toString());
 		}
 	}
 
@@ -84,14 +88,58 @@ public class QueryDeviceVodUrlRequest extends RpcAcsRequest<QueryDeviceVodUrlRes
 		}
 	}
 
-	public String getScheme() {
-		return this.scheme;
+	public String getIotId() {
+		return this.iotId;
 	}
 
-	public void setScheme(String scheme) {
-		this.scheme = scheme;
-		if(scheme != null){
-			putQueryParameter("Scheme", scheme);
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Boolean getShouldEncrypt() {
+		return this.shouldEncrypt;
+	}
+
+	public void setShouldEncrypt(Boolean shouldEncrypt) {
+		this.shouldEncrypt = shouldEncrypt;
+		if(shouldEncrypt != null){
+			putQueryParameter("ShouldEncrypt", shouldEncrypt.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getFileName() {
+		return this.fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+		if(fileName != null){
+			putQueryParameter("FileName", fileName);
 		}
 	}
 
@@ -103,6 +151,28 @@ public class QueryDeviceVodUrlRequest extends RpcAcsRequest<QueryDeviceVodUrlRes
 		this.seekTime = seekTime;
 		if(seekTime != null){
 			putQueryParameter("SeekTime", seekTime.toString());
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public Integer getUrlValidDuration() {
+		return this.urlValidDuration;
+	}
+
+	public void setUrlValidDuration(Integer urlValidDuration) {
+		this.urlValidDuration = urlValidDuration;
+		if(urlValidDuration != null){
+			putQueryParameter("UrlValidDuration", urlValidDuration.toString());
 		}
 	}
 

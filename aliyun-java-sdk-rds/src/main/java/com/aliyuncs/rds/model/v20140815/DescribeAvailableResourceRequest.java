@@ -35,9 +35,13 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 
 	private String instanceChargeType;
 
+	private Integer dispenseMode;
+
 	private String dBInstanceClass;
 
 	private String zoneId;
+
+	private String category;
 
 	private String orderType;
 	public DescribeAvailableResourceRequest() {
@@ -104,6 +108,17 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 		}
 	}
 
+	public Integer getDispenseMode() {
+		return this.dispenseMode;
+	}
+
+	public void setDispenseMode(Integer dispenseMode) {
+		this.dispenseMode = dispenseMode;
+		if(dispenseMode != null){
+			putQueryParameter("DispenseMode", dispenseMode.toString());
+		}
+	}
+
 	public String getDBInstanceClass() {
 		return this.dBInstanceClass;
 	}
@@ -123,6 +138,17 @@ public class DescribeAvailableResourceRequest extends RpcAcsRequest<DescribeAvai
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+		if(category != null){
+			putQueryParameter("Category", category);
 		}
 	}
 

@@ -25,46 +25,24 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDeviceFileListRequest extends RpcAcsRequest<QueryDeviceFileListResponse> {
 	   
 
-	private Integer currentPage;
-
-	private String productKey;
-
 	private String iotId;
 
 	private String iotInstanceId;
 
 	private Integer pageSize;
 
+	private Integer currentPage;
+
+	private String productKey;
+
 	private String deviceName;
 	public QueryDeviceFileListRequest() {
-		super("Iot", "2018-01-20", "QueryDeviceFileList", "Iot");
+		super("Iot", "2018-01-20", "QueryDeviceFileList");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getIotId() {
@@ -97,6 +75,28 @@ public class QueryDeviceFileListRequest extends RpcAcsRequest<QueryDeviceFileLis
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

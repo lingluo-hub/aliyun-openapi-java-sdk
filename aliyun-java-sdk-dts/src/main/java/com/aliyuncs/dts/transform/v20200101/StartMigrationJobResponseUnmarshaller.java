@@ -23,8 +23,8 @@ public class StartMigrationJobResponseUnmarshaller {
 	public static StartMigrationJobResponse unmarshall(StartMigrationJobResponse startMigrationJobResponse, UnmarshallerContext _ctx) {
 		
 		startMigrationJobResponse.setRequestId(_ctx.stringValue("StartMigrationJobResponse.RequestId"));
-		startMigrationJobResponse.setSuccess(_ctx.stringValue("StartMigrationJobResponse.Success"));
 		startMigrationJobResponse.setErrCode(_ctx.stringValue("StartMigrationJobResponse.ErrCode"));
+		startMigrationJobResponse.setSuccess(_ctx.stringValue("StartMigrationJobResponse.Success"));
 		startMigrationJobResponse.setErrMessage(_ctx.stringValue("StartMigrationJobResponse.ErrMessage"));
 	 
 	 	return startMigrationJobResponse;

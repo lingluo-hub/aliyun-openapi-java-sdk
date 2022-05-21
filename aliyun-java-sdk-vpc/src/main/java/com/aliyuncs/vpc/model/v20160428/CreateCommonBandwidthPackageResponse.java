@@ -24,19 +24,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateCommonBandwidthPackageResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String bandwidthPackageId;
 
+	private String requestId;
+
 	private String resourceGroupId;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getBandwidthPackageId() {
 		return this.bandwidthPackageId;
@@ -44,6 +36,14 @@ public class CreateCommonBandwidthPackageResponse extends AcsResponse {
 
 	public void setBandwidthPackageId(String bandwidthPackageId) {
 		this.bandwidthPackageId = bandwidthPackageId;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getResourceGroupId() {

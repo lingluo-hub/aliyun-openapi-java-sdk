@@ -47,69 +47,59 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 
 	public static class Data {
 
-		private String internetIp;
-
-		private String level;
-
-		private String instanceName;
-
-		private String alarmEventAliasName;
-
 		private String type;
 
-		private String uuid;
+		private String internetIp;
 
-		private String solution;
+		private String k8sClusterName;
 
-		private Long startTime;
-
-		private Long endTime;
+		private String containerImageId;
 
 		private String alarmEventDesc;
 
-		private String intranetIp;
-
-		private Boolean canBeDealOnLine;
-
 		private String alarmUniqueInfo;
-
-		private String dataSource;
 
 		private Boolean canCancelFault;
 
+		private String appName;
+
+		private Boolean canBeDealOnLine;
+
+		private String containerImageName;
+
+		private String k8sClusterId;
+
+		private Boolean containHwMode;
+
+		private String instanceName;
+
+		private String k8sNodeId;
+
+		private String solution;
+
+		private String dataSource;
+
+		private String intranetIp;
+
+		private String alarmEventAliasName;
+
+		private Long endTime;
+
+		private String uuid;
+
+		private Long startTime;
+
+		private String containerId;
+
+		private String k8sPodName;
+
+		private String k8sNamespace;
+
+		private String k8sNodeName;
+
+		private String level;
+
 		private List<CauseDetail> causeDetails;
-
-		public String getInternetIp() {
-			return this.internetIp;
-		}
-
-		public void setInternetIp(String internetIp) {
-			this.internetIp = internetIp;
-		}
-
-		public String getLevel() {
-			return this.level;
-		}
-
-		public void setLevel(String level) {
-			this.level = level;
-		}
-
-		public String getInstanceName() {
-			return this.instanceName;
-		}
-
-		public void setInstanceName(String instanceName) {
-			this.instanceName = instanceName;
-		}
-
-		public String getAlarmEventAliasName() {
-			return this.alarmEventAliasName;
-		}
-
-		public void setAlarmEventAliasName(String alarmEventAliasName) {
-			this.alarmEventAliasName = alarmEventAliasName;
-		}
 
 		public String getType() {
 			return this.type;
@@ -119,36 +109,28 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 			this.type = type;
 		}
 
-		public String getUuid() {
-			return this.uuid;
+		public String getInternetIp() {
+			return this.internetIp;
 		}
 
-		public void setUuid(String uuid) {
-			this.uuid = uuid;
+		public void setInternetIp(String internetIp) {
+			this.internetIp = internetIp;
 		}
 
-		public String getSolution() {
-			return this.solution;
+		public String getK8sClusterName() {
+			return this.k8sClusterName;
 		}
 
-		public void setSolution(String solution) {
-			this.solution = solution;
+		public void setK8sClusterName(String k8sClusterName) {
+			this.k8sClusterName = k8sClusterName;
 		}
 
-		public Long getStartTime() {
-			return this.startTime;
+		public String getContainerImageId() {
+			return this.containerImageId;
 		}
 
-		public void setStartTime(Long startTime) {
-			this.startTime = startTime;
-		}
-
-		public Long getEndTime() {
-			return this.endTime;
-		}
-
-		public void setEndTime(Long endTime) {
-			this.endTime = endTime;
+		public void setContainerImageId(String containerImageId) {
+			this.containerImageId = containerImageId;
 		}
 
 		public String getAlarmEventDesc() {
@@ -159,12 +141,28 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 			this.alarmEventDesc = alarmEventDesc;
 		}
 
-		public String getIntranetIp() {
-			return this.intranetIp;
+		public String getAlarmUniqueInfo() {
+			return this.alarmUniqueInfo;
 		}
 
-		public void setIntranetIp(String intranetIp) {
-			this.intranetIp = intranetIp;
+		public void setAlarmUniqueInfo(String alarmUniqueInfo) {
+			this.alarmUniqueInfo = alarmUniqueInfo;
+		}
+
+		public Boolean getCanCancelFault() {
+			return this.canCancelFault;
+		}
+
+		public void setCanCancelFault(Boolean canCancelFault) {
+			this.canCancelFault = canCancelFault;
+		}
+
+		public String getAppName() {
+			return this.appName;
+		}
+
+		public void setAppName(String appName) {
+			this.appName = appName;
 		}
 
 		public Boolean getCanBeDealOnLine() {
@@ -175,12 +173,52 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 			this.canBeDealOnLine = canBeDealOnLine;
 		}
 
-		public String getAlarmUniqueInfo() {
-			return this.alarmUniqueInfo;
+		public String getContainerImageName() {
+			return this.containerImageName;
 		}
 
-		public void setAlarmUniqueInfo(String alarmUniqueInfo) {
-			this.alarmUniqueInfo = alarmUniqueInfo;
+		public void setContainerImageName(String containerImageName) {
+			this.containerImageName = containerImageName;
+		}
+
+		public String getK8sClusterId() {
+			return this.k8sClusterId;
+		}
+
+		public void setK8sClusterId(String k8sClusterId) {
+			this.k8sClusterId = k8sClusterId;
+		}
+
+		public Boolean getContainHwMode() {
+			return this.containHwMode;
+		}
+
+		public void setContainHwMode(Boolean containHwMode) {
+			this.containHwMode = containHwMode;
+		}
+
+		public String getInstanceName() {
+			return this.instanceName;
+		}
+
+		public void setInstanceName(String instanceName) {
+			this.instanceName = instanceName;
+		}
+
+		public String getK8sNodeId() {
+			return this.k8sNodeId;
+		}
+
+		public void setK8sNodeId(String k8sNodeId) {
+			this.k8sNodeId = k8sNodeId;
+		}
+
+		public String getSolution() {
+			return this.solution;
+		}
+
+		public void setSolution(String solution) {
+			this.solution = solution;
 		}
 
 		public String getDataSource() {
@@ -191,12 +229,84 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 			this.dataSource = dataSource;
 		}
 
-		public Boolean getCanCancelFault() {
-			return this.canCancelFault;
+		public String getIntranetIp() {
+			return this.intranetIp;
 		}
 
-		public void setCanCancelFault(Boolean canCancelFault) {
-			this.canCancelFault = canCancelFault;
+		public void setIntranetIp(String intranetIp) {
+			this.intranetIp = intranetIp;
+		}
+
+		public String getAlarmEventAliasName() {
+			return this.alarmEventAliasName;
+		}
+
+		public void setAlarmEventAliasName(String alarmEventAliasName) {
+			this.alarmEventAliasName = alarmEventAliasName;
+		}
+
+		public Long getEndTime() {
+			return this.endTime;
+		}
+
+		public void setEndTime(Long endTime) {
+			this.endTime = endTime;
+		}
+
+		public String getUuid() {
+			return this.uuid;
+		}
+
+		public void setUuid(String uuid) {
+			this.uuid = uuid;
+		}
+
+		public Long getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(Long startTime) {
+			this.startTime = startTime;
+		}
+
+		public String getContainerId() {
+			return this.containerId;
+		}
+
+		public void setContainerId(String containerId) {
+			this.containerId = containerId;
+		}
+
+		public String getK8sPodName() {
+			return this.k8sPodName;
+		}
+
+		public void setK8sPodName(String k8sPodName) {
+			this.k8sPodName = k8sPodName;
+		}
+
+		public String getK8sNamespace() {
+			return this.k8sNamespace;
+		}
+
+		public void setK8sNamespace(String k8sNamespace) {
+			this.k8sNamespace = k8sNamespace;
+		}
+
+		public String getK8sNodeName() {
+			return this.k8sNodeName;
+		}
+
+		public void setK8sNodeName(String k8sNodeName) {
+			this.k8sNodeName = k8sNodeName;
+		}
+
+		public String getLevel() {
+			return this.level;
+		}
+
+		public void setLevel(String level) {
+			this.level = level;
 		}
 
 		public List<CauseDetail> getCauseDetails() {
@@ -231,19 +341,11 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 
 			public static class ValueItem {
 
-				private String name;
-
 				private String type;
 
 				private String value;
 
-				public String getName() {
-					return this.name;
-				}
-
-				public void setName(String name) {
-					this.name = name;
-				}
+				private String name;
 
 				public String getType() {
 					return this.type;
@@ -259,6 +361,14 @@ public class DescribeAlarmEventDetailResponse extends AcsResponse {
 
 				public void setValue(String value) {
 					this.value = value;
+				}
+
+				public String getName() {
+					return this.name;
+				}
+
+				public void setName(String name) {
+					this.name = name;
 				}
 			}
 		}

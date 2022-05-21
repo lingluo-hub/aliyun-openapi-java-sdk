@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeFlowLogsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<FlowLogSetType> flowLogs;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<FlowLogSetType> getFlowLogs() {
@@ -77,96 +77,50 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 
 	public static class FlowLogSetType {
 
-		private String flowLogId;
-
-		private String description;
-
-		private Integer activeAging;
-
-		private Integer inactiveAging;
-
-		private String outputType;
-
-		private String slsRegionId;
-
-		private String projectName;
-
-		private String logstoreName;
-
-		private String netflowServerIp;
-
-		private String netflowServerPort;
-
-		private String netflowVersion;
-
 		private String status;
-
-		private String name;
 
 		private Integer totalSagNum;
 
-		public String getFlowLogId() {
-			return this.flowLogId;
+		private String netflowServerIp;
+
+		private String projectName;
+
+		private String slsRegionId;
+
+		private Integer activeAging;
+
+		private String outputType;
+
+		private String description;
+
+		private String netflowVersion;
+
+		private Integer inactiveAging;
+
+		private String netflowServerPort;
+
+		private String name;
+
+		private String flowLogId;
+
+		private String logstoreName;
+
+		private String resourceGroupId;
+
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setFlowLogId(String flowLogId) {
-			this.flowLogId = flowLogId;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
-		public String getDescription() {
-			return this.description;
+		public Integer getTotalSagNum() {
+			return this.totalSagNum;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
-		}
-
-		public Integer getActiveAging() {
-			return this.activeAging;
-		}
-
-		public void setActiveAging(Integer activeAging) {
-			this.activeAging = activeAging;
-		}
-
-		public Integer getInactiveAging() {
-			return this.inactiveAging;
-		}
-
-		public void setInactiveAging(Integer inactiveAging) {
-			this.inactiveAging = inactiveAging;
-		}
-
-		public String getOutputType() {
-			return this.outputType;
-		}
-
-		public void setOutputType(String outputType) {
-			this.outputType = outputType;
-		}
-
-		public String getSlsRegionId() {
-			return this.slsRegionId;
-		}
-
-		public void setSlsRegionId(String slsRegionId) {
-			this.slsRegionId = slsRegionId;
-		}
-
-		public String getProjectName() {
-			return this.projectName;
-		}
-
-		public void setProjectName(String projectName) {
-			this.projectName = projectName;
-		}
-
-		public String getLogstoreName() {
-			return this.logstoreName;
-		}
-
-		public void setLogstoreName(String logstoreName) {
-			this.logstoreName = logstoreName;
+		public void setTotalSagNum(Integer totalSagNum) {
+			this.totalSagNum = totalSagNum;
 		}
 
 		public String getNetflowServerIp() {
@@ -177,12 +131,44 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 			this.netflowServerIp = netflowServerIp;
 		}
 
-		public String getNetflowServerPort() {
-			return this.netflowServerPort;
+		public String getProjectName() {
+			return this.projectName;
 		}
 
-		public void setNetflowServerPort(String netflowServerPort) {
-			this.netflowServerPort = netflowServerPort;
+		public void setProjectName(String projectName) {
+			this.projectName = projectName;
+		}
+
+		public String getSlsRegionId() {
+			return this.slsRegionId;
+		}
+
+		public void setSlsRegionId(String slsRegionId) {
+			this.slsRegionId = slsRegionId;
+		}
+
+		public Integer getActiveAging() {
+			return this.activeAging;
+		}
+
+		public void setActiveAging(Integer activeAging) {
+			this.activeAging = activeAging;
+		}
+
+		public String getOutputType() {
+			return this.outputType;
+		}
+
+		public void setOutputType(String outputType) {
+			this.outputType = outputType;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public String getNetflowVersion() {
@@ -193,12 +179,20 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 			this.netflowVersion = netflowVersion;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public Integer getInactiveAging() {
+			return this.inactiveAging;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setInactiveAging(Integer inactiveAging) {
+			this.inactiveAging = inactiveAging;
+		}
+
+		public String getNetflowServerPort() {
+			return this.netflowServerPort;
+		}
+
+		public void setNetflowServerPort(String netflowServerPort) {
+			this.netflowServerPort = netflowServerPort;
 		}
 
 		public String getName() {
@@ -209,12 +203,28 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 			this.name = name;
 		}
 
-		public Integer getTotalSagNum() {
-			return this.totalSagNum;
+		public String getFlowLogId() {
+			return this.flowLogId;
 		}
 
-		public void setTotalSagNum(Integer totalSagNum) {
-			this.totalSagNum = totalSagNum;
+		public void setFlowLogId(String flowLogId) {
+			this.flowLogId = flowLogId;
+		}
+
+		public String getLogstoreName() {
+			return this.logstoreName;
+		}
+
+		public void setLogstoreName(String logstoreName) {
+			this.logstoreName = logstoreName;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

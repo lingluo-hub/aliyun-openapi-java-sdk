@@ -49,11 +49,13 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 
 		private String transcodeApp;
 
-		private String transcodeName;
-
 		private String transcodeTemplate;
 
+		private String transcodeName;
+
 		private CustomTranscodeParameters customTranscodeParameters;
+
+		private EncryptParameters encryptParameters;
 
 		public String getTranscodeApp() {
 			return this.transcodeApp;
@@ -61,14 +63,6 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 
 		public void setTranscodeApp(String transcodeApp) {
 			this.transcodeApp = transcodeApp;
-		}
-
-		public String getTranscodeName() {
-			return this.transcodeName;
-		}
-
-		public void setTranscodeName(String transcodeName) {
-			this.transcodeName = transcodeName;
 		}
 
 		public String getTranscodeTemplate() {
@@ -79,6 +73,14 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 			this.transcodeTemplate = transcodeTemplate;
 		}
 
+		public String getTranscodeName() {
+			return this.transcodeName;
+		}
+
+		public void setTranscodeName(String transcodeName) {
+			this.transcodeName = transcodeName;
+		}
+
 		public CustomTranscodeParameters getCustomTranscodeParameters() {
 			return this.customTranscodeParameters;
 		}
@@ -87,71 +89,43 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 			this.customTranscodeParameters = customTranscodeParameters;
 		}
 
+		public EncryptParameters getEncryptParameters() {
+			return this.encryptParameters;
+		}
+
+		public void setEncryptParameters(EncryptParameters encryptParameters) {
+			this.encryptParameters = encryptParameters;
+		}
+
 		public static class CustomTranscodeParameters {
-
-			private Integer videoBitrate;
-
-			private Integer fPS;
-
-			private Integer height;
-
-			private Integer width;
-
-			private String templateType;
 
 			private String videoProfile;
 
-			private String gop;
-
 			private Integer audioBitrate;
 
-			private String audioProfile;
+			private String rtsFlag;
 
-			private String audioCodec;
+			private Integer height;
+
+			private String templateType;
+
+			private String bframes;
 
 			private Integer audioRate;
 
+			private Integer fPS;
+
+			private String audioCodec;
+
+			private String gop;
+
+			private Integer videoBitrate;
+
+			private Integer width;
+
 			private Integer audioChannelNum;
 
-			public Integer getVideoBitrate() {
-				return this.videoBitrate;
-			}
-
-			public void setVideoBitrate(Integer videoBitrate) {
-				this.videoBitrate = videoBitrate;
-			}
-
-			public Integer getFPS() {
-				return this.fPS;
-			}
-
-			public void setFPS(Integer fPS) {
-				this.fPS = fPS;
-			}
-
-			public Integer getHeight() {
-				return this.height;
-			}
-
-			public void setHeight(Integer height) {
-				this.height = height;
-			}
-
-			public Integer getWidth() {
-				return this.width;
-			}
-
-			public void setWidth(Integer width) {
-				this.width = width;
-			}
-
-			public String getTemplateType() {
-				return this.templateType;
-			}
-
-			public void setTemplateType(String templateType) {
-				this.templateType = templateType;
-			}
+			private String audioProfile;
 
 			public String getVideoProfile() {
 				return this.videoProfile;
@@ -159,14 +133,6 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 
 			public void setVideoProfile(String videoProfile) {
 				this.videoProfile = videoProfile;
-			}
-
-			public String getGop() {
-				return this.gop;
-			}
-
-			public void setGop(String gop) {
-				this.gop = gop;
 			}
 
 			public Integer getAudioBitrate() {
@@ -177,20 +143,36 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 				this.audioBitrate = audioBitrate;
 			}
 
-			public String getAudioProfile() {
-				return this.audioProfile;
+			public String getRtsFlag() {
+				return this.rtsFlag;
 			}
 
-			public void setAudioProfile(String audioProfile) {
-				this.audioProfile = audioProfile;
+			public void setRtsFlag(String rtsFlag) {
+				this.rtsFlag = rtsFlag;
 			}
 
-			public String getAudioCodec() {
-				return this.audioCodec;
+			public Integer getHeight() {
+				return this.height;
 			}
 
-			public void setAudioCodec(String audioCodec) {
-				this.audioCodec = audioCodec;
+			public void setHeight(Integer height) {
+				this.height = height;
+			}
+
+			public String getTemplateType() {
+				return this.templateType;
+			}
+
+			public void setTemplateType(String templateType) {
+				this.templateType = templateType;
+			}
+
+			public String getBframes() {
+				return this.bframes;
+			}
+
+			public void setBframes(String bframes) {
+				this.bframes = bframes;
 			}
 
 			public Integer getAudioRate() {
@@ -201,12 +183,93 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 				this.audioRate = audioRate;
 			}
 
+			public Integer getFPS() {
+				return this.fPS;
+			}
+
+			public void setFPS(Integer fPS) {
+				this.fPS = fPS;
+			}
+
+			public String getAudioCodec() {
+				return this.audioCodec;
+			}
+
+			public void setAudioCodec(String audioCodec) {
+				this.audioCodec = audioCodec;
+			}
+
+			public String getGop() {
+				return this.gop;
+			}
+
+			public void setGop(String gop) {
+				this.gop = gop;
+			}
+
+			public Integer getVideoBitrate() {
+				return this.videoBitrate;
+			}
+
+			public void setVideoBitrate(Integer videoBitrate) {
+				this.videoBitrate = videoBitrate;
+			}
+
+			public Integer getWidth() {
+				return this.width;
+			}
+
+			public void setWidth(Integer width) {
+				this.width = width;
+			}
+
 			public Integer getAudioChannelNum() {
 				return this.audioChannelNum;
 			}
 
 			public void setAudioChannelNum(Integer audioChannelNum) {
 				this.audioChannelNum = audioChannelNum;
+			}
+
+			public String getAudioProfile() {
+				return this.audioProfile;
+			}
+
+			public void setAudioProfile(String audioProfile) {
+				this.audioProfile = audioProfile;
+			}
+		}
+
+		public static class EncryptParameters {
+
+			private String encryptType;
+
+			private String kmsKeyID;
+
+			private String kmsKeyExpireInterval;
+
+			public String getEncryptType() {
+				return this.encryptType;
+			}
+
+			public void setEncryptType(String encryptType) {
+				this.encryptType = encryptType;
+			}
+
+			public String getKmsKeyID() {
+				return this.kmsKeyID;
+			}
+
+			public void setKmsKeyID(String kmsKeyID) {
+				this.kmsKeyID = kmsKeyID;
+			}
+
+			public String getKmsKeyExpireInterval() {
+				return this.kmsKeyExpireInterval;
+			}
+
+			public void setKmsKeyExpireInterval(String kmsKeyExpireInterval) {
+				this.kmsKeyExpireInterval = kmsKeyExpireInterval;
 			}
 		}
 	}

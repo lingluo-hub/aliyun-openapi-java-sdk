@@ -27,11 +27,11 @@ public class ListColumnsResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private List<Column> columnList;
 
@@ -43,12 +43,12 @@ public class ListColumnsResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -59,12 +59,12 @@ public class ListColumnsResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<Column> getColumnList() {
@@ -77,47 +77,31 @@ public class ListColumnsResponse extends AcsResponse {
 
 	public static class Column {
 
-		private String columnId;
-
-		private String columnName;
-
 		private String columnType;
-
-		private Boolean nullable;
-
-		private String defaultValue;
 
 		private Boolean autoIncrement;
 
-		private String description;
+		private String columnId;
+
+		private String defaultValue;
+
+		private Boolean sensitive;
+
+		private String columnName;
 
 		private String securityLevel;
 
-		private String functionType;
-
-		private Long dataLength;
-
-		private Boolean sensitive;
+		private String description;
 
 		private Integer dataPrecision;
 
 		private Integer dataScale;
 
-		public String getColumnId() {
-			return this.columnId;
-		}
+		private String functionType;
 
-		public void setColumnId(String columnId) {
-			this.columnId = columnId;
-		}
+		private Boolean nullable;
 
-		public String getColumnName() {
-			return this.columnName;
-		}
-
-		public void setColumnName(String columnName) {
-			this.columnName = columnName;
-		}
+		private Long dataLength;
 
 		public String getColumnType() {
 			return this.columnType;
@@ -125,22 +109,6 @@ public class ListColumnsResponse extends AcsResponse {
 
 		public void setColumnType(String columnType) {
 			this.columnType = columnType;
-		}
-
-		public Boolean getNullable() {
-			return this.nullable;
-		}
-
-		public void setNullable(Boolean nullable) {
-			this.nullable = nullable;
-		}
-
-		public String getDefaultValue() {
-			return this.defaultValue;
-		}
-
-		public void setDefaultValue(String defaultValue) {
-			this.defaultValue = defaultValue;
 		}
 
 		public Boolean getAutoIncrement() {
@@ -151,12 +119,36 @@ public class ListColumnsResponse extends AcsResponse {
 			this.autoIncrement = autoIncrement;
 		}
 
-		public String getDescription() {
-			return this.description;
+		public String getColumnId() {
+			return this.columnId;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
+		public void setColumnId(String columnId) {
+			this.columnId = columnId;
+		}
+
+		public String getDefaultValue() {
+			return this.defaultValue;
+		}
+
+		public void setDefaultValue(String defaultValue) {
+			this.defaultValue = defaultValue;
+		}
+
+		public Boolean getSensitive() {
+			return this.sensitive;
+		}
+
+		public void setSensitive(Boolean sensitive) {
+			this.sensitive = sensitive;
+		}
+
+		public String getColumnName() {
+			return this.columnName;
+		}
+
+		public void setColumnName(String columnName) {
+			this.columnName = columnName;
 		}
 
 		public String getSecurityLevel() {
@@ -167,28 +159,12 @@ public class ListColumnsResponse extends AcsResponse {
 			this.securityLevel = securityLevel;
 		}
 
-		public String getFunctionType() {
-			return this.functionType;
+		public String getDescription() {
+			return this.description;
 		}
 
-		public void setFunctionType(String functionType) {
-			this.functionType = functionType;
-		}
-
-		public Long getDataLength() {
-			return this.dataLength;
-		}
-
-		public void setDataLength(Long dataLength) {
-			this.dataLength = dataLength;
-		}
-
-		public Boolean getSensitive() {
-			return this.sensitive;
-		}
-
-		public void setSensitive(Boolean sensitive) {
-			this.sensitive = sensitive;
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public Integer getDataPrecision() {
@@ -205,6 +181,30 @@ public class ListColumnsResponse extends AcsResponse {
 
 		public void setDataScale(Integer dataScale) {
 			this.dataScale = dataScale;
+		}
+
+		public String getFunctionType() {
+			return this.functionType;
+		}
+
+		public void setFunctionType(String functionType) {
+			this.functionType = functionType;
+		}
+
+		public Boolean getNullable() {
+			return this.nullable;
+		}
+
+		public void setNullable(Boolean nullable) {
+			this.nullable = nullable;
+		}
+
+		public Long getDataLength() {
+			return this.dataLength;
+		}
+
+		public void setDataLength(Long dataLength) {
+			this.dataLength = dataLength;
 		}
 	}
 

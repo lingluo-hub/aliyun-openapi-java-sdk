@@ -26,9 +26,11 @@ import com.aliyuncs.linkwan.Endpoint;
 public class UpdateGatewayEnablingStateRequest extends RpcAcsRequest<UpdateGatewayEnablingStateResponse> {
 	   
 
-	private String gwEui;
-
 	private Boolean enabled;
+
+	private String iotInstanceId;
+
+	private String gwEui;
 	public UpdateGatewayEnablingStateRequest() {
 		super("LinkWAN", "2019-03-01", "UpdateGatewayEnablingState", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -39,17 +41,6 @@ public class UpdateGatewayEnablingStateRequest extends RpcAcsRequest<UpdateGatew
 		} catch (Exception e) {}
 	}
 
-	public String getGwEui() {
-		return this.gwEui;
-	}
-
-	public void setGwEui(String gwEui) {
-		this.gwEui = gwEui;
-		if(gwEui != null){
-			putQueryParameter("GwEui", gwEui);
-		}
-	}
-
 	public Boolean getEnabled() {
 		return this.enabled;
 	}
@@ -58,6 +49,28 @@ public class UpdateGatewayEnablingStateRequest extends RpcAcsRequest<UpdateGatew
 		this.enabled = enabled;
 		if(enabled != null){
 			putQueryParameter("Enabled", enabled.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getGwEui() {
+		return this.gwEui;
+	}
+
+	public void setGwEui(String gwEui) {
+		this.gwEui = gwEui;
+		if(gwEui != null){
+			putQueryParameter("GwEui", gwEui);
 		}
 	}
 

@@ -25,13 +25,21 @@ import com.aliyuncs.edas.Endpoint;
 public class UpdateK8sSlbRequest extends RoaAcsRequest<UpdateK8sSlbResponse> {
 	   
 
+	private String scheduler;
+
 	private String servicePortInfos;
 
 	private String slbProtocol;
 
+	private String slbName;
+
 	private String port;
 
 	private String appId;
+
+	private Boolean disableForceOverride;
+
+	private String specification;
 
 	private String clusterId;
 
@@ -46,6 +54,17 @@ public class UpdateK8sSlbRequest extends RoaAcsRequest<UpdateK8sSlbResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getScheduler() {
+		return this.scheduler;
+	}
+
+	public void setScheduler(String scheduler) {
+		this.scheduler = scheduler;
+		if(scheduler != null){
+			putQueryParameter("Scheduler", scheduler);
+		}
 	}
 
 	public String getServicePortInfos() {
@@ -70,6 +89,17 @@ public class UpdateK8sSlbRequest extends RoaAcsRequest<UpdateK8sSlbResponse> {
 		}
 	}
 
+	public String getSlbName() {
+		return this.slbName;
+	}
+
+	public void setSlbName(String slbName) {
+		this.slbName = slbName;
+		if(slbName != null){
+			putQueryParameter("SlbName", slbName);
+		}
+	}
+
 	public String getPort() {
 		return this.port;
 	}
@@ -89,6 +119,28 @@ public class UpdateK8sSlbRequest extends RoaAcsRequest<UpdateK8sSlbResponse> {
 		this.appId = appId;
 		if(appId != null){
 			putQueryParameter("AppId", appId);
+		}
+	}
+
+	public Boolean getDisableForceOverride() {
+		return this.disableForceOverride;
+	}
+
+	public void setDisableForceOverride(Boolean disableForceOverride) {
+		this.disableForceOverride = disableForceOverride;
+		if(disableForceOverride != null){
+			putQueryParameter("DisableForceOverride", disableForceOverride.toString());
+		}
+	}
+
+	public String getSpecification() {
+		return this.specification;
+	}
+
+	public void setSpecification(String specification) {
+		this.specification = specification;
+		if(specification != null){
+			putQueryParameter("Specification", specification);
 		}
 	}
 

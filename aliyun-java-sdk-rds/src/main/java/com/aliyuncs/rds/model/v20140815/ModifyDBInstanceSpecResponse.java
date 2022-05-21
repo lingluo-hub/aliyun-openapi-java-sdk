@@ -24,7 +24,19 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifyDBInstanceSpecResponse extends AcsResponse {
 
+	private String dBInstanceId;
+
 	private String requestId;
+
+	private Long orderId;
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -32,6 +44,14 @@ public class ModifyDBInstanceSpecResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Long getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
 	}
 
 	@Override

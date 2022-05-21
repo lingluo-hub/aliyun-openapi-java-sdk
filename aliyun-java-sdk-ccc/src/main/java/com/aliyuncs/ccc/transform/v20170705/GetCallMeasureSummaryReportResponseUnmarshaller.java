@@ -29,37 +29,37 @@ public class GetCallMeasureSummaryReportResponseUnmarshaller {
 	public static GetCallMeasureSummaryReportResponse unmarshall(GetCallMeasureSummaryReportResponse getCallMeasureSummaryReportResponse, UnmarshallerContext _ctx) {
 		
 		getCallMeasureSummaryReportResponse.setRequestId(_ctx.stringValue("GetCallMeasureSummaryReportResponse.RequestId"));
-		getCallMeasureSummaryReportResponse.setSuccess(_ctx.booleanValue("GetCallMeasureSummaryReportResponse.Success"));
+		getCallMeasureSummaryReportResponse.setHttpStatusCode(_ctx.integerValue("GetCallMeasureSummaryReportResponse.HttpStatusCode"));
 		getCallMeasureSummaryReportResponse.setCode(_ctx.stringValue("GetCallMeasureSummaryReportResponse.Code"));
 		getCallMeasureSummaryReportResponse.setMessage(_ctx.stringValue("GetCallMeasureSummaryReportResponse.Message"));
-		getCallMeasureSummaryReportResponse.setHttpStatusCode(_ctx.integerValue("GetCallMeasureSummaryReportResponse.HttpStatusCode"));
+		getCallMeasureSummaryReportResponse.setSuccess(_ctx.booleanValue("GetCallMeasureSummaryReportResponse.Success"));
 
 		SummaryReport summaryReport = new SummaryReport();
-		summaryReport.setYear(_ctx.integerValue("GetCallMeasureSummaryReportResponse.SummaryReport.Year"));
-		summaryReport.setMonth(_ctx.integerValue("GetCallMeasureSummaryReportResponse.SummaryReport.Month"));
 		summaryReport.setDay(_ctx.integerValue("GetCallMeasureSummaryReportResponse.SummaryReport.Day"));
-		summaryReport.setInboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.InboundCount"));
+		summaryReport.setYear(_ctx.integerValue("GetCallMeasureSummaryReportResponse.SummaryReport.Year"));
+		summaryReport.setInboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.InboundDurationByMinute"));
 		summaryReport.setOutboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.OutboundCount"));
 		summaryReport.setOutboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.OutboundDurationByMinute"));
-		summaryReport.setInboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.InboundDurationByMinute"));
+		summaryReport.setInboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.SummaryReport.InboundCount"));
+		summaryReport.setMonth(_ctx.integerValue("GetCallMeasureSummaryReportResponse.SummaryReport.Month"));
 		getCallMeasureSummaryReportResponse.setSummaryReport(summaryReport);
 
 		NumberReports numberReports = new NumberReports();
-		numberReports.setTotalCount(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.TotalCount"));
 		numberReports.setPageNumber(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.PageNumber"));
 		numberReports.setPageSize(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.PageSize"));
+		numberReports.setTotalCount(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.TotalCount"));
 
 		List<NumberReport> list = new ArrayList<NumberReport>();
 		for (int i = 0; i < _ctx.lengthValue("GetCallMeasureSummaryReportResponse.NumberReports.List.Length"); i++) {
 			NumberReport numberReport = new NumberReport();
-			numberReport.setNumber(_ctx.stringValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Number"));
-			numberReport.setYear(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Year"));
-			numberReport.setMonth(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Month"));
 			numberReport.setDay(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Day"));
-			numberReport.setInboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].InboundCount"));
+			numberReport.setYear(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Year"));
+			numberReport.setInboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].InboundDurationByMinute"));
 			numberReport.setOutboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].OutboundCount"));
 			numberReport.setOutboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].OutboundDurationByMinute"));
-			numberReport.setInboundDurationByMinute(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].InboundDurationByMinute"));
+			numberReport.setNumber(_ctx.stringValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Number"));
+			numberReport.setInboundCount(_ctx.longValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].InboundCount"));
+			numberReport.setMonth(_ctx.integerValue("GetCallMeasureSummaryReportResponse.NumberReports.List["+ i +"].Month"));
 
 			list.add(numberReport);
 		}

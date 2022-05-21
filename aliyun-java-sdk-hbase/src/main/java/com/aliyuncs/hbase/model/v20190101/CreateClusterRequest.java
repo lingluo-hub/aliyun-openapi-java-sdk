@@ -31,6 +31,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String engineVersion;
 
+	private String resourceGroupId;
+
 	private String engine;
 
 	private Integer autoRenewPeriod;
@@ -38,6 +40,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 	private Integer period;
 
 	private Integer diskSize;
+
+	private String encryptionKey;
 
 	private String masterInstanceType;
 
@@ -61,7 +65,7 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String payType;
 	public CreateClusterRequest() {
-		super("HBase", "2019-01-01", "CreateCluster");
+		super("HBase", "2019-01-01", "CreateCluster", "hbase");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -99,6 +103,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		this.engineVersion = engineVersion;
 		if(engineVersion != null){
 			putQueryParameter("EngineVersion", engineVersion);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -143,6 +158,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		this.diskSize = diskSize;
 		if(diskSize != null){
 			putQueryParameter("DiskSize", diskSize.toString());
+		}
+	}
+
+	public String getEncryptionKey() {
+		return this.encryptionKey;
+	}
+
+	public void setEncryptionKey(String encryptionKey) {
+		this.encryptionKey = encryptionKey;
+		if(encryptionKey != null){
+			putQueryParameter("EncryptionKey", encryptionKey);
 		}
 	}
 

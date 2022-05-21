@@ -29,16 +29,12 @@ public class ListNodesNoPagingResponseUnmarshaller {
 	public static ListNodesNoPagingResponse unmarshall(ListNodesNoPagingResponse listNodesNoPagingResponse, UnmarshallerContext _ctx) {
 		
 		listNodesNoPagingResponse.setRequestId(_ctx.stringValue("ListNodesNoPagingResponse.RequestId"));
-		listNodesNoPagingResponse.setTotalCount(_ctx.integerValue("ListNodesNoPagingResponse.TotalCount"));
-		listNodesNoPagingResponse.setPageNumber(_ctx.integerValue("ListNodesNoPagingResponse.PageNumber"));
-		listNodesNoPagingResponse.setPageSize(_ctx.integerValue("ListNodesNoPagingResponse.PageSize"));
 
 		List<NodeInfo> nodes = new ArrayList<NodeInfo>();
 		for (int i = 0; i < _ctx.lengthValue("ListNodesNoPagingResponse.Nodes.Length"); i++) {
 			NodeInfo nodeInfo = new NodeInfo();
 			nodeInfo.setId(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].Id"));
 			nodeInfo.setHostName(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].HostName"));
-			nodeInfo.setRegionId(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].RegionId"));
 			nodeInfo.setStatus(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].Status"));
 			nodeInfo.setVersion(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].Version"));
 			nodeInfo.setCreatedByEhpc(_ctx.booleanValue("ListNodesNoPagingResponse.Nodes["+ i +"].CreatedByEhpc"));
@@ -50,6 +46,7 @@ public class ListNodesNoPagingResponseUnmarshaller {
 			nodeInfo.setImageOwnerAlias(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].ImageOwnerAlias"));
 			nodeInfo.setImageId(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].ImageId"));
 			nodeInfo.setHtEnabled(_ctx.booleanValue("ListNodesNoPagingResponse.Nodes["+ i +"].HtEnabled"));
+			nodeInfo.setInstanceType(_ctx.stringValue("ListNodesNoPagingResponse.Nodes["+ i +"].InstanceType"));
 
 			List<String> roles = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("ListNodesNoPagingResponse.Nodes["+ i +"].Roles.Length"); j++) {

@@ -26,19 +26,27 @@ import com.aliyuncs.outboundbot.Endpoint;
 public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse> {
 	   
 
-	private String jobGroupDescription;
+	private String recallStrategyJson;
 
 	private String jobGroupName;
 
 	private String scriptId;
 
+	private String strategyJson;
+
+	private Long ringingDuration;
+
+	private String scenarioId;
+
+	private String priority;
+
+	private String jobGroupDescription;
+
 	private List<String> callingNumbers;
 
 	private String instanceId;
 
-	private String strategyJson;
-
-	private String scenarioId;
+	private Long minConcurrency;
 	public CreateJobGroupRequest() {
 		super("OutboundBot", "2019-12-26", "CreateJobGroup", "outboundbot");
 		setMethod(MethodType.POST);
@@ -48,14 +56,14 @@ public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse>
 		} catch (Exception e) {}
 	}
 
-	public String getJobGroupDescription() {
-		return this.jobGroupDescription;
+	public String getRecallStrategyJson() {
+		return this.recallStrategyJson;
 	}
 
-	public void setJobGroupDescription(String jobGroupDescription) {
-		this.jobGroupDescription = jobGroupDescription;
-		if(jobGroupDescription != null){
-			putQueryParameter("JobGroupDescription", jobGroupDescription);
+	public void setRecallStrategyJson(String recallStrategyJson) {
+		this.recallStrategyJson = recallStrategyJson;
+		if(recallStrategyJson != null){
+			putQueryParameter("RecallStrategyJson", recallStrategyJson);
 		}
 	}
 
@@ -78,6 +86,61 @@ public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse>
 		this.scriptId = scriptId;
 		if(scriptId != null){
 			putQueryParameter("ScriptId", scriptId);
+		}
+	}
+
+	public String getStrategyJson() {
+		return this.strategyJson;
+	}
+
+	public void setStrategyJson(String strategyJson) {
+		this.strategyJson = strategyJson;
+		if(strategyJson != null){
+			putQueryParameter("StrategyJson", strategyJson);
+		}
+	}
+
+	public Long getRingingDuration() {
+		return this.ringingDuration;
+	}
+
+	public void setRingingDuration(Long ringingDuration) {
+		this.ringingDuration = ringingDuration;
+		if(ringingDuration != null){
+			putQueryParameter("RingingDuration", ringingDuration.toString());
+		}
+	}
+
+	public String getScenarioId() {
+		return this.scenarioId;
+	}
+
+	public void setScenarioId(String scenarioId) {
+		this.scenarioId = scenarioId;
+		if(scenarioId != null){
+			putQueryParameter("ScenarioId", scenarioId);
+		}
+	}
+
+	public String getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+		if(priority != null){
+			putQueryParameter("Priority", priority);
+		}
+	}
+
+	public String getJobGroupDescription() {
+		return this.jobGroupDescription;
+	}
+
+	public void setJobGroupDescription(String jobGroupDescription) {
+		this.jobGroupDescription = jobGroupDescription;
+		if(jobGroupDescription != null){
+			putQueryParameter("JobGroupDescription", jobGroupDescription);
 		}
 	}
 
@@ -105,25 +168,14 @@ public class CreateJobGroupRequest extends RpcAcsRequest<CreateJobGroupResponse>
 		}
 	}
 
-	public String getStrategyJson() {
-		return this.strategyJson;
+	public Long getMinConcurrency() {
+		return this.minConcurrency;
 	}
 
-	public void setStrategyJson(String strategyJson) {
-		this.strategyJson = strategyJson;
-		if(strategyJson != null){
-			putQueryParameter("StrategyJson", strategyJson);
-		}
-	}
-
-	public String getScenarioId() {
-		return this.scenarioId;
-	}
-
-	public void setScenarioId(String scenarioId) {
-		this.scenarioId = scenarioId;
-		if(scenarioId != null){
-			putQueryParameter("ScenarioId", scenarioId);
+	public void setMinConcurrency(Long minConcurrency) {
+		this.minConcurrency = minConcurrency;
+		if(minConcurrency != null){
+			putQueryParameter("MinConcurrency", minConcurrency.toString());
 		}
 	}
 

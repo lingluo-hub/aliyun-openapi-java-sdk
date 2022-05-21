@@ -29,6 +29,8 @@ public class CreateCoverTaskRequest extends RpcAcsRequest<CreateCoverTaskRespons
 
 	private String videoUrl;
 
+	private String scales;
+
 	private String videoName;
 
 	private String callbackUrl;
@@ -62,6 +64,17 @@ public class CreateCoverTaskRequest extends RpcAcsRequest<CreateCoverTaskRespons
 		this.videoUrl = videoUrl;
 		if(videoUrl != null){
 			putQueryParameter("VideoUrl", videoUrl);
+		}
+	}
+
+	public String getScales() {
+		return this.scales;
+	}
+
+	public void setScales(String scales) {
+		this.scales = scales;
+		if(scales != null){
+			putBodyParameter("Scales", scales);
 		}
 	}
 

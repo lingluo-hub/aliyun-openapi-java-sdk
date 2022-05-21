@@ -25,13 +25,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeAppsResponse extends AcsResponse {
 
+	private Integer totalPage;
+
 	private String requestId;
 
 	private Integer totalNum;
 
-	private Integer totalPage;
-
 	private List<App> appList;
+
+	public Integer getTotalPage() {
+		return this.totalPage;
+	}
+
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -49,14 +57,6 @@ public class DescribeAppsResponse extends AcsResponse {
 		this.totalNum = totalNum;
 	}
 
-	public Integer getTotalPage() {
-		return this.totalPage;
-	}
-
-	public void setTotalPage(Integer totalPage) {
-		this.totalPage = totalPage;
-	}
-
 	public List<App> getAppList() {
 		return this.appList;
 	}
@@ -69,15 +69,17 @@ public class DescribeAppsResponse extends AcsResponse {
 
 		private Integer status;
 
-		private String appId;
-
 		private String appName;
+
+		private String appId;
 
 		private String createTime;
 
+		private String billType;
+
 		private String appType;
 
-		private String billType;
+		private String region;
 
 		private List<String> serviceAreas;
 
@@ -89,20 +91,20 @@ public class DescribeAppsResponse extends AcsResponse {
 			this.status = status;
 		}
 
-		public String getAppId() {
-			return this.appId;
-		}
-
-		public void setAppId(String appId) {
-			this.appId = appId;
-		}
-
 		public String getAppName() {
 			return this.appName;
 		}
 
 		public void setAppName(String appName) {
 			this.appName = appName;
+		}
+
+		public String getAppId() {
+			return this.appId;
+		}
+
+		public void setAppId(String appId) {
+			this.appId = appId;
 		}
 
 		public String getCreateTime() {
@@ -113,6 +115,14 @@ public class DescribeAppsResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
+		public String getBillType() {
+			return this.billType;
+		}
+
+		public void setBillType(String billType) {
+			this.billType = billType;
+		}
+
 		public String getAppType() {
 			return this.appType;
 		}
@@ -121,12 +131,12 @@ public class DescribeAppsResponse extends AcsResponse {
 			this.appType = appType;
 		}
 
-		public String getBillType() {
-			return this.billType;
+		public String getRegion() {
+			return this.region;
 		}
 
-		public void setBillType(String billType) {
-			this.billType = billType;
+		public void setRegion(String region) {
+			this.region = region;
 		}
 
 		public List<String> getServiceAreas() {

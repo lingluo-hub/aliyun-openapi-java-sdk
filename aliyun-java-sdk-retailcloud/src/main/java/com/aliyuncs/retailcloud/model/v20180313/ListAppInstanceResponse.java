@@ -33,9 +33,9 @@ public class ListAppInstanceResponse extends AcsResponse {
 
 	private Integer pageNumber;
 
-	private Long totalCount;
-
 	private String errMsg;
+
+	private Long totalCount;
 
 	private List<AppInstanceDetail> data;
 
@@ -71,20 +71,20 @@ public class ListAppInstanceResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
-	}
-
 	public String getErrMsg() {
 		return this.errMsg;
 	}
 
 	public void setErrMsg(String errMsg) {
 		this.errMsg = errMsg;
+	}
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<AppInstanceDetail> getData() {
@@ -97,50 +97,42 @@ public class ListAppInstanceResponse extends AcsResponse {
 
 	public static class AppInstanceDetail {
 
-		private String appInstanceId;
+		private String status;
 
-		private String createTime;
-
-		private String spec;
-
-		private Integer restartCount;
+		private String limits;
 
 		private String hostIp;
 
-		private String podIp;
+		private String appInstanceId;
 
 		private String health;
 
-		public String getAppInstanceId() {
-			return this.appInstanceId;
+		private String spec;
+
+		private String version;
+
+		private String createTime;
+
+		private String podIp;
+
+		private String requests;
+
+		private Integer restartCount;
+
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setAppInstanceId(String appInstanceId) {
-			this.appInstanceId = appInstanceId;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
-		public String getCreateTime() {
-			return this.createTime;
+		public String getLimits() {
+			return this.limits;
 		}
 
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
-
-		public String getSpec() {
-			return this.spec;
-		}
-
-		public void setSpec(String spec) {
-			this.spec = spec;
-		}
-
-		public Integer getRestartCount() {
-			return this.restartCount;
-		}
-
-		public void setRestartCount(Integer restartCount) {
-			this.restartCount = restartCount;
+		public void setLimits(String limits) {
+			this.limits = limits;
 		}
 
 		public String getHostIp() {
@@ -151,12 +143,12 @@ public class ListAppInstanceResponse extends AcsResponse {
 			this.hostIp = hostIp;
 		}
 
-		public String getPodIp() {
-			return this.podIp;
+		public String getAppInstanceId() {
+			return this.appInstanceId;
 		}
 
-		public void setPodIp(String podIp) {
-			this.podIp = podIp;
+		public void setAppInstanceId(String appInstanceId) {
+			this.appInstanceId = appInstanceId;
 		}
 
 		public String getHealth() {
@@ -165,6 +157,54 @@ public class ListAppInstanceResponse extends AcsResponse {
 
 		public void setHealth(String health) {
 			this.health = health;
+		}
+
+		public String getSpec() {
+			return this.spec;
+		}
+
+		public void setSpec(String spec) {
+			this.spec = spec;
+		}
+
+		public String getVersion() {
+			return this.version;
+		}
+
+		public void setVersion(String version) {
+			this.version = version;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getPodIp() {
+			return this.podIp;
+		}
+
+		public void setPodIp(String podIp) {
+			this.podIp = podIp;
+		}
+
+		public String getRequests() {
+			return this.requests;
+		}
+
+		public void setRequests(String requests) {
+			this.requests = requests;
+		}
+
+		public Integer getRestartCount() {
+			return this.restartCount;
+		}
+
+		public void setRestartCount(Integer restartCount) {
+			this.restartCount = restartCount;
 		}
 	}
 

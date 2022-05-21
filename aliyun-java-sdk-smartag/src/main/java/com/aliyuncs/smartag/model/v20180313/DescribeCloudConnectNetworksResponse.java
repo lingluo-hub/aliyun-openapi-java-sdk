@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<CloudConnectNetwork> cloudConnectNetworks;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<CloudConnectNetwork> getCloudConnectNetworks() {
@@ -77,86 +77,40 @@ public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 
 	public static class CloudConnectNetwork {
 
-		private String ccnId;
-
-		private String name;
-
-		private String associatedCloudBoxCount;
-
-		private String availableCloudBoxCount;
-
-		private String associatedCenId;
-
-		private String associatedCenOwnerId;
-
-		private String description;
+		private Boolean isDefault;
 
 		private Long createTime;
 
-		private Boolean isDefault;
+		private String associatedCenOwnerId;
 
-		private String cidrBlock;
-
-		private String snatCidrBlock;
+		private String associatedCloudBoxCount;
 
 		private String interworkingStatus;
 
+		private String ccnId;
+
+		private String availableCloudBoxCount;
+
+		private String cidrBlock;
+
+		private String description;
+
+		private String snatCidrBlock;
+
+		private String associatedCenId;
+
+		private String name;
+
+		private String resourceGroupId;
+
 		private List<Tag> tags;
 
-		public String getCcnId() {
-			return this.ccnId;
+		public Boolean getIsDefault() {
+			return this.isDefault;
 		}
 
-		public void setCcnId(String ccnId) {
-			this.ccnId = ccnId;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getAssociatedCloudBoxCount() {
-			return this.associatedCloudBoxCount;
-		}
-
-		public void setAssociatedCloudBoxCount(String associatedCloudBoxCount) {
-			this.associatedCloudBoxCount = associatedCloudBoxCount;
-		}
-
-		public String getAvailableCloudBoxCount() {
-			return this.availableCloudBoxCount;
-		}
-
-		public void setAvailableCloudBoxCount(String availableCloudBoxCount) {
-			this.availableCloudBoxCount = availableCloudBoxCount;
-		}
-
-		public String getAssociatedCenId() {
-			return this.associatedCenId;
-		}
-
-		public void setAssociatedCenId(String associatedCenId) {
-			this.associatedCenId = associatedCenId;
-		}
-
-		public String getAssociatedCenOwnerId() {
-			return this.associatedCenOwnerId;
-		}
-
-		public void setAssociatedCenOwnerId(String associatedCenOwnerId) {
-			this.associatedCenOwnerId = associatedCenOwnerId;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
+		public void setIsDefault(Boolean isDefault) {
+			this.isDefault = isDefault;
 		}
 
 		public Long getCreateTime() {
@@ -167,12 +121,44 @@ public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
-		public Boolean getIsDefault() {
-			return this.isDefault;
+		public String getAssociatedCenOwnerId() {
+			return this.associatedCenOwnerId;
 		}
 
-		public void setIsDefault(Boolean isDefault) {
-			this.isDefault = isDefault;
+		public void setAssociatedCenOwnerId(String associatedCenOwnerId) {
+			this.associatedCenOwnerId = associatedCenOwnerId;
+		}
+
+		public String getAssociatedCloudBoxCount() {
+			return this.associatedCloudBoxCount;
+		}
+
+		public void setAssociatedCloudBoxCount(String associatedCloudBoxCount) {
+			this.associatedCloudBoxCount = associatedCloudBoxCount;
+		}
+
+		public String getInterworkingStatus() {
+			return this.interworkingStatus;
+		}
+
+		public void setInterworkingStatus(String interworkingStatus) {
+			this.interworkingStatus = interworkingStatus;
+		}
+
+		public String getCcnId() {
+			return this.ccnId;
+		}
+
+		public void setCcnId(String ccnId) {
+			this.ccnId = ccnId;
+		}
+
+		public String getAvailableCloudBoxCount() {
+			return this.availableCloudBoxCount;
+		}
+
+		public void setAvailableCloudBoxCount(String availableCloudBoxCount) {
+			this.availableCloudBoxCount = availableCloudBoxCount;
 		}
 
 		public String getCidrBlock() {
@@ -183,6 +169,14 @@ public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 			this.cidrBlock = cidrBlock;
 		}
 
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
 		public String getSnatCidrBlock() {
 			return this.snatCidrBlock;
 		}
@@ -191,12 +185,28 @@ public class DescribeCloudConnectNetworksResponse extends AcsResponse {
 			this.snatCidrBlock = snatCidrBlock;
 		}
 
-		public String getInterworkingStatus() {
-			return this.interworkingStatus;
+		public String getAssociatedCenId() {
+			return this.associatedCenId;
 		}
 
-		public void setInterworkingStatus(String interworkingStatus) {
-			this.interworkingStatus = interworkingStatus;
+		public void setAssociatedCenId(String associatedCenId) {
+			this.associatedCenId = associatedCenId;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public List<Tag> getTags() {

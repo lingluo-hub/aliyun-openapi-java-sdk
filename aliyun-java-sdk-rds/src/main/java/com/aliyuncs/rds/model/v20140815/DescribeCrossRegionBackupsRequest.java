@@ -37,6 +37,8 @@ public class DescribeCrossRegionBackupsRequest extends RpcAcsRequest<DescribeCro
 
 	private String resourceOwnerAccount;
 
+	private Integer backupId;
+
 	private String endTime;
 
 	private Long ownerId;
@@ -116,6 +118,17 @@ public class DescribeCrossRegionBackupsRequest extends RpcAcsRequest<DescribeCro
 		this.resourceOwnerAccount = resourceOwnerAccount;
 		if(resourceOwnerAccount != null){
 			putQueryParameter("ResourceOwnerAccount", resourceOwnerAccount);
+		}
+	}
+
+	public Integer getBackupId() {
+		return this.backupId;
+	}
+
+	public void setBackupId(Integer backupId) {
+		this.backupId = backupId;
+		if(backupId != null){
+			putQueryParameter("BackupId", backupId.toString());
 		}
 	}
 

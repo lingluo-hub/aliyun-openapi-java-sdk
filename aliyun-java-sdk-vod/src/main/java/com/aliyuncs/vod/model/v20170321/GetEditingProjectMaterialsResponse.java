@@ -47,61 +47,39 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 
 	public static class Material {
 
-		private String materialId;
-
-		private String title;
-
-		private String tags;
-
 		private String status;
-
-		private Long size;
-
-		private Float duration;
-
-		private String description;
 
 		private String creationTime;
 
-		private String modifiedTime;
-
-		private String coverURL;
-
 		private Integer cateId;
 
-		private String cateName;
+		private String materialType;
 
-		private String source;
+		private String tags;
 
 		private String spriteConfig;
 
-		private List<String> snapshots;
+		private String source;
+
+		private String cateName;
+
+		private String modifiedTime;
+
+		private String description;
+
+		private String materialId;
+
+		private Long size;
+
+		private String coverURL;
+
+		private Float duration;
+
+		private String title;
 
 		private List<String> sprites;
 
-		public String getMaterialId() {
-			return this.materialId;
-		}
-
-		public void setMaterialId(String materialId) {
-			this.materialId = materialId;
-		}
-
-		public String getTitle() {
-			return this.title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public String getTags() {
-			return this.tags;
-		}
-
-		public void setTags(String tags) {
-			this.tags = tags;
-		}
+		private List<String> snapshots;
 
 		public String getStatus() {
 			return this.status;
@@ -109,30 +87,6 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
-		}
-
-		public Long getSize() {
-			return this.size;
-		}
-
-		public void setSize(Long size) {
-			this.size = size;
-		}
-
-		public Float getDuration() {
-			return this.duration;
-		}
-
-		public void setDuration(Float duration) {
-			this.duration = duration;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
 		}
 
 		public String getCreationTime() {
@@ -143,22 +97,6 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 			this.creationTime = creationTime;
 		}
 
-		public String getModifiedTime() {
-			return this.modifiedTime;
-		}
-
-		public void setModifiedTime(String modifiedTime) {
-			this.modifiedTime = modifiedTime;
-		}
-
-		public String getCoverURL() {
-			return this.coverURL;
-		}
-
-		public void setCoverURL(String coverURL) {
-			this.coverURL = coverURL;
-		}
-
 		public Integer getCateId() {
 			return this.cateId;
 		}
@@ -167,20 +105,20 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 			this.cateId = cateId;
 		}
 
-		public String getCateName() {
-			return this.cateName;
+		public String getMaterialType() {
+			return this.materialType;
 		}
 
-		public void setCateName(String cateName) {
-			this.cateName = cateName;
+		public void setMaterialType(String materialType) {
+			this.materialType = materialType;
 		}
 
-		public String getSource() {
-			return this.source;
+		public String getTags() {
+			return this.tags;
 		}
 
-		public void setSource(String source) {
-			this.source = source;
+		public void setTags(String tags) {
+			this.tags = tags;
 		}
 
 		public String getSpriteConfig() {
@@ -191,12 +129,76 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 			this.spriteConfig = spriteConfig;
 		}
 
-		public List<String> getSnapshots() {
-			return this.snapshots;
+		public String getSource() {
+			return this.source;
 		}
 
-		public void setSnapshots(List<String> snapshots) {
-			this.snapshots = snapshots;
+		public void setSource(String source) {
+			this.source = source;
+		}
+
+		public String getCateName() {
+			return this.cateName;
+		}
+
+		public void setCateName(String cateName) {
+			this.cateName = cateName;
+		}
+
+		public String getModifiedTime() {
+			return this.modifiedTime;
+		}
+
+		public void setModifiedTime(String modifiedTime) {
+			this.modifiedTime = modifiedTime;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getMaterialId() {
+			return this.materialId;
+		}
+
+		public void setMaterialId(String materialId) {
+			this.materialId = materialId;
+		}
+
+		public Long getSize() {
+			return this.size;
+		}
+
+		public void setSize(Long size) {
+			this.size = size;
+		}
+
+		public String getCoverURL() {
+			return this.coverURL;
+		}
+
+		public void setCoverURL(String coverURL) {
+			this.coverURL = coverURL;
+		}
+
+		public Float getDuration() {
+			return this.duration;
+		}
+
+		public void setDuration(Float duration) {
+			this.duration = duration;
+		}
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public void setTitle(String title) {
+			this.title = title;
 		}
 
 		public List<String> getSprites() {
@@ -205,6 +207,14 @@ public class GetEditingProjectMaterialsResponse extends AcsResponse {
 
 		public void setSprites(List<String> sprites) {
 			this.sprites = sprites;
+		}
+
+		public List<String> getSnapshots() {
+			return this.snapshots;
+		}
+
+		public void setSnapshots(List<String> snapshots) {
+			this.snapshots = snapshots;
 		}
 	}
 

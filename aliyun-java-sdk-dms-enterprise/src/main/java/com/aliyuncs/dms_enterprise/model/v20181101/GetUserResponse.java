@@ -27,11 +27,11 @@ public class GetUserResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private User user;
 
@@ -43,12 +43,12 @@ public class GetUserResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -59,12 +59,12 @@ public class GetUserResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public User getUser() {
@@ -77,21 +77,57 @@ public class GetUserResponse extends AcsResponse {
 
 	public static class User {
 
+		private String state;
+
+		private Long curResultCount;
+
 		private String userId;
 
-		private Long uid;
+		private String lastLoginTime;
 
-		private String nickName;
-
-		private String mobile;
+		private Long maxResultCount;
 
 		private Long parentUid;
 
-		private String state;
+		private String nickName;
+
+		private Long maxExecuteCount;
+
+		private Long curExecuteCount;
+
+		private String mobile;
+
+		private String uid;
+
+		private String email;
+
+		private String dingRobot;
+
+		private String webhook;
+
+		private String signatureMethod;
+
+		private String notificationMode;
 
 		private List<Integer> roleIdList;
 
 		private List<String> roleNameList;
+
+		public String getState() {
+			return this.state;
+		}
+
+		public void setState(String state) {
+			this.state = state;
+		}
+
+		public Long getCurResultCount() {
+			return this.curResultCount;
+		}
+
+		public void setCurResultCount(Long curResultCount) {
+			this.curResultCount = curResultCount;
+		}
 
 		public String getUserId() {
 			return this.userId;
@@ -101,28 +137,20 @@ public class GetUserResponse extends AcsResponse {
 			this.userId = userId;
 		}
 
-		public Long getUid() {
-			return this.uid;
+		public String getLastLoginTime() {
+			return this.lastLoginTime;
 		}
 
-		public void setUid(Long uid) {
-			this.uid = uid;
+		public void setLastLoginTime(String lastLoginTime) {
+			this.lastLoginTime = lastLoginTime;
 		}
 
-		public String getNickName() {
-			return this.nickName;
+		public Long getMaxResultCount() {
+			return this.maxResultCount;
 		}
 
-		public void setNickName(String nickName) {
-			this.nickName = nickName;
-		}
-
-		public String getMobile() {
-			return this.mobile;
-		}
-
-		public void setMobile(String mobile) {
-			this.mobile = mobile;
+		public void setMaxResultCount(Long maxResultCount) {
+			this.maxResultCount = maxResultCount;
 		}
 
 		public Long getParentUid() {
@@ -133,12 +161,84 @@ public class GetUserResponse extends AcsResponse {
 			this.parentUid = parentUid;
 		}
 
-		public String getState() {
-			return this.state;
+		public String getNickName() {
+			return this.nickName;
 		}
 
-		public void setState(String state) {
-			this.state = state;
+		public void setNickName(String nickName) {
+			this.nickName = nickName;
+		}
+
+		public Long getMaxExecuteCount() {
+			return this.maxExecuteCount;
+		}
+
+		public void setMaxExecuteCount(Long maxExecuteCount) {
+			this.maxExecuteCount = maxExecuteCount;
+		}
+
+		public Long getCurExecuteCount() {
+			return this.curExecuteCount;
+		}
+
+		public void setCurExecuteCount(Long curExecuteCount) {
+			this.curExecuteCount = curExecuteCount;
+		}
+
+		public String getMobile() {
+			return this.mobile;
+		}
+
+		public void setMobile(String mobile) {
+			this.mobile = mobile;
+		}
+
+		public String getUid() {
+			return this.uid;
+		}
+
+		public void setUid(String uid) {
+			this.uid = uid;
+		}
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		public String getDingRobot() {
+			return this.dingRobot;
+		}
+
+		public void setDingRobot(String dingRobot) {
+			this.dingRobot = dingRobot;
+		}
+
+		public String getWebhook() {
+			return this.webhook;
+		}
+
+		public void setWebhook(String webhook) {
+			this.webhook = webhook;
+		}
+
+		public String getSignatureMethod() {
+			return this.signatureMethod;
+		}
+
+		public void setSignatureMethod(String signatureMethod) {
+			this.signatureMethod = signatureMethod;
+		}
+
+		public String getNotificationMode() {
+			return this.notificationMode;
+		}
+
+		public void setNotificationMode(String notificationMode) {
+			this.notificationMode = notificationMode;
 		}
 
 		public List<Integer> getRoleIdList() {

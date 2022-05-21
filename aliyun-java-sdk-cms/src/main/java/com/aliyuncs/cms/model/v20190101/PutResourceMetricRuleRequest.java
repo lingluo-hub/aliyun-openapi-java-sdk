@@ -15,6 +15,9 @@
 package com.aliyuncs.cms.model.v20190101;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.aliyuncs.http.MethodType;
 
 /**
@@ -30,17 +33,13 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 
 	private String ruleName;
 
-	private String escalationsInfoStatistics;
-
 	private String effectiveInterval;
 
-	private String escalationsInfoComparisonOperator;
+	private String noDataPolicy;
 
 	private String noEffectiveInterval;
 
 	private String emailSubject;
-
-	private Integer silenceTime;
 
 	private String metricName;
 
@@ -54,6 +53,23 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 
 	private String escalationsCriticalStatistics;
 
+	private List<Labels> labelss;
+
+	private String interval;
+
+	private String ruleId;
+
+	private String escalationsCriticalThreshold;
+
+	private String escalationsInfoStatistics;
+
+	private String escalationsInfoComparisonOperator;
+
+	private Integer silenceTime;
+
+	@SerializedName("compositeExpression")
+	private CompositeExpression compositeExpression;
+
 	private String resources;
 
 	private Integer escalationsInfoTimes;
@@ -66,13 +82,7 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 
 	private String namespace;
 
-	private String interval;
-
-	private String ruleId;
-
 	private String escalationsCriticalComparisonOperator;
-
-	private String escalationsCriticalThreshold;
 	public PutResourceMetricRuleRequest() {
 		super("Cms", "2019-01-01", "PutResourceMetricRule", "cms");
 		setMethod(MethodType.POST);
@@ -111,17 +121,6 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		}
 	}
 
-	public String getEscalationsInfoStatistics() {
-		return this.escalationsInfoStatistics;
-	}
-
-	public void setEscalationsInfoStatistics(String escalationsInfoStatistics) {
-		this.escalationsInfoStatistics = escalationsInfoStatistics;
-		if(escalationsInfoStatistics != null){
-			putQueryParameter("Escalations.Info.Statistics", escalationsInfoStatistics);
-		}
-	}
-
 	public String getEffectiveInterval() {
 		return this.effectiveInterval;
 	}
@@ -133,14 +132,14 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		}
 	}
 
-	public String getEscalationsInfoComparisonOperator() {
-		return this.escalationsInfoComparisonOperator;
+	public String getNoDataPolicy() {
+		return this.noDataPolicy;
 	}
 
-	public void setEscalationsInfoComparisonOperator(String escalationsInfoComparisonOperator) {
-		this.escalationsInfoComparisonOperator = escalationsInfoComparisonOperator;
-		if(escalationsInfoComparisonOperator != null){
-			putQueryParameter("Escalations.Info.ComparisonOperator", escalationsInfoComparisonOperator);
+	public void setNoDataPolicy(String noDataPolicy) {
+		this.noDataPolicy = noDataPolicy;
+		if(noDataPolicy != null){
+			putQueryParameter("NoDataPolicy", noDataPolicy);
 		}
 	}
 
@@ -163,17 +162,6 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		this.emailSubject = emailSubject;
 		if(emailSubject != null){
 			putQueryParameter("EmailSubject", emailSubject);
-		}
-	}
-
-	public Integer getSilenceTime() {
-		return this.silenceTime;
-	}
-
-	public void setSilenceTime(Integer silenceTime) {
-		this.silenceTime = silenceTime;
-		if(silenceTime != null){
-			putQueryParameter("SilenceTime", silenceTime.toString());
 		}
 	}
 
@@ -243,6 +231,97 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		}
 	}
 
+	public List<Labels> getLabelss() {
+		return this.labelss;
+	}
+
+	public void setLabelss(List<Labels> labelss) {
+		this.labelss = labelss;	
+		if (labelss != null) {
+			for (int depth1 = 0; depth1 < labelss.size(); depth1++) {
+				putQueryParameter("Labels." + (depth1 + 1) + ".Value" , labelss.get(depth1).getValue());
+				putQueryParameter("Labels." + (depth1 + 1) + ".Key" , labelss.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(String interval) {
+		this.interval = interval;
+		if(interval != null){
+			putQueryParameter("Interval", interval);
+		}
+	}
+
+	public String getRuleId() {
+		return this.ruleId;
+	}
+
+	public void setRuleId(String ruleId) {
+		this.ruleId = ruleId;
+		if(ruleId != null){
+			putQueryParameter("RuleId", ruleId);
+		}
+	}
+
+	public String getEscalationsCriticalThreshold() {
+		return this.escalationsCriticalThreshold;
+	}
+
+	public void setEscalationsCriticalThreshold(String escalationsCriticalThreshold) {
+		this.escalationsCriticalThreshold = escalationsCriticalThreshold;
+		if(escalationsCriticalThreshold != null){
+			putQueryParameter("Escalations.Critical.Threshold", escalationsCriticalThreshold);
+		}
+	}
+
+	public String getEscalationsInfoStatistics() {
+		return this.escalationsInfoStatistics;
+	}
+
+	public void setEscalationsInfoStatistics(String escalationsInfoStatistics) {
+		this.escalationsInfoStatistics = escalationsInfoStatistics;
+		if(escalationsInfoStatistics != null){
+			putQueryParameter("Escalations.Info.Statistics", escalationsInfoStatistics);
+		}
+	}
+
+	public String getEscalationsInfoComparisonOperator() {
+		return this.escalationsInfoComparisonOperator;
+	}
+
+	public void setEscalationsInfoComparisonOperator(String escalationsInfoComparisonOperator) {
+		this.escalationsInfoComparisonOperator = escalationsInfoComparisonOperator;
+		if(escalationsInfoComparisonOperator != null){
+			putQueryParameter("Escalations.Info.ComparisonOperator", escalationsInfoComparisonOperator);
+		}
+	}
+
+	public Integer getSilenceTime() {
+		return this.silenceTime;
+	}
+
+	public void setSilenceTime(Integer silenceTime) {
+		this.silenceTime = silenceTime;
+		if(silenceTime != null){
+			putQueryParameter("SilenceTime", silenceTime.toString());
+		}
+	}
+
+	public CompositeExpression getCompositeExpression() {
+		return this.compositeExpression;
+	}
+
+	public void setCompositeExpression(CompositeExpression compositeExpression) {
+		this.compositeExpression = compositeExpression;	
+		if (compositeExpression != null) {
+			putQueryParameter("CompositeExpression" , new Gson().toJson(compositeExpression));
+		}	
+	}
+
 	public String getResources() {
 		return this.resources;
 	}
@@ -309,28 +388,6 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		}
 	}
 
-	public String getInterval() {
-		return this.interval;
-	}
-
-	public void setInterval(String interval) {
-		this.interval = interval;
-		if(interval != null){
-			putQueryParameter("Interval", interval);
-		}
-	}
-
-	public String getRuleId() {
-		return this.ruleId;
-	}
-
-	public void setRuleId(String ruleId) {
-		this.ruleId = ruleId;
-		if(ruleId != null){
-			putQueryParameter("RuleId", ruleId);
-		}
-	}
-
 	public String getEscalationsCriticalComparisonOperator() {
 		return this.escalationsCriticalComparisonOperator;
 	}
@@ -342,14 +399,153 @@ public class PutResourceMetricRuleRequest extends RpcAcsRequest<PutResourceMetri
 		}
 	}
 
-	public String getEscalationsCriticalThreshold() {
-		return this.escalationsCriticalThreshold;
+	public static class Labels {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
 	}
 
-	public void setEscalationsCriticalThreshold(String escalationsCriticalThreshold) {
-		this.escalationsCriticalThreshold = escalationsCriticalThreshold;
-		if(escalationsCriticalThreshold != null){
-			putQueryParameter("Escalations.Critical.Threshold", escalationsCriticalThreshold);
+	public static class CompositeExpression {
+
+		@SerializedName("Times")
+		private Integer times;
+
+		@SerializedName("ExpressionList")
+		private List<ExpressionListItem> expressionList;
+
+		@SerializedName("Level")
+		private String level;
+
+		@SerializedName("ExpressionRaw")
+		private String expressionRaw;
+
+		@SerializedName("ExpressionListJoin")
+		private String expressionListJoin;
+
+		public Integer getTimes() {
+			return this.times;
+		}
+
+		public void setTimes(Integer times) {
+			this.times = times;
+		}
+
+		public List<ExpressionListItem> getExpressionList() {
+			return this.expressionList;
+		}
+
+		public void setExpressionList(List<ExpressionListItem> expressionList) {
+			this.expressionList = expressionList;
+		}
+
+		public String getLevel() {
+			return this.level;
+		}
+
+		public void setLevel(String level) {
+			this.level = level;
+		}
+
+		public String getExpressionRaw() {
+			return this.expressionRaw;
+		}
+
+		public void setExpressionRaw(String expressionRaw) {
+			this.expressionRaw = expressionRaw;
+		}
+
+		public String getExpressionListJoin() {
+			return this.expressionListJoin;
+		}
+
+		public void setExpressionListJoin(String expressionListJoin) {
+			this.expressionListJoin = expressionListJoin;
+		}
+
+		public static class ExpressionListItem {
+
+			@SerializedName("Period")
+			private Long period;
+
+			@SerializedName("Threshold")
+			private String threshold;
+
+			@SerializedName("Id")
+			private String id;
+
+			@SerializedName("MetricName")
+			private String metricName;
+
+			@SerializedName("ComparisonOperator")
+			private String comparisonOperator;
+
+			@SerializedName("Statistics")
+			private String statistics;
+
+			public Long getPeriod() {
+				return this.period;
+			}
+
+			public void setPeriod(Long period) {
+				this.period = period;
+			}
+
+			public String getThreshold() {
+				return this.threshold;
+			}
+
+			public void setThreshold(String threshold) {
+				this.threshold = threshold;
+			}
+
+			public String getId() {
+				return this.id;
+			}
+
+			public void setId(String id) {
+				this.id = id;
+			}
+
+			public String getMetricName() {
+				return this.metricName;
+			}
+
+			public void setMetricName(String metricName) {
+				this.metricName = metricName;
+			}
+
+			public String getComparisonOperator() {
+				return this.comparisonOperator;
+			}
+
+			public void setComparisonOperator(String comparisonOperator) {
+				this.comparisonOperator = comparisonOperator;
+			}
+
+			public String getStatistics() {
+				return this.statistics;
+			}
+
+			public void setStatistics(String statistics) {
+				this.statistics = statistics;
+			}
 		}
 	}
 

@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -26,14 +27,24 @@ public class TriggerRecordRequest extends RpcAcsRequest<TriggerRecordResponse> {
 
 	private String iotId;
 
-	private Integer streamType;
-
 	private Integer preRecordDuration;
 
+	private String iotInstanceId;
+
 	private Integer recordDuration;
+
+	private Integer streamType;
+
+	private String productKey;
+
+	private String deviceName;
 	public TriggerRecordRequest() {
-		super("Linkvisual", "2018-01-20", "TriggerRecord", "linkvisual");
+		super("Linkvisual", "2018-01-20", "TriggerRecord", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getIotId() {
@@ -44,17 +55,6 @@ public class TriggerRecordRequest extends RpcAcsRequest<TriggerRecordResponse> {
 		this.iotId = iotId;
 		if(iotId != null){
 			putQueryParameter("IotId", iotId);
-		}
-	}
-
-	public Integer getStreamType() {
-		return this.streamType;
-	}
-
-	public void setStreamType(Integer streamType) {
-		this.streamType = streamType;
-		if(streamType != null){
-			putQueryParameter("StreamType", streamType.toString());
 		}
 	}
 
@@ -69,6 +69,17 @@ public class TriggerRecordRequest extends RpcAcsRequest<TriggerRecordResponse> {
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
 	public Integer getRecordDuration() {
 		return this.recordDuration;
 	}
@@ -77,6 +88,39 @@ public class TriggerRecordRequest extends RpcAcsRequest<TriggerRecordResponse> {
 		this.recordDuration = recordDuration;
 		if(recordDuration != null){
 			putQueryParameter("RecordDuration", recordDuration.toString());
+		}
+	}
+
+	public Integer getStreamType() {
+		return this.streamType;
+	}
+
+	public void setStreamType(Integer streamType) {
+		this.streamType = streamType;
+		if(streamType != null){
+			putQueryParameter("StreamType", streamType.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

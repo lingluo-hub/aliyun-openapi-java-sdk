@@ -27,9 +27,13 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 
 	private Long resourceOwnerId;
 
+	private String roleId;
+
 	private String startTime;
 
 	private Integer pageNumber;
+
+	private String resourceGroupId;
 
 	private String securityToken;
 
@@ -50,6 +54,8 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 	private Long ownerId;
 
 	private String dBName;
+
+	private String orderType;
 	public DescribeRunningLogRecordsRequest() {
 		super("Dds", "2015-12-01", "DescribeRunningLogRecords", "dds");
 		setMethod(MethodType.POST);
@@ -67,6 +73,17 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getRoleId() {
+		return this.roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+		if(roleId != null){
+			putQueryParameter("RoleId", roleId);
 		}
 	}
 
@@ -89,6 +106,17 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -199,6 +227,17 @@ public class DescribeRunningLogRecordsRequest extends RpcAcsRequest<DescribeRunn
 		this.dBName = dBName;
 		if(dBName != null){
 			putQueryParameter("DBName", dBName);
+		}
+	}
+
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 

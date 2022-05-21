@@ -23,10 +23,10 @@ public class LaunchAppraiseResponseUnmarshaller {
 	public static LaunchAppraiseResponse unmarshall(LaunchAppraiseResponse launchAppraiseResponse, UnmarshallerContext _ctx) {
 		
 		launchAppraiseResponse.setRequestId(_ctx.stringValue("LaunchAppraiseResponse.RequestId"));
-		launchAppraiseResponse.setSuccess(_ctx.booleanValue("LaunchAppraiseResponse.Success"));
+		launchAppraiseResponse.setHttpStatusCode(_ctx.integerValue("LaunchAppraiseResponse.HttpStatusCode"));
 		launchAppraiseResponse.setCode(_ctx.stringValue("LaunchAppraiseResponse.Code"));
 		launchAppraiseResponse.setMessage(_ctx.stringValue("LaunchAppraiseResponse.Message"));
-		launchAppraiseResponse.setHttpStatusCode(_ctx.integerValue("LaunchAppraiseResponse.HttpStatusCode"));
+		launchAppraiseResponse.setSuccess(_ctx.booleanValue("LaunchAppraiseResponse.Success"));
 	 
 	 	return launchAppraiseResponse;
 	}

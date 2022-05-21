@@ -29,13 +29,13 @@ public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoR
 
 	private String deviceListStr;
 
-	private String gwDeviceName;
-
 	private String iotInstanceId;
 
 	private String gwIotId;
+
+	private String gwDeviceName;
 	public NotifyAddThingTopoRequest() {
-		super("Iot", "2018-01-20", "NotifyAddThingTopo", "Iot");
+		super("Iot", "2018-01-20", "NotifyAddThingTopo");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -65,17 +65,6 @@ public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoR
 		}
 	}
 
-	public String getGwDeviceName() {
-		return this.gwDeviceName;
-	}
-
-	public void setGwDeviceName(String gwDeviceName) {
-		this.gwDeviceName = gwDeviceName;
-		if(gwDeviceName != null){
-			putQueryParameter("GwDeviceName", gwDeviceName);
-		}
-	}
-
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -95,6 +84,17 @@ public class NotifyAddThingTopoRequest extends RpcAcsRequest<NotifyAddThingTopoR
 		this.gwIotId = gwIotId;
 		if(gwIotId != null){
 			putQueryParameter("GwIotId", gwIotId);
+		}
+	}
+
+	public String getGwDeviceName() {
+		return this.gwDeviceName;
+	}
+
+	public void setGwDeviceName(String gwDeviceName) {
+		this.gwDeviceName = gwDeviceName;
+		if(gwDeviceName != null){
+			putQueryParameter("GwDeviceName", gwDeviceName);
 		}
 	}
 

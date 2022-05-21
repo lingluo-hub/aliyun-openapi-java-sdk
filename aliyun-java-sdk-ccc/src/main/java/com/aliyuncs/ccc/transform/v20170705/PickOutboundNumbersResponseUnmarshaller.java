@@ -29,10 +29,10 @@ public class PickOutboundNumbersResponseUnmarshaller {
 	public static PickOutboundNumbersResponse unmarshall(PickOutboundNumbersResponse pickOutboundNumbersResponse, UnmarshallerContext _ctx) {
 		
 		pickOutboundNumbersResponse.setRequestId(_ctx.stringValue("PickOutboundNumbersResponse.RequestId"));
-		pickOutboundNumbersResponse.setSuccess(_ctx.booleanValue("PickOutboundNumbersResponse.Success"));
+		pickOutboundNumbersResponse.setHttpStatusCode(_ctx.integerValue("PickOutboundNumbersResponse.HttpStatusCode"));
 		pickOutboundNumbersResponse.setCode(_ctx.stringValue("PickOutboundNumbersResponse.Code"));
 		pickOutboundNumbersResponse.setMessage(_ctx.stringValue("PickOutboundNumbersResponse.Message"));
-		pickOutboundNumbersResponse.setHttpStatusCode(_ctx.integerValue("PickOutboundNumbersResponse.HttpStatusCode"));
+		pickOutboundNumbersResponse.setSuccess(_ctx.booleanValue("PickOutboundNumbersResponse.Success"));
 
 		List<DialNumberPair> dialNumberPairs = new ArrayList<DialNumberPair>();
 		for (int i = 0; i < _ctx.lengthValue("PickOutboundNumbersResponse.DialNumberPairs.Length"); i++) {
@@ -40,14 +40,14 @@ public class PickOutboundNumbersResponseUnmarshaller {
 
 			Callee callee = new Callee();
 			callee.setNumber(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Callee.Number"));
-			callee.setProvince(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Callee.Province"));
 			callee.setCity(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Callee.City"));
+			callee.setProvince(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Callee.Province"));
 			dialNumberPair.setCallee(callee);
 
 			Caller caller = new Caller();
 			caller.setNumber(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Caller.Number"));
-			caller.setProvince(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Caller.Province"));
 			caller.setCity(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Caller.City"));
+			caller.setProvince(_ctx.stringValue("PickOutboundNumbersResponse.DialNumberPairs["+ i +"].Caller.Province"));
 			dialNumberPair.setCaller(caller);
 
 			dialNumberPairs.add(dialNumberPair);

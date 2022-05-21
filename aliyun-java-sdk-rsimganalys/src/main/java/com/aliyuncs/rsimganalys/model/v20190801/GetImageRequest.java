@@ -16,6 +16,7 @@ package com.aliyuncs.rsimganalys.model.v20190801;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rsimganalys.Endpoint;
 
 /**
  * @author auto create
@@ -26,8 +27,12 @@ public class GetImageRequest extends RpcAcsRequest<GetImageResponse> {
 
 	private Long imageId;
 	public GetImageRequest() {
-		super("rsimganalys", "2019-08-01", "GetImage");
+		super("rsimganalys", "2019-08-01", "GetImage", "rsimganalys");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getImageId() {

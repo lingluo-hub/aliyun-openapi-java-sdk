@@ -24,7 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateConfigResponse extends AcsResponse {
 
+	private Long id;
+
 	private String requestId;
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getRequestId() {
 		return this.requestId;

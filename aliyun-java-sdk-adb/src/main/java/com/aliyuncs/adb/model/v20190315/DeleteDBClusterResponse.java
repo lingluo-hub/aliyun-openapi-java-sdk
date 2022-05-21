@@ -26,12 +26,32 @@ public class DeleteDBClusterResponse extends AcsResponse {
 
 	private String requestId;
 
+	private Integer taskId;
+
+	private String dBClusterId;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Integer getTaskId() {
+		return this.taskId;
+	}
+
+	public void setTaskId(Integer taskId) {
+		this.taskId = taskId;
+	}
+
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
 	}
 
 	@Override

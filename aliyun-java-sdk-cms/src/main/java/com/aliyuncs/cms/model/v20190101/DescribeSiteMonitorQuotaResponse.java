@@ -28,9 +28,9 @@ public class DescribeSiteMonitorQuotaResponse extends AcsResponse {
 
 	private String message;
 
-	private String success;
-
 	private String requestId;
+
+	private String success;
 
 	private Data data;
 
@@ -50,20 +50,20 @@ public class DescribeSiteMonitorQuotaResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -76,23 +76,17 @@ public class DescribeSiteMonitorQuotaResponse extends AcsResponse {
 
 	public static class Data {
 
-		private Integer siteMonitorIdcQuota;
-
 		private Integer siteMonitorOperatorQuotaQuota;
 
-		private Integer siteMonitorTaskQuota;
+		private Boolean secondMonitor;
 
 		private Integer siteMonitorQuotaTaskUsed;
 
+		private Integer siteMonitorTaskQuota;
+
 		private String siteMonitorVersion;
 
-		public Integer getSiteMonitorIdcQuota() {
-			return this.siteMonitorIdcQuota;
-		}
-
-		public void setSiteMonitorIdcQuota(Integer siteMonitorIdcQuota) {
-			this.siteMonitorIdcQuota = siteMonitorIdcQuota;
-		}
+		private Integer siteMonitorIdcQuota;
 
 		public Integer getSiteMonitorOperatorQuotaQuota() {
 			return this.siteMonitorOperatorQuotaQuota;
@@ -102,12 +96,12 @@ public class DescribeSiteMonitorQuotaResponse extends AcsResponse {
 			this.siteMonitorOperatorQuotaQuota = siteMonitorOperatorQuotaQuota;
 		}
 
-		public Integer getSiteMonitorTaskQuota() {
-			return this.siteMonitorTaskQuota;
+		public Boolean getSecondMonitor() {
+			return this.secondMonitor;
 		}
 
-		public void setSiteMonitorTaskQuota(Integer siteMonitorTaskQuota) {
-			this.siteMonitorTaskQuota = siteMonitorTaskQuota;
+		public void setSecondMonitor(Boolean secondMonitor) {
+			this.secondMonitor = secondMonitor;
 		}
 
 		public Integer getSiteMonitorQuotaTaskUsed() {
@@ -118,12 +112,28 @@ public class DescribeSiteMonitorQuotaResponse extends AcsResponse {
 			this.siteMonitorQuotaTaskUsed = siteMonitorQuotaTaskUsed;
 		}
 
+		public Integer getSiteMonitorTaskQuota() {
+			return this.siteMonitorTaskQuota;
+		}
+
+		public void setSiteMonitorTaskQuota(Integer siteMonitorTaskQuota) {
+			this.siteMonitorTaskQuota = siteMonitorTaskQuota;
+		}
+
 		public String getSiteMonitorVersion() {
 			return this.siteMonitorVersion;
 		}
 
 		public void setSiteMonitorVersion(String siteMonitorVersion) {
 			this.siteMonitorVersion = siteMonitorVersion;
+		}
+
+		public Integer getSiteMonitorIdcQuota() {
+			return this.siteMonitorIdcQuota;
+		}
+
+		public void setSiteMonitorIdcQuota(Integer siteMonitorIdcQuota) {
+			this.siteMonitorIdcQuota = siteMonitorIdcQuota;
 		}
 	}
 

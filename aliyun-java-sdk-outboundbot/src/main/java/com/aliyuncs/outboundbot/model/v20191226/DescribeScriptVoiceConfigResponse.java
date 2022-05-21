@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private ScriptVoiceConfig scriptVoiceConfig;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public ScriptVoiceConfig getScriptVoiceConfig() {
@@ -86,19 +86,27 @@ public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 
 	public static class ScriptVoiceConfig {
 
+		private String type;
+
 		private String scriptVoiceConfigId;
+
+		private String scriptContent;
 
 		private String instanceId;
 
 		private String scriptId;
 
-		private String scriptContent;
+		private String scriptWaveformRelation;
 
 		private String source;
 
-		private String type;
+		public String getType() {
+			return this.type;
+		}
 
-		private String scriptWaveformRelation;
+		public void setType(String type) {
+			this.type = type;
+		}
 
 		public String getScriptVoiceConfigId() {
 			return this.scriptVoiceConfigId;
@@ -106,6 +114,14 @@ public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 
 		public void setScriptVoiceConfigId(String scriptVoiceConfigId) {
 			this.scriptVoiceConfigId = scriptVoiceConfigId;
+		}
+
+		public String getScriptContent() {
+			return this.scriptContent;
+		}
+
+		public void setScriptContent(String scriptContent) {
+			this.scriptContent = scriptContent;
 		}
 
 		public String getInstanceId() {
@@ -124,12 +140,12 @@ public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 			this.scriptId = scriptId;
 		}
 
-		public String getScriptContent() {
-			return this.scriptContent;
+		public String getScriptWaveformRelation() {
+			return this.scriptWaveformRelation;
 		}
 
-		public void setScriptContent(String scriptContent) {
-			this.scriptContent = scriptContent;
+		public void setScriptWaveformRelation(String scriptWaveformRelation) {
+			this.scriptWaveformRelation = scriptWaveformRelation;
 		}
 
 		public String getSource() {
@@ -138,22 +154,6 @@ public class DescribeScriptVoiceConfigResponse extends AcsResponse {
 
 		public void setSource(String source) {
 			this.source = source;
-		}
-
-		public String getType() {
-			return this.type;
-		}
-
-		public void setType(String type) {
-			this.type = type;
-		}
-
-		public String getScriptWaveformRelation() {
-			return this.scriptWaveformRelation;
-		}
-
-		public void setScriptWaveformRelation(String scriptWaveformRelation) {
-			this.scriptWaveformRelation = scriptWaveformRelation;
 		}
 	}
 

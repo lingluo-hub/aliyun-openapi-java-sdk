@@ -25,14 +25,27 @@ import com.aliyuncs.iot.Endpoint;
 public class GenerateOTAUploadURLRequest extends RpcAcsRequest<GenerateOTAUploadURLResponse> {
 	   
 
+	private String fileSuffix;
+
 	private String iotInstanceId;
 	public GenerateOTAUploadURLRequest() {
-		super("Iot", "2018-01-20", "GenerateOTAUploadURL", "Iot");
+		super("Iot", "2018-01-20", "GenerateOTAUploadURL");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getFileSuffix() {
+		return this.fileSuffix;
+	}
+
+	public void setFileSuffix(String fileSuffix) {
+		this.fileSuffix = fileSuffix;
+		if(fileSuffix != null){
+			putQueryParameter("FileSuffix", fileSuffix);
+		}
 	}
 
 	public String getIotInstanceId() {

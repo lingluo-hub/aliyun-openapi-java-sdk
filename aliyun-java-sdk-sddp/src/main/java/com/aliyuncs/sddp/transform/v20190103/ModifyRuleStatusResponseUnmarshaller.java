@@ -23,6 +23,7 @@ public class ModifyRuleStatusResponseUnmarshaller {
 	public static ModifyRuleStatusResponse unmarshall(ModifyRuleStatusResponse modifyRuleStatusResponse, UnmarshallerContext _ctx) {
 		
 		modifyRuleStatusResponse.setRequestId(_ctx.stringValue("ModifyRuleStatusResponse.RequestId"));
+		modifyRuleStatusResponse.setFailedIds(_ctx.stringValue("ModifyRuleStatusResponse.FailedIds"));
 	 
 	 	return modifyRuleStatusResponse;
 	}

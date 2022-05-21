@@ -19,6 +19,8 @@ import java.util.List;
 
 import com.aliyuncs.vpc.model.v20160428.DescribeVpnGatewaysResponse;
 import com.aliyuncs.vpc.model.v20160428.DescribeVpnGatewaysResponse.VpnGateway;
+import com.aliyuncs.vpc.model.v20160428.DescribeVpnGatewaysResponse.VpnGateway.ReservationData;
+import com.aliyuncs.vpc.model.v20160428.DescribeVpnGatewaysResponse.VpnGateway.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,29 +29,53 @@ public class DescribeVpnGatewaysResponseUnmarshaller {
 	public static DescribeVpnGatewaysResponse unmarshall(DescribeVpnGatewaysResponse describeVpnGatewaysResponse, UnmarshallerContext _ctx) {
 		
 		describeVpnGatewaysResponse.setRequestId(_ctx.stringValue("DescribeVpnGatewaysResponse.RequestId"));
-		describeVpnGatewaysResponse.setTotalCount(_ctx.integerValue("DescribeVpnGatewaysResponse.TotalCount"));
-		describeVpnGatewaysResponse.setPageNumber(_ctx.integerValue("DescribeVpnGatewaysResponse.PageNumber"));
 		describeVpnGatewaysResponse.setPageSize(_ctx.integerValue("DescribeVpnGatewaysResponse.PageSize"));
+		describeVpnGatewaysResponse.setPageNumber(_ctx.integerValue("DescribeVpnGatewaysResponse.PageNumber"));
+		describeVpnGatewaysResponse.setTotalCount(_ctx.integerValue("DescribeVpnGatewaysResponse.TotalCount"));
 
 		List<VpnGateway> vpnGateways = new ArrayList<VpnGateway>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeVpnGatewaysResponse.VpnGateways.Length"); i++) {
 			VpnGateway vpnGateway = new VpnGateway();
-			vpnGateway.setVpnGatewayId(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VpnGatewayId"));
+			vpnGateway.setVpnType(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VpnType"));
+			vpnGateway.setStatus(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Status"));
 			vpnGateway.setVpcId(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VpcId"));
-			vpnGateway.setVSwitchId(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VSwitchId"));
+			vpnGateway.setSslMaxConnections(_ctx.longValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].SslMaxConnections"));
+			vpnGateway.setSpec(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Spec"));
 			vpnGateway.setInternetIp(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].InternetIp"));
 			vpnGateway.setCreateTime(_ctx.longValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].CreateTime"));
-			vpnGateway.setEndTime(_ctx.longValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].EndTime"));
-			vpnGateway.setSpec(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Spec"));
-			vpnGateway.setName(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Name"));
-			vpnGateway.setDescription(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Description"));
-			vpnGateway.setStatus(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Status"));
-			vpnGateway.setBusinessStatus(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].BusinessStatus"));
+			vpnGateway.setAutoPropagate(_ctx.booleanValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].AutoPropagate"));
 			vpnGateway.setChargeType(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ChargeType"));
-			vpnGateway.setIpsecVpn(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].IpsecVpn"));
-			vpnGateway.setSslVpn(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].SslVpn"));
-			vpnGateway.setSslMaxConnections(_ctx.longValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].SslMaxConnections"));
+			vpnGateway.setVpnGatewayId(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VpnGatewayId"));
 			vpnGateway.setTag(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Tag"));
+			vpnGateway.setIpsecVpn(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].IpsecVpn"));
+			vpnGateway.setEndTime(_ctx.longValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].EndTime"));
+			vpnGateway.setVSwitchId(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].VSwitchId"));
+			vpnGateway.setDescription(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Description"));
+			vpnGateway.setEnableBgp(_ctx.booleanValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].EnableBgp"));
+			vpnGateway.setBusinessStatus(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].BusinessStatus"));
+			vpnGateway.setSslVpn(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].SslVpn"));
+			vpnGateway.setName(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Name"));
+			vpnGateway.setNetworkType(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].NetworkType"));
+
+			ReservationData reservationData = new ReservationData();
+			reservationData.setStatus(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.Status"));
+			reservationData.setReservationOrderType(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationOrderType"));
+			reservationData.setReservationIpsec(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationIpsec"));
+			reservationData.setReservationSpec(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationSpec"));
+			reservationData.setReservationSsl(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationSsl"));
+			reservationData.setReservationMaxConnections(_ctx.integerValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationMaxConnections"));
+			reservationData.setReservationEndTime(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].ReservationData.ReservationEndTime"));
+			vpnGateway.setReservationData(reservationData);
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setKey(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Tags["+ j +"].Key"));
+				tag.setValue(_ctx.stringValue("DescribeVpnGatewaysResponse.VpnGateways["+ i +"].Tags["+ j +"].Value"));
+
+				tags.add(tag);
+			}
+			vpnGateway.setTags(tags);
 
 			vpnGateways.add(vpnGateway);
 		}

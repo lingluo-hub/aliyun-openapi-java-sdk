@@ -36,6 +36,8 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 
 	private String replicationFactor;
 
+	private String resourceGroupId;
+
 	private String expired;
 
 	private String securityToken;
@@ -57,6 +59,8 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
+
+	private String connectionDomain;
 
 	private Long ownerId;
 
@@ -132,6 +136,17 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		this.replicationFactor = replicationFactor;
 		if(replicationFactor != null){
 			putQueryParameter("ReplicationFactor", replicationFactor);
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -256,6 +271,17 @@ public class DescribeDBInstancesRequest extends RpcAcsRequest<DescribeDBInstance
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public String getConnectionDomain() {
+		return this.connectionDomain;
+	}
+
+	public void setConnectionDomain(String connectionDomain) {
+		this.connectionDomain = connectionDomain;
+		if(connectionDomain != null){
+			putQueryParameter("ConnectionDomain", connectionDomain);
 		}
 	}
 

@@ -7,9 +7,11 @@ import java.util.Map;
 
 public interface ISignatureComposer {
 
-           Map<String, String> refreshSignParameters(Map<String, String> parameters, Signer signer, String accessKeyId,
-            FormatType format);
+    Map<String, String> refreshSignParameters(Map<String, String> parameters, Signer signer, String accessKeyId,
+                                              FormatType format);
 
-           String composeStringToSign(MethodType method, String uriPattern, Signer signer, Map<String, String> queries,
-            Map<String, String> headers, Map<String, String> paths);
+    String composeStringToSign(MethodType method, String uriPattern, Signer signer, Map<String, String> queries,
+                               Map<String, String> headers, Map<String, String> paths);
+
+    String getAuthorization(Signer signer, String accessKeyId, String signature);
 }

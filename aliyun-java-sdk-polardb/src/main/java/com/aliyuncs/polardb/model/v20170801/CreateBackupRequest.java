@@ -27,6 +27,8 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 
 	private Long resourceOwnerId;
 
+	private String clientToken;
+
 	private String resourceOwnerAccount;
 
 	private String dBClusterId;
@@ -35,7 +37,7 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 
 	private Long ownerId;
 	public CreateBackupRequest() {
-		super("polardb", "2017-08-01", "CreateBackup", "polardb");
+		super("polardb", "2017-08-01", "CreateBackup");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -51,6 +53,17 @@ public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 

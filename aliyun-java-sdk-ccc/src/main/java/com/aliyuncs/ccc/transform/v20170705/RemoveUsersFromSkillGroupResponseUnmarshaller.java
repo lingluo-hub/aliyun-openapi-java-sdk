@@ -23,10 +23,10 @@ public class RemoveUsersFromSkillGroupResponseUnmarshaller {
 	public static RemoveUsersFromSkillGroupResponse unmarshall(RemoveUsersFromSkillGroupResponse removeUsersFromSkillGroupResponse, UnmarshallerContext _ctx) {
 		
 		removeUsersFromSkillGroupResponse.setRequestId(_ctx.stringValue("RemoveUsersFromSkillGroupResponse.RequestId"));
-		removeUsersFromSkillGroupResponse.setSuccess(_ctx.booleanValue("RemoveUsersFromSkillGroupResponse.Success"));
+		removeUsersFromSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("RemoveUsersFromSkillGroupResponse.HttpStatusCode"));
 		removeUsersFromSkillGroupResponse.setCode(_ctx.stringValue("RemoveUsersFromSkillGroupResponse.Code"));
 		removeUsersFromSkillGroupResponse.setMessage(_ctx.stringValue("RemoveUsersFromSkillGroupResponse.Message"));
-		removeUsersFromSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("RemoveUsersFromSkillGroupResponse.HttpStatusCode"));
+		removeUsersFromSkillGroupResponse.setSuccess(_ctx.booleanValue("RemoveUsersFromSkillGroupResponse.Success"));
 	 
 	 	return removeUsersFromSkillGroupResponse;
 	}

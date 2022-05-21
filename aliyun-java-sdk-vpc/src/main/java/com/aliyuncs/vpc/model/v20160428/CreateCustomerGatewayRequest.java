@@ -27,6 +27,8 @@ public class CreateCustomerGatewayRequest extends RpcAcsRequest<CreateCustomerGa
 
 	private String ipAddress;
 
+	private String authKey;
+
 	private Long resourceOwnerId;
 
 	private String clientToken;
@@ -40,8 +42,10 @@ public class CreateCustomerGatewayRequest extends RpcAcsRequest<CreateCustomerGa
 	private Long ownerId;
 
 	private String name;
+
+	private String asn;
 	public CreateCustomerGatewayRequest() {
-		super("Vpc", "2016-04-28", "CreateCustomerGateway", "Vpc");
+		super("Vpc", "2016-04-28", "CreateCustomerGateway", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -57,6 +61,17 @@ public class CreateCustomerGatewayRequest extends RpcAcsRequest<CreateCustomerGa
 		this.ipAddress = ipAddress;
 		if(ipAddress != null){
 			putQueryParameter("IpAddress", ipAddress);
+		}
+	}
+
+	public String getAuthKey() {
+		return this.authKey;
+	}
+
+	public void setAuthKey(String authKey) {
+		this.authKey = authKey;
+		if(authKey != null){
+			putQueryParameter("AuthKey", authKey);
 		}
 	}
 
@@ -134,6 +149,17 @@ public class CreateCustomerGatewayRequest extends RpcAcsRequest<CreateCustomerGa
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public String getAsn() {
+		return this.asn;
+	}
+
+	public void setAsn(String asn) {
+		this.asn = asn;
+		if(asn != null){
+			putQueryParameter("Asn", asn);
 		}
 	}
 

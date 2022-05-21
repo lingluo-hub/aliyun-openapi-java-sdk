@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListIvrTrackingDetailResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private IvrTrackingDetails ivrTrackingDetails;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public IvrTrackingDetails getIvrTrackingDetails() {
@@ -87,21 +87,13 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 
 	public static class IvrTrackingDetails {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<IvrTrackingDetail> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<IvrTrackingDetail> getList() {
 			return this.list;
 		}
@@ -129,33 +129,57 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 
 		public static class IvrTrackingDetail {
 
+			private String status;
+
+			private String deviceID;
+
+			private String inputData;
+
 			private String flowName;
 
-			private String nodeName;
+			private String calledNumber;
+
+			private Long stopTime;
+
+			private Long startTime;
 
 			private String nodeType;
+
+			private String description;
+
+			private String nodeName;
 
 			private String contactId;
 
 			private String callingNumber;
 
-			private String calledNumber;
-
-			private Long startTime;
-
-			private Long stopTime;
-
-			private String status;
-
-			private String inputData;
-
 			private String outputData;
 
-			private String description;
-
-			private String deviceID;
-
 			private String tenantId;
+
+			public String getStatus() {
+				return this.status;
+			}
+
+			public void setStatus(String status) {
+				this.status = status;
+			}
+
+			public String getDeviceID() {
+				return this.deviceID;
+			}
+
+			public void setDeviceID(String deviceID) {
+				this.deviceID = deviceID;
+			}
+
+			public String getInputData() {
+				return this.inputData;
+			}
+
+			public void setInputData(String inputData) {
+				this.inputData = inputData;
+			}
 
 			public String getFlowName() {
 				return this.flowName;
@@ -165,12 +189,28 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 				this.flowName = flowName;
 			}
 
-			public String getNodeName() {
-				return this.nodeName;
+			public String getCalledNumber() {
+				return this.calledNumber;
 			}
 
-			public void setNodeName(String nodeName) {
-				this.nodeName = nodeName;
+			public void setCalledNumber(String calledNumber) {
+				this.calledNumber = calledNumber;
+			}
+
+			public Long getStopTime() {
+				return this.stopTime;
+			}
+
+			public void setStopTime(Long stopTime) {
+				this.stopTime = stopTime;
+			}
+
+			public Long getStartTime() {
+				return this.startTime;
+			}
+
+			public void setStartTime(Long startTime) {
+				this.startTime = startTime;
 			}
 
 			public String getNodeType() {
@@ -179,6 +219,22 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 
 			public void setNodeType(String nodeType) {
 				this.nodeType = nodeType;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getNodeName() {
+				return this.nodeName;
+			}
+
+			public void setNodeName(String nodeName) {
+				this.nodeName = nodeName;
 			}
 
 			public String getContactId() {
@@ -197,68 +253,12 @@ public class ListIvrTrackingDetailResponse extends AcsResponse {
 				this.callingNumber = callingNumber;
 			}
 
-			public String getCalledNumber() {
-				return this.calledNumber;
-			}
-
-			public void setCalledNumber(String calledNumber) {
-				this.calledNumber = calledNumber;
-			}
-
-			public Long getStartTime() {
-				return this.startTime;
-			}
-
-			public void setStartTime(Long startTime) {
-				this.startTime = startTime;
-			}
-
-			public Long getStopTime() {
-				return this.stopTime;
-			}
-
-			public void setStopTime(Long stopTime) {
-				this.stopTime = stopTime;
-			}
-
-			public String getStatus() {
-				return this.status;
-			}
-
-			public void setStatus(String status) {
-				this.status = status;
-			}
-
-			public String getInputData() {
-				return this.inputData;
-			}
-
-			public void setInputData(String inputData) {
-				this.inputData = inputData;
-			}
-
 			public String getOutputData() {
 				return this.outputData;
 			}
 
 			public void setOutputData(String outputData) {
 				this.outputData = outputData;
-			}
-
-			public String getDescription() {
-				return this.description;
-			}
-
-			public void setDescription(String description) {
-				this.description = description;
-			}
-
-			public String getDeviceID() {
-				return this.deviceID;
-			}
-
-			public void setDeviceID(String deviceID) {
-				this.deviceID = deviceID;
 			}
 
 			public String getTenantId() {

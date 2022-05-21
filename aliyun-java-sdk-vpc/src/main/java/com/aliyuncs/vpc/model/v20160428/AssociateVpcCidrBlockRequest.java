@@ -27,17 +27,23 @@ public class AssociateVpcCidrBlockRequest extends RpcAcsRequest<AssociateVpcCidr
 
 	private Long resourceOwnerId;
 
+	private String ipv6Isp;
+
+	private String ipVersion;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
 	private Long ownerId;
 
+	private String iPv6CidrBlock;
+
 	private String secondaryCidrBlock;
 
 	private String vpcId;
 	public AssociateVpcCidrBlockRequest() {
-		super("Vpc", "2016-04-28", "AssociateVpcCidrBlock", "Vpc");
+		super("Vpc", "2016-04-28", "AssociateVpcCidrBlock", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -53,6 +59,28 @@ public class AssociateVpcCidrBlockRequest extends RpcAcsRequest<AssociateVpcCidr
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getIpv6Isp() {
+		return this.ipv6Isp;
+	}
+
+	public void setIpv6Isp(String ipv6Isp) {
+		this.ipv6Isp = ipv6Isp;
+		if(ipv6Isp != null){
+			putQueryParameter("Ipv6Isp", ipv6Isp);
+		}
+	}
+
+	public String getIpVersion() {
+		return this.ipVersion;
+	}
+
+	public void setIpVersion(String ipVersion) {
+		this.ipVersion = ipVersion;
+		if(ipVersion != null){
+			putQueryParameter("IpVersion", ipVersion);
 		}
 	}
 
@@ -86,6 +114,17 @@ public class AssociateVpcCidrBlockRequest extends RpcAcsRequest<AssociateVpcCidr
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getIPv6CidrBlock() {
+		return this.iPv6CidrBlock;
+	}
+
+	public void setIPv6CidrBlock(String iPv6CidrBlock) {
+		this.iPv6CidrBlock = iPv6CidrBlock;
+		if(iPv6CidrBlock != null){
+			putQueryParameter("IPv6CidrBlock", iPv6CidrBlock);
 		}
 	}
 

@@ -26,6 +26,8 @@ import com.aliyuncs.unimkt.Endpoint;
 public class QueryPromotionRequest extends RpcAcsRequest<QueryPromotionResponse> {
 	   
 
+	private String proxyChannelId;
+
 	private String extra;
 
 	private String alipayOpenId;
@@ -34,13 +36,24 @@ public class QueryPromotionRequest extends RpcAcsRequest<QueryPromotionResponse>
 
 	private String channelId;
 	public QueryPromotionRequest() {
-		super("UniMkt", "2018-12-12", "QueryPromotion", "1.0.0");
+		super("UniMkt", "2018-12-12", "QueryPromotion");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getProxyChannelId() {
+		return this.proxyChannelId;
+	}
+
+	public void setProxyChannelId(String proxyChannelId) {
+		this.proxyChannelId = proxyChannelId;
+		if(proxyChannelId != null){
+			putBodyParameter("ProxyChannelId", proxyChannelId);
+		}
 	}
 
 	public String getExtra() {

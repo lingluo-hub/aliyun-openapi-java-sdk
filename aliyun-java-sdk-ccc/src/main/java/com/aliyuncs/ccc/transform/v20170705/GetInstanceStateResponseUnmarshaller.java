@@ -28,10 +28,10 @@ public class GetInstanceStateResponseUnmarshaller {
 	public static GetInstanceStateResponse unmarshall(GetInstanceStateResponse getInstanceStateResponse, UnmarshallerContext _ctx) {
 		
 		getInstanceStateResponse.setRequestId(_ctx.stringValue("GetInstanceStateResponse.RequestId"));
-		getInstanceStateResponse.setSuccess(_ctx.booleanValue("GetInstanceStateResponse.Success"));
+		getInstanceStateResponse.setHttpStatusCode(_ctx.integerValue("GetInstanceStateResponse.HttpStatusCode"));
 		getInstanceStateResponse.setCode(_ctx.stringValue("GetInstanceStateResponse.Code"));
 		getInstanceStateResponse.setMessage(_ctx.stringValue("GetInstanceStateResponse.Message"));
-		getInstanceStateResponse.setHttpStatusCode(_ctx.integerValue("GetInstanceStateResponse.HttpStatusCode"));
+		getInstanceStateResponse.setSuccess(_ctx.booleanValue("GetInstanceStateResponse.Success"));
 
 		RealTimeInstanceState realTimeInstanceState = new RealTimeInstanceState();
 

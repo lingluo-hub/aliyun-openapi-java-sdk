@@ -26,10 +26,8 @@ public class DeleteAlertContactGroupRequest extends RpcAcsRequest<DeleteAlertCon
 	   
 
 	private Long contactGroupId;
-
-	private String proxyUserId;
 	public DeleteAlertContactGroupRequest() {
-		super("ARMS", "2019-08-08", "DeleteAlertContactGroup", "arms");
+		super("ARMS", "2019-08-08", "DeleteAlertContactGroup");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -45,17 +43,6 @@ public class DeleteAlertContactGroupRequest extends RpcAcsRequest<DeleteAlertCon
 		this.contactGroupId = contactGroupId;
 		if(contactGroupId != null){
 			putQueryParameter("ContactGroupId", contactGroupId.toString());
-		}
-	}
-
-	public String getProxyUserId() {
-		return this.proxyUserId;
-	}
-
-	public void setProxyUserId(String proxyUserId) {
-		this.proxyUserId = proxyUserId;
-		if(proxyUserId != null){
-			putQueryParameter("ProxyUserId", proxyUserId);
 		}
 	}
 

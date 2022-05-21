@@ -23,21 +23,17 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustomLiveStreamTranscodeResponse> {
-	
-	public AddCustomLiveStreamTranscodeRequest() {
-		super("live", "2016-11-01", "AddCustomLiveStreamTranscode", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
 
 	private String template;
 
 	private String gop;
 
+	private String kmsKeyExpireInterval;
+
 	private String audioCodec;
+
+	private String kmsUID;
 
 	private String templateType;
 
@@ -46,6 +42,8 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 	private Integer height;
 
 	private String app;
+
+	private String encryptParameters;
 
 	private Integer audioChannelNum;
 
@@ -64,6 +62,16 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 	private Integer width;
 
 	private Integer videoBitrate;
+
+	private String kmsKeyID;
+	public AddCustomLiveStreamTranscodeRequest() {
+		super("live", "2016-11-01", "AddCustomLiveStreamTranscode", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getTemplate() {
 		return this.template;
@@ -87,6 +95,17 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		}
 	}
 
+	public String getKmsKeyExpireInterval() {
+		return this.kmsKeyExpireInterval;
+	}
+
+	public void setKmsKeyExpireInterval(String kmsKeyExpireInterval) {
+		this.kmsKeyExpireInterval = kmsKeyExpireInterval;
+		if(kmsKeyExpireInterval != null){
+			putQueryParameter("KmsKeyExpireInterval", kmsKeyExpireInterval);
+		}
+	}
+
 	public String getAudioCodec() {
 		return this.audioCodec;
 	}
@@ -95,6 +114,17 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		this.audioCodec = audioCodec;
 		if(audioCodec != null){
 			putQueryParameter("AudioCodec", audioCodec);
+		}
+	}
+
+	public String getKmsUID() {
+		return this.kmsUID;
+	}
+
+	public void setKmsUID(String kmsUID) {
+		this.kmsUID = kmsUID;
+		if(kmsUID != null){
+			putQueryParameter("KmsUID", kmsUID);
 		}
 	}
 
@@ -139,6 +169,17 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		this.app = app;
 		if(app != null){
 			putQueryParameter("App", app);
+		}
+	}
+
+	public String getEncryptParameters() {
+		return this.encryptParameters;
+	}
+
+	public void setEncryptParameters(String encryptParameters) {
+		this.encryptParameters = encryptParameters;
+		if(encryptParameters != null){
+			putQueryParameter("EncryptParameters", encryptParameters);
 		}
 	}
 
@@ -208,29 +249,10 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		}
 	}
 
-	public String getBizDomain() {
-		return this.domain;
-	}
-
-	public void setBizDomain(String domain) {
-		this.domain = domain;
-		if(domain != null){
-			putQueryParameter("Domain", domain);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizDomain instead of this.
-	 */
-	@Deprecated
 	public String getDomain() {
 		return this.domain;
 	}
 
-	/**
-	 * @deprecated use setBizDomain instead of this.
-	 */
-	@Deprecated
 	public void setDomain(String domain) {
 		this.domain = domain;
 		if(domain != null){
@@ -257,6 +279,17 @@ public class AddCustomLiveStreamTranscodeRequest extends RpcAcsRequest<AddCustom
 		this.videoBitrate = videoBitrate;
 		if(videoBitrate != null){
 			putQueryParameter("VideoBitrate", videoBitrate.toString());
+		}
+	}
+
+	public String getKmsKeyID() {
+		return this.kmsKeyID;
+	}
+
+	public void setKmsKeyID(String kmsKeyID) {
+		this.kmsKeyID = kmsKeyID;
+		if(kmsKeyID != null){
+			putQueryParameter("KmsKeyID", kmsKeyID);
 		}
 	}
 

@@ -43,8 +43,8 @@ public class ListInstancesRequest extends RpcAcsRequest<ListInstancesResponse> {
 
 	private Integer pageSize;
 	public ListInstancesRequest() {
-		super("dms-enterprise", "2018-11-01", "ListInstances");
-		setMethod(MethodType.GET);
+		super("dms-enterprise", "2018-11-01", "ListInstances", "dms-enterprise");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);

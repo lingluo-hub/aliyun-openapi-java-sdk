@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListCallDetailRecordsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private CallDetailRecords callDetailRecords;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public CallDetailRecords getCallDetailRecords() {
@@ -87,21 +87,13 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 
 	public static class CallDetailRecords {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<CallDetailRecord> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<CallDetailRecord> getList() {
 			return this.list;
 		}
@@ -129,82 +129,44 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 
 		public static class CallDetailRecord {
 
-			private String contactId;
-
-			private Long startTime;
-
-			private Integer duration;
-
-			private Integer satisfaction;
-
-			private String satisfactionDesc;
-
-			private String feedback;
+			private String contactDisposition;
 
 			private String contactType;
 
-			private String contactDisposition;
+			private String skillGroupIdList;
 
-			private String callingNumber;
+			private String instanceId;
 
 			private String calledNumber;
 
 			private String agentNames;
 
+			private Integer satisfaction;
+
+			private Long startTime;
+
+			private String satisfactionDesc;
+
+			private String contactId;
+
+			private String callingNumber;
+
+			private Integer duration;
+
 			private String skillGroupNames;
 
-			private String instanceId;
+			private String feedback;
 
 			private List<CallDetailAgent> agents;
 
 			private List<Recording> recordings;
 
-			public String getContactId() {
-				return this.contactId;
+			public String getContactDisposition() {
+				return this.contactDisposition;
 			}
 
-			public void setContactId(String contactId) {
-				this.contactId = contactId;
-			}
-
-			public Long getStartTime() {
-				return this.startTime;
-			}
-
-			public void setStartTime(Long startTime) {
-				this.startTime = startTime;
-			}
-
-			public Integer getDuration() {
-				return this.duration;
-			}
-
-			public void setDuration(Integer duration) {
-				this.duration = duration;
-			}
-
-			public Integer getSatisfaction() {
-				return this.satisfaction;
-			}
-
-			public void setSatisfaction(Integer satisfaction) {
-				this.satisfaction = satisfaction;
-			}
-
-			public String getSatisfactionDesc() {
-				return this.satisfactionDesc;
-			}
-
-			public void setSatisfactionDesc(String satisfactionDesc) {
-				this.satisfactionDesc = satisfactionDesc;
-			}
-
-			public String getFeedback() {
-				return this.feedback;
-			}
-
-			public void setFeedback(String feedback) {
-				this.feedback = feedback;
+			public void setContactDisposition(String contactDisposition) {
+				this.contactDisposition = contactDisposition;
 			}
 
 			public String getContactType() {
@@ -215,20 +177,20 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 				this.contactType = contactType;
 			}
 
-			public String getContactDisposition() {
-				return this.contactDisposition;
+			public String getSkillGroupIdList() {
+				return this.skillGroupIdList;
 			}
 
-			public void setContactDisposition(String contactDisposition) {
-				this.contactDisposition = contactDisposition;
+			public void setSkillGroupIdList(String skillGroupIdList) {
+				this.skillGroupIdList = skillGroupIdList;
 			}
 
-			public String getCallingNumber() {
-				return this.callingNumber;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setCallingNumber(String callingNumber) {
-				this.callingNumber = callingNumber;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
 			public String getCalledNumber() {
@@ -247,6 +209,54 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 				this.agentNames = agentNames;
 			}
 
+			public Integer getSatisfaction() {
+				return this.satisfaction;
+			}
+
+			public void setSatisfaction(Integer satisfaction) {
+				this.satisfaction = satisfaction;
+			}
+
+			public Long getStartTime() {
+				return this.startTime;
+			}
+
+			public void setStartTime(Long startTime) {
+				this.startTime = startTime;
+			}
+
+			public String getSatisfactionDesc() {
+				return this.satisfactionDesc;
+			}
+
+			public void setSatisfactionDesc(String satisfactionDesc) {
+				this.satisfactionDesc = satisfactionDesc;
+			}
+
+			public String getContactId() {
+				return this.contactId;
+			}
+
+			public void setContactId(String contactId) {
+				this.contactId = contactId;
+			}
+
+			public String getCallingNumber() {
+				return this.callingNumber;
+			}
+
+			public void setCallingNumber(String callingNumber) {
+				this.callingNumber = callingNumber;
+			}
+
+			public Integer getDuration() {
+				return this.duration;
+			}
+
+			public void setDuration(Integer duration) {
+				this.duration = duration;
+			}
+
 			public String getSkillGroupNames() {
 				return this.skillGroupNames;
 			}
@@ -255,12 +265,12 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 				this.skillGroupNames = skillGroupNames;
 			}
 
-			public String getInstanceId() {
-				return this.instanceId;
+			public String getFeedback() {
+				return this.feedback;
 			}
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
+			public void setFeedback(String feedback) {
+				this.feedback = feedback;
 			}
 
 			public List<CallDetailAgent> getAgents() {
@@ -281,19 +291,11 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 
 			public static class CallDetailAgent {
 
-				private String agentId;
-
 				private String satisfaction;
 
 				private String feedback;
 
-				public String getAgentId() {
-					return this.agentId;
-				}
-
-				public void setAgentId(String agentId) {
-					this.agentId = agentId;
-				}
+				private String agentId;
 
 				public String getSatisfaction() {
 					return this.satisfaction;
@@ -310,27 +312,43 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 				public void setFeedback(String feedback) {
 					this.feedback = feedback;
 				}
+
+				public String getAgentId() {
+					return this.agentId;
+				}
+
+				public void setAgentId(String agentId) {
+					this.agentId = agentId;
+				}
 			}
 
 			public static class Recording {
 
+				private Long startTime;
+
 				private String contactId;
+
+				private String qualityCheckTaskId;
 
 				private String agentId;
 
-				private String agentName;
-
-				private Long startTime;
+				private String fileDescription;
 
 				private Integer duration;
 
-				private String fileName;
+				private String agentName;
 
-				private String fileDescription;
+				private String fileName;
 
 				private String qualityCheckTid;
 
-				private String qualityCheckTaskId;
+				public Long getStartTime() {
+					return this.startTime;
+				}
+
+				public void setStartTime(Long startTime) {
+					this.startTime = startTime;
+				}
 
 				public String getContactId() {
 					return this.contactId;
@@ -338,6 +356,14 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 
 				public void setContactId(String contactId) {
 					this.contactId = contactId;
+				}
+
+				public String getQualityCheckTaskId() {
+					return this.qualityCheckTaskId;
+				}
+
+				public void setQualityCheckTaskId(String qualityCheckTaskId) {
+					this.qualityCheckTaskId = qualityCheckTaskId;
 				}
 
 				public String getAgentId() {
@@ -348,20 +374,12 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 					this.agentId = agentId;
 				}
 
-				public String getAgentName() {
-					return this.agentName;
+				public String getFileDescription() {
+					return this.fileDescription;
 				}
 
-				public void setAgentName(String agentName) {
-					this.agentName = agentName;
-				}
-
-				public Long getStartTime() {
-					return this.startTime;
-				}
-
-				public void setStartTime(Long startTime) {
-					this.startTime = startTime;
+				public void setFileDescription(String fileDescription) {
+					this.fileDescription = fileDescription;
 				}
 
 				public Integer getDuration() {
@@ -372,6 +390,14 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 					this.duration = duration;
 				}
 
+				public String getAgentName() {
+					return this.agentName;
+				}
+
+				public void setAgentName(String agentName) {
+					this.agentName = agentName;
+				}
+
 				public String getFileName() {
 					return this.fileName;
 				}
@@ -380,28 +406,12 @@ public class ListCallDetailRecordsResponse extends AcsResponse {
 					this.fileName = fileName;
 				}
 
-				public String getFileDescription() {
-					return this.fileDescription;
-				}
-
-				public void setFileDescription(String fileDescription) {
-					this.fileDescription = fileDescription;
-				}
-
 				public String getQualityCheckTid() {
 					return this.qualityCheckTid;
 				}
 
 				public void setQualityCheckTid(String qualityCheckTid) {
 					this.qualityCheckTid = qualityCheckTid;
-				}
-
-				public String getQualityCheckTaskId() {
-					return this.qualityCheckTaskId;
-				}
-
-				public void setQualityCheckTaskId(String qualityCheckTaskId) {
-					this.qualityCheckTaskId = qualityCheckTaskId;
 				}
 			}
 		}

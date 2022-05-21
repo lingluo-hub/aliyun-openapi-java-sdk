@@ -17,6 +17,7 @@ package com.aliyuncs.ess.model.v20140828;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
@@ -26,8 +27,6 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 	   
 
 	private List<String> vSwitchIds;
-
-	private String costOptimizedMode;
 
 	private Boolean spotInstanceRemedy;
 
@@ -45,9 +44,13 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 
 	private List<LaunchTemplateOverride> launchTemplateOverrides;
 
+	private Boolean compensateWithOnDemand;
+
 	private Integer minSize;
 
 	private Long ownerId;
+
+	private List<AlbServerGroup> albServerGroups;
 
 	private String vSwitchId;
 
@@ -89,6 +92,10 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 	public CreateScalingGroupRequest() {
 		super("Ess", "2014-08-28", "CreateScalingGroup", "ess");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public List<String> getVSwitchIds() {
@@ -96,23 +103,12 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 	}
 
 	public void setVSwitchIds(List<String> vSwitchIds) {
-		this.vSwitchIds = vSwitchIds;
+		this.vSwitchIds = vSwitchIds;	
 		if (vSwitchIds != null) {
 			for (int i = 0; i < vSwitchIds.size(); i++) {
 				putQueryParameter("VSwitchIds." + (i + 1) , vSwitchIds.get(i));
 			}
 		}	
-	}
-
-	public String getCostOptimizedMode() {
-		return this.costOptimizedMode;
-	}
-
-	public void setCostOptimizedMode(String costOptimizedMode) {
-		this.costOptimizedMode = costOptimizedMode;
-		if(costOptimizedMode != null){
-			putQueryParameter("CostOptimizedMode", costOptimizedMode);
-		}
 	}
 
 	public Boolean getSpotInstanceRemedy() {
@@ -203,9 +199,21 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 		this.launchTemplateOverrides = launchTemplateOverrides;	
 		if (launchTemplateOverrides != null) {
 			for (int depth1 = 0; depth1 < launchTemplateOverrides.size(); depth1++) {
+				putQueryParameter("LaunchTemplateOverride." + (depth1 + 1) + ".WeightedCapacity" , launchTemplateOverrides.get(depth1).getWeightedCapacity());
 				putQueryParameter("LaunchTemplateOverride." + (depth1 + 1) + ".InstanceType" , launchTemplateOverrides.get(depth1).getInstanceType());
 			}
 		}	
+	}
+
+	public Boolean getCompensateWithOnDemand() {
+		return this.compensateWithOnDemand;
+	}
+
+	public void setCompensateWithOnDemand(Boolean compensateWithOnDemand) {
+		this.compensateWithOnDemand = compensateWithOnDemand;
+		if(compensateWithOnDemand != null){
+			putQueryParameter("CompensateWithOnDemand", compensateWithOnDemand.toString());
+		}
 	}
 
 	public Integer getMinSize() {
@@ -228,6 +236,21 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
 		}
+	}
+
+	public List<AlbServerGroup> getAlbServerGroups() {
+		return this.albServerGroups;
+	}
+
+	public void setAlbServerGroups(List<AlbServerGroup> albServerGroups) {
+		this.albServerGroups = albServerGroups;	
+		if (albServerGroups != null) {
+			for (int depth1 = 0; depth1 < albServerGroups.size(); depth1++) {
+				putQueryParameter("AlbServerGroup." + (depth1 + 1) + ".AlbServerGroupId" , albServerGroups.get(depth1).getAlbServerGroupId());
+				putQueryParameter("AlbServerGroup." + (depth1 + 1) + ".Port" , albServerGroups.get(depth1).getPort());
+				putQueryParameter("AlbServerGroup." + (depth1 + 1) + ".Weight" , albServerGroups.get(depth1).getWeight());
+			}
+		}	
 	}
 
 	public String getVSwitchId() {
@@ -480,7 +503,17 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 
 	public static class LaunchTemplateOverride {
 
+		private Integer weightedCapacity;
+
 		private String instanceType;
+
+		public Integer getWeightedCapacity() {
+			return this.weightedCapacity;
+		}
+
+		public void setWeightedCapacity(Integer weightedCapacity) {
+			this.weightedCapacity = weightedCapacity;
+		}
 
 		public String getInstanceType() {
 			return this.instanceType;
@@ -488,6 +521,39 @@ public class CreateScalingGroupRequest extends RpcAcsRequest<CreateScalingGroupR
 
 		public void setInstanceType(String instanceType) {
 			this.instanceType = instanceType;
+		}
+	}
+
+	public static class AlbServerGroup {
+
+		private String albServerGroupId;
+
+		private Integer port;
+
+		private Integer weight;
+
+		public String getAlbServerGroupId() {
+			return this.albServerGroupId;
+		}
+
+		public void setAlbServerGroupId(String albServerGroupId) {
+			this.albServerGroupId = albServerGroupId;
+		}
+
+		public Integer getPort() {
+			return this.port;
+		}
+
+		public void setPort(Integer port) {
+			this.port = port;
+		}
+
+		public Integer getWeight() {
+			return this.weight;
+		}
+
+		public void setWeight(Integer weight) {
+			this.weight = weight;
 		}
 	}
 

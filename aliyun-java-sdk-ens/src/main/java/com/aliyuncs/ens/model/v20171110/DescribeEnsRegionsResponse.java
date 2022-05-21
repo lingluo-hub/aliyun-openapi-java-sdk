@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeEnsRegionsResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
 
+	private String requestId;
+
 	private List<EnsRegionsItem> ensRegions;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -45,6 +37,14 @@ public class DescribeEnsRegionsResponse extends AcsResponse {
 
 	public void setCode(Integer code) {
 		this.code = code;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<EnsRegionsItem> getEnsRegions() {
@@ -57,15 +57,31 @@ public class DescribeEnsRegionsResponse extends AcsResponse {
 
 	public static class EnsRegionsItem {
 
+		private String area;
+
+		private String enName;
+
 		private String ensRegionId;
 
 		private String name;
 
-		private String enName;
-
-		private String area;
-
 		private String province;
+
+		public String getArea() {
+			return this.area;
+		}
+
+		public void setArea(String area) {
+			this.area = area;
+		}
+
+		public String getEnName() {
+			return this.enName;
+		}
+
+		public void setEnName(String enName) {
+			this.enName = enName;
+		}
 
 		public String getEnsRegionId() {
 			return this.ensRegionId;
@@ -81,22 +97,6 @@ public class DescribeEnsRegionsResponse extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
-		}
-
-		public String getEnName() {
-			return this.enName;
-		}
-
-		public void setEnName(String enName) {
-			this.enName = enName;
-		}
-
-		public String getArea() {
-			return this.area;
-		}
-
-		public void setArea(String area) {
-			this.area = area;
 		}
 
 		public String getProvince() {

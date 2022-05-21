@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeBgpGroupsResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer pageSize;
 
-	private Integer totalCount;
+	private String requestId;
 
 	private Integer pageNumber;
 
-	private Integer pageSize;
+	private Integer totalCount;
 
 	private List<BgpGroup> bgpGroups;
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -59,12 +59,12 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Integer getTotalCount() {
+		return this.totalCount;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<BgpGroup> getBgpGroups() {
@@ -77,46 +77,42 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 
 	public static class BgpGroup {
 
-		private String name;
-
-		private String description;
+		private String status;
 
 		private String bgpGroupId;
 
-		private String peerAsn;
-
-		private String authKey;
-
 		private String routerId;
 
-		private String status;
-
-		private String keepalive;
+		private String peerAsn;
 
 		private String localAsn;
 
+		private String regionId;
+
 		private String hold;
+
+		private String ipVersion;
+
+		private String description;
+
+		private String keepalive;
 
 		private String isFake;
 
 		private String routeLimit;
 
-		private String regionId;
+		private Integer routeQuota;
 
-		public String getName() {
-			return this.name;
+		private String name;
+
+		private String authKey;
+
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
 		public String getBgpGroupId() {
@@ -127,22 +123,6 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 			this.bgpGroupId = bgpGroupId;
 		}
 
-		public String getPeerAsn() {
-			return this.peerAsn;
-		}
-
-		public void setPeerAsn(String peerAsn) {
-			this.peerAsn = peerAsn;
-		}
-
-		public String getAuthKey() {
-			return this.authKey;
-		}
-
-		public void setAuthKey(String authKey) {
-			this.authKey = authKey;
-		}
-
 		public String getRouterId() {
 			return this.routerId;
 		}
@@ -151,20 +131,12 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 			this.routerId = routerId;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getPeerAsn() {
+			return this.peerAsn;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-		public String getKeepalive() {
-			return this.keepalive;
-		}
-
-		public void setKeepalive(String keepalive) {
-			this.keepalive = keepalive;
+		public void setPeerAsn(String peerAsn) {
+			this.peerAsn = peerAsn;
 		}
 
 		public String getLocalAsn() {
@@ -175,12 +147,44 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 			this.localAsn = localAsn;
 		}
 
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
 		public String getHold() {
 			return this.hold;
 		}
 
 		public void setHold(String hold) {
 			this.hold = hold;
+		}
+
+		public String getIpVersion() {
+			return this.ipVersion;
+		}
+
+		public void setIpVersion(String ipVersion) {
+			this.ipVersion = ipVersion;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getKeepalive() {
+			return this.keepalive;
+		}
+
+		public void setKeepalive(String keepalive) {
+			this.keepalive = keepalive;
 		}
 
 		public String getIsFake() {
@@ -199,12 +203,28 @@ public class DescribeBgpGroupsResponse extends AcsResponse {
 			this.routeLimit = routeLimit;
 		}
 
-		public String getRegionId() {
-			return this.regionId;
+		public Integer getRouteQuota() {
+			return this.routeQuota;
 		}
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
+		public void setRouteQuota(Integer routeQuota) {
+			this.routeQuota = routeQuota;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getAuthKey() {
+			return this.authKey;
+		}
+
+		public void setAuthKey(String authKey) {
+			this.authKey = authKey;
 		}
 	}
 

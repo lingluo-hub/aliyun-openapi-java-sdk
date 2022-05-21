@@ -46,6 +46,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private Integer ecsOrderLoginCount;
 
+	private Boolean withoutElasticIp;
+
 	private String remoteVisEnable;
 
 	private Integer systemDiskSize;
@@ -82,6 +84,10 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String imageId;
 
+	private String systemDiskLevel;
+
+	private String clientToken;
+
 	private String ehpcVersion;
 
 	private String accountType;
@@ -104,6 +110,10 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String osTag;
 
+	private String clusterVersion;
+
+	private Boolean isComputeEss;
+
 	private List<Application> applications;
 
 	private String ecsChargeType;
@@ -120,7 +130,7 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String ecsOrderLoginInstanceType;
 	public CreateClusterRequest() {
-		super("EHPC", "2018-04-12", "CreateCluster", "ehs");
+		super("EHPC", "2018-04-12", "CreateCluster");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -249,6 +259,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		this.ecsOrderLoginCount = ecsOrderLoginCount;
 		if(ecsOrderLoginCount != null){
 			putQueryParameter("EcsOrder.Login.Count", ecsOrderLoginCount.toString());
+		}
+	}
+
+	public Boolean getWithoutElasticIp() {
+		return this.withoutElasticIp;
+	}
+
+	public void setWithoutElasticIp(Boolean withoutElasticIp) {
+		this.withoutElasticIp = withoutElasticIp;
+		if(withoutElasticIp != null){
+			putQueryParameter("WithoutElasticIp", withoutElasticIp.toString());
 		}
 	}
 
@@ -453,6 +474,28 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}
 	}
 
+	public String getSystemDiskLevel() {
+		return this.systemDiskLevel;
+	}
+
+	public void setSystemDiskLevel(String systemDiskLevel) {
+		this.systemDiskLevel = systemDiskLevel;
+		if(systemDiskLevel != null){
+			putQueryParameter("SystemDiskLevel", systemDiskLevel);
+		}
+	}
+
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
 	public String getEhpcVersion() {
 		return this.ehpcVersion;
 	}
@@ -571,6 +614,28 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		this.osTag = osTag;
 		if(osTag != null){
 			putQueryParameter("OsTag", osTag);
+		}
+	}
+
+	public String getClusterVersion() {
+		return this.clusterVersion;
+	}
+
+	public void setClusterVersion(String clusterVersion) {
+		this.clusterVersion = clusterVersion;
+		if(clusterVersion != null){
+			putQueryParameter("ClusterVersion", clusterVersion);
+		}
+	}
+
+	public Boolean getIsComputeEss() {
+		return this.isComputeEss;
+	}
+
+	public void setIsComputeEss(Boolean isComputeEss) {
+		this.isComputeEss = isComputeEss;
+		if(isComputeEss != null){
+			putQueryParameter("IsComputeEss", isComputeEss.toString());
 		}
 	}
 

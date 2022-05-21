@@ -33,6 +33,8 @@ public class ModifyBgpPeerAttributeRequest extends RpcAcsRequest<ModifyBgpPeerAt
 
 	private String peerIpAddress;
 
+	private Integer bfdMultiHop;
+
 	private Boolean enableBfd;
 
 	private String resourceOwnerAccount;
@@ -43,7 +45,7 @@ public class ModifyBgpPeerAttributeRequest extends RpcAcsRequest<ModifyBgpPeerAt
 
 	private Long ownerId;
 	public ModifyBgpPeerAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyBgpPeerAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyBgpPeerAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -92,6 +94,17 @@ public class ModifyBgpPeerAttributeRequest extends RpcAcsRequest<ModifyBgpPeerAt
 		this.peerIpAddress = peerIpAddress;
 		if(peerIpAddress != null){
 			putQueryParameter("PeerIpAddress", peerIpAddress);
+		}
+	}
+
+	public Integer getBfdMultiHop() {
+		return this.bfdMultiHop;
+	}
+
+	public void setBfdMultiHop(Integer bfdMultiHop) {
+		this.bfdMultiHop = bfdMultiHop;
+		if(bfdMultiHop != null){
+			putQueryParameter("BfdMultiHop", bfdMultiHop.toString());
 		}
 	}
 

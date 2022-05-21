@@ -16,24 +16,29 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetImageLayerRequest extends RoaAcsRequest<GetImageLayerResponse> {
-	
-	public GetImageLayerRequest() {
-		super("cr", "2016-06-07", "GetImageLayer", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/tags/[Tag]/layers");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private String repoNamespace;
 
 	private String repoName;
 
 	private String tag;
+	public GetImageLayerRequest() {
+		super("cr", "2016-06-07", "GetImageLayer", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/tags/[Tag]/layers");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;

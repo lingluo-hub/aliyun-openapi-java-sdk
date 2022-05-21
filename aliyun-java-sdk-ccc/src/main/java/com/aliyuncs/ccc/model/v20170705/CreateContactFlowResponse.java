@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateContactFlowResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private ContactFlow contactFlow;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class CreateContactFlowResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public ContactFlow getContactFlow() {
@@ -87,45 +87,21 @@ public class CreateContactFlowResponse extends AcsResponse {
 
 	public static class ContactFlow {
 
-		private String contactFlowId;
-
-		private String instanceId;
-
-		private String contactFlowName;
-
 		private String contactFlowDescription;
 
 		private String type;
+
+		private String contactFlowName;
+
+		private String instanceId;
+
+		private String contactFlowId;
 
 		private String appliedVersion;
 
 		private List<ContactFlowVersion> versions;
 
 		private List<PhoneNumber> phoneNumbers;
-
-		public String getContactFlowId() {
-			return this.contactFlowId;
-		}
-
-		public void setContactFlowId(String contactFlowId) {
-			this.contactFlowId = contactFlowId;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getContactFlowName() {
-			return this.contactFlowName;
-		}
-
-		public void setContactFlowName(String contactFlowName) {
-			this.contactFlowName = contactFlowName;
-		}
 
 		public String getContactFlowDescription() {
 			return this.contactFlowDescription;
@@ -141,6 +117,30 @@ public class CreateContactFlowResponse extends AcsResponse {
 
 		public void setType(String type) {
 			this.type = type;
+		}
+
+		public String getContactFlowName() {
+			return this.contactFlowName;
+		}
+
+		public void setContactFlowName(String contactFlowName) {
+			this.contactFlowName = contactFlowName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getContactFlowId() {
+			return this.contactFlowId;
+		}
+
+		public void setContactFlowId(String contactFlowId) {
+			this.contactFlowId = contactFlowId;
 		}
 
 		public String getAppliedVersion() {
@@ -169,78 +169,30 @@ public class CreateContactFlowResponse extends AcsResponse {
 
 		public static class ContactFlowVersion {
 
-			private String contactFlowVersionId;
-
-			private String version;
-
-			private String contactFlowVersionDescription;
-
-			private String canvas;
-
-			private String content;
+			private String status;
 
 			private String lastModified;
 
-			private String lastModifiedBy;
+			private String canvas;
 
 			private String lockedBy;
 
-			private String status;
+			private String version;
 
-			public String getContactFlowVersionId() {
-				return this.contactFlowVersionId;
+			private String contactFlowVersionId;
+
+			private String lastModifiedBy;
+
+			private String contactFlowVersionDescription;
+
+			private String content;
+
+			public String getStatus() {
+				return this.status;
 			}
 
-			public void setContactFlowVersionId(String contactFlowVersionId) {
-				this.contactFlowVersionId = contactFlowVersionId;
-			}
-
-			public String getBizVersion() {
-				return this.version;
-			}
-
-			public void setBizVersion(String version) {
-				this.version = version;
-			}
-
-			/**
-			 * @deprecated use getBizVersion instead of this.
-			 */
-			@Deprecated
-			public String getVersion() {
-				return this.version;
-			}
-
-			/**
-			 * @deprecated use setBizVersion instead of this.
-			 */
-			@Deprecated
-			public void setVersion(String version) {
-				this.version = version;
-			}
-
-			public String getContactFlowVersionDescription() {
-				return this.contactFlowVersionDescription;
-			}
-
-			public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
-				this.contactFlowVersionDescription = contactFlowVersionDescription;
-			}
-
-			public String getCanvas() {
-				return this.canvas;
-			}
-
-			public void setCanvas(String canvas) {
-				this.canvas = canvas;
-			}
-
-			public String getContent() {
-				return this.content;
-			}
-
-			public void setContent(String content) {
-				this.content = content;
+			public void setStatus(String status) {
+				this.status = status;
 			}
 
 			public String getLastModified() {
@@ -251,12 +203,12 @@ public class CreateContactFlowResponse extends AcsResponse {
 				this.lastModified = lastModified;
 			}
 
-			public String getLastModifiedBy() {
-				return this.lastModifiedBy;
+			public String getCanvas() {
+				return this.canvas;
 			}
 
-			public void setLastModifiedBy(String lastModifiedBy) {
-				this.lastModifiedBy = lastModifiedBy;
+			public void setCanvas(String canvas) {
+				this.canvas = canvas;
 			}
 
 			public String getLockedBy() {
@@ -267,66 +219,66 @@ public class CreateContactFlowResponse extends AcsResponse {
 				this.lockedBy = lockedBy;
 			}
 
-			public String getStatus() {
-				return this.status;
+			public String getVersion() {
+				return this.version;
 			}
 
-			public void setStatus(String status) {
-				this.status = status;
+			public void setVersion(String version) {
+				this.version = version;
+			}
+
+			public String getContactFlowVersionId() {
+				return this.contactFlowVersionId;
+			}
+
+			public void setContactFlowVersionId(String contactFlowVersionId) {
+				this.contactFlowVersionId = contactFlowVersionId;
+			}
+
+			public String getLastModifiedBy() {
+				return this.lastModifiedBy;
+			}
+
+			public void setLastModifiedBy(String lastModifiedBy) {
+				this.lastModifiedBy = lastModifiedBy;
+			}
+
+			public String getContactFlowVersionDescription() {
+				return this.contactFlowVersionDescription;
+			}
+
+			public void setContactFlowVersionDescription(String contactFlowVersionDescription) {
+				this.contactFlowVersionDescription = contactFlowVersionDescription;
+			}
+
+			public String getContent() {
+				return this.content;
+			}
+
+			public void setContent(String content) {
+				this.content = content;
 			}
 		}
 
 		public static class PhoneNumber {
 
-			private String phoneNumberId;
-
-			private String instanceId;
-
-			private String number;
-
-			private String phoneNumberDescription;
-
 			private Boolean testOnly;
-
-			private Integer remainingTime;
-
-			private Boolean allowOutbound;
-
-			private String usage;
 
 			private Integer trunks;
 
-			public String getPhoneNumberId() {
-				return this.phoneNumberId;
-			}
+			private Integer remainingTime;
 
-			public void setPhoneNumberId(String phoneNumberId) {
-				this.phoneNumberId = phoneNumberId;
-			}
+			private String number;
 
-			public String getInstanceId() {
-				return this.instanceId;
-			}
+			private String instanceId;
 
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
-			}
+			private String usage;
 
-			public String getNumber() {
-				return this.number;
-			}
+			private Boolean allowOutbound;
 
-			public void setNumber(String number) {
-				this.number = number;
-			}
+			private String phoneNumberDescription;
 
-			public String getPhoneNumberDescription() {
-				return this.phoneNumberDescription;
-			}
-
-			public void setPhoneNumberDescription(String phoneNumberDescription) {
-				this.phoneNumberDescription = phoneNumberDescription;
-			}
+			private String phoneNumberId;
 
 			public Boolean getTestOnly() {
 				return this.testOnly;
@@ -334,6 +286,14 @@ public class CreateContactFlowResponse extends AcsResponse {
 
 			public void setTestOnly(Boolean testOnly) {
 				this.testOnly = testOnly;
+			}
+
+			public Integer getTrunks() {
+				return this.trunks;
+			}
+
+			public void setTrunks(Integer trunks) {
+				this.trunks = trunks;
 			}
 
 			public Integer getRemainingTime() {
@@ -344,12 +304,20 @@ public class CreateContactFlowResponse extends AcsResponse {
 				this.remainingTime = remainingTime;
 			}
 
-			public Boolean getAllowOutbound() {
-				return this.allowOutbound;
+			public String getNumber() {
+				return this.number;
 			}
 
-			public void setAllowOutbound(Boolean allowOutbound) {
-				this.allowOutbound = allowOutbound;
+			public void setNumber(String number) {
+				this.number = number;
+			}
+
+			public String getInstanceId() {
+				return this.instanceId;
+			}
+
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
 			}
 
 			public String getUsage() {
@@ -360,12 +328,28 @@ public class CreateContactFlowResponse extends AcsResponse {
 				this.usage = usage;
 			}
 
-			public Integer getTrunks() {
-				return this.trunks;
+			public Boolean getAllowOutbound() {
+				return this.allowOutbound;
 			}
 
-			public void setTrunks(Integer trunks) {
-				this.trunks = trunks;
+			public void setAllowOutbound(Boolean allowOutbound) {
+				this.allowOutbound = allowOutbound;
+			}
+
+			public String getPhoneNumberDescription() {
+				return this.phoneNumberDescription;
+			}
+
+			public void setPhoneNumberDescription(String phoneNumberDescription) {
+				this.phoneNumberDescription = phoneNumberDescription;
+			}
+
+			public String getPhoneNumberId() {
+				return this.phoneNumberId;
+			}
+
+			public void setPhoneNumberId(String phoneNumberId) {
+				this.phoneNumberId = phoneNumberId;
 			}
 		}
 	}

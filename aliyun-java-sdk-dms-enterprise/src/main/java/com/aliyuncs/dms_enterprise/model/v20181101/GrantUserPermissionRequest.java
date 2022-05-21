@@ -35,6 +35,8 @@ public class GrantUserPermissionRequest extends RpcAcsRequest<GrantUserPermissio
 
 	private Long tid;
 
+	private Long instanceId;
+
 	private String dbId;
 
 	private String tableId;
@@ -43,7 +45,7 @@ public class GrantUserPermissionRequest extends RpcAcsRequest<GrantUserPermissio
 
 	private String tableName;
 	public GrantUserPermissionRequest() {
-		super("dms-enterprise", "2018-11-01", "GrantUserPermission");
+		super("dms-enterprise", "2018-11-01", "GrantUserPermission", "dms-enterprise");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -103,6 +105,17 @@ public class GrantUserPermissionRequest extends RpcAcsRequest<GrantUserPermissio
 		this.tid = tid;
 		if(tid != null){
 			putQueryParameter("Tid", tid.toString());
+		}
+	}
+
+	public Long getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(Long instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId.toString());
 		}
 	}
 

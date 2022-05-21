@@ -26,17 +26,19 @@ import com.aliyuncs.linkwan.Endpoint;
 public class CountGatewaysRequest extends RpcAcsRequest<CountGatewaysResponse> {
 	   
 
-	private String fuzzyName;
-
 	private String fuzzyGwEui;
 
-	private Long freqBandPlanGroupId;
+	private String iotInstanceId;
 
 	private String fuzzyCity;
 
 	private String onlineState;
 
 	private Boolean isEnabled;
+
+	private String fuzzyName;
+
+	private Long freqBandPlanGroupId;
 	public CountGatewaysRequest() {
 		super("LinkWAN", "2019-03-01", "CountGateways", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -45,17 +47,6 @@ public class CountGatewaysRequest extends RpcAcsRequest<CountGatewaysResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getFuzzyName() {
-		return this.fuzzyName;
-	}
-
-	public void setFuzzyName(String fuzzyName) {
-		this.fuzzyName = fuzzyName;
-		if(fuzzyName != null){
-			putQueryParameter("FuzzyName", fuzzyName);
-		}
 	}
 
 	public String getFuzzyGwEui() {
@@ -69,14 +60,14 @@ public class CountGatewaysRequest extends RpcAcsRequest<CountGatewaysResponse> {
 		}
 	}
 
-	public Long getFreqBandPlanGroupId() {
-		return this.freqBandPlanGroupId;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setFreqBandPlanGroupId(Long freqBandPlanGroupId) {
-		this.freqBandPlanGroupId = freqBandPlanGroupId;
-		if(freqBandPlanGroupId != null){
-			putQueryParameter("FreqBandPlanGroupId", freqBandPlanGroupId.toString());
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -110,6 +101,28 @@ public class CountGatewaysRequest extends RpcAcsRequest<CountGatewaysResponse> {
 		this.isEnabled = isEnabled;
 		if(isEnabled != null){
 			putQueryParameter("IsEnabled", isEnabled.toString());
+		}
+	}
+
+	public String getFuzzyName() {
+		return this.fuzzyName;
+	}
+
+	public void setFuzzyName(String fuzzyName) {
+		this.fuzzyName = fuzzyName;
+		if(fuzzyName != null){
+			putQueryParameter("FuzzyName", fuzzyName);
+		}
+	}
+
+	public Long getFreqBandPlanGroupId() {
+		return this.freqBandPlanGroupId;
+	}
+
+	public void setFreqBandPlanGroupId(Long freqBandPlanGroupId) {
+		this.freqBandPlanGroupId = freqBandPlanGroupId;
+		if(freqBandPlanGroupId != null){
+			putQueryParameter("FreqBandPlanGroupId", freqBandPlanGroupId.toString());
 		}
 	}
 

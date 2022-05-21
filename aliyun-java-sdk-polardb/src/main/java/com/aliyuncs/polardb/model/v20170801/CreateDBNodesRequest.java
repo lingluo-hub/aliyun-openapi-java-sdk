@@ -30,6 +30,10 @@ public class CreateDBNodesRequest extends RpcAcsRequest<CreateDBNodesResponse> {
 
 	private String clientToken;
 
+	private String endpointBindList;
+
+	private String plannedEndTime;
+
 	private String resourceOwnerAccount;
 
 	private String dBClusterId;
@@ -38,9 +42,13 @@ public class CreateDBNodesRequest extends RpcAcsRequest<CreateDBNodesResponse> {
 
 	private Long ownerId;
 
+	private String plannedStartTime;
+
 	private List<DBNode> dBNodes;
+
+	private String imciSwitch;
 	public CreateDBNodesRequest() {
-		super("polardb", "2017-08-01", "CreateDBNodes", "polardb");
+		super("polardb", "2017-08-01", "CreateDBNodes");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -67,6 +75,28 @@ public class CreateDBNodesRequest extends RpcAcsRequest<CreateDBNodesResponse> {
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getEndpointBindList() {
+		return this.endpointBindList;
+	}
+
+	public void setEndpointBindList(String endpointBindList) {
+		this.endpointBindList = endpointBindList;
+		if(endpointBindList != null){
+			putQueryParameter("EndpointBindList", endpointBindList);
+		}
+	}
+
+	public String getPlannedEndTime() {
+		return this.plannedEndTime;
+	}
+
+	public void setPlannedEndTime(String plannedEndTime) {
+		this.plannedEndTime = plannedEndTime;
+		if(plannedEndTime != null){
+			putQueryParameter("PlannedEndTime", plannedEndTime);
 		}
 	}
 
@@ -114,6 +144,17 @@ public class CreateDBNodesRequest extends RpcAcsRequest<CreateDBNodesResponse> {
 		}
 	}
 
+	public String getPlannedStartTime() {
+		return this.plannedStartTime;
+	}
+
+	public void setPlannedStartTime(String plannedStartTime) {
+		this.plannedStartTime = plannedStartTime;
+		if(plannedStartTime != null){
+			putQueryParameter("PlannedStartTime", plannedStartTime);
+		}
+	}
+
 	public List<DBNode> getDBNodes() {
 		return this.dBNodes;
 	}
@@ -126,6 +167,17 @@ public class CreateDBNodesRequest extends RpcAcsRequest<CreateDBNodesResponse> {
 				putQueryParameter("DBNode." + (depth1 + 1) + ".ZoneId" , dBNodes.get(depth1).getZoneId());
 			}
 		}	
+	}
+
+	public String getImciSwitch() {
+		return this.imciSwitch;
+	}
+
+	public void setImciSwitch(String imciSwitch) {
+		this.imciSwitch = imciSwitch;
+		if(imciSwitch != null){
+			putQueryParameter("ImciSwitch", imciSwitch);
+		}
 	}
 
 	public static class DBNode {

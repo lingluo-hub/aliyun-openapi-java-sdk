@@ -23,10 +23,10 @@ public class PublishContactFlowVersionResponseUnmarshaller {
 	public static PublishContactFlowVersionResponse unmarshall(PublishContactFlowVersionResponse publishContactFlowVersionResponse, UnmarshallerContext _ctx) {
 		
 		publishContactFlowVersionResponse.setRequestId(_ctx.stringValue("PublishContactFlowVersionResponse.RequestId"));
-		publishContactFlowVersionResponse.setSuccess(_ctx.booleanValue("PublishContactFlowVersionResponse.Success"));
+		publishContactFlowVersionResponse.setHttpStatusCode(_ctx.integerValue("PublishContactFlowVersionResponse.HttpStatusCode"));
 		publishContactFlowVersionResponse.setCode(_ctx.stringValue("PublishContactFlowVersionResponse.Code"));
 		publishContactFlowVersionResponse.setMessage(_ctx.stringValue("PublishContactFlowVersionResponse.Message"));
-		publishContactFlowVersionResponse.setHttpStatusCode(_ctx.integerValue("PublishContactFlowVersionResponse.HttpStatusCode"));
+		publishContactFlowVersionResponse.setSuccess(_ctx.booleanValue("PublishContactFlowVersionResponse.Success"));
 	 
 	 	return publishContactFlowVersionResponse;
 	}

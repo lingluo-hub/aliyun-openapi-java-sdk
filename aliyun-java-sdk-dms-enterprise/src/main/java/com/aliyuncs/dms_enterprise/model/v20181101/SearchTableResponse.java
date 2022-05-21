@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class SearchTableResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<SearchTable> searchTableList;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class SearchTableResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class SearchTableResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<SearchTable> getSearchTableList() {
@@ -87,35 +87,35 @@ public class SearchTableResponse extends AcsResponse {
 
 	public static class SearchTable {
 
-		private String tableId;
-
 		private String databaseId;
 
 		private String tableName;
 
-		private String tableSchemaName;
-
-		private String engine;
-
-		private String encoding;
+		private String dBSearchName;
 
 		private Boolean logic;
 
 		private String envType;
 
-		private String dBSearchName;
+		private String dbName;
+
+		private String description;
+
+		private String encoding;
+
+		private String dbType;
+
+		private String tableSchemaName;
+
+		private String tableGuid;
+
+		private String engine;
+
+		private String tableId;
 
 		private List<String> ownerIdList;
 
 		private List<String> ownerNameList;
-
-		public String getTableId() {
-			return this.tableId;
-		}
-
-		public void setTableId(String tableId) {
-			this.tableId = tableId;
-		}
 
 		public String getDatabaseId() {
 			return this.databaseId;
@@ -133,28 +133,12 @@ public class SearchTableResponse extends AcsResponse {
 			this.tableName = tableName;
 		}
 
-		public String getTableSchemaName() {
-			return this.tableSchemaName;
+		public String getDBSearchName() {
+			return this.dBSearchName;
 		}
 
-		public void setTableSchemaName(String tableSchemaName) {
-			this.tableSchemaName = tableSchemaName;
-		}
-
-		public String getEngine() {
-			return this.engine;
-		}
-
-		public void setEngine(String engine) {
-			this.engine = engine;
-		}
-
-		public String getEncoding() {
-			return this.encoding;
-		}
-
-		public void setEncoding(String encoding) {
-			this.encoding = encoding;
+		public void setDBSearchName(String dBSearchName) {
+			this.dBSearchName = dBSearchName;
 		}
 
 		public Boolean getLogic() {
@@ -173,12 +157,68 @@ public class SearchTableResponse extends AcsResponse {
 			this.envType = envType;
 		}
 
-		public String getDBSearchName() {
-			return this.dBSearchName;
+		public String getDbName() {
+			return this.dbName;
 		}
 
-		public void setDBSearchName(String dBSearchName) {
-			this.dBSearchName = dBSearchName;
+		public void setDbName(String dbName) {
+			this.dbName = dbName;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getEncoding() {
+			return this.encoding;
+		}
+
+		public void setEncoding(String encoding) {
+			this.encoding = encoding;
+		}
+
+		public String getDbType() {
+			return this.dbType;
+		}
+
+		public void setDbType(String dbType) {
+			this.dbType = dbType;
+		}
+
+		public String getTableSchemaName() {
+			return this.tableSchemaName;
+		}
+
+		public void setTableSchemaName(String tableSchemaName) {
+			this.tableSchemaName = tableSchemaName;
+		}
+
+		public String getTableGuid() {
+			return this.tableGuid;
+		}
+
+		public void setTableGuid(String tableGuid) {
+			this.tableGuid = tableGuid;
+		}
+
+		public String getEngine() {
+			return this.engine;
+		}
+
+		public void setEngine(String engine) {
+			this.engine = engine;
+		}
+
+		public String getTableId() {
+			return this.tableId;
+		}
+
+		public void setTableId(String tableId) {
+			this.tableId = tableId;
 		}
 
 		public List<String> getOwnerIdList() {

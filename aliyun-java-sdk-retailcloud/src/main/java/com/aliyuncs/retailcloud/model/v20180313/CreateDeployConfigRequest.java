@@ -40,9 +40,13 @@ public class CreateDeployConfigRequest extends RpcAcsRequest<CreateDeployConfigR
 
 	private String name;
 
+	private List<String> secretLists;
+
+	private String cronJob;
+
 	private String deployment;
 	public CreateDeployConfigRequest() {
-		super("retailcloud", "2018-03-13", "CreateDeployConfig", "retailcloud");
+		super("retailcloud", "2018-03-13", "CreateDeployConfig");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -126,6 +130,30 @@ public class CreateDeployConfigRequest extends RpcAcsRequest<CreateDeployConfigR
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
+		}
+	}
+
+	public List<String> getSecretLists() {
+		return this.secretLists;
+	}
+
+	public void setSecretLists(List<String> secretLists) {
+		this.secretLists = secretLists;	
+		if (secretLists != null) {
+			for (int i = 0; i < secretLists.size(); i++) {
+				putQueryParameter("SecretList." + (i + 1) , secretLists.get(i));
+			}
+		}	
+	}
+
+	public String getCronJob() {
+		return this.cronJob;
+	}
+
+	public void setCronJob(String cronJob) {
+		this.cronJob = cronJob;
+		if(cronJob != null){
+			putQueryParameter("CronJob", cronJob);
 		}
 	}
 

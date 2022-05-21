@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetSmsConfigResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<SmsConfig> smsConfigs;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class GetSmsConfigResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<SmsConfig> getSmsConfigs() {
@@ -87,33 +87,25 @@ public class GetSmsConfigResponse extends AcsResponse {
 
 	public static class SmsConfig {
 
-		private Long id;
-
 		private String instance;
-
-		private String signName;
-
-		private String templateCode;
-
-		private Integer scenario;
-
-		private String name;
 
 		private String description;
 
-		private String extra;
+		private String templateCode;
 
 		private String gmtCreate;
 
+		private Integer scenario;
+
 		private String gmtModified;
 
-		public Long getId() {
-			return this.id;
-		}
+		private String name;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+		private String extra;
+
+		private String signName;
+
+		private Long id;
 
 		public String getInstance() {
 			return this.instance;
@@ -121,38 +113,6 @@ public class GetSmsConfigResponse extends AcsResponse {
 
 		public void setInstance(String instance) {
 			this.instance = instance;
-		}
-
-		public String getSignName() {
-			return this.signName;
-		}
-
-		public void setSignName(String signName) {
-			this.signName = signName;
-		}
-
-		public String getTemplateCode() {
-			return this.templateCode;
-		}
-
-		public void setTemplateCode(String templateCode) {
-			this.templateCode = templateCode;
-		}
-
-		public Integer getScenario() {
-			return this.scenario;
-		}
-
-		public void setScenario(Integer scenario) {
-			this.scenario = scenario;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
 		}
 
 		public String getDescription() {
@@ -163,12 +123,12 @@ public class GetSmsConfigResponse extends AcsResponse {
 			this.description = description;
 		}
 
-		public String getExtra() {
-			return this.extra;
+		public String getTemplateCode() {
+			return this.templateCode;
 		}
 
-		public void setExtra(String extra) {
-			this.extra = extra;
+		public void setTemplateCode(String templateCode) {
+			this.templateCode = templateCode;
 		}
 
 		public String getGmtCreate() {
@@ -179,12 +139,52 @@ public class GetSmsConfigResponse extends AcsResponse {
 			this.gmtCreate = gmtCreate;
 		}
 
+		public Integer getScenario() {
+			return this.scenario;
+		}
+
+		public void setScenario(Integer scenario) {
+			this.scenario = scenario;
+		}
+
 		public String getGmtModified() {
 			return this.gmtModified;
 		}
 
 		public void setGmtModified(String gmtModified) {
 			this.gmtModified = gmtModified;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getExtra() {
+			return this.extra;
+		}
+
+		public void setExtra(String extra) {
+			this.extra = extra;
+		}
+
+		public String getSignName() {
+			return this.signName;
+		}
+
+		public void setSignName(String signName) {
+			this.signName = signName;
+		}
+
+		public Long getId() {
+			return this.id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
 		}
 	}
 

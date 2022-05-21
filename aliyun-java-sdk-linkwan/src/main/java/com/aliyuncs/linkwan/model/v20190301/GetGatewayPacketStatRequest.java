@@ -28,9 +28,11 @@ public class GetGatewayPacketStatRequest extends RpcAcsRequest<GetGatewayPacketS
 
 	private Long endMillis;
 
-	private Long beginMillis;
+	private String iotInstanceId;
 
 	private String gwEui;
+
+	private Long beginMillis;
 	public GetGatewayPacketStatRequest() {
 		super("LinkWAN", "2019-03-01", "GetGatewayPacketStat", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -52,14 +54,14 @@ public class GetGatewayPacketStatRequest extends RpcAcsRequest<GetGatewayPacketS
 		}
 	}
 
-	public Long getBeginMillis() {
-		return this.beginMillis;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setBeginMillis(Long beginMillis) {
-		this.beginMillis = beginMillis;
-		if(beginMillis != null){
-			putQueryParameter("BeginMillis", beginMillis.toString());
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -71,6 +73,17 @@ public class GetGatewayPacketStatRequest extends RpcAcsRequest<GetGatewayPacketS
 		this.gwEui = gwEui;
 		if(gwEui != null){
 			putQueryParameter("GwEui", gwEui);
+		}
+	}
+
+	public Long getBeginMillis() {
+		return this.beginMillis;
+	}
+
+	public void setBeginMillis(Long beginMillis) {
+		this.beginMillis = beginMillis;
+		if(beginMillis != null){
+			putQueryParameter("BeginMillis", beginMillis.toString());
 		}
 	}
 

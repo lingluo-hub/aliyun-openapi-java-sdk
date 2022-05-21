@@ -23,10 +23,10 @@ public class CreateSynchronizationJobResponseUnmarshaller {
 	public static CreateSynchronizationJobResponse unmarshall(CreateSynchronizationJobResponse createSynchronizationJobResponse, UnmarshallerContext _ctx) {
 		
 		createSynchronizationJobResponse.setRequestId(_ctx.stringValue("CreateSynchronizationJobResponse.RequestId"));
-		createSynchronizationJobResponse.setSuccess(_ctx.stringValue("CreateSynchronizationJobResponse.Success"));
 		createSynchronizationJobResponse.setErrCode(_ctx.stringValue("CreateSynchronizationJobResponse.ErrCode"));
-		createSynchronizationJobResponse.setErrMessage(_ctx.stringValue("CreateSynchronizationJobResponse.ErrMessage"));
+		createSynchronizationJobResponse.setSuccess(_ctx.stringValue("CreateSynchronizationJobResponse.Success"));
 		createSynchronizationJobResponse.setSynchronizationJobId(_ctx.stringValue("CreateSynchronizationJobResponse.SynchronizationJobId"));
+		createSynchronizationJobResponse.setErrMessage(_ctx.stringValue("CreateSynchronizationJobResponse.ErrMessage"));
 	 
 	 	return createSynchronizationJobResponse;
 	}

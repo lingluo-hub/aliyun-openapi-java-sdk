@@ -25,18 +25,29 @@ import com.aliyuncs.ocr.Endpoint;
 public class RecognizeCharacterRequest extends RpcAcsRequest<RecognizeCharacterResponse> {
 	   
 
+	private Integer minHeight;
+
 	private Boolean outputProbability;
 
 	private String imageURL;
-
-	private Integer minHeight;
 	public RecognizeCharacterRequest() {
-		super("ocr", "2019-12-30", "RecognizeCharacter", "ocr");
+		super("ocr", "2019-12-30", "RecognizeCharacter");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getMinHeight() {
+		return this.minHeight;
+	}
+
+	public void setMinHeight(Integer minHeight) {
+		this.minHeight = minHeight;
+		if(minHeight != null){
+			putBodyParameter("MinHeight", minHeight.toString());
+		}
 	}
 
 	public Boolean getOutputProbability() {
@@ -58,17 +69,6 @@ public class RecognizeCharacterRequest extends RpcAcsRequest<RecognizeCharacterR
 		this.imageURL = imageURL;
 		if(imageURL != null){
 			putBodyParameter("ImageURL", imageURL);
-		}
-	}
-
-	public Integer getMinHeight() {
-		return this.minHeight;
-	}
-
-	public void setMinHeight(Integer minHeight) {
-		this.minHeight = minHeight;
-		if(minHeight != null){
-			putBodyParameter("MinHeight", minHeight.toString());
 		}
 	}
 

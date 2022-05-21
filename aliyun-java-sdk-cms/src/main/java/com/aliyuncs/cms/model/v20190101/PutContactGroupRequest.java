@@ -25,6 +25,8 @@ import com.aliyuncs.http.MethodType;
 public class PutContactGroupRequest extends RpcAcsRequest<PutContactGroupResponse> {
 	   
 
+	private Boolean enableSubscribed;
+
 	private String contactGroupName;
 
 	private String describe;
@@ -33,6 +35,17 @@ public class PutContactGroupRequest extends RpcAcsRequest<PutContactGroupRespons
 	public PutContactGroupRequest() {
 		super("Cms", "2019-01-01", "PutContactGroup", "cms");
 		setMethod(MethodType.POST);
+	}
+
+	public Boolean getEnableSubscribed() {
+		return this.enableSubscribed;
+	}
+
+	public void setEnableSubscribed(Boolean enableSubscribed) {
+		this.enableSubscribed = enableSubscribed;
+		if(enableSubscribed != null){
+			putQueryParameter("EnableSubscribed", enableSubscribed.toString());
+		}
 	}
 
 	public String getContactGroupName() {

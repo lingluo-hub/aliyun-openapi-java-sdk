@@ -37,8 +37,18 @@ public class RecognizeTableResponseUnmarshaller {
 		List<Table> tables = new ArrayList<Table>();
 		for (int i = 0; i < _ctx.lengthValue("RecognizeTableResponse.Data.Tables.Length"); i++) {
 			Table table = new Table();
-			table.setHead(_ctx.stringValue("RecognizeTableResponse.Data.Tables["+ i +"].Head"));
-			table.setTail(_ctx.stringValue("RecognizeTableResponse.Data.Tables["+ i +"].Tail"));
+
+			List<String> head = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("RecognizeTableResponse.Data.Tables["+ i +"].Head.Length"); j++) {
+				head.add(_ctx.stringValue("RecognizeTableResponse.Data.Tables["+ i +"].Head["+ j +"]"));
+			}
+			table.setHead(head);
+
+			List<String> tail = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("RecognizeTableResponse.Data.Tables["+ i +"].Tail.Length"); j++) {
+				tail.add(_ctx.stringValue("RecognizeTableResponse.Data.Tables["+ i +"].Tail["+ j +"]"));
+			}
+			table.setTail(tail);
 
 			List<TableRow> tableRows = new ArrayList<TableRow>();
 			for (int j = 0; j < _ctx.lengthValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows.Length"); j++) {
@@ -47,12 +57,12 @@ public class RecognizeTableResponseUnmarshaller {
 				List<TableColumn> tableColumns = new ArrayList<TableColumn>();
 				for (int k = 0; k < _ctx.lengthValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns.Length"); k++) {
 					TableColumn tableColumn = new TableColumn();
-					tableColumn.setStartColumn(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].StartColumn"));
-					tableColumn.setStartRow(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].StartRow"));
-					tableColumn.setEndColumn(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].EndColumn"));
 					tableColumn.setEndRow(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].EndRow"));
-					tableColumn.setHeight(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].Height"));
+					tableColumn.setEndColumn(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].EndColumn"));
 					tableColumn.setWidth(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].Width"));
+					tableColumn.setHeight(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].Height"));
+					tableColumn.setStartRow(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].StartRow"));
+					tableColumn.setStartColumn(_ctx.integerValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].StartColumn"));
 
 					List<String> texts = new ArrayList<String>();
 					for (int l = 0; l < _ctx.lengthValue("RecognizeTableResponse.Data.Tables["+ i +"].TableRows["+ j +"].TableColumns["+ k +"].Texts.Length"); l++) {

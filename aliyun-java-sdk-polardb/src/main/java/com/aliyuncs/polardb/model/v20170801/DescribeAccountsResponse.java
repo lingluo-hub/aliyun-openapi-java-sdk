@@ -25,9 +25,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeAccountsResponse extends AcsResponse {
 
+	private Integer pageRecordCount;
+
 	private String requestId;
 
+	private Integer pageNumber;
+
 	private List<DBAccount> accounts;
+
+	public Integer getPageRecordCount() {
+		return this.pageRecordCount;
+	}
+
+	public void setPageRecordCount(Integer pageRecordCount) {
+		this.pageRecordCount = pageRecordCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -35,6 +47,14 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<DBAccount> getAccounts() {
@@ -47,29 +67,21 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 	public static class DBAccount {
 
-		private String accountName;
-
 		private String accountStatus;
 
 		private String accountDescription;
-
-		private String accountType;
-
-		private String accountLockState;
 
 		private String privilegeExceeded;
 
 		private String accountPasswordValidTime;
 
+		private String accountType;
+
+		private String accountLockState;
+
+		private String accountName;
+
 		private List<DatabasePrivilege> databasePrivileges;
-
-		public String getAccountName() {
-			return this.accountName;
-		}
-
-		public void setAccountName(String accountName) {
-			this.accountName = accountName;
-		}
 
 		public String getAccountStatus() {
 			return this.accountStatus;
@@ -85,6 +97,22 @@ public class DescribeAccountsResponse extends AcsResponse {
 
 		public void setAccountDescription(String accountDescription) {
 			this.accountDescription = accountDescription;
+		}
+
+		public String getPrivilegeExceeded() {
+			return this.privilegeExceeded;
+		}
+
+		public void setPrivilegeExceeded(String privilegeExceeded) {
+			this.privilegeExceeded = privilegeExceeded;
+		}
+
+		public String getAccountPasswordValidTime() {
+			return this.accountPasswordValidTime;
+		}
+
+		public void setAccountPasswordValidTime(String accountPasswordValidTime) {
+			this.accountPasswordValidTime = accountPasswordValidTime;
 		}
 
 		public String getAccountType() {
@@ -103,20 +131,12 @@ public class DescribeAccountsResponse extends AcsResponse {
 			this.accountLockState = accountLockState;
 		}
 
-		public String getPrivilegeExceeded() {
-			return this.privilegeExceeded;
+		public String getAccountName() {
+			return this.accountName;
 		}
 
-		public void setPrivilegeExceeded(String privilegeExceeded) {
-			this.privilegeExceeded = privilegeExceeded;
-		}
-
-		public String getAccountPasswordValidTime() {
-			return this.accountPasswordValidTime;
-		}
-
-		public void setAccountPasswordValidTime(String accountPasswordValidTime) {
-			this.accountPasswordValidTime = accountPasswordValidTime;
+		public void setAccountName(String accountName) {
+			this.accountName = accountName;
 		}
 
 		public List<DatabasePrivilege> getDatabasePrivileges() {

@@ -24,9 +24,21 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class IndexVideoResponse extends AcsResponse {
 
+	private String modifyTime;
+
+	private String endTime;
+
 	private String requestId;
 
-	private String setId;
+	private Boolean saveType;
+
+	private String createTime;
+
+	private String externalId;
+
+	private String startTime;
+
+	private String grabType;
 
 	private String videoUri;
 
@@ -34,27 +46,31 @@ public class IndexVideoResponse extends AcsResponse {
 
 	private String remarksB;
 
-	private String createTime;
-
-	private String modifyTime;
-
-	private Float interval;
-
-	private String grabType;
-
-	private String startTime;
-
-	private String endTime;
-
-	private Boolean saveType;
-
-	private String tgtUri;
-
 	private String remarksC;
 
 	private String remarksD;
 
-	private String externalId;
+	private String tgtUri;
+
+	private String setId;
+
+	private Float interval;
+
+	public String getModifyTime() {
+		return this.modifyTime;
+	}
+
+	public void setModifyTime(String modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -64,12 +80,44 @@ public class IndexVideoResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getSetId() {
-		return this.setId;
+	public Boolean getSaveType() {
+		return this.saveType;
 	}
 
-	public void setSetId(String setId) {
-		this.setId = setId;
+	public void setSaveType(Boolean saveType) {
+		this.saveType = saveType;
+	}
+
+	public String getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getExternalId() {
+		return this.externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getGrabType() {
+		return this.grabType;
+	}
+
+	public void setGrabType(String grabType) {
+		this.grabType = grabType;
 	}
 
 	public String getVideoUri() {
@@ -96,70 +144,6 @@ public class IndexVideoResponse extends AcsResponse {
 		this.remarksB = remarksB;
 	}
 
-	public String getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getModifyTime() {
-		return this.modifyTime;
-	}
-
-	public void setModifyTime(String modifyTime) {
-		this.modifyTime = modifyTime;
-	}
-
-	public Float getInterval() {
-		return this.interval;
-	}
-
-	public void setInterval(Float interval) {
-		this.interval = interval;
-	}
-
-	public String getGrabType() {
-		return this.grabType;
-	}
-
-	public void setGrabType(String grabType) {
-		this.grabType = grabType;
-	}
-
-	public String getStartTime() {
-		return this.startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
-	public Boolean getSaveType() {
-		return this.saveType;
-	}
-
-	public void setSaveType(Boolean saveType) {
-		this.saveType = saveType;
-	}
-
-	public String getTgtUri() {
-		return this.tgtUri;
-	}
-
-	public void setTgtUri(String tgtUri) {
-		this.tgtUri = tgtUri;
-	}
-
 	public String getRemarksC() {
 		return this.remarksC;
 	}
@@ -176,12 +160,28 @@ public class IndexVideoResponse extends AcsResponse {
 		this.remarksD = remarksD;
 	}
 
-	public String getExternalId() {
-		return this.externalId;
+	public String getTgtUri() {
+		return this.tgtUri;
 	}
 
-	public void setExternalId(String externalId) {
-		this.externalId = externalId;
+	public void setTgtUri(String tgtUri) {
+		this.tgtUri = tgtUri;
+	}
+
+	public String getSetId() {
+		return this.setId;
+	}
+
+	public void setSetId(String setId) {
+		this.setId = setId;
+	}
+
+	public Float getInterval() {
+		return this.interval;
+	}
+
+	public void setInterval(Float interval) {
+		this.interval = interval;
 	}
 
 	@Override

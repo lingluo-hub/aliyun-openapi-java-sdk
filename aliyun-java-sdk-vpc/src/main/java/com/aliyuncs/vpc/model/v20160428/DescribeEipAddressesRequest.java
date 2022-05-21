@@ -27,9 +27,15 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 
 	private Long resourceOwnerId;
 
+	private String publicIpAddressPoolId;
+
 	private String filter2Value;
 
+	private Boolean securityProtectionEnabled;
+
 	private String iSP;
+
+	private String eipName;
 
 	private String allocationId;
 
@@ -51,6 +57,8 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 
 	private String segmentInstanceId;
 
+	private Boolean dryRun;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -67,7 +75,7 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 
 	private String status;
 	public DescribeEipAddressesRequest() {
-		super("Vpc", "2016-04-28", "DescribeEipAddresses", "Vpc");
+		super("Vpc", "2016-04-28", "DescribeEipAddresses", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -86,6 +94,17 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 		}
 	}
 
+	public String getPublicIpAddressPoolId() {
+		return this.publicIpAddressPoolId;
+	}
+
+	public void setPublicIpAddressPoolId(String publicIpAddressPoolId) {
+		this.publicIpAddressPoolId = publicIpAddressPoolId;
+		if(publicIpAddressPoolId != null){
+			putQueryParameter("PublicIpAddressPoolId", publicIpAddressPoolId);
+		}
+	}
+
 	public String getFilter2Value() {
 		return this.filter2Value;
 	}
@@ -97,6 +116,17 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 		}
 	}
 
+	public Boolean getSecurityProtectionEnabled() {
+		return this.securityProtectionEnabled;
+	}
+
+	public void setSecurityProtectionEnabled(Boolean securityProtectionEnabled) {
+		this.securityProtectionEnabled = securityProtectionEnabled;
+		if(securityProtectionEnabled != null){
+			putQueryParameter("SecurityProtectionEnabled", securityProtectionEnabled.toString());
+		}
+	}
+
 	public String getISP() {
 		return this.iSP;
 	}
@@ -105,6 +135,17 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 		this.iSP = iSP;
 		if(iSP != null){
 			putQueryParameter("ISP", iSP);
+		}
+	}
+
+	public String getEipName() {
+		return this.eipName;
+	}
+
+	public void setEipName(String eipName) {
+		this.eipName = eipName;
+		if(eipName != null){
+			putQueryParameter("EipName", eipName);
 		}
 	}
 
@@ -215,6 +256,17 @@ public class DescribeEipAddressesRequest extends RpcAcsRequest<DescribeEipAddres
 		this.segmentInstanceId = segmentInstanceId;
 		if(segmentInstanceId != null){
 			putQueryParameter("SegmentInstanceId", segmentInstanceId);
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 

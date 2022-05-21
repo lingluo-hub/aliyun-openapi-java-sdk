@@ -25,11 +25,9 @@ import com.aliyuncs.mse.Endpoint;
 public class ListEngineNamespacesRequest extends RpcAcsRequest<ListEngineNamespacesResponse> {
 	   
 
-	private String clusterId;
+	private String instanceId;
 
-	private Integer pageNum;
-
-	private Integer pageSize;
+	private String acceptLanguage;
 	public ListEngineNamespacesRequest() {
 		super("mse", "2019-05-31", "ListEngineNamespaces", "mse");
 		setMethod(MethodType.GET);
@@ -39,36 +37,25 @@ public class ListEngineNamespacesRequest extends RpcAcsRequest<ListEngineNamespa
 		} catch (Exception e) {}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 
-	public Integer getPageNum() {
-		return this.pageNum;
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
 	}
 
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-		if(pageNum != null){
-			putQueryParameter("PageNum", pageNum.toString());
-		}
-	}
-
-	public Integer getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

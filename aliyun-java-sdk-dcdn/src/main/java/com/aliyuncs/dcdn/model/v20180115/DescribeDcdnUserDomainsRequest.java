@@ -15,6 +15,7 @@
 package com.aliyuncs.dcdn.model.v20180115;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.dcdn.Endpoint;
 
@@ -37,13 +38,13 @@ public class DescribeDcdnUserDomainsRequest extends RpcAcsRequest<DescribeDcdnUs
 
 	private Integer pageSize;
 
-	private String funcFilter;
+	private List<Tag> tags;
+
+	private String coverage;
 
 	private String domainName;
 
 	private Long ownerId;
-
-	private String funcId;
 
 	private String domainStatus;
 
@@ -125,14 +126,28 @@ public class DescribeDcdnUserDomainsRequest extends RpcAcsRequest<DescribeDcdnUs
 		}
 	}
 
-	public String getFuncFilter() {
-		return this.funcFilter;
+	public List<Tag> getTags() {
+		return this.tags;
 	}
 
-	public void setFuncFilter(String funcFilter) {
-		this.funcFilter = funcFilter;
-		if(funcFilter != null){
-			putQueryParameter("FuncFilter", funcFilter);
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
+	public String getCoverage() {
+		return this.coverage;
+	}
+
+	public void setCoverage(String coverage) {
+		this.coverage = coverage;
+		if(coverage != null){
+			putQueryParameter("Coverage", coverage);
 		}
 	}
 
@@ -155,17 +170,6 @@ public class DescribeDcdnUserDomainsRequest extends RpcAcsRequest<DescribeDcdnUs
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getFuncId() {
-		return this.funcId;
-	}
-
-	public void setFuncId(String funcId) {
-		this.funcId = funcId;
-		if(funcId != null){
-			putQueryParameter("FuncId", funcId);
 		}
 	}
 
@@ -199,6 +203,29 @@ public class DescribeDcdnUserDomainsRequest extends RpcAcsRequest<DescribeDcdnUs
 		this.changeStartTime = changeStartTime;
 		if(changeStartTime != null){
 			putQueryParameter("ChangeStartTime", changeStartTime);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

@@ -16,6 +16,7 @@ package com.aliyuncs.linkedmall.model.v20180116;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkedmall.Endpoint;
 
 /**
  * @author auto create
@@ -29,9 +30,15 @@ public class QueryUnfinishedSessionsRequest extends RpcAcsRequest<QueryUnfinishe
 	private Integer pageSize;
 
 	private Integer pageNumber;
+
+	private Long queryTime;
 	public QueryUnfinishedSessionsRequest() {
-		super("linkedmall", "2018-01-16", "QueryUnfinishedSessions");
+		super("linkedmall", "2018-01-16", "QueryUnfinishedSessions", "linkedmall");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getBizId() {
@@ -64,6 +71,17 @@ public class QueryUnfinishedSessionsRequest extends RpcAcsRequest<QueryUnfinishe
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Long getQueryTime() {
+		return this.queryTime;
+	}
+
+	public void setQueryTime(Long queryTime) {
+		this.queryTime = queryTime;
+		if(queryTime != null){
+			putQueryParameter("QueryTime", queryTime.toString());
 		}
 	}
 

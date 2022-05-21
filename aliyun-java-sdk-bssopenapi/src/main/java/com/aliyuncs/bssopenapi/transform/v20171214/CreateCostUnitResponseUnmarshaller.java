@@ -28,19 +28,19 @@ public class CreateCostUnitResponseUnmarshaller {
 	public static CreateCostUnitResponse unmarshall(CreateCostUnitResponse createCostUnitResponse, UnmarshallerContext _ctx) {
 		
 		createCostUnitResponse.setRequestId(_ctx.stringValue("CreateCostUnitResponse.RequestId"));
-		createCostUnitResponse.setSuccess(_ctx.booleanValue("CreateCostUnitResponse.Success"));
 		createCostUnitResponse.setCode(_ctx.stringValue("CreateCostUnitResponse.Code"));
 		createCostUnitResponse.setMessage(_ctx.stringValue("CreateCostUnitResponse.Message"));
+		createCostUnitResponse.setSuccess(_ctx.booleanValue("CreateCostUnitResponse.Success"));
 
 		Data data = new Data();
 
 		List<CostUnitDtoListItem> costUnitDtoList = new ArrayList<CostUnitDtoListItem>();
 		for (int i = 0; i < _ctx.lengthValue("CreateCostUnitResponse.Data.CostUnitDtoList.Length"); i++) {
 			CostUnitDtoListItem costUnitDtoListItem = new CostUnitDtoListItem();
-			costUnitDtoListItem.setOwnerUid(_ctx.longValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].OwnerUid"));
 			costUnitDtoListItem.setParentUnitId(_ctx.longValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].ParentUnitId"));
-			costUnitDtoListItem.setUnitId(_ctx.longValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitId"));
 			costUnitDtoListItem.setUnitName(_ctx.stringValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitName"));
+			costUnitDtoListItem.setUnitId(_ctx.longValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].UnitId"));
+			costUnitDtoListItem.setOwnerUid(_ctx.longValue("CreateCostUnitResponse.Data.CostUnitDtoList["+ i +"].OwnerUid"));
 
 			costUnitDtoList.add(costUnitDtoListItem);
 		}

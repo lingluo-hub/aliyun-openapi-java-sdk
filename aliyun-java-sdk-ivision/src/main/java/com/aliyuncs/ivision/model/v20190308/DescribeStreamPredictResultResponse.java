@@ -25,25 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeStreamPredictResultResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Long totalNum;
 
-	private Long currentPage;
-
 	private Long pageSize;
+
+	private String requestId;
+
+	private Long currentPage;
 
 	private String nextPageToken;
 
 	private List<StreamPredictData> streamPredictDatas;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Long getTotalNum() {
 		return this.totalNum;
@@ -53,20 +45,28 @@ public class DescribeStreamPredictResultResponse extends AcsResponse {
 		this.totalNum = totalNum;
 	}
 
-	public Long getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Long currentPage) {
-		this.currentPage = currentPage;
-	}
-
 	public Long getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Long pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Long getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Long currentPage) {
+		this.currentPage = currentPage;
 	}
 
 	public String getNextPageToken() {
@@ -87,19 +87,35 @@ public class DescribeStreamPredictResultResponse extends AcsResponse {
 
 	public static class StreamPredictData {
 
+		private String status;
+
+		private String predictResult;
+
 		private String predictId;
 
-		private String modelId;
+		private String predictTime;
 
 		private String dataUrl;
 
 		private Long timestamp;
 
-		private String predictTime;
+		private String modelId;
 
-		private String status;
+		public String getStatus() {
+			return this.status;
+		}
 
-		private String predictResult;
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getPredictResult() {
+			return this.predictResult;
+		}
+
+		public void setPredictResult(String predictResult) {
+			this.predictResult = predictResult;
+		}
 
 		public String getPredictId() {
 			return this.predictId;
@@ -109,12 +125,12 @@ public class DescribeStreamPredictResultResponse extends AcsResponse {
 			this.predictId = predictId;
 		}
 
-		public String getModelId() {
-			return this.modelId;
+		public String getPredictTime() {
+			return this.predictTime;
 		}
 
-		public void setModelId(String modelId) {
-			this.modelId = modelId;
+		public void setPredictTime(String predictTime) {
+			this.predictTime = predictTime;
 		}
 
 		public String getDataUrl() {
@@ -133,28 +149,12 @@ public class DescribeStreamPredictResultResponse extends AcsResponse {
 			this.timestamp = timestamp;
 		}
 
-		public String getPredictTime() {
-			return this.predictTime;
+		public String getModelId() {
+			return this.modelId;
 		}
 
-		public void setPredictTime(String predictTime) {
-			this.predictTime = predictTime;
-		}
-
-		public String getStatus() {
-			return this.status;
-		}
-
-		public void setStatus(String status) {
-			this.status = status;
-		}
-
-		public String getPredictResult() {
-			return this.predictResult;
-		}
-
-		public void setPredictResult(String predictResult) {
-			this.predictResult = predictResult;
+		public void setModelId(String modelId) {
+			this.modelId = modelId;
 		}
 	}
 

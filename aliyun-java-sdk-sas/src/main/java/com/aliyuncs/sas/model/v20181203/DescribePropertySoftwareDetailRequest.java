@@ -16,6 +16,7 @@ package com.aliyuncs.sas.model.v20181203;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.sas.Endpoint;
 
 /**
  * @author auto create
@@ -32,14 +33,24 @@ public class DescribePropertySoftwareDetailRequest extends RpcAcsRequest<Describ
 
 	private String path;
 
+	private Long installTimeStart;
+
 	private Integer pageSize;
+
+	private Long installTimeEnd;
 
 	private Integer currentPage;
 
+	private String extend;
+
 	private String name;
 	public DescribePropertySoftwareDetailRequest() {
-		super("Sas", "2018-12-03", "DescribePropertySoftwareDetail", "sas");
+		super("Sas", "2018-12-03", "DescribePropertySoftwareDetail");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getSoftwareVersion() {
@@ -86,6 +97,17 @@ public class DescribePropertySoftwareDetailRequest extends RpcAcsRequest<Describ
 		}
 	}
 
+	public Long getInstallTimeStart() {
+		return this.installTimeStart;
+	}
+
+	public void setInstallTimeStart(Long installTimeStart) {
+		this.installTimeStart = installTimeStart;
+		if(installTimeStart != null){
+			putQueryParameter("InstallTimeStart", installTimeStart.toString());
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -97,6 +119,17 @@ public class DescribePropertySoftwareDetailRequest extends RpcAcsRequest<Describ
 		}
 	}
 
+	public Long getInstallTimeEnd() {
+		return this.installTimeEnd;
+	}
+
+	public void setInstallTimeEnd(Long installTimeEnd) {
+		this.installTimeEnd = installTimeEnd;
+		if(installTimeEnd != null){
+			putQueryParameter("InstallTimeEnd", installTimeEnd.toString());
+		}
+	}
+
 	public Integer getCurrentPage() {
 		return this.currentPage;
 	}
@@ -105,6 +138,17 @@ public class DescribePropertySoftwareDetailRequest extends RpcAcsRequest<Describ
 		this.currentPage = currentPage;
 		if(currentPage != null){
 			putQueryParameter("CurrentPage", currentPage.toString());
+		}
+	}
+
+	public String getExtend() {
+		return this.extend;
+	}
+
+	public void setExtend(String extend) {
+		this.extend = extend;
+		if(extend != null){
+			putQueryParameter("Extend", extend);
 		}
 	}
 

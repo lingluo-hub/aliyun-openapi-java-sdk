@@ -29,9 +29,13 @@ public class BindAxbRequest extends RpcAcsRequest<BindAxbResponse> {
 
 	private Integer callDisplayType;
 
+	private Integer callTimeout;
+
 	private String phoneNoX;
 
 	private String ringConfig;
+
+	private Boolean aSRStatus;
 
 	private String phoneNoB;
 
@@ -53,9 +57,11 @@ public class BindAxbRequest extends RpcAcsRequest<BindAxbResponse> {
 
 	private String outId;
 
+	private String aSRModelId;
+
 	private String callRestrict;
 	public BindAxbRequest() {
-		super("Dyplsapi", "2017-05-25", "BindAxb", "dypls");
+		super("Dyplsapi", "2017-05-25", "BindAxb");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -85,6 +91,17 @@ public class BindAxbRequest extends RpcAcsRequest<BindAxbResponse> {
 		}
 	}
 
+	public Integer getCallTimeout() {
+		return this.callTimeout;
+	}
+
+	public void setCallTimeout(Integer callTimeout) {
+		this.callTimeout = callTimeout;
+		if(callTimeout != null){
+			putQueryParameter("CallTimeout", callTimeout.toString());
+		}
+	}
+
 	public String getPhoneNoX() {
 		return this.phoneNoX;
 	}
@@ -104,6 +121,17 @@ public class BindAxbRequest extends RpcAcsRequest<BindAxbResponse> {
 		this.ringConfig = ringConfig;
 		if(ringConfig != null){
 			putQueryParameter("RingConfig", ringConfig);
+		}
+	}
+
+	public Boolean getASRStatus() {
+		return this.aSRStatus;
+	}
+
+	public void setASRStatus(Boolean aSRStatus) {
+		this.aSRStatus = aSRStatus;
+		if(aSRStatus != null){
+			putQueryParameter("ASRStatus", aSRStatus.toString());
 		}
 	}
 
@@ -214,6 +242,17 @@ public class BindAxbRequest extends RpcAcsRequest<BindAxbResponse> {
 		this.outId = outId;
 		if(outId != null){
 			putQueryParameter("OutId", outId);
+		}
+	}
+
+	public String getASRModelId() {
+		return this.aSRModelId;
+	}
+
+	public void setASRModelId(String aSRModelId) {
+		this.aSRModelId = aSRModelId;
+		if(aSRModelId != null){
+			putQueryParameter("ASRModelId", aSRModelId);
 		}
 	}
 

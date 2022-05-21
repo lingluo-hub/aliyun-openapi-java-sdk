@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -24,12 +25,33 @@ import com.aliyuncs.http.MethodType;
 public class QueryDeviceEventPictureRequest extends RpcAcsRequest<QueryDeviceEventPictureResponse> {
 	   
 
+	private String eventId;
+
 	private String iotId;
 
-	private String eventId;
+	private String iotInstanceId;
+
+	private String productKey;
+
+	private String deviceName;
 	public QueryDeviceEventPictureRequest() {
-		super("Linkvisual", "2018-01-20", "QueryDeviceEventPicture", "linkvisual");
+		super("Linkvisual", "2018-01-20", "QueryDeviceEventPicture", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
+
+	public String getEventId() {
+		return this.eventId;
+	}
+
+	public void setEventId(String eventId) {
+		this.eventId = eventId;
+		if(eventId != null){
+			putQueryParameter("EventId", eventId);
+		}
 	}
 
 	public String getIotId() {
@@ -43,14 +65,36 @@ public class QueryDeviceEventPictureRequest extends RpcAcsRequest<QueryDeviceEve
 		}
 	}
 
-	public String getEventId() {
-		return this.eventId;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setEventId(String eventId) {
-		this.eventId = eventId;
-		if(eventId != null){
-			putQueryParameter("EventId", eventId);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

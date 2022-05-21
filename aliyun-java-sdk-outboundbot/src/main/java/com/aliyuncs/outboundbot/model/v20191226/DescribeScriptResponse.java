@@ -24,17 +24,33 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeScriptResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
 	private Boolean success;
+
+	private String chatbotId;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String ttsConfig;
+
+	private String asrConfig;
+
+	private String nlsConfig;
 
 	private Script script;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -50,6 +66,14 @@ public class DescribeScriptResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public String getChatbotId() {
+		return this.chatbotId;
+	}
+
+	public void setChatbotId(String chatbotId) {
+		this.chatbotId = chatbotId;
 	}
 
 	public String getCode() {
@@ -68,12 +92,28 @@ public class DescribeScriptResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getTtsConfig() {
+		return this.ttsConfig;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setTtsConfig(String ttsConfig) {
+		this.ttsConfig = ttsConfig;
+	}
+
+	public String getAsrConfig() {
+		return this.asrConfig;
+	}
+
+	public void setAsrConfig(String asrConfig) {
+		this.asrConfig = asrConfig;
+	}
+
+	public String getNlsConfig() {
+		return this.nlsConfig;
+	}
+
+	public void setNlsConfig(String nlsConfig) {
+		this.nlsConfig = nlsConfig;
 	}
 
 	public Script getScript() {
@@ -86,65 +126,33 @@ public class DescribeScriptResponse extends AcsResponse {
 
 	public static class Script {
 
-		private String scriptId;
-
-		private String scriptName;
-
-		private String scriptDescription;
-
-		private String industry;
-
-		private String scene;
-
 		private String status;
-
-		private String debugStatus;
 
 		private Long updateTime;
 
-		private Boolean isDrafted;
+		private String chatbotId;
+
+		private String scriptId;
 
 		private Boolean isDebugDrafted;
 
-		public String getScriptId() {
-			return this.scriptId;
-		}
+		private String industry;
 
-		public void setScriptId(String scriptId) {
-			this.scriptId = scriptId;
-		}
+		private String scriptDescription;
 
-		public String getScriptName() {
-			return this.scriptName;
-		}
+		private Boolean miniPlaybackConfigEnabled;
 
-		public void setScriptName(String scriptName) {
-			this.scriptName = scriptName;
-		}
+		private Boolean isDrafted;
 
-		public String getScriptDescription() {
-			return this.scriptDescription;
-		}
+		private String ttsConfig;
 
-		public void setScriptDescription(String scriptDescription) {
-			this.scriptDescription = scriptDescription;
-		}
+		private String debugStatus;
 
-		public String getIndustry() {
-			return this.industry;
-		}
+		private String asrConfig;
 
-		public void setIndustry(String industry) {
-			this.industry = industry;
-		}
+		private String scene;
 
-		public String getScene() {
-			return this.scene;
-		}
-
-		public void setScene(String scene) {
-			this.scene = scene;
-		}
+		private String scriptName;
 
 		public String getStatus() {
 			return this.status;
@@ -152,14 +160,6 @@ public class DescribeScriptResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
-		}
-
-		public String getDebugStatus() {
-			return this.debugStatus;
-		}
-
-		public void setDebugStatus(String debugStatus) {
-			this.debugStatus = debugStatus;
 		}
 
 		public Long getUpdateTime() {
@@ -170,12 +170,20 @@ public class DescribeScriptResponse extends AcsResponse {
 			this.updateTime = updateTime;
 		}
 
-		public Boolean getIsDrafted() {
-			return this.isDrafted;
+		public String getChatbotId() {
+			return this.chatbotId;
 		}
 
-		public void setIsDrafted(Boolean isDrafted) {
-			this.isDrafted = isDrafted;
+		public void setChatbotId(String chatbotId) {
+			this.chatbotId = chatbotId;
+		}
+
+		public String getScriptId() {
+			return this.scriptId;
+		}
+
+		public void setScriptId(String scriptId) {
+			this.scriptId = scriptId;
 		}
 
 		public Boolean getIsDebugDrafted() {
@@ -184,6 +192,78 @@ public class DescribeScriptResponse extends AcsResponse {
 
 		public void setIsDebugDrafted(Boolean isDebugDrafted) {
 			this.isDebugDrafted = isDebugDrafted;
+		}
+
+		public String getIndustry() {
+			return this.industry;
+		}
+
+		public void setIndustry(String industry) {
+			this.industry = industry;
+		}
+
+		public String getScriptDescription() {
+			return this.scriptDescription;
+		}
+
+		public void setScriptDescription(String scriptDescription) {
+			this.scriptDescription = scriptDescription;
+		}
+
+		public Boolean getMiniPlaybackConfigEnabled() {
+			return this.miniPlaybackConfigEnabled;
+		}
+
+		public void setMiniPlaybackConfigEnabled(Boolean miniPlaybackConfigEnabled) {
+			this.miniPlaybackConfigEnabled = miniPlaybackConfigEnabled;
+		}
+
+		public Boolean getIsDrafted() {
+			return this.isDrafted;
+		}
+
+		public void setIsDrafted(Boolean isDrafted) {
+			this.isDrafted = isDrafted;
+		}
+
+		public String getTtsConfig() {
+			return this.ttsConfig;
+		}
+
+		public void setTtsConfig(String ttsConfig) {
+			this.ttsConfig = ttsConfig;
+		}
+
+		public String getDebugStatus() {
+			return this.debugStatus;
+		}
+
+		public void setDebugStatus(String debugStatus) {
+			this.debugStatus = debugStatus;
+		}
+
+		public String getAsrConfig() {
+			return this.asrConfig;
+		}
+
+		public void setAsrConfig(String asrConfig) {
+			this.asrConfig = asrConfig;
+		}
+
+		public String getScene() {
+			return this.scene;
+		}
+
+		public void setScene(String scene) {
+			this.scene = scene;
+		}
+
+		public String getScriptName() {
+			return this.scriptName;
+		}
+
+		public void setScriptName(String scriptName) {
+			this.scriptName = scriptName;
 		}
 	}
 

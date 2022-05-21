@@ -101,6 +101,10 @@ public class DescribeDrdsInstanceResponse extends AcsResponse {
 
 		private String storageType;
 
+		private String resourceGroupId;
+
+		private String productVersion;
+
 		private List<Vip> vips;
 
 		private List<String> readOnlyDBInstanceIds;
@@ -279,6 +283,22 @@ public class DescribeDrdsInstanceResponse extends AcsResponse {
 
 		public void setStorageType(String storageType) {
 			this.storageType = storageType;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getProductVersion() {
+			return this.productVersion;
+		}
+
+		public void setProductVersion(String productVersion) {
+			this.productVersion = productVersion;
 		}
 
 		public List<Vip> getVips() {

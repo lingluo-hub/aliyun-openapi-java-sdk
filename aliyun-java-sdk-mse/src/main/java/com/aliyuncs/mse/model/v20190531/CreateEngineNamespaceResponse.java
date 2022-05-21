@@ -24,25 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateEngineNamespaceResponse extends AcsResponse {
 
-	private Boolean success;
-
 	private String message;
-
-	private String errorCode;
-
-	private String clusterId;
 
 	private String requestId;
 
+	private String clusterId;
+
+	private String errorCode;
+
+	private Boolean success;
+
 	private Data data;
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getMessage() {
 		return this.message;
@@ -52,12 +44,12 @@ public class CreateEngineNamespaceResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getClusterId() {
@@ -68,12 +60,20 @@ public class CreateEngineNamespaceResponse extends AcsResponse {
 		this.clusterId = clusterId;
 	}
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -86,24 +86,26 @@ public class CreateEngineNamespaceResponse extends AcsResponse {
 
 	public static class Data {
 
-		private String namespace;
+		private Integer type;
 
 		private String namespaceShowName;
 
-		private String namespaceDesc;
-
 		private Integer quota;
+
+		private String namespace;
+
+		private String namespaceDesc;
 
 		private Integer configCount;
 
-		private Integer type;
+		private Integer serviceCount;
 
-		public String getNamespace() {
-			return this.namespace;
+		public Integer getType() {
+			return this.type;
 		}
 
-		public void setNamespace(String namespace) {
-			this.namespace = namespace;
+		public void setType(Integer type) {
+			this.type = type;
 		}
 
 		public String getNamespaceShowName() {
@@ -114,20 +116,28 @@ public class CreateEngineNamespaceResponse extends AcsResponse {
 			this.namespaceShowName = namespaceShowName;
 		}
 
-		public String getNamespaceDesc() {
-			return this.namespaceDesc;
-		}
-
-		public void setNamespaceDesc(String namespaceDesc) {
-			this.namespaceDesc = namespaceDesc;
-		}
-
 		public Integer getQuota() {
 			return this.quota;
 		}
 
 		public void setQuota(Integer quota) {
 			this.quota = quota;
+		}
+
+		public String getNamespace() {
+			return this.namespace;
+		}
+
+		public void setNamespace(String namespace) {
+			this.namespace = namespace;
+		}
+
+		public String getNamespaceDesc() {
+			return this.namespaceDesc;
+		}
+
+		public void setNamespaceDesc(String namespaceDesc) {
+			this.namespaceDesc = namespaceDesc;
 		}
 
 		public Integer getConfigCount() {
@@ -138,12 +148,12 @@ public class CreateEngineNamespaceResponse extends AcsResponse {
 			this.configCount = configCount;
 		}
 
-		public Integer getType() {
-			return this.type;
+		public Integer getServiceCount() {
+			return this.serviceCount;
 		}
 
-		public void setType(Integer type) {
-			this.type = type;
+		public void setServiceCount(Integer serviceCount) {
+			this.serviceCount = serviceCount;
 		}
 	}
 

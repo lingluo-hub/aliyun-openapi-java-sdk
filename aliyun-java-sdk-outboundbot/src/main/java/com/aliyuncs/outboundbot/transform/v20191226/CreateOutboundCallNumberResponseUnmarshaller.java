@@ -23,10 +23,10 @@ public class CreateOutboundCallNumberResponseUnmarshaller {
 	public static CreateOutboundCallNumberResponse unmarshall(CreateOutboundCallNumberResponse createOutboundCallNumberResponse, UnmarshallerContext _ctx) {
 		
 		createOutboundCallNumberResponse.setRequestId(_ctx.stringValue("CreateOutboundCallNumberResponse.RequestId"));
+		createOutboundCallNumberResponse.setHttpStatusCode(_ctx.integerValue("CreateOutboundCallNumberResponse.HttpStatusCode"));
 		createOutboundCallNumberResponse.setSuccess(_ctx.booleanValue("CreateOutboundCallNumberResponse.Success"));
 		createOutboundCallNumberResponse.setCode(_ctx.stringValue("CreateOutboundCallNumberResponse.Code"));
 		createOutboundCallNumberResponse.setMessage(_ctx.stringValue("CreateOutboundCallNumberResponse.Message"));
-		createOutboundCallNumberResponse.setHttpStatusCode(_ctx.integerValue("CreateOutboundCallNumberResponse.HttpStatusCode"));
 		createOutboundCallNumberResponse.setOutboundCallNumberId(_ctx.stringValue("CreateOutboundCallNumberResponse.OutboundCallNumberId"));
 	 
 	 	return createOutboundCallNumberResponse;

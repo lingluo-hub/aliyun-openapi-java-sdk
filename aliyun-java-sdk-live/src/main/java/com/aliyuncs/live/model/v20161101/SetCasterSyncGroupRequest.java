@@ -24,7 +24,13 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class SetCasterSyncGroupRequest extends RpcAcsRequest<SetCasterSyncGroupResponse> {
-	
+	   
+
+	private String casterId;
+
+	private Long ownerId;
+
+	private List<SyncGroup> syncGroups;
 	public SetCasterSyncGroupRequest() {
 		super("live", "2016-11-01", "SetCasterSyncGroup", "live");
 		setMethod(MethodType.POST);
@@ -33,12 +39,6 @@ public class SetCasterSyncGroupRequest extends RpcAcsRequest<SetCasterSyncGroupR
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
-
-	private String casterId;
-
-	private Long ownerId;
-
-	private List<SyncGroup> syncGroups;
 
 	public String getCasterId() {
 		return this.casterId;
@@ -70,32 +70,34 @@ public class SetCasterSyncGroupRequest extends RpcAcsRequest<SetCasterSyncGroupR
 		this.syncGroups = syncGroups;	
 		if (syncGroups != null) {
 			for (int depth1 = 0; depth1 < syncGroups.size(); depth1++) {
-				putQueryParameter("SyncGroup." + (depth1 + 1) + ".Mode" , syncGroups.get(depth1).getMode());
 				putQueryParameter("SyncGroup." + (depth1 + 1) + ".HostResourceId" , syncGroups.get(depth1).getHostResourceId());
 				if (syncGroups.get(depth1).getResourceIdss() != null) {
 					for (int i = 0; i < syncGroups.get(depth1).getResourceIdss().size(); i++) {
 						putQueryParameter("SyncGroup." + (depth1 + 1) + ".ResourceIds." + (i + 1) , syncGroups.get(depth1).getResourceIdss().get(i));
 					}
 				}
+				if (syncGroups.get(depth1).getSyncOffsetss() != null) {
+					for (int i = 0; i < syncGroups.get(depth1).getSyncOffsetss().size(); i++) {
+						putQueryParameter("SyncGroup." + (depth1 + 1) + ".SyncOffsets." + (i + 1) , syncGroups.get(depth1).getSyncOffsetss().get(i));
+					}
+				}
+				putQueryParameter("SyncGroup." + (depth1 + 1) + ".SyncDelayThreshold" , syncGroups.get(depth1).getSyncDelayThreshold());
+				putQueryParameter("SyncGroup." + (depth1 + 1) + ".Mode" , syncGroups.get(depth1).getMode());
 			}
 		}	
 	}
 
 	public static class SyncGroup {
 
-		private Integer mode;
-
 		private String hostResourceId;
 
 		private List<String> resourceIdss;
 
-		public Integer getMode() {
-			return this.mode;
-		}
+		private List<Integer> syncOffsetss;
 
-		public void setMode(Integer mode) {
-			this.mode = mode;
-		}
+		private Long syncDelayThreshold;
+
+		private Integer mode;
 
 		public String getHostResourceId() {
 			return this.hostResourceId;
@@ -111,6 +113,30 @@ public class SetCasterSyncGroupRequest extends RpcAcsRequest<SetCasterSyncGroupR
 
 		public void setResourceIdss(List<String> resourceIdss) {
 			this.resourceIdss = resourceIdss;
+		}
+
+		public List<Integer> getSyncOffsetss() {
+			return this.syncOffsetss;
+		}
+
+		public void setSyncOffsetss(List<Integer> syncOffsetss) {
+			this.syncOffsetss = syncOffsetss;
+		}
+
+		public Long getSyncDelayThreshold() {
+			return this.syncDelayThreshold;
+		}
+
+		public void setSyncDelayThreshold(Long syncDelayThreshold) {
+			this.syncDelayThreshold = syncDelayThreshold;
+		}
+
+		public Integer getMode() {
+			return this.mode;
+		}
+
+		public void setMode(Integer mode) {
+			this.mode = mode;
 		}
 	}
 

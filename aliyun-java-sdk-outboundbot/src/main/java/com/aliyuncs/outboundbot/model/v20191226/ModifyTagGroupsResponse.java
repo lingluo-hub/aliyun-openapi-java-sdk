@@ -25,34 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ModifyTagGroupsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
 
-	private List<Tag> tags;
+	private Boolean success;
 
 	private List<TagGroup> tagGroups;
 
-	public String getRequestId() {
-		return this.requestId;
+	private List<Tag> tags;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -71,20 +63,20 @@ public class ModifyTagGroupsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
-	public List<Tag> getTags() {
-		return this.tags;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<TagGroup> getTagGroups() {
@@ -95,9 +87,60 @@ public class ModifyTagGroupsResponse extends AcsResponse {
 		this.tagGroups = tagGroups;
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public static class TagGroup {
+
+		private String tagGroupId;
+
+		private Integer tagGroupIndex;
+
+		private String tagGroup;
+
+		private String scriptId;
+
+		public String getTagGroupId() {
+			return this.tagGroupId;
+		}
+
+		public void setTagGroupId(String tagGroupId) {
+			this.tagGroupId = tagGroupId;
+		}
+
+		public Integer getTagGroupIndex() {
+			return this.tagGroupIndex;
+		}
+
+		public void setTagGroupIndex(Integer tagGroupIndex) {
+			this.tagGroupIndex = tagGroupIndex;
+		}
+
+		public String getTagGroup() {
+			return this.tagGroup;
+		}
+
+		public void setTagGroup(String tagGroup) {
+			this.tagGroup = tagGroup;
+		}
+
+		public String getScriptId() {
+			return this.scriptId;
+		}
+
+		public void setScriptId(String scriptId) {
+			this.scriptId = scriptId;
+		}
+	}
+
 	public static class Tag {
 
-		private String tagId;
+		private String tagGroup;
 
 		private String tagName;
 
@@ -105,14 +148,14 @@ public class ModifyTagGroupsResponse extends AcsResponse {
 
 		private String scriptId;
 
-		private String tagGroup;
+		private String tagId;
 
-		public String getTagId() {
-			return this.tagId;
+		public String getTagGroup() {
+			return this.tagGroup;
 		}
 
-		public void setTagId(String tagId) {
-			this.tagId = tagId;
+		public void setTagGroup(String tagGroup) {
+			this.tagGroup = tagGroup;
 		}
 
 		public String getTagName() {
@@ -139,55 +182,12 @@ public class ModifyTagGroupsResponse extends AcsResponse {
 			this.scriptId = scriptId;
 		}
 
-		public String getTagGroup() {
-			return this.tagGroup;
+		public String getTagId() {
+			return this.tagId;
 		}
 
-		public void setTagGroup(String tagGroup) {
-			this.tagGroup = tagGroup;
-		}
-	}
-
-	public static class TagGroup {
-
-		private String tagGroupId;
-
-		private Integer tagGroupIndex;
-
-		private String scriptId;
-
-		private String tagGroup;
-
-		public String getTagGroupId() {
-			return this.tagGroupId;
-		}
-
-		public void setTagGroupId(String tagGroupId) {
-			this.tagGroupId = tagGroupId;
-		}
-
-		public Integer getTagGroupIndex() {
-			return this.tagGroupIndex;
-		}
-
-		public void setTagGroupIndex(Integer tagGroupIndex) {
-			this.tagGroupIndex = tagGroupIndex;
-		}
-
-		public String getScriptId() {
-			return this.scriptId;
-		}
-
-		public void setScriptId(String scriptId) {
-			this.scriptId = scriptId;
-		}
-
-		public String getTagGroup() {
-			return this.tagGroup;
-		}
-
-		public void setTagGroup(String tagGroup) {
-			this.tagGroup = tagGroup;
+		public void setTagId(String tagId) {
+			this.tagId = tagId;
 		}
 	}
 

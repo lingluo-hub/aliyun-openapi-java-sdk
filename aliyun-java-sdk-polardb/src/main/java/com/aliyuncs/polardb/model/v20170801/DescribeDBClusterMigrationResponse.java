@@ -14,6 +14,7 @@
 
 package com.aliyuncs.polardb.model.v20170801;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.polardb.transform.v20170801.DescribeDBClusterMigrationResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,25 +25,37 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDBClusterMigrationResponse extends AcsResponse {
 
+	private String comment;
+
 	private String requestId;
-
-	private String dBClusterId;
-
-	private String sourceRDSDBInstanceId;
-
-	private String migrationStatus;
-
-	private String topologies;
-
-	private Integer delayedSeconds;
 
 	private String expiredTime;
 
+	private String dBClusterId;
+
+	private String topologies;
+
 	private String rdsReadWriteMode;
+
+	private String sourceRDSDBInstanceId;
 
 	private String dBClusterReadWriteMode;
 
-	private String comment;
+	private Integer delayedSeconds;
+
+	private String migrationStatus;
+
+	private List<DBClusterEndpoint> dBClusterEndpointList;
+
+	private List<RdsEndpoint> rdsEndpointList;
+
+	public String getComment() {
+		return this.comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -50,46 +63,6 @@ public class DescribeDBClusterMigrationResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getDBClusterId() {
-		return this.dBClusterId;
-	}
-
-	public void setDBClusterId(String dBClusterId) {
-		this.dBClusterId = dBClusterId;
-	}
-
-	public String getSourceRDSDBInstanceId() {
-		return this.sourceRDSDBInstanceId;
-	}
-
-	public void setSourceRDSDBInstanceId(String sourceRDSDBInstanceId) {
-		this.sourceRDSDBInstanceId = sourceRDSDBInstanceId;
-	}
-
-	public String getMigrationStatus() {
-		return this.migrationStatus;
-	}
-
-	public void setMigrationStatus(String migrationStatus) {
-		this.migrationStatus = migrationStatus;
-	}
-
-	public String getTopologies() {
-		return this.topologies;
-	}
-
-	public void setTopologies(String topologies) {
-		this.topologies = topologies;
-	}
-
-	public Integer getDelayedSeconds() {
-		return this.delayedSeconds;
-	}
-
-	public void setDelayedSeconds(Integer delayedSeconds) {
-		this.delayedSeconds = delayedSeconds;
 	}
 
 	public String getExpiredTime() {
@@ -100,12 +73,36 @@ public class DescribeDBClusterMigrationResponse extends AcsResponse {
 		this.expiredTime = expiredTime;
 	}
 
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
+	}
+
+	public String getTopologies() {
+		return this.topologies;
+	}
+
+	public void setTopologies(String topologies) {
+		this.topologies = topologies;
+	}
+
 	public String getRdsReadWriteMode() {
 		return this.rdsReadWriteMode;
 	}
 
 	public void setRdsReadWriteMode(String rdsReadWriteMode) {
 		this.rdsReadWriteMode = rdsReadWriteMode;
+	}
+
+	public String getSourceRDSDBInstanceId() {
+		return this.sourceRDSDBInstanceId;
+	}
+
+	public void setSourceRDSDBInstanceId(String sourceRDSDBInstanceId) {
+		this.sourceRDSDBInstanceId = sourceRDSDBInstanceId;
 	}
 
 	public String getDBClusterReadWriteMode() {
@@ -116,12 +113,228 @@ public class DescribeDBClusterMigrationResponse extends AcsResponse {
 		this.dBClusterReadWriteMode = dBClusterReadWriteMode;
 	}
 
-	public String getComment() {
-		return this.comment;
+	public Integer getDelayedSeconds() {
+		return this.delayedSeconds;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setDelayedSeconds(Integer delayedSeconds) {
+		this.delayedSeconds = delayedSeconds;
+	}
+
+	public String getMigrationStatus() {
+		return this.migrationStatus;
+	}
+
+	public void setMigrationStatus(String migrationStatus) {
+		this.migrationStatus = migrationStatus;
+	}
+
+	public List<DBClusterEndpoint> getDBClusterEndpointList() {
+		return this.dBClusterEndpointList;
+	}
+
+	public void setDBClusterEndpointList(List<DBClusterEndpoint> dBClusterEndpointList) {
+		this.dBClusterEndpointList = dBClusterEndpointList;
+	}
+
+	public List<RdsEndpoint> getRdsEndpointList() {
+		return this.rdsEndpointList;
+	}
+
+	public void setRdsEndpointList(List<RdsEndpoint> rdsEndpointList) {
+		this.rdsEndpointList = rdsEndpointList;
+	}
+
+	public static class DBClusterEndpoint {
+
+		private String dBEndpointId;
+
+		private String endpointType;
+
+		private List<Address> addressItems;
+
+		public String getDBEndpointId() {
+			return this.dBEndpointId;
+		}
+
+		public void setDBEndpointId(String dBEndpointId) {
+			this.dBEndpointId = dBEndpointId;
+		}
+
+		public String getEndpointType() {
+			return this.endpointType;
+		}
+
+		public void setEndpointType(String endpointType) {
+			this.endpointType = endpointType;
+		}
+
+		public List<Address> getAddressItems() {
+			return this.addressItems;
+		}
+
+		public void setAddressItems(List<Address> addressItems) {
+			this.addressItems = addressItems;
+		}
+
+		public static class Address {
+
+			private String vSwitchId;
+
+			private String connectionString;
+
+			private String netType;
+
+			private String port;
+
+			private String vPCId;
+
+			private String iPAddress;
+
+			public String getVSwitchId() {
+				return this.vSwitchId;
+			}
+
+			public void setVSwitchId(String vSwitchId) {
+				this.vSwitchId = vSwitchId;
+			}
+
+			public String getConnectionString() {
+				return this.connectionString;
+			}
+
+			public void setConnectionString(String connectionString) {
+				this.connectionString = connectionString;
+			}
+
+			public String getNetType() {
+				return this.netType;
+			}
+
+			public void setNetType(String netType) {
+				this.netType = netType;
+			}
+
+			public String getPort() {
+				return this.port;
+			}
+
+			public void setPort(String port) {
+				this.port = port;
+			}
+
+			public String getVPCId() {
+				return this.vPCId;
+			}
+
+			public void setVPCId(String vPCId) {
+				this.vPCId = vPCId;
+			}
+
+			public String getIPAddress() {
+				return this.iPAddress;
+			}
+
+			public void setIPAddress(String iPAddress) {
+				this.iPAddress = iPAddress;
+			}
+		}
+	}
+
+	public static class RdsEndpoint {
+
+		private String dBEndpointId;
+
+		private String endpointType;
+
+		private List<Address2> addressItems1;
+
+		public String getDBEndpointId() {
+			return this.dBEndpointId;
+		}
+
+		public void setDBEndpointId(String dBEndpointId) {
+			this.dBEndpointId = dBEndpointId;
+		}
+
+		public String getEndpointType() {
+			return this.endpointType;
+		}
+
+		public void setEndpointType(String endpointType) {
+			this.endpointType = endpointType;
+		}
+
+		public List<Address2> getAddressItems1() {
+			return this.addressItems1;
+		}
+
+		public void setAddressItems1(List<Address2> addressItems1) {
+			this.addressItems1 = addressItems1;
+		}
+
+		public static class Address2 {
+
+			private String vSwitchId;
+
+			private String connectionString;
+
+			private String netType;
+
+			private String port;
+
+			private String vPCId;
+
+			private String iPAddress;
+
+			public String getVSwitchId() {
+				return this.vSwitchId;
+			}
+
+			public void setVSwitchId(String vSwitchId) {
+				this.vSwitchId = vSwitchId;
+			}
+
+			public String getConnectionString() {
+				return this.connectionString;
+			}
+
+			public void setConnectionString(String connectionString) {
+				this.connectionString = connectionString;
+			}
+
+			public String getNetType() {
+				return this.netType;
+			}
+
+			public void setNetType(String netType) {
+				this.netType = netType;
+			}
+
+			public String getPort() {
+				return this.port;
+			}
+
+			public void setPort(String port) {
+				this.port = port;
+			}
+
+			public String getVPCId() {
+				return this.vPCId;
+			}
+
+			public void setVPCId(String vPCId) {
+				this.vPCId = vPCId;
+			}
+
+			public String getIPAddress() {
+				return this.iPAddress;
+			}
+
+			public void setIPAddress(String iPAddress) {
+				this.iPAddress = iPAddress;
+			}
+		}
 	}
 
 	@Override

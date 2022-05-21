@@ -16,6 +16,7 @@ package com.aliyuncs.dyvmsapi.model.v20170525;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.dyvmsapi.Endpoint;
 
 /**
  * @author auto create
@@ -29,6 +30,10 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 	private String voiceCodeParam;
 
 	private Boolean earlyMediaAsr;
+
+	private Integer backgroundSpeed;
+
+	private Integer backgroundVolume;
 
 	private Integer speed;
 
@@ -46,6 +51,8 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 
 	private String calledShowNumber;
 
+	private Boolean enableITN;
+
 	private Integer actionCodeTimeBreak;
 
 	private Boolean ttsConf;
@@ -60,9 +67,13 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 
 	private Integer ttsVolume;
 
+	private Integer streamAsr;
+
 	private Integer volume;
 
 	private Integer muteTime;
+
+	private String backgroundFileCode;
 
 	private String outId;
 
@@ -74,6 +85,10 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 	public SmartCallRequest() {
 		super("Dyvmsapi", "2017-05-25", "SmartCall", "dyvms");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -106,6 +121,28 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 		this.earlyMediaAsr = earlyMediaAsr;
 		if(earlyMediaAsr != null){
 			putQueryParameter("EarlyMediaAsr", earlyMediaAsr.toString());
+		}
+	}
+
+	public Integer getBackgroundSpeed() {
+		return this.backgroundSpeed;
+	}
+
+	public void setBackgroundSpeed(Integer backgroundSpeed) {
+		this.backgroundSpeed = backgroundSpeed;
+		if(backgroundSpeed != null){
+			putQueryParameter("BackgroundSpeed", backgroundSpeed.toString());
+		}
+	}
+
+	public Integer getBackgroundVolume() {
+		return this.backgroundVolume;
+	}
+
+	public void setBackgroundVolume(Integer backgroundVolume) {
+		this.backgroundVolume = backgroundVolume;
+		if(backgroundVolume != null){
+			putQueryParameter("BackgroundVolume", backgroundVolume.toString());
 		}
 	}
 
@@ -197,6 +234,17 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 		}
 	}
 
+	public Boolean getEnableITN() {
+		return this.enableITN;
+	}
+
+	public void setEnableITN(Boolean enableITN) {
+		this.enableITN = enableITN;
+		if(enableITN != null){
+			putQueryParameter("EnableITN", enableITN.toString());
+		}
+	}
+
 	public Integer getActionCodeTimeBreak() {
 		return this.actionCodeTimeBreak;
 	}
@@ -274,6 +322,17 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 		}
 	}
 
+	public Integer getStreamAsr() {
+		return this.streamAsr;
+	}
+
+	public void setStreamAsr(Integer streamAsr) {
+		this.streamAsr = streamAsr;
+		if(streamAsr != null){
+			putQueryParameter("StreamAsr", streamAsr.toString());
+		}
+	}
+
 	public Integer getVolume() {
 		return this.volume;
 	}
@@ -293,6 +352,17 @@ public class SmartCallRequest extends RpcAcsRequest<SmartCallResponse> {
 		this.muteTime = muteTime;
 		if(muteTime != null){
 			putQueryParameter("MuteTime", muteTime.toString());
+		}
+	}
+
+	public String getBackgroundFileCode() {
+		return this.backgroundFileCode;
+	}
+
+	public void setBackgroundFileCode(String backgroundFileCode) {
+		this.backgroundFileCode = backgroundFileCode;
+		if(backgroundFileCode != null){
+			putQueryParameter("BackgroundFileCode", backgroundFileCode);
 		}
 	}
 

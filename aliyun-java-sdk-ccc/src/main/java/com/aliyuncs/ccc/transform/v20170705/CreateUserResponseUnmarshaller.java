@@ -23,11 +23,11 @@ public class CreateUserResponseUnmarshaller {
 	public static CreateUserResponse unmarshall(CreateUserResponse createUserResponse, UnmarshallerContext _ctx) {
 		
 		createUserResponse.setRequestId(_ctx.stringValue("CreateUserResponse.RequestId"));
+		createUserResponse.setHttpStatusCode(_ctx.integerValue("CreateUserResponse.HttpStatusCode"));
 		createUserResponse.setSuccess(_ctx.booleanValue("CreateUserResponse.Success"));
+		createUserResponse.setUserId(_ctx.stringValue("CreateUserResponse.UserId"));
 		createUserResponse.setCode(_ctx.stringValue("CreateUserResponse.Code"));
 		createUserResponse.setMessage(_ctx.stringValue("CreateUserResponse.Message"));
-		createUserResponse.setHttpStatusCode(_ctx.integerValue("CreateUserResponse.HttpStatusCode"));
-		createUserResponse.setUserId(_ctx.stringValue("CreateUserResponse.UserId"));
 	 
 	 	return createUserResponse;
 	}

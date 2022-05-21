@@ -24,20 +24,20 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeFaceVerifyResponse extends AcsResponse {
 
-	private String requestId;
+	private String code;
 
 	private String message;
 
-	private String code;
+	private String requestId;
 
 	private ResultObject resultObject;
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getMessage() {
@@ -48,12 +48,12 @@ public class DescribeFaceVerifyResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getCode() {
-		return this.code;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public ResultObject getResultObject() {
@@ -66,28 +66,22 @@ public class DescribeFaceVerifyResponse extends AcsResponse {
 
 	public static class ResultObject {
 
-		private String passed;
-
-		private String identityInfo;
+		private String subCode;
 
 		private String materialInfo;
 
+		private String identityInfo;
+
 		private String deviceToken;
 
-		public String getPassed() {
-			return this.passed;
+		private String passed;
+
+		public String getSubCode() {
+			return this.subCode;
 		}
 
-		public void setPassed(String passed) {
-			this.passed = passed;
-		}
-
-		public String getIdentityInfo() {
-			return this.identityInfo;
-		}
-
-		public void setIdentityInfo(String identityInfo) {
-			this.identityInfo = identityInfo;
+		public void setSubCode(String subCode) {
+			this.subCode = subCode;
 		}
 
 		public String getMaterialInfo() {
@@ -98,12 +92,28 @@ public class DescribeFaceVerifyResponse extends AcsResponse {
 			this.materialInfo = materialInfo;
 		}
 
+		public String getIdentityInfo() {
+			return this.identityInfo;
+		}
+
+		public void setIdentityInfo(String identityInfo) {
+			this.identityInfo = identityInfo;
+		}
+
 		public String getDeviceToken() {
 			return this.deviceToken;
 		}
 
 		public void setDeviceToken(String deviceToken) {
 			this.deviceToken = deviceToken;
+		}
+
+		public String getPassed() {
+			return this.passed;
+		}
+
+		public void setPassed(String passed) {
+			this.passed = passed;
 		}
 	}
 

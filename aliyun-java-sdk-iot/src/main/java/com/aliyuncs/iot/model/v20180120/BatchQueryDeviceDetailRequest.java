@@ -26,29 +26,18 @@ import com.aliyuncs.iot.Endpoint;
 public class BatchQueryDeviceDetailRequest extends RpcAcsRequest<BatchQueryDeviceDetailResponse> {
 	   
 
-	private String productKey;
-
 	private String iotInstanceId;
+
+	private String productKey;
 
 	private List<String> deviceNames;
 	public BatchQueryDeviceDetailRequest() {
-		super("Iot", "2018-01-20", "BatchQueryDeviceDetail", "Iot");
+		super("Iot", "2018-01-20", "BatchQueryDeviceDetail");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getIotInstanceId() {
@@ -59,6 +48,17 @@ public class BatchQueryDeviceDetailRequest extends RpcAcsRequest<BatchQueryDevic
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 

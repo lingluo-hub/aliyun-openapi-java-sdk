@@ -27,16 +27,18 @@ public class ListLogicTablesRequest extends RpcAcsRequest<ListLogicTablesRespons
 
 	private String searchName;
 
-	private Integer pageSize;
-
-	private String databaseId;
+	private Boolean returnGuid;
 
 	private Long tid;
 
 	private Integer pageNumber;
+
+	private Integer pageSize;
+
+	private String databaseId;
 	public ListLogicTablesRequest() {
-		super("dms-enterprise", "2018-11-01", "ListLogicTables");
-		setMethod(MethodType.GET);
+		super("dms-enterprise", "2018-11-01", "ListLogicTables", "dms-enterprise");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
@@ -54,25 +56,14 @@ public class ListLogicTablesRequest extends RpcAcsRequest<ListLogicTablesRespons
 		}
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Boolean getReturnGuid() {
+		return this.returnGuid;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize.toString());
-		}
-	}
-
-	public String getDatabaseId() {
-		return this.databaseId;
-	}
-
-	public void setDatabaseId(String databaseId) {
-		this.databaseId = databaseId;
-		if(databaseId != null){
-			putQueryParameter("DatabaseId", databaseId);
+	public void setReturnGuid(Boolean returnGuid) {
+		this.returnGuid = returnGuid;
+		if(returnGuid != null){
+			putQueryParameter("ReturnGuid", returnGuid.toString());
 		}
 	}
 
@@ -95,6 +86,28 @@ public class ListLogicTablesRequest extends RpcAcsRequest<ListLogicTablesRespons
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getDatabaseId() {
+		return this.databaseId;
+	}
+
+	public void setDatabaseId(String databaseId) {
+		this.databaseId = databaseId;
+		if(databaseId != null){
+			putQueryParameter("DatabaseId", databaseId);
 		}
 	}
 

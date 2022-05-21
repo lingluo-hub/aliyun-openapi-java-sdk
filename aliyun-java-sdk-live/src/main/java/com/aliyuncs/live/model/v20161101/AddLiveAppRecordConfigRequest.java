@@ -24,23 +24,19 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecordConfigResponse> {
-	
-	public AddLiveAppRecordConfigRequest() {
-		super("live", "2016-11-01", "AddLiveAppRecordConfig", "live");
-		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
-	}
+	   
 
 	private String ossEndpoint;
+
+	private List<String> transcodeTemplatess;
 
 	private String startTime;
 
 	private String appName;
 
 	private String securityToken;
+
+	private List<TranscodeRecordFormat> transcodeRecordFormats;
 
 	private Integer onDemand;
 
@@ -55,6 +51,14 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 	private Long ownerId;
 
 	private List<RecordFormat> recordFormats;
+	public AddLiveAppRecordConfigRequest() {
+		super("live", "2016-11-01", "AddLiveAppRecordConfig", "live");
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getOssEndpoint() {
 		return this.ossEndpoint;
@@ -65,6 +69,19 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 		if(ossEndpoint != null){
 			putQueryParameter("OssEndpoint", ossEndpoint);
 		}
+	}
+
+	public List<String> getTranscodeTemplatess() {
+		return this.transcodeTemplatess;
+	}
+
+	public void setTranscodeTemplatess(List<String> transcodeTemplatess) {
+		this.transcodeTemplatess = transcodeTemplatess;	
+		if (transcodeTemplatess != null) {
+			for (int i = 0; i < transcodeTemplatess.size(); i++) {
+				putQueryParameter("TranscodeTemplates." + (i + 1) , transcodeTemplatess.get(i));
+			}
+		}	
 	}
 
 	public String getStartTime() {
@@ -89,34 +106,32 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 		}
 	}
 
-	public String getBizSecurityToken() {
-		return this.securityToken;
-	}
-
-	public void setBizSecurityToken(String securityToken) {
-		this.securityToken = securityToken;
-		if(securityToken != null){
-			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	/**
-	 * @deprecated use getBizSecurityToken instead of this.
-	 */
-	@Deprecated
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
 
-	/**
-	 * @deprecated use setBizSecurityToken instead of this.
-	 */
-	@Deprecated
 	public void setSecurityToken(String securityToken) {
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
 		}
+	}
+
+	public List<TranscodeRecordFormat> getTranscodeRecordFormats() {
+		return this.transcodeRecordFormats;
+	}
+
+	public void setTranscodeRecordFormats(List<TranscodeRecordFormat> transcodeRecordFormats) {
+		this.transcodeRecordFormats = transcodeRecordFormats;	
+		if (transcodeRecordFormats != null) {
+			for (int depth1 = 0; depth1 < transcodeRecordFormats.size(); depth1++) {
+				putQueryParameter("TranscodeRecordFormat." + (depth1 + 1) + ".SliceOssObjectPrefix" , transcodeRecordFormats.get(depth1).getSliceOssObjectPrefix());
+				putQueryParameter("TranscodeRecordFormat." + (depth1 + 1) + ".SliceDuration" , transcodeRecordFormats.get(depth1).getSliceDuration());
+				putQueryParameter("TranscodeRecordFormat." + (depth1 + 1) + ".OssObjectPrefix" , transcodeRecordFormats.get(depth1).getOssObjectPrefix());
+				putQueryParameter("TranscodeRecordFormat." + (depth1 + 1) + ".Format" , transcodeRecordFormats.get(depth1).getFormat());
+				putQueryParameter("TranscodeRecordFormat." + (depth1 + 1) + ".CycleDuration" , transcodeRecordFormats.get(depth1).getCycleDuration());
+			}
+		}	
 	}
 
 	public Integer getOnDemand() {
@@ -194,20 +209,23 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 		if (recordFormats != null) {
 			for (int depth1 = 0; depth1 < recordFormats.size(); depth1++) {
 				putQueryParameter("RecordFormat." + (depth1 + 1) + ".SliceOssObjectPrefix" , recordFormats.get(depth1).getSliceOssObjectPrefix());
-				putQueryParameter("RecordFormat." + (depth1 + 1) + ".Format" , recordFormats.get(depth1).getFormat());
+				putQueryParameter("RecordFormat." + (depth1 + 1) + ".SliceDuration" , recordFormats.get(depth1).getSliceDuration());
 				putQueryParameter("RecordFormat." + (depth1 + 1) + ".OssObjectPrefix" , recordFormats.get(depth1).getOssObjectPrefix());
+				putQueryParameter("RecordFormat." + (depth1 + 1) + ".Format" , recordFormats.get(depth1).getFormat());
 				putQueryParameter("RecordFormat." + (depth1 + 1) + ".CycleDuration" , recordFormats.get(depth1).getCycleDuration());
 			}
 		}	
 	}
 
-	public static class RecordFormat {
+	public static class TranscodeRecordFormat {
 
 		private String sliceOssObjectPrefix;
 
-		private String format;
+		private Integer sliceDuration;
 
 		private String ossObjectPrefix;
+
+		private String format;
 
 		private Integer cycleDuration;
 
@@ -219,12 +237,12 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 			this.sliceOssObjectPrefix = sliceOssObjectPrefix;
 		}
 
-		public String getFormat() {
-			return this.format;
+		public Integer getSliceDuration() {
+			return this.sliceDuration;
 		}
 
-		public void setFormat(String format) {
-			this.format = format;
+		public void setSliceDuration(Integer sliceDuration) {
+			this.sliceDuration = sliceDuration;
 		}
 
 		public String getOssObjectPrefix() {
@@ -233,6 +251,67 @@ public class AddLiveAppRecordConfigRequest extends RpcAcsRequest<AddLiveAppRecor
 
 		public void setOssObjectPrefix(String ossObjectPrefix) {
 			this.ossObjectPrefix = ossObjectPrefix;
+		}
+
+		public String getFormat() {
+			return this.format;
+		}
+
+		public void setFormat(String format) {
+			this.format = format;
+		}
+
+		public Integer getCycleDuration() {
+			return this.cycleDuration;
+		}
+
+		public void setCycleDuration(Integer cycleDuration) {
+			this.cycleDuration = cycleDuration;
+		}
+	}
+
+	public static class RecordFormat {
+
+		private String sliceOssObjectPrefix;
+
+		private Integer sliceDuration;
+
+		private String ossObjectPrefix;
+
+		private String format;
+
+		private Integer cycleDuration;
+
+		public String getSliceOssObjectPrefix() {
+			return this.sliceOssObjectPrefix;
+		}
+
+		public void setSliceOssObjectPrefix(String sliceOssObjectPrefix) {
+			this.sliceOssObjectPrefix = sliceOssObjectPrefix;
+		}
+
+		public Integer getSliceDuration() {
+			return this.sliceDuration;
+		}
+
+		public void setSliceDuration(Integer sliceDuration) {
+			this.sliceDuration = sliceDuration;
+		}
+
+		public String getOssObjectPrefix() {
+			return this.ossObjectPrefix;
+		}
+
+		public void setOssObjectPrefix(String ossObjectPrefix) {
+			this.ossObjectPrefix = ossObjectPrefix;
+		}
+
+		public String getFormat() {
+			return this.format;
+		}
+
+		public void setFormat(String format) {
+			this.format = format;
 		}
 
 		public Integer getCycleDuration() {

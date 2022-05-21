@@ -25,17 +25,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListOrdersResponse extends AcsResponse {
 
+	private Long totalCount;
+
 	private String requestId;
-
-	private Boolean success;
-
-	private String errorMessage;
 
 	private String errorCode;
 
-	private Long totalCount;
+	private String errorMessage;
+
+	private Boolean success;
 
 	private List<Order> orders;
+
+	public Long getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Long totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,22 +51,6 @@ public class ListOrdersResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getErrorMessage() {
-		return this.errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
 	}
 
 	public String getErrorCode() {
@@ -69,12 +61,20 @@ public class ListOrdersResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public Long getTotalCount() {
-		return this.totalCount;
+	public String getErrorMessage() {
+		return this.errorMessage;
 	}
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<Order> getOrders() {
@@ -87,31 +87,23 @@ public class ListOrdersResponse extends AcsResponse {
 
 	public static class Order {
 
-		private Long orderId;
-
 		private String comment;
+
+		private String lastModifyTime;
+
+		private String statusCode;
+
+		private String createTime;
 
 		private String committer;
 
 		private Long committerId;
 
-		private String createTime;
-
-		private String lastModifyTime;
+		private String statusDesc;
 
 		private String pluginType;
 
-		private String statusCode;
-
-		private String statusDesc;
-
-		public Long getOrderId() {
-			return this.orderId;
-		}
-
-		public void setOrderId(Long orderId) {
-			this.orderId = orderId;
-		}
+		private Long orderId;
 
 		public String getComment() {
 			return this.comment;
@@ -119,6 +111,30 @@ public class ListOrdersResponse extends AcsResponse {
 
 		public void setComment(String comment) {
 			this.comment = comment;
+		}
+
+		public String getLastModifyTime() {
+			return this.lastModifyTime;
+		}
+
+		public void setLastModifyTime(String lastModifyTime) {
+			this.lastModifyTime = lastModifyTime;
+		}
+
+		public String getStatusCode() {
+			return this.statusCode;
+		}
+
+		public void setStatusCode(String statusCode) {
+			this.statusCode = statusCode;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
 		}
 
 		public String getCommitter() {
@@ -137,20 +153,12 @@ public class ListOrdersResponse extends AcsResponse {
 			this.committerId = committerId;
 		}
 
-		public String getCreateTime() {
-			return this.createTime;
+		public String getStatusDesc() {
+			return this.statusDesc;
 		}
 
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
-
-		public String getLastModifyTime() {
-			return this.lastModifyTime;
-		}
-
-		public void setLastModifyTime(String lastModifyTime) {
-			this.lastModifyTime = lastModifyTime;
+		public void setStatusDesc(String statusDesc) {
+			this.statusDesc = statusDesc;
 		}
 
 		public String getPluginType() {
@@ -161,20 +169,12 @@ public class ListOrdersResponse extends AcsResponse {
 			this.pluginType = pluginType;
 		}
 
-		public String getStatusCode() {
-			return this.statusCode;
+		public Long getOrderId() {
+			return this.orderId;
 		}
 
-		public void setStatusCode(String statusCode) {
-			this.statusCode = statusCode;
-		}
-
-		public String getStatusDesc() {
-			return this.statusDesc;
-		}
-
-		public void setStatusDesc(String statusDesc) {
-			this.statusDesc = statusDesc;
+		public void setOrderId(Long orderId) {
+			this.orderId = orderId;
 		}
 	}
 

@@ -27,6 +27,8 @@ public class DescribeCommonBandwidthPackagesRequest extends RpcAcsRequest<Descri
 
 	private Long resourceOwnerId;
 
+	private Boolean securityProtectionEnabled;
+
 	private Boolean includeReservationData;
 
 	private Integer pageNumber;
@@ -37,6 +39,8 @@ public class DescribeCommonBandwidthPackagesRequest extends RpcAcsRequest<Descri
 
 	private String bandwidthPackageId;
 
+	private Boolean dryRun;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -45,7 +49,7 @@ public class DescribeCommonBandwidthPackagesRequest extends RpcAcsRequest<Descri
 
 	private String name;
 	public DescribeCommonBandwidthPackagesRequest() {
-		super("Vpc", "2016-04-28", "DescribeCommonBandwidthPackages", "Vpc");
+		super("Vpc", "2016-04-28", "DescribeCommonBandwidthPackages", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -61,6 +65,17 @@ public class DescribeCommonBandwidthPackagesRequest extends RpcAcsRequest<Descri
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getSecurityProtectionEnabled() {
+		return this.securityProtectionEnabled;
+	}
+
+	public void setSecurityProtectionEnabled(Boolean securityProtectionEnabled) {
+		this.securityProtectionEnabled = securityProtectionEnabled;
+		if(securityProtectionEnabled != null){
+			putQueryParameter("SecurityProtectionEnabled", securityProtectionEnabled.toString());
 		}
 	}
 
@@ -116,6 +131,17 @@ public class DescribeCommonBandwidthPackagesRequest extends RpcAcsRequest<Descri
 		this.bandwidthPackageId = bandwidthPackageId;
 		if(bandwidthPackageId != null){
 			putQueryParameter("BandwidthPackageId", bandwidthPackageId);
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 

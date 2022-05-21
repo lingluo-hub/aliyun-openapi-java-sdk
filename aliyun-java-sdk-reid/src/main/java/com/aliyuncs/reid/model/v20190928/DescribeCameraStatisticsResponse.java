@@ -125,6 +125,10 @@ public class DescribeCameraStatisticsResponse extends AcsResponse {
 
 		private Long locationId;
 
+		private String pvType;
+
+		private Long maxDataTime;
+
 		private List<Rect> pvRects;
 
 		public Long getProcessCursor() {
@@ -157,6 +161,22 @@ public class DescribeCameraStatisticsResponse extends AcsResponse {
 
 		public void setLocationId(Long locationId) {
 			this.locationId = locationId;
+		}
+
+		public String getPvType() {
+			return this.pvType;
+		}
+
+		public void setPvType(String pvType) {
+			this.pvType = pvType;
+		}
+
+		public Long getMaxDataTime() {
+			return this.maxDataTime;
+		}
+
+		public void setMaxDataTime(Long maxDataTime) {
+			this.maxDataTime = maxDataTime;
 		}
 
 		public List<Rect> getPvRects() {

@@ -16,35 +16,31 @@ package com.aliyuncs.ram.model.v20150501;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.ProtocolType;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ram.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class BindMFADeviceRequest extends RpcAcsRequest<BindMFADeviceResponse> {
-	
-	public BindMFADeviceRequest() {
-		super("Ram", "2015-05-01", "BindMFADevice");
-		setProtocol(ProtocolType.HTTPS);
-	}
-
-	private String serialNumber;
+	   
 
 	private String authenticationCode2;
 
 	private String authenticationCode1;
 
+	private String serialNumber;
+
 	private String userName;
-
-	public String getSerialNumber() {
-		return this.serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber = serialNumber;
-		if(serialNumber != null){
-			putQueryParameter("SerialNumber", serialNumber);
-		}
+	public BindMFADeviceRequest() {
+		super("Ram", "2015-05-01", "BindMFADevice", "Ram");
+		setProtocol(ProtocolType.HTTPS);
+		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getAuthenticationCode2() {
@@ -66,6 +62,17 @@ public class BindMFADeviceRequest extends RpcAcsRequest<BindMFADeviceResponse> {
 		this.authenticationCode1 = authenticationCode1;
 		if(authenticationCode1 != null){
 			putQueryParameter("AuthenticationCode1", authenticationCode1);
+		}
+	}
+
+	public String getSerialNumber() {
+		return this.serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+		if(serialNumber != null){
+			putQueryParameter("SerialNumber", serialNumber);
 		}
 	}
 

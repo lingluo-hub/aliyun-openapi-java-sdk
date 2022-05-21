@@ -28,35 +28,35 @@ public class ModifyTagGroupsResponseUnmarshaller {
 	public static ModifyTagGroupsResponse unmarshall(ModifyTagGroupsResponse modifyTagGroupsResponse, UnmarshallerContext _ctx) {
 		
 		modifyTagGroupsResponse.setRequestId(_ctx.stringValue("ModifyTagGroupsResponse.RequestId"));
-		modifyTagGroupsResponse.setSuccess(_ctx.booleanValue("ModifyTagGroupsResponse.Success"));
+		modifyTagGroupsResponse.setHttpStatusCode(_ctx.integerValue("ModifyTagGroupsResponse.HttpStatusCode"));
 		modifyTagGroupsResponse.setCode(_ctx.stringValue("ModifyTagGroupsResponse.Code"));
 		modifyTagGroupsResponse.setMessage(_ctx.stringValue("ModifyTagGroupsResponse.Message"));
-		modifyTagGroupsResponse.setHttpStatusCode(_ctx.integerValue("ModifyTagGroupsResponse.HttpStatusCode"));
-
-		List<Tag> tags = new ArrayList<Tag>();
-		for (int i = 0; i < _ctx.lengthValue("ModifyTagGroupsResponse.Tags.Length"); i++) {
-			Tag tag = new Tag();
-			tag.setTagId(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagId"));
-			tag.setTagName(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagName"));
-			tag.setTagIndex(_ctx.integerValue("ModifyTagGroupsResponse.Tags["+ i +"].TagIndex"));
-			tag.setScriptId(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].ScriptId"));
-			tag.setTagGroup(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagGroup"));
-
-			tags.add(tag);
-		}
-		modifyTagGroupsResponse.setTags(tags);
+		modifyTagGroupsResponse.setSuccess(_ctx.booleanValue("ModifyTagGroupsResponse.Success"));
 
 		List<TagGroup> tagGroups = new ArrayList<TagGroup>();
 		for (int i = 0; i < _ctx.lengthValue("ModifyTagGroupsResponse.TagGroups.Length"); i++) {
 			TagGroup tagGroup = new TagGroup();
 			tagGroup.setTagGroupId(_ctx.stringValue("ModifyTagGroupsResponse.TagGroups["+ i +"].TagGroupId"));
 			tagGroup.setTagGroupIndex(_ctx.integerValue("ModifyTagGroupsResponse.TagGroups["+ i +"].TagGroupIndex"));
-			tagGroup.setScriptId(_ctx.stringValue("ModifyTagGroupsResponse.TagGroups["+ i +"].ScriptId"));
 			tagGroup.setTagGroup(_ctx.stringValue("ModifyTagGroupsResponse.TagGroups["+ i +"].TagGroup"));
+			tagGroup.setScriptId(_ctx.stringValue("ModifyTagGroupsResponse.TagGroups["+ i +"].ScriptId"));
 
 			tagGroups.add(tagGroup);
 		}
 		modifyTagGroupsResponse.setTagGroups(tagGroups);
+
+		List<Tag> tags = new ArrayList<Tag>();
+		for (int i = 0; i < _ctx.lengthValue("ModifyTagGroupsResponse.Tags.Length"); i++) {
+			Tag tag = new Tag();
+			tag.setTagGroup(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagGroup"));
+			tag.setTagName(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagName"));
+			tag.setTagIndex(_ctx.integerValue("ModifyTagGroupsResponse.Tags["+ i +"].TagIndex"));
+			tag.setScriptId(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].ScriptId"));
+			tag.setTagId(_ctx.stringValue("ModifyTagGroupsResponse.Tags["+ i +"].TagId"));
+
+			tags.add(tag);
+		}
+		modifyTagGroupsResponse.setTags(tags);
 	 
 	 	return modifyTagGroupsResponse;
 	}

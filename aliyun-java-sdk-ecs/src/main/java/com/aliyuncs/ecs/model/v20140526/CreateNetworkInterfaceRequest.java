@@ -26,6 +26,8 @@ import com.aliyuncs.ecs.Endpoint;
 public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkInterfaceResponse> {
 	   
 
+	private Integer queueNumber;
+
 	private Long resourceOwnerId;
 
 	private String clientToken;
@@ -40,6 +42,8 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 
 	private String resourceGroupId;
 
+	private String instanceType;
+
 	private List<Tag> tags;
 
 	private String networkInterfaceName;
@@ -48,17 +52,25 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 
 	private String resourceOwnerAccount;
 
+	private Integer ipv6AddressCount;
+
 	private String ownerAccount;
+
+	private Integer queuePairNumber;
 
 	private Long ownerId;
 
 	private List<String> securityGroupIdss;
+
+	private String networkInterfaceTrafficMode;
 
 	private String vSwitchId;
 
 	private List<String> privateIpAddresss;
 
 	private String primaryIpAddress;
+
+	private List<String> ipv6Addresss;
 	public CreateNetworkInterfaceRequest() {
 		super("Ecs", "2014-05-26", "CreateNetworkInterface", "ecs");
 		setMethod(MethodType.POST);
@@ -66,6 +78,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getQueueNumber() {
+		return this.queueNumber;
+	}
+
+	public void setQueueNumber(Integer queueNumber) {
+		this.queueNumber = queueNumber;
+		if(queueNumber != null){
+			putQueryParameter("QueueNumber", queueNumber.toString());
+		}
 	}
 
 	public Long getResourceOwnerId() {
@@ -145,6 +168,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		}
 	}
 
+	public String getInstanceType() {
+		return this.instanceType;
+	}
+
+	public void setInstanceType(String instanceType) {
+		this.instanceType = instanceType;
+		if(instanceType != null){
+			putQueryParameter("InstanceType", instanceType);
+		}
+	}
+
 	public List<Tag> getTags() {
 		return this.tags;
 	}
@@ -192,6 +226,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		}
 	}
 
+	public Integer getIpv6AddressCount() {
+		return this.ipv6AddressCount;
+	}
+
+	public void setIpv6AddressCount(Integer ipv6AddressCount) {
+		this.ipv6AddressCount = ipv6AddressCount;
+		if(ipv6AddressCount != null){
+			putQueryParameter("Ipv6AddressCount", ipv6AddressCount.toString());
+		}
+	}
+
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -200,6 +245,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Integer getQueuePairNumber() {
+		return this.queuePairNumber;
+	}
+
+	public void setQueuePairNumber(Integer queuePairNumber) {
+		this.queuePairNumber = queuePairNumber;
+		if(queuePairNumber != null){
+			putQueryParameter("QueuePairNumber", queuePairNumber.toString());
 		}
 	}
 
@@ -225,6 +281,17 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 				putQueryParameter("SecurityGroupIds." + (i + 1) , securityGroupIdss.get(i));
 			}
 		}	
+	}
+
+	public String getNetworkInterfaceTrafficMode() {
+		return this.networkInterfaceTrafficMode;
+	}
+
+	public void setNetworkInterfaceTrafficMode(String networkInterfaceTrafficMode) {
+		this.networkInterfaceTrafficMode = networkInterfaceTrafficMode;
+		if(networkInterfaceTrafficMode != null){
+			putQueryParameter("NetworkInterfaceTrafficMode", networkInterfaceTrafficMode);
+		}
 	}
 
 	public String getVSwitchId() {
@@ -260,6 +327,19 @@ public class CreateNetworkInterfaceRequest extends RpcAcsRequest<CreateNetworkIn
 		if(primaryIpAddress != null){
 			putQueryParameter("PrimaryIpAddress", primaryIpAddress);
 		}
+	}
+
+	public List<String> getIpv6Addresss() {
+		return this.ipv6Addresss;
+	}
+
+	public void setIpv6Addresss(List<String> ipv6Addresss) {
+		this.ipv6Addresss = ipv6Addresss;	
+		if (ipv6Addresss != null) {
+			for (int i = 0; i < ipv6Addresss.size(); i++) {
+				putQueryParameter("Ipv6Address." + (i + 1) , ipv6Addresss.get(i));
+			}
+		}	
 	}
 
 	public static class Tag {

@@ -33,6 +33,8 @@ public class BindAxgRequest extends RpcAcsRequest<BindAxgResponse> {
 
 	private String ringConfig;
 
+	private Boolean aSRStatus;
+
 	private String phoneNoB;
 
 	private String phoneNoA;
@@ -54,8 +56,12 @@ public class BindAxgRequest extends RpcAcsRequest<BindAxgResponse> {
 	private Boolean isRecordingEnabled;
 
 	private String outId;
+
+	private String aSRModelId;
+
+	private String callRestrict;
 	public BindAxgRequest() {
-		super("Dyplsapi", "2017-05-25", "BindAxg", "dypls");
+		super("Dyplsapi", "2017-05-25", "BindAxg");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -104,6 +110,17 @@ public class BindAxgRequest extends RpcAcsRequest<BindAxgResponse> {
 		this.ringConfig = ringConfig;
 		if(ringConfig != null){
 			putQueryParameter("RingConfig", ringConfig);
+		}
+	}
+
+	public Boolean getASRStatus() {
+		return this.aSRStatus;
+	}
+
+	public void setASRStatus(Boolean aSRStatus) {
+		this.aSRStatus = aSRStatus;
+		if(aSRStatus != null){
+			putQueryParameter("ASRStatus", aSRStatus.toString());
 		}
 	}
 
@@ -225,6 +242,28 @@ public class BindAxgRequest extends RpcAcsRequest<BindAxgResponse> {
 		this.outId = outId;
 		if(outId != null){
 			putQueryParameter("OutId", outId);
+		}
+	}
+
+	public String getASRModelId() {
+		return this.aSRModelId;
+	}
+
+	public void setASRModelId(String aSRModelId) {
+		this.aSRModelId = aSRModelId;
+		if(aSRModelId != null){
+			putQueryParameter("ASRModelId", aSRModelId);
+		}
+	}
+
+	public String getCallRestrict() {
+		return this.callRestrict;
+	}
+
+	public void setCallRestrict(String callRestrict) {
+		this.callRestrict = callRestrict;
+		if(callRestrict != null){
+			putQueryParameter("CallRestrict", callRestrict);
 		}
 	}
 

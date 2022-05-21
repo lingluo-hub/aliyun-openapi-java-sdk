@@ -38,6 +38,8 @@ public class ModifyInstanceMaintenanceAttributesRequest extends RpcAcsRequest<Mo
 
 	private Long ownerId;
 
+	private Boolean notifyOnMaintenance;
+
 	private List<String> instanceIds;
 	public ModifyInstanceMaintenanceAttributesRequest() {
 		super("Ecs", "2014-05-26", "ModifyInstanceMaintenanceAttributes", "ecs");
@@ -67,8 +69,8 @@ public class ModifyInstanceMaintenanceAttributesRequest extends RpcAcsRequest<Mo
 		this.maintenanceWindows = maintenanceWindows;	
 		if (maintenanceWindows != null) {
 			for (int depth1 = 0; depth1 < maintenanceWindows.size(); depth1++) {
-				putQueryParameter("MaintenanceWindow." + (depth1 + 1) + ".StartTime" , maintenanceWindows.get(depth1).getStartTime());
 				putQueryParameter("MaintenanceWindow." + (depth1 + 1) + ".EndTime" , maintenanceWindows.get(depth1).getEndTime());
+				putQueryParameter("MaintenanceWindow." + (depth1 + 1) + ".StartTime" , maintenanceWindows.get(depth1).getStartTime());
 			}
 		}	
 	}
@@ -117,6 +119,17 @@ public class ModifyInstanceMaintenanceAttributesRequest extends RpcAcsRequest<Mo
 		}
 	}
 
+	public Boolean getNotifyOnMaintenance() {
+		return this.notifyOnMaintenance;
+	}
+
+	public void setNotifyOnMaintenance(Boolean notifyOnMaintenance) {
+		this.notifyOnMaintenance = notifyOnMaintenance;
+		if(notifyOnMaintenance != null){
+			putQueryParameter("NotifyOnMaintenance", notifyOnMaintenance.toString());
+		}
+	}
+
 	public List<String> getInstanceIds() {
 		return this.instanceIds;
 	}
@@ -132,17 +145,9 @@ public class ModifyInstanceMaintenanceAttributesRequest extends RpcAcsRequest<Mo
 
 	public static class MaintenanceWindow {
 
-		private String startTime;
-
 		private String endTime;
 
-		public String getStartTime() {
-			return this.startTime;
-		}
-
-		public void setStartTime(String startTime) {
-			this.startTime = startTime;
-		}
+		private String startTime;
 
 		public String getEndTime() {
 			return this.endTime;
@@ -150,6 +155,14 @@ public class ModifyInstanceMaintenanceAttributesRequest extends RpcAcsRequest<Mo
 
 		public void setEndTime(String endTime) {
 			this.endTime = endTime;
+		}
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
 		}
 	}
 

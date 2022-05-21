@@ -14,6 +14,7 @@
 
 package com.aliyuncs.cbn.model.v20170912;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.cbn.transform.v20170912.DescribeCenAttachedChildInstanceAttributeResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,46 +25,34 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeCenAttachedChildInstanceAttributeResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String cenId;
-
-	private String childInstanceId;
+	private String status;
 
 	private String childInstanceType;
 
 	private String childInstanceRegionId;
 
+	private String requestId;
+
 	private Long childInstanceOwnerId;
 
-	private String status;
+	private String childInstanceId;
+
+	private String cenId;
 
 	private String childInstanceName;
 
+	private String ipv6StatusInCen;
+
 	private String childInstanceAttachTime;
 
-	public String getRequestId() {
-		return this.requestId;
+	private List<ChildInstanceRouteTable> childInstanceRouteTables;
+
+	public String getStatus() {
+		return this.status;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public String getCenId() {
-		return this.cenId;
-	}
-
-	public void setCenId(String cenId) {
-		this.cenId = cenId;
-	}
-
-	public String getChildInstanceId() {
-		return this.childInstanceId;
-	}
-
-	public void setChildInstanceId(String childInstanceId) {
-		this.childInstanceId = childInstanceId;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getChildInstanceType() {
@@ -82,6 +71,14 @@ public class DescribeCenAttachedChildInstanceAttributeResponse extends AcsRespon
 		this.childInstanceRegionId = childInstanceRegionId;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public Long getChildInstanceOwnerId() {
 		return this.childInstanceOwnerId;
 	}
@@ -90,12 +87,20 @@ public class DescribeCenAttachedChildInstanceAttributeResponse extends AcsRespon
 		this.childInstanceOwnerId = childInstanceOwnerId;
 	}
 
-	public String getStatus() {
-		return this.status;
+	public String getChildInstanceId() {
+		return this.childInstanceId;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setChildInstanceId(String childInstanceId) {
+		this.childInstanceId = childInstanceId;
+	}
+
+	public String getCenId() {
+		return this.cenId;
+	}
+
+	public void setCenId(String cenId) {
+		this.cenId = cenId;
 	}
 
 	public String getChildInstanceName() {
@@ -106,12 +111,51 @@ public class DescribeCenAttachedChildInstanceAttributeResponse extends AcsRespon
 		this.childInstanceName = childInstanceName;
 	}
 
+	public String getIpv6StatusInCen() {
+		return this.ipv6StatusInCen;
+	}
+
+	public void setIpv6StatusInCen(String ipv6StatusInCen) {
+		this.ipv6StatusInCen = ipv6StatusInCen;
+	}
+
 	public String getChildInstanceAttachTime() {
 		return this.childInstanceAttachTime;
 	}
 
 	public void setChildInstanceAttachTime(String childInstanceAttachTime) {
 		this.childInstanceAttachTime = childInstanceAttachTime;
+	}
+
+	public List<ChildInstanceRouteTable> getChildInstanceRouteTables() {
+		return this.childInstanceRouteTables;
+	}
+
+	public void setChildInstanceRouteTables(List<ChildInstanceRouteTable> childInstanceRouteTables) {
+		this.childInstanceRouteTables = childInstanceRouteTables;
+	}
+
+	public static class ChildInstanceRouteTable {
+
+		private String routeTableId;
+
+		private String routeTableType;
+
+		public String getRouteTableId() {
+			return this.routeTableId;
+		}
+
+		public void setRouteTableId(String routeTableId) {
+			this.routeTableId = routeTableId;
+		}
+
+		public String getRouteTableType() {
+			return this.routeTableType;
+		}
+
+		public void setRouteTableType(String routeTableType) {
+			this.routeTableType = routeTableType;
+		}
 	}
 
 	@Override

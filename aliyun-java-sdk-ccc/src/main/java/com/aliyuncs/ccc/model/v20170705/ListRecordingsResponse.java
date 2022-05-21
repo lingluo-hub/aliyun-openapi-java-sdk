@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListRecordingsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Recordings recordings;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListRecordingsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Recordings getRecordings() {
@@ -87,21 +87,13 @@ public class ListRecordingsResponse extends AcsResponse {
 
 	public static class Recordings {
 
-		private Integer totalCount;
-
 		private Integer pageNumber;
 
 		private Integer pageSize;
 
+		private Integer totalCount;
+
 		private List<Recording> list;
-
-		public Integer getTotalCount() {
-			return this.totalCount;
-		}
-
-		public void setTotalCount(Integer totalCount) {
-			this.totalCount = totalCount;
-		}
 
 		public Integer getPageNumber() {
 			return this.pageNumber;
@@ -119,6 +111,14 @@ public class ListRecordingsResponse extends AcsResponse {
 			this.pageSize = pageSize;
 		}
 
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
 		public List<Recording> getList() {
 			return this.list;
 		}
@@ -129,39 +129,31 @@ public class ListRecordingsResponse extends AcsResponse {
 
 		public static class Recording {
 
-			private String contactId;
-
 			private String contactType;
 
 			private String agentId;
 
 			private String agentName;
 
-			private String callingNumber;
+			private String instanceId;
+
+			private String fileName;
 
 			private String calledNumber;
 
 			private Long startTime;
 
-			private Integer duration;
-
-			private String fileName;
-
 			private String filePath;
+
+			private String contactId;
+
+			private String callingNumber;
+
+			private Integer duration;
 
 			private String fileDescription;
 
 			private String channel;
-
-			private String instanceId;
-
-			public String getContactId() {
-				return this.contactId;
-			}
-
-			public void setContactId(String contactId) {
-				this.contactId = contactId;
-			}
 
 			public String getContactType() {
 				return this.contactType;
@@ -187,12 +179,20 @@ public class ListRecordingsResponse extends AcsResponse {
 				this.agentName = agentName;
 			}
 
-			public String getCallingNumber() {
-				return this.callingNumber;
+			public String getInstanceId() {
+				return this.instanceId;
 			}
 
-			public void setCallingNumber(String callingNumber) {
-				this.callingNumber = callingNumber;
+			public void setInstanceId(String instanceId) {
+				this.instanceId = instanceId;
+			}
+
+			public String getFileName() {
+				return this.fileName;
+			}
+
+			public void setFileName(String fileName) {
+				this.fileName = fileName;
 			}
 
 			public String getCalledNumber() {
@@ -211,28 +211,36 @@ public class ListRecordingsResponse extends AcsResponse {
 				this.startTime = startTime;
 			}
 
-			public Integer getDuration() {
-				return this.duration;
-			}
-
-			public void setDuration(Integer duration) {
-				this.duration = duration;
-			}
-
-			public String getFileName() {
-				return this.fileName;
-			}
-
-			public void setFileName(String fileName) {
-				this.fileName = fileName;
-			}
-
 			public String getFilePath() {
 				return this.filePath;
 			}
 
 			public void setFilePath(String filePath) {
 				this.filePath = filePath;
+			}
+
+			public String getContactId() {
+				return this.contactId;
+			}
+
+			public void setContactId(String contactId) {
+				this.contactId = contactId;
+			}
+
+			public String getCallingNumber() {
+				return this.callingNumber;
+			}
+
+			public void setCallingNumber(String callingNumber) {
+				this.callingNumber = callingNumber;
+			}
+
+			public Integer getDuration() {
+				return this.duration;
+			}
+
+			public void setDuration(Integer duration) {
+				this.duration = duration;
 			}
 
 			public String getFileDescription() {
@@ -249,14 +257,6 @@ public class ListRecordingsResponse extends AcsResponse {
 
 			public void setChannel(String channel) {
 				this.channel = channel;
-			}
-
-			public String getInstanceId() {
-				return this.instanceId;
-			}
-
-			public void setInstanceId(String instanceId) {
-				this.instanceId = instanceId;
 			}
 		}
 	}

@@ -25,8 +25,6 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryProductListRequest extends RpcAcsRequest<QueryProductListResponse> {
 	   
 
-	private Integer currentPage;
-
 	private String resourceGroupId;
 
 	private String iotInstanceId;
@@ -34,24 +32,15 @@ public class QueryProductListRequest extends RpcAcsRequest<QueryProductListRespo
 	private Integer pageSize;
 
 	private String aliyunCommodityCode;
+
+	private Integer currentPage;
 	public QueryProductListRequest() {
-		super("Iot", "2018-01-20", "QueryProductList", "Iot");
+		super("Iot", "2018-01-20", "QueryProductList");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public Integer getCurrentPage() {
-		return this.currentPage;
-	}
-
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
-		if(currentPage != null){
-			putQueryParameter("CurrentPage", currentPage.toString());
-		}
 	}
 
 	public String getResourceGroupId() {
@@ -95,6 +84,17 @@ public class QueryProductListRequest extends RpcAcsRequest<QueryProductListRespo
 		this.aliyunCommodityCode = aliyunCommodityCode;
 		if(aliyunCommodityCode != null){
 			putQueryParameter("AliyunCommodityCode", aliyunCommodityCode);
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 

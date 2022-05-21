@@ -25,32 +25,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<PhoneNumber> outboundPhoneNumbers;
 
-	public String getRequestId() {
-		return this.requestId;
+	private List<String> numberList;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +63,20 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<PhoneNumber> getOutboundPhoneNumbers() {
@@ -85,66 +87,50 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 		this.outboundPhoneNumbers = outboundPhoneNumbers;
 	}
 
+	public List<String> getNumberList() {
+		return this.numberList;
+	}
+
+	public void setNumberList(List<String> numberList) {
+		this.numberList = numberList;
+	}
+
 	public static class PhoneNumber {
 
-		private String phoneNumberId;
-
-		private String instanceId;
-
-		private String number;
-
-		private String phoneNumberDescription;
+		private Boolean privateFlag;
 
 		private Boolean testOnly;
 
+		private String sipTelX;
+
 		private Integer remainingTime;
+
+		private String city;
+
+		private String instanceId;
 
 		private Boolean allowOutbound;
 
 		private String usage;
 
+		private String phoneNumberId;
+
 		private Integer trunks;
 
-		private String city;
+		private String number;
+
+		private String phoneNumberDescription;
 
 		private String province;
 
-		private Boolean privateFlag;
-
-		private String sipTelX;
-
 		private PrivacyNumber privacyNumber;
 
-		public String getPhoneNumberId() {
-			return this.phoneNumberId;
+		public Boolean getPrivateFlag() {
+			return this.privateFlag;
 		}
 
-		public void setPhoneNumberId(String phoneNumberId) {
-			this.phoneNumberId = phoneNumberId;
-		}
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public String getNumber() {
-			return this.number;
-		}
-
-		public void setNumber(String number) {
-			this.number = number;
-		}
-
-		public String getPhoneNumberDescription() {
-			return this.phoneNumberDescription;
-		}
-
-		public void setPhoneNumberDescription(String phoneNumberDescription) {
-			this.phoneNumberDescription = phoneNumberDescription;
+		public void setPrivateFlag(Boolean privateFlag) {
+			this.privateFlag = privateFlag;
 		}
 
 		public Boolean getTestOnly() {
@@ -155,12 +141,36 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 			this.testOnly = testOnly;
 		}
 
+		public String getSipTelX() {
+			return this.sipTelX;
+		}
+
+		public void setSipTelX(String sipTelX) {
+			this.sipTelX = sipTelX;
+		}
+
 		public Integer getRemainingTime() {
 			return this.remainingTime;
 		}
 
 		public void setRemainingTime(Integer remainingTime) {
 			this.remainingTime = remainingTime;
+		}
+
+		public String getCity() {
+			return this.city;
+		}
+
+		public void setCity(String city) {
+			this.city = city;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
 		}
 
 		public Boolean getAllowOutbound() {
@@ -179,6 +189,14 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 			this.usage = usage;
 		}
 
+		public String getPhoneNumberId() {
+			return this.phoneNumberId;
+		}
+
+		public void setPhoneNumberId(String phoneNumberId) {
+			this.phoneNumberId = phoneNumberId;
+		}
+
 		public Integer getTrunks() {
 			return this.trunks;
 		}
@@ -187,12 +205,20 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 			this.trunks = trunks;
 		}
 
-		public String getCity() {
-			return this.city;
+		public String getNumber() {
+			return this.number;
 		}
 
-		public void setCity(String city) {
-			this.city = city;
+		public void setNumber(String number) {
+			this.number = number;
+		}
+
+		public String getPhoneNumberDescription() {
+			return this.phoneNumberDescription;
+		}
+
+		public void setPhoneNumberDescription(String phoneNumberDescription) {
+			this.phoneNumberDescription = phoneNumberDescription;
 		}
 
 		public String getProvince() {
@@ -201,22 +227,6 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 
 		public void setProvince(String province) {
 			this.province = province;
-		}
-
-		public Boolean getPrivateFlag() {
-			return this.privateFlag;
-		}
-
-		public void setPrivateFlag(Boolean privateFlag) {
-			this.privateFlag = privateFlag;
-		}
-
-		public String getSipTelX() {
-			return this.sipTelX;
-		}
-
-		public void setSipTelX(String sipTelX) {
-			this.sipTelX = sipTelX;
 		}
 
 		public PrivacyNumber getPrivacyNumber() {
@@ -229,31 +239,23 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 
 		public static class PrivacyNumber {
 
-			private String poolId;
-
 			private String type;
 
-			private String telX;
-
-			private String poolName;
-
-			private String phoneNumber;
-
-			private String extra;
-
-			private String bizId;
+			private String poolId;
 
 			private String subId;
 
+			private String phoneNumber;
+
+			private String poolName;
+
+			private String bizId;
+
 			private String regionNameCity;
 
-			public String getPoolId() {
-				return this.poolId;
-			}
+			private String extra;
 
-			public void setPoolId(String poolId) {
-				this.poolId = poolId;
-			}
+			private String telX;
 
 			public String getType() {
 				return this.type;
@@ -263,44 +265,12 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 				this.type = type;
 			}
 
-			public String getTelX() {
-				return this.telX;
+			public String getPoolId() {
+				return this.poolId;
 			}
 
-			public void setTelX(String telX) {
-				this.telX = telX;
-			}
-
-			public String getPoolName() {
-				return this.poolName;
-			}
-
-			public void setPoolName(String poolName) {
-				this.poolName = poolName;
-			}
-
-			public String getPhoneNumber() {
-				return this.phoneNumber;
-			}
-
-			public void setPhoneNumber(String phoneNumber) {
-				this.phoneNumber = phoneNumber;
-			}
-
-			public String getExtra() {
-				return this.extra;
-			}
-
-			public void setExtra(String extra) {
-				this.extra = extra;
-			}
-
-			public String getBizId() {
-				return this.bizId;
-			}
-
-			public void setBizId(String bizId) {
-				this.bizId = bizId;
+			public void setPoolId(String poolId) {
+				this.poolId = poolId;
 			}
 
 			public String getSubId() {
@@ -311,12 +281,52 @@ public class ListOutboundPhoneNumberOfUserResponse extends AcsResponse {
 				this.subId = subId;
 			}
 
+			public String getPhoneNumber() {
+				return this.phoneNumber;
+			}
+
+			public void setPhoneNumber(String phoneNumber) {
+				this.phoneNumber = phoneNumber;
+			}
+
+			public String getPoolName() {
+				return this.poolName;
+			}
+
+			public void setPoolName(String poolName) {
+				this.poolName = poolName;
+			}
+
+			public String getBizId() {
+				return this.bizId;
+			}
+
+			public void setBizId(String bizId) {
+				this.bizId = bizId;
+			}
+
 			public String getRegionNameCity() {
 				return this.regionNameCity;
 			}
 
 			public void setRegionNameCity(String regionNameCity) {
 				this.regionNameCity = regionNameCity;
+			}
+
+			public String getExtra() {
+				return this.extra;
+			}
+
+			public void setExtra(String extra) {
+				this.extra = extra;
+			}
+
+			public String getTelX() {
+				return this.telX;
+			}
+
+			public void setTelX(String telX) {
+				this.telX = telX;
 			}
 		}
 	}

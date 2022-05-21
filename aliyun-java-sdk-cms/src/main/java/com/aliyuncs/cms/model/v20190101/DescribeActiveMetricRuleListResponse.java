@@ -25,23 +25,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
 	private String requestId;
 
+	private Boolean success;
+
 	private List<Alarm> datapoints;
 
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
+	private List<Alert> alertList;
 
 	public String getCode() {
 		return this.code;
@@ -67,6 +61,14 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public List<Alarm> getDatapoints() {
 		return this.datapoints;
 	}
@@ -75,54 +77,54 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 		this.datapoints = datapoints;
 	}
 
+	public List<Alert> getAlertList() {
+		return this.alertList;
+	}
+
+	public void setAlertList(List<Alert> alertList) {
+		this.alertList = alertList;
+	}
+
 	public static class Alarm {
-
-		private String ruleId;
-
-		private String namespace;
-
-		private String metricName;
-
-		private String period;
-
-		private String statistics;
-
-		private String comparisonOperator;
-
-		private String threshold;
-
-		private String evaluationCount;
-
-		private String startTime;
-
-		private String endTime;
 
 		private String silenceTime;
 
-		private String enable;
+		private String metricName;
+
+		private String evaluationCount;
+
+		private String webhook;
 
 		private String state;
 
 		private String contactGroups;
 
-		private String webhook;
+		private String namespace;
 
 		private String ruleName;
 
-		public String getRuleId() {
-			return this.ruleId;
+		private String ruleId;
+
+		private String period;
+
+		private String comparisonOperator;
+
+		private String endTime;
+
+		private String startTime;
+
+		private String threshold;
+
+		private String statistics;
+
+		private String enable;
+
+		public String getSilenceTime() {
+			return this.silenceTime;
 		}
 
-		public void setRuleId(String ruleId) {
-			this.ruleId = ruleId;
-		}
-
-		public String getNamespace() {
-			return this.namespace;
-		}
-
-		public void setNamespace(String namespace) {
-			this.namespace = namespace;
+		public void setSilenceTime(String silenceTime) {
+			this.silenceTime = silenceTime;
 		}
 
 		public String getMetricName() {
@@ -133,38 +135,6 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 			this.metricName = metricName;
 		}
 
-		public String getPeriod() {
-			return this.period;
-		}
-
-		public void setPeriod(String period) {
-			this.period = period;
-		}
-
-		public String getStatistics() {
-			return this.statistics;
-		}
-
-		public void setStatistics(String statistics) {
-			this.statistics = statistics;
-		}
-
-		public String getComparisonOperator() {
-			return this.comparisonOperator;
-		}
-
-		public void setComparisonOperator(String comparisonOperator) {
-			this.comparisonOperator = comparisonOperator;
-		}
-
-		public String getThreshold() {
-			return this.threshold;
-		}
-
-		public void setThreshold(String threshold) {
-			this.threshold = threshold;
-		}
-
 		public String getEvaluationCount() {
 			return this.evaluationCount;
 		}
@@ -173,36 +143,12 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 			this.evaluationCount = evaluationCount;
 		}
 
-		public String getStartTime() {
-			return this.startTime;
+		public String getWebhook() {
+			return this.webhook;
 		}
 
-		public void setStartTime(String startTime) {
-			this.startTime = startTime;
-		}
-
-		public String getEndTime() {
-			return this.endTime;
-		}
-
-		public void setEndTime(String endTime) {
-			this.endTime = endTime;
-		}
-
-		public String getSilenceTime() {
-			return this.silenceTime;
-		}
-
-		public void setSilenceTime(String silenceTime) {
-			this.silenceTime = silenceTime;
-		}
-
-		public String getEnable() {
-			return this.enable;
-		}
-
-		public void setEnable(String enable) {
-			this.enable = enable;
+		public void setWebhook(String webhook) {
+			this.webhook = webhook;
 		}
 
 		public String getState() {
@@ -221,12 +167,12 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 			this.contactGroups = contactGroups;
 		}
 
-		public String getWebhook() {
-			return this.webhook;
+		public String getNamespace() {
+			return this.namespace;
 		}
 
-		public void setWebhook(String webhook) {
-			this.webhook = webhook;
+		public void setNamespace(String namespace) {
+			this.namespace = namespace;
 		}
 
 		public String getRuleName() {
@@ -235,6 +181,395 @@ public class DescribeActiveMetricRuleListResponse extends AcsResponse {
 
 		public void setRuleName(String ruleName) {
 			this.ruleName = ruleName;
+		}
+
+		public String getRuleId() {
+			return this.ruleId;
+		}
+
+		public void setRuleId(String ruleId) {
+			this.ruleId = ruleId;
+		}
+
+		public String getPeriod() {
+			return this.period;
+		}
+
+		public void setPeriod(String period) {
+			this.period = period;
+		}
+
+		public String getComparisonOperator() {
+			return this.comparisonOperator;
+		}
+
+		public void setComparisonOperator(String comparisonOperator) {
+			this.comparisonOperator = comparisonOperator;
+		}
+
+		public String getEndTime() {
+			return this.endTime;
+		}
+
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
+		}
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
+		}
+
+		public String getThreshold() {
+			return this.threshold;
+		}
+
+		public void setThreshold(String threshold) {
+			this.threshold = threshold;
+		}
+
+		public String getStatistics() {
+			return this.statistics;
+		}
+
+		public void setStatistics(String statistics) {
+			this.statistics = statistics;
+		}
+
+		public String getEnable() {
+			return this.enable;
+		}
+
+		public void setEnable(String enable) {
+			this.enable = enable;
+		}
+	}
+
+	public static class Alert {
+
+		private String silenceTime;
+
+		private String metricName;
+
+		private String webhook;
+
+		private String contactGroups;
+
+		private String namespace;
+
+		private String effectiveInterval;
+
+		private String noEffectiveInterval;
+
+		private String mailSubject;
+
+		private String ruleName;
+
+		private String ruleId;
+
+		private String period;
+
+		private String alertState;
+
+		private String dimensions;
+
+		private Boolean enableState;
+
+		private String resources;
+
+		private Escalations escalations;
+
+		public String getSilenceTime() {
+			return this.silenceTime;
+		}
+
+		public void setSilenceTime(String silenceTime) {
+			this.silenceTime = silenceTime;
+		}
+
+		public String getMetricName() {
+			return this.metricName;
+		}
+
+		public void setMetricName(String metricName) {
+			this.metricName = metricName;
+		}
+
+		public String getWebhook() {
+			return this.webhook;
+		}
+
+		public void setWebhook(String webhook) {
+			this.webhook = webhook;
+		}
+
+		public String getContactGroups() {
+			return this.contactGroups;
+		}
+
+		public void setContactGroups(String contactGroups) {
+			this.contactGroups = contactGroups;
+		}
+
+		public String getNamespace() {
+			return this.namespace;
+		}
+
+		public void setNamespace(String namespace) {
+			this.namespace = namespace;
+		}
+
+		public String getEffectiveInterval() {
+			return this.effectiveInterval;
+		}
+
+		public void setEffectiveInterval(String effectiveInterval) {
+			this.effectiveInterval = effectiveInterval;
+		}
+
+		public String getNoEffectiveInterval() {
+			return this.noEffectiveInterval;
+		}
+
+		public void setNoEffectiveInterval(String noEffectiveInterval) {
+			this.noEffectiveInterval = noEffectiveInterval;
+		}
+
+		public String getMailSubject() {
+			return this.mailSubject;
+		}
+
+		public void setMailSubject(String mailSubject) {
+			this.mailSubject = mailSubject;
+		}
+
+		public String getRuleName() {
+			return this.ruleName;
+		}
+
+		public void setRuleName(String ruleName) {
+			this.ruleName = ruleName;
+		}
+
+		public String getRuleId() {
+			return this.ruleId;
+		}
+
+		public void setRuleId(String ruleId) {
+			this.ruleId = ruleId;
+		}
+
+		public String getPeriod() {
+			return this.period;
+		}
+
+		public void setPeriod(String period) {
+			this.period = period;
+		}
+
+		public String getAlertState() {
+			return this.alertState;
+		}
+
+		public void setAlertState(String alertState) {
+			this.alertState = alertState;
+		}
+
+		public String getDimensions() {
+			return this.dimensions;
+		}
+
+		public void setDimensions(String dimensions) {
+			this.dimensions = dimensions;
+		}
+
+		public Boolean getEnableState() {
+			return this.enableState;
+		}
+
+		public void setEnableState(Boolean enableState) {
+			this.enableState = enableState;
+		}
+
+		public String getResources() {
+			return this.resources;
+		}
+
+		public void setResources(String resources) {
+			this.resources = resources;
+		}
+
+		public Escalations getEscalations() {
+			return this.escalations;
+		}
+
+		public void setEscalations(Escalations escalations) {
+			this.escalations = escalations;
+		}
+
+		public static class Escalations {
+
+			private Info info;
+
+			private Warn warn;
+
+			private Critical critical;
+
+			public Info getInfo() {
+				return this.info;
+			}
+
+			public void setInfo(Info info) {
+				this.info = info;
+			}
+
+			public Warn getWarn() {
+				return this.warn;
+			}
+
+			public void setWarn(Warn warn) {
+				this.warn = warn;
+			}
+
+			public Critical getCritical() {
+				return this.critical;
+			}
+
+			public void setCritical(Critical critical) {
+				this.critical = critical;
+			}
+
+			public static class Info {
+
+				private String comparisonOperator;
+
+				private String times;
+
+				private String threshold;
+
+				private String statistics;
+
+				public String getComparisonOperator() {
+					return this.comparisonOperator;
+				}
+
+				public void setComparisonOperator(String comparisonOperator) {
+					this.comparisonOperator = comparisonOperator;
+				}
+
+				public String getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(String times) {
+					this.times = times;
+				}
+
+				public String getThreshold() {
+					return this.threshold;
+				}
+
+				public void setThreshold(String threshold) {
+					this.threshold = threshold;
+				}
+
+				public String getStatistics() {
+					return this.statistics;
+				}
+
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
+				}
+			}
+
+			public static class Warn {
+
+				private String comparisonOperator;
+
+				private String times;
+
+				private String threshold;
+
+				private String statistics;
+
+				public String getComparisonOperator() {
+					return this.comparisonOperator;
+				}
+
+				public void setComparisonOperator(String comparisonOperator) {
+					this.comparisonOperator = comparisonOperator;
+				}
+
+				public String getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(String times) {
+					this.times = times;
+				}
+
+				public String getThreshold() {
+					return this.threshold;
+				}
+
+				public void setThreshold(String threshold) {
+					this.threshold = threshold;
+				}
+
+				public String getStatistics() {
+					return this.statistics;
+				}
+
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
+				}
+			}
+
+			public static class Critical {
+
+				private String comparisonOperator;
+
+				private String times;
+
+				private String threshold;
+
+				private String statistics;
+
+				public String getComparisonOperator() {
+					return this.comparisonOperator;
+				}
+
+				public void setComparisonOperator(String comparisonOperator) {
+					this.comparisonOperator = comparisonOperator;
+				}
+
+				public String getTimes() {
+					return this.times;
+				}
+
+				public void setTimes(String times) {
+					this.times = times;
+				}
+
+				public String getThreshold() {
+					return this.threshold;
+				}
+
+				public void setThreshold(String threshold) {
+					this.threshold = threshold;
+				}
+
+				public String getStatistics() {
+					return this.statistics;
+				}
+
+				public void setStatistics(String statistics) {
+					this.statistics = statistics;
+				}
+			}
 		}
 	}
 

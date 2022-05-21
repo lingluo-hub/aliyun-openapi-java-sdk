@@ -25,7 +25,11 @@ import com.aliyuncs.vpc.Endpoint;
 public class ModifyRouteEntryRequest extends RpcAcsRequest<ModifyRouteEntryResponse> {
 	   
 
+	private Long resourceOwnerId;
+
 	private String routeEntryName;
+
+	private String description;
 
 	private String resourceOwnerAccount;
 
@@ -35,12 +39,23 @@ public class ModifyRouteEntryRequest extends RpcAcsRequest<ModifyRouteEntryRespo
 
 	private String routeEntryId;
 	public ModifyRouteEntryRequest() {
-		super("Vpc", "2016-04-28", "ModifyRouteEntry", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyRouteEntry", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Long getResourceOwnerId() {
+		return this.resourceOwnerId;
+	}
+
+	public void setResourceOwnerId(Long resourceOwnerId) {
+		this.resourceOwnerId = resourceOwnerId;
+		if(resourceOwnerId != null){
+			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
 	}
 
 	public String getRouteEntryName() {
@@ -51,6 +66,17 @@ public class ModifyRouteEntryRequest extends RpcAcsRequest<ModifyRouteEntryRespo
 		this.routeEntryName = routeEntryName;
 		if(routeEntryName != null){
 			putQueryParameter("RouteEntryName", routeEntryName);
+		}
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+		if(description != null){
+			putQueryParameter("Description", description);
 		}
 	}
 

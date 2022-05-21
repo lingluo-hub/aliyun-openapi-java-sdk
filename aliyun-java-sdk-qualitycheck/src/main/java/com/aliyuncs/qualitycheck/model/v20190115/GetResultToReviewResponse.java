@@ -25,31 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetResultToReviewResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -67,6 +51,22 @@ public class GetResultToReviewResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -77,29 +77,31 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 	public static class Data {
 
-		private Boolean audio;
+		private Integer status;
 
 		private String audioScheme;
 
 		private String audioURL;
 
-		private Integer businessType;
-
-		private Boolean deleted;
-
-		private String fileMergeName;
-
 		private Integer hitNumber;
 
-		private Integer reviewNumber;
+		private Boolean audio;
 
 		private Integer totalScore;
 
-		private String vid;
+		private Integer businessType;
+
+		private String fileId;
+
+		private String fileMergeName;
 
 		private String comments;
 
-		private String fileId;
+		private Boolean deleted;
+
+		private String vid;
+
+		private Integer reviewNumber;
 
 		private List<Dialogue> dialogues;
 
@@ -107,16 +109,16 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 		private List<HitRuleReviewInfo> hitRuleReviewInfoList;
 
-		private List<HitRuleReviewInfo> manualScoreInfoList;
+		private List<ManualScoreInfo> manualScoreInfoList;
 
 		private List<ReviewHistory> reviewHistoryList;
 
-		public Boolean getAudio() {
-			return this.audio;
+		public Integer getStatus() {
+			return this.status;
 		}
 
-		public void setAudio(Boolean audio) {
-			this.audio = audio;
+		public void setStatus(Integer status) {
+			this.status = status;
 		}
 
 		public String getAudioScheme() {
@@ -135,30 +137,6 @@ public class GetResultToReviewResponse extends AcsResponse {
 			this.audioURL = audioURL;
 		}
 
-		public Integer getBusinessType() {
-			return this.businessType;
-		}
-
-		public void setBusinessType(Integer businessType) {
-			this.businessType = businessType;
-		}
-
-		public Boolean getDeleted() {
-			return this.deleted;
-		}
-
-		public void setDeleted(Boolean deleted) {
-			this.deleted = deleted;
-		}
-
-		public String getFileMergeName() {
-			return this.fileMergeName;
-		}
-
-		public void setFileMergeName(String fileMergeName) {
-			this.fileMergeName = fileMergeName;
-		}
-
 		public Integer getHitNumber() {
 			return this.hitNumber;
 		}
@@ -167,12 +145,12 @@ public class GetResultToReviewResponse extends AcsResponse {
 			this.hitNumber = hitNumber;
 		}
 
-		public Integer getReviewNumber() {
-			return this.reviewNumber;
+		public Boolean getAudio() {
+			return this.audio;
 		}
 
-		public void setReviewNumber(Integer reviewNumber) {
-			this.reviewNumber = reviewNumber;
+		public void setAudio(Boolean audio) {
+			this.audio = audio;
 		}
 
 		public Integer getTotalScore() {
@@ -183,12 +161,28 @@ public class GetResultToReviewResponse extends AcsResponse {
 			this.totalScore = totalScore;
 		}
 
-		public String getVid() {
-			return this.vid;
+		public Integer getBusinessType() {
+			return this.businessType;
 		}
 
-		public void setVid(String vid) {
-			this.vid = vid;
+		public void setBusinessType(Integer businessType) {
+			this.businessType = businessType;
+		}
+
+		public String getFileId() {
+			return this.fileId;
+		}
+
+		public void setFileId(String fileId) {
+			this.fileId = fileId;
+		}
+
+		public String getFileMergeName() {
+			return this.fileMergeName;
+		}
+
+		public void setFileMergeName(String fileMergeName) {
+			this.fileMergeName = fileMergeName;
 		}
 
 		public String getComments() {
@@ -199,12 +193,28 @@ public class GetResultToReviewResponse extends AcsResponse {
 			this.comments = comments;
 		}
 
-		public String getFileId() {
-			return this.fileId;
+		public Boolean getDeleted() {
+			return this.deleted;
 		}
 
-		public void setFileId(String fileId) {
-			this.fileId = fileId;
+		public void setDeleted(Boolean deleted) {
+			this.deleted = deleted;
+		}
+
+		public String getVid() {
+			return this.vid;
+		}
+
+		public void setVid(String vid) {
+			this.vid = vid;
+		}
+
+		public Integer getReviewNumber() {
+			return this.reviewNumber;
+		}
+
+		public void setReviewNumber(Integer reviewNumber) {
+			this.reviewNumber = reviewNumber;
 		}
 
 		public List<Dialogue> getDialogues() {
@@ -231,11 +241,11 @@ public class GetResultToReviewResponse extends AcsResponse {
 			this.hitRuleReviewInfoList = hitRuleReviewInfoList;
 		}
 
-		public List<HitRuleReviewInfo> getManualScoreInfoList() {
+		public List<ManualScoreInfo> getManualScoreInfoList() {
 			return this.manualScoreInfoList;
 		}
 
-		public void setManualScoreInfoList(List<HitRuleReviewInfo> manualScoreInfoList) {
+		public void setManualScoreInfoList(List<ManualScoreInfo> manualScoreInfoList) {
 			this.manualScoreInfoList = manualScoreInfoList;
 		}
 
@@ -249,6 +259,10 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 		public static class Dialogue {
 
+			private String words;
+
+			private String identity;
+
 			private Long begin;
 
 			private String beginTime;
@@ -257,17 +271,29 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 			private Long end;
 
-			private String hourMinSec;
-
-			private String identity;
+			private Integer speechRate;
 
 			private String role;
 
 			private Integer silenceDuration;
 
-			private Integer speechRate;
+			private String hourMinSec;
 
-			private String words;
+			public String getWords() {
+				return this.words;
+			}
+
+			public void setWords(String words) {
+				this.words = words;
+			}
+
+			public String getIdentity() {
+				return this.identity;
+			}
+
+			public void setIdentity(String identity) {
+				this.identity = identity;
+			}
 
 			public Long getBegin() {
 				return this.begin;
@@ -301,20 +327,12 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.end = end;
 			}
 
-			public String getHourMinSec() {
-				return this.hourMinSec;
+			public Integer getSpeechRate() {
+				return this.speechRate;
 			}
 
-			public void setHourMinSec(String hourMinSec) {
-				this.hourMinSec = hourMinSec;
-			}
-
-			public String getIdentity() {
-				return this.identity;
-			}
-
-			public void setIdentity(String identity) {
-				this.identity = identity;
+			public void setSpeechRate(Integer speechRate) {
+				this.speechRate = speechRate;
 			}
 
 			public String getRole() {
@@ -333,20 +351,12 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.silenceDuration = silenceDuration;
 			}
 
-			public Integer getSpeechRate() {
-				return this.speechRate;
+			public String getHourMinSec() {
+				return this.hourMinSec;
 			}
 
-			public void setSpeechRate(Integer speechRate) {
-				this.speechRate = speechRate;
-			}
-
-			public String getWords() {
-				return this.words;
-			}
-
-			public void setWords(String words) {
-				this.words = words;
+			public void setHourMinSec(String hourMinSec) {
+				this.hourMinSec = hourMinSec;
 			}
 		}
 
@@ -384,22 +394,22 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 			public static class ScoreParam {
 
-				private Integer hit;
+				private String scoreSubName;
 
 				private Integer scoreNum;
 
-				private Long scoreSubId;
+				private Integer hit;
 
-				private String scoreSubName;
+				private Long scoreSubId;
 
 				private Integer scoreType;
 
-				public Integer getHit() {
-					return this.hit;
+				public String getScoreSubName() {
+					return this.scoreSubName;
 				}
 
-				public void setHit(Integer hit) {
-					this.hit = hit;
+				public void setScoreSubName(String scoreSubName) {
+					this.scoreSubName = scoreSubName;
 				}
 
 				public Integer getScoreNum() {
@@ -410,20 +420,20 @@ public class GetResultToReviewResponse extends AcsResponse {
 					this.scoreNum = scoreNum;
 				}
 
+				public Integer getHit() {
+					return this.hit;
+				}
+
+				public void setHit(Integer hit) {
+					this.hit = hit;
+				}
+
 				public Long getScoreSubId() {
 					return this.scoreSubId;
 				}
 
 				public void setScoreSubId(Long scoreSubId) {
 					this.scoreSubId = scoreSubId;
-				}
-
-				public String getScoreSubName() {
-					return this.scoreSubName;
-				}
-
-				public void setScoreSubName(String scoreSubName) {
-					this.scoreSubName = scoreSubName;
 				}
 
 				public Integer getScoreType() {
@@ -438,49 +448,33 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 		public static class HitRuleReviewInfo {
 
-			private Integer autoReview;
-
-			private Long rid;
-
-			private String ruleName;
-
 			private Integer ruleScoreType;
 
 			private Integer ruleType;
 
-			private Long scoreId;
+			private String scoreSubName;
+
+			private Integer scoreNum;
+
+			private Integer autoReview;
 
 			private Long scoreSubId;
 
+			private Boolean complainable;
+
 			private Integer totalNumber;
+
+			private Long scoreId;
+
+			private String ruleName;
+
+			private Long rid;
 
 			private List<ConditionHitInfo> conditionHitInfoList;
 
+			private List<ComplainHistoriesItem> complainHistories;
+
 			private ReviewInfo reviewInfo;
-
-			public Integer getAutoReview() {
-				return this.autoReview;
-			}
-
-			public void setAutoReview(Integer autoReview) {
-				this.autoReview = autoReview;
-			}
-
-			public Long getRid() {
-				return this.rid;
-			}
-
-			public void setRid(Long rid) {
-				this.rid = rid;
-			}
-
-			public String getRuleName() {
-				return this.ruleName;
-			}
-
-			public void setRuleName(String ruleName) {
-				this.ruleName = ruleName;
-			}
 
 			public Integer getRuleScoreType() {
 				return this.ruleScoreType;
@@ -498,12 +492,28 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.ruleType = ruleType;
 			}
 
-			public Long getScoreId() {
-				return this.scoreId;
+			public String getScoreSubName() {
+				return this.scoreSubName;
 			}
 
-			public void setScoreId(Long scoreId) {
-				this.scoreId = scoreId;
+			public void setScoreSubName(String scoreSubName) {
+				this.scoreSubName = scoreSubName;
+			}
+
+			public Integer getScoreNum() {
+				return this.scoreNum;
+			}
+
+			public void setScoreNum(Integer scoreNum) {
+				this.scoreNum = scoreNum;
+			}
+
+			public Integer getAutoReview() {
+				return this.autoReview;
+			}
+
+			public void setAutoReview(Integer autoReview) {
+				this.autoReview = autoReview;
 			}
 
 			public Long getScoreSubId() {
@@ -514,6 +524,14 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.scoreSubId = scoreSubId;
 			}
 
+			public Boolean getComplainable() {
+				return this.complainable;
+			}
+
+			public void setComplainable(Boolean complainable) {
+				this.complainable = complainable;
+			}
+
 			public Integer getTotalNumber() {
 				return this.totalNumber;
 			}
@@ -522,12 +540,44 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.totalNumber = totalNumber;
 			}
 
+			public Long getScoreId() {
+				return this.scoreId;
+			}
+
+			public void setScoreId(Long scoreId) {
+				this.scoreId = scoreId;
+			}
+
+			public String getRuleName() {
+				return this.ruleName;
+			}
+
+			public void setRuleName(String ruleName) {
+				this.ruleName = ruleName;
+			}
+
+			public Long getRid() {
+				return this.rid;
+			}
+
+			public void setRid(Long rid) {
+				this.rid = rid;
+			}
+
 			public List<ConditionHitInfo> getConditionHitInfoList() {
 				return this.conditionHitInfoList;
 			}
 
 			public void setConditionHitInfoList(List<ConditionHitInfo> conditionHitInfoList) {
 				this.conditionHitInfoList = conditionHitInfoList;
+			}
+
+			public List<ComplainHistoriesItem> getComplainHistories() {
+				return this.complainHistories;
+			}
+
+			public void setComplainHistories(List<ComplainHistoriesItem> complainHistories) {
+				this.complainHistories = complainHistories;
 			}
 
 			public ReviewInfo getReviewInfo() {
@@ -572,15 +622,25 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 				public static class KeyWord {
 
+					private Integer from;
+
 					private String val;
 
 					private Integer pid;
 
-					private Integer from;
+					private String tid;
+
+					private String cid;
 
 					private Integer to;
 
-					private String tid;
+					public Integer getFrom() {
+						return this.from;
+					}
+
+					public void setFrom(Integer from) {
+						this.from = from;
+					}
 
 					public String getVal() {
 						return this.val;
@@ -598,12 +658,20 @@ public class GetResultToReviewResponse extends AcsResponse {
 						this.pid = pid;
 					}
 
-					public Integer getFrom() {
-						return this.from;
+					public String getTid() {
+						return this.tid;
 					}
 
-					public void setFrom(Integer from) {
-						this.from = from;
+					public void setTid(String tid) {
+						this.tid = tid;
+					}
+
+					public String getCid() {
+						return this.cid;
+					}
+
+					public void setCid(String cid) {
+						this.cid = cid;
 					}
 
 					public Integer getTo() {
@@ -613,38 +681,38 @@ public class GetResultToReviewResponse extends AcsResponse {
 					public void setTo(Integer to) {
 						this.to = to;
 					}
-
-					public String getTid() {
-						return this.tid;
-					}
-
-					public void setTid(String tid) {
-						this.tid = tid;
-					}
 				}
 
 				public static class Phrase {
 
-					private String role;
-
-					private String identity;
-
-					private Integer emotionValue;
-
 					private String words;
-
-					private Long end;
-
-					private Integer pid;
 
 					private Long begin;
 
-					public String getRole() {
-						return this.role;
+					private String identity;
+
+					private Integer pid;
+
+					private Integer emotionValue;
+
+					private Long end;
+
+					private String role;
+
+					public String getWords() {
+						return this.words;
 					}
 
-					public void setRole(String role) {
-						this.role = role;
+					public void setWords(String words) {
+						this.words = words;
+					}
+
+					public Long getBegin() {
+						return this.begin;
+					}
+
+					public void setBegin(Long begin) {
+						this.begin = begin;
 					}
 
 					public String getIdentity() {
@@ -655,20 +723,20 @@ public class GetResultToReviewResponse extends AcsResponse {
 						this.identity = identity;
 					}
 
+					public Integer getPid() {
+						return this.pid;
+					}
+
+					public void setPid(Integer pid) {
+						this.pid = pid;
+					}
+
 					public Integer getEmotionValue() {
 						return this.emotionValue;
 					}
 
 					public void setEmotionValue(Integer emotionValue) {
 						this.emotionValue = emotionValue;
-					}
-
-					public String getWords() {
-						return this.words;
-					}
-
-					public void setWords(String words) {
-						this.words = words;
 					}
 
 					public Long getEnd() {
@@ -679,51 +747,80 @@ public class GetResultToReviewResponse extends AcsResponse {
 						this.end = end;
 					}
 
-					public Integer getPid() {
-						return this.pid;
+					public String getRole() {
+						return this.role;
 					}
 
-					public void setPid(Integer pid) {
-						this.pid = pid;
+					public void setRole(String role) {
+						this.role = role;
 					}
+				}
+			}
 
-					public Long getBegin() {
-						return this.begin;
-					}
+			public static class ComplainHistoriesItem {
 
-					public void setBegin(Long begin) {
-						this.begin = begin;
-					}
+				private String comments;
+
+				private Long operator;
+
+				private String operationTime;
+
+				private Integer operationType;
+
+				private String operatorName;
+
+				public String getComments() {
+					return this.comments;
+				}
+
+				public void setComments(String comments) {
+					this.comments = comments;
+				}
+
+				public Long getOperator() {
+					return this.operator;
+				}
+
+				public void setOperator(Long operator) {
+					this.operator = operator;
+				}
+
+				public String getOperationTime() {
+					return this.operationTime;
+				}
+
+				public void setOperationTime(String operationTime) {
+					this.operationTime = operationTime;
+				}
+
+				public Integer getOperationType() {
+					return this.operationType;
+				}
+
+				public void setOperationType(Integer operationType) {
+					this.operationType = operationType;
+				}
+
+				public String getOperatorName() {
+					return this.operatorName;
+				}
+
+				public void setOperatorName(String operatorName) {
+					this.operatorName = operatorName;
 				}
 			}
 
 			public static class ReviewInfo {
 
-				private String hitId;
-
-				private Long rid;
-
 				private Integer reviewResult;
-
-				private String reviewer;
 
 				private String reviewTime;
 
-				public String getHitId() {
-					return this.hitId;
-				}
+				private String hitId;
 
-				public void setHitId(String hitId) {
-					this.hitId = hitId;
-				}
+				private String reviewer;
 
-				public Long getRid() {
-					return this.rid;
-				}
-
-				public void setRid(Long rid) {
-					this.rid = rid;
-				}
+				private Long rid;
 
 				public Integer getReviewResult() {
 					return this.reviewResult;
@@ -731,6 +828,22 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 				public void setReviewResult(Integer reviewResult) {
 					this.reviewResult = reviewResult;
+				}
+
+				public String getReviewTime() {
+					return this.reviewTime;
+				}
+
+				public void setReviewTime(String reviewTime) {
+					this.reviewTime = reviewTime;
+				}
+
+				public String getHitId() {
+					return this.hitId;
+				}
+
+				public void setHitId(String hitId) {
+					this.hitId = hitId;
 				}
 
 				public String getReviewer() {
@@ -741,23 +854,141 @@ public class GetResultToReviewResponse extends AcsResponse {
 					this.reviewer = reviewer;
 				}
 
-				public String getReviewTime() {
-					return this.reviewTime;
+				public Long getRid() {
+					return this.rid;
 				}
 
-				public void setReviewTime(String reviewTime) {
-					this.reviewTime = reviewTime;
+				public void setRid(Long rid) {
+					this.rid = rid;
+				}
+			}
+		}
+
+		public static class ManualScoreInfo {
+
+			private String scoreSubName;
+
+			private Boolean complainable;
+
+			private Integer scoreNum;
+
+			private Long scoreSubId;
+
+			private Long scoreId;
+
+			private List<ComplainHistoriesItem2> complainHistories1;
+
+			public String getScoreSubName() {
+				return this.scoreSubName;
+			}
+
+			public void setScoreSubName(String scoreSubName) {
+				this.scoreSubName = scoreSubName;
+			}
+
+			public Boolean getComplainable() {
+				return this.complainable;
+			}
+
+			public void setComplainable(Boolean complainable) {
+				this.complainable = complainable;
+			}
+
+			public Integer getScoreNum() {
+				return this.scoreNum;
+			}
+
+			public void setScoreNum(Integer scoreNum) {
+				this.scoreNum = scoreNum;
+			}
+
+			public Long getScoreSubId() {
+				return this.scoreSubId;
+			}
+
+			public void setScoreSubId(Long scoreSubId) {
+				this.scoreSubId = scoreSubId;
+			}
+
+			public Long getScoreId() {
+				return this.scoreId;
+			}
+
+			public void setScoreId(Long scoreId) {
+				this.scoreId = scoreId;
+			}
+
+			public List<ComplainHistoriesItem2> getComplainHistories1() {
+				return this.complainHistories1;
+			}
+
+			public void setComplainHistories1(List<ComplainHistoriesItem2> complainHistories1) {
+				this.complainHistories1 = complainHistories1;
+			}
+
+			public static class ComplainHistoriesItem2 {
+
+				private String comments;
+
+				private Long operator;
+
+				private String operationTime;
+
+				private Integer operationType;
+
+				private String operatorName;
+
+				public String getComments() {
+					return this.comments;
+				}
+
+				public void setComments(String comments) {
+					this.comments = comments;
+				}
+
+				public Long getOperator() {
+					return this.operator;
+				}
+
+				public void setOperator(Long operator) {
+					this.operator = operator;
+				}
+
+				public String getOperationTime() {
+					return this.operationTime;
+				}
+
+				public void setOperationTime(String operationTime) {
+					this.operationTime = operationTime;
+				}
+
+				public Integer getOperationType() {
+					return this.operationType;
+				}
+
+				public void setOperationType(Integer operationType) {
+					this.operationType = operationType;
+				}
+
+				public String getOperatorName() {
+					return this.operatorName;
+				}
+
+				public void setOperatorName(String operatorName) {
+					this.operatorName = operatorName;
 				}
 			}
 		}
 
 		public static class ReviewHistory {
 
-			private String timeStr;
+			private Integer type;
 
 			private String operatorName;
 
-			private Integer type;
+			private String timeStr;
+
+			private Integer score;
 
 			private Integer reviewResult;
 
@@ -765,14 +996,12 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 			private Integer oldScore;
 
-			private Integer score;
-
-			public String getTimeStr() {
-				return this.timeStr;
+			public Integer getType() {
+				return this.type;
 			}
 
-			public void setTimeStr(String timeStr) {
-				this.timeStr = timeStr;
+			public void setType(Integer type) {
+				this.type = type;
 			}
 
 			public String getOperatorName() {
@@ -783,12 +1012,20 @@ public class GetResultToReviewResponse extends AcsResponse {
 				this.operatorName = operatorName;
 			}
 
-			public Integer getType() {
-				return this.type;
+			public String getTimeStr() {
+				return this.timeStr;
 			}
 
-			public void setType(Integer type) {
-				this.type = type;
+			public void setTimeStr(String timeStr) {
+				this.timeStr = timeStr;
+			}
+
+			public Integer getScore() {
+				return this.score;
+			}
+
+			public void setScore(Integer score) {
+				this.score = score;
 			}
 
 			public Integer getReviewResult() {
@@ -813,14 +1050,6 @@ public class GetResultToReviewResponse extends AcsResponse {
 
 			public void setOldScore(Integer oldScore) {
 				this.oldScore = oldScore;
-			}
-
-			public Integer getScore() {
-				return this.score;
-			}
-
-			public void setScore(Integer score) {
-				this.score = score;
 			}
 		}
 	}

@@ -25,31 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class GetRuleDetailResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
+	private Boolean success;
+
 	private Data data;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -67,6 +51,22 @@ public class GetRuleDetailResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -77,9 +77,39 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 	public static class Data {
 
+		private Integer pageSize;
+
+		private Integer pageNumber;
+
+		private Integer count;
+
 		private List<ConditionBasicInfo> conditions;
 
 		private List<RuleBasicInfo> rules;
+
+		public Integer getPageSize() {
+			return this.pageSize;
+		}
+
+		public void setPageSize(Integer pageSize) {
+			this.pageSize = pageSize;
+		}
+
+		public Integer getPageNumber() {
+			return this.pageNumber;
+		}
+
+		public void setPageNumber(Integer pageNumber) {
+			this.pageNumber = pageNumber;
+		}
+
+		public Integer getCount() {
+			return this.count;
+		}
+
+		public void setCount(Integer count) {
+			this.count = count;
+		}
 
 		public List<ConditionBasicInfo> getConditions() {
 			return this.conditions;
@@ -141,21 +171,13 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 			public static class OperatorBasicInfo {
 
-				private String oid;
-
 				private String type;
+
+				private String oid;
 
 				private String operName;
 
 				private Param param;
-
-				public String getOid() {
-					return this.oid;
-				}
-
-				public void setOid(String oid) {
-					this.oid = oid;
-				}
 
 				public String getType() {
 					return this.type;
@@ -163,6 +185,14 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 				public void setType(String type) {
 					this.type = type;
+				}
+
+				public String getOid() {
+					return this.oid;
+				}
+
+				public void setOid(String oid) {
+					this.oid = oid;
 				}
 
 				public String getOperName() {
@@ -183,83 +213,67 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 				public static class Param {
 
-					private String regex;
-
-					private String phrase;
-
-					private Integer interval;
-
-					private Float threshold;
-
-					private Boolean inSentence;
-
-					private Integer target;
-
-					private Boolean fromEnd;
-
 					private Boolean differentRole;
+
+					private String regex;
 
 					private String targetRole;
 
-					private List<String> operKeyWords;
+					private Integer velocityInMint;
+
+					private Boolean average;
+
+					private Boolean keywordExtension;
+
+					private Integer score;
+
+					private String notRegex;
+
+					private String compareOperator;
+
+					private Integer delayTime;
+
+					private Integer keywordMatchSize;
+
+					private Integer hitTime;
+
+					private String beginType;
+
+					private Integer target;
+
+					private Integer maxEmotionChangeValue;
+
+					private Float threshold;
+
+					private Integer from;
+
+					private Boolean fromEnd;
+
+					private Integer minWordSize;
+
+					private Boolean inSentence;
+
+					private String phrase;
+
+					private Float similarity_threshold;
+
+					private Integer checkType;
+
+					private Integer interval;
+
+					private Boolean contextChatMatch;
+
+					private List<String> excludes;
+
+					private List<String> antModelInfo;
+
+					private List<String> pvalues;
 
 					private List<String> references;
 
-					public String getRegex() {
-						return this.regex;
-					}
+					private List<String> similarlySentences;
 
-					public void setRegex(String regex) {
-						this.regex = regex;
-					}
-
-					public String getPhrase() {
-						return this.phrase;
-					}
-
-					public void setPhrase(String phrase) {
-						this.phrase = phrase;
-					}
-
-					public Integer getInterval() {
-						return this.interval;
-					}
-
-					public void setInterval(Integer interval) {
-						this.interval = interval;
-					}
-
-					public Float getThreshold() {
-						return this.threshold;
-					}
-
-					public void setThreshold(Float threshold) {
-						this.threshold = threshold;
-					}
-
-					public Boolean getInSentence() {
-						return this.inSentence;
-					}
-
-					public void setInSentence(Boolean inSentence) {
-						this.inSentence = inSentence;
-					}
-
-					public Integer getTarget() {
-						return this.target;
-					}
-
-					public void setTarget(Integer target) {
-						this.target = target;
-					}
-
-					public Boolean getFromEnd() {
-						return this.fromEnd;
-					}
-
-					public void setFromEnd(Boolean fromEnd) {
-						this.fromEnd = fromEnd;
-					}
+					private List<String> operKeyWords;
 
 					public Boolean getDifferentRole() {
 						return this.differentRole;
@@ -267,6 +281,14 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 					public void setDifferentRole(Boolean differentRole) {
 						this.differentRole = differentRole;
+					}
+
+					public String getRegex() {
+						return this.regex;
+					}
+
+					public void setRegex(String regex) {
+						this.regex = regex;
 					}
 
 					public String getTargetRole() {
@@ -277,12 +299,204 @@ public class GetRuleDetailResponse extends AcsResponse {
 						this.targetRole = targetRole;
 					}
 
-					public List<String> getOperKeyWords() {
-						return this.operKeyWords;
+					public Integer getVelocityInMint() {
+						return this.velocityInMint;
 					}
 
-					public void setOperKeyWords(List<String> operKeyWords) {
-						this.operKeyWords = operKeyWords;
+					public void setVelocityInMint(Integer velocityInMint) {
+						this.velocityInMint = velocityInMint;
+					}
+
+					public Boolean getAverage() {
+						return this.average;
+					}
+
+					public void setAverage(Boolean average) {
+						this.average = average;
+					}
+
+					public Boolean getKeywordExtension() {
+						return this.keywordExtension;
+					}
+
+					public void setKeywordExtension(Boolean keywordExtension) {
+						this.keywordExtension = keywordExtension;
+					}
+
+					public Integer getScore() {
+						return this.score;
+					}
+
+					public void setScore(Integer score) {
+						this.score = score;
+					}
+
+					public String getNotRegex() {
+						return this.notRegex;
+					}
+
+					public void setNotRegex(String notRegex) {
+						this.notRegex = notRegex;
+					}
+
+					public String getCompareOperator() {
+						return this.compareOperator;
+					}
+
+					public void setCompareOperator(String compareOperator) {
+						this.compareOperator = compareOperator;
+					}
+
+					public Integer getDelayTime() {
+						return this.delayTime;
+					}
+
+					public void setDelayTime(Integer delayTime) {
+						this.delayTime = delayTime;
+					}
+
+					public Integer getKeywordMatchSize() {
+						return this.keywordMatchSize;
+					}
+
+					public void setKeywordMatchSize(Integer keywordMatchSize) {
+						this.keywordMatchSize = keywordMatchSize;
+					}
+
+					public Integer getHitTime() {
+						return this.hitTime;
+					}
+
+					public void setHitTime(Integer hitTime) {
+						this.hitTime = hitTime;
+					}
+
+					public String getBeginType() {
+						return this.beginType;
+					}
+
+					public void setBeginType(String beginType) {
+						this.beginType = beginType;
+					}
+
+					public Integer getTarget() {
+						return this.target;
+					}
+
+					public void setTarget(Integer target) {
+						this.target = target;
+					}
+
+					public Integer getMaxEmotionChangeValue() {
+						return this.maxEmotionChangeValue;
+					}
+
+					public void setMaxEmotionChangeValue(Integer maxEmotionChangeValue) {
+						this.maxEmotionChangeValue = maxEmotionChangeValue;
+					}
+
+					public Float getThreshold() {
+						return this.threshold;
+					}
+
+					public void setThreshold(Float threshold) {
+						this.threshold = threshold;
+					}
+
+					public Integer getFrom() {
+						return this.from;
+					}
+
+					public void setFrom(Integer from) {
+						this.from = from;
+					}
+
+					public Boolean getFromEnd() {
+						return this.fromEnd;
+					}
+
+					public void setFromEnd(Boolean fromEnd) {
+						this.fromEnd = fromEnd;
+					}
+
+					public Integer getMinWordSize() {
+						return this.minWordSize;
+					}
+
+					public void setMinWordSize(Integer minWordSize) {
+						this.minWordSize = minWordSize;
+					}
+
+					public Boolean getInSentence() {
+						return this.inSentence;
+					}
+
+					public void setInSentence(Boolean inSentence) {
+						this.inSentence = inSentence;
+					}
+
+					public String getPhrase() {
+						return this.phrase;
+					}
+
+					public void setPhrase(String phrase) {
+						this.phrase = phrase;
+					}
+
+					public Float getSimilarity_threshold() {
+						return this.similarity_threshold;
+					}
+
+					public void setSimilarity_threshold(Float similarity_threshold) {
+						this.similarity_threshold = similarity_threshold;
+					}
+
+					public Integer getCheckType() {
+						return this.checkType;
+					}
+
+					public void setCheckType(Integer checkType) {
+						this.checkType = checkType;
+					}
+
+					public Integer getInterval() {
+						return this.interval;
+					}
+
+					public void setInterval(Integer interval) {
+						this.interval = interval;
+					}
+
+					public Boolean getContextChatMatch() {
+						return this.contextChatMatch;
+					}
+
+					public void setContextChatMatch(Boolean contextChatMatch) {
+						this.contextChatMatch = contextChatMatch;
+					}
+
+					public List<String> getExcludes() {
+						return this.excludes;
+					}
+
+					public void setExcludes(List<String> excludes) {
+						this.excludes = excludes;
+					}
+
+					public List<String> getAntModelInfo() {
+						return this.antModelInfo;
+					}
+
+					public void setAntModelInfo(List<String> antModelInfo) {
+						this.antModelInfo = antModelInfo;
+					}
+
+					public List<String> getPvalues() {
+						return this.pvalues;
+					}
+
+					public void setPvalues(List<String> pvalues) {
+						this.pvalues = pvalues;
 					}
 
 					public List<String> getReferences() {
@@ -292,26 +506,34 @@ public class GetRuleDetailResponse extends AcsResponse {
 					public void setReferences(List<String> references) {
 						this.references = references;
 					}
+
+					public List<String> getSimilarlySentences() {
+						return this.similarlySentences;
+					}
+
+					public void setSimilarlySentences(List<String> similarlySentences) {
+						this.similarlySentences = similarlySentences;
+					}
+
+					public List<String> getOperKeyWords() {
+						return this.operKeyWords;
+					}
+
+					public void setOperKeyWords(List<String> operKeyWords) {
+						this.operKeyWords = operKeyWords;
+					}
 				}
 			}
 
 			public static class CheckRange {
 
-				private String role;
-
 				private Boolean absolute;
+
+				private String role;
 
 				private Anchor anchor;
 
 				private Range range;
-
-				public String getRole() {
-					return this.role;
-				}
-
-				public void setRole(String role) {
-					this.role = role;
-				}
 
 				public Boolean getAbsolute() {
 					return this.absolute;
@@ -319,6 +541,14 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 				public void setAbsolute(Boolean absolute) {
 					this.absolute = absolute;
+				}
+
+				public String getRole() {
+					return this.role;
+				}
+
+				public void setRole(String role) {
+					this.role = role;
 				}
 
 				public Anchor getAnchor() {
@@ -339,18 +569,18 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 				public static class Anchor {
 
-					private String anchorCid;
+					private Integer hitTime;
 
 					private String location;
 
-					private Integer hitTime;
+					private String anchorCid;
 
-					public String getAnchorCid() {
-						return this.anchorCid;
+					public Integer getHitTime() {
+						return this.hitTime;
 					}
 
-					public void setAnchorCid(String anchorCid) {
-						this.anchorCid = anchorCid;
+					public void setHitTime(Integer hitTime) {
+						this.hitTime = hitTime;
 					}
 
 					public String getLocation() {
@@ -361,28 +591,20 @@ public class GetRuleDetailResponse extends AcsResponse {
 						this.location = location;
 					}
 
-					public Integer getHitTime() {
-						return this.hitTime;
+					public String getAnchorCid() {
+						return this.anchorCid;
 					}
 
-					public void setHitTime(Integer hitTime) {
-						this.hitTime = hitTime;
+					public void setAnchorCid(String anchorCid) {
+						this.anchorCid = anchorCid;
 					}
 				}
 
 				public static class Range {
 
-					private Integer from;
-
 					private Integer to;
 
-					public Integer getFrom() {
-						return this.from;
-					}
-
-					public void setFrom(Integer from) {
-						this.from = from;
-					}
+					private Integer from;
 
 					public Integer getTo() {
 						return this.to;
@@ -391,27 +613,27 @@ public class GetRuleDetailResponse extends AcsResponse {
 					public void setTo(Integer to) {
 						this.to = to;
 					}
+
+					public Integer getFrom() {
+						return this.from;
+					}
+
+					public void setFrom(Integer from) {
+						this.from = from;
+					}
 				}
 			}
 		}
 
 		public static class RuleBasicInfo {
 
-			private String rid;
-
 			private String ruleLambda;
+
+			private String rid;
 
 			private List<BusinessCategoryBasicInfo> businessCategories;
 
 			private List<String> triggers;
-
-			public String getRid() {
-				return this.rid;
-			}
-
-			public void setRid(String rid) {
-				this.rid = rid;
-			}
 
 			public String getRuleLambda() {
 				return this.ruleLambda;
@@ -419,6 +641,14 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 			public void setRuleLambda(String ruleLambda) {
 				this.ruleLambda = ruleLambda;
+			}
+
+			public String getRid() {
+				return this.rid;
+			}
+
+			public void setRid(String rid) {
+				this.rid = rid;
 			}
 
 			public List<BusinessCategoryBasicInfo> getBusinessCategories() {
@@ -439,18 +669,18 @@ public class GetRuleDetailResponse extends AcsResponse {
 
 			public static class BusinessCategoryBasicInfo {
 
-				private Integer bid;
+				private String businessName;
 
 				private Integer serviceType;
 
-				private String businessName;
+				private Integer bid;
 
-				public Integer getBid() {
-					return this.bid;
+				public String getBusinessName() {
+					return this.businessName;
 				}
 
-				public void setBid(Integer bid) {
-					this.bid = bid;
+				public void setBusinessName(String businessName) {
+					this.businessName = businessName;
 				}
 
 				public Integer getServiceType() {
@@ -461,12 +691,12 @@ public class GetRuleDetailResponse extends AcsResponse {
 					this.serviceType = serviceType;
 				}
 
-				public String getBusinessName() {
-					return this.businessName;
+				public Integer getBid() {
+					return this.bid;
 				}
 
-				public void setBusinessName(String businessName) {
-					this.businessName = businessName;
+				public void setBid(Integer bid) {
+					this.bid = bid;
 				}
 			}
 		}

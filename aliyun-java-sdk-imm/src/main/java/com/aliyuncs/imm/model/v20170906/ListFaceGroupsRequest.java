@@ -16,6 +16,7 @@ package com.aliyuncs.imm.model.v20170906;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.imm.Endpoint;
 
 /**
  * @author auto create
@@ -26,18 +27,36 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 
 	private String project;
 
+	private String remarksBQuery;
+
+	private String externalId;
+
 	private Integer limit;
+
+	private String remarksArrayBQuery;
 
 	private String order;
 
+	private String remarksAQuery;
+
 	private String orderBy;
+
+	private String remarksDQuery;
+
+	private String remarksArrayAQuery;
 
 	private String marker;
 
 	private String setId;
+
+	private String remarksCQuery;
 	public ListFaceGroupsRequest() {
 		super("imm", "2017-09-06", "ListFaceGroups", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -48,6 +67,28 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 		this.project = project;
 		if(project != null){
 			putQueryParameter("Project", project);
+		}
+	}
+
+	public String getRemarksBQuery() {
+		return this.remarksBQuery;
+	}
+
+	public void setRemarksBQuery(String remarksBQuery) {
+		this.remarksBQuery = remarksBQuery;
+		if(remarksBQuery != null){
+			putQueryParameter("RemarksBQuery", remarksBQuery);
+		}
+	}
+
+	public String getExternalId() {
+		return this.externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
+		if(externalId != null){
+			putQueryParameter("ExternalId", externalId);
 		}
 	}
 
@@ -62,6 +103,17 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 		}
 	}
 
+	public String getRemarksArrayBQuery() {
+		return this.remarksArrayBQuery;
+	}
+
+	public void setRemarksArrayBQuery(String remarksArrayBQuery) {
+		this.remarksArrayBQuery = remarksArrayBQuery;
+		if(remarksArrayBQuery != null){
+			putQueryParameter("RemarksArrayBQuery", remarksArrayBQuery);
+		}
+	}
+
 	public String getOrder() {
 		return this.order;
 	}
@@ -73,6 +125,17 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 		}
 	}
 
+	public String getRemarksAQuery() {
+		return this.remarksAQuery;
+	}
+
+	public void setRemarksAQuery(String remarksAQuery) {
+		this.remarksAQuery = remarksAQuery;
+		if(remarksAQuery != null){
+			putQueryParameter("RemarksAQuery", remarksAQuery);
+		}
+	}
+
 	public String getOrderBy() {
 		return this.orderBy;
 	}
@@ -81,6 +144,28 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 		this.orderBy = orderBy;
 		if(orderBy != null){
 			putQueryParameter("OrderBy", orderBy);
+		}
+	}
+
+	public String getRemarksDQuery() {
+		return this.remarksDQuery;
+	}
+
+	public void setRemarksDQuery(String remarksDQuery) {
+		this.remarksDQuery = remarksDQuery;
+		if(remarksDQuery != null){
+			putQueryParameter("RemarksDQuery", remarksDQuery);
+		}
+	}
+
+	public String getRemarksArrayAQuery() {
+		return this.remarksArrayAQuery;
+	}
+
+	public void setRemarksArrayAQuery(String remarksArrayAQuery) {
+		this.remarksArrayAQuery = remarksArrayAQuery;
+		if(remarksArrayAQuery != null){
+			putQueryParameter("RemarksArrayAQuery", remarksArrayAQuery);
 		}
 	}
 
@@ -103,6 +188,17 @@ public class ListFaceGroupsRequest extends RpcAcsRequest<ListFaceGroupsResponse>
 		this.setId = setId;
 		if(setId != null){
 			putQueryParameter("SetId", setId);
+		}
+	}
+
+	public String getRemarksCQuery() {
+		return this.remarksCQuery;
+	}
+
+	public void setRemarksCQuery(String remarksCQuery) {
+		this.remarksCQuery = remarksCQuery;
+		if(remarksCQuery != null){
+			putQueryParameter("RemarksCQuery", remarksCQuery);
 		}
 	}
 

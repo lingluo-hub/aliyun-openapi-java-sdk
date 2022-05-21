@@ -27,15 +27,15 @@ public class GetThingModelTslRequest extends RpcAcsRequest<GetThingModelTslRespo
 
 	private Boolean simple;
 
-	private String productKey;
-
-	private String resourceGroupId;
-
 	private String iotInstanceId;
 
+	private String productKey;
+
 	private String modelVersion;
+
+	private String functionBlockId;
 	public GetThingModelTslRequest() {
-		super("Iot", "2018-01-20", "GetThingModelTsl", "Iot");
+		super("Iot", "2018-01-20", "GetThingModelTsl");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -54,28 +54,6 @@ public class GetThingModelTslRequest extends RpcAcsRequest<GetThingModelTslRespo
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
-	}
-
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
-		}
-	}
-
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -87,6 +65,17 @@ public class GetThingModelTslRequest extends RpcAcsRequest<GetThingModelTslRespo
 		}
 	}
 
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public String getModelVersion() {
 		return this.modelVersion;
 	}
@@ -95,6 +84,17 @@ public class GetThingModelTslRequest extends RpcAcsRequest<GetThingModelTslRespo
 		this.modelVersion = modelVersion;
 		if(modelVersion != null){
 			putQueryParameter("ModelVersion", modelVersion);
+		}
+	}
+
+	public String getFunctionBlockId() {
+		return this.functionBlockId;
+	}
+
+	public void setFunctionBlockId(String functionBlockId) {
+		this.functionBlockId = functionBlockId;
+		if(functionBlockId != null){
+			putQueryParameter("FunctionBlockId", functionBlockId);
 		}
 	}
 

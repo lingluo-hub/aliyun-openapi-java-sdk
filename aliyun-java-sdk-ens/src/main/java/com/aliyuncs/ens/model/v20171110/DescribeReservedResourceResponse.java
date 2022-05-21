@@ -67,17 +67,9 @@ public class DescribeReservedResourceResponse extends AcsResponse {
 
 	public static class Image {
 
-		private String imageId;
-
 		private String imageName;
 
-		public String getImageId() {
-			return this.imageId;
-		}
-
-		public void setImageId(String imageId) {
-			this.imageId = imageId;
-		}
+		private String imageId;
 
 		public String getImageName() {
 			return this.imageName;
@@ -85,6 +77,14 @@ public class DescribeReservedResourceResponse extends AcsResponse {
 
 		public void setImageName(String imageName) {
 			this.imageName = imageName;
+		}
+
+		public String getImageId() {
+			return this.imageId;
+		}
+
+		public void setImageId(String imageId) {
+			this.imageId = imageId;
 		}
 	}
 
@@ -96,9 +96,9 @@ public class DescribeReservedResourceResponse extends AcsResponse {
 
 		private String instanceSpec;
 
-		private List<String> systemDiskSizes;
-
 		private List<String> dataDiskSizes;
+
+		private List<String> systemDiskSizes;
 
 		public String getEnsRegionId() {
 			return this.ensRegionId;
@@ -124,20 +124,20 @@ public class DescribeReservedResourceResponse extends AcsResponse {
 			this.instanceSpec = instanceSpec;
 		}
 
-		public List<String> getSystemDiskSizes() {
-			return this.systemDiskSizes;
-		}
-
-		public void setSystemDiskSizes(List<String> systemDiskSizes) {
-			this.systemDiskSizes = systemDiskSizes;
-		}
-
 		public List<String> getDataDiskSizes() {
 			return this.dataDiskSizes;
 		}
 
 		public void setDataDiskSizes(List<String> dataDiskSizes) {
 			this.dataDiskSizes = dataDiskSizes;
+		}
+
+		public List<String> getSystemDiskSizes() {
+			return this.systemDiskSizes;
+		}
+
+		public void setSystemDiskSizes(List<String> systemDiskSizes) {
+			this.systemDiskSizes = systemDiskSizes;
 		}
 	}
 

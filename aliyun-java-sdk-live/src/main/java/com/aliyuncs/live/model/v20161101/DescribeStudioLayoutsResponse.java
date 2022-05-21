@@ -1,0 +1,478 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.aliyuncs.live.model.v20161101;
+
+import java.util.List;
+import com.aliyuncs.AcsResponse;
+import com.aliyuncs.live.transform.v20161101.DescribeStudioLayoutsResponseUnmarshaller;
+import com.aliyuncs.transform.UnmarshallerContext;
+
+/**
+ * @author auto create
+ * @version 
+ */
+public class DescribeStudioLayoutsResponse extends AcsResponse {
+
+	private Integer total;
+
+	private String requestId;
+
+	private List<StudioLayout> studioLayouts;
+
+	public Integer getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public List<StudioLayout> getStudioLayouts() {
+		return this.studioLayouts;
+	}
+
+	public void setStudioLayouts(List<StudioLayout> studioLayouts) {
+		this.studioLayouts = studioLayouts;
+	}
+
+	public static class StudioLayout {
+
+		private String layoutType;
+
+		private String layoutId;
+
+		private String layoutName;
+
+		private List<ScreenInputConfig> screenInputConfigList;
+
+		private List<MediaInputConfig> mediaInputConfigList;
+
+		private List<LayerOrderConfig> layerOrderConfigList;
+
+		private CommonConfig commonConfig;
+
+		private BgImageConfig bgImageConfig;
+
+		public String getLayoutType() {
+			return this.layoutType;
+		}
+
+		public void setLayoutType(String layoutType) {
+			this.layoutType = layoutType;
+		}
+
+		public String getLayoutId() {
+			return this.layoutId;
+		}
+
+		public void setLayoutId(String layoutId) {
+			this.layoutId = layoutId;
+		}
+
+		public String getLayoutName() {
+			return this.layoutName;
+		}
+
+		public void setLayoutName(String layoutName) {
+			this.layoutName = layoutName;
+		}
+
+		public List<ScreenInputConfig> getScreenInputConfigList() {
+			return this.screenInputConfigList;
+		}
+
+		public void setScreenInputConfigList(List<ScreenInputConfig> screenInputConfigList) {
+			this.screenInputConfigList = screenInputConfigList;
+		}
+
+		public List<MediaInputConfig> getMediaInputConfigList() {
+			return this.mediaInputConfigList;
+		}
+
+		public void setMediaInputConfigList(List<MediaInputConfig> mediaInputConfigList) {
+			this.mediaInputConfigList = mediaInputConfigList;
+		}
+
+		public List<LayerOrderConfig> getLayerOrderConfigList() {
+			return this.layerOrderConfigList;
+		}
+
+		public void setLayerOrderConfigList(List<LayerOrderConfig> layerOrderConfigList) {
+			this.layerOrderConfigList = layerOrderConfigList;
+		}
+
+		public CommonConfig getCommonConfig() {
+			return this.commonConfig;
+		}
+
+		public void setCommonConfig(CommonConfig commonConfig) {
+			this.commonConfig = commonConfig;
+		}
+
+		public BgImageConfig getBgImageConfig() {
+			return this.bgImageConfig;
+		}
+
+		public void setBgImageConfig(BgImageConfig bgImageConfig) {
+			this.bgImageConfig = bgImageConfig;
+		}
+
+		public static class ScreenInputConfig {
+
+			private Integer portraitType;
+
+			private Integer index;
+
+			private String positionX;
+
+			private String color;
+
+			private Boolean onlyAudio;
+
+			private Float heightNormalized;
+
+			private String positionY;
+
+			private String channelId;
+
+			private String videoResourceId;
+
+			private String id;
+
+			private AudioConfig audioConfig;
+
+			public Integer getPortraitType() {
+				return this.portraitType;
+			}
+
+			public void setPortraitType(Integer portraitType) {
+				this.portraitType = portraitType;
+			}
+
+			public Integer getIndex() {
+				return this.index;
+			}
+
+			public void setIndex(Integer index) {
+				this.index = index;
+			}
+
+			public String getPositionX() {
+				return this.positionX;
+			}
+
+			public void setPositionX(String positionX) {
+				this.positionX = positionX;
+			}
+
+			public String getColor() {
+				return this.color;
+			}
+
+			public void setColor(String color) {
+				this.color = color;
+			}
+
+			public Boolean getOnlyAudio() {
+				return this.onlyAudio;
+			}
+
+			public void setOnlyAudio(Boolean onlyAudio) {
+				this.onlyAudio = onlyAudio;
+			}
+
+			public Float getHeightNormalized() {
+				return this.heightNormalized;
+			}
+
+			public void setHeightNormalized(Float heightNormalized) {
+				this.heightNormalized = heightNormalized;
+			}
+
+			public String getPositionY() {
+				return this.positionY;
+			}
+
+			public void setPositionY(String positionY) {
+				this.positionY = positionY;
+			}
+
+			public String getChannelId() {
+				return this.channelId;
+			}
+
+			public void setChannelId(String channelId) {
+				this.channelId = channelId;
+			}
+
+			public String getVideoResourceId() {
+				return this.videoResourceId;
+			}
+
+			public void setVideoResourceId(String videoResourceId) {
+				this.videoResourceId = videoResourceId;
+			}
+
+			public String getId() {
+				return this.id;
+			}
+
+			public void setId(String id) {
+				this.id = id;
+			}
+
+			public AudioConfig getAudioConfig() {
+				return this.audioConfig;
+			}
+
+			public void setAudioConfig(AudioConfig audioConfig) {
+				this.audioConfig = audioConfig;
+			}
+
+			public static class AudioConfig {
+
+				private Float volumeRate;
+
+				private String validChannel;
+
+				public Float getVolumeRate() {
+					return this.volumeRate;
+				}
+
+				public void setVolumeRate(Float volumeRate) {
+					this.volumeRate = volumeRate;
+				}
+
+				public String getValidChannel() {
+					return this.validChannel;
+				}
+
+				public void setValidChannel(String validChannel) {
+					this.validChannel = validChannel;
+				}
+			}
+		}
+
+		public static class MediaInputConfig {
+
+			private Integer index;
+
+			private Float heightNormalized;
+
+			private String fillMode;
+
+			private String positionRefer;
+
+			private String channelId;
+
+			private String videoResourceId;
+
+			private Float widthNormalized;
+
+			private String imageMaterialId;
+
+			private String id;
+
+			private List<Float> positionNormalized;
+
+			public Integer getIndex() {
+				return this.index;
+			}
+
+			public void setIndex(Integer index) {
+				this.index = index;
+			}
+
+			public Float getHeightNormalized() {
+				return this.heightNormalized;
+			}
+
+			public void setHeightNormalized(Float heightNormalized) {
+				this.heightNormalized = heightNormalized;
+			}
+
+			public String getFillMode() {
+				return this.fillMode;
+			}
+
+			public void setFillMode(String fillMode) {
+				this.fillMode = fillMode;
+			}
+
+			public String getPositionRefer() {
+				return this.positionRefer;
+			}
+
+			public void setPositionRefer(String positionRefer) {
+				this.positionRefer = positionRefer;
+			}
+
+			public String getChannelId() {
+				return this.channelId;
+			}
+
+			public void setChannelId(String channelId) {
+				this.channelId = channelId;
+			}
+
+			public String getVideoResourceId() {
+				return this.videoResourceId;
+			}
+
+			public void setVideoResourceId(String videoResourceId) {
+				this.videoResourceId = videoResourceId;
+			}
+
+			public Float getWidthNormalized() {
+				return this.widthNormalized;
+			}
+
+			public void setWidthNormalized(Float widthNormalized) {
+				this.widthNormalized = widthNormalized;
+			}
+
+			public String getImageMaterialId() {
+				return this.imageMaterialId;
+			}
+
+			public void setImageMaterialId(String imageMaterialId) {
+				this.imageMaterialId = imageMaterialId;
+			}
+
+			public String getId() {
+				return this.id;
+			}
+
+			public void setId(String id) {
+				this.id = id;
+			}
+
+			public List<Float> getPositionNormalized() {
+				return this.positionNormalized;
+			}
+
+			public void setPositionNormalized(List<Float> positionNormalized) {
+				this.positionNormalized = positionNormalized;
+			}
+		}
+
+		public static class LayerOrderConfig {
+
+			private String type;
+
+			private String id;
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getId() {
+				return this.id;
+			}
+
+			public void setId(String id) {
+				this.id = id;
+			}
+		}
+
+		public static class CommonConfig {
+
+			private String channelId;
+
+			private String videoResourceId;
+
+			public String getChannelId() {
+				return this.channelId;
+			}
+
+			public void setChannelId(String channelId) {
+				this.channelId = channelId;
+			}
+
+			public String getVideoResourceId() {
+				return this.videoResourceId;
+			}
+
+			public void setVideoResourceId(String videoResourceId) {
+				this.videoResourceId = videoResourceId;
+			}
+		}
+
+		public static class BgImageConfig {
+
+			private String materialId;
+
+			private String imageUrl;
+
+			private String id;
+
+			private String locationId;
+
+			public String getMaterialId() {
+				return this.materialId;
+			}
+
+			public void setMaterialId(String materialId) {
+				this.materialId = materialId;
+			}
+
+			public String getImageUrl() {
+				return this.imageUrl;
+			}
+
+			public void setImageUrl(String imageUrl) {
+				this.imageUrl = imageUrl;
+			}
+
+			public String getId() {
+				return this.id;
+			}
+
+			public void setId(String id) {
+				this.id = id;
+			}
+
+			public String getLocationId() {
+				return this.locationId;
+			}
+
+			public void setLocationId(String locationId) {
+				this.locationId = locationId;
+			}
+		}
+	}
+
+	@Override
+	public DescribeStudioLayoutsResponse getInstance(UnmarshallerContext context) {
+		return	DescribeStudioLayoutsResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
+	}
+}

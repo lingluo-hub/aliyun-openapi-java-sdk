@@ -30,8 +30,10 @@ public class StopStreamRequest extends RpcAcsRequest<StopStreamResponse> {
 	private String id;
 
 	private Long ownerId;
+
+	private String name;
 	public StopStreamRequest() {
-		super("vs", "2018-12-12", "StopStream", "vs");
+		super("vs", "2018-12-12", "StopStream");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -69,6 +71,17 @@ public class StopStreamRequest extends RpcAcsRequest<StopStreamResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("Name", name);
 		}
 	}
 

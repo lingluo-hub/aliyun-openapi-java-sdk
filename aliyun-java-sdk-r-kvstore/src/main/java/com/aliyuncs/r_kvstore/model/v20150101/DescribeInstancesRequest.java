@@ -48,6 +48,8 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private String instanceType;
 
+	private String editionType;
+
 	private List<Tag> tags;
 
 	private String instanceStatus;
@@ -55,6 +57,10 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
+
+	private Boolean globalInstance;
+
+	private String privateIp;
 
 	private Long ownerId;
 
@@ -70,7 +76,7 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 
 	private String chargeType;
 	public DescribeInstancesRequest() {
-		super("R-kvstore", "2015-01-01", "DescribeInstances");
+		super("R-kvstore", "2015-01-01", "DescribeInstances", "redisa");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -199,6 +205,17 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		}
 	}
 
+	public String getEditionType() {
+		return this.editionType;
+	}
+
+	public void setEditionType(String editionType) {
+		this.editionType = editionType;
+		if(editionType != null){
+			putQueryParameter("EditionType", editionType);
+		}
+	}
+
 	public List<Tag> getTags() {
 		return this.tags;
 	}
@@ -243,6 +260,28 @@ public class DescribeInstancesRequest extends RpcAcsRequest<DescribeInstancesRes
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getGlobalInstance() {
+		return this.globalInstance;
+	}
+
+	public void setGlobalInstance(Boolean globalInstance) {
+		this.globalInstance = globalInstance;
+		if(globalInstance != null){
+			putQueryParameter("GlobalInstance", globalInstance.toString());
+		}
+	}
+
+	public String getPrivateIp() {
+		return this.privateIp;
+	}
+
+	public void setPrivateIp(String privateIp) {
+		this.privateIp = privateIp;
+		if(privateIp != null){
+			putQueryParameter("PrivateIp", privateIp);
 		}
 	}
 

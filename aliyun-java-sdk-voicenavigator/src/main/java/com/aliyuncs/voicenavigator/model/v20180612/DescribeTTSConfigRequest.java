@@ -26,6 +26,8 @@ public class DescribeTTSConfigRequest extends RpcAcsRequest<DescribeTTSConfigRes
 	   
 
 	private String instanceId;
+
+	private Long instanceOwnerId;
 	public DescribeTTSConfigRequest() {
 		super("VoiceNavigator", "2018-06-12", "DescribeTTSConfig", "voicebot");
 		setMethod(MethodType.GET);
@@ -43,6 +45,17 @@ public class DescribeTTSConfigRequest extends RpcAcsRequest<DescribeTTSConfigRes
 		this.instanceId = instanceId;
 		if(instanceId != null){
 			putQueryParameter("InstanceId", instanceId);
+		}
+	}
+
+	public Long getInstanceOwnerId() {
+		return this.instanceOwnerId;
+	}
+
+	public void setInstanceOwnerId(Long instanceOwnerId) {
+		this.instanceOwnerId = instanceOwnerId;
+		if(instanceOwnerId != null){
+			putQueryParameter("InstanceOwnerId", instanceOwnerId.toString());
 		}
 	}
 

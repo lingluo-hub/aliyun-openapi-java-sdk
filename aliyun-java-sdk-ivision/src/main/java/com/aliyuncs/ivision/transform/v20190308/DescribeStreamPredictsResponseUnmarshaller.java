@@ -28,24 +28,28 @@ public class DescribeStreamPredictsResponseUnmarshaller {
 		
 		describeStreamPredictsResponse.setRequestId(_ctx.stringValue("DescribeStreamPredictsResponse.RequestId"));
 		describeStreamPredictsResponse.setTotalNum(_ctx.longValue("DescribeStreamPredictsResponse.TotalNum"));
-		describeStreamPredictsResponse.setCurrentPage(_ctx.longValue("DescribeStreamPredictsResponse.CurrentPage"));
 		describeStreamPredictsResponse.setPageSize(_ctx.longValue("DescribeStreamPredictsResponse.PageSize"));
+		describeStreamPredictsResponse.setCurrentPage(_ctx.longValue("DescribeStreamPredictsResponse.CurrentPage"));
 		describeStreamPredictsResponse.setNextPageToken(_ctx.stringValue("DescribeStreamPredictsResponse.NextPageToken"));
 
 		List<StreamPredict> streamPredicts = new ArrayList<StreamPredict>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeStreamPredictsResponse.StreamPredicts.Length"); i++) {
 			StreamPredict streamPredict = new StreamPredict();
-			streamPredict.setPredictId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].PredictId"));
-			streamPredict.setStreamType(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].StreamType"));
-			streamPredict.setStreamId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].StreamId"));
-			streamPredict.setModelIds(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].ModelIds"));
-			streamPredict.setProbabilityThresholds(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].ProbabilityThresholds"));
-			streamPredict.setDetectIntervals(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].DetectIntervals"));
-			streamPredict.setOutput(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].Output"));
-			streamPredict.setNotify(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].Notify"));
-			streamPredict.setUserData(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].UserData"));
 			streamPredict.setCreationTime(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].CreationTime"));
 			streamPredict.setStatus(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].Status"));
+			streamPredict.setNotify(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].Notify"));
+			streamPredict.setPredictId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].PredictId"));
+			streamPredict.setModelUserData(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].ModelUserData"));
+			streamPredict.setOutput(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].Output"));
+			streamPredict.setPredictTemplateId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].PredictTemplateId"));
+			streamPredict.setStreamId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].StreamId"));
+			streamPredict.setAutoStart(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].AutoStart"));
+			streamPredict.setProbabilityThresholds(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].ProbabilityThresholds"));
+			streamPredict.setDetectIntervals(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].DetectIntervals"));
+			streamPredict.setStreamType(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].StreamType"));
+			streamPredict.setUserData(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].UserData"));
+			streamPredict.setModelIds(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].ModelIds"));
+			streamPredict.setFaceGroupId(_ctx.stringValue("DescribeStreamPredictsResponse.StreamPredicts["+ i +"].FaceGroupId"));
 
 			streamPredicts.add(streamPredict);
 		}

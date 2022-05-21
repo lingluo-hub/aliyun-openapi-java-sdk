@@ -27,6 +27,8 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 
 	private String requestId;
 
+	private List<CompatibleConnection> compatibleConnections;
+
 	private List<NetworkAddress> networkAddresses;
 
 	public String getRequestId() {
@@ -37,6 +39,14 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public List<CompatibleConnection> getCompatibleConnections() {
+		return this.compatibleConnections;
+	}
+
+	public void setCompatibleConnections(List<CompatibleConnection> compatibleConnections) {
+		this.compatibleConnections = compatibleConnections;
+	}
+
 	public List<NetworkAddress> getNetworkAddresses() {
 		return this.networkAddresses;
 	}
@@ -45,42 +55,36 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 		this.networkAddresses = networkAddresses;
 	}
 
-	public static class NetworkAddress {
+	public static class CompatibleConnection {
 
-		private String networkAddress;
+		private String vswitchId;
 
-		private String iPAddress;
+		private String expiredTime;
 
 		private String networkType;
 
 		private String port;
 
+		private String networkAddress;
+
 		private String vPCId;
 
-		private String vswitchId;
+		private String iPAddress;
 
-		private String nodeId;
-
-		private String expiredTime;
-
-		private String nodeType;
-
-		private String role;
-
-		public String getNetworkAddress() {
-			return this.networkAddress;
+		public String getVswitchId() {
+			return this.vswitchId;
 		}
 
-		public void setNetworkAddress(String networkAddress) {
-			this.networkAddress = networkAddress;
+		public void setVswitchId(String vswitchId) {
+			this.vswitchId = vswitchId;
 		}
 
-		public String getIPAddress() {
-			return this.iPAddress;
+		public String getExpiredTime() {
+			return this.expiredTime;
 		}
 
-		public void setIPAddress(String iPAddress) {
-			this.iPAddress = iPAddress;
+		public void setExpiredTime(String expiredTime) {
+			this.expiredTime = expiredTime;
 		}
 
 		public String getNetworkType() {
@@ -99,12 +103,59 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 			this.port = port;
 		}
 
+		public String getNetworkAddress() {
+			return this.networkAddress;
+		}
+
+		public void setNetworkAddress(String networkAddress) {
+			this.networkAddress = networkAddress;
+		}
+
 		public String getVPCId() {
 			return this.vPCId;
 		}
 
 		public void setVPCId(String vPCId) {
 			this.vPCId = vPCId;
+		}
+
+		public String getIPAddress() {
+			return this.iPAddress;
+		}
+
+		public void setIPAddress(String iPAddress) {
+			this.iPAddress = iPAddress;
+		}
+	}
+
+	public static class NetworkAddress {
+
+		private String nodeType;
+
+		private String vswitchId;
+
+		private String expiredTime;
+
+		private String networkType;
+
+		private String role;
+
+		private String port;
+
+		private String vPCId;
+
+		private String networkAddress;
+
+		private String nodeId;
+
+		private String iPAddress;
+
+		public String getNodeType() {
+			return this.nodeType;
+		}
+
+		public void setNodeType(String nodeType) {
+			this.nodeType = nodeType;
 		}
 
 		public String getVswitchId() {
@@ -115,14 +166,6 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 			this.vswitchId = vswitchId;
 		}
 
-		public String getNodeId() {
-			return this.nodeId;
-		}
-
-		public void setNodeId(String nodeId) {
-			this.nodeId = nodeId;
-		}
-
 		public String getExpiredTime() {
 			return this.expiredTime;
 		}
@@ -131,12 +174,12 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 			this.expiredTime = expiredTime;
 		}
 
-		public String getNodeType() {
-			return this.nodeType;
+		public String getNetworkType() {
+			return this.networkType;
 		}
 
-		public void setNodeType(String nodeType) {
-			this.nodeType = nodeType;
+		public void setNetworkType(String networkType) {
+			this.networkType = networkType;
 		}
 
 		public String getRole() {
@@ -145,6 +188,46 @@ public class DescribeShardingNetworkAddressResponse extends AcsResponse {
 
 		public void setRole(String role) {
 			this.role = role;
+		}
+
+		public String getPort() {
+			return this.port;
+		}
+
+		public void setPort(String port) {
+			this.port = port;
+		}
+
+		public String getVPCId() {
+			return this.vPCId;
+		}
+
+		public void setVPCId(String vPCId) {
+			this.vPCId = vPCId;
+		}
+
+		public String getNetworkAddress() {
+			return this.networkAddress;
+		}
+
+		public void setNetworkAddress(String networkAddress) {
+			this.networkAddress = networkAddress;
+		}
+
+		public String getNodeId() {
+			return this.nodeId;
+		}
+
+		public void setNodeId(String nodeId) {
+			this.nodeId = nodeId;
+		}
+
+		public String getIPAddress() {
+			return this.iPAddress;
+		}
+
+		public void setIPAddress(String iPAddress) {
+			this.iPAddress = iPAddress;
 		}
 	}
 

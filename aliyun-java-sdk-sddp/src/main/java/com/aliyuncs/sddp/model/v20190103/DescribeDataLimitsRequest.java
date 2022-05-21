@@ -25,11 +25,17 @@ import com.aliyuncs.sddp.Endpoint;
 public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsResponse> {
 	   
 
+	private Long startTime;
+
 	private String parentId;
+
+	private Integer enable;
 
 	private Integer pageSize;
 
 	private Integer checkStatus;
+
+	private Integer datamaskStatus;
 
 	private String lang;
 
@@ -38,6 +44,8 @@ public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsR
 	private String engineType;
 
 	private Integer auditStatus;
+
+	private Long endTime;
 
 	private Integer currentPage;
 
@@ -51,6 +59,17 @@ public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsR
 		} catch (Exception e) {}
 	}
 
+	public Long getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime.toString());
+		}
+	}
+
 	public String getParentId() {
 		return this.parentId;
 	}
@@ -59,6 +78,17 @@ public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsR
 		this.parentId = parentId;
 		if(parentId != null){
 			putQueryParameter("ParentId", parentId);
+		}
+	}
+
+	public Integer getEnable() {
+		return this.enable;
+	}
+
+	public void setEnable(Integer enable) {
+		this.enable = enable;
+		if(enable != null){
+			putQueryParameter("Enable", enable.toString());
 		}
 	}
 
@@ -81,6 +111,17 @@ public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsR
 		this.checkStatus = checkStatus;
 		if(checkStatus != null){
 			putQueryParameter("CheckStatus", checkStatus.toString());
+		}
+	}
+
+	public Integer getDatamaskStatus() {
+		return this.datamaskStatus;
+	}
+
+	public void setDatamaskStatus(Integer datamaskStatus) {
+		this.datamaskStatus = datamaskStatus;
+		if(datamaskStatus != null){
+			putQueryParameter("DatamaskStatus", datamaskStatus.toString());
 		}
 	}
 
@@ -125,6 +166,17 @@ public class DescribeDataLimitsRequest extends RpcAcsRequest<DescribeDataLimitsR
 		this.auditStatus = auditStatus;
 		if(auditStatus != null){
 			putQueryParameter("AuditStatus", auditStatus.toString());
+		}
+	}
+
+	public Long getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime.toString());
 		}
 	}
 

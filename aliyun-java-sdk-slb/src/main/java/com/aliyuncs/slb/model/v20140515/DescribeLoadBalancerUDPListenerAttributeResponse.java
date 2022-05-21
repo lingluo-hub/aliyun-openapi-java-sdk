@@ -25,82 +25,98 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Integer listenerPort;
-
-	private Integer backendServerPort;
+	private String vServerGroupId;
 
 	private String status;
 
-	private Integer bandwidth;
+	private String aclType;
 
-	private String scheduler;
+	private Integer connectionDrainTimeout;
 
-	private Integer persistenceTimeout;
+	private String failoverStrategy;
 
-	private String healthCheck;
+	private String workingServerGroupId;
 
-	private Integer healthyThreshold;
+	private String healthCheckSwitch;
 
-	private Integer unhealthyThreshold;
+	private Boolean fullNatEnabled;
 
-	private Integer healthCheckConnectTimeout;
+	private String serviceManagedMode;
+
+	private String quicVersion;
+
+	private String requestId;
 
 	private Integer healthCheckConnectPort;
 
-	private Integer healthCheckInterval;
+	private String description;
 
-	private String healthCheckReq;
+	private Integer bandwidth;
 
-	private String healthCheckExp;
-
-	private Integer maxConnection;
-
-	private String vServerGroupId;
+	private String healthCheckType;
 
 	private String masterSlaveServerGroupId;
 
-	private String aclId;
-
-	private String aclType;
+	private Integer backendServerPort;
 
 	private String aclStatus;
 
+	private String healthCheckDomain;
+
+	private Integer unhealthyThreshold;
+
+	private String masterServerGroupId;
+
+	private String healthCheckHttpCode;
+
+	private Integer maxConnection;
+
+	private Boolean proxyProtocolV2Enabled;
+
+	private String slaveServerGroupId;
+
+	private Integer persistenceTimeout;
+
+	private Integer listenerPort;
+
+	private Integer healthCheckInterval;
+
+	private String healthCheckExp;
+
+	private String healthCheckURI;
+
+	private Integer failoverThreshold;
+
+	private String aclId;
+
+	private String scheduler;
+
 	private String vpcIds;
 
-	private String description;
+	private Integer healthCheckConnectTimeout;
+
+	private Boolean masterSlaveModeEnabled;
+
+	private Integer healthyThreshold;
 
 	private String connectionDrain;
 
-	private Integer connectionDrainTimeout;
+	private String healthCheckReq;
+
+	private String healthCheckMethod;
+
+	private String healthCheck;
 
 	private List<PortRange> portRanges;
 
 	private List<String> aclIds;
 
-	public String getRequestId() {
-		return this.requestId;
+	public String getVServerGroupId() {
+		return this.vServerGroupId;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Integer getListenerPort() {
-		return this.listenerPort;
-	}
-
-	public void setListenerPort(Integer listenerPort) {
-		this.listenerPort = listenerPort;
-	}
-
-	public Integer getBackendServerPort() {
-		return this.backendServerPort;
-	}
-
-	public void setBackendServerPort(Integer backendServerPort) {
-		this.backendServerPort = backendServerPort;
+	public void setVServerGroupId(String vServerGroupId) {
+		this.vServerGroupId = vServerGroupId;
 	}
 
 	public String getStatus() {
@@ -111,60 +127,76 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.status = status;
 	}
 
-	public Integer getBandwidth() {
-		return this.bandwidth;
+	public String getAclType() {
+		return this.aclType;
 	}
 
-	public void setBandwidth(Integer bandwidth) {
-		this.bandwidth = bandwidth;
+	public void setAclType(String aclType) {
+		this.aclType = aclType;
 	}
 
-	public String getScheduler() {
-		return this.scheduler;
+	public Integer getConnectionDrainTimeout() {
+		return this.connectionDrainTimeout;
 	}
 
-	public void setScheduler(String scheduler) {
-		this.scheduler = scheduler;
+	public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
+		this.connectionDrainTimeout = connectionDrainTimeout;
 	}
 
-	public Integer getPersistenceTimeout() {
-		return this.persistenceTimeout;
+	public String getFailoverStrategy() {
+		return this.failoverStrategy;
 	}
 
-	public void setPersistenceTimeout(Integer persistenceTimeout) {
-		this.persistenceTimeout = persistenceTimeout;
+	public void setFailoverStrategy(String failoverStrategy) {
+		this.failoverStrategy = failoverStrategy;
 	}
 
-	public String getHealthCheck() {
-		return this.healthCheck;
+	public String getWorkingServerGroupId() {
+		return this.workingServerGroupId;
 	}
 
-	public void setHealthCheck(String healthCheck) {
-		this.healthCheck = healthCheck;
+	public void setWorkingServerGroupId(String workingServerGroupId) {
+		this.workingServerGroupId = workingServerGroupId;
 	}
 
-	public Integer getHealthyThreshold() {
-		return this.healthyThreshold;
+	public String getHealthCheckSwitch() {
+		return this.healthCheckSwitch;
 	}
 
-	public void setHealthyThreshold(Integer healthyThreshold) {
-		this.healthyThreshold = healthyThreshold;
+	public void setHealthCheckSwitch(String healthCheckSwitch) {
+		this.healthCheckSwitch = healthCheckSwitch;
 	}
 
-	public Integer getUnhealthyThreshold() {
-		return this.unhealthyThreshold;
+	public Boolean getFullNatEnabled() {
+		return this.fullNatEnabled;
 	}
 
-	public void setUnhealthyThreshold(Integer unhealthyThreshold) {
-		this.unhealthyThreshold = unhealthyThreshold;
+	public void setFullNatEnabled(Boolean fullNatEnabled) {
+		this.fullNatEnabled = fullNatEnabled;
 	}
 
-	public Integer getHealthCheckConnectTimeout() {
-		return this.healthCheckConnectTimeout;
+	public String getServiceManagedMode() {
+		return this.serviceManagedMode;
 	}
 
-	public void setHealthCheckConnectTimeout(Integer healthCheckConnectTimeout) {
-		this.healthCheckConnectTimeout = healthCheckConnectTimeout;
+	public void setServiceManagedMode(String serviceManagedMode) {
+		this.serviceManagedMode = serviceManagedMode;
+	}
+
+	public String getQuicVersion() {
+		return this.quicVersion;
+	}
+
+	public void setQuicVersion(String quicVersion) {
+		this.quicVersion = quicVersion;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public Integer getHealthCheckConnectPort() {
@@ -175,44 +207,28 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.healthCheckConnectPort = healthCheckConnectPort;
 	}
 
-	public Integer getHealthCheckInterval() {
-		return this.healthCheckInterval;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setHealthCheckInterval(Integer healthCheckInterval) {
-		this.healthCheckInterval = healthCheckInterval;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getHealthCheckReq() {
-		return this.healthCheckReq;
+	public Integer getBandwidth() {
+		return this.bandwidth;
 	}
 
-	public void setHealthCheckReq(String healthCheckReq) {
-		this.healthCheckReq = healthCheckReq;
+	public void setBandwidth(Integer bandwidth) {
+		this.bandwidth = bandwidth;
 	}
 
-	public String getHealthCheckExp() {
-		return this.healthCheckExp;
+	public String getHealthCheckType() {
+		return this.healthCheckType;
 	}
 
-	public void setHealthCheckExp(String healthCheckExp) {
-		this.healthCheckExp = healthCheckExp;
-	}
-
-	public Integer getMaxConnection() {
-		return this.maxConnection;
-	}
-
-	public void setMaxConnection(Integer maxConnection) {
-		this.maxConnection = maxConnection;
-	}
-
-	public String getVServerGroupId() {
-		return this.vServerGroupId;
-	}
-
-	public void setVServerGroupId(String vServerGroupId) {
-		this.vServerGroupId = vServerGroupId;
+	public void setHealthCheckType(String healthCheckType) {
+		this.healthCheckType = healthCheckType;
 	}
 
 	public String getMasterSlaveServerGroupId() {
@@ -223,20 +239,12 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.masterSlaveServerGroupId = masterSlaveServerGroupId;
 	}
 
-	public String getAclId() {
-		return this.aclId;
+	public Integer getBackendServerPort() {
+		return this.backendServerPort;
 	}
 
-	public void setAclId(String aclId) {
-		this.aclId = aclId;
-	}
-
-	public String getAclType() {
-		return this.aclType;
-	}
-
-	public void setAclType(String aclType) {
-		this.aclType = aclType;
+	public void setBackendServerPort(Integer backendServerPort) {
+		this.backendServerPort = backendServerPort;
 	}
 
 	public String getAclStatus() {
@@ -247,6 +255,126 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.aclStatus = aclStatus;
 	}
 
+	public String getHealthCheckDomain() {
+		return this.healthCheckDomain;
+	}
+
+	public void setHealthCheckDomain(String healthCheckDomain) {
+		this.healthCheckDomain = healthCheckDomain;
+	}
+
+	public Integer getUnhealthyThreshold() {
+		return this.unhealthyThreshold;
+	}
+
+	public void setUnhealthyThreshold(Integer unhealthyThreshold) {
+		this.unhealthyThreshold = unhealthyThreshold;
+	}
+
+	public String getMasterServerGroupId() {
+		return this.masterServerGroupId;
+	}
+
+	public void setMasterServerGroupId(String masterServerGroupId) {
+		this.masterServerGroupId = masterServerGroupId;
+	}
+
+	public String getHealthCheckHttpCode() {
+		return this.healthCheckHttpCode;
+	}
+
+	public void setHealthCheckHttpCode(String healthCheckHttpCode) {
+		this.healthCheckHttpCode = healthCheckHttpCode;
+	}
+
+	public Integer getMaxConnection() {
+		return this.maxConnection;
+	}
+
+	public void setMaxConnection(Integer maxConnection) {
+		this.maxConnection = maxConnection;
+	}
+
+	public Boolean getProxyProtocolV2Enabled() {
+		return this.proxyProtocolV2Enabled;
+	}
+
+	public void setProxyProtocolV2Enabled(Boolean proxyProtocolV2Enabled) {
+		this.proxyProtocolV2Enabled = proxyProtocolV2Enabled;
+	}
+
+	public String getSlaveServerGroupId() {
+		return this.slaveServerGroupId;
+	}
+
+	public void setSlaveServerGroupId(String slaveServerGroupId) {
+		this.slaveServerGroupId = slaveServerGroupId;
+	}
+
+	public Integer getPersistenceTimeout() {
+		return this.persistenceTimeout;
+	}
+
+	public void setPersistenceTimeout(Integer persistenceTimeout) {
+		this.persistenceTimeout = persistenceTimeout;
+	}
+
+	public Integer getListenerPort() {
+		return this.listenerPort;
+	}
+
+	public void setListenerPort(Integer listenerPort) {
+		this.listenerPort = listenerPort;
+	}
+
+	public Integer getHealthCheckInterval() {
+		return this.healthCheckInterval;
+	}
+
+	public void setHealthCheckInterval(Integer healthCheckInterval) {
+		this.healthCheckInterval = healthCheckInterval;
+	}
+
+	public String getHealthCheckExp() {
+		return this.healthCheckExp;
+	}
+
+	public void setHealthCheckExp(String healthCheckExp) {
+		this.healthCheckExp = healthCheckExp;
+	}
+
+	public String getHealthCheckURI() {
+		return this.healthCheckURI;
+	}
+
+	public void setHealthCheckURI(String healthCheckURI) {
+		this.healthCheckURI = healthCheckURI;
+	}
+
+	public Integer getFailoverThreshold() {
+		return this.failoverThreshold;
+	}
+
+	public void setFailoverThreshold(Integer failoverThreshold) {
+		this.failoverThreshold = failoverThreshold;
+	}
+
+	public String getAclId() {
+		return this.aclId;
+	}
+
+	public void setAclId(String aclId) {
+		this.aclId = aclId;
+	}
+
+	public String getScheduler() {
+		return this.scheduler;
+	}
+
+	public void setScheduler(String scheduler) {
+		this.scheduler = scheduler;
+	}
+
 	public String getVpcIds() {
 		return this.vpcIds;
 	}
@@ -255,12 +383,28 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.vpcIds = vpcIds;
 	}
 
-	public String getDescription() {
-		return this.description;
+	public Integer getHealthCheckConnectTimeout() {
+		return this.healthCheckConnectTimeout;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setHealthCheckConnectTimeout(Integer healthCheckConnectTimeout) {
+		this.healthCheckConnectTimeout = healthCheckConnectTimeout;
+	}
+
+	public Boolean getMasterSlaveModeEnabled() {
+		return this.masterSlaveModeEnabled;
+	}
+
+	public void setMasterSlaveModeEnabled(Boolean masterSlaveModeEnabled) {
+		this.masterSlaveModeEnabled = masterSlaveModeEnabled;
+	}
+
+	public Integer getHealthyThreshold() {
+		return this.healthyThreshold;
+	}
+
+	public void setHealthyThreshold(Integer healthyThreshold) {
+		this.healthyThreshold = healthyThreshold;
 	}
 
 	public String getConnectionDrain() {
@@ -271,12 +415,28 @@ public class DescribeLoadBalancerUDPListenerAttributeResponse extends AcsRespons
 		this.connectionDrain = connectionDrain;
 	}
 
-	public Integer getConnectionDrainTimeout() {
-		return this.connectionDrainTimeout;
+	public String getHealthCheckReq() {
+		return this.healthCheckReq;
 	}
 
-	public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
-		this.connectionDrainTimeout = connectionDrainTimeout;
+	public void setHealthCheckReq(String healthCheckReq) {
+		this.healthCheckReq = healthCheckReq;
+	}
+
+	public String getHealthCheckMethod() {
+		return this.healthCheckMethod;
+	}
+
+	public void setHealthCheckMethod(String healthCheckMethod) {
+		this.healthCheckMethod = healthCheckMethod;
+	}
+
+	public String getHealthCheck() {
+		return this.healthCheck;
+	}
+
+	public void setHealthCheck(String healthCheck) {
+		this.healthCheck = healthCheck;
 	}
 
 	public List<PortRange> getPortRanges() {

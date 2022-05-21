@@ -148,6 +148,14 @@ public class QueryItemDetailResponse extends AcsResponse {
 
 		private Map<Object,Object> customizedAttributeMap;
 
+		private String lmItemId;
+
+		private Integer sellerType;
+
+		private String videoUrl;
+
+		private String videoPicUrl;
+
 		private List<Sku> skus;
 
 		private List<String> itemImages;
@@ -352,6 +360,38 @@ public class QueryItemDetailResponse extends AcsResponse {
 			this.customizedAttributeMap = customizedAttributeMap;
 		}
 
+		public String getLmItemId() {
+			return this.lmItemId;
+		}
+
+		public void setLmItemId(String lmItemId) {
+			this.lmItemId = lmItemId;
+		}
+
+		public Integer getSellerType() {
+			return this.sellerType;
+		}
+
+		public void setSellerType(Integer sellerType) {
+			this.sellerType = sellerType;
+		}
+
+		public String getVideoUrl() {
+			return this.videoUrl;
+		}
+
+		public void setVideoUrl(String videoUrl) {
+			this.videoUrl = videoUrl;
+		}
+
+		public String getVideoPicUrl() {
+			return this.videoPicUrl;
+		}
+
+		public void setVideoPicUrl(String videoPicUrl) {
+			this.videoPicUrl = videoPicUrl;
+		}
+
 		public List<Sku> getSkus() {
 			return this.skus;
 		}
@@ -399,6 +439,8 @@ public class QueryItemDetailResponse extends AcsResponse {
 			private Boolean canSell;
 
 			private Map<Object,Object> customizedAttributeMap;
+
+			private String lmItemId;
 
 			public String getExtJson() {
 				return this.extJson;
@@ -518,6 +560,14 @@ public class QueryItemDetailResponse extends AcsResponse {
 
 			public void setCustomizedAttributeMap(Map<Object,Object> customizedAttributeMap) {
 				this.customizedAttributeMap = customizedAttributeMap;
+			}
+
+			public String getLmItemId() {
+				return this.lmItemId;
+			}
+
+			public void setLmItemId(String lmItemId) {
+				this.lmItemId = lmItemId;
 			}
 		}
 	}

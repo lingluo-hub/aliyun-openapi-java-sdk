@@ -19,6 +19,8 @@ import java.util.List;
 
 import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse;
 import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse.JobGroup;
+import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse.JobGroup.ExportProgress;
+import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse.JobGroup.RecallStrategy;
 import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse.JobGroup.Strategy;
 import com.aliyuncs.outboundbot.model.v20191226.CreateJobGroupResponse.JobGroup.Strategy.TimeFrame;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -29,18 +31,26 @@ public class CreateJobGroupResponseUnmarshaller {
 	public static CreateJobGroupResponse unmarshall(CreateJobGroupResponse createJobGroupResponse, UnmarshallerContext _ctx) {
 		
 		createJobGroupResponse.setRequestId(_ctx.stringValue("CreateJobGroupResponse.RequestId"));
-		createJobGroupResponse.setSuccess(_ctx.booleanValue("CreateJobGroupResponse.Success"));
+		createJobGroupResponse.setHttpStatusCode(_ctx.integerValue("CreateJobGroupResponse.HttpStatusCode"));
 		createJobGroupResponse.setCode(_ctx.stringValue("CreateJobGroupResponse.Code"));
 		createJobGroupResponse.setMessage(_ctx.stringValue("CreateJobGroupResponse.Message"));
-		createJobGroupResponse.setHttpStatusCode(_ctx.integerValue("CreateJobGroupResponse.HttpStatusCode"));
+		createJobGroupResponse.setSuccess(_ctx.booleanValue("CreateJobGroupResponse.Success"));
 
 		JobGroup jobGroup = new JobGroup();
-		jobGroup.setJobGroupId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupId"));
-		jobGroup.setJobGroupName(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupName"));
-		jobGroup.setJobGroupDescription(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupDescription"));
+		jobGroup.setStatus(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Status"));
 		jobGroup.setScenarioId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ScenarioId"));
-		jobGroup.setJobFilePath(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobFilePath"));
+		jobGroup.setJobGroupId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupId"));
 		jobGroup.setCreationTime(_ctx.longValue("CreateJobGroupResponse.JobGroup.CreationTime"));
+		jobGroup.setJobGroupName(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupName"));
+		jobGroup.setJobFilePath(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobFilePath"));
+		jobGroup.setJobGroupDescription(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobGroupDescription"));
+		jobGroup.setJobDataParsingTaskId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.JobDataParsingTaskId"));
+		jobGroup.setScriptName(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ScriptName"));
+		jobGroup.setScriptVersion(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ScriptVersion"));
+		jobGroup.setModifyTime(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ModifyTime"));
+		jobGroup.setRingingDuration(_ctx.longValue("CreateJobGroupResponse.JobGroup.RingingDuration"));
+		jobGroup.setPriority(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Priority"));
+		jobGroup.setMinConcurrency(_ctx.longValue("CreateJobGroupResponse.JobGroup.MinConcurrency"));
 
 		List<String> callingNumbers = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("CreateJobGroupResponse.JobGroup.CallingNumbers.Length"); i++) {
@@ -48,20 +58,26 @@ public class CreateJobGroupResponseUnmarshaller {
 		}
 		jobGroup.setCallingNumbers(callingNumbers);
 
+		ExportProgress exportProgress = new ExportProgress();
+		exportProgress.setStatus(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ExportProgress.Status"));
+		exportProgress.setFileHttpUrl(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ExportProgress.FileHttpUrl"));
+		exportProgress.setProgress(_ctx.stringValue("CreateJobGroupResponse.JobGroup.ExportProgress.Progress"));
+		jobGroup.setExportProgress(exportProgress);
+
 		Strategy strategy = new Strategy();
-		strategy.setStrategyId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyId"));
-		strategy.setStrategyName(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyName"));
-		strategy.setStrategyDescription(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyDescription"));
 		strategy.setType(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.Type"));
-		strategy.setStartTime(_ctx.longValue("CreateJobGroupResponse.JobGroup.Strategy.StartTime"));
-		strategy.setEndTime(_ctx.longValue("CreateJobGroupResponse.JobGroup.Strategy.EndTime"));
-		strategy.setRepeatBy(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.RepeatBy"));
+		strategy.setStrategyName(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyName"));
 		strategy.setMaxAttemptsPerDay(_ctx.integerValue("CreateJobGroupResponse.JobGroup.Strategy.MaxAttemptsPerDay"));
-		strategy.setMinAttemptInterval(_ctx.integerValue("CreateJobGroupResponse.JobGroup.Strategy.MinAttemptInterval"));
-		strategy.setCustomized(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.Customized"));
-		strategy.setRoutingStrategy(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.RoutingStrategy"));
 		strategy.setFollowUpStrategy(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.FollowUpStrategy"));
+		strategy.setEndTime(_ctx.longValue("CreateJobGroupResponse.JobGroup.Strategy.EndTime"));
+		strategy.setCustomized(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.Customized"));
 		strategy.setIsTemplate(_ctx.booleanValue("CreateJobGroupResponse.JobGroup.Strategy.IsTemplate"));
+		strategy.setStartTime(_ctx.longValue("CreateJobGroupResponse.JobGroup.Strategy.StartTime"));
+		strategy.setStrategyId(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyId"));
+		strategy.setRoutingStrategy(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.RoutingStrategy"));
+		strategy.setMinAttemptInterval(_ctx.integerValue("CreateJobGroupResponse.JobGroup.Strategy.MinAttemptInterval"));
+		strategy.setStrategyDescription(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.StrategyDescription"));
+		strategy.setRepeatBy(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.RepeatBy"));
 
 		List<String> repeatDays = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("CreateJobGroupResponse.JobGroup.Strategy.RepeatDays.Length"); i++) {
@@ -72,13 +88,19 @@ public class CreateJobGroupResponseUnmarshaller {
 		List<TimeFrame> workingTime = new ArrayList<TimeFrame>();
 		for (int i = 0; i < _ctx.lengthValue("CreateJobGroupResponse.JobGroup.Strategy.WorkingTime.Length"); i++) {
 			TimeFrame timeFrame = new TimeFrame();
-			timeFrame.setBeginTime(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].BeginTime"));
 			timeFrame.setEndTime(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].EndTime"));
+			timeFrame.setBeginTime(_ctx.stringValue("CreateJobGroupResponse.JobGroup.Strategy.WorkingTime["+ i +"].BeginTime"));
 
 			workingTime.add(timeFrame);
 		}
 		strategy.setWorkingTime(workingTime);
 		jobGroup.setStrategy(strategy);
+
+		RecallStrategy recallStrategy = new RecallStrategy();
+		recallStrategy.setEmptyNumberIgnore(_ctx.booleanValue("CreateJobGroupResponse.JobGroup.RecallStrategy.EmptyNumberIgnore"));
+		recallStrategy.setInArrearsIgnore(_ctx.booleanValue("CreateJobGroupResponse.JobGroup.RecallStrategy.InArrearsIgnore"));
+		recallStrategy.setOutOfServiceIgnore(_ctx.booleanValue("CreateJobGroupResponse.JobGroup.RecallStrategy.OutOfServiceIgnore"));
+		jobGroup.setRecallStrategy(recallStrategy);
 		createJobGroupResponse.setJobGroup(jobGroup);
 	 
 	 	return createJobGroupResponse;

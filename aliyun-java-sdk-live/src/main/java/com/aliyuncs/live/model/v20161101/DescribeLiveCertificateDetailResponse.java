@@ -24,22 +24,20 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeLiveCertificateDetailResponse extends AcsResponse {
 
-	private String requestId;
+	private String certName;
 
 	private String cert;
 
-	private String key;
+	private String requestId;
 
 	private Long certId;
 
-	private String certName;
-
-	public String getRequestId() {
-		return this.requestId;
+	public String getCertName() {
+		return this.certName;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setCertName(String certName) {
+		this.certName = certName;
 	}
 
 	public String getCert() {
@@ -50,12 +48,12 @@ public class DescribeLiveCertificateDetailResponse extends AcsResponse {
 		this.cert = cert;
 	}
 
-	public String getKey() {
-		return this.key;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public Long getCertId() {
@@ -64,14 +62,6 @@ public class DescribeLiveCertificateDetailResponse extends AcsResponse {
 
 	public void setCertId(Long certId) {
 		this.certId = certId;
-	}
-
-	public String getCertName() {
-		return this.certName;
-	}
-
-	public void setCertName(String certName) {
-		this.certName = certName;
 	}
 
 	@Override

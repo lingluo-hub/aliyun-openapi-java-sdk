@@ -115,7 +115,11 @@ public class ListNodeGroupTransferPacketsResponse extends AcsResponse {
 
 			private String messageType;
 
-			private List<String> macCommandCIDs;
+			private String macCommandCIDs;
+
+			private Long fcntUp;
+
+			private Long fcntDown;
 
 			public String getGwEui() {
 				return this.gwEui;
@@ -261,12 +265,28 @@ public class ListNodeGroupTransferPacketsResponse extends AcsResponse {
 				this.messageType = messageType;
 			}
 
-			public List<String> getMacCommandCIDs() {
+			public String getMacCommandCIDs() {
 				return this.macCommandCIDs;
 			}
 
-			public void setMacCommandCIDs(List<String> macCommandCIDs) {
+			public void setMacCommandCIDs(String macCommandCIDs) {
 				this.macCommandCIDs = macCommandCIDs;
+			}
+
+			public Long getFcntUp() {
+				return this.fcntUp;
+			}
+
+			public void setFcntUp(Long fcntUp) {
+				this.fcntUp = fcntUp;
+			}
+
+			public Long getFcntDown() {
+				return this.fcntDown;
+			}
+
+			public void setFcntDown(Long fcntDown) {
+				this.fcntDown = fcntDown;
 			}
 		}
 	}

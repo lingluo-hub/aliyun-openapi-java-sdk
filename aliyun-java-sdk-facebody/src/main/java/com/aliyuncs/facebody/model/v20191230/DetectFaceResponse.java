@@ -51,15 +51,17 @@ public class DetectFaceResponse extends AcsResponse {
 
 		private Integer landmarkCount;
 
-		private List<Integer> faceRectangles;
-
 		private List<Float> faceProbabilityList;
+
+		private List<Float> pupils;
+
+		private List<Integer> faceRectangles;
 
 		private List<Float> poseList;
 
 		private List<Float> landmarks;
 
-		private List<Float> pupils;
+		private Qualities qualities;
 
 		public Integer getFaceCount() {
 			return this.faceCount;
@@ -77,20 +79,28 @@ public class DetectFaceResponse extends AcsResponse {
 			this.landmarkCount = landmarkCount;
 		}
 
-		public List<Integer> getFaceRectangles() {
-			return this.faceRectangles;
-		}
-
-		public void setFaceRectangles(List<Integer> faceRectangles) {
-			this.faceRectangles = faceRectangles;
-		}
-
 		public List<Float> getFaceProbabilityList() {
 			return this.faceProbabilityList;
 		}
 
 		public void setFaceProbabilityList(List<Float> faceProbabilityList) {
 			this.faceProbabilityList = faceProbabilityList;
+		}
+
+		public List<Float> getPupils() {
+			return this.pupils;
+		}
+
+		public void setPupils(List<Float> pupils) {
+			this.pupils = pupils;
+		}
+
+		public List<Integer> getFaceRectangles() {
+			return this.faceRectangles;
+		}
+
+		public void setFaceRectangles(List<Integer> faceRectangles) {
+			this.faceRectangles = faceRectangles;
 		}
 
 		public List<Float> getPoseList() {
@@ -109,12 +119,95 @@ public class DetectFaceResponse extends AcsResponse {
 			this.landmarks = landmarks;
 		}
 
-		public List<Float> getPupils() {
-			return this.pupils;
+		public Qualities getQualities() {
+			return this.qualities;
 		}
 
-		public void setPupils(List<Float> pupils) {
-			this.pupils = pupils;
+		public void setQualities(Qualities qualities) {
+			this.qualities = qualities;
+		}
+
+		public static class Qualities {
+
+			private List<Float> scoreList;
+
+			private List<Float> blurList;
+
+			private List<Float> fnfList;
+
+			private List<Float> glassList;
+
+			private List<Float> illuList;
+
+			private List<Float> maskList;
+
+			private List<Float> noiseList;
+
+			private List<Float> poseList1;
+
+			public List<Float> getScoreList() {
+				return this.scoreList;
+			}
+
+			public void setScoreList(List<Float> scoreList) {
+				this.scoreList = scoreList;
+			}
+
+			public List<Float> getBlurList() {
+				return this.blurList;
+			}
+
+			public void setBlurList(List<Float> blurList) {
+				this.blurList = blurList;
+			}
+
+			public List<Float> getFnfList() {
+				return this.fnfList;
+			}
+
+			public void setFnfList(List<Float> fnfList) {
+				this.fnfList = fnfList;
+			}
+
+			public List<Float> getGlassList() {
+				return this.glassList;
+			}
+
+			public void setGlassList(List<Float> glassList) {
+				this.glassList = glassList;
+			}
+
+			public List<Float> getIlluList() {
+				return this.illuList;
+			}
+
+			public void setIlluList(List<Float> illuList) {
+				this.illuList = illuList;
+			}
+
+			public List<Float> getMaskList() {
+				return this.maskList;
+			}
+
+			public void setMaskList(List<Float> maskList) {
+				this.maskList = maskList;
+			}
+
+			public List<Float> getNoiseList() {
+				return this.noiseList;
+			}
+
+			public void setNoiseList(List<Float> noiseList) {
+				this.noiseList = noiseList;
+			}
+
+			public List<Float> getPoseList1() {
+				return this.poseList1;
+			}
+
+			public void setPoseList1(List<Float> poseList1) {
+				this.poseList1 = poseList1;
+			}
 		}
 	}
 

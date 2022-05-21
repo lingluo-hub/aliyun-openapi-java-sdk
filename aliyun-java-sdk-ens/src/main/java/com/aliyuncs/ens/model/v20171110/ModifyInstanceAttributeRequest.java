@@ -26,8 +26,6 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 
 	private String password;
 
-	private String version;
-
 	private String instanceId;
 
 	private String instanceName;
@@ -44,17 +42,6 @@ public class ModifyInstanceAttributeRequest extends RpcAcsRequest<ModifyInstance
 		this.password = password;
 		if(password != null){
 			putQueryParameter("Password", password);
-		}
-	}
-
-	public String getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-		if(version != null){
-			putQueryParameter("Version", version);
 		}
 	}
 

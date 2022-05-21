@@ -84,13 +84,15 @@ public class StartExecutionResponse extends AcsResponse {
 
 		private Boolean isParent;
 
-		private String counters;
+		private Map<Object,Object> counters;
 
 		private String ramRole;
 
 		private Map<Object,Object> tags;
 
 		private String description;
+
+		private String resourceGroupId;
 
 		private List<CurrentTask> currentTasks;
 
@@ -238,11 +240,11 @@ public class StartExecutionResponse extends AcsResponse {
 			this.isParent = isParent;
 		}
 
-		public String getCounters() {
+		public Map<Object,Object> getCounters() {
 			return this.counters;
 		}
 
-		public void setCounters(String counters) {
+		public void setCounters(Map<Object,Object> counters) {
 			this.counters = counters;
 		}
 
@@ -268,6 +270,14 @@ public class StartExecutionResponse extends AcsResponse {
 
 		public void setDescription(String description) {
 			this.description = description;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public List<CurrentTask> getCurrentTasks() {

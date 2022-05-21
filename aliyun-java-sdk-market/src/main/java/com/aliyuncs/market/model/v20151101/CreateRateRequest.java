@@ -25,7 +25,11 @@ import com.aliyuncs.market.Endpoint;
 public class CreateRateRequest extends RpcAcsRequest<CreateRateResponse> {
 	   
 
+	private String customerLabels;
+
 	private String orderId;
+
+	private String packageVersion;
 
 	private String content;
 
@@ -33,12 +37,23 @@ public class CreateRateRequest extends RpcAcsRequest<CreateRateResponse> {
 
 	private String requestId;
 	public CreateRateRequest() {
-		super("Market", "2015-11-01", "CreateRate", "yunmarket");
+		super("Market", "2015-11-01", "CreateRate");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getCustomerLabels() {
+		return this.customerLabels;
+	}
+
+	public void setCustomerLabels(String customerLabels) {
+		this.customerLabels = customerLabels;
+		if(customerLabels != null){
+			putQueryParameter("CustomerLabels", customerLabels);
+		}
 	}
 
 	public String getOrderId() {
@@ -49,6 +64,17 @@ public class CreateRateRequest extends RpcAcsRequest<CreateRateResponse> {
 		this.orderId = orderId;
 		if(orderId != null){
 			putQueryParameter("OrderId", orderId);
+		}
+	}
+
+	public String getPackageVersion() {
+		return this.packageVersion;
+	}
+
+	public void setPackageVersion(String packageVersion) {
+		this.packageVersion = packageVersion;
+		if(packageVersion != null){
+			putQueryParameter("PackageVersion", packageVersion);
 		}
 	}
 

@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeRouteEntryListResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String nextToken;
 
+	private String requestId;
+
 	private List<RouteEntry> routeEntrys;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getNextToken() {
 		return this.nextToken;
@@ -45,6 +37,14 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 
 	public void setNextToken(String nextToken) {
 		this.nextToken = nextToken;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<RouteEntry> getRouteEntrys() {
@@ -57,36 +57,32 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 
 	public static class RouteEntry {
 
-		private String routeTableId;
-
-		private String destinationCidrBlock;
+		private String status;
 
 		private String type;
 
-		private String routeEntryId;
+		private String ipVersion;
+
+		private String description;
 
 		private String routeEntryName;
 
-		private String status;
+		private String destinationCidrBlock;
 
-		private String ipVersion;
+		private String routeEntryId;
+
+		private String routeTableId;
+
+		private String gmtModified;
 
 		private List<NextHop> nextHops;
 
-		public String getRouteTableId() {
-			return this.routeTableId;
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setRouteTableId(String routeTableId) {
-			this.routeTableId = routeTableId;
-		}
-
-		public String getDestinationCidrBlock() {
-			return this.destinationCidrBlock;
-		}
-
-		public void setDestinationCidrBlock(String destinationCidrBlock) {
-			this.destinationCidrBlock = destinationCidrBlock;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
 		public String getType() {
@@ -97,12 +93,20 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 			this.type = type;
 		}
 
-		public String getRouteEntryId() {
-			return this.routeEntryId;
+		public String getIpVersion() {
+			return this.ipVersion;
 		}
 
-		public void setRouteEntryId(String routeEntryId) {
-			this.routeEntryId = routeEntryId;
+		public void setIpVersion(String ipVersion) {
+			this.ipVersion = ipVersion;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public String getRouteEntryName() {
@@ -113,20 +117,36 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 			this.routeEntryName = routeEntryName;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public String getDestinationCidrBlock() {
+			return this.destinationCidrBlock;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setDestinationCidrBlock(String destinationCidrBlock) {
+			this.destinationCidrBlock = destinationCidrBlock;
 		}
 
-		public String getIpVersion() {
-			return this.ipVersion;
+		public String getRouteEntryId() {
+			return this.routeEntryId;
 		}
 
-		public void setIpVersion(String ipVersion) {
-			this.ipVersion = ipVersion;
+		public void setRouteEntryId(String routeEntryId) {
+			this.routeEntryId = routeEntryId;
+		}
+
+		public String getRouteTableId() {
+			return this.routeTableId;
+		}
+
+		public void setRouteTableId(String routeTableId) {
+			this.routeTableId = routeTableId;
+		}
+
+		public String getGmtModified() {
+			return this.gmtModified;
+		}
+
+		public void setGmtModified(String gmtModified) {
+			this.gmtModified = gmtModified;
 		}
 
 		public List<NextHop> getNextHops() {
@@ -139,24 +159,32 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 
 		public static class NextHop {
 
-			private String nextHopType;
+			private String nextHopRegionId;
+
+			private Integer weight;
 
 			private String nextHopId;
 
 			private Integer enabled;
 
-			private Integer weight;
-
-			private String nextHopRegionId;
+			private String nextHopType;
 
 			private NextHopRelatedInfo nextHopRelatedInfo;
 
-			public String getNextHopType() {
-				return this.nextHopType;
+			public String getNextHopRegionId() {
+				return this.nextHopRegionId;
 			}
 
-			public void setNextHopType(String nextHopType) {
-				this.nextHopType = nextHopType;
+			public void setNextHopRegionId(String nextHopRegionId) {
+				this.nextHopRegionId = nextHopRegionId;
+			}
+
+			public Integer getWeight() {
+				return this.weight;
+			}
+
+			public void setWeight(Integer weight) {
+				this.weight = weight;
 			}
 
 			public String getNextHopId() {
@@ -175,20 +203,12 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 				this.enabled = enabled;
 			}
 
-			public Integer getWeight() {
-				return this.weight;
+			public String getNextHopType() {
+				return this.nextHopType;
 			}
 
-			public void setWeight(Integer weight) {
-				this.weight = weight;
-			}
-
-			public String getNextHopRegionId() {
-				return this.nextHopRegionId;
-			}
-
-			public void setNextHopRegionId(String nextHopRegionId) {
-				this.nextHopRegionId = nextHopRegionId;
+			public void setNextHopType(String nextHopType) {
+				this.nextHopType = nextHopType;
 			}
 
 			public NextHopRelatedInfo getNextHopRelatedInfo() {
@@ -201,11 +221,19 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 
 			public static class NextHopRelatedInfo {
 
+				private String instanceId;
+
 				private String instanceType;
 
 				private String regionId;
 
-				private String instanceId;
+				public String getInstanceId() {
+					return this.instanceId;
+				}
+
+				public void setInstanceId(String instanceId) {
+					this.instanceId = instanceId;
+				}
 
 				public String getInstanceType() {
 					return this.instanceType;
@@ -221,14 +249,6 @@ public class DescribeRouteEntryListResponse extends AcsResponse {
 
 				public void setRegionId(String regionId) {
 					this.regionId = regionId;
-				}
-
-				public String getInstanceId() {
-					return this.instanceId;
-				}
-
-				public void setInstanceId(String instanceId) {
-					this.instanceId = instanceId;
 				}
 			}
 		}

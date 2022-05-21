@@ -32,8 +32,12 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String acceptLanguage;
+
+	private String zoneType;
 	public DescribeZonesRequest() {
-		super("Vpc", "2016-04-28", "DescribeZones", "Vpc");
+		super("Vpc", "2016-04-28", "DescribeZones", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -82,6 +86,28 @@ public class DescribeZonesRequest extends RpcAcsRequest<DescribeZonesResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
+		}
+	}
+
+	public String getZoneType() {
+		return this.zoneType;
+	}
+
+	public void setZoneType(String zoneType) {
+		this.zoneType = zoneType;
+		if(zoneType != null){
+			putQueryParameter("ZoneType", zoneType);
 		}
 	}
 

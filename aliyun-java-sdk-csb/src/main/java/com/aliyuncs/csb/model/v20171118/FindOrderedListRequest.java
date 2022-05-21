@@ -34,6 +34,8 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 
 	private Integer pageNum;
 
+	private String credentialGroupName;
+
 	private String alias;
 
 	private String serviceName;
@@ -42,7 +44,7 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 
 	private String status;
 	public FindOrderedListRequest() {
-		super("CSB", "2017-11-18", "FindOrderedList", "csb");
+		super("CSB", "2017-11-18", "FindOrderedList");
 		setProtocol(ProtocolType.HTTPS);
 		setMethod(MethodType.GET);
 		try {
@@ -92,6 +94,17 @@ public class FindOrderedListRequest extends RpcAcsRequest<FindOrderedListRespons
 		this.pageNum = pageNum;
 		if(pageNum != null){
 			putQueryParameter("PageNum", pageNum.toString());
+		}
+	}
+
+	public String getCredentialGroupName() {
+		return this.credentialGroupName;
+	}
+
+	public void setCredentialGroupName(String credentialGroupName) {
+		this.credentialGroupName = credentialGroupName;
+		if(credentialGroupName != null){
+			putQueryParameter("CredentialGroupName", credentialGroupName);
 		}
 	}
 

@@ -27,31 +27,27 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 
 	private String nasId;
 
-	private String webContainer;
-
-	private String readiness;
-
 	private String packageVersionId;
 
 	private Integer batchWaitTime;
 
-	private String liveness;
-
 	private String envs;
+
+	private String annotations;
 
 	private Integer cpuLimit;
 
-	private String packageVersion;
-
 	private String storageType;
 
-	private String edasContainerVersion;
-
-	private String packageUrl;
+	private String configMountDescs;
 
 	private Integer memoryLimit;
 
 	private String imageTag;
+
+	private String deployAcrossZones;
+
+	private String deployAcrossNodes;
 
 	private Integer memoryRequest;
 
@@ -59,37 +55,91 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 
 	private String preStop;
 
-	private String mountDescs;
+	private String buildPackId;
 
-	private Integer replicas;
-
-	private Integer cpuRequest;
+	private Boolean enableEmptyPushReject;
 
 	private String localVolume;
 
-	private String command;
-
 	private String updateStrategy;
 
-	private String args;
-
-	private String jDK;
+	private String labels;
 
 	private Boolean useBodyEncoding;
 
 	private String changeOrderDesc;
 
+	private Integer losslessRuleFuncType;
+
+	private String emptyDirs;
+
+	private Integer mcpuLimit;
+
+	private Boolean losslessRuleRelated;
+
+	private String runtimeClassName;
+
+	private String trafficControlStrategy;
+
+	private String postStart;
+
+	private String customAffinity;
+
+	private Boolean enableLosslessRule;
+
+	private Integer losslessRuleWarmupTime;
+
+	private String webContainer;
+
+	private Boolean enableAhas;
+
+	private String slsConfigs;
+
+	private String readiness;
+
+	private String liveness;
+
+	private String packageVersion;
+
+	private String envFroms;
+
+	private String edasContainerVersion;
+
+	private String packageUrl;
+
+	private Integer losslessRuleDelayTime;
+
+	private String mountDescs;
+
+	private Integer replicas;
+
+	private String customTolerations;
+
+	private Integer cpuRequest;
+
+	private String webContainerConfig;
+
+	private String command;
+
+	private String args;
+
+	private String jDK;
+
 	private String uriEncoding;
 
 	private String appId;
 
-	private Integer mcpuRequest;
+	private Integer batchTimeout;
 
-	private Integer mcpuLimit;
+	private String pvcMountDescs;
+
+	private Integer mcpuRequest;
 
 	private String volumesStr;
 
-	private String postStart;
+	private Boolean losslessRuleAligned;
+
+	private String javaStartUpConfig;
 	public DeployK8sApplicationRequest() {
 		super("Edas", "2017-08-01", "DeployK8sApplication", "Edas");
 		setUriPattern("/pop/v5/k8s/acs/k8s_apps");
@@ -108,28 +158,6 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.nasId = nasId;
 		if(nasId != null){
 			putQueryParameter("NasId", nasId);
-		}
-	}
-
-	public String getWebContainer() {
-		return this.webContainer;
-	}
-
-	public void setWebContainer(String webContainer) {
-		this.webContainer = webContainer;
-		if(webContainer != null){
-			putQueryParameter("WebContainer", webContainer);
-		}
-	}
-
-	public String getReadiness() {
-		return this.readiness;
-	}
-
-	public void setReadiness(String readiness) {
-		this.readiness = readiness;
-		if(readiness != null){
-			putQueryParameter("Readiness", readiness);
 		}
 	}
 
@@ -155,17 +183,6 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getLiveness() {
-		return this.liveness;
-	}
-
-	public void setLiveness(String liveness) {
-		this.liveness = liveness;
-		if(liveness != null){
-			putQueryParameter("Liveness", liveness);
-		}
-	}
-
 	public String getEnvs() {
 		return this.envs;
 	}
@@ -174,6 +191,17 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.envs = envs;
 		if(envs != null){
 			putQueryParameter("Envs", envs);
+		}
+	}
+
+	public String getAnnotations() {
+		return this.annotations;
+	}
+
+	public void setAnnotations(String annotations) {
+		this.annotations = annotations;
+		if(annotations != null){
+			putQueryParameter("Annotations", annotations);
 		}
 	}
 
@@ -188,17 +216,6 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getPackageVersion() {
-		return this.packageVersion;
-	}
-
-	public void setPackageVersion(String packageVersion) {
-		this.packageVersion = packageVersion;
-		if(packageVersion != null){
-			putQueryParameter("PackageVersion", packageVersion);
-		}
-	}
-
 	public String getStorageType() {
 		return this.storageType;
 	}
@@ -210,25 +227,14 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getEdasContainerVersion() {
-		return this.edasContainerVersion;
+	public String getConfigMountDescs() {
+		return this.configMountDescs;
 	}
 
-	public void setEdasContainerVersion(String edasContainerVersion) {
-		this.edasContainerVersion = edasContainerVersion;
-		if(edasContainerVersion != null){
-			putQueryParameter("EdasContainerVersion", edasContainerVersion);
-		}
-	}
-
-	public String getPackageUrl() {
-		return this.packageUrl;
-	}
-
-	public void setPackageUrl(String packageUrl) {
-		this.packageUrl = packageUrl;
-		if(packageUrl != null){
-			putQueryParameter("PackageUrl", packageUrl);
+	public void setConfigMountDescs(String configMountDescs) {
+		this.configMountDescs = configMountDescs;
+		if(configMountDescs != null){
+			putQueryParameter("ConfigMountDescs", configMountDescs);
 		}
 	}
 
@@ -251,6 +257,28 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.imageTag = imageTag;
 		if(imageTag != null){
 			putQueryParameter("ImageTag", imageTag);
+		}
+	}
+
+	public String getDeployAcrossZones() {
+		return this.deployAcrossZones;
+	}
+
+	public void setDeployAcrossZones(String deployAcrossZones) {
+		this.deployAcrossZones = deployAcrossZones;
+		if(deployAcrossZones != null){
+			putQueryParameter("DeployAcrossZones", deployAcrossZones);
+		}
+	}
+
+	public String getDeployAcrossNodes() {
+		return this.deployAcrossNodes;
+	}
+
+	public void setDeployAcrossNodes(String deployAcrossNodes) {
+		this.deployAcrossNodes = deployAcrossNodes;
+		if(deployAcrossNodes != null){
+			putQueryParameter("DeployAcrossNodes", deployAcrossNodes);
 		}
 	}
 
@@ -287,36 +315,25 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getMountDescs() {
-		return this.mountDescs;
+	public String getBuildPackId() {
+		return this.buildPackId;
 	}
 
-	public void setMountDescs(String mountDescs) {
-		this.mountDescs = mountDescs;
-		if(mountDescs != null){
-			putQueryParameter("MountDescs", mountDescs);
+	public void setBuildPackId(String buildPackId) {
+		this.buildPackId = buildPackId;
+		if(buildPackId != null){
+			putQueryParameter("BuildPackId", buildPackId);
 		}
 	}
 
-	public Integer getReplicas() {
-		return this.replicas;
+	public Boolean getEnableEmptyPushReject() {
+		return this.enableEmptyPushReject;
 	}
 
-	public void setReplicas(Integer replicas) {
-		this.replicas = replicas;
-		if(replicas != null){
-			putQueryParameter("Replicas", replicas.toString());
-		}
-	}
-
-	public Integer getCpuRequest() {
-		return this.cpuRequest;
-	}
-
-	public void setCpuRequest(Integer cpuRequest) {
-		this.cpuRequest = cpuRequest;
-		if(cpuRequest != null){
-			putQueryParameter("CpuRequest", cpuRequest.toString());
+	public void setEnableEmptyPushReject(Boolean enableEmptyPushReject) {
+		this.enableEmptyPushReject = enableEmptyPushReject;
+		if(enableEmptyPushReject != null){
+			putQueryParameter("EnableEmptyPushReject", enableEmptyPushReject.toString());
 		}
 	}
 
@@ -331,17 +348,6 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getCommand() {
-		return this.command;
-	}
-
-	public void setCommand(String command) {
-		this.command = command;
-		if(command != null){
-			putQueryParameter("Command", command);
-		}
-	}
-
 	public String getUpdateStrategy() {
 		return this.updateStrategy;
 	}
@@ -353,25 +359,14 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getArgs() {
-		return this.args;
+	public String getLabels() {
+		return this.labels;
 	}
 
-	public void setArgs(String args) {
-		this.args = args;
-		if(args != null){
-			putQueryParameter("Args", args);
-		}
-	}
-
-	public String getJDK() {
-		return this.jDK;
-	}
-
-	public void setJDK(String jDK) {
-		this.jDK = jDK;
-		if(jDK != null){
-			putQueryParameter("JDK", jDK);
+	public void setLabels(String labels) {
+		this.labels = labels;
+		if(labels != null){
+			putQueryParameter("Labels", labels);
 		}
 	}
 
@@ -397,6 +392,314 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
+	public Integer getLosslessRuleFuncType() {
+		return this.losslessRuleFuncType;
+	}
+
+	public void setLosslessRuleFuncType(Integer losslessRuleFuncType) {
+		this.losslessRuleFuncType = losslessRuleFuncType;
+		if(losslessRuleFuncType != null){
+			putQueryParameter("LosslessRuleFuncType", losslessRuleFuncType.toString());
+		}
+	}
+
+	public String getEmptyDirs() {
+		return this.emptyDirs;
+	}
+
+	public void setEmptyDirs(String emptyDirs) {
+		this.emptyDirs = emptyDirs;
+		if(emptyDirs != null){
+			putQueryParameter("EmptyDirs", emptyDirs);
+		}
+	}
+
+	public Integer getMcpuLimit() {
+		return this.mcpuLimit;
+	}
+
+	public void setMcpuLimit(Integer mcpuLimit) {
+		this.mcpuLimit = mcpuLimit;
+		if(mcpuLimit != null){
+			putQueryParameter("McpuLimit", mcpuLimit.toString());
+		}
+	}
+
+	public Boolean getLosslessRuleRelated() {
+		return this.losslessRuleRelated;
+	}
+
+	public void setLosslessRuleRelated(Boolean losslessRuleRelated) {
+		this.losslessRuleRelated = losslessRuleRelated;
+		if(losslessRuleRelated != null){
+			putQueryParameter("LosslessRuleRelated", losslessRuleRelated.toString());
+		}
+	}
+
+	public String getRuntimeClassName() {
+		return this.runtimeClassName;
+	}
+
+	public void setRuntimeClassName(String runtimeClassName) {
+		this.runtimeClassName = runtimeClassName;
+		if(runtimeClassName != null){
+			putQueryParameter("RuntimeClassName", runtimeClassName);
+		}
+	}
+
+	public String getTrafficControlStrategy() {
+		return this.trafficControlStrategy;
+	}
+
+	public void setTrafficControlStrategy(String trafficControlStrategy) {
+		this.trafficControlStrategy = trafficControlStrategy;
+		if(trafficControlStrategy != null){
+			putQueryParameter("TrafficControlStrategy", trafficControlStrategy);
+		}
+	}
+
+	public String getPostStart() {
+		return this.postStart;
+	}
+
+	public void setPostStart(String postStart) {
+		this.postStart = postStart;
+		if(postStart != null){
+			putQueryParameter("PostStart", postStart);
+		}
+	}
+
+	public String getCustomAffinity() {
+		return this.customAffinity;
+	}
+
+	public void setCustomAffinity(String customAffinity) {
+		this.customAffinity = customAffinity;
+		if(customAffinity != null){
+			putQueryParameter("CustomAffinity", customAffinity);
+		}
+	}
+
+	public Boolean getEnableLosslessRule() {
+		return this.enableLosslessRule;
+	}
+
+	public void setEnableLosslessRule(Boolean enableLosslessRule) {
+		this.enableLosslessRule = enableLosslessRule;
+		if(enableLosslessRule != null){
+			putQueryParameter("EnableLosslessRule", enableLosslessRule.toString());
+		}
+	}
+
+	public Integer getLosslessRuleWarmupTime() {
+		return this.losslessRuleWarmupTime;
+	}
+
+	public void setLosslessRuleWarmupTime(Integer losslessRuleWarmupTime) {
+		this.losslessRuleWarmupTime = losslessRuleWarmupTime;
+		if(losslessRuleWarmupTime != null){
+			putQueryParameter("LosslessRuleWarmupTime", losslessRuleWarmupTime.toString());
+		}
+	}
+
+	public String getWebContainer() {
+		return this.webContainer;
+	}
+
+	public void setWebContainer(String webContainer) {
+		this.webContainer = webContainer;
+		if(webContainer != null){
+			putQueryParameter("WebContainer", webContainer);
+		}
+	}
+
+	public Boolean getEnableAhas() {
+		return this.enableAhas;
+	}
+
+	public void setEnableAhas(Boolean enableAhas) {
+		this.enableAhas = enableAhas;
+		if(enableAhas != null){
+			putQueryParameter("EnableAhas", enableAhas.toString());
+		}
+	}
+
+	public String getSlsConfigs() {
+		return this.slsConfigs;
+	}
+
+	public void setSlsConfigs(String slsConfigs) {
+		this.slsConfigs = slsConfigs;
+		if(slsConfigs != null){
+			putQueryParameter("SlsConfigs", slsConfigs);
+		}
+	}
+
+	public String getReadiness() {
+		return this.readiness;
+	}
+
+	public void setReadiness(String readiness) {
+		this.readiness = readiness;
+		if(readiness != null){
+			putQueryParameter("Readiness", readiness);
+		}
+	}
+
+	public String getLiveness() {
+		return this.liveness;
+	}
+
+	public void setLiveness(String liveness) {
+		this.liveness = liveness;
+		if(liveness != null){
+			putQueryParameter("Liveness", liveness);
+		}
+	}
+
+	public String getPackageVersion() {
+		return this.packageVersion;
+	}
+
+	public void setPackageVersion(String packageVersion) {
+		this.packageVersion = packageVersion;
+		if(packageVersion != null){
+			putQueryParameter("PackageVersion", packageVersion);
+		}
+	}
+
+	public String getEnvFroms() {
+		return this.envFroms;
+	}
+
+	public void setEnvFroms(String envFroms) {
+		this.envFroms = envFroms;
+		if(envFroms != null){
+			putQueryParameter("EnvFroms", envFroms);
+		}
+	}
+
+	public String getEdasContainerVersion() {
+		return this.edasContainerVersion;
+	}
+
+	public void setEdasContainerVersion(String edasContainerVersion) {
+		this.edasContainerVersion = edasContainerVersion;
+		if(edasContainerVersion != null){
+			putQueryParameter("EdasContainerVersion", edasContainerVersion);
+		}
+	}
+
+	public String getPackageUrl() {
+		return this.packageUrl;
+	}
+
+	public void setPackageUrl(String packageUrl) {
+		this.packageUrl = packageUrl;
+		if(packageUrl != null){
+			putQueryParameter("PackageUrl", packageUrl);
+		}
+	}
+
+	public Integer getLosslessRuleDelayTime() {
+		return this.losslessRuleDelayTime;
+	}
+
+	public void setLosslessRuleDelayTime(Integer losslessRuleDelayTime) {
+		this.losslessRuleDelayTime = losslessRuleDelayTime;
+		if(losslessRuleDelayTime != null){
+			putQueryParameter("LosslessRuleDelayTime", losslessRuleDelayTime.toString());
+		}
+	}
+
+	public String getMountDescs() {
+		return this.mountDescs;
+	}
+
+	public void setMountDescs(String mountDescs) {
+		this.mountDescs = mountDescs;
+		if(mountDescs != null){
+			putQueryParameter("MountDescs", mountDescs);
+		}
+	}
+
+	public Integer getReplicas() {
+		return this.replicas;
+	}
+
+	public void setReplicas(Integer replicas) {
+		this.replicas = replicas;
+		if(replicas != null){
+			putQueryParameter("Replicas", replicas.toString());
+		}
+	}
+
+	public String getCustomTolerations() {
+		return this.customTolerations;
+	}
+
+	public void setCustomTolerations(String customTolerations) {
+		this.customTolerations = customTolerations;
+		if(customTolerations != null){
+			putQueryParameter("CustomTolerations", customTolerations);
+		}
+	}
+
+	public Integer getCpuRequest() {
+		return this.cpuRequest;
+	}
+
+	public void setCpuRequest(Integer cpuRequest) {
+		this.cpuRequest = cpuRequest;
+		if(cpuRequest != null){
+			putQueryParameter("CpuRequest", cpuRequest.toString());
+		}
+	}
+
+	public String getWebContainerConfig() {
+		return this.webContainerConfig;
+	}
+
+	public void setWebContainerConfig(String webContainerConfig) {
+		this.webContainerConfig = webContainerConfig;
+		if(webContainerConfig != null){
+			putQueryParameter("WebContainerConfig", webContainerConfig);
+		}
+	}
+
+	public String getCommand() {
+		return this.command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
+		if(command != null){
+			putQueryParameter("Command", command);
+		}
+	}
+
+	public String getArgs() {
+		return this.args;
+	}
+
+	public void setArgs(String args) {
+		this.args = args;
+		if(args != null){
+			putQueryParameter("Args", args);
+		}
+	}
+
+	public String getJDK() {
+		return this.jDK;
+	}
+
+	public void setJDK(String jDK) {
+		this.jDK = jDK;
+		if(jDK != null){
+			putQueryParameter("JDK", jDK);
+		}
+	}
+
 	public String getUriEncoding() {
 		return this.uriEncoding;
 	}
@@ -419,6 +722,28 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
+	public Integer getBatchTimeout() {
+		return this.batchTimeout;
+	}
+
+	public void setBatchTimeout(Integer batchTimeout) {
+		this.batchTimeout = batchTimeout;
+		if(batchTimeout != null){
+			putQueryParameter("BatchTimeout", batchTimeout.toString());
+		}
+	}
+
+	public String getPvcMountDescs() {
+		return this.pvcMountDescs;
+	}
+
+	public void setPvcMountDescs(String pvcMountDescs) {
+		this.pvcMountDescs = pvcMountDescs;
+		if(pvcMountDescs != null){
+			putQueryParameter("PvcMountDescs", pvcMountDescs);
+		}
+	}
+
 	public Integer getMcpuRequest() {
 		return this.mcpuRequest;
 	}
@@ -427,17 +752,6 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		this.mcpuRequest = mcpuRequest;
 		if(mcpuRequest != null){
 			putQueryParameter("McpuRequest", mcpuRequest.toString());
-		}
-	}
-
-	public Integer getMcpuLimit() {
-		return this.mcpuLimit;
-	}
-
-	public void setMcpuLimit(Integer mcpuLimit) {
-		this.mcpuLimit = mcpuLimit;
-		if(mcpuLimit != null){
-			putQueryParameter("McpuLimit", mcpuLimit.toString());
 		}
 	}
 
@@ -452,14 +766,25 @@ public class DeployK8sApplicationRequest extends RoaAcsRequest<DeployK8sApplicat
 		}
 	}
 
-	public String getPostStart() {
-		return this.postStart;
+	public Boolean getLosslessRuleAligned() {
+		return this.losslessRuleAligned;
 	}
 
-	public void setPostStart(String postStart) {
-		this.postStart = postStart;
-		if(postStart != null){
-			putQueryParameter("PostStart", postStart);
+	public void setLosslessRuleAligned(Boolean losslessRuleAligned) {
+		this.losslessRuleAligned = losslessRuleAligned;
+		if(losslessRuleAligned != null){
+			putQueryParameter("LosslessRuleAligned", losslessRuleAligned.toString());
+		}
+	}
+
+	public String getJavaStartUpConfig() {
+		return this.javaStartUpConfig;
+	}
+
+	public void setJavaStartUpConfig(String javaStartUpConfig) {
+		this.javaStartUpConfig = javaStartUpConfig;
+		if(javaStartUpConfig != null){
+			putQueryParameter("JavaStartUpConfig", javaStartUpConfig);
 		}
 	}
 

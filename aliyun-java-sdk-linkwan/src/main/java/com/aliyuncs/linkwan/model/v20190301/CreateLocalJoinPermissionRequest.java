@@ -28,11 +28,15 @@ public class CreateLocalJoinPermissionRequest extends RpcAcsRequest<CreateLocalJ
 
 	private Long rxDelay;
 
+	private String iotInstanceId;
+
+	private Boolean useDefaultJoinEui;
+
 	private String classMode;
 
 	private Long freqBandPlanGroupId;
 
-	private Boolean useDefaultJoinEui;
+	private String joinEui;
 
 	private String joinPermissionName;
 
@@ -58,6 +62,28 @@ public class CreateLocalJoinPermissionRequest extends RpcAcsRequest<CreateLocalJ
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Boolean getUseDefaultJoinEui() {
+		return this.useDefaultJoinEui;
+	}
+
+	public void setUseDefaultJoinEui(Boolean useDefaultJoinEui) {
+		this.useDefaultJoinEui = useDefaultJoinEui;
+		if(useDefaultJoinEui != null){
+			putQueryParameter("UseDefaultJoinEui", useDefaultJoinEui.toString());
+		}
+	}
+
 	public String getClassMode() {
 		return this.classMode;
 	}
@@ -80,14 +106,14 @@ public class CreateLocalJoinPermissionRequest extends RpcAcsRequest<CreateLocalJ
 		}
 	}
 
-	public Boolean getUseDefaultJoinEui() {
-		return this.useDefaultJoinEui;
+	public String getJoinEui() {
+		return this.joinEui;
 	}
 
-	public void setUseDefaultJoinEui(Boolean useDefaultJoinEui) {
-		this.useDefaultJoinEui = useDefaultJoinEui;
-		if(useDefaultJoinEui != null){
-			putQueryParameter("UseDefaultJoinEui", useDefaultJoinEui.toString());
+	public void setJoinEui(String joinEui) {
+		this.joinEui = joinEui;
+		if(joinEui != null){
+			putQueryParameter("JoinEui", joinEui);
 		}
 	}
 

@@ -24,11 +24,17 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSynchronizationJobAlertResponse extends AcsResponse {
 
-	private String synchronizationJobId;
-
 	private String synchronizationJobName;
 
-	private String synchronizationDirection;
+	private String errorAlertStatus;
+
+	private String errCode;
+
+	private String success;
+
+	private String errorAlertPhone;
+
+	private String errMessage;
 
 	private String delayAlertStatus;
 
@@ -36,25 +42,11 @@ public class DescribeSynchronizationJobAlertResponse extends AcsResponse {
 
 	private String delayOverSeconds;
 
-	private String errorAlertStatus;
-
-	private String errorAlertPhone;
-
-	private String success;
-
-	private String errCode;
-
-	private String errMessage;
-
 	private String requestId;
 
-	public String getSynchronizationJobId() {
-		return this.synchronizationJobId;
-	}
+	private String synchronizationJobId;
 
-	public void setSynchronizationJobId(String synchronizationJobId) {
-		this.synchronizationJobId = synchronizationJobId;
-	}
+	private String synchronizationDirection;
 
 	public String getSynchronizationJobName() {
 		return this.synchronizationJobName;
@@ -64,12 +56,44 @@ public class DescribeSynchronizationJobAlertResponse extends AcsResponse {
 		this.synchronizationJobName = synchronizationJobName;
 	}
 
-	public String getSynchronizationDirection() {
-		return this.synchronizationDirection;
+	public String getErrorAlertStatus() {
+		return this.errorAlertStatus;
 	}
 
-	public void setSynchronizationDirection(String synchronizationDirection) {
-		this.synchronizationDirection = synchronizationDirection;
+	public void setErrorAlertStatus(String errorAlertStatus) {
+		this.errorAlertStatus = errorAlertStatus;
+	}
+
+	public String getErrCode() {
+		return this.errCode;
+	}
+
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrorAlertPhone() {
+		return this.errorAlertPhone;
+	}
+
+	public void setErrorAlertPhone(String errorAlertPhone) {
+		this.errorAlertPhone = errorAlertPhone;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	public String getDelayAlertStatus() {
@@ -96,52 +120,28 @@ public class DescribeSynchronizationJobAlertResponse extends AcsResponse {
 		this.delayOverSeconds = delayOverSeconds;
 	}
 
-	public String getErrorAlertStatus() {
-		return this.errorAlertStatus;
-	}
-
-	public void setErrorAlertStatus(String errorAlertStatus) {
-		this.errorAlertStatus = errorAlertStatus;
-	}
-
-	public String getErrorAlertPhone() {
-		return this.errorAlertPhone;
-	}
-
-	public void setErrorAlertPhone(String errorAlertPhone) {
-		this.errorAlertPhone = errorAlertPhone;
-	}
-
-	public String getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-
-	public String getErrCode() {
-		return this.errCode;
-	}
-
-	public void setErrCode(String errCode) {
-		this.errCode = errCode;
-	}
-
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
-	}
-
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getSynchronizationJobId() {
+		return this.synchronizationJobId;
+	}
+
+	public void setSynchronizationJobId(String synchronizationJobId) {
+		this.synchronizationJobId = synchronizationJobId;
+	}
+
+	public String getSynchronizationDirection() {
+		return this.synchronizationDirection;
+	}
+
+	public void setSynchronizationDirection(String synchronizationDirection) {
+		this.synchronizationDirection = synchronizationDirection;
 	}
 
 	@Override

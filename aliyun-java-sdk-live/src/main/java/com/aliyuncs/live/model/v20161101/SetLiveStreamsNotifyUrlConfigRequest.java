@@ -23,7 +23,17 @@ import com.aliyuncs.live.Endpoint;
  * @version 
  */
 public class SetLiveStreamsNotifyUrlConfigRequest extends RpcAcsRequest<SetLiveStreamsNotifyUrlConfigResponse> {
-	
+	   
+
+	private String notifyReqAuth;
+
+	private String notifyUrl;
+
+	private String domainName;
+
+	private Long ownerId;
+
+	private String notifyAuthKey;
 	public SetLiveStreamsNotifyUrlConfigRequest() {
 		super("live", "2016-11-01", "SetLiveStreamsNotifyUrlConfig", "live");
 		setMethod(MethodType.POST);
@@ -33,11 +43,16 @@ public class SetLiveStreamsNotifyUrlConfigRequest extends RpcAcsRequest<SetLiveS
 		} catch (Exception e) {}
 	}
 
-	private String notifyUrl;
+	public String getNotifyReqAuth() {
+		return this.notifyReqAuth;
+	}
 
-	private String domainName;
-
-	private Long ownerId;
+	public void setNotifyReqAuth(String notifyReqAuth) {
+		this.notifyReqAuth = notifyReqAuth;
+		if(notifyReqAuth != null){
+			putQueryParameter("NotifyReqAuth", notifyReqAuth);
+		}
+	}
 
 	public String getNotifyUrl() {
 		return this.notifyUrl;
@@ -69,6 +84,17 @@ public class SetLiveStreamsNotifyUrlConfigRequest extends RpcAcsRequest<SetLiveS
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getNotifyAuthKey() {
+		return this.notifyAuthKey;
+	}
+
+	public void setNotifyAuthKey(String notifyAuthKey) {
+		this.notifyAuthKey = notifyAuthKey;
+		if(notifyAuthKey != null){
+			putQueryParameter("NotifyAuthKey", notifyAuthKey);
 		}
 	}
 

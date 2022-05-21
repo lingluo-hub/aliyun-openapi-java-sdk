@@ -47,34 +47,80 @@ public class DescribeCACertificatesResponse extends AcsResponse {
 
 	public static class CACertificate {
 
-		private String regionId;
+		private Long createTimeStamp;
+
+		private String standardType;
+
+		private String expireTime;
+
+		private String createTime;
+
+		private Integer encryptionKeyLength;
+
+		private Long expireTimeStamp;
 
 		private String cACertificateId;
 
-		private String cACertificateName;
+		private String regionId;
+
+		private String encryptionAlgorithm;
 
 		private String fingerprint;
 
 		private String resourceGroupId;
 
-		private String createTime;
-
-		private Long createTimeStamp;
-
-		private String expireTime;
-
-		private Long expireTimeStamp;
-
 		private String commonName;
+
+		private String cACertificateName;
 
 		private List<Tag> tags;
 
-		public String getRegionId() {
-			return this.regionId;
+		public Long getCreateTimeStamp() {
+			return this.createTimeStamp;
 		}
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
+		public void setCreateTimeStamp(Long createTimeStamp) {
+			this.createTimeStamp = createTimeStamp;
+		}
+
+		public String getStandardType() {
+			return this.standardType;
+		}
+
+		public void setStandardType(String standardType) {
+			this.standardType = standardType;
+		}
+
+		public String getExpireTime() {
+			return this.expireTime;
+		}
+
+		public void setExpireTime(String expireTime) {
+			this.expireTime = expireTime;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public Integer getEncryptionKeyLength() {
+			return this.encryptionKeyLength;
+		}
+
+		public void setEncryptionKeyLength(Integer encryptionKeyLength) {
+			this.encryptionKeyLength = encryptionKeyLength;
+		}
+
+		public Long getExpireTimeStamp() {
+			return this.expireTimeStamp;
+		}
+
+		public void setExpireTimeStamp(Long expireTimeStamp) {
+			this.expireTimeStamp = expireTimeStamp;
 		}
 
 		public String getCACertificateId() {
@@ -85,12 +131,20 @@ public class DescribeCACertificatesResponse extends AcsResponse {
 			this.cACertificateId = cACertificateId;
 		}
 
-		public String getCACertificateName() {
-			return this.cACertificateName;
+		public String getRegionId() {
+			return this.regionId;
 		}
 
-		public void setCACertificateName(String cACertificateName) {
-			this.cACertificateName = cACertificateName;
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getEncryptionAlgorithm() {
+			return this.encryptionAlgorithm;
+		}
+
+		public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+			this.encryptionAlgorithm = encryptionAlgorithm;
 		}
 
 		public String getFingerprint() {
@@ -109,44 +163,20 @@ public class DescribeCACertificatesResponse extends AcsResponse {
 			this.resourceGroupId = resourceGroupId;
 		}
 
-		public String getCreateTime() {
-			return this.createTime;
-		}
-
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
-
-		public Long getCreateTimeStamp() {
-			return this.createTimeStamp;
-		}
-
-		public void setCreateTimeStamp(Long createTimeStamp) {
-			this.createTimeStamp = createTimeStamp;
-		}
-
-		public String getExpireTime() {
-			return this.expireTime;
-		}
-
-		public void setExpireTime(String expireTime) {
-			this.expireTime = expireTime;
-		}
-
-		public Long getExpireTimeStamp() {
-			return this.expireTimeStamp;
-		}
-
-		public void setExpireTimeStamp(Long expireTimeStamp) {
-			this.expireTimeStamp = expireTimeStamp;
-		}
-
 		public String getCommonName() {
 			return this.commonName;
 		}
 
 		public void setCommonName(String commonName) {
 			this.commonName = commonName;
+		}
+
+		public String getCACertificateName() {
+			return this.cACertificateName;
+		}
+
+		public void setCACertificateName(String cACertificateName) {
+			this.cACertificateName = cACertificateName;
 		}
 
 		public List<Tag> getTags() {
@@ -159,17 +189,9 @@ public class DescribeCACertificatesResponse extends AcsResponse {
 
 		public static class Tag {
 
-			private String tagKey;
-
 			private String tagValue;
 
-			public String getTagKey() {
-				return this.tagKey;
-			}
-
-			public void setTagKey(String tagKey) {
-				this.tagKey = tagKey;
-			}
+			private String tagKey;
 
 			public String getTagValue() {
 				return this.tagValue;
@@ -177,6 +199,14 @@ public class DescribeCACertificatesResponse extends AcsResponse {
 
 			public void setTagValue(String tagValue) {
 				this.tagValue = tagValue;
+			}
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
 			}
 		}
 	}

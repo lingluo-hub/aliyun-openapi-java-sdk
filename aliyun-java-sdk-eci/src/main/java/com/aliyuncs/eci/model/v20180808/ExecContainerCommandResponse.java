@@ -28,6 +28,18 @@ public class ExecContainerCommandResponse extends AcsResponse {
 
 	private String webSocketUri;
 
+	private String httpUrl;
+
+	private String syncResponse;
+
+	public String getHttpUrl() {
+		return this.httpUrl;
+	}
+
+	public void setHttpUrl(String httpUrl) {
+		this.httpUrl = httpUrl;
+	}
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -42,6 +54,14 @@ public class ExecContainerCommandResponse extends AcsResponse {
 
 	public void setWebSocketUri(String webSocketUri) {
 		this.webSocketUri = webSocketUri;
+	}
+
+	public String getSyncResponse() {
+		return this.syncResponse;
+	}
+
+	public void setSyncResponse(String syncResponse) {
+		this.syncResponse = syncResponse;
 	}
 
 	@Override

@@ -24,15 +24,16 @@ public class DeployApplicationResponseUnmarshaller {
 	public static DeployApplicationResponse unmarshall(DeployApplicationResponse deployApplicationResponse, UnmarshallerContext _ctx) {
 		
 		deployApplicationResponse.setRequestId(_ctx.stringValue("DeployApplicationResponse.RequestId"));
-		deployApplicationResponse.setCode(_ctx.stringValue("DeployApplicationResponse.Code"));
 		deployApplicationResponse.setMessage(_ctx.stringValue("DeployApplicationResponse.Message"));
-		deployApplicationResponse.setErrorCode(_ctx.stringValue("DeployApplicationResponse.ErrorCode"));
 		deployApplicationResponse.setTraceId(_ctx.stringValue("DeployApplicationResponse.TraceId"));
+		deployApplicationResponse.setErrorCode(_ctx.stringValue("DeployApplicationResponse.ErrorCode"));
+		deployApplicationResponse.setCode(_ctx.stringValue("DeployApplicationResponse.Code"));
 		deployApplicationResponse.setSuccess(_ctx.booleanValue("DeployApplicationResponse.Success"));
 
 		Data data = new Data();
-		data.setAppId(_ctx.stringValue("DeployApplicationResponse.Data.AppId"));
 		data.setChangeOrderId(_ctx.stringValue("DeployApplicationResponse.Data.ChangeOrderId"));
+		data.setAppId(_ctx.stringValue("DeployApplicationResponse.Data.AppId"));
+		data.setIsNeedApproval(_ctx.booleanValue("DeployApplicationResponse.Data.IsNeedApproval"));
 		deployApplicationResponse.setData(data);
 	 
 	 	return deployApplicationResponse;

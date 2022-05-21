@@ -24,38 +24,22 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateConsumerGroupResponse extends AcsResponse {
 
-	private String success;
-
-	private String errCode;
-
-	private String errMessage;
+	private String consumerGroupID;
 
 	private String requestId;
 
-	private String consumerGroupID;
+	private String errCode;
 
-	public String getSuccess() {
-		return this.success;
+	private String success;
+
+	private String errMessage;
+
+	public String getConsumerGroupID() {
+		return this.consumerGroupID;
 	}
 
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-
-	public String getErrCode() {
-		return this.errCode;
-	}
-
-	public void setErrCode(String errCode) {
-		this.errCode = errCode;
-	}
-
-	public String getErrMessage() {
-		return this.errMessage;
-	}
-
-	public void setErrMessage(String errMessage) {
-		this.errMessage = errMessage;
+	public void setConsumerGroupID(String consumerGroupID) {
+		this.consumerGroupID = consumerGroupID;
 	}
 
 	public String getRequestId() {
@@ -66,12 +50,28 @@ public class CreateConsumerGroupResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getConsumerGroupID() {
-		return this.consumerGroupID;
+	public String getErrCode() {
+		return this.errCode;
 	}
 
-	public void setConsumerGroupID(String consumerGroupID) {
-		this.consumerGroupID = consumerGroupID;
+	public void setErrCode(String errCode) {
+		this.errCode = errCode;
+	}
+
+	public String getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public String getErrMessage() {
+		return this.errMessage;
+	}
+
+	public void setErrMessage(String errMessage) {
+		this.errMessage = errMessage;
 	}
 
 	@Override

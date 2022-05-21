@@ -24,17 +24,33 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class CreateStreamSnapshotResponse extends AcsResponse {
 
+	private String ossObject;
+
 	private String requestId;
 
-	private String id;
+	private Long width;
+
+	private Long height;
 
 	private String url;
 
+	private Long timestamp;
+
 	private String ossBucket;
 
-	private String ossObject;
+	private String format;
 
 	private String ossEndpoint;
+
+	private String id;
+
+	public String getOssObject() {
+		return this.ossObject;
+	}
+
+	public void setOssObject(String ossObject) {
+		this.ossObject = ossObject;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -44,12 +60,20 @@ public class CreateStreamSnapshotResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getId() {
-		return this.id;
+	public Long getWidth() {
+		return this.width;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setWidth(Long width) {
+		this.width = width;
+	}
+
+	public Long getHeight() {
+		return this.height;
+	}
+
+	public void setHeight(Long height) {
+		this.height = height;
 	}
 
 	public String getUrl() {
@@ -60,6 +84,14 @@ public class CreateStreamSnapshotResponse extends AcsResponse {
 		this.url = url;
 	}
 
+	public Long getTimestamp() {
+		return this.timestamp;
+	}
+
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
+	}
+
 	public String getOssBucket() {
 		return this.ossBucket;
 	}
@@ -68,12 +100,12 @@ public class CreateStreamSnapshotResponse extends AcsResponse {
 		this.ossBucket = ossBucket;
 	}
 
-	public String getOssObject() {
-		return this.ossObject;
+	public String getFormat() {
+		return this.format;
 	}
 
-	public void setOssObject(String ossObject) {
-		this.ossObject = ossObject;
+	public void setFormat(String format) {
+		this.format = format;
 	}
 
 	public String getOssEndpoint() {
@@ -82,6 +114,14 @@ public class CreateStreamSnapshotResponse extends AcsResponse {
 
 	public void setOssEndpoint(String ossEndpoint) {
 		this.ossEndpoint = ossEndpoint;
+	}
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	@Override

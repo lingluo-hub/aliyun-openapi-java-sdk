@@ -27,6 +27,8 @@ public class DescribeDataMaskingRunHistoryRequest extends RpcAcsRequest<Describe
 
 	private Integer srcType;
 
+	private Long mainProcessId;
+
 	private Long startTime;
 
 	private Integer pageSize;
@@ -34,6 +36,8 @@ public class DescribeDataMaskingRunHistoryRequest extends RpcAcsRequest<Describe
 	private String lang;
 
 	private String taskId;
+
+	private String srcTableName;
 
 	private Long endTime;
 
@@ -59,6 +63,17 @@ public class DescribeDataMaskingRunHistoryRequest extends RpcAcsRequest<Describe
 		this.srcType = srcType;
 		if(srcType != null){
 			putQueryParameter("SrcType", srcType.toString());
+		}
+	}
+
+	public Long getMainProcessId() {
+		return this.mainProcessId;
+	}
+
+	public void setMainProcessId(Long mainProcessId) {
+		this.mainProcessId = mainProcessId;
+		if(mainProcessId != null){
+			putQueryParameter("MainProcessId", mainProcessId.toString());
 		}
 	}
 
@@ -103,6 +118,17 @@ public class DescribeDataMaskingRunHistoryRequest extends RpcAcsRequest<Describe
 		this.taskId = taskId;
 		if(taskId != null){
 			putQueryParameter("TaskId", taskId);
+		}
+	}
+
+	public String getSrcTableName() {
+		return this.srcTableName;
+	}
+
+	public void setSrcTableName(String srcTableName) {
+		this.srcTableName = srcTableName;
+		if(srcTableName != null){
+			putQueryParameter("SrcTableName", srcTableName);
 		}
 	}
 

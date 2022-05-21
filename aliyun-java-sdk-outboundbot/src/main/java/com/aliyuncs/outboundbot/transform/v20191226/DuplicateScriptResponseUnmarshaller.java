@@ -23,10 +23,10 @@ public class DuplicateScriptResponseUnmarshaller {
 	public static DuplicateScriptResponse unmarshall(DuplicateScriptResponse duplicateScriptResponse, UnmarshallerContext _ctx) {
 		
 		duplicateScriptResponse.setRequestId(_ctx.stringValue("DuplicateScriptResponse.RequestId"));
+		duplicateScriptResponse.setHttpStatusCode(_ctx.integerValue("DuplicateScriptResponse.HttpStatusCode"));
 		duplicateScriptResponse.setSuccess(_ctx.booleanValue("DuplicateScriptResponse.Success"));
 		duplicateScriptResponse.setCode(_ctx.stringValue("DuplicateScriptResponse.Code"));
 		duplicateScriptResponse.setMessage(_ctx.stringValue("DuplicateScriptResponse.Message"));
-		duplicateScriptResponse.setHttpStatusCode(_ctx.integerValue("DuplicateScriptResponse.HttpStatusCode"));
 		duplicateScriptResponse.setScriptId(_ctx.stringValue("DuplicateScriptResponse.ScriptId"));
 	 
 	 	return duplicateScriptResponse;

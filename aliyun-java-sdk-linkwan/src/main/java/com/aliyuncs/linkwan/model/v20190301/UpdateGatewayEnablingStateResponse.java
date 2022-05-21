@@ -48,9 +48,4 @@ public class UpdateGatewayEnablingStateResponse extends AcsResponse {
 	public UpdateGatewayEnablingStateResponse getInstance(UnmarshallerContext context) {
 		return	UpdateGatewayEnablingStateResponseUnmarshaller.unmarshall(this, context);
 	}
-
-	@Override
-	public boolean checkShowJsonItemName() {
-		return false;
-	}
 }

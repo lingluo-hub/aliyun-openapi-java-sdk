@@ -30,8 +30,6 @@ public class ApplyInvoiceRequest extends RpcAcsRequest<ApplyInvoiceResponse> {
 
 	private Integer processWay;
 
-	private Long callerBid;
-
 	private Long ownerId;
 
 	private Long invoiceAmount;
@@ -46,7 +44,7 @@ public class ApplyInvoiceRequest extends RpcAcsRequest<ApplyInvoiceResponse> {
 
 	private List<Long> selectedIdss;
 
-	private Long callerUid;
+	private String userRemark;
 	public ApplyInvoiceRequest() {
 		super("BssOpenApi", "2017-12-14", "ApplyInvoice");
 		setMethod(MethodType.POST);
@@ -75,17 +73,6 @@ public class ApplyInvoiceRequest extends RpcAcsRequest<ApplyInvoiceResponse> {
 		this.processWay = processWay;
 		if(processWay != null){
 			putQueryParameter("ProcessWay", processWay.toString());
-		}
-	}
-
-	public Long getCallerBid() {
-		return this.callerBid;
-	}
-
-	public void setCallerBid(Long callerBid) {
-		this.callerBid = callerBid;
-		if(callerBid != null){
-			putQueryParameter("callerBid", callerBid.toString());
 		}
 	}
 
@@ -168,14 +155,14 @@ public class ApplyInvoiceRequest extends RpcAcsRequest<ApplyInvoiceResponse> {
 		}	
 	}
 
-	public Long getCallerUid() {
-		return this.callerUid;
+	public String getUserRemark() {
+		return this.userRemark;
 	}
 
-	public void setCallerUid(Long callerUid) {
-		this.callerUid = callerUid;
-		if(callerUid != null){
-			putQueryParameter("callerUid", callerUid.toString());
+	public void setUserRemark(String userRemark) {
+		this.userRemark = userRemark;
+		if(userRemark != null){
+			putQueryParameter("UserRemark", userRemark);
 		}
 	}
 

@@ -47,17 +47,25 @@ public class DescribeOssObjectDetailResponse extends AcsResponse {
 
 	public static class OssObjectDetail {
 
+		private String categoryName;
+
 		private String name;
-
-		private String regionId;
-
-		private String riskLevelName;
 
 		private String bucketName;
 
-		private String categoryName;
+		private String riskLevelName;
+
+		private String regionId;
 
 		private List<Rule> ruleList;
+
+		public String getCategoryName() {
+			return this.categoryName;
+		}
+
+		public void setCategoryName(String categoryName) {
+			this.categoryName = categoryName;
+		}
 
 		public String getName() {
 			return this.name;
@@ -65,22 +73,6 @@ public class DescribeOssObjectDetailResponse extends AcsResponse {
 
 		public void setName(String name) {
 			this.name = name;
-		}
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		public String getRiskLevelName() {
-			return this.riskLevelName;
-		}
-
-		public void setRiskLevelName(String riskLevelName) {
-			this.riskLevelName = riskLevelName;
 		}
 
 		public String getBucketName() {
@@ -91,12 +83,20 @@ public class DescribeOssObjectDetailResponse extends AcsResponse {
 			this.bucketName = bucketName;
 		}
 
-		public String getCategoryName() {
-			return this.categoryName;
+		public String getRiskLevelName() {
+			return this.riskLevelName;
 		}
 
-		public void setCategoryName(String categoryName) {
-			this.categoryName = categoryName;
+		public void setRiskLevelName(String riskLevelName) {
+			this.riskLevelName = riskLevelName;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
 		}
 
 		public List<Rule> getRuleList() {
@@ -109,18 +109,50 @@ public class DescribeOssObjectDetailResponse extends AcsResponse {
 
 		public static class Rule {
 
-			private String ruleName;
-
-			private Long count;
+			private String riskLevelName;
 
 			private Integer category;
 
-			public String getRuleName() {
-				return this.ruleName;
+			private String categoryName;
+
+			private Long riskLevelId;
+
+			private Long count;
+
+			private String ruleName;
+
+			private List<String> sampleList;
+
+			public String getRiskLevelName() {
+				return this.riskLevelName;
 			}
 
-			public void setRuleName(String ruleName) {
-				this.ruleName = ruleName;
+			public void setRiskLevelName(String riskLevelName) {
+				this.riskLevelName = riskLevelName;
+			}
+
+			public Integer getCategory() {
+				return this.category;
+			}
+
+			public void setCategory(Integer category) {
+				this.category = category;
+			}
+
+			public String getCategoryName() {
+				return this.categoryName;
+			}
+
+			public void setCategoryName(String categoryName) {
+				this.categoryName = categoryName;
+			}
+
+			public Long getRiskLevelId() {
+				return this.riskLevelId;
+			}
+
+			public void setRiskLevelId(Long riskLevelId) {
+				this.riskLevelId = riskLevelId;
 			}
 
 			public Long getCount() {
@@ -131,12 +163,20 @@ public class DescribeOssObjectDetailResponse extends AcsResponse {
 				this.count = count;
 			}
 
-			public Integer getCategory() {
-				return this.category;
+			public String getRuleName() {
+				return this.ruleName;
 			}
 
-			public void setCategory(Integer category) {
-				this.category = category;
+			public void setRuleName(String ruleName) {
+				this.ruleName = ruleName;
+			}
+
+			public List<String> getSampleList() {
+				return this.sampleList;
+			}
+
+			public void setSampleList(List<String> sampleList) {
+				this.sampleList = sampleList;
 			}
 		}
 	}

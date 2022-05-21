@@ -27,15 +27,15 @@ public class ListChangeOrdersResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String code;
-
 	private String message;
 
-	private Boolean success;
+	private String traceId;
 
 	private String errorCode;
 
-	private String traceId;
+	private String code;
+
+	private Boolean success;
 
 	private Data data;
 
@@ -47,14 +47,6 @@ public class ListChangeOrdersResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
 	public String getMessage() {
 		return this.message;
 	}
@@ -63,12 +55,12 @@ public class ListChangeOrdersResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getTraceId() {
+		return this.traceId;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setTraceId(String traceId) {
+		this.traceId = traceId;
 	}
 
 	public String getErrorCode() {
@@ -79,12 +71,20 @@ public class ListChangeOrdersResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public String getTraceId() {
-		return this.traceId;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setTraceId(String traceId) {
-		this.traceId = traceId;
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Data getData() {
@@ -99,9 +99,9 @@ public class ListChangeOrdersResponse extends AcsResponse {
 
 		private Integer currentPage;
 
-		private Integer pageSize;
-
 		private Integer totalSize;
+
+		private Integer pageSize;
 
 		private List<ChangeOrder> changeOrderList;
 
@@ -113,20 +113,20 @@ public class ListChangeOrdersResponse extends AcsResponse {
 			this.currentPage = currentPage;
 		}
 
-		public Integer getPageSize() {
-			return this.pageSize;
-		}
-
-		public void setPageSize(Integer pageSize) {
-			this.pageSize = pageSize;
-		}
-
 		public Integer getTotalSize() {
 			return this.totalSize;
 		}
 
 		public void setTotalSize(Integer totalSize) {
 			this.totalSize = totalSize;
+		}
+
+		public Integer getPageSize() {
+			return this.pageSize;
+		}
+
+		public void setPageSize(Integer pageSize) {
+			this.pageSize = pageSize;
 		}
 
 		public List<ChangeOrder> getChangeOrderList() {
@@ -139,94 +139,40 @@ public class ListChangeOrdersResponse extends AcsResponse {
 
 		public static class ChangeOrder {
 
-			private String appId;
-
-			private Integer batchCount;
-
-			private String batchType;
-
-			private String changeOrderId;
-
-			private String coType;
-
-			private String coTypeCode;
-
-			private String createTime;
-
-			private String description;
+			private Integer status;
 
 			private String finishTime;
 
-			private String groupId;
+			private String createTime;
 
-			private String pipelines;
+			private String userId;
 
 			private String source;
 
-			private Integer status;
+			private Integer batchCount;
 
-			public String getAppId() {
-				return this.appId;
+			private String createUserId;
+
+			private String coTypeCode;
+
+			private String changeOrderId;
+
+			private String batchType;
+
+			private String groupId;
+
+			private String description;
+
+			private String coType;
+
+			private String appId;
+
+			public Integer getStatus() {
+				return this.status;
 			}
 
-			public void setAppId(String appId) {
-				this.appId = appId;
-			}
-
-			public Integer getBatchCount() {
-				return this.batchCount;
-			}
-
-			public void setBatchCount(Integer batchCount) {
-				this.batchCount = batchCount;
-			}
-
-			public String getBatchType() {
-				return this.batchType;
-			}
-
-			public void setBatchType(String batchType) {
-				this.batchType = batchType;
-			}
-
-			public String getChangeOrderId() {
-				return this.changeOrderId;
-			}
-
-			public void setChangeOrderId(String changeOrderId) {
-				this.changeOrderId = changeOrderId;
-			}
-
-			public String getCoType() {
-				return this.coType;
-			}
-
-			public void setCoType(String coType) {
-				this.coType = coType;
-			}
-
-			public String getCoTypeCode() {
-				return this.coTypeCode;
-			}
-
-			public void setCoTypeCode(String coTypeCode) {
-				this.coTypeCode = coTypeCode;
-			}
-
-			public String getCreateTime() {
-				return this.createTime;
-			}
-
-			public void setCreateTime(String createTime) {
-				this.createTime = createTime;
-			}
-
-			public String getDescription() {
-				return this.description;
-			}
-
-			public void setDescription(String description) {
-				this.description = description;
+			public void setStatus(Integer status) {
+				this.status = status;
 			}
 
 			public String getFinishTime() {
@@ -237,20 +183,20 @@ public class ListChangeOrdersResponse extends AcsResponse {
 				this.finishTime = finishTime;
 			}
 
-			public String getGroupId() {
-				return this.groupId;
+			public String getCreateTime() {
+				return this.createTime;
 			}
 
-			public void setGroupId(String groupId) {
-				this.groupId = groupId;
+			public void setCreateTime(String createTime) {
+				this.createTime = createTime;
 			}
 
-			public String getPipelines() {
-				return this.pipelines;
+			public String getUserId() {
+				return this.userId;
 			}
 
-			public void setPipelines(String pipelines) {
-				this.pipelines = pipelines;
+			public void setUserId(String userId) {
+				this.userId = userId;
 			}
 
 			public String getSource() {
@@ -261,12 +207,76 @@ public class ListChangeOrdersResponse extends AcsResponse {
 				this.source = source;
 			}
 
-			public Integer getStatus() {
-				return this.status;
+			public Integer getBatchCount() {
+				return this.batchCount;
 			}
 
-			public void setStatus(Integer status) {
-				this.status = status;
+			public void setBatchCount(Integer batchCount) {
+				this.batchCount = batchCount;
+			}
+
+			public String getCreateUserId() {
+				return this.createUserId;
+			}
+
+			public void setCreateUserId(String createUserId) {
+				this.createUserId = createUserId;
+			}
+
+			public String getCoTypeCode() {
+				return this.coTypeCode;
+			}
+
+			public void setCoTypeCode(String coTypeCode) {
+				this.coTypeCode = coTypeCode;
+			}
+
+			public String getChangeOrderId() {
+				return this.changeOrderId;
+			}
+
+			public void setChangeOrderId(String changeOrderId) {
+				this.changeOrderId = changeOrderId;
+			}
+
+			public String getBatchType() {
+				return this.batchType;
+			}
+
+			public void setBatchType(String batchType) {
+				this.batchType = batchType;
+			}
+
+			public String getGroupId() {
+				return this.groupId;
+			}
+
+			public void setGroupId(String groupId) {
+				this.groupId = groupId;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getCoType() {
+				return this.coType;
+			}
+
+			public void setCoType(String coType) {
+				this.coType = coType;
+			}
+
+			public String getAppId() {
+				return this.appId;
+			}
+
+			public void setAppId(String appId) {
+				this.appId = appId;
 			}
 		}
 	}

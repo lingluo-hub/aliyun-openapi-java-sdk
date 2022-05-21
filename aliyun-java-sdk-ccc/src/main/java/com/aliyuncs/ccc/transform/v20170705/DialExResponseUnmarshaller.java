@@ -23,14 +23,14 @@ public class DialExResponseUnmarshaller {
 	public static DialExResponse unmarshall(DialExResponse dialExResponse, UnmarshallerContext _ctx) {
 		
 		dialExResponse.setRequestId(_ctx.stringValue("DialExResponse.RequestId"));
+		dialExResponse.setHttpStatusCode(_ctx.integerValue("DialExResponse.HttpStatusCode"));
 		dialExResponse.setSuccess(_ctx.booleanValue("DialExResponse.Success"));
+		dialExResponse.setStatusCode(_ctx.stringValue("DialExResponse.StatusCode"));
 		dialExResponse.setCode(_ctx.stringValue("DialExResponse.Code"));
 		dialExResponse.setMessage(_ctx.stringValue("DialExResponse.Message"));
-		dialExResponse.setHttpStatusCode(_ctx.integerValue("DialExResponse.HttpStatusCode"));
-		dialExResponse.setStatusCode(_ctx.stringValue("DialExResponse.StatusCode"));
-		dialExResponse.setStatusDesc(_ctx.stringValue("DialExResponse.StatusDesc"));
-		dialExResponse.setTaskId(_ctx.stringValue("DialExResponse.TaskId"));
 		dialExResponse.setTimeStamp(_ctx.stringValue("DialExResponse.TimeStamp"));
+		dialExResponse.setTaskId(_ctx.stringValue("DialExResponse.TaskId"));
+		dialExResponse.setStatusDesc(_ctx.stringValue("DialExResponse.StatusDesc"));
 	 
 	 	return dialExResponse;
 	}

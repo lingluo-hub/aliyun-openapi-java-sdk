@@ -24,18 +24,18 @@ public class ModifyTTSConfigResponseUnmarshaller {
 	public static ModifyTTSConfigResponse unmarshall(ModifyTTSConfigResponse modifyTTSConfigResponse, UnmarshallerContext _ctx) {
 		
 		modifyTTSConfigResponse.setRequestId(_ctx.stringValue("ModifyTTSConfigResponse.RequestId"));
-		modifyTTSConfigResponse.setSuccess(_ctx.booleanValue("ModifyTTSConfigResponse.Success"));
+		modifyTTSConfigResponse.setHttpStatusCode(_ctx.integerValue("ModifyTTSConfigResponse.HttpStatusCode"));
 		modifyTTSConfigResponse.setCode(_ctx.stringValue("ModifyTTSConfigResponse.Code"));
 		modifyTTSConfigResponse.setMessage(_ctx.stringValue("ModifyTTSConfigResponse.Message"));
-		modifyTTSConfigResponse.setHttpStatusCode(_ctx.integerValue("ModifyTTSConfigResponse.HttpStatusCode"));
+		modifyTTSConfigResponse.setSuccess(_ctx.booleanValue("ModifyTTSConfigResponse.Success"));
 
 		TTSConfig tTSConfig = new TTSConfig();
-		tTSConfig.setTTSConfigId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.TTSConfigId"));
-		tTSConfig.setScriptId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.ScriptId"));
-		tTSConfig.setInstanceId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.InstanceId"));
 		tTSConfig.setVoice(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.Voice"));
+		tTSConfig.setTTSConfigId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.TTSConfigId"));
 		tTSConfig.setSpeechRate(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.SpeechRate"));
 		tTSConfig.setVolume(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.Volume"));
+		tTSConfig.setInstanceId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.InstanceId"));
+		tTSConfig.setScriptId(_ctx.stringValue("ModifyTTSConfigResponse.TTSConfig.ScriptId"));
 		modifyTTSConfigResponse.setTTSConfig(tTSConfig);
 	 
 	 	return modifyTTSConfigResponse;

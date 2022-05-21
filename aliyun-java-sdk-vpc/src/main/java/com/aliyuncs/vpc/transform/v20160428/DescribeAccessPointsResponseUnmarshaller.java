@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse;
 import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse.AccessPointType;
+import com.aliyuncs.vpc.model.v20160428.DescribeAccessPointsResponse.AccessPointType.AccessPointFeatureModel;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -34,14 +35,24 @@ public class DescribeAccessPointsResponseUnmarshaller {
 		List<AccessPointType> accessPointSet = new ArrayList<AccessPointType>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeAccessPointsResponse.AccessPointSet.Length"); i++) {
 			AccessPointType accessPointType = new AccessPointType();
-			accessPointType.setAccessPointId(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointId"));
 			accessPointType.setStatus(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Status"));
 			accessPointType.setType(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Type"));
-			accessPointType.setAttachedRegionNo(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AttachedRegionNo"));
-			accessPointType.setLocation(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Location"));
 			accessPointType.setHostOperator(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].HostOperator"));
-			accessPointType.setName(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Name"));
 			accessPointType.setDescription(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Description"));
+			accessPointType.setAttachedRegionNo(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AttachedRegionNo"));
+			accessPointType.setName(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Name"));
+			accessPointType.setAccessPointId(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointId"));
+			accessPointType.setLocation(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].Location"));
+
+			List<AccessPointFeatureModel> accessPointFeatureModels = new ArrayList<AccessPointFeatureModel>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels.Length"); j++) {
+				AccessPointFeatureModel accessPointFeatureModel = new AccessPointFeatureModel();
+				accessPointFeatureModel.setFeatureValue(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels["+ j +"].FeatureValue"));
+				accessPointFeatureModel.setFeatureKey(_ctx.stringValue("DescribeAccessPointsResponse.AccessPointSet["+ i +"].AccessPointFeatureModels["+ j +"].FeatureKey"));
+
+				accessPointFeatureModels.add(accessPointFeatureModel);
+			}
+			accessPointType.setAccessPointFeatureModels(accessPointFeatureModels);
 
 			accessPointSet.add(accessPointType);
 		}

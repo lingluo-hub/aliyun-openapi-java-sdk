@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aliyuncs.mse.model.v20190531.QueryClusterSpecificationResponse;
-import com.aliyuncs.mse.model.v20190531.QueryClusterSpecificationResponse.ClusterSpecificationData;
+import com.aliyuncs.mse.model.v20190531.QueryClusterSpecificationResponse.DataItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,22 +27,24 @@ public class QueryClusterSpecificationResponseUnmarshaller {
 	public static QueryClusterSpecificationResponse unmarshall(QueryClusterSpecificationResponse queryClusterSpecificationResponse, UnmarshallerContext _ctx) {
 		
 		queryClusterSpecificationResponse.setRequestId(_ctx.stringValue("QueryClusterSpecificationResponse.RequestId"));
-		queryClusterSpecificationResponse.setSuccess(_ctx.stringValue("QueryClusterSpecificationResponse.Success"));
-		queryClusterSpecificationResponse.setMessage(_ctx.stringValue("QueryClusterSpecificationResponse.Message"));
+		queryClusterSpecificationResponse.setHttpStatusCode(_ctx.integerValue("QueryClusterSpecificationResponse.HttpStatusCode"));
+		queryClusterSpecificationResponse.setSuccess(_ctx.booleanValue("QueryClusterSpecificationResponse.Success"));
 		queryClusterSpecificationResponse.setErrorCode(_ctx.stringValue("QueryClusterSpecificationResponse.ErrorCode"));
+		queryClusterSpecificationResponse.setCode(_ctx.integerValue("QueryClusterSpecificationResponse.Code"));
+		queryClusterSpecificationResponse.setMessage(_ctx.stringValue("QueryClusterSpecificationResponse.Message"));
 
-		List<ClusterSpecificationData> data = new ArrayList<ClusterSpecificationData>();
+		List<DataItem> data = new ArrayList<DataItem>();
 		for (int i = 0; i < _ctx.lengthValue("QueryClusterSpecificationResponse.Data.Length"); i++) {
-			ClusterSpecificationData clusterSpecificationData = new ClusterSpecificationData();
-			clusterSpecificationData.setClusterSpecificationName(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].ClusterSpecificationName"));
-			clusterSpecificationData.setCpuCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].CpuCapacity"));
-			clusterSpecificationData.setMemoryCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MemoryCapacity"));
-			clusterSpecificationData.setDiskCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].DiskCapacity"));
-			clusterSpecificationData.setInstanceCount(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].InstanceCount"));
-			clusterSpecificationData.setMaxTps(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MaxTps"));
-			clusterSpecificationData.setMaxCon(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MaxCon"));
+			DataItem dataItem = new DataItem();
+			dataItem.setClusterSpecificationName(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].ClusterSpecificationName"));
+			dataItem.setDiskCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].DiskCapacity"));
+			dataItem.setMemoryCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MemoryCapacity"));
+			dataItem.setInstanceCount(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].InstanceCount"));
+			dataItem.setMaxTps(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MaxTps"));
+			dataItem.setMaxCon(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].MaxCon"));
+			dataItem.setCpuCapacity(_ctx.stringValue("QueryClusterSpecificationResponse.Data["+ i +"].CpuCapacity"));
 
-			data.add(clusterSpecificationData);
+			data.add(dataItem);
 		}
 		queryClusterSpecificationResponse.setData(data);
 	 

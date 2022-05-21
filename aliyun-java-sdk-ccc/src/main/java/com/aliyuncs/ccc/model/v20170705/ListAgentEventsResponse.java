@@ -25,32 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class ListAgentEventsResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private List<AgentEvent> agentEventList;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -69,12 +61,20 @@ public class ListAgentEventsResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public List<AgentEvent> getAgentEventList() {
@@ -87,41 +87,17 @@ public class ListAgentEventsResponse extends AcsResponse {
 
 	public static class AgentEvent {
 
-		private String instanceId;
-
-		private Long ramId;
-
-		private String loginName;
-
 		private String event;
 
 		private Long eventTime;
 
+		private String loginName;
+
+		private String instanceId;
+
+		private Long ramId;
+
 		private List<SkillGroup> skillGroupIds;
-
-		public String getInstanceId() {
-			return this.instanceId;
-		}
-
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
-
-		public Long getRamId() {
-			return this.ramId;
-		}
-
-		public void setRamId(Long ramId) {
-			this.ramId = ramId;
-		}
-
-		public String getLoginName() {
-			return this.loginName;
-		}
-
-		public void setLoginName(String loginName) {
-			this.loginName = loginName;
-		}
 
 		public String getEvent() {
 			return this.event;
@@ -139,6 +115,30 @@ public class ListAgentEventsResponse extends AcsResponse {
 			this.eventTime = eventTime;
 		}
 
+		public String getLoginName() {
+			return this.loginName;
+		}
+
+		public void setLoginName(String loginName) {
+			this.loginName = loginName;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public Long getRamId() {
+			return this.ramId;
+		}
+
+		public void setRamId(Long ramId) {
+			this.ramId = ramId;
+		}
+
 		public List<SkillGroup> getSkillGroupIds() {
 			return this.skillGroupIds;
 		}
@@ -149,17 +149,9 @@ public class ListAgentEventsResponse extends AcsResponse {
 
 		public static class SkillGroup {
 
-			private String skillGroupId;
-
 			private String skillGroupName;
 
-			public String getSkillGroupId() {
-				return this.skillGroupId;
-			}
-
-			public void setSkillGroupId(String skillGroupId) {
-				this.skillGroupId = skillGroupId;
-			}
+			private String skillGroupId;
 
 			public String getSkillGroupName() {
 				return this.skillGroupName;
@@ -167,6 +159,14 @@ public class ListAgentEventsResponse extends AcsResponse {
 
 			public void setSkillGroupName(String skillGroupName) {
 				this.skillGroupName = skillGroupName;
+			}
+
+			public String getSkillGroupId() {
+				return this.skillGroupId;
+			}
+
+			public void setSkillGroupId(String skillGroupId) {
+				this.skillGroupId = skillGroupId;
 			}
 		}
 	}

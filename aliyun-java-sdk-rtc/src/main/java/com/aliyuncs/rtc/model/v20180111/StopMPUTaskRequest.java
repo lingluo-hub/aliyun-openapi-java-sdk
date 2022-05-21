@@ -25,11 +25,11 @@ import com.aliyuncs.rtc.Endpoint;
 public class StopMPUTaskRequest extends RpcAcsRequest<StopMPUTaskResponse> {
 	   
 
+	private String taskId;
+
 	private Long ownerId;
 
 	private String appId;
-
-	private String taskId;
 	public StopMPUTaskRequest() {
 		super("rtc", "2018-01-11", "StopMPUTask");
 		setMethod(MethodType.POST);
@@ -37,6 +37,17 @@ public class StopMPUTaskRequest extends RpcAcsRequest<StopMPUTaskResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getTaskId() {
+		return this.taskId;
+	}
+
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+		if(taskId != null){
+			putQueryParameter("TaskId", taskId);
+		}
 	}
 
 	public Long getOwnerId() {
@@ -58,17 +69,6 @@ public class StopMPUTaskRequest extends RpcAcsRequest<StopMPUTaskResponse> {
 		this.appId = appId;
 		if(appId != null){
 			putQueryParameter("AppId", appId);
-		}
-	}
-
-	public String getTaskId() {
-		return this.taskId;
-	}
-
-	public void setTaskId(String taskId) {
-		this.taskId = taskId;
-		if(taskId != null){
-			putQueryParameter("TaskId", taskId);
 		}
 	}
 

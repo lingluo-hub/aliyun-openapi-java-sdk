@@ -27,20 +27,22 @@ public class ListLogicTablesResponseUnmarshaller {
 	public static ListLogicTablesResponse unmarshall(ListLogicTablesResponse listLogicTablesResponse, UnmarshallerContext _ctx) {
 		
 		listLogicTablesResponse.setRequestId(_ctx.stringValue("ListLogicTablesResponse.RequestId"));
-		listLogicTablesResponse.setSuccess(_ctx.booleanValue("ListLogicTablesResponse.Success"));
-		listLogicTablesResponse.setErrorMessage(_ctx.stringValue("ListLogicTablesResponse.ErrorMessage"));
-		listLogicTablesResponse.setErrorCode(_ctx.stringValue("ListLogicTablesResponse.ErrorCode"));
 		listLogicTablesResponse.setTotalCount(_ctx.longValue("ListLogicTablesResponse.TotalCount"));
+		listLogicTablesResponse.setErrorCode(_ctx.stringValue("ListLogicTablesResponse.ErrorCode"));
+		listLogicTablesResponse.setErrorMessage(_ctx.stringValue("ListLogicTablesResponse.ErrorMessage"));
+		listLogicTablesResponse.setSuccess(_ctx.booleanValue("ListLogicTablesResponse.Success"));
 
 		List<LogicTable> logicTableList = new ArrayList<LogicTable>();
 		for (int i = 0; i < _ctx.lengthValue("ListLogicTablesResponse.LogicTableList.Length"); i++) {
 			LogicTable logicTable = new LogicTable();
-			logicTable.setTableId(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableId"));
 			logicTable.setDatabaseId(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].DatabaseId"));
 			logicTable.setTableName(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableName"));
+			logicTable.setTableCount(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableCount"));
+			logicTable.setSchemaName(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].SchemaName"));
 			logicTable.setLogic(_ctx.booleanValue("ListLogicTablesResponse.LogicTableList["+ i +"].Logic"));
 			logicTable.setTableExpr(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableExpr"));
-			logicTable.setTableCount(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableCount"));
+			logicTable.setTableGuid(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableGuid"));
+			logicTable.setTableId(_ctx.stringValue("ListLogicTablesResponse.LogicTableList["+ i +"].TableId"));
 
 			List<String> ownerIdList = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("ListLogicTablesResponse.LogicTableList["+ i +"].OwnerIdList.Length"); j++) {

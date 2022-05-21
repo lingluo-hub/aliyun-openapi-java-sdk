@@ -1,3 +1,21 @@
+2020-09-16 Version: 1.0.1
+- Add Content.
+
+2020-08-31 Version: 5.0.52
+- Supported AAA for BBB.
+- Fixed bugs for CCC.
+
+2020-08-31 Version: 1.0.2
+- Supported AAA for BBB.
+- Fixed bugs for CCC.
+
+2020-08-31 Version: 1.0.1
+- Supported AAA for BBB.
+- Fixed bugs for CCC.
+
+2020-08-28 Version: 1.0.1
+- Supported Add GetAlgorithmHistoryResult.
+
 2019-02-26 Version: 1.0.0
 1, Industry brain v1.3.7 release
 2, Add asynchronous APIs

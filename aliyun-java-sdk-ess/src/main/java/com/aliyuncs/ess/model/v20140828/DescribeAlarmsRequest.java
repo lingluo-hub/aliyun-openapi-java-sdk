@@ -16,6 +16,7 @@ package com.aliyuncs.ess.model.v20140828;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
@@ -34,6 +35,8 @@ public class DescribeAlarmsRequest extends RpcAcsRequest<DescribeAlarmsResponse>
 
 	private String state;
 
+	private String metricName;
+
 	private String resourceOwnerAccount;
 
 	private Long ownerId;
@@ -44,6 +47,10 @@ public class DescribeAlarmsRequest extends RpcAcsRequest<DescribeAlarmsResponse>
 	public DescribeAlarmsRequest() {
 		super("Ess", "2014-08-28", "DescribeAlarms", "ess");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getMetricType() {
@@ -98,6 +105,17 @@ public class DescribeAlarmsRequest extends RpcAcsRequest<DescribeAlarmsResponse>
 		this.state = state;
 		if(state != null){
 			putQueryParameter("State", state);
+		}
+	}
+
+	public String getMetricName() {
+		return this.metricName;
+	}
+
+	public void setMetricName(String metricName) {
+		this.metricName = metricName;
+		if(metricName != null){
+			putQueryParameter("MetricName", metricName);
 		}
 	}
 

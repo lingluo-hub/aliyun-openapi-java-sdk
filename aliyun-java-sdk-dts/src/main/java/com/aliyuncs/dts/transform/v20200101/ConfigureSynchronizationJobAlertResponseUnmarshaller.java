@@ -23,8 +23,8 @@ public class ConfigureSynchronizationJobAlertResponseUnmarshaller {
 	public static ConfigureSynchronizationJobAlertResponse unmarshall(ConfigureSynchronizationJobAlertResponse configureSynchronizationJobAlertResponse, UnmarshallerContext _ctx) {
 		
 		configureSynchronizationJobAlertResponse.setRequestId(_ctx.stringValue("ConfigureSynchronizationJobAlertResponse.RequestId"));
-		configureSynchronizationJobAlertResponse.setSuccess(_ctx.stringValue("ConfigureSynchronizationJobAlertResponse.Success"));
 		configureSynchronizationJobAlertResponse.setErrCode(_ctx.stringValue("ConfigureSynchronizationJobAlertResponse.ErrCode"));
+		configureSynchronizationJobAlertResponse.setSuccess(_ctx.stringValue("ConfigureSynchronizationJobAlertResponse.Success"));
 		configureSynchronizationJobAlertResponse.setErrMessage(_ctx.stringValue("ConfigureSynchronizationJobAlertResponse.ErrMessage"));
 	 
 	 	return configureSynchronizationJobAlertResponse;

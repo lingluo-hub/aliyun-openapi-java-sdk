@@ -17,6 +17,7 @@ package com.aliyuncs.ess.model.v20140828;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.ess.Endpoint;
 
 /**
  * @author auto create
@@ -26,8 +27,6 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 	   
 
 	private Long resourceOwnerId;
-
-	private String clientToken;
 
 	private String scalingGroupId;
 
@@ -39,8 +38,6 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 
 	private Integer onDemandPercentageAboveBaseCapacity;
 
-	private String costOptimizedMode;
-
 	private Boolean spotInstanceRemedy;
 
 	private Integer defaultCooldown;
@@ -48,6 +45,8 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 	private String removalPolicy1;
 
 	private String removalPolicy2;
+
+	private String multiAZPolicy;
 
 	private String healthCheckType;
 
@@ -63,6 +62,8 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 
 	private String ownerAccount;
 
+	private Boolean compensateWithOnDemand;
+
 	private Integer spotInstancePools;
 
 	private Integer minSize;
@@ -77,6 +78,10 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 	public ModifyScalingGroupRequest() {
 		super("Ess", "2014-08-28", "ModifyScalingGroup", "ess");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getResourceOwnerId() {
@@ -87,17 +92,6 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
 		}
 	}
 
@@ -117,7 +111,7 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 	}
 
 	public void setVSwitchIds(List<String> vSwitchIds) {
-		this.vSwitchIds = vSwitchIds;
+		this.vSwitchIds = vSwitchIds;	
 		if (vSwitchIds != null) {
 			for (int i = 0; i < vSwitchIds.size(); i++) {
 				putQueryParameter("VSwitchIds." + (i + 1) , vSwitchIds.get(i));
@@ -155,17 +149,6 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 		this.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
 		if(onDemandPercentageAboveBaseCapacity != null){
 			putQueryParameter("OnDemandPercentageAboveBaseCapacity", onDemandPercentageAboveBaseCapacity.toString());
-		}
-	}
-
-	public String getCostOptimizedMode() {
-		return this.costOptimizedMode;
-	}
-
-	public void setCostOptimizedMode(String costOptimizedMode) {
-		this.costOptimizedMode = costOptimizedMode;
-		if(costOptimizedMode != null){
-			putQueryParameter("CostOptimizedMode", costOptimizedMode);
 		}
 	}
 
@@ -210,6 +193,17 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 		this.removalPolicy2 = removalPolicy2;
 		if(removalPolicy2 != null){
 			putQueryParameter("RemovalPolicy.2", removalPolicy2);
+		}
+	}
+
+	public String getMultiAZPolicy() {
+		return this.multiAZPolicy;
+	}
+
+	public void setMultiAZPolicy(String multiAZPolicy) {
+		this.multiAZPolicy = multiAZPolicy;
+		if(multiAZPolicy != null){
+			putQueryParameter("MultiAZPolicy", multiAZPolicy);
 		}
 	}
 
@@ -276,6 +270,7 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 		this.launchTemplateOverrides = launchTemplateOverrides;	
 		if (launchTemplateOverrides != null) {
 			for (int depth1 = 0; depth1 < launchTemplateOverrides.size(); depth1++) {
+				putQueryParameter("LaunchTemplateOverride." + (depth1 + 1) + ".WeightedCapacity" , launchTemplateOverrides.get(depth1).getWeightedCapacity());
 				putQueryParameter("LaunchTemplateOverride." + (depth1 + 1) + ".InstanceType" , launchTemplateOverrides.get(depth1).getInstanceType());
 			}
 		}	
@@ -289,6 +284,17 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Boolean getCompensateWithOnDemand() {
+		return this.compensateWithOnDemand;
+	}
+
+	public void setCompensateWithOnDemand(Boolean compensateWithOnDemand) {
+		this.compensateWithOnDemand = compensateWithOnDemand;
+		if(compensateWithOnDemand != null){
+			putQueryParameter("CompensateWithOnDemand", compensateWithOnDemand.toString());
 		}
 	}
 
@@ -360,7 +366,17 @@ public class ModifyScalingGroupRequest extends RpcAcsRequest<ModifyScalingGroupR
 
 	public static class LaunchTemplateOverride {
 
+		private Integer weightedCapacity;
+
 		private String instanceType;
+
+		public Integer getWeightedCapacity() {
+			return this.weightedCapacity;
+		}
+
+		public void setWeightedCapacity(Integer weightedCapacity) {
+			this.weightedCapacity = weightedCapacity;
+		}
 
 		public String getInstanceType() {
 			return this.instanceType;

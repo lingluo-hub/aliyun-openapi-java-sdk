@@ -24,31 +24,25 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class PutProjectResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String project;
-
-	private String createTime;
 
 	private String modifyTime;
 
-	private String serviceRole;
+	private String type;
 
 	private Integer cU;
 
-	private String type;
+	private String serviceRole;
+
+	private String requestId;
 
 	private String endpoint;
 
+	private String createTime;
+
+	private String regionId;
+
 	private String billingType;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getProject() {
 		return this.project;
@@ -56,14 +50,6 @@ public class PutProjectResponse extends AcsResponse {
 
 	public void setProject(String project) {
 		this.project = project;
-	}
-
-	public String getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
 	}
 
 	public String getModifyTime() {
@@ -74,12 +60,12 @@ public class PutProjectResponse extends AcsResponse {
 		this.modifyTime = modifyTime;
 	}
 
-	public String getServiceRole() {
-		return this.serviceRole;
+	public String getType() {
+		return this.type;
 	}
 
-	public void setServiceRole(String serviceRole) {
-		this.serviceRole = serviceRole;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Integer getCU() {
@@ -90,12 +76,20 @@ public class PutProjectResponse extends AcsResponse {
 		this.cU = cU;
 	}
 
-	public String getType() {
-		return this.type;
+	public String getServiceRole() {
+		return this.serviceRole;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setServiceRole(String serviceRole) {
+		this.serviceRole = serviceRole;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getEndpoint() {
@@ -104,6 +98,22 @@ public class PutProjectResponse extends AcsResponse {
 
 	public void setEndpoint(String endpoint) {
 		this.endpoint = endpoint;
+	}
+
+	public String getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getRegionId() {
+		return this.regionId;
+	}
+
+	public void setRegionId(String regionId) {
+		this.regionId = regionId;
 	}
 
 	public String getBillingType() {

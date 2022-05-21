@@ -24,22 +24,23 @@ public class ModifyScriptResponseUnmarshaller {
 	public static ModifyScriptResponse unmarshall(ModifyScriptResponse modifyScriptResponse, UnmarshallerContext _ctx) {
 		
 		modifyScriptResponse.setRequestId(_ctx.stringValue("ModifyScriptResponse.RequestId"));
+		modifyScriptResponse.setHttpStatusCode(_ctx.integerValue("ModifyScriptResponse.HttpStatusCode"));
 		modifyScriptResponse.setSuccess(_ctx.booleanValue("ModifyScriptResponse.Success"));
+		modifyScriptResponse.setChatbotId(_ctx.stringValue("ModifyScriptResponse.ChatbotId"));
 		modifyScriptResponse.setCode(_ctx.stringValue("ModifyScriptResponse.Code"));
 		modifyScriptResponse.setMessage(_ctx.stringValue("ModifyScriptResponse.Message"));
-		modifyScriptResponse.setHttpStatusCode(_ctx.integerValue("ModifyScriptResponse.HttpStatusCode"));
 
 		Script script = new Script();
-		script.setScriptId(_ctx.stringValue("ModifyScriptResponse.Script.ScriptId"));
-		script.setScriptName(_ctx.stringValue("ModifyScriptResponse.Script.ScriptName"));
-		script.setScriptDescription(_ctx.stringValue("ModifyScriptResponse.Script.ScriptDescription"));
-		script.setIndustry(_ctx.stringValue("ModifyScriptResponse.Script.Industry"));
-		script.setScene(_ctx.stringValue("ModifyScriptResponse.Script.Scene"));
 		script.setStatus(_ctx.stringValue("ModifyScriptResponse.Script.Status"));
-		script.setDebugStatus(_ctx.stringValue("ModifyScriptResponse.Script.DebugStatus"));
 		script.setUpdateTime(_ctx.longValue("ModifyScriptResponse.Script.UpdateTime"));
+		script.setIndustry(_ctx.stringValue("ModifyScriptResponse.Script.Industry"));
+		script.setScriptDescription(_ctx.stringValue("ModifyScriptResponse.Script.ScriptDescription"));
 		script.setIsDrafted(_ctx.booleanValue("ModifyScriptResponse.Script.IsDrafted"));
+		script.setDebugStatus(_ctx.stringValue("ModifyScriptResponse.Script.DebugStatus"));
+		script.setScriptId(_ctx.stringValue("ModifyScriptResponse.Script.ScriptId"));
 		script.setIsDebugDrafted(_ctx.booleanValue("ModifyScriptResponse.Script.IsDebugDrafted"));
+		script.setScriptName(_ctx.stringValue("ModifyScriptResponse.Script.ScriptName"));
+		script.setScene(_ctx.stringValue("ModifyScriptResponse.Script.Scene"));
 		modifyScriptResponse.setScript(script);
 	 
 	 	return modifyScriptResponse;

@@ -24,32 +24,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeIntentResponse extends AcsResponse {
 
-	private String requestId;
-
-	private Boolean success;
+	private Integer httpStatusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
+	private String requestId;
+
+	private Boolean success;
 
 	private Intent intent;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public Boolean getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
 	}
 
 	public String getCode() {
@@ -68,12 +60,20 @@ public class DescribeIntentResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Boolean getSuccess() {
+		return this.success;
+	}
+
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public Intent getIntent() {
@@ -86,44 +86,28 @@ public class DescribeIntentResponse extends AcsResponse {
 
 	public static class Intent {
 
-		private String intentId;
-
-		private String scriptId;
-
-		private String intentName;
+		private String utterances;
 
 		private String intentDescription;
 
-		private String utterances;
-
-		private String keywords;
+		private Long updateTime;
 
 		private Long createTime;
 
-		private Long updateTime;
+		private String keywords;
 
-		public String getIntentId() {
-			return this.intentId;
+		private String scriptId;
+
+		private String intentId;
+
+		private String intentName;
+
+		public String getUtterances() {
+			return this.utterances;
 		}
 
-		public void setIntentId(String intentId) {
-			this.intentId = intentId;
-		}
-
-		public String getScriptId() {
-			return this.scriptId;
-		}
-
-		public void setScriptId(String scriptId) {
-			this.scriptId = scriptId;
-		}
-
-		public String getIntentName() {
-			return this.intentName;
-		}
-
-		public void setIntentName(String intentName) {
-			this.intentName = intentName;
+		public void setUtterances(String utterances) {
+			this.utterances = utterances;
 		}
 
 		public String getIntentDescription() {
@@ -134,20 +118,12 @@ public class DescribeIntentResponse extends AcsResponse {
 			this.intentDescription = intentDescription;
 		}
 
-		public String getUtterances() {
-			return this.utterances;
+		public Long getUpdateTime() {
+			return this.updateTime;
 		}
 
-		public void setUtterances(String utterances) {
-			this.utterances = utterances;
-		}
-
-		public String getKeywords() {
-			return this.keywords;
-		}
-
-		public void setKeywords(String keywords) {
-			this.keywords = keywords;
+		public void setUpdateTime(Long updateTime) {
+			this.updateTime = updateTime;
 		}
 
 		public Long getCreateTime() {
@@ -158,12 +134,36 @@ public class DescribeIntentResponse extends AcsResponse {
 			this.createTime = createTime;
 		}
 
-		public Long getUpdateTime() {
-			return this.updateTime;
+		public String getKeywords() {
+			return this.keywords;
 		}
 
-		public void setUpdateTime(Long updateTime) {
-			this.updateTime = updateTime;
+		public void setKeywords(String keywords) {
+			this.keywords = keywords;
+		}
+
+		public String getScriptId() {
+			return this.scriptId;
+		}
+
+		public void setScriptId(String scriptId) {
+			this.scriptId = scriptId;
+		}
+
+		public String getIntentId() {
+			return this.intentId;
+		}
+
+		public void setIntentId(String intentId) {
+			this.intentId = intentId;
+		}
+
+		public String getIntentName() {
+			return this.intentName;
+		}
+
+		public void setIntentName(String intentName) {
+			this.intentName = intentName;
 		}
 	}
 

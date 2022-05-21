@@ -137,6 +137,10 @@ public class QueryEdgeDriverResponse extends AcsResponse {
 
 			private Long gmtModifiedTimestamp;
 
+			private Boolean isApply;
+
+			private Integer useOfficialConfig;
+
 			public String getDriverId() {
 				return this.driverId;
 			}
@@ -207,6 +211,22 @@ public class QueryEdgeDriverResponse extends AcsResponse {
 
 			public void setGmtModifiedTimestamp(Long gmtModifiedTimestamp) {
 				this.gmtModifiedTimestamp = gmtModifiedTimestamp;
+			}
+
+			public Boolean getIsApply() {
+				return this.isApply;
+			}
+
+			public void setIsApply(Boolean isApply) {
+				this.isApply = isApply;
+			}
+
+			public Integer getUseOfficialConfig() {
+				return this.useOfficialConfig;
+			}
+
+			public void setUseOfficialConfig(Integer useOfficialConfig) {
+				this.useOfficialConfig = useOfficialConfig;
 			}
 		}
 	}

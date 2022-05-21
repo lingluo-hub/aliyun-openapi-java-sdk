@@ -17,6 +17,7 @@ package com.aliyuncs.linkedmall.model.v20180116;
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkedmall.Endpoint;
 
 /**
  * @author auto create
@@ -37,6 +38,8 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 
 	private Long orderExpireTime;
 
+	private String lmItemId;
+
 	private List<ItemList> itemLists;
 
 	private Long itemId;
@@ -49,10 +52,16 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 
 	private String outTradeId;
 
+	private String buyerMessageMap;
+
 	private String deliveryAddress;
 	public CreateOrderRequest() {
-		super("linkedmall", "2018-01-16", "CreateOrder");
+		super("linkedmall", "2018-01-16", "CreateOrder", "linkedmall");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public Long getQuantity() {
@@ -121,6 +130,17 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 		}
 	}
 
+	public String getLmItemId() {
+		return this.lmItemId;
+	}
+
+	public void setLmItemId(String lmItemId) {
+		this.lmItemId = lmItemId;
+		if(lmItemId != null){
+			putQueryParameter("LmItemId", lmItemId);
+		}
+	}
+
 	public List<ItemList> getItemLists() {
 		return this.itemLists;
 	}
@@ -131,6 +151,7 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 			for (int depth1 = 0; depth1 < itemLists.size(); depth1++) {
 				putQueryParameter("ItemList." + (depth1 + 1) + ".ItemId" , itemLists.get(depth1).getItemId());
 				putQueryParameter("ItemList." + (depth1 + 1) + ".Quantity" , itemLists.get(depth1).getQuantity());
+				putQueryParameter("ItemList." + (depth1 + 1) + ".LmItemId" , itemLists.get(depth1).getLmItemId());
 				putQueryParameter("ItemList." + (depth1 + 1) + ".SkuId" , itemLists.get(depth1).getSkuId());
 			}
 		}	
@@ -191,6 +212,17 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 		}
 	}
 
+	public String getBuyerMessageMap() {
+		return this.buyerMessageMap;
+	}
+
+	public void setBuyerMessageMap(String buyerMessageMap) {
+		this.buyerMessageMap = buyerMessageMap;
+		if(buyerMessageMap != null){
+			putQueryParameter("BuyerMessageMap", buyerMessageMap);
+		}
+	}
+
 	public String getDeliveryAddress() {
 		return this.deliveryAddress;
 	}
@@ -208,6 +240,8 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 
 		private Integer quantity;
 
+		private String lmItemId;
+
 		private Long skuId;
 
 		public Long getItemId() {
@@ -224,6 +258,14 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 
 		public void setQuantity(Integer quantity) {
 			this.quantity = quantity;
+		}
+
+		public String getLmItemId() {
+			return this.lmItemId;
+		}
+
+		public void setLmItemId(String lmItemId) {
+			this.lmItemId = lmItemId;
 		}
 
 		public Long getSkuId() {

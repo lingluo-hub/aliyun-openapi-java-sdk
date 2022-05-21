@@ -24,21 +24,13 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryCallStatusResponse extends AcsResponse {
 
-	private String requestId;
-
 	private String code;
 
 	private String message;
 
+	private String requestId;
+
 	private SecretCallStatusDTO secretCallStatusDTO;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -56,6 +48,14 @@ public class QueryCallStatusResponse extends AcsResponse {
 		this.message = message;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public SecretCallStatusDTO getSecretCallStatusDTO() {
 		return this.secretCallStatusDTO;
 	}
@@ -66,9 +66,19 @@ public class QueryCallStatusResponse extends AcsResponse {
 
 	public static class SecretCallStatusDTO {
 
+		private String calledNo;
+
 		private Integer status;
 
-		private String calledNo;
+		private String extension;
+
+		public String getCalledNo() {
+			return this.calledNo;
+		}
+
+		public void setCalledNo(String calledNo) {
+			this.calledNo = calledNo;
+		}
 
 		public Integer getStatus() {
 			return this.status;
@@ -78,12 +88,12 @@ public class QueryCallStatusResponse extends AcsResponse {
 			this.status = status;
 		}
 
-		public String getCalledNo() {
-			return this.calledNo;
+		public String getExtension() {
+			return this.extension;
 		}
 
-		public void setCalledNo(String calledNo) {
-			this.calledNo = calledNo;
+		public void setExtension(String extension) {
+			this.extension = extension;
 		}
 	}
 

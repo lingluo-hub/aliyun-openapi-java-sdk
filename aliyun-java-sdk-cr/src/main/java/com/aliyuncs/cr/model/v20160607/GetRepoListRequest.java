@@ -16,24 +16,29 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class GetRepoListRequest extends RoaAcsRequest<GetRepoListResponse> {
-	
-	public GetRepoListRequest() {
-		super("cr", "2016-06-07", "GetRepoList", "cr");
-		setUriPattern("/repos");
-		setMethod(MethodType.GET);
-	}
+	   
 
 	private Integer pageSize;
 
 	private Integer page;
 
 	private String status;
+	public GetRepoListRequest() {
+		super("cr", "2016-06-07", "GetRepoList", "acr");
+		setUriPattern("/repos");
+		setMethod(MethodType.GET);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public Integer getPageSize() {
 		return this.pageSize;

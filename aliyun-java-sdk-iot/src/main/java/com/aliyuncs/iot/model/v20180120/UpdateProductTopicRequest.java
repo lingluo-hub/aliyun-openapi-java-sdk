@@ -29,13 +29,13 @@ public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicR
 
 	private String iotInstanceId;
 
-	private String operation;
-
 	private String topicShortName;
+
+	private String operation;
 
 	private String desc;
 	public UpdateProductTopicRequest() {
-		super("Iot", "2018-01-20", "UpdateProductTopic", "Iot");
+		super("Iot", "2018-01-20", "UpdateProductTopic");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -65,17 +65,6 @@ public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicR
 		}
 	}
 
-	public String getOperation() {
-		return this.operation;
-	}
-
-	public void setOperation(String operation) {
-		this.operation = operation;
-		if(operation != null){
-			putQueryParameter("Operation", operation);
-		}
-	}
-
 	public String getTopicShortName() {
 		return this.topicShortName;
 	}
@@ -84,6 +73,17 @@ public class UpdateProductTopicRequest extends RpcAcsRequest<UpdateProductTopicR
 		this.topicShortName = topicShortName;
 		if(topicShortName != null){
 			putQueryParameter("TopicShortName", topicShortName);
+		}
+	}
+
+	public String getOperation() {
+		return this.operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+		if(operation != null){
+			putQueryParameter("Operation", operation);
 		}
 	}
 

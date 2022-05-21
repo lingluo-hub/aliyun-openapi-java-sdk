@@ -1,5 +1,8 @@
 package com.aliyuncs.auth;
 
+import java.security.NoSuchAlgorithmException;
+
+@Deprecated
 public class BearerTokenSigner extends Signer {
 
     @Override
@@ -25,6 +28,16 @@ public class BearerTokenSigner extends Signer {
     @Override
     public String getSignerType() {
         return "BEARERTOKEN";
+    }
+
+    @Override
+    public byte[] hash(byte[] raw) throws NoSuchAlgorithmException {
+        return null;
+    }
+
+    @Override
+    public String getContent() {
+        return null;
     }
 
 }

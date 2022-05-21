@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDnatEntriesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<DnatEntry> dnatEntries;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeDnatEntriesResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<DnatEntry> getDnatEntries() {
@@ -77,29 +77,21 @@ public class DescribeDnatEntriesResponse extends AcsResponse {
 
 	public static class DnatEntry {
 
-		private String dnatEntryId;
-
 		private String type;
 
 		private String sagId;
 
-		private String externalIp;
-
-		private String externalPort;
-
 		private String internalIp;
-
-		private String ipProtocol;
 
 		private String internalPort;
 
-		public String getDnatEntryId() {
-			return this.dnatEntryId;
-		}
+		private String ipProtocol;
 
-		public void setDnatEntryId(String dnatEntryId) {
-			this.dnatEntryId = dnatEntryId;
-		}
+		private String externalPort;
+
+		private String dnatEntryId;
+
+		private String externalIp;
 
 		public String getType() {
 			return this.type;
@@ -117,28 +109,20 @@ public class DescribeDnatEntriesResponse extends AcsResponse {
 			this.sagId = sagId;
 		}
 
-		public String getExternalIp() {
-			return this.externalIp;
-		}
-
-		public void setExternalIp(String externalIp) {
-			this.externalIp = externalIp;
-		}
-
-		public String getExternalPort() {
-			return this.externalPort;
-		}
-
-		public void setExternalPort(String externalPort) {
-			this.externalPort = externalPort;
-		}
-
 		public String getInternalIp() {
 			return this.internalIp;
 		}
 
 		public void setInternalIp(String internalIp) {
 			this.internalIp = internalIp;
+		}
+
+		public String getInternalPort() {
+			return this.internalPort;
+		}
+
+		public void setInternalPort(String internalPort) {
+			this.internalPort = internalPort;
 		}
 
 		public String getIpProtocol() {
@@ -149,12 +133,28 @@ public class DescribeDnatEntriesResponse extends AcsResponse {
 			this.ipProtocol = ipProtocol;
 		}
 
-		public String getInternalPort() {
-			return this.internalPort;
+		public String getExternalPort() {
+			return this.externalPort;
 		}
 
-		public void setInternalPort(String internalPort) {
-			this.internalPort = internalPort;
+		public void setExternalPort(String externalPort) {
+			this.externalPort = externalPort;
+		}
+
+		public String getDnatEntryId() {
+			return this.dnatEntryId;
+		}
+
+		public void setDnatEntryId(String dnatEntryId) {
+			this.dnatEntryId = dnatEntryId;
+		}
+
+		public String getExternalIp() {
+			return this.externalIp;
+		}
+
+		public void setExternalIp(String externalIp) {
+			this.externalIp = externalIp;
 		}
 	}
 

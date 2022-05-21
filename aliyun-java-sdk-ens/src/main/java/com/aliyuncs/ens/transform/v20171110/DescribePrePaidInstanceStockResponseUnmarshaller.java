@@ -23,12 +23,12 @@ public class DescribePrePaidInstanceStockResponseUnmarshaller {
 	public static DescribePrePaidInstanceStockResponse unmarshall(DescribePrePaidInstanceStockResponse describePrePaidInstanceStockResponse, UnmarshallerContext _ctx) {
 		
 		describePrePaidInstanceStockResponse.setRequestId(_ctx.stringValue("DescribePrePaidInstanceStockResponse.RequestId"));
+		describePrePaidInstanceStockResponse.setAvaliableCount(_ctx.integerValue("DescribePrePaidInstanceStockResponse.AvaliableCount"));
+		describePrePaidInstanceStockResponse.setCores(_ctx.integerValue("DescribePrePaidInstanceStockResponse.Cores"));
 		describePrePaidInstanceStockResponse.setDataDiskSize(_ctx.integerValue("DescribePrePaidInstanceStockResponse.DataDiskSize"));
 		describePrePaidInstanceStockResponse.setEnsRegionId(_ctx.stringValue("DescribePrePaidInstanceStockResponse.EnsRegionId"));
-		describePrePaidInstanceStockResponse.setCores(_ctx.integerValue("DescribePrePaidInstanceStockResponse.Cores"));
-		describePrePaidInstanceStockResponse.setMemory(_ctx.integerValue("DescribePrePaidInstanceStockResponse.Memory"));
-		describePrePaidInstanceStockResponse.setAvaliableCount(_ctx.integerValue("DescribePrePaidInstanceStockResponse.AvaliableCount"));
 		describePrePaidInstanceStockResponse.setInstanceSpec(_ctx.stringValue("DescribePrePaidInstanceStockResponse.InstanceSpec"));
+		describePrePaidInstanceStockResponse.setMemory(_ctx.integerValue("DescribePrePaidInstanceStockResponse.Memory"));
 		describePrePaidInstanceStockResponse.setSystemDiskSize(_ctx.integerValue("DescribePrePaidInstanceStockResponse.SystemDiskSize"));
 	 
 	 	return describePrePaidInstanceStockResponse;

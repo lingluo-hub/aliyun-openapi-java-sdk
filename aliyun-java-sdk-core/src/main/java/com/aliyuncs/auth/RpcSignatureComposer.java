@@ -52,7 +52,6 @@ public class RpcSignatureComposer implements ISignatureComposer {
         immutableMap.put("SignatureMethod", signer.getSignerName());
         immutableMap.put("SignatureVersion", signer.getSignerVersion());
         immutableMap.put("SignatureNonce", ParameterHelper.getUniqueNonce());
-        immutableMap.put("AccessKeyId", accessKeyId);
         if (null != format) {
             immutableMap.put("Format", format.toString());
         }
@@ -66,7 +65,6 @@ public class RpcSignatureComposer implements ISignatureComposer {
     public String composeStringToSign(MethodType method, String uriPattern,
                                       Signer signer, Map<String, String> queries,
                                       Map<String, String> headers, Map<String, String> paths) {
-
         String[] sortedKeys = queries.keySet().toArray(new String[]{});
         Arrays.sort(sortedKeys);
         StringBuilder canonicalizedQueryString = new StringBuilder();
@@ -89,6 +87,10 @@ public class RpcSignatureComposer implements ISignatureComposer {
         } catch (UnsupportedEncodingException exp) {
             throw new RuntimeException("UTF-8 encoding is not supported.");
         }
+    }
 
+    @Override
+    public String getAuthorization(Signer signer, String accessKeyId, String signature) {
+        return signature;
     }
 }

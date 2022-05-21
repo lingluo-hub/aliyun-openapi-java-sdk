@@ -25,15 +25,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class QueryClusterSpecificationResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
-	private String success;
-
-	private String message;
+	private Boolean success;
 
 	private String errorCode;
 
-	private List<ClusterSpecificationData> data;
+	private Integer code;
+
+	private String message;
+
+	private List<DataItem> data;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -43,20 +55,12 @@ public class QueryClusterSpecificationResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getSuccess() {
+	public Boolean getSuccess() {
 		return this.success;
 	}
 
-	public void setSuccess(String success) {
+	public void setSuccess(Boolean success) {
 		this.success = success;
-	}
-
-	public String getMessage() {
-		return this.message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
 	}
 
 	public String getErrorCode() {
@@ -67,29 +71,45 @@ public class QueryClusterSpecificationResponse extends AcsResponse {
 		this.errorCode = errorCode;
 	}
 
-	public List<ClusterSpecificationData> getData() {
+	public Integer getCode() {
+		return this.code;
+	}
+
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+
+	public String getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public List<DataItem> getData() {
 		return this.data;
 	}
 
-	public void setData(List<ClusterSpecificationData> data) {
+	public void setData(List<DataItem> data) {
 		this.data = data;
 	}
 
-	public static class ClusterSpecificationData {
+	public static class DataItem {
 
 		private String clusterSpecificationName;
 
-		private String cpuCapacity;
+		private String diskCapacity;
 
 		private String memoryCapacity;
-
-		private String diskCapacity;
 
 		private String instanceCount;
 
 		private String maxTps;
 
 		private String maxCon;
+
+		private String cpuCapacity;
 
 		public String getClusterSpecificationName() {
 			return this.clusterSpecificationName;
@@ -99,12 +119,12 @@ public class QueryClusterSpecificationResponse extends AcsResponse {
 			this.clusterSpecificationName = clusterSpecificationName;
 		}
 
-		public String getCpuCapacity() {
-			return this.cpuCapacity;
+		public String getDiskCapacity() {
+			return this.diskCapacity;
 		}
 
-		public void setCpuCapacity(String cpuCapacity) {
-			this.cpuCapacity = cpuCapacity;
+		public void setDiskCapacity(String diskCapacity) {
+			this.diskCapacity = diskCapacity;
 		}
 
 		public String getMemoryCapacity() {
@@ -113,14 +133,6 @@ public class QueryClusterSpecificationResponse extends AcsResponse {
 
 		public void setMemoryCapacity(String memoryCapacity) {
 			this.memoryCapacity = memoryCapacity;
-		}
-
-		public String getDiskCapacity() {
-			return this.diskCapacity;
-		}
-
-		public void setDiskCapacity(String diskCapacity) {
-			this.diskCapacity = diskCapacity;
 		}
 
 		public String getInstanceCount() {
@@ -145,6 +157,14 @@ public class QueryClusterSpecificationResponse extends AcsResponse {
 
 		public void setMaxCon(String maxCon) {
 			this.maxCon = maxCon;
+		}
+
+		public String getCpuCapacity() {
+			return this.cpuCapacity;
+		}
+
+		public void setCpuCapacity(String cpuCapacity) {
+			this.cpuCapacity = cpuCapacity;
 		}
 	}
 

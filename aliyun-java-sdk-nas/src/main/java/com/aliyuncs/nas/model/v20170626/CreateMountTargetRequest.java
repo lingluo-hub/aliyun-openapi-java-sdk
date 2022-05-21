@@ -25,9 +25,15 @@ import com.aliyuncs.nas.Endpoint;
 public class CreateMountTargetRequest extends RpcAcsRequest<CreateMountTargetResponse> {
 	   
 
+	private String securityGroupId;
+
+	private Boolean enableIpv6;
+
 	private String networkType;
 
 	private String fileSystemId;
+
+	private Boolean dryRun;
 
 	private String accessGroupName;
 
@@ -41,6 +47,28 @@ public class CreateMountTargetRequest extends RpcAcsRequest<CreateMountTargetRes
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getSecurityGroupId() {
+		return this.securityGroupId;
+	}
+
+	public void setSecurityGroupId(String securityGroupId) {
+		this.securityGroupId = securityGroupId;
+		if(securityGroupId != null){
+			putQueryParameter("SecurityGroupId", securityGroupId);
+		}
+	}
+
+	public Boolean getEnableIpv6() {
+		return this.enableIpv6;
+	}
+
+	public void setEnableIpv6(Boolean enableIpv6) {
+		this.enableIpv6 = enableIpv6;
+		if(enableIpv6 != null){
+			putQueryParameter("EnableIpv6", enableIpv6.toString());
+		}
 	}
 
 	public String getNetworkType() {
@@ -62,6 +90,17 @@ public class CreateMountTargetRequest extends RpcAcsRequest<CreateMountTargetRes
 		this.fileSystemId = fileSystemId;
 		if(fileSystemId != null){
 			putQueryParameter("FileSystemId", fileSystemId);
+		}
+	}
+
+	public Boolean getDryRun() {
+		return this.dryRun;
+	}
+
+	public void setDryRun(Boolean dryRun) {
+		this.dryRun = dryRun;
+		if(dryRun != null){
+			putQueryParameter("DryRun", dryRun.toString());
 		}
 	}
 

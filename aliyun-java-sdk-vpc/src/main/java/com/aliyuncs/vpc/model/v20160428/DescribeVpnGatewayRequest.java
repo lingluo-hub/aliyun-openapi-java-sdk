@@ -27,6 +27,8 @@ public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayR
 
 	private Long resourceOwnerId;
 
+	private Boolean includeReservationData;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -35,7 +37,7 @@ public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayR
 
 	private Long ownerId;
 	public DescribeVpnGatewayRequest() {
-		super("Vpc", "2016-04-28", "DescribeVpnGateway", "Vpc");
+		super("Vpc", "2016-04-28", "DescribeVpnGateway", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -51,6 +53,17 @@ public class DescribeVpnGatewayRequest extends RpcAcsRequest<DescribeVpnGatewayR
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getIncludeReservationData() {
+		return this.includeReservationData;
+	}
+
+	public void setIncludeReservationData(Boolean includeReservationData) {
+		this.includeReservationData = includeReservationData;
+		if(includeReservationData != null){
+			putQueryParameter("IncludeReservationData", includeReservationData.toString());
 		}
 	}
 

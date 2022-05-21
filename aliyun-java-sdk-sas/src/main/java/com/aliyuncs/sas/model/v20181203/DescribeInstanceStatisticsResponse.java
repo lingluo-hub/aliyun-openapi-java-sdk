@@ -47,35 +47,29 @@ public class DescribeInstanceStatisticsResponse extends AcsResponse {
 
 	public static class DataItem {
 
-		private String uuid;
-
 		private Integer account;
 
-		private Integer health;
+		private Integer appNum;
+
+		private Integer scaNum;
 
 		private Integer trojan;
-
-		private Integer suspicious;
-
-		private Integer vul;
 
 		private Integer cveNum;
 
 		private Integer emgNum;
 
-		private Integer sysNum;
+		private Integer suspicious;
 
 		private Integer cmsNum;
 
-		private Integer appNum;
+		private String uuid;
 
-		public String getUuid() {
-			return this.uuid;
-		}
+		private Integer vul;
 
-		public void setUuid(String uuid) {
-			this.uuid = uuid;
-		}
+		private Integer health;
+
+		private Integer sysNum;
 
 		public Integer getAccount() {
 			return this.account;
@@ -85,12 +79,20 @@ public class DescribeInstanceStatisticsResponse extends AcsResponse {
 			this.account = account;
 		}
 
-		public Integer getHealth() {
-			return this.health;
+		public Integer getAppNum() {
+			return this.appNum;
 		}
 
-		public void setHealth(Integer health) {
-			this.health = health;
+		public void setAppNum(Integer appNum) {
+			this.appNum = appNum;
+		}
+
+		public Integer getScaNum() {
+			return this.scaNum;
+		}
+
+		public void setScaNum(Integer scaNum) {
+			this.scaNum = scaNum;
 		}
 
 		public Integer getTrojan() {
@@ -99,22 +101,6 @@ public class DescribeInstanceStatisticsResponse extends AcsResponse {
 
 		public void setTrojan(Integer trojan) {
 			this.trojan = trojan;
-		}
-
-		public Integer getSuspicious() {
-			return this.suspicious;
-		}
-
-		public void setSuspicious(Integer suspicious) {
-			this.suspicious = suspicious;
-		}
-
-		public Integer getVul() {
-			return this.vul;
-		}
-
-		public void setVul(Integer vul) {
-			this.vul = vul;
 		}
 
 		public Integer getCveNum() {
@@ -133,12 +119,12 @@ public class DescribeInstanceStatisticsResponse extends AcsResponse {
 			this.emgNum = emgNum;
 		}
 
-		public Integer getSysNum() {
-			return this.sysNum;
+		public Integer getSuspicious() {
+			return this.suspicious;
 		}
 
-		public void setSysNum(Integer sysNum) {
-			this.sysNum = sysNum;
+		public void setSuspicious(Integer suspicious) {
+			this.suspicious = suspicious;
 		}
 
 		public Integer getCmsNum() {
@@ -149,12 +135,36 @@ public class DescribeInstanceStatisticsResponse extends AcsResponse {
 			this.cmsNum = cmsNum;
 		}
 
-		public Integer getAppNum() {
-			return this.appNum;
+		public String getUuid() {
+			return this.uuid;
 		}
 
-		public void setAppNum(Integer appNum) {
-			this.appNum = appNum;
+		public void setUuid(String uuid) {
+			this.uuid = uuid;
+		}
+
+		public Integer getVul() {
+			return this.vul;
+		}
+
+		public void setVul(Integer vul) {
+			this.vul = vul;
+		}
+
+		public Integer getHealth() {
+			return this.health;
+		}
+
+		public void setHealth(Integer health) {
+			this.health = health;
+		}
+
+		public Integer getSysNum() {
+			return this.sysNum;
+		}
+
+		public void setSysNum(Integer sysNum) {
+			this.sysNum = sysNum;
 		}
 	}
 

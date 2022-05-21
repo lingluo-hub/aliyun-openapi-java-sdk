@@ -67,24 +67,42 @@ public class ListRolesResponse extends AcsResponse {
 
 	public static class Role {
 
-		private String roleId;
-
-		private String roleName;
-
-		private String arn;
-
 		private String description;
-
-		private String createDate;
 
 		private String updateDate;
 
-		public String getRoleId() {
-			return this.roleId;
+		private Long maxSessionDuration;
+
+		private String roleName;
+
+		private String createDate;
+
+		private String roleId;
+
+		private String arn;
+
+		public String getDescription() {
+			return this.description;
 		}
 
-		public void setRoleId(String roleId) {
-			this.roleId = roleId;
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getUpdateDate() {
+			return this.updateDate;
+		}
+
+		public void setUpdateDate(String updateDate) {
+			this.updateDate = updateDate;
+		}
+
+		public Long getMaxSessionDuration() {
+			return this.maxSessionDuration;
+		}
+
+		public void setMaxSessionDuration(Long maxSessionDuration) {
+			this.maxSessionDuration = maxSessionDuration;
 		}
 
 		public String getRoleName() {
@@ -95,22 +113,6 @@ public class ListRolesResponse extends AcsResponse {
 			this.roleName = roleName;
 		}
 
-		public String getArn() {
-			return this.arn;
-		}
-
-		public void setArn(String arn) {
-			this.arn = arn;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
-		}
-
 		public String getCreateDate() {
 			return this.createDate;
 		}
@@ -119,12 +121,20 @@ public class ListRolesResponse extends AcsResponse {
 			this.createDate = createDate;
 		}
 
-		public String getUpdateDate() {
-			return this.updateDate;
+		public String getRoleId() {
+			return this.roleId;
 		}
 
-		public void setUpdateDate(String updateDate) {
-			this.updateDate = updateDate;
+		public void setRoleId(String roleId) {
+			this.roleId = roleId;
+		}
+
+		public String getArn() {
+			return this.arn;
+		}
+
+		public void setArn(String arn) {
+			this.arn = arn;
 		}
 	}
 

@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.sddp.model.v20190103.DescribeOssObjectsResponse;
 import com.aliyuncs.sddp.model.v20190103.DescribeOssObjectsResponse.Column;
+import com.aliyuncs.sddp.model.v20190103.DescribeOssObjectsResponse.Column.Rule;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -27,26 +28,39 @@ public class DescribeOssObjectsResponseUnmarshaller {
 	public static DescribeOssObjectsResponse unmarshall(DescribeOssObjectsResponse describeOssObjectsResponse, UnmarshallerContext _ctx) {
 		
 		describeOssObjectsResponse.setRequestId(_ctx.stringValue("DescribeOssObjectsResponse.RequestId"));
-		describeOssObjectsResponse.setPageSize(_ctx.integerValue("DescribeOssObjectsResponse.PageSize"));
 		describeOssObjectsResponse.setCurrentPage(_ctx.integerValue("DescribeOssObjectsResponse.CurrentPage"));
+		describeOssObjectsResponse.setPageSize(_ctx.integerValue("DescribeOssObjectsResponse.PageSize"));
 		describeOssObjectsResponse.setTotalCount(_ctx.integerValue("DescribeOssObjectsResponse.TotalCount"));
 
 		List<Column> items = new ArrayList<Column>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeOssObjectsResponse.Items.Length"); i++) {
 			Column column = new Column();
-			column.setId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].Id"));
-			column.setName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].Name"));
-			column.setRegionId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RegionId"));
-			column.setRiskLevelId(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].RiskLevelId"));
-			column.setCategory(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].Category"));
 			column.setInstanceId(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].InstanceId"));
-			column.setFileId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].FileId"));
-			column.setRiskLevelName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RiskLevelName"));
-			column.setSize(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].Size"));
-			column.setSensitiveCount(_ctx.integerValue("DescribeOssObjectsResponse.Items["+ i +"].SensitiveCount"));
-			column.setRuleCount(_ctx.integerValue("DescribeOssObjectsResponse.Items["+ i +"].RuleCount"));
 			column.setCategoryName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].CategoryName"));
+			column.setRiskLevelId(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].RiskLevelId"));
+			column.setRegionId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RegionId"));
+			column.setFileId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].FileId"));
+			column.setLastScanTime(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].LastScanTime"));
+			column.setRegionName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RegionName"));
+			column.setSize(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].Size"));
 			column.setBucketName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].BucketName"));
+			column.setRiskLevelName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RiskLevelName"));
+			column.setCategory(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].Category"));
+			column.setName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].Name"));
+			column.setRuleCount(_ctx.integerValue("DescribeOssObjectsResponse.Items["+ i +"].RuleCount"));
+			column.setSensitiveCount(_ctx.integerValue("DescribeOssObjectsResponse.Items["+ i +"].SensitiveCount"));
+			column.setId(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].Id"));
+
+			List<Rule> ruleList = new ArrayList<Rule>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeOssObjectsResponse.Items["+ i +"].RuleList.Length"); j++) {
+				Rule rule = new Rule();
+				rule.setName(_ctx.stringValue("DescribeOssObjectsResponse.Items["+ i +"].RuleList["+ j +"].Name"));
+				rule.setRiskLevelId(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].RuleList["+ j +"].RiskLevelId"));
+				rule.setCount(_ctx.longValue("DescribeOssObjectsResponse.Items["+ i +"].RuleList["+ j +"].Count"));
+
+				ruleList.add(rule);
+			}
+			column.setRuleList(ruleList);
 
 			items.add(column);
 		}

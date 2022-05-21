@@ -27,18 +27,19 @@ public class DescribeAppsResponseUnmarshaller {
 	public static DescribeAppsResponse unmarshall(DescribeAppsResponse describeAppsResponse, UnmarshallerContext _ctx) {
 		
 		describeAppsResponse.setRequestId(_ctx.stringValue("DescribeAppsResponse.RequestId"));
-		describeAppsResponse.setTotalNum(_ctx.integerValue("DescribeAppsResponse.TotalNum"));
 		describeAppsResponse.setTotalPage(_ctx.integerValue("DescribeAppsResponse.TotalPage"));
+		describeAppsResponse.setTotalNum(_ctx.integerValue("DescribeAppsResponse.TotalNum"));
 
 		List<App> appList = new ArrayList<App>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeAppsResponse.AppList.Length"); i++) {
 			App app = new App();
 			app.setStatus(_ctx.integerValue("DescribeAppsResponse.AppList["+ i +"].Status"));
-			app.setAppId(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].AppId"));
 			app.setAppName(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].AppName"));
+			app.setAppId(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].AppId"));
 			app.setCreateTime(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].CreateTime"));
-			app.setAppType(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].AppType"));
 			app.setBillType(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].BillType"));
+			app.setAppType(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].AppType"));
+			app.setRegion(_ctx.stringValue("DescribeAppsResponse.AppList["+ i +"].Region"));
 
 			List<String> serviceAreas = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeAppsResponse.AppList["+ i +"].ServiceAreas.Length"); j++) {

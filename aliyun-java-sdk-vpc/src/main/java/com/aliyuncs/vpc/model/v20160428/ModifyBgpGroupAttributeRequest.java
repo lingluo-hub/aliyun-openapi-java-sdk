@@ -46,10 +46,8 @@ public class ModifyBgpGroupAttributeRequest extends RpcAcsRequest<ModifyBgpGroup
 	private Long ownerId;
 
 	private String name;
-
-	private Long localAsn;
 	public ModifyBgpGroupAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyBgpGroupAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyBgpGroupAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -175,17 +173,6 @@ public class ModifyBgpGroupAttributeRequest extends RpcAcsRequest<ModifyBgpGroup
 		this.name = name;
 		if(name != null){
 			putQueryParameter("Name", name);
-		}
-	}
-
-	public Long getLocalAsn() {
-		return this.localAsn;
-	}
-
-	public void setLocalAsn(Long localAsn) {
-		this.localAsn = localAsn;
-		if(localAsn != null){
-			putQueryParameter("LocalAsn", localAsn.toString());
 		}
 	}
 

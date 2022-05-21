@@ -1,3 +1,20 @@
+2021-06-02 Version: 2.15.0
+- Support key deletion protection.
+
+2020-12-18 Version: 2.14.0
+- Release Full Managed Credentials for Aliyun RDS.
+
+2020-11-27 Version: 2.13.0
+- Add Certificate Manager Api.
+
+2020-09-28 Version: 2.12.0
+- Support filtering keys and secrets.
+- Support opening KMS service and describing service status by API.
+- Add a prefix limitation for SecretName.
+
+2020-07-23 Version: 2.11.0
+- Add GenerateAndExportDataKey, ExportDataKey, ReEncrypt api.
+
 2020-03-03 Version: 2.10.1
 - Supported secretmanager stable version for kms.
 

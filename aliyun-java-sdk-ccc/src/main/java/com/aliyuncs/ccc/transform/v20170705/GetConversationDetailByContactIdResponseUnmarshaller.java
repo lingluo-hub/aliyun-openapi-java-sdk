@@ -28,24 +28,24 @@ public class GetConversationDetailByContactIdResponseUnmarshaller {
 	public static GetConversationDetailByContactIdResponse unmarshall(GetConversationDetailByContactIdResponse getConversationDetailByContactIdResponse, UnmarshallerContext _ctx) {
 		
 		getConversationDetailByContactIdResponse.setRequestId(_ctx.stringValue("GetConversationDetailByContactIdResponse.RequestId"));
-		getConversationDetailByContactIdResponse.setSuccess(_ctx.booleanValue("GetConversationDetailByContactIdResponse.Success"));
+		getConversationDetailByContactIdResponse.setHttpStatusCode(_ctx.integerValue("GetConversationDetailByContactIdResponse.HttpStatusCode"));
 		getConversationDetailByContactIdResponse.setCode(_ctx.stringValue("GetConversationDetailByContactIdResponse.Code"));
 		getConversationDetailByContactIdResponse.setMessage(_ctx.stringValue("GetConversationDetailByContactIdResponse.Message"));
-		getConversationDetailByContactIdResponse.setHttpStatusCode(_ctx.integerValue("GetConversationDetailByContactIdResponse.HttpStatusCode"));
+		getConversationDetailByContactIdResponse.setSuccess(_ctx.booleanValue("GetConversationDetailByContactIdResponse.Success"));
 
 		DataList dataList = new DataList();
-		dataList.setTotalCount(_ctx.integerValue("GetConversationDetailByContactIdResponse.DataList.TotalCount"));
 		dataList.setPageNumber(_ctx.integerValue("GetConversationDetailByContactIdResponse.DataList.PageNumber"));
 		dataList.setPageSize(_ctx.integerValue("GetConversationDetailByContactIdResponse.DataList.PageSize"));
+		dataList.setTotalCount(_ctx.integerValue("GetConversationDetailByContactIdResponse.DataList.TotalCount"));
 
 		List<QualityCheckPhrase> list = new ArrayList<QualityCheckPhrase>();
 		for (int i = 0; i < _ctx.lengthValue("GetConversationDetailByContactIdResponse.DataList.List.Length"); i++) {
 			QualityCheckPhrase qualityCheckPhrase = new QualityCheckPhrase();
-			qualityCheckPhrase.setIdentity(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Identity"));
-			qualityCheckPhrase.setRole(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Role"));
-			qualityCheckPhrase.setWords(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Words"));
-			qualityCheckPhrase.setBegin(_ctx.longValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Begin"));
 			qualityCheckPhrase.setEnd(_ctx.longValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].End"));
+			qualityCheckPhrase.setWords(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Words"));
+			qualityCheckPhrase.setRole(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Role"));
+			qualityCheckPhrase.setBegin(_ctx.longValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Begin"));
+			qualityCheckPhrase.setIdentity(_ctx.stringValue("GetConversationDetailByContactIdResponse.DataList.List["+ i +"].Identity"));
 
 			list.add(qualityCheckPhrase);
 		}

@@ -23,10 +23,10 @@ public class CreateVoiceAppraiseResponseUnmarshaller {
 	public static CreateVoiceAppraiseResponse unmarshall(CreateVoiceAppraiseResponse createVoiceAppraiseResponse, UnmarshallerContext _ctx) {
 		
 		createVoiceAppraiseResponse.setRequestId(_ctx.stringValue("CreateVoiceAppraiseResponse.RequestId"));
-		createVoiceAppraiseResponse.setSuccess(_ctx.booleanValue("CreateVoiceAppraiseResponse.Success"));
+		createVoiceAppraiseResponse.setHttpStatusCode(_ctx.integerValue("CreateVoiceAppraiseResponse.HttpStatusCode"));
 		createVoiceAppraiseResponse.setCode(_ctx.stringValue("CreateVoiceAppraiseResponse.Code"));
 		createVoiceAppraiseResponse.setMessage(_ctx.stringValue("CreateVoiceAppraiseResponse.Message"));
-		createVoiceAppraiseResponse.setHttpStatusCode(_ctx.integerValue("CreateVoiceAppraiseResponse.HttpStatusCode"));
+		createVoiceAppraiseResponse.setSuccess(_ctx.booleanValue("CreateVoiceAppraiseResponse.Success"));
 	 
 	 	return createVoiceAppraiseResponse;
 	}

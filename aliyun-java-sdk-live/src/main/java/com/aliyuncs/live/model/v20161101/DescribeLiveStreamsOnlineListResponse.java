@@ -25,24 +25,24 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeLiveStreamsOnlineListResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer totalPage;
 
 	private Integer pageNum;
 
 	private Integer pageSize;
 
-	private Integer totalNum;
+	private String requestId;
 
-	private Integer totalPage;
+	private Integer totalNum;
 
 	private List<LiveStreamOnlineInfo> onlineInfo;
 
-	public String getRequestId() {
-		return this.requestId;
+	public Integer getTotalPage() {
+		return this.totalPage;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
 	}
 
 	public Integer getPageNum() {
@@ -61,20 +61,20 @@ public class DescribeLiveStreamsOnlineListResponse extends AcsResponse {
 		this.pageSize = pageSize;
 	}
 
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
 	public Integer getTotalNum() {
 		return this.totalNum;
 	}
 
 	public void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
-	}
-
-	public Integer getTotalPage() {
-		return this.totalPage;
-	}
-
-	public void setTotalPage(Integer totalPage) {
-		this.totalPage = totalPage;
 	}
 
 	public List<LiveStreamOnlineInfo> getOnlineInfo() {
@@ -87,144 +87,52 @@ public class DescribeLiveStreamsOnlineListResponse extends AcsResponse {
 
 	public static class LiveStreamOnlineInfo {
 
-		private String domainName;
-
-		private String appName;
-
-		private String streamName;
-
-		private String publishTime;
-
-		private String publishUrl;
-
-		private String publishDomain;
-
-		private String publishType;
-
-		private String transcoded;
-
-		private String transcodeId;
-
-		private String serverIp;
-
-		private String clientIp;
-
-		private Integer videoCodecId;
-
-		private Integer videoDataRate;
+		private Integer audioDataRate;
 
 		private Integer frameRate;
 
-		private Integer width;
+		private String publishUrl;
 
-		private Integer height;
+		private String streamName;
 
 		private Integer audioCodecId;
 
-		private Integer audioDataRate;
+		private Integer height;
 
-		public String getDomainName() {
-			return this.domainName;
+		private Integer videoDataRate;
+
+		private String domainName;
+
+		private String transcodeId;
+
+		private String transcodeDrm;
+
+		private String publishDomain;
+
+		private String publishTime;
+
+		private String appName;
+
+		private String publishType;
+
+		private Integer videoCodecId;
+
+		private String transcoded;
+
+		private Integer width;
+
+		private String clientIp;
+
+		private String serverIp;
+
+		private String streamUrlArgs;
+
+		public Integer getAudioDataRate() {
+			return this.audioDataRate;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
-		}
-
-		public String getAppName() {
-			return this.appName;
-		}
-
-		public void setAppName(String appName) {
-			this.appName = appName;
-		}
-
-		public String getStreamName() {
-			return this.streamName;
-		}
-
-		public void setStreamName(String streamName) {
-			this.streamName = streamName;
-		}
-
-		public String getPublishTime() {
-			return this.publishTime;
-		}
-
-		public void setPublishTime(String publishTime) {
-			this.publishTime = publishTime;
-		}
-
-		public String getPublishUrl() {
-			return this.publishUrl;
-		}
-
-		public void setPublishUrl(String publishUrl) {
-			this.publishUrl = publishUrl;
-		}
-
-		public String getPublishDomain() {
-			return this.publishDomain;
-		}
-
-		public void setPublishDomain(String publishDomain) {
-			this.publishDomain = publishDomain;
-		}
-
-		public String getPublishType() {
-			return this.publishType;
-		}
-
-		public void setPublishType(String publishType) {
-			this.publishType = publishType;
-		}
-
-		public String getTranscoded() {
-			return this.transcoded;
-		}
-
-		public void setTranscoded(String transcoded) {
-			this.transcoded = transcoded;
-		}
-
-		public String getTranscodeId() {
-			return this.transcodeId;
-		}
-
-		public void setTranscodeId(String transcodeId) {
-			this.transcodeId = transcodeId;
-		}
-
-		public String getServerIp() {
-			return this.serverIp;
-		}
-
-		public void setServerIp(String serverIp) {
-			this.serverIp = serverIp;
-		}
-
-		public String getClientIp() {
-			return this.clientIp;
-		}
-
-		public void setClientIp(String clientIp) {
-			this.clientIp = clientIp;
-		}
-
-		public Integer getVideoCodecId() {
-			return this.videoCodecId;
-		}
-
-		public void setVideoCodecId(Integer videoCodecId) {
-			this.videoCodecId = videoCodecId;
-		}
-
-		public Integer getVideoDataRate() {
-			return this.videoDataRate;
-		}
-
-		public void setVideoDataRate(Integer videoDataRate) {
-			this.videoDataRate = videoDataRate;
+		public void setAudioDataRate(Integer audioDataRate) {
+			this.audioDataRate = audioDataRate;
 		}
 
 		public Integer getFrameRate() {
@@ -235,20 +143,20 @@ public class DescribeLiveStreamsOnlineListResponse extends AcsResponse {
 			this.frameRate = frameRate;
 		}
 
-		public Integer getWidth() {
-			return this.width;
+		public String getPublishUrl() {
+			return this.publishUrl;
 		}
 
-		public void setWidth(Integer width) {
-			this.width = width;
+		public void setPublishUrl(String publishUrl) {
+			this.publishUrl = publishUrl;
 		}
 
-		public Integer getHeight() {
-			return this.height;
+		public String getStreamName() {
+			return this.streamName;
 		}
 
-		public void setHeight(Integer height) {
-			this.height = height;
+		public void setStreamName(String streamName) {
+			this.streamName = streamName;
 		}
 
 		public Integer getAudioCodecId() {
@@ -259,12 +167,124 @@ public class DescribeLiveStreamsOnlineListResponse extends AcsResponse {
 			this.audioCodecId = audioCodecId;
 		}
 
-		public Integer getAudioDataRate() {
-			return this.audioDataRate;
+		public Integer getHeight() {
+			return this.height;
 		}
 
-		public void setAudioDataRate(Integer audioDataRate) {
-			this.audioDataRate = audioDataRate;
+		public void setHeight(Integer height) {
+			this.height = height;
+		}
+
+		public Integer getVideoDataRate() {
+			return this.videoDataRate;
+		}
+
+		public void setVideoDataRate(Integer videoDataRate) {
+			this.videoDataRate = videoDataRate;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
+		}
+
+		public String getTranscodeId() {
+			return this.transcodeId;
+		}
+
+		public void setTranscodeId(String transcodeId) {
+			this.transcodeId = transcodeId;
+		}
+
+		public String getTranscodeDrm() {
+			return this.transcodeDrm;
+		}
+
+		public void setTranscodeDrm(String transcodeDrm) {
+			this.transcodeDrm = transcodeDrm;
+		}
+
+		public String getPublishDomain() {
+			return this.publishDomain;
+		}
+
+		public void setPublishDomain(String publishDomain) {
+			this.publishDomain = publishDomain;
+		}
+
+		public String getPublishTime() {
+			return this.publishTime;
+		}
+
+		public void setPublishTime(String publishTime) {
+			this.publishTime = publishTime;
+		}
+
+		public String getAppName() {
+			return this.appName;
+		}
+
+		public void setAppName(String appName) {
+			this.appName = appName;
+		}
+
+		public String getPublishType() {
+			return this.publishType;
+		}
+
+		public void setPublishType(String publishType) {
+			this.publishType = publishType;
+		}
+
+		public Integer getVideoCodecId() {
+			return this.videoCodecId;
+		}
+
+		public void setVideoCodecId(Integer videoCodecId) {
+			this.videoCodecId = videoCodecId;
+		}
+
+		public String getTranscoded() {
+			return this.transcoded;
+		}
+
+		public void setTranscoded(String transcoded) {
+			this.transcoded = transcoded;
+		}
+
+		public Integer getWidth() {
+			return this.width;
+		}
+
+		public void setWidth(Integer width) {
+			this.width = width;
+		}
+
+		public String getClientIp() {
+			return this.clientIp;
+		}
+
+		public void setClientIp(String clientIp) {
+			this.clientIp = clientIp;
+		}
+
+		public String getServerIp() {
+			return this.serverIp;
+		}
+
+		public void setServerIp(String serverIp) {
+			this.serverIp = serverIp;
+		}
+
+		public String getStreamUrlArgs() {
+			return this.streamUrlArgs;
+		}
+
+		public void setStreamUrlArgs(String streamUrlArgs) {
+			this.streamUrlArgs = streamUrlArgs;
 		}
 	}
 

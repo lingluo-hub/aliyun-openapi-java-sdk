@@ -24,23 +24,31 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DialExResponse extends AcsResponse {
 
+	private Integer httpStatusCode;
+
 	private String requestId;
 
 	private Boolean success;
+
+	private String statusCode;
 
 	private String code;
 
 	private String message;
 
-	private Integer httpStatusCode;
-
-	private String statusCode;
-
-	private String statusDesc;
+	private String timeStamp;
 
 	private String taskId;
 
-	private String timeStamp;
+	private String statusDesc;
+
+	public Integer getHttpStatusCode() {
+		return this.httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer httpStatusCode) {
+		this.httpStatusCode = httpStatusCode;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -56,6 +64,14 @@ public class DialExResponse extends AcsResponse {
 
 	public void setSuccess(Boolean success) {
 		this.success = success;
+	}
+
+	public String getStatusCode() {
+		return this.statusCode;
+	}
+
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
 	}
 
 	public String getCode() {
@@ -74,28 +90,12 @@ public class DialExResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public Integer getHttpStatusCode() {
-		return this.httpStatusCode;
+	public String getTimeStamp() {
+		return this.timeStamp;
 	}
 
-	public void setHttpStatusCode(Integer httpStatusCode) {
-		this.httpStatusCode = httpStatusCode;
-	}
-
-	public String getStatusCode() {
-		return this.statusCode;
-	}
-
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	public String getStatusDesc() {
-		return this.statusDesc;
-	}
-
-	public void setStatusDesc(String statusDesc) {
-		this.statusDesc = statusDesc;
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 
 	public String getTaskId() {
@@ -106,12 +106,12 @@ public class DialExResponse extends AcsResponse {
 		this.taskId = taskId;
 	}
 
-	public String getTimeStamp() {
-		return this.timeStamp;
+	public String getStatusDesc() {
+		return this.statusDesc;
 	}
 
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setStatusDesc(String statusDesc) {
+		this.statusDesc = statusDesc;
 	}
 
 	@Override

@@ -28,6 +28,8 @@ public class RestartApplicationRequest extends RoaAcsRequest<RestartApplicationR
 	private Integer minReadyInstances;
 
 	private String appId;
+
+	private Integer minReadyInstanceRatio;
 	public RestartApplicationRequest() {
 		super("sae", "2019-05-06", "RestartApplication", "serverless");
 		setUriPattern("/pop/v1/sam/app/restartApplication");
@@ -57,6 +59,17 @@ public class RestartApplicationRequest extends RoaAcsRequest<RestartApplicationR
 		this.appId = appId;
 		if(appId != null){
 			putQueryParameter("AppId", appId);
+		}
+	}
+
+	public Integer getMinReadyInstanceRatio() {
+		return this.minReadyInstanceRatio;
+	}
+
+	public void setMinReadyInstanceRatio(Integer minReadyInstanceRatio) {
+		this.minReadyInstanceRatio = minReadyInstanceRatio;
+		if(minReadyInstanceRatio != null){
+			putQueryParameter("MinReadyInstanceRatio", minReadyInstanceRatio.toString());
 		}
 	}
 

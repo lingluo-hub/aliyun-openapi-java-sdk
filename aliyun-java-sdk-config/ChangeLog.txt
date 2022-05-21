@@ -1,0 +1,51 @@
+2022-02-23 Version: 2.1.1
+- Support remediation.
+
+2022-01-12 Version: 2.0.9
+- Support folder for rule.
+
+2022-01-11 Version: 2.0.8
+- Fix bugs.
+
+2021-12-28 Version: 2.0.7
+- Support managed rule query.
+
+2021-12-23 Version: 2.0.6
+- Fix array params.
+
+2021-12-21 Version: 2.0.5
+- Fix array params.
+
+2021-12-13 Version: 2.0.3
+- Support query resourceType.
+
+2021-12-13 Version: 2.0.2
+- Support query resourceType.
+
+2020-11-17 Version: 1.0.3
+- Support event type in timeline of resource properties.
+- Support resourceOwnerId in evaluation result.
+- Support resource directory in config rule scene.
+- Fix terraform related bugs.
+
+2020-10-23 Version: 1.0.2
+- Support resource,rules,monitor-scope,delievery settings.
+
+2020-09-01 Version: 1.0.1
+- Support region route.
+
+2020-09-01 Version: 1.0.1
+- Support region route.
+
+2020-09-01 Version: 1.0.0
+- Support region route.
+
+2020-08-31 Version: 1.0.0
+- Support config resource recorder deliverychannel rule.
+
+2020-08-31 Version: 1.0.0
+- Support config resource recorder deliverychannel rule.
+
+2020-08-31 Version: 1.0.0
+- Support config resource recorder deliverychannel rule.
+

@@ -29,6 +29,8 @@ public class ModifyNatGatewayAttributeRequest extends RpcAcsRequest<ModifyNatGat
 
 	private String description;
 
+	private Boolean icmpReplyEnabled;
+
 	private String natGatewayId;
 
 	private String resourceOwnerAccount;
@@ -39,7 +41,7 @@ public class ModifyNatGatewayAttributeRequest extends RpcAcsRequest<ModifyNatGat
 
 	private String name;
 	public ModifyNatGatewayAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyNatGatewayAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyNatGatewayAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -66,6 +68,17 @@ public class ModifyNatGatewayAttributeRequest extends RpcAcsRequest<ModifyNatGat
 		this.description = description;
 		if(description != null){
 			putQueryParameter("Description", description);
+		}
+	}
+
+	public Boolean getIcmpReplyEnabled() {
+		return this.icmpReplyEnabled;
+	}
+
+	public void setIcmpReplyEnabled(Boolean icmpReplyEnabled) {
+		this.icmpReplyEnabled = icmpReplyEnabled;
+		if(icmpReplyEnabled != null){
+			putQueryParameter("IcmpReplyEnabled", icmpReplyEnabled.toString());
 		}
 	}
 

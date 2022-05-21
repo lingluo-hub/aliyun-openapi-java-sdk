@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeInstanceTypesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
 
+	private String requestId;
+
 	private List<InstanceType> instanceTypes;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -45,6 +37,14 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 	public void setCode(Integer code) {
 		this.code = code;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<InstanceType> getInstanceTypes() {
@@ -59,11 +59,11 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 		private Integer cpuCoreCount;
 
-		private Integer memorySize;
-
 		private String instanceTypeId;
 
 		private String instanceTypeName;
+
+		private Integer memorySize;
 
 		public Integer getCpuCoreCount() {
 			return this.cpuCoreCount;
@@ -71,14 +71,6 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 		public void setCpuCoreCount(Integer cpuCoreCount) {
 			this.cpuCoreCount = cpuCoreCount;
-		}
-
-		public Integer getMemorySize() {
-			return this.memorySize;
-		}
-
-		public void setMemorySize(Integer memorySize) {
-			this.memorySize = memorySize;
 		}
 
 		public String getInstanceTypeId() {
@@ -95,6 +87,14 @@ public class DescribeInstanceTypesResponse extends AcsResponse {
 
 		public void setInstanceTypeName(String instanceTypeName) {
 			this.instanceTypeName = instanceTypeName;
+		}
+
+		public Integer getMemorySize() {
+			return this.memorySize;
+		}
+
+		public void setMemorySize(Integer memorySize) {
+			this.memorySize = memorySize;
 		}
 	}
 

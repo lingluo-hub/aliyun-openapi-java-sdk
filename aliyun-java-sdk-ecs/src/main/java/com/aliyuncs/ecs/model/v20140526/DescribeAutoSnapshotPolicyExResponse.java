@@ -25,15 +25,23 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 
-	private String requestId;
+	private Integer pageSize;
 
-	private Integer totalCount;
+	private String requestId;
 
 	private Integer pageNumber;
 
-	private Integer pageSize;
+	private Integer totalCount;
 
 	private List<AutoSnapshotPolicy> autoSnapshotPolicies;
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -41,14 +49,6 @@ public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getTotalCount() {
-		return this.totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
 	}
 
 	public Integer getPageNumber() {
@@ -59,12 +59,12 @@ public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 		this.pageNumber = pageNumber;
 	}
 
-	public Integer getPageSize() {
-		return this.pageSize;
+	public Integer getTotalCount() {
+		return this.totalCount;
 	}
 
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<AutoSnapshotPolicy> getAutoSnapshotPolicies() {
@@ -77,49 +77,35 @@ public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 
 	public static class AutoSnapshotPolicy {
 
-		private String autoSnapshotPolicyId;
-
-		private String regionId;
-
-		private String autoSnapshotPolicyName;
-
 		private String timePoints;
-
-		private String repeatWeekdays;
-
-		private Integer retentionDays;
-
-		private Integer diskNums;
-
-		private Integer volumeNums;
 
 		private String creationTime;
 
 		private String status;
 
-		public String getAutoSnapshotPolicyId() {
-			return this.autoSnapshotPolicyId;
-		}
+		private String autoSnapshotPolicyName;
 
-		public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
-			this.autoSnapshotPolicyId = autoSnapshotPolicyId;
-		}
+		private String targetCopyRegions;
 
-		public String getRegionId() {
-			return this.regionId;
-		}
+		private Integer copiedSnapshotsRetentionDays;
 
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
+		private String autoSnapshotPolicyId;
 
-		public String getAutoSnapshotPolicyName() {
-			return this.autoSnapshotPolicyName;
-		}
+		private Integer retentionDays;
 
-		public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
-			this.autoSnapshotPolicyName = autoSnapshotPolicyName;
-		}
+		private String regionId;
+
+		private Integer diskNums;
+
+		private Boolean enableCrossRegionCopy;
+
+		private String repeatWeekdays;
+
+		private Integer volumeNums;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
 
 		public String getTimePoints() {
 			return this.timePoints;
@@ -127,38 +113,6 @@ public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 
 		public void setTimePoints(String timePoints) {
 			this.timePoints = timePoints;
-		}
-
-		public String getRepeatWeekdays() {
-			return this.repeatWeekdays;
-		}
-
-		public void setRepeatWeekdays(String repeatWeekdays) {
-			this.repeatWeekdays = repeatWeekdays;
-		}
-
-		public Integer getRetentionDays() {
-			return this.retentionDays;
-		}
-
-		public void setRetentionDays(Integer retentionDays) {
-			this.retentionDays = retentionDays;
-		}
-
-		public Integer getDiskNums() {
-			return this.diskNums;
-		}
-
-		public void setDiskNums(Integer diskNums) {
-			this.diskNums = diskNums;
-		}
-
-		public Integer getVolumeNums() {
-			return this.volumeNums;
-		}
-
-		public void setVolumeNums(Integer volumeNums) {
-			this.volumeNums = volumeNums;
 		}
 
 		public String getCreationTime() {
@@ -175,6 +129,125 @@ public class DescribeAutoSnapshotPolicyExResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
+		}
+
+		public String getAutoSnapshotPolicyName() {
+			return this.autoSnapshotPolicyName;
+		}
+
+		public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
+			this.autoSnapshotPolicyName = autoSnapshotPolicyName;
+		}
+
+		public String getTargetCopyRegions() {
+			return this.targetCopyRegions;
+		}
+
+		public void setTargetCopyRegions(String targetCopyRegions) {
+			this.targetCopyRegions = targetCopyRegions;
+		}
+
+		public Integer getCopiedSnapshotsRetentionDays() {
+			return this.copiedSnapshotsRetentionDays;
+		}
+
+		public void setCopiedSnapshotsRetentionDays(Integer copiedSnapshotsRetentionDays) {
+			this.copiedSnapshotsRetentionDays = copiedSnapshotsRetentionDays;
+		}
+
+		public String getAutoSnapshotPolicyId() {
+			return this.autoSnapshotPolicyId;
+		}
+
+		public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
+			this.autoSnapshotPolicyId = autoSnapshotPolicyId;
+		}
+
+		public Integer getRetentionDays() {
+			return this.retentionDays;
+		}
+
+		public void setRetentionDays(Integer retentionDays) {
+			this.retentionDays = retentionDays;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public Integer getDiskNums() {
+			return this.diskNums;
+		}
+
+		public void setDiskNums(Integer diskNums) {
+			this.diskNums = diskNums;
+		}
+
+		public Boolean getEnableCrossRegionCopy() {
+			return this.enableCrossRegionCopy;
+		}
+
+		public void setEnableCrossRegionCopy(Boolean enableCrossRegionCopy) {
+			this.enableCrossRegionCopy = enableCrossRegionCopy;
+		}
+
+		public String getRepeatWeekdays() {
+			return this.repeatWeekdays;
+		}
+
+		public void setRepeatWeekdays(String repeatWeekdays) {
+			this.repeatWeekdays = repeatWeekdays;
+		}
+
+		public Integer getVolumeNums() {
+			return this.volumeNums;
+		}
+
+		public void setVolumeNums(Integer volumeNums) {
+			this.volumeNums = volumeNums;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public static class Tag {
+
+			private String tagValue;
+
+			private String tagKey;
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
 		}
 	}
 

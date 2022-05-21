@@ -27,11 +27,11 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private DataCorrectOrderDetail dataCorrectOrderDetail;
 
@@ -43,12 +43,12 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -59,12 +59,12 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public DataCorrectOrderDetail getDataCorrectOrderDetail() {
@@ -77,11 +77,21 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 
 	public static class DataCorrectOrderDetail {
 
+		private String status;
+
 		private List<TaskCheckDO> preCheckDetail;
 
 		private List<Database> databaseList;
 
 		private OrderDetail orderDetail;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
 
 		public List<TaskCheckDO> getPreCheckDetail() {
 			return this.preCheckDetail;
@@ -109,11 +119,19 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 
 		public static class TaskCheckDO {
 
+			private String userTip;
+
 			private String checkStatus;
 
 			private String checkStep;
 
-			private String userTip;
+			public String getUserTip() {
+				return this.userTip;
+			}
+
+			public void setUserTip(String userTip) {
+				this.userTip = userTip;
+			}
 
 			public String getCheckStatus() {
 				return this.checkStatus;
@@ -130,27 +148,43 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 			public void setCheckStep(String checkStep) {
 				this.checkStep = checkStep;
 			}
-
-			public String getUserTip() {
-				return this.userTip;
-			}
-
-			public void setUserTip(String userTip) {
-				this.userTip = userTip;
-			}
 		}
 
 		public static class Database {
+
+			private Integer dbId;
+
+			private String dbType;
+
+			private Boolean logic;
 
 			private String searchName;
 
 			private String envType;
 
-			private String dbType;
+			public Integer getDbId() {
+				return this.dbId;
+			}
 
-			private Integer dbId;
+			public void setDbId(Integer dbId) {
+				this.dbId = dbId;
+			}
 
-			private Boolean logic;
+			public String getDbType() {
+				return this.dbType;
+			}
+
+			public void setDbType(String dbType) {
+				this.dbType = dbType;
+			}
+
+			public Boolean getLogic() {
+				return this.logic;
+			}
+
+			public void setLogic(Boolean logic) {
+				this.logic = logic;
+			}
 
 			public String getSearchName() {
 				return this.searchName;
@@ -167,55 +201,47 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 			public void setEnvType(String envType) {
 				this.envType = envType;
 			}
-
-			public String getDbType() {
-				return this.dbType;
-			}
-
-			public void setDbType(String dbType) {
-				this.dbType = dbType;
-			}
-
-			public Integer getDbId() {
-				return this.dbId;
-			}
-
-			public void setDbId(Integer dbId) {
-				this.dbId = dbId;
-			}
-
-			public Boolean getLogic() {
-				return this.logic;
-			}
-
-			public void setLogic(Boolean logic) {
-				this.logic = logic;
-			}
 		}
 
 		public static class OrderDetail {
 
+			private String rbSQL;
+
+			private String rbAttachmentName;
+
 			private String classify;
 
+			private String exeSQL;
+
 			private Long estimateAffectRows;
+
+			private String rbSQLType;
 
 			private Long actualAffectRows;
 
 			private Boolean ignoreAffectRows;
 
-			private String ignoreAffectRowsReason;
+			private String attachmentName;
 
 			private String sqlType;
 
-			private String exeSQL;
+			private String ignoreAffectRowsReason;
 
-			private String attachmentName;
+			public String getRbSQL() {
+				return this.rbSQL;
+			}
 
-			private String rbSQLType;
+			public void setRbSQL(String rbSQL) {
+				this.rbSQL = rbSQL;
+			}
 
-			private String rbSQL;
+			public String getRbAttachmentName() {
+				return this.rbAttachmentName;
+			}
 
-			private String rbAttachmentName;
+			public void setRbAttachmentName(String rbAttachmentName) {
+				this.rbAttachmentName = rbAttachmentName;
+			}
 
 			public String getClassify() {
 				return this.classify;
@@ -225,12 +251,28 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 				this.classify = classify;
 			}
 
+			public String getExeSQL() {
+				return this.exeSQL;
+			}
+
+			public void setExeSQL(String exeSQL) {
+				this.exeSQL = exeSQL;
+			}
+
 			public Long getEstimateAffectRows() {
 				return this.estimateAffectRows;
 			}
 
 			public void setEstimateAffectRows(Long estimateAffectRows) {
 				this.estimateAffectRows = estimateAffectRows;
+			}
+
+			public String getRbSQLType() {
+				return this.rbSQLType;
+			}
+
+			public void setRbSQLType(String rbSQLType) {
+				this.rbSQLType = rbSQLType;
 			}
 
 			public Long getActualAffectRows() {
@@ -249,12 +291,12 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 				this.ignoreAffectRows = ignoreAffectRows;
 			}
 
-			public String getIgnoreAffectRowsReason() {
-				return this.ignoreAffectRowsReason;
+			public String getAttachmentName() {
+				return this.attachmentName;
 			}
 
-			public void setIgnoreAffectRowsReason(String ignoreAffectRowsReason) {
-				this.ignoreAffectRowsReason = ignoreAffectRowsReason;
+			public void setAttachmentName(String attachmentName) {
+				this.attachmentName = attachmentName;
 			}
 
 			public String getSqlType() {
@@ -265,44 +307,12 @@ public class GetDataCorrectOrderDetailResponse extends AcsResponse {
 				this.sqlType = sqlType;
 			}
 
-			public String getExeSQL() {
-				return this.exeSQL;
+			public String getIgnoreAffectRowsReason() {
+				return this.ignoreAffectRowsReason;
 			}
 
-			public void setExeSQL(String exeSQL) {
-				this.exeSQL = exeSQL;
-			}
-
-			public String getAttachmentName() {
-				return this.attachmentName;
-			}
-
-			public void setAttachmentName(String attachmentName) {
-				this.attachmentName = attachmentName;
-			}
-
-			public String getRbSQLType() {
-				return this.rbSQLType;
-			}
-
-			public void setRbSQLType(String rbSQLType) {
-				this.rbSQLType = rbSQLType;
-			}
-
-			public String getRbSQL() {
-				return this.rbSQL;
-			}
-
-			public void setRbSQL(String rbSQL) {
-				this.rbSQL = rbSQL;
-			}
-
-			public String getRbAttachmentName() {
-				return this.rbAttachmentName;
-			}
-
-			public void setRbAttachmentName(String rbAttachmentName) {
-				this.rbAttachmentName = rbAttachmentName;
+			public void setIgnoreAffectRowsReason(String ignoreAffectRowsReason) {
+				this.ignoreAffectRowsReason = ignoreAffectRowsReason;
 			}
 		}
 	}

@@ -27,16 +27,16 @@ public class GetServiceExtensionsResponseUnmarshaller {
 	public static GetServiceExtensionsResponse unmarshall(GetServiceExtensionsResponse getServiceExtensionsResponse, UnmarshallerContext _ctx) {
 		
 		getServiceExtensionsResponse.setRequestId(_ctx.stringValue("GetServiceExtensionsResponse.RequestId"));
-		getServiceExtensionsResponse.setSuccess(_ctx.booleanValue("GetServiceExtensionsResponse.Success"));
+		getServiceExtensionsResponse.setHttpStatusCode(_ctx.integerValue("GetServiceExtensionsResponse.HttpStatusCode"));
 		getServiceExtensionsResponse.setCode(_ctx.stringValue("GetServiceExtensionsResponse.Code"));
 		getServiceExtensionsResponse.setMessage(_ctx.stringValue("GetServiceExtensionsResponse.Message"));
-		getServiceExtensionsResponse.setHttpStatusCode(_ctx.integerValue("GetServiceExtensionsResponse.HttpStatusCode"));
+		getServiceExtensionsResponse.setSuccess(_ctx.booleanValue("GetServiceExtensionsResponse.Success"));
 
 		List<ServiceExtension> serviceExtensions = new ArrayList<ServiceExtension>();
 		for (int i = 0; i < _ctx.lengthValue("GetServiceExtensionsResponse.ServiceExtensions.Length"); i++) {
 			ServiceExtension serviceExtension = new ServiceExtension();
-			serviceExtension.setName(_ctx.stringValue("GetServiceExtensionsResponse.ServiceExtensions["+ i +"].Name"));
 			serviceExtension.setNumber(_ctx.stringValue("GetServiceExtensionsResponse.ServiceExtensions["+ i +"].Number"));
+			serviceExtension.setName(_ctx.stringValue("GetServiceExtensionsResponse.ServiceExtensions["+ i +"].Name"));
 
 			serviceExtensions.add(serviceExtension);
 		}

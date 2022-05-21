@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeHealthChecksResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<HealthCheck> healthChecks;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeHealthChecksResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<HealthCheck> getHealthChecks() {
@@ -77,71 +77,39 @@ public class DescribeHealthChecksResponse extends AcsResponse {
 
 	public static class HealthCheck {
 
-		private String hcInstanceId;
-
-		private String smartAGId;
-
-		private String name;
-
-		private String description;
-
 		private String type;
-
-		private String dstIpAddr;
-
-		private Integer dstPort;
-
-		private String srcIpAddr;
-
-		private Integer srcPort;
-
-		private Integer probeInterval;
-
-		private Integer probeCount;
 
 		private Integer probeTimeout;
 
-		private Integer rttThreshold;
+		private String status;
 
-		private Integer rttFailThreshold;
-
-		private Integer failCountThreshold;
+		private String dstIpAddr;
 
 		private Integer relationCount;
 
-		private String status;
+		private Integer rttFailThreshold;
 
-		public String getHcInstanceId() {
-			return this.hcInstanceId;
-		}
+		private String smartAGId;
 
-		public void setHcInstanceId(String hcInstanceId) {
-			this.hcInstanceId = hcInstanceId;
-		}
+		private Integer dstPort;
 
-		public String getSmartAGId() {
-			return this.smartAGId;
-		}
+		private Integer failCountThreshold;
 
-		public void setSmartAGId(String smartAGId) {
-			this.smartAGId = smartAGId;
-		}
+		private Integer rttThreshold;
 
-		public String getName() {
-			return this.name;
-		}
+		private Integer srcPort;
 
-		public void setName(String name) {
-			this.name = name;
-		}
+		private Integer probeCount;
 
-		public String getDescription() {
-			return this.description;
-		}
+		private String description;
 
-		public void setDescription(String description) {
-			this.description = description;
-		}
+		private String srcIpAddr;
+
+		private Integer probeInterval;
+
+		private String name;
+
+		private String hcInstanceId;
 
 		public String getType() {
 			return this.type;
@@ -149,54 +117,6 @@ public class DescribeHealthChecksResponse extends AcsResponse {
 
 		public void setType(String type) {
 			this.type = type;
-		}
-
-		public String getDstIpAddr() {
-			return this.dstIpAddr;
-		}
-
-		public void setDstIpAddr(String dstIpAddr) {
-			this.dstIpAddr = dstIpAddr;
-		}
-
-		public Integer getDstPort() {
-			return this.dstPort;
-		}
-
-		public void setDstPort(Integer dstPort) {
-			this.dstPort = dstPort;
-		}
-
-		public String getSrcIpAddr() {
-			return this.srcIpAddr;
-		}
-
-		public void setSrcIpAddr(String srcIpAddr) {
-			this.srcIpAddr = srcIpAddr;
-		}
-
-		public Integer getSrcPort() {
-			return this.srcPort;
-		}
-
-		public void setSrcPort(Integer srcPort) {
-			this.srcPort = srcPort;
-		}
-
-		public Integer getProbeInterval() {
-			return this.probeInterval;
-		}
-
-		public void setProbeInterval(Integer probeInterval) {
-			this.probeInterval = probeInterval;
-		}
-
-		public Integer getProbeCount() {
-			return this.probeCount;
-		}
-
-		public void setProbeCount(Integer probeCount) {
-			this.probeCount = probeCount;
 		}
 
 		public Integer getProbeTimeout() {
@@ -207,28 +127,20 @@ public class DescribeHealthChecksResponse extends AcsResponse {
 			this.probeTimeout = probeTimeout;
 		}
 
-		public Integer getRttThreshold() {
-			return this.rttThreshold;
+		public String getStatus() {
+			return this.status;
 		}
 
-		public void setRttThreshold(Integer rttThreshold) {
-			this.rttThreshold = rttThreshold;
+		public void setStatus(String status) {
+			this.status = status;
 		}
 
-		public Integer getRttFailThreshold() {
-			return this.rttFailThreshold;
+		public String getDstIpAddr() {
+			return this.dstIpAddr;
 		}
 
-		public void setRttFailThreshold(Integer rttFailThreshold) {
-			this.rttFailThreshold = rttFailThreshold;
-		}
-
-		public Integer getFailCountThreshold() {
-			return this.failCountThreshold;
-		}
-
-		public void setFailCountThreshold(Integer failCountThreshold) {
-			this.failCountThreshold = failCountThreshold;
+		public void setDstIpAddr(String dstIpAddr) {
+			this.dstIpAddr = dstIpAddr;
 		}
 
 		public Integer getRelationCount() {
@@ -239,12 +151,100 @@ public class DescribeHealthChecksResponse extends AcsResponse {
 			this.relationCount = relationCount;
 		}
 
-		public String getStatus() {
-			return this.status;
+		public Integer getRttFailThreshold() {
+			return this.rttFailThreshold;
 		}
 
-		public void setStatus(String status) {
-			this.status = status;
+		public void setRttFailThreshold(Integer rttFailThreshold) {
+			this.rttFailThreshold = rttFailThreshold;
+		}
+
+		public String getSmartAGId() {
+			return this.smartAGId;
+		}
+
+		public void setSmartAGId(String smartAGId) {
+			this.smartAGId = smartAGId;
+		}
+
+		public Integer getDstPort() {
+			return this.dstPort;
+		}
+
+		public void setDstPort(Integer dstPort) {
+			this.dstPort = dstPort;
+		}
+
+		public Integer getFailCountThreshold() {
+			return this.failCountThreshold;
+		}
+
+		public void setFailCountThreshold(Integer failCountThreshold) {
+			this.failCountThreshold = failCountThreshold;
+		}
+
+		public Integer getRttThreshold() {
+			return this.rttThreshold;
+		}
+
+		public void setRttThreshold(Integer rttThreshold) {
+			this.rttThreshold = rttThreshold;
+		}
+
+		public Integer getSrcPort() {
+			return this.srcPort;
+		}
+
+		public void setSrcPort(Integer srcPort) {
+			this.srcPort = srcPort;
+		}
+
+		public Integer getProbeCount() {
+			return this.probeCount;
+		}
+
+		public void setProbeCount(Integer probeCount) {
+			this.probeCount = probeCount;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public String getSrcIpAddr() {
+			return this.srcIpAddr;
+		}
+
+		public void setSrcIpAddr(String srcIpAddr) {
+			this.srcIpAddr = srcIpAddr;
+		}
+
+		public Integer getProbeInterval() {
+			return this.probeInterval;
+		}
+
+		public void setProbeInterval(Integer probeInterval) {
+			this.probeInterval = probeInterval;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getHcInstanceId() {
+			return this.hcInstanceId;
+		}
+
+		public void setHcInstanceId(String hcInstanceId) {
+			this.hcInstanceId = hcInstanceId;
 		}
 	}
 

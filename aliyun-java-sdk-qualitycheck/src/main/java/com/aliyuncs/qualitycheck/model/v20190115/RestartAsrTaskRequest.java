@@ -24,23 +24,10 @@ import com.aliyuncs.http.MethodType;
 public class RestartAsrTaskRequest extends RpcAcsRequest<RestartAsrTaskResponse> {
 	   
 
-	private Long resourceOwnerId;
-
 	private String jsonStr;
 	public RestartAsrTaskRequest() {
 		super("Qualitycheck", "2019-01-15", "RestartAsrTask");
 		setMethod(MethodType.POST);
-	}
-
-	public Long getResourceOwnerId() {
-		return this.resourceOwnerId;
-	}
-
-	public void setResourceOwnerId(Long resourceOwnerId) {
-		this.resourceOwnerId = resourceOwnerId;
-		if(resourceOwnerId != null){
-			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
-		}
 	}
 
 	public String getJsonStr() {

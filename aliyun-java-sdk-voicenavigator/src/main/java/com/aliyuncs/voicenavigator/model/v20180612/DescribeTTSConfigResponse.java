@@ -26,11 +26,11 @@ public class DescribeTTSConfigResponse extends AcsResponse {
 
 	private String requestId;
 
+	private Integer volume;
+
 	private String voice;
 
 	private Integer speechRate;
-
-	private Integer volume;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -38,6 +38,14 @@ public class DescribeTTSConfigResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Integer getVolume() {
+		return this.volume;
+	}
+
+	public void setVolume(Integer volume) {
+		this.volume = volume;
 	}
 
 	public String getVoice() {
@@ -54,14 +62,6 @@ public class DescribeTTSConfigResponse extends AcsResponse {
 
 	public void setSpeechRate(Integer speechRate) {
 		this.speechRate = speechRate;
-	}
-
-	public Integer getVolume() {
-		return this.volume;
-	}
-
-	public void setVolume(Integer volume) {
-		this.volume = volume;
 	}
 
 	@Override

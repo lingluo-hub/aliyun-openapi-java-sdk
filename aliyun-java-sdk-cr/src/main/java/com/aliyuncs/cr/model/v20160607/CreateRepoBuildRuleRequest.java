@@ -16,22 +16,27 @@ package com.aliyuncs.cr.model.v20160607;
 
 import com.aliyuncs.RoaAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.cr.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
 public class CreateRepoBuildRuleRequest extends RoaAcsRequest<CreateRepoBuildRuleResponse> {
-	
-	public CreateRepoBuildRuleRequest() {
-		super("cr", "2016-06-07", "CreateRepoBuildRule", "cr");
-		setUriPattern("/repos/[RepoNamespace]/[RepoName]/rules");
-		setMethod(MethodType.PUT);
-	}
+	   
 
 	private String repoNamespace;
 
 	private String repoName;
+	public CreateRepoBuildRuleRequest() {
+		super("cr", "2016-06-07", "CreateRepoBuildRule", "acr");
+		setUriPattern("/repos/[RepoNamespace]/[RepoName]/rules");
+		setMethod(MethodType.PUT);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
+	}
 
 	public String getRepoNamespace() {
 		return this.repoNamespace;

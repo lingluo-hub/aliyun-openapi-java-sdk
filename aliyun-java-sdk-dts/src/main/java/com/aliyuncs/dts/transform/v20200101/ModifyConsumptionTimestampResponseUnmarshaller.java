@@ -23,8 +23,8 @@ public class ModifyConsumptionTimestampResponseUnmarshaller {
 	public static ModifyConsumptionTimestampResponse unmarshall(ModifyConsumptionTimestampResponse modifyConsumptionTimestampResponse, UnmarshallerContext _ctx) {
 		
 		modifyConsumptionTimestampResponse.setRequestId(_ctx.stringValue("ModifyConsumptionTimestampResponse.RequestId"));
-		modifyConsumptionTimestampResponse.setSuccess(_ctx.stringValue("ModifyConsumptionTimestampResponse.Success"));
 		modifyConsumptionTimestampResponse.setErrCode(_ctx.stringValue("ModifyConsumptionTimestampResponse.ErrCode"));
+		modifyConsumptionTimestampResponse.setSuccess(_ctx.stringValue("ModifyConsumptionTimestampResponse.Success"));
 		modifyConsumptionTimestampResponse.setErrMessage(_ctx.stringValue("ModifyConsumptionTimestampResponse.ErrMessage"));
 	 
 	 	return modifyConsumptionTimestampResponse;

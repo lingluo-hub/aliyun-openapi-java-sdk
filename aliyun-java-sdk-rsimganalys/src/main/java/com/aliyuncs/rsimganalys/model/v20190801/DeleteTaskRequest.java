@@ -16,6 +16,7 @@ package com.aliyuncs.rsimganalys.model.v20190801;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.rsimganalys.Endpoint;
 
 /**
  * @author auto create
@@ -25,11 +26,13 @@ public class DeleteTaskRequest extends RpcAcsRequest<DeleteTaskResponse> {
 	   
 
 	private String jobId;
-
-	private String appkey;
 	public DeleteTaskRequest() {
-		super("rsimganalys", "2019-08-01", "DeleteTask");
+		super("rsimganalys", "2019-08-01", "DeleteTask", "rsimganalys");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getJobId() {
@@ -40,17 +43,6 @@ public class DeleteTaskRequest extends RpcAcsRequest<DeleteTaskResponse> {
 		this.jobId = jobId;
 		if(jobId != null){
 			putQueryParameter("JobId", jobId);
-		}
-	}
-
-	public String getAppkey() {
-		return this.appkey;
-	}
-
-	public void setAppkey(String appkey) {
-		this.appkey = appkey;
-		if(appkey != null){
-			putQueryParameter("Appkey", appkey);
 		}
 	}
 

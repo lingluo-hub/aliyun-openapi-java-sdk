@@ -1,3 +1,61 @@
+2021-05-23 Version: 20210523.0.0
+- New API- GetDrdsDbRdsRelationInfo, which can get private RDS list under certain DB out of DRDS instance ID and DB name.
+
+2021-05-14 Version: 20210514.0.0
+- Support Private RDS management through OpenAPI.
+- ManagePrivateRds to do RDS information query and some management.
+- DescribeDrdsRdsInstances to find RDS under a certain DRDS instance.
+- UpdatePrivateRdsClass to Upgrade or Downgrade your Private RDS class.
+
+2021-05-14 Version: 1.1.0
+- Support Private RDS management through OpenAPI.
+- ManagePrivateRds to do RDS information query and some management.
+- DescribeDrdsRdsInstances to find RDS under a certain DRDS instance.
+- UpdatePrivateRdsClass to Upgrade or Downgrade your Private RDS class.
+
+2020-11-20 Version: 20201120
+- Parameter increase regionId.
+
+2020-11-19 Version: 20201119
+- Parameter increase regionId.
+
+2020-11-16 Version: 8
+- Add some parameters.
+
+2020-10-28 Version: 20201028
+- Supported golang sdk.
+- Fixed some bugs for drds.
+
+2020-09-01 Version: 202009031
+- Generated 2019-01-23 for `Drds`.
+
+2020-09-01 Version: 201710161
+- Generated 2017-10-16 for `Drds`.
+
+2020-09-01 Version: 20200901
+- Generated 2019-01-23 for `Drds`.
+
+2020-09-01 Version: 20200901
+- Generated 2019-01-23 for `Drds`.
+
+2020-09-01 Version: 20190123
+- Generated 2019-01-23 for `Drds`.
+
+2020-09-01 Version: 20190123
+- Generated 2019-01-23 for `Drds`.
+
+2020-08-17 Version: 20190123
+- Generated 2019-01-23 for `Drds`.
+
+2020-08-17 Version: 2019-01-23
+- Generated 2019-01-23 for `Drds`.
+
+2020-08-17 Version: 2019-01-23
+- Generated 2019-01-23 for `Drds`.
+
+2020-05-22 Version: 4.7.2-inner
+- Generated 2019-01-23, 2017-10-16 for `Drds`.
+
 2020-03-03 Version: 4.6.1
 - Supported DescribeDrdsInstance.
 

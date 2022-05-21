@@ -15,6 +15,7 @@
 package com.aliyuncs.vod.model.v20170321;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.vod.Endpoint;
 
@@ -27,21 +28,15 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 
 	private Integer pageNumber;
 
-	private Boolean checkDomainShow;
-
 	private String securityToken;
-
-	private String cdnType;
 
 	private Integer pageSize;
 
-	private String funcFilter;
+	private List<Tag> tags;
 
 	private String domainName;
 
 	private Long ownerId;
-
-	private String funcId;
 
 	private String domainStatus;
 
@@ -66,17 +61,6 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		}
 	}
 
-	public Boolean getCheckDomainShow() {
-		return this.checkDomainShow;
-	}
-
-	public void setCheckDomainShow(Boolean checkDomainShow) {
-		this.checkDomainShow = checkDomainShow;
-		if(checkDomainShow != null){
-			putQueryParameter("CheckDomainShow", checkDomainShow.toString());
-		}
-	}
-
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -85,17 +69,6 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getCdnType() {
-		return this.cdnType;
-	}
-
-	public void setCdnType(String cdnType) {
-		this.cdnType = cdnType;
-		if(cdnType != null){
-			putQueryParameter("CdnType", cdnType);
 		}
 	}
 
@@ -110,15 +83,18 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		}
 	}
 
-	public String getFuncFilter() {
-		return this.funcFilter;
+	public List<Tag> getTags() {
+		return this.tags;
 	}
 
-	public void setFuncFilter(String funcFilter) {
-		this.funcFilter = funcFilter;
-		if(funcFilter != null){
-			putQueryParameter("FuncFilter", funcFilter);
-		}
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public String getDomainName() {
@@ -143,17 +119,6 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		}
 	}
 
-	public String getFuncId() {
-		return this.funcId;
-	}
-
-	public void setFuncId(String funcId) {
-		this.funcId = funcId;
-		if(funcId != null){
-			putQueryParameter("FuncId", funcId);
-		}
-	}
-
 	public String getDomainStatus() {
 		return this.domainStatus;
 	}
@@ -173,6 +138,29 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		this.domainSearchType = domainSearchType;
 		if(domainSearchType != null){
 			putQueryParameter("DomainSearchType", domainSearchType);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeEnsNetDistrictResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer code;
 
+	private String requestId;
+
 	private List<EnsNetDistrict> ensNetDistricts;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getCode() {
 		return this.code;
@@ -45,6 +37,14 @@ public class DescribeEnsNetDistrictResponse extends AcsResponse {
 
 	public void setCode(Integer code) {
 		this.code = code;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<EnsNetDistrict> getEnsNetDistricts() {
@@ -57,17 +57,25 @@ public class DescribeEnsNetDistrictResponse extends AcsResponse {
 
 	public static class EnsNetDistrict {
 
+		private String ensRegionIdCount;
+
 		private String netDistrictCode;
 
-		private String netDistrictName;
+		private String netDistrictEnName;
 
 		private String netDistrictFatherCode;
 
-		private String ensRegionIdCount;
-
 		private String netDistrictLevel;
 
-		private String netDistrictEnName;
+		private String netDistrictName;
+
+		public String getEnsRegionIdCount() {
+			return this.ensRegionIdCount;
+		}
+
+		public void setEnsRegionIdCount(String ensRegionIdCount) {
+			this.ensRegionIdCount = ensRegionIdCount;
+		}
 
 		public String getNetDistrictCode() {
 			return this.netDistrictCode;
@@ -77,12 +85,12 @@ public class DescribeEnsNetDistrictResponse extends AcsResponse {
 			this.netDistrictCode = netDistrictCode;
 		}
 
-		public String getNetDistrictName() {
-			return this.netDistrictName;
+		public String getNetDistrictEnName() {
+			return this.netDistrictEnName;
 		}
 
-		public void setNetDistrictName(String netDistrictName) {
-			this.netDistrictName = netDistrictName;
+		public void setNetDistrictEnName(String netDistrictEnName) {
+			this.netDistrictEnName = netDistrictEnName;
 		}
 
 		public String getNetDistrictFatherCode() {
@@ -93,14 +101,6 @@ public class DescribeEnsNetDistrictResponse extends AcsResponse {
 			this.netDistrictFatherCode = netDistrictFatherCode;
 		}
 
-		public String getEnsRegionIdCount() {
-			return this.ensRegionIdCount;
-		}
-
-		public void setEnsRegionIdCount(String ensRegionIdCount) {
-			this.ensRegionIdCount = ensRegionIdCount;
-		}
-
 		public String getNetDistrictLevel() {
 			return this.netDistrictLevel;
 		}
@@ -109,12 +109,12 @@ public class DescribeEnsNetDistrictResponse extends AcsResponse {
 			this.netDistrictLevel = netDistrictLevel;
 		}
 
-		public String getNetDistrictEnName() {
-			return this.netDistrictEnName;
+		public String getNetDistrictName() {
+			return this.netDistrictName;
 		}
 
-		public void setNetDistrictEnName(String netDistrictEnName) {
-			this.netDistrictEnName = netDistrictEnName;
+		public void setNetDistrictName(String netDistrictName) {
+			this.netDistrictName = netDistrictName;
 		}
 	}
 

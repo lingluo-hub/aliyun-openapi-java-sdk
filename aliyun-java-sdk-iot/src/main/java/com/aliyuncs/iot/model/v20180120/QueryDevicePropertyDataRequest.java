@@ -25,15 +25,7 @@ import com.aliyuncs.iot.Endpoint;
 public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePropertyDataResponse> {
 	   
 
-	private String identifier;
-
-	private Long endTime;
-
 	private Long startTime;
-
-	private String productKey;
-
-	private Integer asc;
 
 	private String iotId;
 
@@ -41,36 +33,22 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 
 	private Integer pageSize;
 
+	private String identifier;
+
+	private Long endTime;
+
+	private String productKey;
+
+	private Integer asc;
+
 	private String deviceName;
 	public QueryDevicePropertyDataRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyData", "Iot");
+		super("Iot", "2018-01-20", "QueryDevicePropertyData");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getIdentifier() {
-		return this.identifier;
-	}
-
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-		if(identifier != null){
-			putQueryParameter("Identifier", identifier);
-		}
-	}
-
-	public Long getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
-		if(endTime != null){
-			putQueryParameter("EndTime", endTime.toString());
-		}
 	}
 
 	public Long getStartTime() {
@@ -81,28 +59,6 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime.toString());
-		}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public Integer getAsc() {
-		return this.asc;
-	}
-
-	public void setAsc(Integer asc) {
-		this.asc = asc;
-		if(asc != null){
-			putQueryParameter("Asc", asc.toString());
 		}
 	}
 
@@ -136,6 +92,50 @@ public class QueryDevicePropertyDataRequest extends RpcAcsRequest<QueryDevicePro
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getIdentifier() {
+		return this.identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+		if(identifier != null){
+			putQueryParameter("Identifier", identifier);
+		}
+	}
+
+	public Long getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public Integer getAsc() {
+		return this.asc;
+	}
+
+	public void setAsc(Integer asc) {
+		this.asc = asc;
+		if(asc != null){
+			putQueryParameter("Asc", asc.toString());
 		}
 	}
 

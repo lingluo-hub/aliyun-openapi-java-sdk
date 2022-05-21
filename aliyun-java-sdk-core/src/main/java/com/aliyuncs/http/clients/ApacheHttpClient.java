@@ -7,6 +7,7 @@ import com.aliyuncs.utils.IOUtils;
 import com.aliyuncs.utils.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
+import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.EntityBuilder;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -22,6 +23,7 @@ import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
+import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.HttpContext;
@@ -81,44 +83,54 @@ public class ApacheHttpClient extends IHttpClient {
 
     private SSLConnectionSocketFactory createSSLConnectionSocketFactory() throws ClientException {
         try {
-            List<TrustManager> trustManagerList = new ArrayList<TrustManager>();
-            X509TrustManager[] trustManagers = clientConfig.getX509TrustManagers();
+            if (null == clientConfig.getSslSocketFactory()) {
+                List<TrustManager> trustManagerList = new ArrayList<TrustManager>();
+                X509TrustManager[] trustManagers = clientConfig.getX509TrustManagers();
 
-            if (null != trustManagers) {
-                trustManagerList.addAll(Arrays.asList(trustManagers));
-            }
-
-            // get trustManager using default certification from jdk
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init((KeyStore) null);
-            trustManagerList.addAll(Arrays.asList(tmf.getTrustManagers()));
-
-            final List<X509TrustManager> finalTrustManagerList = new ArrayList<X509TrustManager>();
-            for (TrustManager tm : trustManagerList) {
-                if (tm instanceof X509TrustManager) {
-                    finalTrustManagerList.add((X509TrustManager) tm);
+                if (null != trustManagers) {
+                    trustManagerList.addAll(Arrays.asList(trustManagers));
                 }
-            }
-            CompositeX509TrustManager compositeX509TrustManager = new CompositeX509TrustManager(finalTrustManagerList);
-            compositeX509TrustManager.setIgnoreSSLCert(clientConfig.isIgnoreSSLCerts());
-            KeyManager[] keyManagers = null;
-            if (clientConfig.getKeyManagers() != null) {
-                keyManagers = clientConfig.getKeyManagers();
-            }
 
-            SSLContext sslContext = SSLContext.getInstance("TLS");
-            sslContext.init(keyManagers, new TrustManager[]{compositeX509TrustManager}, clientConfig.getSecureRandom());
+                // get trustManager using default certification from jdk
+                TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                tmf.init((KeyStore) null);
+                trustManagerList.addAll(Arrays.asList(tmf.getTrustManagers()));
 
-            HostnameVerifier hostnameVerifier = null;
-            if (clientConfig.isIgnoreSSLCerts()) {
-                hostnameVerifier = new NoopHostnameVerifier();
-            } else if (clientConfig.getHostnameVerifier() != null) {
-                hostnameVerifier = clientConfig.getHostnameVerifier();
+                final List<X509TrustManager> finalTrustManagerList = new ArrayList<X509TrustManager>();
+                for (TrustManager tm : trustManagerList) {
+                    if (tm instanceof X509TrustManager) {
+                        finalTrustManagerList.add((X509TrustManager) tm);
+                    }
+                }
+                CompositeX509TrustManager compositeX509TrustManager = new CompositeX509TrustManager(finalTrustManagerList);
+                compositeX509TrustManager.setIgnoreSSLCert(clientConfig.isIgnoreSSLCerts());
+                KeyManager[] keyManagers = null;
+                if (clientConfig.getKeyManagers() != null) {
+                    keyManagers = clientConfig.getKeyManagers();
+                }
+
+                SSLContext sslContext = SSLContext.getInstance("TLS");
+                sslContext.init(keyManagers, new TrustManager[]{compositeX509TrustManager}, clientConfig.getSecureRandom());
+
+                HostnameVerifier hostnameVerifier = null;
+                if (clientConfig.isIgnoreSSLCerts()) {
+                    hostnameVerifier = new NoopHostnameVerifier();
+                } else if (clientConfig.getHostnameVerifier() != null) {
+                    hostnameVerifier = clientConfig.getHostnameVerifier();
+                } else {
+                    hostnameVerifier = new DefaultHostnameVerifier();
+                }
+                SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
+                return sslConnectionSocketFactory;
             } else {
-                hostnameVerifier = new DefaultHostnameVerifier();
+                HostnameVerifier hostnameVerifier;
+                if (null == clientConfig.getHostnameVerifier()) {
+                    hostnameVerifier = new NoopHostnameVerifier();
+                } else {
+                    hostnameVerifier = clientConfig.getHostnameVerifier();
+                }
+                return new SSLConnectionSocketFactory(clientConfig.getSslSocketFactory(), hostnameVerifier);
             }
-            SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
-            return sslConnectionSocketFactory;
         } catch (Exception e) {
             throw new ClientException("SDK.InitFailed", "Init https with SSL socket failed", e);
         }
@@ -174,7 +186,10 @@ public class ApacheHttpClient extends IHttpClient {
         this.clientConfig = config;
 
         HttpClientBuilder builder = initHttpClientBuilder();
-
+        CredentialsProvider credentialsProvider = this.clientConfig.getCredentialsProvider();
+        if (null != credentialsProvider) {
+            builder.setDefaultCredentialsProvider(credentialsProvider);
+        }
         // default request config
         RequestConfig defaultConfig = RequestConfig.custom().setConnectTimeout((int) config
                 .getConnectionTimeoutMillis()).setSocketTimeout((int) config.getReadTimeoutMillis())
@@ -186,6 +201,8 @@ public class ApacheHttpClient extends IHttpClient {
         ApacheIdleConnectionCleaner.registerConnectionManager(connectionManager, config.getMaxIdleTimeMillis());
 
         initExecutor();
+
+        builder.setRetryHandler(new DefaultHttpRequestRetryHandler(0, false));
 
         // keepAlive
         if (config.getKeepAliveDurationMillis() > 0) {
@@ -276,9 +293,12 @@ public class ApacheHttpClient extends IHttpClient {
         result.setReasonPhrase(httpResponse.getStatusLine().getReasonPhrase());
         boolean existed = ((httpResponse.getEntity() != null && (httpResponse.getEntity().getContentLength() > 0 || httpResponse
                 .getEntity().isChunked())));
-        if (existed){
+        if (existed) {
             // content type
             Header contentTypeHeader = httpResponse.getEntity().getContentType();
+            if (null == contentTypeHeader) {
+                throw new RuntimeException("contentType cannot be empty");
+            }
             ContentType contentType = ContentType.parse(contentTypeHeader.getValue());
             FormatType formatType = FormatType.mapAcceptToFormat(contentType.getMimeType());
             result.setHttpContentType(formatType);

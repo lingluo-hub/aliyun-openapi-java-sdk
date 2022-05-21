@@ -28,6 +28,8 @@ public class DescribeDcdnUserResourcePackageRequest extends RpcAcsRequest<Descri
 	private Long ownerId;
 
 	private String securityToken;
+
+	private String status;
 	public DescribeDcdnUserResourcePackageRequest() {
 		super("dcdn", "2018-01-15", "DescribeDcdnUserResourcePackage");
 		setMethod(MethodType.POST);
@@ -56,6 +58,17 @@ public class DescribeDcdnUserResourcePackageRequest extends RpcAcsRequest<Descri
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
 		}
 	}
 

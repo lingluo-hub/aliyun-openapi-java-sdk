@@ -25,35 +25,24 @@ import com.aliyuncs.iot.Endpoint;
 public class SetDeviceDesiredPropertyRequest extends RpcAcsRequest<SetDeviceDesiredPropertyResponse> {
 	   
 
-	private String productKey;
-
 	private String iotId;
 
-	private String versions;
-
 	private String iotInstanceId;
+
+	private String productKey;
+
+	private String versions;
 
 	private String deviceName;
 
 	private String items;
 	public SetDeviceDesiredPropertyRequest() {
-		super("Iot", "2018-01-20", "SetDeviceDesiredProperty", "Iot");
+		super("Iot", "2018-01-20", "SetDeviceDesiredProperty");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProductKey() {
-		return this.productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
 	}
 
 	public String getIotId() {
@@ -67,17 +56,6 @@ public class SetDeviceDesiredPropertyRequest extends RpcAcsRequest<SetDeviceDesi
 		}
 	}
 
-	public String getVersions() {
-		return this.versions;
-	}
-
-	public void setVersions(String versions) {
-		this.versions = versions;
-		if(versions != null){
-			putQueryParameter("Versions", versions);
-		}
-	}
-
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -86,6 +64,28 @@ public class SetDeviceDesiredPropertyRequest extends RpcAcsRequest<SetDeviceDesi
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getVersions() {
+		return this.versions;
+	}
+
+	public void setVersions(String versions) {
+		this.versions = versions;
+		if(versions != null){
+			putQueryParameter("Versions", versions);
 		}
 	}
 

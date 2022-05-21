@@ -28,7 +28,15 @@ public class CreateOTAVerifyJobRequest extends RpcAcsRequest<CreateOTAVerifyJobR
 
 	private Integer timeoutInMinutes;
 
+	private Boolean needConfirm;
+
+	private Boolean needPush;
+
 	private String iotInstanceId;
+
+	private String downloadProtocol;
+
+	private List<Tag> tags;
 
 	private String firmwareId;
 
@@ -36,7 +44,7 @@ public class CreateOTAVerifyJobRequest extends RpcAcsRequest<CreateOTAVerifyJobR
 
 	private List<String> targetDeviceNames;
 	public CreateOTAVerifyJobRequest() {
-		super("Iot", "2018-01-20", "CreateOTAVerifyJob", "Iot");
+		super("Iot", "2018-01-20", "CreateOTAVerifyJob");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -55,6 +63,28 @@ public class CreateOTAVerifyJobRequest extends RpcAcsRequest<CreateOTAVerifyJobR
 		}
 	}
 
+	public Boolean getNeedConfirm() {
+		return this.needConfirm;
+	}
+
+	public void setNeedConfirm(Boolean needConfirm) {
+		this.needConfirm = needConfirm;
+		if(needConfirm != null){
+			putQueryParameter("NeedConfirm", needConfirm.toString());
+		}
+	}
+
+	public Boolean getNeedPush() {
+		return this.needPush;
+	}
+
+	public void setNeedPush(Boolean needPush) {
+		this.needPush = needPush;
+		if(needPush != null){
+			putQueryParameter("NeedPush", needPush.toString());
+		}
+	}
+
 	public String getIotInstanceId() {
 		return this.iotInstanceId;
 	}
@@ -64,6 +94,31 @@ public class CreateOTAVerifyJobRequest extends RpcAcsRequest<CreateOTAVerifyJobR
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
+	}
+
+	public String getDownloadProtocol() {
+		return this.downloadProtocol;
+	}
+
+	public void setDownloadProtocol(String downloadProtocol) {
+		this.downloadProtocol = downloadProtocol;
+		if(downloadProtocol != null){
+			putQueryParameter("DownloadProtocol", downloadProtocol);
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
 	}
 
 	public String getFirmwareId() {
@@ -99,6 +154,29 @@ public class CreateOTAVerifyJobRequest extends RpcAcsRequest<CreateOTAVerifyJobR
 				putQueryParameter("TargetDeviceName." + (i + 1) , targetDeviceNames.get(i));
 			}
 		}	
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
 	}
 
 	@Override

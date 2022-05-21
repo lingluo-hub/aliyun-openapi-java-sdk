@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeQosesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<Qos> qoses;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeQosesResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<Qos> getQoses() {
@@ -77,30 +77,24 @@ public class DescribeQosesResponse extends AcsResponse {
 
 	public static class Qos {
 
-		private String qosId;
-
-		private String qosName;
+		private String qosDescription;
 
 		private String sagCount;
 
 		private String smartAGIds;
 
-		private String qosDescription;
+		private String qosId;
 
-		public String getQosId() {
-			return this.qosId;
+		private String qosName;
+
+		private String resourceGroupId;
+
+		public String getQosDescription() {
+			return this.qosDescription;
 		}
 
-		public void setQosId(String qosId) {
-			this.qosId = qosId;
-		}
-
-		public String getQosName() {
-			return this.qosName;
-		}
-
-		public void setQosName(String qosName) {
-			this.qosName = qosName;
+		public void setQosDescription(String qosDescription) {
+			this.qosDescription = qosDescription;
 		}
 
 		public String getSagCount() {
@@ -119,12 +113,28 @@ public class DescribeQosesResponse extends AcsResponse {
 			this.smartAGIds = smartAGIds;
 		}
 
-		public String getQosDescription() {
-			return this.qosDescription;
+		public String getQosId() {
+			return this.qosId;
 		}
 
-		public void setQosDescription(String qosDescription) {
-			this.qosDescription = qosDescription;
+		public void setQosId(String qosId) {
+			this.qosId = qosId;
+		}
+
+		public String getQosName() {
+			return this.qosName;
+		}
+
+		public void setQosName(String qosName) {
+			this.qosName = qosName;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 	}
 

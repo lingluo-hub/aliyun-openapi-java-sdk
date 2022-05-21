@@ -26,18 +26,29 @@ import com.aliyuncs.iot.Endpoint;
 public class DeleteTopicRouteTableRequest extends RpcAcsRequest<DeleteTopicRouteTableResponse> {
 	   
 
-	private List<String> dstTopics;
-
 	private String iotInstanceId;
+
+	private List<String> dstTopics;
 
 	private String srcTopic;
 	public DeleteTopicRouteTableRequest() {
-		super("Iot", "2018-01-20", "DeleteTopicRouteTable", "Iot");
+		super("Iot", "2018-01-20", "DeleteTopicRouteTable");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
 	}
 
 	public List<String> getDstTopics() {
@@ -51,17 +62,6 @@ public class DeleteTopicRouteTableRequest extends RpcAcsRequest<DeleteTopicRoute
 				putQueryParameter("DstTopic." + (i + 1) , dstTopics.get(i));
 			}
 		}	
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
-		}
 	}
 
 	public String getSrcTopic() {

@@ -15,6 +15,7 @@
 package com.aliyuncs.sas.model.v20181203;
 
 import java.util.List;
+import java.util.Map;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.sas.transform.v20181203.DescribeRiskCheckResultResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -25,19 +26,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeRiskCheckResultResponse extends AcsResponse {
 
+	private Integer currentPage;
+
 	private String requestId;
-
-	private Integer pageCount;
-
-	private Integer count;
 
 	private Integer pageSize;
 
 	private Integer totalCount;
 
-	private Integer currentPage;
+	private Integer pageCount;
+
+	private Integer count;
 
 	private List<RiskCheckResultForDisplay> list;
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -45,22 +54,6 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public Integer getPageCount() {
-		return this.pageCount;
-	}
-
-	public void setPageCount(Integer pageCount) {
-		this.pageCount = pageCount;
-	}
-
-	public Integer getCount() {
-		return this.count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
 	}
 
 	public Integer getPageSize() {
@@ -79,12 +72,20 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getCurrentPage() {
-		return this.currentPage;
+	public Integer getPageCount() {
+		return this.pageCount;
 	}
 
-	public void setCurrentPage(Integer currentPage) {
-		this.currentPage = currentPage;
+	public void setPageCount(Integer pageCount) {
+		this.pageCount = pageCount;
+	}
+
+	public Integer getCount() {
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public List<RiskCheckResultForDisplay> getList() {
@@ -97,55 +98,33 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 
 	public static class RiskCheckResultForDisplay {
 
-		private Long itemId;
-
-		private Long taskId;
-
-		private String title;
-
 		private String riskLevel;
 
 		private String status;
 
-		private Integer affectedCount;
-
-		private Long checkTime;
-
-		private Integer remainingTime;
+		private String type;
 
 		private Integer sort;
 
-		private String type;
+		private String repairStatus;
+
+		private Integer remainingTime;
+
+		private Long itemId;
 
 		private String startStatus;
 
+		private Integer affectedCount;
+
 		private String riskAssertType;
 
+		private String title;
+
+		private Long taskId;
+
+		private Long checkTime;
+
 		private List<RiskItemResource> riskItemResources;
-
-		public Long getItemId() {
-			return this.itemId;
-		}
-
-		public void setItemId(Long itemId) {
-			this.itemId = itemId;
-		}
-
-		public Long getTaskId() {
-			return this.taskId;
-		}
-
-		public void setTaskId(Long taskId) {
-			this.taskId = taskId;
-		}
-
-		public String getTitle() {
-			return this.title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
 
 		public String getRiskLevel() {
 			return this.riskLevel;
@@ -163,28 +142,12 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 			this.status = status;
 		}
 
-		public Integer getAffectedCount() {
-			return this.affectedCount;
+		public String getType() {
+			return this.type;
 		}
 
-		public void setAffectedCount(Integer affectedCount) {
-			this.affectedCount = affectedCount;
-		}
-
-		public Long getCheckTime() {
-			return this.checkTime;
-		}
-
-		public void setCheckTime(Long checkTime) {
-			this.checkTime = checkTime;
-		}
-
-		public Integer getRemainingTime() {
-			return this.remainingTime;
-		}
-
-		public void setRemainingTime(Integer remainingTime) {
-			this.remainingTime = remainingTime;
+		public void setType(String type) {
+			this.type = type;
 		}
 
 		public Integer getSort() {
@@ -195,12 +158,28 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 			this.sort = sort;
 		}
 
-		public String getType() {
-			return this.type;
+		public String getRepairStatus() {
+			return this.repairStatus;
 		}
 
-		public void setType(String type) {
-			this.type = type;
+		public void setRepairStatus(String repairStatus) {
+			this.repairStatus = repairStatus;
+		}
+
+		public Integer getRemainingTime() {
+			return this.remainingTime;
+		}
+
+		public void setRemainingTime(Integer remainingTime) {
+			this.remainingTime = remainingTime;
+		}
+
+		public Long getItemId() {
+			return this.itemId;
+		}
+
+		public void setItemId(Long itemId) {
+			this.itemId = itemId;
 		}
 
 		public String getStartStatus() {
@@ -211,12 +190,44 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 			this.startStatus = startStatus;
 		}
 
+		public Integer getAffectedCount() {
+			return this.affectedCount;
+		}
+
+		public void setAffectedCount(Integer affectedCount) {
+			this.affectedCount = affectedCount;
+		}
+
 		public String getRiskAssertType() {
 			return this.riskAssertType;
 		}
 
 		public void setRiskAssertType(String riskAssertType) {
 			this.riskAssertType = riskAssertType;
+		}
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public void setTitle(String title) {
+			this.title = title;
+		}
+
+		public Long getTaskId() {
+			return this.taskId;
+		}
+
+		public void setTaskId(Long taskId) {
+			this.taskId = taskId;
+		}
+
+		public Long getCheckTime() {
+			return this.checkTime;
+		}
+
+		public void setCheckTime(Long checkTime) {
+			this.checkTime = checkTime;
 		}
 
 		public List<RiskItemResource> getRiskItemResources() {
@@ -229,9 +240,17 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 
 		public static class RiskItemResource {
 
+			private Map<Object,Object> contentResource;
+
 			private String resourceName;
 
-			private String contentResource;
+			public Map<Object,Object> getContentResource() {
+				return this.contentResource;
+			}
+
+			public void setContentResource(Map<Object,Object> contentResource) {
+				this.contentResource = contentResource;
+			}
 
 			public String getResourceName() {
 				return this.resourceName;
@@ -239,14 +258,6 @@ public class DescribeRiskCheckResultResponse extends AcsResponse {
 
 			public void setResourceName(String resourceName) {
 				this.resourceName = resourceName;
-			}
-
-			public String getContentResource() {
-				return this.contentResource;
-			}
-
-			public void setContentResource(String contentResource) {
-				this.contentResource = contentResource;
 			}
 		}
 	}

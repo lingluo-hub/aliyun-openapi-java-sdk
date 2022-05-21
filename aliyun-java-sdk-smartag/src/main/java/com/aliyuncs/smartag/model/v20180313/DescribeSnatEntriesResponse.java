@@ -25,23 +25,15 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeSnatEntriesResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
-
-	private Integer pageNumber;
 
 	private Integer pageSize;
 
+	private String requestId;
+
+	private Integer pageNumber;
+
 	private List<SnatEntry> snatEntries;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -51,20 +43,28 @@ public class DescribeSnatEntriesResponse extends AcsResponse {
 		this.totalCount = totalCount;
 	}
 
-	public Integer getPageNumber() {
-		return this.pageNumber;
-	}
-
-	public void setPageNumber(Integer pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
 	}
 
 	public List<SnatEntry> getSnatEntries() {
@@ -77,21 +77,13 @@ public class DescribeSnatEntriesResponse extends AcsResponse {
 
 	public static class SnatEntry {
 
-		private String instanceId;
-
 		private String cidrBlock;
-
-		private String snatIp;
 
 		private Long createTime;
 
-		public String getInstanceId() {
-			return this.instanceId;
-		}
+		private String instanceId;
 
-		public void setInstanceId(String instanceId) {
-			this.instanceId = instanceId;
-		}
+		private String snatIp;
 
 		public String getCidrBlock() {
 			return this.cidrBlock;
@@ -101,20 +93,28 @@ public class DescribeSnatEntriesResponse extends AcsResponse {
 			this.cidrBlock = cidrBlock;
 		}
 
-		public String getSnatIp() {
-			return this.snatIp;
-		}
-
-		public void setSnatIp(String snatIp) {
-			this.snatIp = snatIp;
-		}
-
 		public Long getCreateTime() {
 			return this.createTime;
 		}
 
 		public void setCreateTime(Long createTime) {
 			this.createTime = createTime;
+		}
+
+		public String getInstanceId() {
+			return this.instanceId;
+		}
+
+		public void setInstanceId(String instanceId) {
+			this.instanceId = instanceId;
+		}
+
+		public String getSnatIp() {
+			return this.snatIp;
+		}
+
+		public void setSnatIp(String snatIp) {
+			this.snatIp = snatIp;
 		}
 	}
 

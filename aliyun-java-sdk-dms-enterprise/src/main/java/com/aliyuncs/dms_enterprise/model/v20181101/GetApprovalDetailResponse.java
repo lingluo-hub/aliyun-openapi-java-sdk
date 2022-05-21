@@ -27,11 +27,11 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 	private String requestId;
 
-	private Boolean success;
+	private String errorCode;
 
 	private String errorMessage;
 
-	private String errorCode;
+	private Boolean success;
 
 	private ApprovalDetail approvalDetail;
 
@@ -43,12 +43,12 @@ public class GetApprovalDetailResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public Boolean getSuccess() {
-		return this.success;
+	public String getErrorCode() {
+		return this.errorCode;
 	}
 
-	public void setSuccess(Boolean success) {
-		this.success = success;
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	public String getErrorMessage() {
@@ -59,12 +59,12 @@ public class GetApprovalDetailResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public String getErrorCode() {
-		return this.errorCode;
+	public Boolean getSuccess() {
+		return this.success;
 	}
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
+	public void setSuccess(Boolean success) {
+		this.success = success;
 	}
 
 	public ApprovalDetail getApprovalDetail() {
@@ -77,17 +77,19 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 	public static class ApprovalDetail {
 
-		private Long auditId;
+		private String description;
 
-		private Long orderId;
+		private String createTime;
 
 		private String orderType;
 
 		private String title;
 
-		private String workflowInsCode;
+		private Long auditId;
 
-		private String description;
+		private Long orderId;
+
+		private String workflowInsCode;
 
 		private List<WorkflowNode> workflowNodes;
 
@@ -95,20 +97,20 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 		private List<String> reasonList;
 
-		public Long getAuditId() {
-			return this.auditId;
+		public String getDescription() {
+			return this.description;
 		}
 
-		public void setAuditId(Long auditId) {
-			this.auditId = auditId;
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
-		public Long getOrderId() {
-			return this.orderId;
+		public String getCreateTime() {
+			return this.createTime;
 		}
 
-		public void setOrderId(Long orderId) {
-			this.orderId = orderId;
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
 		}
 
 		public String getOrderType() {
@@ -127,20 +129,28 @@ public class GetApprovalDetailResponse extends AcsResponse {
 			this.title = title;
 		}
 
+		public Long getAuditId() {
+			return this.auditId;
+		}
+
+		public void setAuditId(Long auditId) {
+			this.auditId = auditId;
+		}
+
+		public Long getOrderId() {
+			return this.orderId;
+		}
+
+		public void setOrderId(Long orderId) {
+			this.orderId = orderId;
+		}
+
 		public String getWorkflowInsCode() {
 			return this.workflowInsCode;
 		}
 
 		public void setWorkflowInsCode(String workflowInsCode) {
 			this.workflowInsCode = workflowInsCode;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
 		}
 
 		public List<WorkflowNode> getWorkflowNodes() {
@@ -169,33 +179,17 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 		public static class WorkflowNode {
 
-			private String nodeName;
-
-			private String operateComment;
-
 			private String operateTime;
 
 			private Long operatorId;
 
+			private String nodeName;
+
+			private String operateComment;
+
 			private String workflowInsCode;
 
 			private List<String> auditUserIdList;
-
-			public String getNodeName() {
-				return this.nodeName;
-			}
-
-			public void setNodeName(String nodeName) {
-				this.nodeName = nodeName;
-			}
-
-			public String getOperateComment() {
-				return this.operateComment;
-			}
-
-			public void setOperateComment(String operateComment) {
-				this.operateComment = operateComment;
-			}
 
 			public String getOperateTime() {
 				return this.operateTime;
@@ -211,6 +205,22 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 			public void setOperatorId(Long operatorId) {
 				this.operatorId = operatorId;
+			}
+
+			public String getNodeName() {
+				return this.nodeName;
+			}
+
+			public void setNodeName(String nodeName) {
+				this.nodeName = nodeName;
+			}
+
+			public String getOperateComment() {
+				return this.operateComment;
+			}
+
+			public void setOperateComment(String operateComment) {
+				this.operateComment = operateComment;
 			}
 
 			public String getWorkflowInsCode() {
@@ -232,17 +242,9 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 		public static class CurrentHandler {
 
-			private Long id;
-
 			private String nickName;
 
-			public Long getId() {
-				return this.id;
-			}
-
-			public void setId(Long id) {
-				this.id = id;
-			}
+			private Long id;
 
 			public String getNickName() {
 				return this.nickName;
@@ -250,6 +252,14 @@ public class GetApprovalDetailResponse extends AcsResponse {
 
 			public void setNickName(String nickName) {
 				this.nickName = nickName;
+			}
+
+			public Long getId() {
+				return this.id;
+			}
+
+			public void setId(Long id) {
+				this.id = id;
 			}
 		}
 	}

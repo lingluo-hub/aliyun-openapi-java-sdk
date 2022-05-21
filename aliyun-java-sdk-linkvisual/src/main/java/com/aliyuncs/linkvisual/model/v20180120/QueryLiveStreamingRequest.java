@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -24,50 +25,57 @@ import com.aliyuncs.http.MethodType;
 public class QueryLiveStreamingRequest extends RpcAcsRequest<QueryLiveStreamingResponse> {
 	   
 
-	private String iotId;
+	private String scheme;
 
-	private Integer streamType;
-
-	private Boolean shouldEncrypt;
+	private Boolean playUnLimited;
 
 	private Integer encryptType;
 
-	private String scheme;
+	private Integer cacheDuration;
+
+	private String iotId;
+
+	private Boolean forceIFrame;
+
+	private String iotInstanceId;
+
+	private Boolean shouldEncrypt;
+
+	private Integer streamType;
+
+	private String productKey;
+
+	private String deviceName;
+
+	private Integer urlValidDuration;
 	public QueryLiveStreamingRequest() {
-		super("Linkvisual", "2018-01-20", "QueryLiveStreaming", "linkvisual");
+		super("Linkvisual", "2018-01-20", "QueryLiveStreaming", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public String getScheme() {
+		return this.scheme;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
+	public void setScheme(String scheme) {
+		this.scheme = scheme;
+		if(scheme != null){
+			putQueryParameter("Scheme", scheme);
 		}
 	}
 
-	public Integer getStreamType() {
-		return this.streamType;
+	public Boolean getPlayUnLimited() {
+		return this.playUnLimited;
 	}
 
-	public void setStreamType(Integer streamType) {
-		this.streamType = streamType;
-		if(streamType != null){
-			putQueryParameter("StreamType", streamType.toString());
-		}
-	}
-
-	public Boolean getShouldEncrypt() {
-		return this.shouldEncrypt;
-	}
-
-	public void setShouldEncrypt(Boolean shouldEncrypt) {
-		this.shouldEncrypt = shouldEncrypt;
-		if(shouldEncrypt != null){
-			putQueryParameter("ShouldEncrypt", shouldEncrypt.toString());
+	public void setPlayUnLimited(Boolean playUnLimited) {
+		this.playUnLimited = playUnLimited;
+		if(playUnLimited != null){
+			putQueryParameter("PlayUnLimited", playUnLimited.toString());
 		}
 	}
 
@@ -82,14 +90,102 @@ public class QueryLiveStreamingRequest extends RpcAcsRequest<QueryLiveStreamingR
 		}
 	}
 
-	public String getScheme() {
-		return this.scheme;
+	public Integer getCacheDuration() {
+		return this.cacheDuration;
 	}
 
-	public void setScheme(String scheme) {
-		this.scheme = scheme;
-		if(scheme != null){
-			putQueryParameter("Scheme", scheme);
+	public void setCacheDuration(Integer cacheDuration) {
+		this.cacheDuration = cacheDuration;
+		if(cacheDuration != null){
+			putQueryParameter("CacheDuration", cacheDuration.toString());
+		}
+	}
+
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
+	}
+
+	public Boolean getForceIFrame() {
+		return this.forceIFrame;
+	}
+
+	public void setForceIFrame(Boolean forceIFrame) {
+		this.forceIFrame = forceIFrame;
+		if(forceIFrame != null){
+			putQueryParameter("ForceIFrame", forceIFrame.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Boolean getShouldEncrypt() {
+		return this.shouldEncrypt;
+	}
+
+	public void setShouldEncrypt(Boolean shouldEncrypt) {
+		this.shouldEncrypt = shouldEncrypt;
+		if(shouldEncrypt != null){
+			putQueryParameter("ShouldEncrypt", shouldEncrypt.toString());
+		}
+	}
+
+	public Integer getStreamType() {
+		return this.streamType;
+	}
+
+	public void setStreamType(Integer streamType) {
+		this.streamType = streamType;
+		if(streamType != null){
+			putQueryParameter("StreamType", streamType.toString());
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public Integer getUrlValidDuration() {
+		return this.urlValidDuration;
+	}
+
+	public void setUrlValidDuration(Integer urlValidDuration) {
+		this.urlValidDuration = urlValidDuration;
+		if(urlValidDuration != null){
+			putQueryParameter("UrlValidDuration", urlValidDuration.toString());
 		}
 	}
 

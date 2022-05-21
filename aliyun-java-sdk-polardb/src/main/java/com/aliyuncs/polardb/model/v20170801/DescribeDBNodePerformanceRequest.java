@@ -31,9 +31,11 @@ public class DescribeDBNodePerformanceRequest extends RpcAcsRequest<DescribeDBNo
 
 	private String key;
 
+	private String dBClusterId;
+
 	private String endTime;
 	public DescribeDBNodePerformanceRequest() {
-		super("polardb", "2017-08-01", "DescribeDBNodePerformance", "polardb");
+		super("polardb", "2017-08-01", "DescribeDBNodePerformance");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -71,6 +73,17 @@ public class DescribeDBNodePerformanceRequest extends RpcAcsRequest<DescribeDBNo
 		this.key = key;
 		if(key != null){
 			putQueryParameter("Key", key);
+		}
+	}
+
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
+		if(dBClusterId != null){
+			putQueryParameter("DBClusterId", dBClusterId);
 		}
 	}
 

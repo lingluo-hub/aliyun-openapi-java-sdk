@@ -23,10 +23,10 @@ public class DeleteSkillGroupResponseUnmarshaller {
 	public static DeleteSkillGroupResponse unmarshall(DeleteSkillGroupResponse deleteSkillGroupResponse, UnmarshallerContext _ctx) {
 		
 		deleteSkillGroupResponse.setRequestId(_ctx.stringValue("DeleteSkillGroupResponse.RequestId"));
-		deleteSkillGroupResponse.setSuccess(_ctx.booleanValue("DeleteSkillGroupResponse.Success"));
+		deleteSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("DeleteSkillGroupResponse.HttpStatusCode"));
 		deleteSkillGroupResponse.setCode(_ctx.stringValue("DeleteSkillGroupResponse.Code"));
 		deleteSkillGroupResponse.setMessage(_ctx.stringValue("DeleteSkillGroupResponse.Message"));
-		deleteSkillGroupResponse.setHttpStatusCode(_ctx.integerValue("DeleteSkillGroupResponse.HttpStatusCode"));
+		deleteSkillGroupResponse.setSuccess(_ctx.booleanValue("DeleteSkillGroupResponse.Success"));
 	 
 	 	return deleteSkillGroupResponse;
 	}

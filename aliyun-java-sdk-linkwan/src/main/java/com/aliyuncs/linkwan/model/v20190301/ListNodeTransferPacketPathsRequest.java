@@ -26,15 +26,17 @@ import com.aliyuncs.linkwan.Endpoint;
 public class ListNodeTransferPacketPathsRequest extends RpcAcsRequest<ListNodeTransferPacketPathsResponse> {
 	   
 
+	private String base64EncodedMacPayload;
+
 	private Integer pageNumber;
+
+	private String iotInstanceId;
+
+	private Long logMillis;
 
 	private Integer pageSize;
 
 	private String devEui;
-
-	private String base64EncodedMacPayload;
-
-	private Long logMillis;
 	public ListNodeTransferPacketPathsRequest() {
 		super("LinkWAN", "2019-03-01", "ListNodeTransferPacketPaths", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -45,6 +47,17 @@ public class ListNodeTransferPacketPathsRequest extends RpcAcsRequest<ListNodeTr
 		} catch (Exception e) {}
 	}
 
+	public String getBase64EncodedMacPayload() {
+		return this.base64EncodedMacPayload;
+	}
+
+	public void setBase64EncodedMacPayload(String base64EncodedMacPayload) {
+		this.base64EncodedMacPayload = base64EncodedMacPayload;
+		if(base64EncodedMacPayload != null){
+			putQueryParameter("Base64EncodedMacPayload", base64EncodedMacPayload);
+		}
+	}
+
 	public Integer getPageNumber() {
 		return this.pageNumber;
 	}
@@ -53,6 +66,28 @@ public class ListNodeTransferPacketPathsRequest extends RpcAcsRequest<ListNodeTr
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Long getLogMillis() {
+		return this.logMillis;
+	}
+
+	public void setLogMillis(Long logMillis) {
+		this.logMillis = logMillis;
+		if(logMillis != null){
+			putQueryParameter("LogMillis", logMillis.toString());
 		}
 	}
 
@@ -75,28 +110,6 @@ public class ListNodeTransferPacketPathsRequest extends RpcAcsRequest<ListNodeTr
 		this.devEui = devEui;
 		if(devEui != null){
 			putQueryParameter("DevEui", devEui);
-		}
-	}
-
-	public String getBase64EncodedMacPayload() {
-		return this.base64EncodedMacPayload;
-	}
-
-	public void setBase64EncodedMacPayload(String base64EncodedMacPayload) {
-		this.base64EncodedMacPayload = base64EncodedMacPayload;
-		if(base64EncodedMacPayload != null){
-			putQueryParameter("Base64EncodedMacPayload", base64EncodedMacPayload);
-		}
-	}
-
-	public Long getLogMillis() {
-		return this.logMillis;
-	}
-
-	public void setLogMillis(Long logMillis) {
-		this.logMillis = logMillis;
-		if(logMillis != null){
-			putQueryParameter("LogMillis", logMillis.toString());
 		}
 	}
 

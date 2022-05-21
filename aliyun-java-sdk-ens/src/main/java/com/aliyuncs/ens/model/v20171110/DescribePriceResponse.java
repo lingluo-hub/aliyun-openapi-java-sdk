@@ -58,13 +58,21 @@ public class DescribePriceResponse extends AcsResponse {
 
 		public static class Price {
 
+			private String currency;
+
 			private Float discountPrice;
 
 			private Float originalPrice;
 
 			private Float tradePrice;
 
-			private String currency;
+			public String getCurrency() {
+				return this.currency;
+			}
+
+			public void setCurrency(String currency) {
+				this.currency = currency;
+			}
 
 			public Float getDiscountPrice() {
 				return this.discountPrice;
@@ -88,14 +96,6 @@ public class DescribePriceResponse extends AcsResponse {
 
 			public void setTradePrice(Float tradePrice) {
 				this.tradePrice = tradePrice;
-			}
-
-			public String getCurrency() {
-				return this.currency;
-			}
-
-			public void setCurrency(String currency) {
-				this.currency = currency;
 			}
 		}
 	}

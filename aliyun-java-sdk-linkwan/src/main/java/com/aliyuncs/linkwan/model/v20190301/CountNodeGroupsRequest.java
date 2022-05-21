@@ -26,11 +26,13 @@ import com.aliyuncs.linkwan.Endpoint;
 public class CountNodeGroupsRequest extends RpcAcsRequest<CountNodeGroupsResponse> {
 	   
 
-	private String fuzzyName;
+	private String iotInstanceId;
 
 	private String fuzzyJoinEui;
 
 	private String fuzzyDevEui;
+
+	private String fuzzyName;
 	public CountNodeGroupsRequest() {
 		super("LinkWAN", "2019-03-01", "CountNodeGroups", "linkwan");
 		setProtocol(ProtocolType.HTTPS);
@@ -41,14 +43,14 @@ public class CountNodeGroupsRequest extends RpcAcsRequest<CountNodeGroupsRespons
 		} catch (Exception e) {}
 	}
 
-	public String getFuzzyName() {
-		return this.fuzzyName;
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
 	}
 
-	public void setFuzzyName(String fuzzyName) {
-		this.fuzzyName = fuzzyName;
-		if(fuzzyName != null){
-			putQueryParameter("FuzzyName", fuzzyName);
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
 		}
 	}
 
@@ -71,6 +73,17 @@ public class CountNodeGroupsRequest extends RpcAcsRequest<CountNodeGroupsRespons
 		this.fuzzyDevEui = fuzzyDevEui;
 		if(fuzzyDevEui != null){
 			putQueryParameter("FuzzyDevEui", fuzzyDevEui);
+		}
+	}
+
+	public String getFuzzyName() {
+		return this.fuzzyName;
+	}
+
+	public void setFuzzyName(String fuzzyName) {
+		this.fuzzyName = fuzzyName;
+		if(fuzzyName != null){
+			putQueryParameter("FuzzyName", fuzzyName);
 		}
 	}
 

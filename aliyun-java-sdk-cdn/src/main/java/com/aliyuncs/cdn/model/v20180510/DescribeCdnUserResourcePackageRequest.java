@@ -28,6 +28,8 @@ public class DescribeCdnUserResourcePackageRequest extends RpcAcsRequest<Describ
 	private Long ownerId;
 
 	private String securityToken;
+
+	private String status;
 	public DescribeCdnUserResourcePackageRequest() {
 		super("Cdn", "2018-05-10", "DescribeCdnUserResourcePackage");
 		setMethod(MethodType.POST);
@@ -56,6 +58,17 @@ public class DescribeCdnUserResourcePackageRequest extends RpcAcsRequest<Describ
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
 		}
 	}
 

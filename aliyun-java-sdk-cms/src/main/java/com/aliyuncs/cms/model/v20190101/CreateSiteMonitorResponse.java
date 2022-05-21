@@ -29,11 +29,11 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 
 	private String message;
 
-	private String success;
-
 	private String requestId;
 
-	private String alertRule;
+	private String success;
+
+	private List<CreateResultListItem> createResultList;
 
 	private Data data;
 
@@ -53,14 +53,6 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getSuccess() {
-		return this.success;
-	}
-
-	public void setSuccess(String success) {
-		this.success = success;
-	}
-
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -69,12 +61,20 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getAlertRule() {
-		return this.alertRule;
+	public String getSuccess() {
+		return this.success;
 	}
 
-	public void setAlertRule(String alertRule) {
-		this.alertRule = alertRule;
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+	public List<CreateResultListItem> getCreateResultList() {
+		return this.createResultList;
+	}
+
+	public void setCreateResultList(List<CreateResultListItem> createResultList) {
+		this.createResultList = createResultList;
 	}
 
 	public Data getData() {
@@ -83,6 +83,29 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 
 	public void setData(Data data) {
 		this.data = data;
+	}
+
+	public static class CreateResultListItem {
+
+		private String taskId;
+
+		private String taskName;
+
+		public String getTaskId() {
+			return this.taskId;
+		}
+
+		public void setTaskId(String taskId) {
+			this.taskId = taskId;
+		}
+
+		public String getTaskName() {
+			return this.taskName;
+		}
+
+		public void setTaskName(String taskName) {
+			this.taskName = taskName;
+		}
 	}
 
 	public static class Data {
@@ -99,15 +122,23 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 
 		public static class Contact {
 
+			private String code;
+
 			private String message;
 
 			private String requestId;
 
-			private String code;
-
 			private String success;
 
 			private String ruleId;
+
+			public String getCode() {
+				return this.code;
+			}
+
+			public void setCode(String code) {
+				this.code = code;
+			}
 
 			public String getMessage() {
 				return this.message;
@@ -123,14 +154,6 @@ public class CreateSiteMonitorResponse extends AcsResponse {
 
 			public void setRequestId(String requestId) {
 				this.requestId = requestId;
-			}
-
-			public String getCode() {
-				return this.code;
-			}
-
-			public void setCode(String code) {
-				this.code = code;
 			}
 
 			public String getSuccess() {

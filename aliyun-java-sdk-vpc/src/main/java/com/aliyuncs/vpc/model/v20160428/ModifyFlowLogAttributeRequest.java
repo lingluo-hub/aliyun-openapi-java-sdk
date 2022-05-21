@@ -33,13 +33,15 @@ public class ModifyFlowLogAttributeRequest extends RpcAcsRequest<ModifyFlowLogAt
 
 	private String ownerAccount;
 
+	private Integer aggregationInterval;
+
 	private Long ownerId;
 
 	private String flowLogId;
 
 	private String flowLogName;
 	public ModifyFlowLogAttributeRequest() {
-		super("Vpc", "2016-04-28", "ModifyFlowLogAttribute", "Vpc");
+		super("Vpc", "2016-04-28", "ModifyFlowLogAttribute", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -88,6 +90,17 @@ public class ModifyFlowLogAttributeRequest extends RpcAcsRequest<ModifyFlowLogAt
 		this.ownerAccount = ownerAccount;
 		if(ownerAccount != null){
 			putQueryParameter("OwnerAccount", ownerAccount);
+		}
+	}
+
+	public Integer getAggregationInterval() {
+		return this.aggregationInterval;
+	}
+
+	public void setAggregationInterval(Integer aggregationInterval) {
+		this.aggregationInterval = aggregationInterval;
+		if(aggregationInterval != null){
+			putQueryParameter("AggregationInterval", aggregationInterval.toString());
 		}
 	}
 

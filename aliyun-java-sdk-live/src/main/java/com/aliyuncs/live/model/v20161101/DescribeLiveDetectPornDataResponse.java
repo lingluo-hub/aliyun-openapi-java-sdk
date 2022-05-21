@@ -47,84 +47,28 @@ public class DescribeLiveDetectPornDataResponse extends AcsResponse {
 
 	public static class DataModule {
 
-		private String timeStamp;
-
-		private String app;
-
 		private String domain;
-
-		private String stream;
-
-		private String fee;
-
-		private String scene;
 
 		private String region;
 
+		private String app;
+
+		private String stream;
+
+		private String timeStamp;
+
 		private Long count;
 
-		public String getTimeStamp() {
-			return this.timeStamp;
-		}
+		private String scene;
 
-		public void setTimeStamp(String timeStamp) {
-			this.timeStamp = timeStamp;
-		}
+		private String fee;
 
-		public String getApp() {
-			return this.app;
-		}
-
-		public void setApp(String app) {
-			this.app = app;
-		}
-
-		public String getBizDomain() {
-			return this.domain;
-		}
-
-		public void setBizDomain(String domain) {
-			this.domain = domain;
-		}
-
-		/**
-		 * @deprecated use getBizDomain instead of this.
-		 */
-		@Deprecated
 		public String getDomain() {
 			return this.domain;
 		}
 
-		/**
-		 * @deprecated use setBizDomain instead of this.
-		 */
-		@Deprecated
 		public void setDomain(String domain) {
 			this.domain = domain;
-		}
-
-		public String getStream() {
-			return this.stream;
-		}
-
-		public void setStream(String stream) {
-			this.stream = stream;
-		}
-
-		public String getFee() {
-			return this.fee;
-		}
-
-		public void setFee(String fee) {
-			this.fee = fee;
-		}
-
-		public String getScene() {
-			return this.scene;
-		}
-
-		public void setScene(String scene) {
-			this.scene = scene;
 		}
 
 		public String getRegion() {
@@ -135,12 +79,52 @@ public class DescribeLiveDetectPornDataResponse extends AcsResponse {
 			this.region = region;
 		}
 
+		public String getApp() {
+			return this.app;
+		}
+
+		public void setApp(String app) {
+			this.app = app;
+		}
+
+		public String getStream() {
+			return this.stream;
+		}
+
+		public void setStream(String stream) {
+			this.stream = stream;
+		}
+
+		public String getTimeStamp() {
+			return this.timeStamp;
+		}
+
+		public void setTimeStamp(String timeStamp) {
+			this.timeStamp = timeStamp;
+		}
+
 		public Long getCount() {
 			return this.count;
 		}
 
 		public void setCount(Long count) {
 			this.count = count;
+		}
+
+		public String getScene() {
+			return this.scene;
+		}
+
+		public void setScene(String scene) {
+			this.scene = scene;
+		}
+
+		public String getFee() {
+			return this.fee;
+		}
+
+		public void setFee(String fee) {
+			this.fee = fee;
 		}
 	}
 

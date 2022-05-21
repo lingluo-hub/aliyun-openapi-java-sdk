@@ -23,10 +23,10 @@ public class ImportScriptResponseUnmarshaller {
 	public static ImportScriptResponse unmarshall(ImportScriptResponse importScriptResponse, UnmarshallerContext _ctx) {
 		
 		importScriptResponse.setRequestId(_ctx.stringValue("ImportScriptResponse.RequestId"));
+		importScriptResponse.setHttpStatusCode(_ctx.integerValue("ImportScriptResponse.HttpStatusCode"));
 		importScriptResponse.setSuccess(_ctx.booleanValue("ImportScriptResponse.Success"));
 		importScriptResponse.setCode(_ctx.stringValue("ImportScriptResponse.Code"));
 		importScriptResponse.setMessage(_ctx.stringValue("ImportScriptResponse.Message"));
-		importScriptResponse.setHttpStatusCode(_ctx.integerValue("ImportScriptResponse.HttpStatusCode"));
 		importScriptResponse.setScriptId(_ctx.stringValue("ImportScriptResponse.ScriptId"));
 	 
 	 	return importScriptResponse;

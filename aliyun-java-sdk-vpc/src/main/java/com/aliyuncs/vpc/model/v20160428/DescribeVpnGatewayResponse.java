@@ -14,6 +14,7 @@
 
 package com.aliyuncs.vpc.model.v20160428;
 
+import java.util.List;
 import com.aliyuncs.AcsResponse;
 import com.aliyuncs.vpc.transform.v20160428.DescribeVpnGatewayResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -24,54 +25,64 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeVpnGatewayResponse extends AcsResponse {
 
-	private String requestId;
+	private String vpnType;
 
-	private String vpnGatewayId;
+	private String status;
 
 	private String vpcId;
 
-	private String vSwitchId;
+	private Long sslMaxConnections;
+
+	private String spec;
 
 	private String internetIp;
 
 	private Long createTime;
 
-	private Long endTime;
-
-	private String spec;
-
-	private String name;
-
-	private String description;
-
-	private String status;
-
-	private String businessStatus;
+	private Boolean autoPropagate;
 
 	private String chargeType;
 
-	private String ipsecVpn;
-
-	private String sslVpn;
-
-	private Long sslMaxConnections;
+	private String vpnGatewayId;
 
 	private String tag;
 
-	public String getRequestId() {
-		return this.requestId;
+	private String ipsecVpn;
+
+	private Long endTime;
+
+	private String vSwitchId;
+
+	private String requestId;
+
+	private String description;
+
+	private Boolean enableBgp;
+
+	private String businessStatus;
+
+	private String sslVpn;
+
+	private String name;
+
+	private List<Tag> tags;
+
+	private ReservationData reservationData;
+
+	public String getVpnType() {
+		return this.vpnType;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
+	public void setVpnType(String vpnType) {
+		this.vpnType = vpnType;
 	}
 
-	public String getVpnGatewayId() {
-		return this.vpnGatewayId;
+	public String getStatus() {
+		return this.status;
 	}
 
-	public void setVpnGatewayId(String vpnGatewayId) {
-		this.vpnGatewayId = vpnGatewayId;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getVpcId() {
@@ -82,12 +93,20 @@ public class DescribeVpnGatewayResponse extends AcsResponse {
 		this.vpcId = vpcId;
 	}
 
-	public String getVSwitchId() {
-		return this.vSwitchId;
+	public Long getSslMaxConnections() {
+		return this.sslMaxConnections;
 	}
 
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
+	public void setSslMaxConnections(Long sslMaxConnections) {
+		this.sslMaxConnections = sslMaxConnections;
+	}
+
+	public String getSpec() {
+		return this.spec;
+	}
+
+	public void setSpec(String spec) {
+		this.spec = spec;
 	}
 
 	public String getInternetIp() {
@@ -106,52 +125,12 @@ public class DescribeVpnGatewayResponse extends AcsResponse {
 		this.createTime = createTime;
 	}
 
-	public Long getEndTime() {
-		return this.endTime;
+	public Boolean getAutoPropagate() {
+		return this.autoPropagate;
 	}
 
-	public void setEndTime(Long endTime) {
-		this.endTime = endTime;
-	}
-
-	public String getSpec() {
-		return this.spec;
-	}
-
-	public void setSpec(String spec) {
-		this.spec = spec;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getBusinessStatus() {
-		return this.businessStatus;
-	}
-
-	public void setBusinessStatus(String businessStatus) {
-		this.businessStatus = businessStatus;
+	public void setAutoPropagate(Boolean autoPropagate) {
+		this.autoPropagate = autoPropagate;
 	}
 
 	public String getChargeType() {
@@ -162,12 +141,76 @@ public class DescribeVpnGatewayResponse extends AcsResponse {
 		this.chargeType = chargeType;
 	}
 
+	public String getVpnGatewayId() {
+		return this.vpnGatewayId;
+	}
+
+	public void setVpnGatewayId(String vpnGatewayId) {
+		this.vpnGatewayId = vpnGatewayId;
+	}
+
+	public String getTag() {
+		return this.tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
 	public String getIpsecVpn() {
 		return this.ipsecVpn;
 	}
 
 	public void setIpsecVpn(String ipsecVpn) {
 		this.ipsecVpn = ipsecVpn;
+	}
+
+	public Long getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Boolean getEnableBgp() {
+		return this.enableBgp;
+	}
+
+	public void setEnableBgp(Boolean enableBgp) {
+		this.enableBgp = enableBgp;
+	}
+
+	public String getBusinessStatus() {
+		return this.businessStatus;
+	}
+
+	public void setBusinessStatus(String businessStatus) {
+		this.businessStatus = businessStatus;
 	}
 
 	public String getSslVpn() {
@@ -178,20 +221,124 @@ public class DescribeVpnGatewayResponse extends AcsResponse {
 		this.sslVpn = sslVpn;
 	}
 
-	public Long getSslMaxConnections() {
-		return this.sslMaxConnections;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setSslMaxConnections(Long sslMaxConnections) {
-		this.sslMaxConnections = sslMaxConnections;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getTag() {
-		return this.tag;
+	public List<Tag> getTags() {
+		return this.tags;
 	}
 
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public ReservationData getReservationData() {
+		return this.reservationData;
+	}
+
+	public void setReservationData(ReservationData reservationData) {
+		this.reservationData = reservationData;
+	}
+
+	public static class Tag {
+
+		private String key;
+
+		private String value;
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+	}
+
+	public static class ReservationData {
+
+		private String status;
+
+		private String reservationOrderType;
+
+		private String reservationIpsec;
+
+		private String reservationSpec;
+
+		private String reservationSsl;
+
+		private Integer reservationMaxConnections;
+
+		private String reservationEndTime;
+
+		public String getStatus() {
+			return this.status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getReservationOrderType() {
+			return this.reservationOrderType;
+		}
+
+		public void setReservationOrderType(String reservationOrderType) {
+			this.reservationOrderType = reservationOrderType;
+		}
+
+		public String getReservationIpsec() {
+			return this.reservationIpsec;
+		}
+
+		public void setReservationIpsec(String reservationIpsec) {
+			this.reservationIpsec = reservationIpsec;
+		}
+
+		public String getReservationSpec() {
+			return this.reservationSpec;
+		}
+
+		public void setReservationSpec(String reservationSpec) {
+			this.reservationSpec = reservationSpec;
+		}
+
+		public String getReservationSsl() {
+			return this.reservationSsl;
+		}
+
+		public void setReservationSsl(String reservationSsl) {
+			this.reservationSsl = reservationSsl;
+		}
+
+		public Integer getReservationMaxConnections() {
+			return this.reservationMaxConnections;
+		}
+
+		public void setReservationMaxConnections(Integer reservationMaxConnections) {
+			this.reservationMaxConnections = reservationMaxConnections;
+		}
+
+		public String getReservationEndTime() {
+			return this.reservationEndTime;
+		}
+
+		public void setReservationEndTime(String reservationEndTime) {
+			this.reservationEndTime = reservationEndTime;
+		}
 	}
 
 	@Override

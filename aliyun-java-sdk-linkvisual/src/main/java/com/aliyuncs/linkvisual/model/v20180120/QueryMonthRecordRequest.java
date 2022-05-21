@@ -16,6 +16,7 @@ package com.aliyuncs.linkvisual.model.v20180120;
 
 import com.aliyuncs.RpcAcsRequest;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.linkvisual.Endpoint;
 
 /**
  * @author auto create
@@ -26,10 +27,20 @@ public class QueryMonthRecordRequest extends RpcAcsRequest<QueryMonthRecordRespo
 
 	private String iotId;
 
+	private String iotInstanceId;
+
+	private String productKey;
+
 	private String month;
+
+	private String deviceName;
 	public QueryMonthRecordRequest() {
-		super("Linkvisual", "2018-01-20", "QueryMonthRecord", "linkvisual");
+		super("Linkvisual", "2018-01-20", "QueryMonthRecord", "Linkvisual");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getIotId() {
@@ -43,6 +54,28 @@ public class QueryMonthRecordRequest extends RpcAcsRequest<QueryMonthRecordRespo
 		}
 	}
 
+	public String getIotInstanceId() {
+		return this.iotInstanceId;
+	}
+
+	public void setIotInstanceId(String iotInstanceId) {
+		this.iotInstanceId = iotInstanceId;
+		if(iotInstanceId != null){
+			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
 	public String getMonth() {
 		return this.month;
 	}
@@ -51,6 +84,17 @@ public class QueryMonthRecordRequest extends RpcAcsRequest<QueryMonthRecordRespo
 		this.month = month;
 		if(month != null){
 			putQueryParameter("Month", month);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 
