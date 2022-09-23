@@ -27,11 +27,13 @@ public class InstallCmsExporterRequest extends RpcAcsRequest<InstallCmsExporterR
 
 	private String clusterId;
 
+	private String directArgs;
+
 	private String cmsArgs;
 
 	private Boolean enableTag;
 	public InstallCmsExporterRequest() {
-		super("ARMS", "2019-08-08", "InstallCmsExporter");
+		super("ARMS", "2019-08-08", "InstallCmsExporter", "arms");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -47,6 +49,17 @@ public class InstallCmsExporterRequest extends RpcAcsRequest<InstallCmsExporterR
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public String getDirectArgs() {
+		return this.directArgs;
+	}
+
+	public void setDirectArgs(String directArgs) {
+		this.directArgs = directArgs;
+		if(directArgs != null){
+			putQueryParameter("DirectArgs", directArgs);
 		}
 	}
 

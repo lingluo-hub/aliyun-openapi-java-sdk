@@ -105,6 +105,10 @@ public class DescribeCommandsResponse extends AcsResponse {
 
 		private Boolean enableParameter;
 
+		private List<ParameterDefinition> parameterDefinitions;
+
+		private List<Tag> tags;
+
 		private List<String> parameterNames;
 
 		public String getCreationTime() {
@@ -219,12 +223,104 @@ public class DescribeCommandsResponse extends AcsResponse {
 			this.enableParameter = enableParameter;
 		}
 
+		public List<ParameterDefinition> getParameterDefinitions() {
+			return this.parameterDefinitions;
+		}
+
+		public void setParameterDefinitions(List<ParameterDefinition> parameterDefinitions) {
+			this.parameterDefinitions = parameterDefinitions;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
 		public List<String> getParameterNames() {
 			return this.parameterNames;
 		}
 
 		public void setParameterNames(List<String> parameterNames) {
 			this.parameterNames = parameterNames;
+		}
+
+		public static class ParameterDefinition {
+
+			private Boolean required;
+
+			private String description;
+
+			private String defaultValue;
+
+			private String parameterName;
+
+			private List<String> possibleValues;
+
+			public Boolean getRequired() {
+				return this.required;
+			}
+
+			public void setRequired(Boolean required) {
+				this.required = required;
+			}
+
+			public String getDescription() {
+				return this.description;
+			}
+
+			public void setDescription(String description) {
+				this.description = description;
+			}
+
+			public String getDefaultValue() {
+				return this.defaultValue;
+			}
+
+			public void setDefaultValue(String defaultValue) {
+				this.defaultValue = defaultValue;
+			}
+
+			public String getParameterName() {
+				return this.parameterName;
+			}
+
+			public void setParameterName(String parameterName) {
+				this.parameterName = parameterName;
+			}
+
+			public List<String> getPossibleValues() {
+				return this.possibleValues;
+			}
+
+			public void setPossibleValues(List<String> possibleValues) {
+				this.possibleValues = possibleValues;
+			}
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
 		}
 	}
 

@@ -25,7 +25,11 @@ import com.aliyuncs.mse.Endpoint;
 public class ListClusterVersionsRequest extends RpcAcsRequest<ListClusterVersionsResponse> {
 	   
 
+	private String mseSessionId;
+
 	private String clusterType;
+
+	private String mseVersion;
 
 	private String acceptLanguage;
 	public ListClusterVersionsRequest() {
@@ -37,6 +41,17 @@ public class ListClusterVersionsRequest extends RpcAcsRequest<ListClusterVersion
 		} catch (Exception e) {}
 	}
 
+	public String getMseSessionId() {
+		return this.mseSessionId;
+	}
+
+	public void setMseSessionId(String mseSessionId) {
+		this.mseSessionId = mseSessionId;
+		if(mseSessionId != null){
+			putQueryParameter("MseSessionId", mseSessionId);
+		}
+	}
+
 	public String getClusterType() {
 		return this.clusterType;
 	}
@@ -45,6 +60,17 @@ public class ListClusterVersionsRequest extends RpcAcsRequest<ListClusterVersion
 		this.clusterType = clusterType;
 		if(clusterType != null){
 			putQueryParameter("ClusterType", clusterType);
+		}
+	}
+
+	public String getMseVersion() {
+		return this.mseVersion;
+	}
+
+	public void setMseVersion(String mseVersion) {
+		this.mseVersion = mseVersion;
+		if(mseVersion != null){
+			putQueryParameter("MseVersion", mseVersion);
 		}
 	}
 

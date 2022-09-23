@@ -32,11 +32,11 @@ public class ExportDesktopListInfoRequest extends RpcAcsRequest<ExportDesktopLis
 
 	private String nextToken;
 
-	private String directoryId;
-
 	private List<String> endUserIds;
 
 	private List<String> desktopIds;
+
+	private List<Tag> tags;
 
 	private String desktopName;
 
@@ -95,17 +95,6 @@ public class ExportDesktopListInfoRequest extends RpcAcsRequest<ExportDesktopLis
 		}
 	}
 
-	public String getDirectoryId() {
-		return this.directoryId;
-	}
-
-	public void setDirectoryId(String directoryId) {
-		this.directoryId = directoryId;
-		if(directoryId != null){
-			putQueryParameter("DirectoryId", directoryId);
-		}
-	}
-
 	public List<String> getEndUserIds() {
 		return this.endUserIds;
 	}
@@ -128,6 +117,20 @@ public class ExportDesktopListInfoRequest extends RpcAcsRequest<ExportDesktopLis
 		if (desktopIds != null) {
 			for (int i = 0; i < desktopIds.size(); i++) {
 				putQueryParameter("DesktopId." + (i + 1) , desktopIds.get(i));
+			}
+		}	
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
 	}
@@ -217,6 +220,29 @@ public class ExportDesktopListInfoRequest extends RpcAcsRequest<ExportDesktopLis
 		this.userName = userName;
 		if(userName != null){
 			putQueryParameter("UserName", userName);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

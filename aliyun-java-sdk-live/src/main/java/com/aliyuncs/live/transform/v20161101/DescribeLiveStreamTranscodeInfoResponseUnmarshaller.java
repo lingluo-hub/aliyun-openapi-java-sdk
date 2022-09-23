@@ -35,6 +35,7 @@ public class DescribeLiveStreamTranscodeInfoResponseUnmarshaller {
 			DomainTranscodeInfo domainTranscodeInfo = new DomainTranscodeInfo();
 			domainTranscodeInfo.setTranscodeApp(_ctx.stringValue("DescribeLiveStreamTranscodeInfoResponse.DomainTranscodeList["+ i +"].TranscodeApp"));
 			domainTranscodeInfo.setTranscodeTemplate(_ctx.stringValue("DescribeLiveStreamTranscodeInfoResponse.DomainTranscodeList["+ i +"].TranscodeTemplate"));
+			domainTranscodeInfo.setIsLazy(_ctx.booleanValue("DescribeLiveStreamTranscodeInfoResponse.DomainTranscodeList["+ i +"].IsLazy"));
 			domainTranscodeInfo.setTranscodeName(_ctx.stringValue("DescribeLiveStreamTranscodeInfoResponse.DomainTranscodeList["+ i +"].TranscodeName"));
 
 			CustomTranscodeParameters customTranscodeParameters = new CustomTranscodeParameters();

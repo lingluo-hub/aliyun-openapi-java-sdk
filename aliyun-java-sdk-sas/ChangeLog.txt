@@ -1,3 +1,51 @@
+2022-09-19 Version: 1.1.28
+- Change RefreshAssets Public.
+
+2022-09-08 Version: 1.1.27
+- Change RefreshAssets Public.
+
+2022-09-08 Version: 1.1.26
+- Change RefreshAssets Public.
+
+2022-08-31 Version: 1.1.25
+- Change GetFileDetectResult Public.
+
+2022-07-29 Version: 1.1.24
+- Change ListCheckInstanceResult Public.
+
+2022-07-26 Version: 1.1.23
+- Change ListCheckInstanceResult Public.
+
+2022-07-26 Version: 1.1.22
+- Change ListCheckInstanceResult Public.
+
+2022-07-25 Version: 1.1.21
+- Change ListCheckInstanceResult GetCheckDetail Public.
+
+2022-07-25 Version: 1.1.20
+- Change ListCheckInstanceResult GetCheckDetail Public.
+
+2022-07-22 Version: 1.1.19
+- Change ListCheckInstanceResult GetCheckDetail Public.
+
+2022-07-20 Version: 1.1.18
+- Change getFileDetectResult.
+
+2022-07-18 Version: 1.1.17
+- Change cspm ListCheckResult api.
+
+2022-07-15 Version: 1.1.16
+- Add cspm ListCheckResult api.
+
+2022-07-15 Version: 1.1.15
+- Add open file detect api.
+
+2022-07-11 Version: 1.1.14
+- Add open file detect api.
+
+2022-06-20 Version: 1.1.13
+- Add EventId when listQuery EventInfo.
+
 2022-04-21 Version: 1.1.12
 - Generated 2018-12-03 for `Sas`.
 

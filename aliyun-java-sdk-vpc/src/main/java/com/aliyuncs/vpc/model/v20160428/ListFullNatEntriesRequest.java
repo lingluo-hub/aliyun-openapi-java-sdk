@@ -40,6 +40,8 @@ public class ListFullNatEntriesRequest extends RpcAcsRequest<ListFullNatEntriesR
 
 	private List<String> fullNatEntryNamess;
 
+	private String natGatewayId;
+
 	private String resourceOwnerAccount;
 
 	private String ipProtocol;
@@ -137,6 +139,17 @@ public class ListFullNatEntriesRequest extends RpcAcsRequest<ListFullNatEntriesR
 				putQueryParameter("FullNatEntryNames." + (i + 1) , fullNatEntryNamess.get(i));
 			}
 		}	
+	}
+
+	public String getNatGatewayId() {
+		return this.natGatewayId;
+	}
+
+	public void setNatGatewayId(String natGatewayId) {
+		this.natGatewayId = natGatewayId;
+		if(natGatewayId != null){
+			putQueryParameter("NatGatewayId", natGatewayId);
+		}
 	}
 
 	public String getResourceOwnerAccount() {

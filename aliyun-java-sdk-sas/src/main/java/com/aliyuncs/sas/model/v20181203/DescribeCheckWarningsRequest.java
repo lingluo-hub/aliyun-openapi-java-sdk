@@ -27,6 +27,8 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 
 	private String uuid;
 
+	private String checkType;
+
 	private String sourceIp;
 
 	private Integer pageSize;
@@ -38,6 +40,8 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 	private Integer currentPage;
 
 	private Long riskId;
+
+	private Integer riskStatus;
 	public DescribeCheckWarningsRequest() {
 		super("Sas", "2018-12-03", "DescribeCheckWarnings");
 		setMethod(MethodType.POST);
@@ -55,6 +59,17 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 		this.uuid = uuid;
 		if(uuid != null){
 			putQueryParameter("Uuid", uuid);
+		}
+	}
+
+	public String getCheckType() {
+		return this.checkType;
+	}
+
+	public void setCheckType(String checkType) {
+		this.checkType = checkType;
+		if(checkType != null){
+			putQueryParameter("CheckType", checkType);
 		}
 	}
 
@@ -121,6 +136,17 @@ public class DescribeCheckWarningsRequest extends RpcAcsRequest<DescribeCheckWar
 		this.riskId = riskId;
 		if(riskId != null){
 			putQueryParameter("RiskId", riskId.toString());
+		}
+	}
+
+	public Integer getRiskStatus() {
+		return this.riskStatus;
+	}
+
+	public void setRiskStatus(Integer riskStatus) {
+		this.riskStatus = riskStatus;
+		if(riskStatus != null){
+			putQueryParameter("RiskStatus", riskStatus.toString());
 		}
 	}
 

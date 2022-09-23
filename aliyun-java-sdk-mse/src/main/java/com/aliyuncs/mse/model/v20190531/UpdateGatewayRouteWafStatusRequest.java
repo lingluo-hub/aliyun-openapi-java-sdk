@@ -25,9 +25,11 @@ import com.aliyuncs.mse.Endpoint;
 public class UpdateGatewayRouteWafStatusRequest extends RpcAcsRequest<UpdateGatewayRouteWafStatusResponse> {
 	   
 
-	private Boolean enableWaf;
+	private String mseSessionId;
 
 	private String gatewayUniqueId;
+
+	private Boolean enableWaf;
 
 	private Long routeId;
 
@@ -41,14 +43,14 @@ public class UpdateGatewayRouteWafStatusRequest extends RpcAcsRequest<UpdateGate
 		} catch (Exception e) {}
 	}
 
-	public Boolean getEnableWaf() {
-		return this.enableWaf;
+	public String getMseSessionId() {
+		return this.mseSessionId;
 	}
 
-	public void setEnableWaf(Boolean enableWaf) {
-		this.enableWaf = enableWaf;
-		if(enableWaf != null){
-			putQueryParameter("EnableWaf", enableWaf.toString());
+	public void setMseSessionId(String mseSessionId) {
+		this.mseSessionId = mseSessionId;
+		if(mseSessionId != null){
+			putQueryParameter("MseSessionId", mseSessionId);
 		}
 	}
 
@@ -60,6 +62,17 @@ public class UpdateGatewayRouteWafStatusRequest extends RpcAcsRequest<UpdateGate
 		this.gatewayUniqueId = gatewayUniqueId;
 		if(gatewayUniqueId != null){
 			putQueryParameter("GatewayUniqueId", gatewayUniqueId);
+		}
+	}
+
+	public Boolean getEnableWaf() {
+		return this.enableWaf;
+	}
+
+	public void setEnableWaf(Boolean enableWaf) {
+		this.enableWaf = enableWaf;
+		if(enableWaf != null){
+			putQueryParameter("EnableWaf", enableWaf.toString());
 		}
 	}
 

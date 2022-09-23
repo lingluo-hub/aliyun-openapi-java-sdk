@@ -27,6 +27,10 @@ public class DescribeUsersInGroupRequest extends RpcAcsRequest<DescribeUsersInGr
 
 	private Integer connectState;
 
+	private String orgId;
+
+	private String filter;
+
 	private String desktopGroupId;
 
 	private String nextToken;
@@ -53,6 +57,28 @@ public class DescribeUsersInGroupRequest extends RpcAcsRequest<DescribeUsersInGr
 		this.connectState = connectState;
 		if(connectState != null){
 			putQueryParameter("ConnectState", connectState.toString());
+		}
+	}
+
+	public String getOrgId() {
+		return this.orgId;
+	}
+
+	public void setOrgId(String orgId) {
+		this.orgId = orgId;
+		if(orgId != null){
+			putQueryParameter("OrgId", orgId);
+		}
+	}
+
+	public String getFilter() {
+		return this.filter;
+	}
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+		if(filter != null){
+			putQueryParameter("Filter", filter);
 		}
 	}
 

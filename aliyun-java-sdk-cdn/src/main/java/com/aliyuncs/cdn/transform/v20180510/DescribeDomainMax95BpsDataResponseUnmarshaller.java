@@ -23,12 +23,12 @@ public class DescribeDomainMax95BpsDataResponseUnmarshaller {
 	public static DescribeDomainMax95BpsDataResponse unmarshall(DescribeDomainMax95BpsDataResponse describeDomainMax95BpsDataResponse, UnmarshallerContext _ctx) {
 		
 		describeDomainMax95BpsDataResponse.setRequestId(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.RequestId"));
-		describeDomainMax95BpsDataResponse.setDomainName(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.DomainName"));
-		describeDomainMax95BpsDataResponse.setStartTime(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.StartTime"));
 		describeDomainMax95BpsDataResponse.setEndTime(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.EndTime"));
-		describeDomainMax95BpsDataResponse.setMax95Bps(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.Max95Bps"));
+		describeDomainMax95BpsDataResponse.setStartTime(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.StartTime"));
 		describeDomainMax95BpsDataResponse.setDomesticMax95Bps(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.DomesticMax95Bps"));
 		describeDomainMax95BpsDataResponse.setOverseasMax95Bps(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.OverseasMax95Bps"));
+		describeDomainMax95BpsDataResponse.setMax95Bps(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.Max95Bps"));
+		describeDomainMax95BpsDataResponse.setDomainName(_ctx.stringValue("DescribeDomainMax95BpsDataResponse.DomainName"));
 	 
 	 	return describeDomainMax95BpsDataResponse;
 	}

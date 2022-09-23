@@ -20,6 +20,7 @@ import java.util.List;
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServicesResponse;
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServicesResponse.Service;
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServicesResponse.Service.ServiceInfo;
+import com.aliyuncs.computenestsupplier.model.v20210521.ListServicesResponse.Service.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -45,6 +46,16 @@ public class ListServicesResponseUnmarshaller {
 			service.setServiceType(_ctx.stringValue("ListServicesResponse.Services["+ i +"].ServiceType"));
 			service.setSupplierName(_ctx.stringValue("ListServicesResponse.Services["+ i +"].SupplierName"));
 			service.setCommodityCode(_ctx.stringValue("ListServicesResponse.Services["+ i +"].CommodityCode"));
+			service.setCreateTime(_ctx.stringValue("ListServicesResponse.Services["+ i +"].CreateTime"));
+			service.setUpdateTime(_ctx.stringValue("ListServicesResponse.Services["+ i +"].UpdateTime"));
+			service.setShareType(_ctx.stringValue("ListServicesResponse.Services["+ i +"].ShareType"));
+			service.setVersionName(_ctx.stringValue("ListServicesResponse.Services["+ i +"].VersionName"));
+			service.setArtifactId(_ctx.stringValue("ListServicesResponse.Services["+ i +"].ArtifactId"));
+			service.setArtifactVersion(_ctx.stringValue("ListServicesResponse.Services["+ i +"].ArtifactVersion"));
+			service.setSourceImage(_ctx.stringValue("ListServicesResponse.Services["+ i +"].SourceImage"));
+			service.setRelationType(_ctx.stringValue("ListServicesResponse.Services["+ i +"].RelationType"));
+			service.setTrialType(_ctx.stringValue("ListServicesResponse.Services["+ i +"].TrialType"));
+			service.setTenantType(_ctx.stringValue("ListServicesResponse.Services["+ i +"].TenantType"));
 
 			List<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
 			for (int j = 0; j < _ctx.lengthValue("ListServicesResponse.Services["+ i +"].ServiceInfos.Length"); j++) {
@@ -57,6 +68,16 @@ public class ListServicesResponseUnmarshaller {
 				serviceInfos.add(serviceInfo);
 			}
 			service.setServiceInfos(serviceInfos);
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("ListServicesResponse.Services["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setKey(_ctx.stringValue("ListServicesResponse.Services["+ i +"].Tags["+ j +"].Key"));
+				tag.setValue(_ctx.stringValue("ListServicesResponse.Services["+ i +"].Tags["+ j +"].Value"));
+
+				tags.add(tag);
+			}
+			service.setTags(tags);
 
 			services.add(service);
 		}

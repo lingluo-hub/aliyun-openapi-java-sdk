@@ -31,6 +31,8 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 
 	private String scaleStrategyId;
 
+	private Boolean disableSessionConfig;
+
 	private Long bindAmount;
 
 	private Long loadPolicy;
@@ -39,11 +41,15 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 
 	private Integer allowBufferCount;
 
+	private Long idleDisconnectDuration;
+
 	private String desktopGroupId;
 
 	private Integer minDesktopsCount;
 
 	private Integer maxDesktopsCount;
+
+	private String fileSystemId;
 
 	private Integer allowAutoSetup;
 
@@ -53,7 +59,15 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 
 	private String ownBundleId;
 
+	private Long stopDuration;
+
+	private Float ratioThreshold;
+
 	private Long keepDuration;
+
+	private Long connectDuration;
+
+	private Boolean profileFollowSwitch;
 
 	private String policyGroupId;
 	public ModifyDesktopGroupRequest() {
@@ -95,6 +109,17 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		this.scaleStrategyId = scaleStrategyId;
 		if(scaleStrategyId != null){
 			putQueryParameter("ScaleStrategyId", scaleStrategyId);
+		}
+	}
+
+	public Boolean getDisableSessionConfig() {
+		return this.disableSessionConfig;
+	}
+
+	public void setDisableSessionConfig(Boolean disableSessionConfig) {
+		this.disableSessionConfig = disableSessionConfig;
+		if(disableSessionConfig != null){
+			putQueryParameter("DisableSessionConfig", disableSessionConfig.toString());
 		}
 	}
 
@@ -142,6 +167,17 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		}
 	}
 
+	public Long getIdleDisconnectDuration() {
+		return this.idleDisconnectDuration;
+	}
+
+	public void setIdleDisconnectDuration(Long idleDisconnectDuration) {
+		this.idleDisconnectDuration = idleDisconnectDuration;
+		if(idleDisconnectDuration != null){
+			putQueryParameter("IdleDisconnectDuration", idleDisconnectDuration.toString());
+		}
+	}
+
 	public String getDesktopGroupId() {
 		return this.desktopGroupId;
 	}
@@ -172,6 +208,17 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		this.maxDesktopsCount = maxDesktopsCount;
 		if(maxDesktopsCount != null){
 			putQueryParameter("MaxDesktopsCount", maxDesktopsCount.toString());
+		}
+	}
+
+	public String getFileSystemId() {
+		return this.fileSystemId;
+	}
+
+	public void setFileSystemId(String fileSystemId) {
+		this.fileSystemId = fileSystemId;
+		if(fileSystemId != null){
+			putQueryParameter("FileSystemId", fileSystemId);
 		}
 	}
 
@@ -219,6 +266,28 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		}
 	}
 
+	public Long getStopDuration() {
+		return this.stopDuration;
+	}
+
+	public void setStopDuration(Long stopDuration) {
+		this.stopDuration = stopDuration;
+		if(stopDuration != null){
+			putQueryParameter("StopDuration", stopDuration.toString());
+		}
+	}
+
+	public Float getRatioThreshold() {
+		return this.ratioThreshold;
+	}
+
+	public void setRatioThreshold(Float ratioThreshold) {
+		this.ratioThreshold = ratioThreshold;
+		if(ratioThreshold != null){
+			putQueryParameter("RatioThreshold", ratioThreshold.toString());
+		}
+	}
+
 	public Long getKeepDuration() {
 		return this.keepDuration;
 	}
@@ -227,6 +296,28 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		this.keepDuration = keepDuration;
 		if(keepDuration != null){
 			putQueryParameter("KeepDuration", keepDuration.toString());
+		}
+	}
+
+	public Long getConnectDuration() {
+		return this.connectDuration;
+	}
+
+	public void setConnectDuration(Long connectDuration) {
+		this.connectDuration = connectDuration;
+		if(connectDuration != null){
+			putQueryParameter("ConnectDuration", connectDuration.toString());
+		}
+	}
+
+	public Boolean getProfileFollowSwitch() {
+		return this.profileFollowSwitch;
+	}
+
+	public void setProfileFollowSwitch(Boolean profileFollowSwitch) {
+		this.profileFollowSwitch = profileFollowSwitch;
+		if(profileFollowSwitch != null){
+			putQueryParameter("ProfileFollowSwitch", profileFollowSwitch.toString());
 		}
 	}
 

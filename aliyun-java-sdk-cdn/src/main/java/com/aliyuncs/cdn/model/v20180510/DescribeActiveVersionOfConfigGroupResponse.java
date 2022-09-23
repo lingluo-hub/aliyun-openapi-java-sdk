@@ -24,25 +24,41 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeActiveVersionOfConfigGroupResponse extends AcsResponse {
 
+	private String status;
+
+	private String updateTime;
+
 	private String requestId;
+
+	private Long seqId;
+
+	private String description;
+
+	private String createTime;
 
 	private String versionId;
 
 	private String configGroupId;
 
-	private String baseVersionId;
-
-	private String description;
-
-	private Long seqId;
-
-	private String status;
-
 	private String operator;
 
-	private String createTime;
+	private String baseVersionId;
 
-	private String updateTime;
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getUpdateTime() {
+		return this.updateTime;
+	}
+
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -50,6 +66,30 @@ public class DescribeActiveVersionOfConfigGroupResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public Long getSeqId() {
+		return this.seqId;
+	}
+
+	public void setSeqId(Long seqId) {
+		this.seqId = seqId;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCreateTime() {
+		return this.createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
 	}
 
 	public String getVersionId() {
@@ -68,38 +108,6 @@ public class DescribeActiveVersionOfConfigGroupResponse extends AcsResponse {
 		this.configGroupId = configGroupId;
 	}
 
-	public String getBaseVersionId() {
-		return this.baseVersionId;
-	}
-
-	public void setBaseVersionId(String baseVersionId) {
-		this.baseVersionId = baseVersionId;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Long getSeqId() {
-		return this.seqId;
-	}
-
-	public void setSeqId(Long seqId) {
-		this.seqId = seqId;
-	}
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public String getOperator() {
 		return this.operator;
 	}
@@ -108,20 +116,12 @@ public class DescribeActiveVersionOfConfigGroupResponse extends AcsResponse {
 		this.operator = operator;
 	}
 
-	public String getCreateTime() {
-		return this.createTime;
+	public String getBaseVersionId() {
+		return this.baseVersionId;
 	}
 
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getUpdateTime() {
-		return this.updateTime;
-	}
-
-	public void setUpdateTime(String updateTime) {
-		this.updateTime = updateTime;
+	public void setBaseVersionId(String baseVersionId) {
+		this.baseVersionId = baseVersionId;
 	}
 
 	@Override

@@ -25,11 +25,11 @@ import com.aliyuncs.oos.Endpoint;
 public class ListApplicationGroupsRequest extends RpcAcsRequest<ListApplicationGroupsResponse> {
 	   
 
+	private String nextToken;
+
 	private String deployRegionId;
 
 	private String applicationName;
-
-	private String nextToken;
 
 	private Integer maxResults;
 	public ListApplicationGroupsRequest() {
@@ -39,6 +39,17 @@ public class ListApplicationGroupsRequest extends RpcAcsRequest<ListApplicationG
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getNextToken() {
+		return this.nextToken;
+	}
+
+	public void setNextToken(String nextToken) {
+		this.nextToken = nextToken;
+		if(nextToken != null){
+			putQueryParameter("NextToken", nextToken);
+		}
 	}
 
 	public String getDeployRegionId() {
@@ -60,17 +71,6 @@ public class ListApplicationGroupsRequest extends RpcAcsRequest<ListApplicationG
 		this.applicationName = applicationName;
 		if(applicationName != null){
 			putQueryParameter("ApplicationName", applicationName);
-		}
-	}
-
-	public String getNextToken() {
-		return this.nextToken;
-	}
-
-	public void setNextToken(String nextToken) {
-		this.nextToken = nextToken;
-		if(nextToken != null){
-			putQueryParameter("NextToken", nextToken);
 		}
 	}
 

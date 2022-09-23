@@ -1,3 +1,15 @@
+2022-08-24 Version: 2.6.6
+- Supported legacy api.
+
+2022-06-30 Version: 2.6.1
+- Supported ListAgentStates params query.
+
+2022-06-15 Version: 2.6.0
+- Supported GetConversationByContactId apis.
+
+2022-06-14 Version: 1.0.36
+- Modify the return field of the GetRoutePoint api.
+
 2022-04-29 Version: 1.0.35
 - Modify SkillGroup basic information for ModifySkillGroupBasicInfo.
 

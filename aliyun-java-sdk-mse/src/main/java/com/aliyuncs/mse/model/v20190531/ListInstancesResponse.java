@@ -97,7 +97,7 @@ public class ListInstancesResponse extends AcsResponse {
 
 		private String dbUserName;
 
-		private Long endDate;
+		private String endDate;
 
 		private Long environmentId;
 
@@ -149,6 +149,10 @@ public class ListInstancesResponse extends AcsResponse {
 
 		private String zoneId;
 
+		private Boolean isCreatedSlb;
+
+		private String nameServerPublic;
+
 		public String getAppClusterId() {
 			return this.appClusterId;
 		}
@@ -189,11 +193,11 @@ public class ListInstancesResponse extends AcsResponse {
 			this.dbUserName = dbUserName;
 		}
 
-		public Long getEndDate() {
+		public String getEndDate() {
 			return this.endDate;
 		}
 
-		public void setEndDate(Long endDate) {
+		public void setEndDate(String endDate) {
 			this.endDate = endDate;
 		}
 
@@ -395,6 +399,22 @@ public class ListInstancesResponse extends AcsResponse {
 
 		public void setZoneId(String zoneId) {
 			this.zoneId = zoneId;
+		}
+
+		public Boolean getIsCreatedSlb() {
+			return this.isCreatedSlb;
+		}
+
+		public void setIsCreatedSlb(Boolean isCreatedSlb) {
+			this.isCreatedSlb = isCreatedSlb;
+		}
+
+		public String getNameServerPublic() {
+			return this.nameServerPublic;
+		}
+
+		public void setNameServerPublic(String nameServerPublic) {
+			this.nameServerPublic = nameServerPublic;
 		}
 	}
 

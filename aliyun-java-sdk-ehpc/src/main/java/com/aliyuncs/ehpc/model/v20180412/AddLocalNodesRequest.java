@@ -28,6 +28,8 @@ public class AddLocalNodesRequest extends RpcAcsRequest<AddLocalNodesResponse> {
 	private String clusterId;
 
 	private String nodes;
+
+	private String queue;
 	public AddLocalNodesRequest() {
 		super("EHPC", "2018-04-12", "AddLocalNodes");
 		setMethod(MethodType.GET);
@@ -56,6 +58,17 @@ public class AddLocalNodesRequest extends RpcAcsRequest<AddLocalNodesResponse> {
 		this.nodes = nodes;
 		if(nodes != null){
 			putQueryParameter("Nodes", nodes);
+		}
+	}
+
+	public String getQueue() {
+		return this.queue;
+	}
+
+	public void setQueue(String queue) {
+		this.queue = queue;
+		if(queue != null){
+			putQueryParameter("Queue", queue);
 		}
 	}
 

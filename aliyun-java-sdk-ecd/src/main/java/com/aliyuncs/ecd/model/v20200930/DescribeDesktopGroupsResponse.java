@@ -125,6 +125,20 @@ public class DescribeDesktopGroupsResponse extends AcsResponse {
 
 		private String imageId;
 
+		private Boolean volumeEncryptionEnabled;
+
+		private String volumeEncryptionKey;
+
+		private Float ratioThreshold;
+
+		private Long connectDuration;
+
+		private Long idleDisconnectDuration;
+
+		private Integer version;
+
+		private Long stopDuration;
+
 		public String getCreateTime() {
 			return this.createTime;
 		}
@@ -395,6 +409,62 @@ public class DescribeDesktopGroupsResponse extends AcsResponse {
 
 		public void setImageId(String imageId) {
 			this.imageId = imageId;
+		}
+
+		public Boolean getVolumeEncryptionEnabled() {
+			return this.volumeEncryptionEnabled;
+		}
+
+		public void setVolumeEncryptionEnabled(Boolean volumeEncryptionEnabled) {
+			this.volumeEncryptionEnabled = volumeEncryptionEnabled;
+		}
+
+		public String getVolumeEncryptionKey() {
+			return this.volumeEncryptionKey;
+		}
+
+		public void setVolumeEncryptionKey(String volumeEncryptionKey) {
+			this.volumeEncryptionKey = volumeEncryptionKey;
+		}
+
+		public Float getRatioThreshold() {
+			return this.ratioThreshold;
+		}
+
+		public void setRatioThreshold(Float ratioThreshold) {
+			this.ratioThreshold = ratioThreshold;
+		}
+
+		public Long getConnectDuration() {
+			return this.connectDuration;
+		}
+
+		public void setConnectDuration(Long connectDuration) {
+			this.connectDuration = connectDuration;
+		}
+
+		public Long getIdleDisconnectDuration() {
+			return this.idleDisconnectDuration;
+		}
+
+		public void setIdleDisconnectDuration(Long idleDisconnectDuration) {
+			this.idleDisconnectDuration = idleDisconnectDuration;
+		}
+
+		public Integer getVersion() {
+			return this.version;
+		}
+
+		public void setVersion(Integer version) {
+			this.version = version;
+		}
+
+		public Long getStopDuration() {
+			return this.stopDuration;
+		}
+
+		public void setStopDuration(Long stopDuration) {
+			this.stopDuration = stopDuration;
 		}
 	}
 

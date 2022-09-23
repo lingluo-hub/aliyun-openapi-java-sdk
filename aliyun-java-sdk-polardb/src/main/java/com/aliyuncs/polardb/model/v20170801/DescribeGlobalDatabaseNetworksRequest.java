@@ -29,9 +29,15 @@ public class DescribeGlobalDatabaseNetworksRequest extends RpcAcsRequest<Describ
 
 	private Integer pageNumber;
 
+	private String resourceGroupId;
+
 	private String securityToken;
 
+	private String gDNId;
+
 	private Integer pageSize;
+
+	private String gDNDescription;
 
 	private String resourceOwnerAccount;
 
@@ -71,6 +77,17 @@ public class DescribeGlobalDatabaseNetworksRequest extends RpcAcsRequest<Describ
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -82,6 +99,17 @@ public class DescribeGlobalDatabaseNetworksRequest extends RpcAcsRequest<Describ
 		}
 	}
 
+	public String getGDNId() {
+		return this.gDNId;
+	}
+
+	public void setGDNId(String gDNId) {
+		this.gDNId = gDNId;
+		if(gDNId != null){
+			putQueryParameter("GDNId", gDNId);
+		}
+	}
+
 	public Integer getPageSize() {
 		return this.pageSize;
 	}
@@ -90,6 +118,17 @@ public class DescribeGlobalDatabaseNetworksRequest extends RpcAcsRequest<Describ
 		this.pageSize = pageSize;
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public String getGDNDescription() {
+		return this.gDNDescription;
+	}
+
+	public void setGDNDescription(String gDNDescription) {
+		this.gDNDescription = gDNDescription;
+		if(gDNDescription != null){
+			putQueryParameter("GDNDescription", gDNDescription);
 		}
 	}
 

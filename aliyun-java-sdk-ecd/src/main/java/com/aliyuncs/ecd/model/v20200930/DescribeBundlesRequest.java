@@ -38,6 +38,10 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 
 	private String bundleType;
 
+	private String fotaChannel;
+
+	private Boolean volumeEncryptionEnabled;
+
 	private Integer memorySize;
 
 	private Integer maxResults;
@@ -123,6 +127,28 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 		this.bundleType = bundleType;
 		if(bundleType != null){
 			putQueryParameter("BundleType", bundleType);
+		}
+	}
+
+	public String getFotaChannel() {
+		return this.fotaChannel;
+	}
+
+	public void setFotaChannel(String fotaChannel) {
+		this.fotaChannel = fotaChannel;
+		if(fotaChannel != null){
+			putQueryParameter("FotaChannel", fotaChannel);
+		}
+	}
+
+	public Boolean getVolumeEncryptionEnabled() {
+		return this.volumeEncryptionEnabled;
+	}
+
+	public void setVolumeEncryptionEnabled(Boolean volumeEncryptionEnabled) {
+		this.volumeEncryptionEnabled = volumeEncryptionEnabled;
+		if(volumeEncryptionEnabled != null){
+			putQueryParameter("VolumeEncryptionEnabled", volumeEncryptionEnabled.toString());
 		}
 	}
 

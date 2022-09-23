@@ -37,6 +37,8 @@ public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
 
 	private Long timeout;
 
+	private String contentEncoding;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -47,7 +49,7 @@ public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
 
 	private Boolean enableParameter;
 	public CreateCommandRequest() {
-		super("Ecs", "2014-05-26", "CreateCommand", "ecs");
+		super("Ecs", "2014-05-26", "CreateCommand");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -118,6 +120,17 @@ public class CreateCommandRequest extends RpcAcsRequest<CreateCommandResponse> {
 		this.timeout = timeout;
 		if(timeout != null){
 			putQueryParameter("Timeout", timeout.toString());
+		}
+	}
+
+	public String getContentEncoding() {
+		return this.contentEncoding;
+	}
+
+	public void setContentEncoding(String contentEncoding) {
+		this.contentEncoding = contentEncoding;
+		if(contentEncoding != null){
+			putQueryParameter("ContentEncoding", contentEncoding);
 		}
 	}
 

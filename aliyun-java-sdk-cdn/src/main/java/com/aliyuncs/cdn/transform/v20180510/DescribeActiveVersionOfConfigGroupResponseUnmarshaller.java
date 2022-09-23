@@ -23,15 +23,15 @@ public class DescribeActiveVersionOfConfigGroupResponseUnmarshaller {
 	public static DescribeActiveVersionOfConfigGroupResponse unmarshall(DescribeActiveVersionOfConfigGroupResponse describeActiveVersionOfConfigGroupResponse, UnmarshallerContext _ctx) {
 		
 		describeActiveVersionOfConfigGroupResponse.setRequestId(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.RequestId"));
+		describeActiveVersionOfConfigGroupResponse.setStatus(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.Status"));
+		describeActiveVersionOfConfigGroupResponse.setUpdateTime(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.UpdateTime"));
+		describeActiveVersionOfConfigGroupResponse.setSeqId(_ctx.longValue("DescribeActiveVersionOfConfigGroupResponse.SeqId"));
+		describeActiveVersionOfConfigGroupResponse.setDescription(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.Description"));
+		describeActiveVersionOfConfigGroupResponse.setCreateTime(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.CreateTime"));
 		describeActiveVersionOfConfigGroupResponse.setVersionId(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.VersionId"));
 		describeActiveVersionOfConfigGroupResponse.setConfigGroupId(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.ConfigGroupId"));
-		describeActiveVersionOfConfigGroupResponse.setBaseVersionId(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.BaseVersionId"));
-		describeActiveVersionOfConfigGroupResponse.setDescription(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.Description"));
-		describeActiveVersionOfConfigGroupResponse.setSeqId(_ctx.longValue("DescribeActiveVersionOfConfigGroupResponse.SeqId"));
-		describeActiveVersionOfConfigGroupResponse.setStatus(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.Status"));
 		describeActiveVersionOfConfigGroupResponse.setOperator(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.Operator"));
-		describeActiveVersionOfConfigGroupResponse.setCreateTime(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.CreateTime"));
-		describeActiveVersionOfConfigGroupResponse.setUpdateTime(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.UpdateTime"));
+		describeActiveVersionOfConfigGroupResponse.setBaseVersionId(_ctx.stringValue("DescribeActiveVersionOfConfigGroupResponse.BaseVersionId"));
 	 
 	 	return describeActiveVersionOfConfigGroupResponse;
 	}

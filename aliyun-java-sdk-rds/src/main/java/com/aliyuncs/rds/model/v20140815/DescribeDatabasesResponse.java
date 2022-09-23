@@ -47,19 +47,43 @@ public class DescribeDatabasesResponse extends AcsResponse {
 
 	public static class Database {
 
+		private String dBDescription;
+
+		private String dBStatus;
+
 		private String dBName;
 
 		private String dBInstanceId;
 
 		private String engine;
 
-		private String dBStatus;
-
 		private String characterSetName;
 
-		private String dBDescription;
+		private Integer pageNumber;
+
+		private Integer pageSize;
+
+		private Integer totalCount;
+
+		private String resourceGroupId;
 
 		private List<AccountPrivilegeInfo> accounts;
+
+		public String getDBDescription() {
+			return this.dBDescription;
+		}
+
+		public void setDBDescription(String dBDescription) {
+			this.dBDescription = dBDescription;
+		}
+
+		public String getDBStatus() {
+			return this.dBStatus;
+		}
+
+		public void setDBStatus(String dBStatus) {
+			this.dBStatus = dBStatus;
+		}
 
 		public String getDBName() {
 			return this.dBName;
@@ -85,14 +109,6 @@ public class DescribeDatabasesResponse extends AcsResponse {
 			this.engine = engine;
 		}
 
-		public String getDBStatus() {
-			return this.dBStatus;
-		}
-
-		public void setDBStatus(String dBStatus) {
-			this.dBStatus = dBStatus;
-		}
-
 		public String getCharacterSetName() {
 			return this.characterSetName;
 		}
@@ -101,12 +117,36 @@ public class DescribeDatabasesResponse extends AcsResponse {
 			this.characterSetName = characterSetName;
 		}
 
-		public String getDBDescription() {
-			return this.dBDescription;
+		public Integer getPageNumber() {
+			return this.pageNumber;
 		}
 
-		public void setDBDescription(String dBDescription) {
-			this.dBDescription = dBDescription;
+		public void setPageNumber(Integer pageNumber) {
+			this.pageNumber = pageNumber;
+		}
+
+		public Integer getPageSize() {
+			return this.pageSize;
+		}
+
+		public void setPageSize(Integer pageSize) {
+			this.pageSize = pageSize;
+		}
+
+		public Integer getTotalCount() {
+			return this.totalCount;
+		}
+
+		public void setTotalCount(Integer totalCount) {
+			this.totalCount = totalCount;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public List<AccountPrivilegeInfo> getAccounts() {

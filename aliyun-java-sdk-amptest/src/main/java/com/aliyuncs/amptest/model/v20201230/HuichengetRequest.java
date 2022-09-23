@@ -23,9 +23,113 @@ import com.aliyuncs.http.MethodType;
  */
 public class HuichengetRequest extends RpcAcsRequest<HuichengetResponse> {
 	   
+
+	private String add;
+
+	private String apple;
+
+	private String tea;
+
+	private String address;
+
+	private String four;
+
+	private String newName;
+
+	private String two;
+
+	private String three;
 	public HuichengetRequest() {
-		super("AmpTest", "2020-12-30", "Huichenget");
+		super("AmpTest", "2020-12-30", "Huichenget", "AmpTest");
 		setMethod(MethodType.POST);
+	}
+
+	public String getAdd() {
+		return this.add;
+	}
+
+	public void setAdd(String add) {
+		this.add = add;
+		if(add != null){
+			putQueryParameter("Add", add);
+		}
+	}
+
+	public String getApple() {
+		return this.apple;
+	}
+
+	public void setApple(String apple) {
+		this.apple = apple;
+		if(apple != null){
+			putQueryParameter("Apple", apple);
+		}
+	}
+
+	public String getTea() {
+		return this.tea;
+	}
+
+	public void setTea(String tea) {
+		this.tea = tea;
+		if(tea != null){
+			putQueryParameter("Tea", tea);
+		}
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+		if(address != null){
+			putQueryParameter("Address", address);
+		}
+	}
+
+	public String getFour() {
+		return this.four;
+	}
+
+	public void setFour(String four) {
+		this.four = four;
+		if(four != null){
+			putQueryParameter("Four", four);
+		}
+	}
+
+	public String getNewName() {
+		return this.newName;
+	}
+
+	public void setNewName(String newName) {
+		this.newName = newName;
+		if(newName != null){
+			putQueryParameter("NewName", newName);
+		}
+	}
+
+	public String getTwo() {
+		return this.two;
+	}
+
+	public void setTwo(String two) {
+		this.two = two;
+		if(two != null){
+			putQueryParameter("Two", two);
+		}
+	}
+
+	public String getThree() {
+		return this.three;
+	}
+
+	public void setThree(String three) {
+		this.three = three;
+		if(three != null){
+			putQueryParameter("Three", three);
+		}
 	}
 
 	@Override

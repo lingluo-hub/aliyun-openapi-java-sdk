@@ -111,6 +111,12 @@ public class GetGatewayServiceDetailResponse extends AcsResponse {
 
 		private String gmtModified;
 
+		private String healthStatus;
+
+		private String healthCheck;
+
+		private String serviceProtocol;
+
 		private List<VersionsItem> versions;
 
 		private List<LabelDetailsItem> labelDetails;
@@ -215,6 +221,30 @@ public class GetGatewayServiceDetailResponse extends AcsResponse {
 
 		public void setGmtModified(String gmtModified) {
 			this.gmtModified = gmtModified;
+		}
+
+		public String getHealthStatus() {
+			return this.healthStatus;
+		}
+
+		public void setHealthStatus(String healthStatus) {
+			this.healthStatus = healthStatus;
+		}
+
+		public String getHealthCheck() {
+			return this.healthCheck;
+		}
+
+		public void setHealthCheck(String healthCheck) {
+			this.healthCheck = healthCheck;
+		}
+
+		public String getServiceProtocol() {
+			return this.serviceProtocol;
+		}
+
+		public void setServiceProtocol(String serviceProtocol) {
+			this.serviceProtocol = serviceProtocol;
 		}
 
 		public List<VersionsItem> getVersions() {
@@ -461,6 +491,8 @@ public class GetGatewayServiceDetailResponse extends AcsResponse {
 
 				private String loadbalancerType;
 
+				private Long warmupDuration;
+
 				private ConsistentHashLBConfig consistentHashLBConfig;
 
 				public String getLoadbalancerType() {
@@ -469,6 +501,14 @@ public class GetGatewayServiceDetailResponse extends AcsResponse {
 
 				public void setLoadbalancerType(String loadbalancerType) {
 					this.loadbalancerType = loadbalancerType;
+				}
+
+				public Long getWarmupDuration() {
+					return this.warmupDuration;
+				}
+
+				public void setWarmupDuration(Long warmupDuration) {
+					this.warmupDuration = warmupDuration;
 				}
 
 				public ConsistentHashLBConfig getConsistentHashLBConfig() {

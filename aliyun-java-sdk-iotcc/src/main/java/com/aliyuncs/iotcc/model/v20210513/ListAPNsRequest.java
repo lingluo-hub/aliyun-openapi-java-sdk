@@ -26,11 +26,13 @@ public class ListAPNsRequest extends RpcAcsRequest<ListAPNsResponse> {
 
 	private String iSP;
 
+	private String type;
+
 	private String nextToken;
 
-	private Integer maxResults;
-
 	private String aPN;
+
+	private Integer maxResults;
 	public ListAPNsRequest() {
 		super("IoTCC", "2021-05-13", "ListAPNs", "IoTCC");
 		setMethod(MethodType.POST);
@@ -47,6 +49,17 @@ public class ListAPNsRequest extends RpcAcsRequest<ListAPNsResponse> {
 		}
 	}
 
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		if(type != null){
+			putQueryParameter("Type", type);
+		}
+	}
+
 	public String getNextToken() {
 		return this.nextToken;
 	}
@@ -58,17 +71,6 @@ public class ListAPNsRequest extends RpcAcsRequest<ListAPNsResponse> {
 		}
 	}
 
-	public Integer getMaxResults() {
-		return this.maxResults;
-	}
-
-	public void setMaxResults(Integer maxResults) {
-		this.maxResults = maxResults;
-		if(maxResults != null){
-			putQueryParameter("MaxResults", maxResults.toString());
-		}
-	}
-
 	public String getAPN() {
 		return this.aPN;
 	}
@@ -77,6 +79,17 @@ public class ListAPNsRequest extends RpcAcsRequest<ListAPNsResponse> {
 		this.aPN = aPN;
 		if(aPN != null){
 			putQueryParameter("APN", aPN);
+		}
+	}
+
+	public Integer getMaxResults() {
+		return this.maxResults;
+	}
+
+	public void setMaxResults(Integer maxResults) {
+		this.maxResults = maxResults;
+		if(maxResults != null){
+			putQueryParameter("MaxResults", maxResults.toString());
 		}
 	}
 

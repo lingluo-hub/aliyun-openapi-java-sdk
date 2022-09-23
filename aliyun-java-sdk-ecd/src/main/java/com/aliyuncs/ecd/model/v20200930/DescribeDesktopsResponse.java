@@ -113,11 +113,9 @@ public class DescribeDesktopsResponse extends AcsResponse {
 
 		private String officeSiteName;
 
-		private String directoryType;
-
-		private String officeSiteVpcType;
-
 		private String startTime;
+
+		private String directoryType;
 
 		private Integer cpu;
 
@@ -149,7 +147,15 @@ public class DescribeDesktopsResponse extends AcsResponse {
 
 		private String progress;
 
+		private Boolean volumeEncryptionEnabled;
+
+		private String volumeEncryptionKey;
+
+		private String officeSiteVpcType;
+
 		private String platform;
+
+		private String sessionType;
 
 		private List<Disk> disks;
 
@@ -158,6 +164,8 @@ public class DescribeDesktopsResponse extends AcsResponse {
 		private List<Session> sessions;
 
 		private List<String> endUserIds;
+
+		private List<String> managementFlags;
 
 		private FotaUpdate fotaUpdate;
 
@@ -345,28 +353,20 @@ public class DescribeDesktopsResponse extends AcsResponse {
 			this.officeSiteName = officeSiteName;
 		}
 
-		public String getDirectoryType() {
-			return this.directoryType;
-		}
-
-		public void setDirectoryType(String directoryType) {
-			this.directoryType = directoryType;
-		}
-
-		public String getOfficeSiteVpcType() {
-			return this.officeSiteVpcType;
-		}
-
-		public void setOfficeSiteVpcType(String officeSiteVpcType) {
-			this.officeSiteVpcType = officeSiteVpcType;
-		}
-
 		public String getStartTime() {
 			return this.startTime;
 		}
 
 		public void setStartTime(String startTime) {
 			this.startTime = startTime;
+		}
+
+		public String getDirectoryType() {
+			return this.directoryType;
+		}
+
+		public void setDirectoryType(String directoryType) {
+			this.directoryType = directoryType;
 		}
 
 		public Integer getCpu() {
@@ -489,12 +489,44 @@ public class DescribeDesktopsResponse extends AcsResponse {
 			this.progress = progress;
 		}
 
+		public Boolean getVolumeEncryptionEnabled() {
+			return this.volumeEncryptionEnabled;
+		}
+
+		public void setVolumeEncryptionEnabled(Boolean volumeEncryptionEnabled) {
+			this.volumeEncryptionEnabled = volumeEncryptionEnabled;
+		}
+
+		public String getVolumeEncryptionKey() {
+			return this.volumeEncryptionKey;
+		}
+
+		public void setVolumeEncryptionKey(String volumeEncryptionKey) {
+			this.volumeEncryptionKey = volumeEncryptionKey;
+		}
+
+		public String getOfficeSiteVpcType() {
+			return this.officeSiteVpcType;
+		}
+
+		public void setOfficeSiteVpcType(String officeSiteVpcType) {
+			this.officeSiteVpcType = officeSiteVpcType;
+		}
+
 		public String getPlatform() {
 			return this.platform;
 		}
 
 		public void setPlatform(String platform) {
 			this.platform = platform;
+		}
+
+		public String getSessionType() {
+			return this.sessionType;
+		}
+
+		public void setSessionType(String sessionType) {
+			this.sessionType = sessionType;
 		}
 
 		public List<Disk> getDisks() {
@@ -527,6 +559,14 @@ public class DescribeDesktopsResponse extends AcsResponse {
 
 		public void setEndUserIds(List<String> endUserIds) {
 			this.endUserIds = endUserIds;
+		}
+
+		public List<String> getManagementFlags() {
+			return this.managementFlags;
+		}
+
+		public void setManagementFlags(List<String> managementFlags) {
+			this.managementFlags = managementFlags;
 		}
 
 		public FotaUpdate getFotaUpdate() {

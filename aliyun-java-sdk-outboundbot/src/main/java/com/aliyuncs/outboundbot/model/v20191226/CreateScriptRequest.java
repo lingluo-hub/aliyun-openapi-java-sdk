@@ -38,6 +38,8 @@ public class CreateScriptRequest extends RpcAcsRequest<CreateScriptResponse> {
 
 	private String asrConfig;
 
+	private String miniPlaybackConfigListJsonString;
+
 	private Boolean newBargeInEnable;
 
 	private Boolean miniPlaybackEnable;
@@ -47,6 +49,8 @@ public class CreateScriptRequest extends RpcAcsRequest<CreateScriptResponse> {
 	private String instanceId;
 
 	private String scriptDescription;
+
+	private Boolean longWaitEnable;
 
 	private List<String> scriptContents;
 	public CreateScriptRequest() {
@@ -126,6 +130,17 @@ public class CreateScriptRequest extends RpcAcsRequest<CreateScriptResponse> {
 		}
 	}
 
+	public String getMiniPlaybackConfigListJsonString() {
+		return this.miniPlaybackConfigListJsonString;
+	}
+
+	public void setMiniPlaybackConfigListJsonString(String miniPlaybackConfigListJsonString) {
+		this.miniPlaybackConfigListJsonString = miniPlaybackConfigListJsonString;
+		if(miniPlaybackConfigListJsonString != null){
+			putQueryParameter("MiniPlaybackConfigListJsonString", miniPlaybackConfigListJsonString);
+		}
+	}
+
 	public Boolean getNewBargeInEnable() {
 		return this.newBargeInEnable;
 	}
@@ -178,6 +193,17 @@ public class CreateScriptRequest extends RpcAcsRequest<CreateScriptResponse> {
 		this.scriptDescription = scriptDescription;
 		if(scriptDescription != null){
 			putQueryParameter("ScriptDescription", scriptDescription);
+		}
+	}
+
+	public Boolean getLongWaitEnable() {
+		return this.longWaitEnable;
+	}
+
+	public void setLongWaitEnable(Boolean longWaitEnable) {
+		this.longWaitEnable = longWaitEnable;
+		if(longWaitEnable != null){
+			putQueryParameter("LongWaitEnable", longWaitEnable.toString());
 		}
 	}
 

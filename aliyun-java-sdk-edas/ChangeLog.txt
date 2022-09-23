@@ -1,3 +1,29 @@
+2022-08-17 Version: 3.26.11
+- DeleteK8sApplication add params force.
+
+2022-08-12 Version: 3.26.10
+- Support swimming lane sdk.
+
+2022-07-29 Version: 3.26.9
+- Removed Region From StartK8sAppPrecheck.
+
+2022-07-28 Version: 3.26.8
+- Supported SlbInfo in GetK8sApplication.
+
+2022-07-14 Version: 3.26.7
+- Supported SubClusterType in GetK8sCluster.
+
+2022-07-08 Version: 3.26.6
+- Supported StartK8sAppPrecheck
+- Supported GetK8sAppPrecheckResult
+
+2022-06-16 Version: 3.26.5
+- Supported ExternalTrafficPolicy for CreateK8sService.
+- Supported ExternalTrafficPolicy for UpdateK8sService.
+
+2022-06-02 Version: 3.26.4
+- Add ListK8sNamespaces.
+
 2022-05-18 Version: 3.26.3
 - Supported EnableEmptyPushReject for InsertK8sApplication.
 - Supported EnableLosslessRule for InsertK8sApplication.

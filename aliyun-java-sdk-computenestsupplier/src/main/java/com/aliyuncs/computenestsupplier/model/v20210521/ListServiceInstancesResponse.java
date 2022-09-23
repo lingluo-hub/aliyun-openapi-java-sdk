@@ -103,6 +103,14 @@ public class ListServiceInstancesResponse extends AcsResponse {
 
 		private Boolean enableInstanceOps;
 
+		private String source;
+
+		private String endTime;
+
+		private String serviceType;
+
+		private List<Tag> tags;
+
 		private Service service;
 
 		public String getStatus() {
@@ -209,12 +217,67 @@ public class ListServiceInstancesResponse extends AcsResponse {
 			this.enableInstanceOps = enableInstanceOps;
 		}
 
+		public String getSource() {
+			return this.source;
+		}
+
+		public void setSource(String source) {
+			this.source = source;
+		}
+
+		public String getEndTime() {
+			return this.endTime;
+		}
+
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
+		}
+
+		public String getServiceType() {
+			return this.serviceType;
+		}
+
+		public void setServiceType(String serviceType) {
+			this.serviceType = serviceType;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
 		public Service getService() {
 			return this.service;
 		}
 
 		public void setService(Service service) {
 			this.service = service;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 
 		public static class Service {
@@ -234,6 +297,10 @@ public class ListServiceInstancesResponse extends AcsResponse {
 			private String serviceType;
 
 			private String supplierName;
+
+			private String versionName;
+
+			private String deployMetadata;
 
 			private List<ServiceInfo> serviceInfos;
 
@@ -299,6 +366,22 @@ public class ListServiceInstancesResponse extends AcsResponse {
 
 			public void setSupplierName(String supplierName) {
 				this.supplierName = supplierName;
+			}
+
+			public String getVersionName() {
+				return this.versionName;
+			}
+
+			public void setVersionName(String versionName) {
+				this.versionName = versionName;
+			}
+
+			public String getDeployMetadata() {
+				return this.deployMetadata;
+			}
+
+			public void setDeployMetadata(String deployMetadata) {
+				this.deployMetadata = deployMetadata;
 			}
 
 			public List<ServiceInfo> getServiceInfos() {

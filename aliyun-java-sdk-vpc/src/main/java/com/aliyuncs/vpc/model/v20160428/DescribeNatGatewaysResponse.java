@@ -121,7 +121,11 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 
 		private String privateLinkMode;
 
+		private String eipBindMode;
+
 		private List<IpList> ipLists;
+
+		private List<Tag> tags;
 
 		private List<String> forwardTableIds;
 
@@ -309,12 +313,28 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			this.privateLinkMode = privateLinkMode;
 		}
 
+		public String getEipBindMode() {
+			return this.eipBindMode;
+		}
+
+		public void setEipBindMode(String eipBindMode) {
+			this.eipBindMode = eipBindMode;
+		}
+
 		public List<IpList> getIpLists() {
 			return this.ipLists;
 		}
 
 		public void setIpLists(List<IpList> ipLists) {
 			this.ipLists = ipLists;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public List<String> getForwardTableIds() {
@@ -420,6 +440,29 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			}
 		}
 
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
+			}
+		}
+
 		public static class NatGatewayPrivateInfo {
 
 			private String vswitchId;
@@ -427,6 +470,10 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 			private String eniInstanceId;
 
 			private Integer maxBandwidth;
+
+			private Integer maxSessionQuota;
+
+			private Integer maxSessionEstablishRate;
 
 			private String privateIpAddress;
 
@@ -456,6 +503,22 @@ public class DescribeNatGatewaysResponse extends AcsResponse {
 
 			public void setMaxBandwidth(Integer maxBandwidth) {
 				this.maxBandwidth = maxBandwidth;
+			}
+
+			public Integer getMaxSessionQuota() {
+				return this.maxSessionQuota;
+			}
+
+			public void setMaxSessionQuota(Integer maxSessionQuota) {
+				this.maxSessionQuota = maxSessionQuota;
+			}
+
+			public Integer getMaxSessionEstablishRate() {
+				return this.maxSessionEstablishRate;
+			}
+
+			public void setMaxSessionEstablishRate(Integer maxSessionEstablishRate) {
+				this.maxSessionEstablishRate = maxSessionEstablishRate;
 			}
 
 			public String getPrivateIpAddress() {

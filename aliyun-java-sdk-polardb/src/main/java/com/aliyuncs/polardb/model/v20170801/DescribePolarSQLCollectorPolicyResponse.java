@@ -28,6 +28,8 @@ public class DescribePolarSQLCollectorPolicyResponse extends AcsResponse {
 
 	private String sQLCollectorStatus;
 
+	private String dBClusterId;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -42,6 +44,14 @@ public class DescribePolarSQLCollectorPolicyResponse extends AcsResponse {
 
 	public void setSQLCollectorStatus(String sQLCollectorStatus) {
 		this.sQLCollectorStatus = sQLCollectorStatus;
+	}
+
+	public String getDBClusterId() {
+		return this.dBClusterId;
+	}
+
+	public void setDBClusterId(String dBClusterId) {
+		this.dBClusterId = dBClusterId;
 	}
 
 	@Override

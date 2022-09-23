@@ -111,6 +111,12 @@ public class ListDataSourceItemResponse extends AcsResponse {
 
 		private String topic;
 
+		private String scopeType;
+
+		private String productKey;
+
+		private String deviceName;
+
 		public Long getDataSourceItemId() {
 			return this.dataSourceItemId;
 		}
@@ -125,6 +131,30 @@ public class ListDataSourceItemResponse extends AcsResponse {
 
 		public void setTopic(String topic) {
 			this.topic = topic;
+		}
+
+		public String getScopeType() {
+			return this.scopeType;
+		}
+
+		public void setScopeType(String scopeType) {
+			this.scopeType = scopeType;
+		}
+
+		public String getProductKey() {
+			return this.productKey;
+		}
+
+		public void setProductKey(String productKey) {
+			this.productKey = productKey;
+		}
+
+		public String getDeviceName() {
+			return this.deviceName;
+		}
+
+		public void setDeviceName(String deviceName) {
+			this.deviceName = deviceName;
 		}
 	}
 

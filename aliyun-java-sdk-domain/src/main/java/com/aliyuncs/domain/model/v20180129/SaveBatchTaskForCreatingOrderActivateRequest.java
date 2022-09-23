@@ -65,6 +65,7 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantProfileId" , orderActivateParams.get(depth1).getRegistrantProfileId());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".AliyunDns" , orderActivateParams.get(depth1).getAliyunDns());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ZhCity" , orderActivateParams.get(depth1).getZhCity());
+				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ResourceGroupId" , orderActivateParams.get(depth1).getResourceGroupId());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".TelExt" , orderActivateParams.get(depth1).getTelExt());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ZhRegistrantName" , orderActivateParams.get(depth1).getZhRegistrantName());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".Province" , orderActivateParams.get(depth1).getProvince());
@@ -74,8 +75,8 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".Address" , orderActivateParams.get(depth1).getAddress());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".TelArea" , orderActivateParams.get(depth1).getTelArea());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".DomainName" , orderActivateParams.get(depth1).getDomainName());
-				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ZhAddress" , orderActivateParams.get(depth1).getZhAddress());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".RegistrantType" , orderActivateParams.get(depth1).getRegistrantType());
+				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ZhAddress" , orderActivateParams.get(depth1).getZhAddress());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".Telephone" , orderActivateParams.get(depth1).getTelephone());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".TrademarkDomainActivation" , orderActivateParams.get(depth1).getTrademarkDomainActivation());
 				putQueryParameter("OrderActivateParam." + (depth1 + 1) + ".ZhProvince" , orderActivateParams.get(depth1).getZhProvince());
@@ -172,6 +173,8 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 
 		private String zhCity;
 
+		private String resourceGroupId;
+
 		private String telExt;
 
 		private String zhRegistrantName;
@@ -190,9 +193,9 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 
 		private String domainName;
 
-		private String zhAddress;
-
 		private String registrantType;
+
+		private String zhAddress;
 
 		private String telephone;
 
@@ -278,6 +281,14 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 			this.zhCity = zhCity;
 		}
 
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
 		public String getTelExt() {
 			return this.telExt;
 		}
@@ -350,20 +361,20 @@ public class SaveBatchTaskForCreatingOrderActivateRequest extends RpcAcsRequest<
 			this.domainName = domainName;
 		}
 
-		public String getZhAddress() {
-			return this.zhAddress;
-		}
-
-		public void setZhAddress(String zhAddress) {
-			this.zhAddress = zhAddress;
-		}
-
 		public String getRegistrantType() {
 			return this.registrantType;
 		}
 
 		public void setRegistrantType(String registrantType) {
 			this.registrantType = registrantType;
+		}
+
+		public String getZhAddress() {
+			return this.zhAddress;
+		}
+
+		public void setZhAddress(String zhAddress) {
+			this.zhAddress = zhAddress;
 		}
 
 		public String getTelephone() {

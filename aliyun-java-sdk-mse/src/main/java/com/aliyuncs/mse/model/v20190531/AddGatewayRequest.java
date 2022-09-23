@@ -25,11 +25,21 @@ import com.aliyuncs.mse.Endpoint;
 public class AddGatewayRequest extends RpcAcsRequest<AddGatewayResponse> {
 	   
 
+	private String mseSessionId;
+
 	private String internetSlbSpec;
+
+	private Boolean enableXtrace;
+
+	private String xtraceRatio;
 
 	private Integer replica;
 
 	private String vSwitchId2;
+
+	private Boolean enableHardwareAcceleration;
+
+	private Boolean enableSls;
 
 	private String spec;
 
@@ -55,6 +65,17 @@ public class AddGatewayRequest extends RpcAcsRequest<AddGatewayResponse> {
 		} catch (Exception e) {}
 	}
 
+	public String getMseSessionId() {
+		return this.mseSessionId;
+	}
+
+	public void setMseSessionId(String mseSessionId) {
+		this.mseSessionId = mseSessionId;
+		if(mseSessionId != null){
+			putQueryParameter("MseSessionId", mseSessionId);
+		}
+	}
+
 	public String getInternetSlbSpec() {
 		return this.internetSlbSpec;
 	}
@@ -63,6 +84,28 @@ public class AddGatewayRequest extends RpcAcsRequest<AddGatewayResponse> {
 		this.internetSlbSpec = internetSlbSpec;
 		if(internetSlbSpec != null){
 			putQueryParameter("InternetSlbSpec", internetSlbSpec);
+		}
+	}
+
+	public Boolean getEnableXtrace() {
+		return this.enableXtrace;
+	}
+
+	public void setEnableXtrace(Boolean enableXtrace) {
+		this.enableXtrace = enableXtrace;
+		if(enableXtrace != null){
+			putQueryParameter("EnableXtrace", enableXtrace.toString());
+		}
+	}
+
+	public String getXtraceRatio() {
+		return this.xtraceRatio;
+	}
+
+	public void setXtraceRatio(String xtraceRatio) {
+		this.xtraceRatio = xtraceRatio;
+		if(xtraceRatio != null){
+			putQueryParameter("XtraceRatio", xtraceRatio);
 		}
 	}
 
@@ -85,6 +128,28 @@ public class AddGatewayRequest extends RpcAcsRequest<AddGatewayResponse> {
 		this.vSwitchId2 = vSwitchId2;
 		if(vSwitchId2 != null){
 			putQueryParameter("VSwitchId2", vSwitchId2);
+		}
+	}
+
+	public Boolean getEnableHardwareAcceleration() {
+		return this.enableHardwareAcceleration;
+	}
+
+	public void setEnableHardwareAcceleration(Boolean enableHardwareAcceleration) {
+		this.enableHardwareAcceleration = enableHardwareAcceleration;
+		if(enableHardwareAcceleration != null){
+			putQueryParameter("EnableHardwareAcceleration", enableHardwareAcceleration.toString());
+		}
+	}
+
+	public Boolean getEnableSls() {
+		return this.enableSls;
+	}
+
+	public void setEnableSls(Boolean enableSls) {
+		this.enableSls = enableSls;
+		if(enableSls != null){
+			putQueryParameter("EnableSls", enableSls.toString());
 		}
 	}
 

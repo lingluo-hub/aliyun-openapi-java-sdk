@@ -27,8 +27,6 @@ public class DescribeDomainTopReferVisitRequest extends RpcAcsRequest<DescribeDo
 
 	private String startTime;
 
-	private String percent;
-
 	private String domainName;
 
 	private String endTime;
@@ -53,17 +51,6 @@ public class DescribeDomainTopReferVisitRequest extends RpcAcsRequest<DescribeDo
 		this.startTime = startTime;
 		if(startTime != null){
 			putQueryParameter("StartTime", startTime);
-		}
-	}
-
-	public String getPercent() {
-		return this.percent;
-	}
-
-	public void setPercent(String percent) {
-		this.percent = percent;
-		if(percent != null){
-			putQueryParameter("Percent", percent);
 		}
 	}
 

@@ -27,11 +27,13 @@ public class DeleteGatewaySlbRequest extends RpcAcsRequest<DeleteGatewaySlbRespo
 
 	private Boolean deleteSlb;
 
+	private String mseSessionId;
+
 	private String gatewayUniqueId;
 
-	private String acceptLanguage;
-
 	private String id;
+
+	private String acceptLanguage;
 	public DeleteGatewaySlbRequest() {
 		super("mse", "2019-05-31", "DeleteGatewaySlb", "mse");
 		setMethod(MethodType.POST);
@@ -52,6 +54,17 @@ public class DeleteGatewaySlbRequest extends RpcAcsRequest<DeleteGatewaySlbRespo
 		}
 	}
 
+	public String getMseSessionId() {
+		return this.mseSessionId;
+	}
+
+	public void setMseSessionId(String mseSessionId) {
+		this.mseSessionId = mseSessionId;
+		if(mseSessionId != null){
+			putQueryParameter("MseSessionId", mseSessionId);
+		}
+	}
+
 	public String getGatewayUniqueId() {
 		return this.gatewayUniqueId;
 	}
@@ -63,17 +76,6 @@ public class DeleteGatewaySlbRequest extends RpcAcsRequest<DeleteGatewaySlbRespo
 		}
 	}
 
-	public String getAcceptLanguage() {
-		return this.acceptLanguage;
-	}
-
-	public void setAcceptLanguage(String acceptLanguage) {
-		this.acceptLanguage = acceptLanguage;
-		if(acceptLanguage != null){
-			putQueryParameter("AcceptLanguage", acceptLanguage);
-		}
-	}
-
 	public String getId() {
 		return this.id;
 	}
@@ -82,6 +84,17 @@ public class DeleteGatewaySlbRequest extends RpcAcsRequest<DeleteGatewaySlbRespo
 		this.id = id;
 		if(id != null){
 			putQueryParameter("Id", id);
+		}
+	}
+
+	public String getAcceptLanguage() {
+		return this.acceptLanguage;
+	}
+
+	public void setAcceptLanguage(String acceptLanguage) {
+		this.acceptLanguage = acceptLanguage;
+		if(acceptLanguage != null){
+			putQueryParameter("AcceptLanguage", acceptLanguage);
 		}
 	}
 

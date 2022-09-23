@@ -30,6 +30,8 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 
 	private Long resourceOwnerId;
 
+	private String containerName;
+
 	private String workingDir;
 
 	private String description;
@@ -48,6 +50,8 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 
 	private String windowsPasswordName;
 
+	private List<Tag> tags;
+
 	private Boolean keepCommand;
 
 	private Boolean timed;
@@ -62,13 +66,15 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 
 	private String name;
 
+	private String containerId;
+
 	private Map<Object,Object> parameters;
 
 	private Boolean enableParameter;
 
 	private String username;
 	public RunCommandRequest() {
-		super("Ecs", "2014-05-26", "RunCommand", "ecs");
+		super("Ecs", "2014-05-26", "RunCommand");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -84,6 +90,17 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getContainerName() {
+		return this.containerName;
+	}
+
+	public void setContainerName(String containerName) {
+		this.containerName = containerName;
+		if(containerName != null){
+			putQueryParameter("ContainerName", containerName);
 		}
 	}
 
@@ -186,6 +203,20 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		}
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+			}
+		}	
+	}
+
 	public Boolean getKeepCommand() {
 		return this.keepCommand;
 	}
@@ -265,6 +296,17 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		}
 	}
 
+	public String getContainerId() {
+		return this.containerId;
+	}
+
+	public void setContainerId(String containerId) {
+		this.containerId = containerId;
+		if(containerId != null){
+			putQueryParameter("ContainerId", containerId);
+		}
+	}
+
 	public Map<Object,Object> getParameters() {
 		return this.parameters;
 	}
@@ -295,6 +337,29 @@ public class RunCommandRequest extends RpcAcsRequest<RunCommandResponse> {
 		this.username = username;
 		if(username != null){
 			putQueryParameter("Username", username);
+		}
+	}
+
+	public static class Tag {
+
+		private String key;
+
+		private String value;
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
 		}
 	}
 

@@ -99,11 +99,23 @@ public class DescribeInvocationsResponse extends AcsResponse {
 
 		private String commandName;
 
+		private String commandDescription;
+
 		private String invokeId;
 
 		private String username;
 
+		private String workingDir;
+
+		private Long timeout;
+
+		private String containerId;
+
+		private String containerName;
+
 		private List<InvokeInstance> invokeInstances;
+
+		private List<Tag> tags;
 
 		public String getCreationTime() {
 			return this.creationTime;
@@ -193,6 +205,14 @@ public class DescribeInvocationsResponse extends AcsResponse {
 			this.commandName = commandName;
 		}
 
+		public String getCommandDescription() {
+			return this.commandDescription;
+		}
+
+		public void setCommandDescription(String commandDescription) {
+			this.commandDescription = commandDescription;
+		}
+
 		public String getInvokeId() {
 			return this.invokeId;
 		}
@@ -209,12 +229,52 @@ public class DescribeInvocationsResponse extends AcsResponse {
 			this.username = username;
 		}
 
+		public String getWorkingDir() {
+			return this.workingDir;
+		}
+
+		public void setWorkingDir(String workingDir) {
+			this.workingDir = workingDir;
+		}
+
+		public Long getTimeout() {
+			return this.timeout;
+		}
+
+		public void setTimeout(Long timeout) {
+			this.timeout = timeout;
+		}
+
+		public String getContainerId() {
+			return this.containerId;
+		}
+
+		public void setContainerId(String containerId) {
+			this.containerId = containerId;
+		}
+
+		public String getContainerName() {
+			return this.containerName;
+		}
+
+		public void setContainerName(String containerName) {
+			this.containerName = containerName;
+		}
+
 		public List<InvokeInstance> getInvokeInstances() {
 			return this.invokeInstances;
 		}
 
 		public void setInvokeInstances(List<InvokeInstance> invokeInstances) {
 			this.invokeInstances = invokeInstances;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public static class InvokeInstance {
@@ -367,6 +427,29 @@ public class DescribeInvocationsResponse extends AcsResponse {
 
 			public void setInstanceInvokeStatus(String instanceInvokeStatus) {
 				this.instanceInvokeStatus = instanceInvokeStatus;
+			}
+		}
+
+		public static class Tag {
+
+			private String tagKey;
+
+			private String tagValue;
+
+			public String getTagKey() {
+				return this.tagKey;
+			}
+
+			public void setTagKey(String tagKey) {
+				this.tagKey = tagKey;
+			}
+
+			public String getTagValue() {
+				return this.tagValue;
+			}
+
+			public void setTagValue(String tagValue) {
+				this.tagValue = tagValue;
 			}
 		}
 	}

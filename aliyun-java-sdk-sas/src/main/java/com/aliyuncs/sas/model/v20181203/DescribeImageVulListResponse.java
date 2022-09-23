@@ -113,6 +113,20 @@ public class DescribeImageVulListResponse extends AcsResponse {
 
 		private String level;
 
+		private String canFix;
+
+		private String clusterId;
+
+		private String clusterName;
+
+		private String pod;
+
+		private String namespace;
+
+		private String image;
+
+		private String containerId;
+
 		private List<String> layers;
 
 		private ExtendContentJson extendContentJson;
@@ -259,6 +273,62 @@ public class DescribeImageVulListResponse extends AcsResponse {
 
 		public void setLevel(String level) {
 			this.level = level;
+		}
+
+		public String getCanFix() {
+			return this.canFix;
+		}
+
+		public void setCanFix(String canFix) {
+			this.canFix = canFix;
+		}
+
+		public String getClusterId() {
+			return this.clusterId;
+		}
+
+		public void setClusterId(String clusterId) {
+			this.clusterId = clusterId;
+		}
+
+		public String getClusterName() {
+			return this.clusterName;
+		}
+
+		public void setClusterName(String clusterName) {
+			this.clusterName = clusterName;
+		}
+
+		public String getPod() {
+			return this.pod;
+		}
+
+		public void setPod(String pod) {
+			this.pod = pod;
+		}
+
+		public String getNamespace() {
+			return this.namespace;
+		}
+
+		public void setNamespace(String namespace) {
+			this.namespace = namespace;
+		}
+
+		public String getImage() {
+			return this.image;
+		}
+
+		public void setImage(String image) {
+			this.image = image;
+		}
+
+		public String getContainerId() {
+			return this.containerId;
+		}
+
+		public void setContainerId(String containerId) {
+			this.containerId = containerId;
 		}
 
 		public List<String> getLayers() {

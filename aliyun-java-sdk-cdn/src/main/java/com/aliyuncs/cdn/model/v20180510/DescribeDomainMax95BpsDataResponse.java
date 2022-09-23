@@ -24,34 +24,26 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDomainMax95BpsDataResponse extends AcsResponse {
 
-	private String requestId;
-
-	private String domainName;
+	private String endTime;
 
 	private String startTime;
 
-	private String endTime;
-
-	private String max95Bps;
+	private String requestId;
 
 	private String domesticMax95Bps;
 
 	private String overseasMax95Bps;
 
-	public String getRequestId() {
-		return this.requestId;
+	private String max95Bps;
+
+	private String domainName;
+
+	public String getEndTime() {
+		return this.endTime;
 	}
 
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
-
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	public String getStartTime() {
@@ -62,20 +54,12 @@ public class DescribeDomainMax95BpsDataResponse extends AcsResponse {
 		this.startTime = startTime;
 	}
 
-	public String getEndTime() {
-		return this.endTime;
+	public String getRequestId() {
+		return this.requestId;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
-	public String getMax95Bps() {
-		return this.max95Bps;
-	}
-
-	public void setMax95Bps(String max95Bps) {
-		this.max95Bps = max95Bps;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public String getDomesticMax95Bps() {
@@ -92,6 +76,22 @@ public class DescribeDomainMax95BpsDataResponse extends AcsResponse {
 
 	public void setOverseasMax95Bps(String overseasMax95Bps) {
 		this.overseasMax95Bps = overseasMax95Bps;
+	}
+
+	public String getMax95Bps() {
+		return this.max95Bps;
+	}
+
+	public void setMax95Bps(String max95Bps) {
+		this.max95Bps = max95Bps;
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 
 	@Override

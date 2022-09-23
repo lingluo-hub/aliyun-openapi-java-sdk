@@ -27,6 +27,8 @@ public class DescribeCasterConfigResponse extends AcsResponse {
 
 	private Float delay;
 
+	private String urgentLiveStreamUrl;
+
 	private String urgentMaterialId;
 
 	private String callbackUrl;
@@ -39,9 +41,9 @@ public class DescribeCasterConfigResponse extends AcsResponse {
 
 	private Integer programEffect;
 
-	private String domainName;
-
 	private Integer channelEnable;
+
+	private String domainName;
 
 	private String requestId;
 
@@ -61,6 +63,14 @@ public class DescribeCasterConfigResponse extends AcsResponse {
 
 	public void setDelay(Float delay) {
 		this.delay = delay;
+	}
+
+	public String getUrgentLiveStreamUrl() {
+		return this.urgentLiveStreamUrl;
+	}
+
+	public void setUrgentLiveStreamUrl(String urgentLiveStreamUrl) {
+		this.urgentLiveStreamUrl = urgentLiveStreamUrl;
 	}
 
 	public String getUrgentMaterialId() {
@@ -111,20 +121,20 @@ public class DescribeCasterConfigResponse extends AcsResponse {
 		this.programEffect = programEffect;
 	}
 
-	public String getDomainName() {
-		return this.domainName;
-	}
-
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
-	}
-
 	public Integer getChannelEnable() {
 		return this.channelEnable;
 	}
 
 	public void setChannelEnable(Integer channelEnable) {
 		this.channelEnable = channelEnable;
+	}
+
+	public String getDomainName() {
+		return this.domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 
 	public String getRequestId() {

@@ -51,6 +51,8 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 
 		private String transcodeTemplate;
 
+		private Boolean isLazy;
+
 		private String transcodeName;
 
 		private CustomTranscodeParameters customTranscodeParameters;
@@ -71,6 +73,14 @@ public class DescribeLiveStreamTranscodeInfoResponse extends AcsResponse {
 
 		public void setTranscodeTemplate(String transcodeTemplate) {
 			this.transcodeTemplate = transcodeTemplate;
+		}
+
+		public Boolean getIsLazy() {
+			return this.isLazy;
+		}
+
+		public void setIsLazy(Boolean isLazy) {
+			this.isLazy = isLazy;
 		}
 
 		public String getTranscodeName() {

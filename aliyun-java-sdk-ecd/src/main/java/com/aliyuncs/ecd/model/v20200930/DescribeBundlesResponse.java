@@ -85,6 +85,12 @@ public class DescribeBundlesResponse extends AcsResponse {
 
 		private String sessionType;
 
+		private Boolean volumeEncryptionEnabled;
+
+		private String volumeEncryptionKey;
+
+		private String platform;
+
 		private List<Disk> disks;
 
 		private DesktopTypeAttribute desktopTypeAttribute;
@@ -199,6 +205,30 @@ public class DescribeBundlesResponse extends AcsResponse {
 
 		public void setSessionType(String sessionType) {
 			this.sessionType = sessionType;
+		}
+
+		public Boolean getVolumeEncryptionEnabled() {
+			return this.volumeEncryptionEnabled;
+		}
+
+		public void setVolumeEncryptionEnabled(Boolean volumeEncryptionEnabled) {
+			this.volumeEncryptionEnabled = volumeEncryptionEnabled;
+		}
+
+		public String getVolumeEncryptionKey() {
+			return this.volumeEncryptionKey;
+		}
+
+		public void setVolumeEncryptionKey(String volumeEncryptionKey) {
+			this.volumeEncryptionKey = volumeEncryptionKey;
+		}
+
+		public String getPlatform() {
+			return this.platform;
+		}
+
+		public void setPlatform(String platform) {
+			this.platform = platform;
 		}
 
 		public List<Disk> getDisks() {

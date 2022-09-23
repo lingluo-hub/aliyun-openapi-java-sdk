@@ -23,6 +23,12 @@ public class HuichengetResponseUnmarshaller {
 	public static HuichengetResponse unmarshall(HuichengetResponse huichengetResponse, UnmarshallerContext _ctx) {
 		
 		huichengetResponse.setRequestId(_ctx.stringValue("HuichengetResponse.RequestId"));
+		huichengetResponse.setInstanceId4(_ctx.stringValue("HuichengetResponse.InstanceId4"));
+		huichengetResponse.setMessage(_ctx.stringValue("HuichengetResponse.Message"));
+		huichengetResponse.setCode(_ctx.stringValue("HuichengetResponse.Code"));
+		huichengetResponse.setAge(_ctx.stringValue("HuichengetResponse.Age"));
+		huichengetResponse.setApple(_ctx.stringValue("HuichengetResponse.Apple"));
+		huichengetResponse.setFive(_ctx.stringValue("HuichengetResponse.Five"));
 	 
 	 	return huichengetResponse;
 	}

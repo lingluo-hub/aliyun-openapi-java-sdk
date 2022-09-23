@@ -59,7 +59,13 @@ public class DescribePolicyGroupsResponseUnmarshaller {
 			describePolicyGroup.setRecordingStartTime(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordingStartTime"));
 			describePolicyGroup.setRecordingEndTime(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordingEndTime"));
 			describePolicyGroup.setRecordingFps(_ctx.longValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordingFps"));
+			describePolicyGroup.setRecordingExpires(_ctx.longValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordingExpires"));
 			describePolicyGroup.setCameraRedirect(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].CameraRedirect"));
+			describePolicyGroup.setNetRedirect(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].NetRedirect"));
+			describePolicyGroup.setAppContentProtection(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].AppContentProtection"));
+			describePolicyGroup.setRecordContent(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordContent"));
+			describePolicyGroup.setRecordContentExpires(_ctx.longValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RecordContentExpires"));
+			describePolicyGroup.setRemoteCoordinate(_ctx.stringValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].RemoteCoordinate"));
 
 			List<String> preemptLoginUsers = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribePolicyGroupsResponse.DescribePolicyGroups["+ i +"].PreemptLoginUsers.Length"); j++) {

@@ -1,3 +1,42 @@
+2022-09-23 Version: 1.0.26
+- Add new API DescribeGrantRulesToResource .
+- Update DescribeGrantRulesToCen support MaxResult and nextToken .
+- Update ListTransitRouterPrefixlistAssociation return TransitRouterId and TransitRouterTableId .
+
+2022-08-26 Version: 1.0.25
+- Update param NextHopType visibility for DeleteTransitRouterPrefixListAssociation .
+
+2022-08-25 Version: 1.0.24
+- Add AvailableZones for ListTransitRouterAvailableResource.
+
+2022-08-24 Version: 1.0.23
+- Add ErrorCode for CreateTransitRouterPrefixListAssociation .
+- Add ErrorCode for DeleteTransitRouterPrefixListAssociation .
+- Update Requried params for CreateTransitRouterPrefixListAssociation .
+- Update Requried params for DeleteTransitRouterPrefixListAssociation .
+
+2022-08-23 Version: 1.0.22
+- The action parameter is required for some APIs.
+- RegisterTransitRouterMulticastGroupSources and RegisterTransitRouterMulticastGroupMembers add parameter VpcId.
+
+2022-07-26 Version: 1.0.21-SNAPSHOT
+- Support MatchAddressType in RouteMap API.
+
+2022-07-19 Version: 1.0.21
+- Support MatchAddressType in RouteMap API.
+
+2022-07-04 Version: 1.0.20
+- Support autoPulibshRoute for UpdateTransitRouterVpnAttachment.
+- Support Vpn-Attachment.
+- Support Sys-Flowlog.
+
+2022-06-23 Version: 1.0.19
+- Support Vpn-Attachment.
+- Support Sys-Flowlog.
+
+2022-05-24 Version: 1.0.18
+- update DescribeCenChildInstanceRouteEntries param ChildInstanceRegionId not required.
+
 2022-03-10 Version: 1.0.15
 - Modify the input parameter Action of CreateCen to be required.
 

@@ -1,3 +1,18 @@
+2022-09-16 Version: 7.44.0
+- Iot_20180120 old version sdk.
+
+2022-09-06 Version: 7.43.0
+- Iot_20180120 old version sdk.
+
+2022-08-25 Version: 7.42.0
+- Iot_20180120 Old sdk.
+
+2022-07-11 Version: 7.41.0
+- Add new api for rule.
+
+2022-06-20 Version: 7.40.0
+- Support Easy Connect New API.
+
 2022-04-22 Version: 7.39.0
 - Iot_20180120 old version sdk.
 

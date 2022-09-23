@@ -25,19 +25,11 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeDomainNamesOfVersionResponse extends AcsResponse {
 
-	private String requestId;
-
 	private Integer totalCount;
 
+	private String requestId;
+
 	private List<Content> contents;
-
-	public String getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
 
 	public Integer getTotalCount() {
 		return this.totalCount;
@@ -45,6 +37,14 @@ public class DescribeDomainNamesOfVersionResponse extends AcsResponse {
 
 	public void setTotalCount(Integer totalCount) {
 		this.totalCount = totalCount;
+	}
+
+	public String getRequestId() {
+		return this.requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 
 	public List<Content> getContents() {
@@ -57,17 +57,9 @@ public class DescribeDomainNamesOfVersionResponse extends AcsResponse {
 
 	public static class Content {
 
-		private String domainId;
-
 		private String domainName;
 
-		public String getDomainId() {
-			return this.domainId;
-		}
-
-		public void setDomainId(String domainId) {
-			this.domainId = domainId;
-		}
+		private String domainId;
 
 		public String getDomainName() {
 			return this.domainName;
@@ -75,6 +67,14 @@ public class DescribeDomainNamesOfVersionResponse extends AcsResponse {
 
 		public void setDomainName(String domainName) {
 			this.domainName = domainName;
+		}
+
+		public String getDomainId() {
+			return this.domainId;
+		}
+
+		public void setDomainId(String domainId) {
+			this.domainId = domainId;
 		}
 	}
 

@@ -257,6 +257,26 @@ public class DescribeSiteMonitorListResponse extends AcsResponse {
 
 			private String protocol;
 
+			private Boolean proxy_protocol;
+
+			private String acceptable_response_code;
+
+			private String isBase64Encode;
+
+			private Boolean cert_verify;
+
+			private Boolean unfollow_redirect;
+
+			private Boolean diagnosis_mtr;
+
+			private Boolean diagnosis_ping;
+
+			private Integer retry_delay;
+
+			private Boolean save_response_body;
+
+			private List<AssertionsItem> assertions;
+
 			public String getPassword() {
 				return this.password;
 			}
@@ -447,6 +467,129 @@ public class DescribeSiteMonitorListResponse extends AcsResponse {
 
 			public void setBizProtocol(String protocol) {
 				this.protocol = protocol;
+			}
+
+			public Boolean getProxy_protocol() {
+				return this.proxy_protocol;
+			}
+
+			public void setProxy_protocol(Boolean proxy_protocol) {
+				this.proxy_protocol = proxy_protocol;
+			}
+
+			public String getAcceptable_response_code() {
+				return this.acceptable_response_code;
+			}
+
+			public void setAcceptable_response_code(String acceptable_response_code) {
+				this.acceptable_response_code = acceptable_response_code;
+			}
+
+			public String getIsBase64Encode() {
+				return this.isBase64Encode;
+			}
+
+			public void setIsBase64Encode(String isBase64Encode) {
+				this.isBase64Encode = isBase64Encode;
+			}
+
+			public Boolean getCert_verify() {
+				return this.cert_verify;
+			}
+
+			public void setCert_verify(Boolean cert_verify) {
+				this.cert_verify = cert_verify;
+			}
+
+			public Boolean getUnfollow_redirect() {
+				return this.unfollow_redirect;
+			}
+
+			public void setUnfollow_redirect(Boolean unfollow_redirect) {
+				this.unfollow_redirect = unfollow_redirect;
+			}
+
+			public Boolean getDiagnosis_mtr() {
+				return this.diagnosis_mtr;
+			}
+
+			public void setDiagnosis_mtr(Boolean diagnosis_mtr) {
+				this.diagnosis_mtr = diagnosis_mtr;
+			}
+
+			public Boolean getDiagnosis_ping() {
+				return this.diagnosis_ping;
+			}
+
+			public void setDiagnosis_ping(Boolean diagnosis_ping) {
+				this.diagnosis_ping = diagnosis_ping;
+			}
+
+			public Integer getRetry_delay() {
+				return this.retry_delay;
+			}
+
+			public void setRetry_delay(Integer retry_delay) {
+				this.retry_delay = retry_delay;
+			}
+
+			public Boolean getSave_response_body() {
+				return this.save_response_body;
+			}
+
+			public void setSave_response_body(Boolean save_response_body) {
+				this.save_response_body = save_response_body;
+			}
+
+			public List<AssertionsItem> getAssertions() {
+				return this.assertions;
+			}
+
+			public void setAssertions(List<AssertionsItem> assertions) {
+				this.assertions = assertions;
+			}
+
+			public static class AssertionsItem {
+
+				private String property;
+
+				private String type;
+
+				private String operator;
+
+				private String target;
+
+				public String getProperty() {
+					return this.property;
+				}
+
+				public void setProperty(String property) {
+					this.property = property;
+				}
+
+				public String getType() {
+					return this.type;
+				}
+
+				public void setType(String type) {
+					this.type = type;
+				}
+
+				public String getOperator() {
+					return this.operator;
+				}
+
+				public void setOperator(String operator) {
+					this.operator = operator;
+				}
+
+				public String getTarget() {
+					return this.target;
+				}
+
+				public void setTarget(String target) {
+					this.target = target;
+				}
 			}
 		}
 	}

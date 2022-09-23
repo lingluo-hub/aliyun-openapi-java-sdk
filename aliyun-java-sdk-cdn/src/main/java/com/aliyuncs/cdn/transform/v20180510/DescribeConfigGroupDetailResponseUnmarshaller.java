@@ -23,12 +23,12 @@ public class DescribeConfigGroupDetailResponseUnmarshaller {
 	public static DescribeConfigGroupDetailResponse unmarshall(DescribeConfigGroupDetailResponse describeConfigGroupDetailResponse, UnmarshallerContext _ctx) {
 		
 		describeConfigGroupDetailResponse.setRequestId(_ctx.stringValue("DescribeConfigGroupDetailResponse.RequestId"));
-		describeConfigGroupDetailResponse.setConfigGroupId(_ctx.stringValue("DescribeConfigGroupDetailResponse.ConfigGroupId"));
-		describeConfigGroupDetailResponse.setConfigGroupName(_ctx.stringValue("DescribeConfigGroupDetailResponse.ConfigGroupName"));
-		describeConfigGroupDetailResponse.setDescription(_ctx.stringValue("DescribeConfigGroupDetailResponse.Description"));
-		describeConfigGroupDetailResponse.setBizName(_ctx.stringValue("DescribeConfigGroupDetailResponse.BizName"));
-		describeConfigGroupDetailResponse.setCreateTime(_ctx.stringValue("DescribeConfigGroupDetailResponse.CreateTime"));
 		describeConfigGroupDetailResponse.setUpdateTime(_ctx.stringValue("DescribeConfigGroupDetailResponse.UpdateTime"));
+		describeConfigGroupDetailResponse.setDescription(_ctx.stringValue("DescribeConfigGroupDetailResponse.Description"));
+		describeConfigGroupDetailResponse.setConfigGroupName(_ctx.stringValue("DescribeConfigGroupDetailResponse.ConfigGroupName"));
+		describeConfigGroupDetailResponse.setCreateTime(_ctx.stringValue("DescribeConfigGroupDetailResponse.CreateTime"));
+		describeConfigGroupDetailResponse.setBizName(_ctx.stringValue("DescribeConfigGroupDetailResponse.BizName"));
+		describeConfigGroupDetailResponse.setConfigGroupId(_ctx.stringValue("DescribeConfigGroupDetailResponse.ConfigGroupId"));
 	 
 	 	return describeConfigGroupDetailResponse;
 	}

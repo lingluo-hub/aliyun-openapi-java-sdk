@@ -48,6 +48,9 @@ public class DescribeBundlesResponseUnmarshaller {
 			bundle.setDesktopTypeFamily(_ctx.stringValue("DescribeBundlesResponse.Bundles["+ i +"].DesktopTypeFamily"));
 			bundle.setCreationTime(_ctx.stringValue("DescribeBundlesResponse.Bundles["+ i +"].CreationTime"));
 			bundle.setSessionType(_ctx.stringValue("DescribeBundlesResponse.Bundles["+ i +"].SessionType"));
+			bundle.setVolumeEncryptionEnabled(_ctx.booleanValue("DescribeBundlesResponse.Bundles["+ i +"].VolumeEncryptionEnabled"));
+			bundle.setVolumeEncryptionKey(_ctx.stringValue("DescribeBundlesResponse.Bundles["+ i +"].VolumeEncryptionKey"));
+			bundle.setPlatform(_ctx.stringValue("DescribeBundlesResponse.Bundles["+ i +"].Platform"));
 
 			DesktopTypeAttribute desktopTypeAttribute = new DesktopTypeAttribute();
 			desktopTypeAttribute.setCpuCount(_ctx.integerValue("DescribeBundlesResponse.Bundles["+ i +"].DesktopTypeAttribute.CpuCount"));

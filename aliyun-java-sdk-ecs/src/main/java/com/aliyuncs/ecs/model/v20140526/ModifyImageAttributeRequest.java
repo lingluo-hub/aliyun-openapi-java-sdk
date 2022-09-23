@@ -31,6 +31,8 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 
 	private String description;
 
+	private Features features;
+
 	private String bootMode;
 
 	private String imageName;
@@ -47,7 +49,7 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 
 	private String status;
 	public ModifyImageAttributeRequest() {
-		super("Ecs", "2014-05-26", "ModifyImageAttribute", "ecs");
+		super("Ecs", "2014-05-26", "ModifyImageAttribute");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -86,6 +88,18 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		if(description != null){
 			putQueryParameter("Description", description);
 		}
+	}
+
+	public Features getFeatures() {
+		return this.features;
+	}
+
+	public void setFeatures(Features features) {
+		this.features = features;	
+		if (features != null) {
+			
+				putQueryParameter("Features.NvmeSupport" , features.getNvmeSupport());
+		}	
 	}
 
 	public String getBootMode() {
@@ -173,6 +187,19 @@ public class ModifyImageAttributeRequest extends RpcAcsRequest<ModifyImageAttrib
 		this.status = status;
 		if(status != null){
 			putQueryParameter("Status", status);
+		}
+	}
+
+	public static class Features {
+
+		private String nvmeSupport;
+
+		public String getNvmeSupport() {
+			return this.nvmeSupport;
+		}
+
+		public void setNvmeSupport(String nvmeSupport) {
+			this.nvmeSupport = nvmeSupport;
 		}
 	}
 

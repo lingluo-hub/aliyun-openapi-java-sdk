@@ -1,3 +1,39 @@
+2022-09-21 Version: 4.24.29
+- Automatically generate sdk tasks.
+
+2022-09-21 Version: 4.24.28
+- Automatically generate sdk tasks.
+
+2022-09-14 Version: 4.24.27
+- Automatically generate sdk tasks.
+
+2022-09-09 Version: 4.24.26
+- Automatically generate sdk tasks.
+
+2022-09-07 Version: 4.24.25
+- Support attribute filtering for DescribeInstanceTypes.
+- Provide cpuArchitecture and insatnceCategory attribute in DescribeInstanceTypes.
+
+2022-08-31 Version: 4.24.24
+- Support create image with boot mode.
+- Provide image boot mode info in DescribeImages.
+
+2022-08-02 Version: 4.24.23
+- Support ecs instance diagnostic features.
+
+2022-07-15 Version: 4.24.22
+- Support Security Group Batch Manager Rules.
+
+2022-07-11 Version: 4.24.21
+- Support Storage And Network Features For LaunchTemplate.
+
+2022-06-10 Version: 4.24.20
+- Support removing a instance from a deployment set
+
+2022-05-23 Version: 4.24.19
+- Support systemdisk encrypt and arns.
+- Update tag parameters.
+
 2022-04-24 Version: 4.24.18
 - Support systemdisk encrypt and arns.
 

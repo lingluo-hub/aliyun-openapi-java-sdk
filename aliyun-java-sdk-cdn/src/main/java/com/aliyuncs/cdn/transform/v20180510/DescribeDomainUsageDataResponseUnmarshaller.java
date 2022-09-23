@@ -27,19 +27,19 @@ public class DescribeDomainUsageDataResponseUnmarshaller {
 	public static DescribeDomainUsageDataResponse unmarshall(DescribeDomainUsageDataResponse describeDomainUsageDataResponse, UnmarshallerContext _ctx) {
 		
 		describeDomainUsageDataResponse.setRequestId(_ctx.stringValue("DescribeDomainUsageDataResponse.RequestId"));
-		describeDomainUsageDataResponse.setDomainName(_ctx.stringValue("DescribeDomainUsageDataResponse.DomainName"));
-		describeDomainUsageDataResponse.setStartTime(_ctx.stringValue("DescribeDomainUsageDataResponse.StartTime"));
 		describeDomainUsageDataResponse.setEndTime(_ctx.stringValue("DescribeDomainUsageDataResponse.EndTime"));
 		describeDomainUsageDataResponse.setType(_ctx.stringValue("DescribeDomainUsageDataResponse.Type"));
+		describeDomainUsageDataResponse.setStartTime(_ctx.stringValue("DescribeDomainUsageDataResponse.StartTime"));
 		describeDomainUsageDataResponse.setArea(_ctx.stringValue("DescribeDomainUsageDataResponse.Area"));
+		describeDomainUsageDataResponse.setDomainName(_ctx.stringValue("DescribeDomainUsageDataResponse.DomainName"));
 		describeDomainUsageDataResponse.setDataInterval(_ctx.stringValue("DescribeDomainUsageDataResponse.DataInterval"));
 
 		List<DataModule> usageDataPerInterval = new ArrayList<DataModule>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeDomainUsageDataResponse.UsageDataPerInterval.Length"); i++) {
 			DataModule dataModule = new DataModule();
+			dataModule.setValue(_ctx.stringValue("DescribeDomainUsageDataResponse.UsageDataPerInterval["+ i +"].Value"));
 			dataModule.setTimeStamp(_ctx.stringValue("DescribeDomainUsageDataResponse.UsageDataPerInterval["+ i +"].TimeStamp"));
 			dataModule.setPeakTime(_ctx.stringValue("DescribeDomainUsageDataResponse.UsageDataPerInterval["+ i +"].PeakTime"));
-			dataModule.setValue(_ctx.stringValue("DescribeDomainUsageDataResponse.UsageDataPerInterval["+ i +"].Value"));
 			dataModule.setSpecialValue(_ctx.stringValue("DescribeDomainUsageDataResponse.UsageDataPerInterval["+ i +"].SpecialValue"));
 
 			usageDataPerInterval.add(dataModule);

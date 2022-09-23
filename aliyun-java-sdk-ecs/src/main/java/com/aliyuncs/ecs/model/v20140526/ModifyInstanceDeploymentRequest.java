@@ -27,6 +27,8 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 
 	private Long resourceOwnerId;
 
+	private Boolean removeFromDeploymentSet;
+
 	private Integer deploymentSetGroupNo;
 
 	private String dedicatedHostClusterId;
@@ -53,7 +55,7 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 
 	private String affinity;
 	public ModifyInstanceDeploymentRequest() {
-		super("Ecs", "2014-05-26", "ModifyInstanceDeployment", "ecs");
+		super("Ecs", "2014-05-26", "ModifyInstanceDeployment");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -69,6 +71,17 @@ public class ModifyInstanceDeploymentRequest extends RpcAcsRequest<ModifyInstanc
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getRemoveFromDeploymentSet() {
+		return this.removeFromDeploymentSet;
+	}
+
+	public void setRemoveFromDeploymentSet(Boolean removeFromDeploymentSet) {
+		this.removeFromDeploymentSet = removeFromDeploymentSet;
+		if(removeFromDeploymentSet != null){
+			putQueryParameter("RemoveFromDeploymentSet", removeFromDeploymentSet.toString());
 		}
 	}
 

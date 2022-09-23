@@ -26,12 +26,72 @@ public class HuichengetResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String instanceId4;
+
+	private String message;
+
+	private String code;
+
+	private String age;
+
+	private String apple;
+
+	private String five;
+
 	public String getRequestId() {
 		return this.requestId;
 	}
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getInstanceId4() {
+		return this.instanceId4;
+	}
+
+	public void setInstanceId4(String instanceId4) {
+		this.instanceId4 = instanceId4;
+	}
+
+	public String getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getCode() {
+		return this.code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getAge() {
+		return this.age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getApple() {
+		return this.apple;
+	}
+
+	public void setApple(String apple) {
+		this.apple = apple;
+	}
+
+	public String getFive() {
+		return this.five;
+	}
+
+	public void setFive(String five) {
+		this.five = five;
 	}
 
 	@Override

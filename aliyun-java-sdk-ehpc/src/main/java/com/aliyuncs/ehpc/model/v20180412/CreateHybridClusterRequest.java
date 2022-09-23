@@ -26,6 +26,8 @@ import com.aliyuncs.ehpc.Endpoint;
 public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridClusterResponse> {
 	   
 
+	private String ecsOrderManagerInstanceType;
+
 	private String keyPairName;
 
 	private Boolean multiOs;
@@ -104,6 +106,17 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getEcsOrderManagerInstanceType() {
+		return this.ecsOrderManagerInstanceType;
+	}
+
+	public void setEcsOrderManagerInstanceType(String ecsOrderManagerInstanceType) {
+		this.ecsOrderManagerInstanceType = ecsOrderManagerInstanceType;
+		if(ecsOrderManagerInstanceType != null){
+			putQueryParameter("EcsOrder.Manager.InstanceType", ecsOrderManagerInstanceType);
+		}
 	}
 
 	public String getKeyPairName() {
@@ -450,8 +463,9 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 				putQueryParameter("Nodes." + (depth1 + 1) + ".IpAddress" , nodess.get(depth1).getIpAddress());
 				putQueryParameter("Nodes." + (depth1 + 1) + ".HostName" , nodess.get(depth1).getHostName());
 				putQueryParameter("Nodes." + (depth1 + 1) + ".Role" , nodess.get(depth1).getRole());
-				putQueryParameter("Nodes." + (depth1 + 1) + ".AccountType" , nodess.get(depth1).getAccountType());
 				putQueryParameter("Nodes." + (depth1 + 1) + ".SchedulerType" , nodess.get(depth1).getSchedulerType());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".AccountType" , nodess.get(depth1).getAccountType());
+				putQueryParameter("Nodes." + (depth1 + 1) + ".Dir" , nodess.get(depth1).getDir());
 			}
 		}	
 	}
@@ -544,9 +558,11 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 
 		private String role;
 
+		private String schedulerType;
+
 		private String accountType;
 
-		private String schedulerType;
+		private String dir;
 
 		public String getIpAddress() {
 			return this.ipAddress;
@@ -572,6 +588,14 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 			this.role = role;
 		}
 
+		public String getSchedulerType() {
+			return this.schedulerType;
+		}
+
+		public void setSchedulerType(String schedulerType) {
+			this.schedulerType = schedulerType;
+		}
+
 		public String getAccountType() {
 			return this.accountType;
 		}
@@ -580,12 +604,12 @@ public class CreateHybridClusterRequest extends RpcAcsRequest<CreateHybridCluste
 			this.accountType = accountType;
 		}
 
-		public String getSchedulerType() {
-			return this.schedulerType;
+		public String getDir() {
+			return this.dir;
 		}
 
-		public void setSchedulerType(String schedulerType) {
-			this.schedulerType = schedulerType;
+		public void setDir(String dir) {
+			this.dir = dir;
 		}
 	}
 

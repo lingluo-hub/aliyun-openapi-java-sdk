@@ -15,6 +15,7 @@
 package com.aliyuncs.ehpc.model.v20180412;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ehpc.Endpoint;
 
@@ -40,6 +41,8 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 	private String imageOwnerAlias;
 
 	private String systemDiskType;
+
+	private List<DataDisks> dataDiskss;
 
 	private Integer minCount;
 
@@ -177,6 +180,24 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		if(systemDiskType != null){
 			putQueryParameter("SystemDiskType", systemDiskType);
 		}
+	}
+
+	public List<DataDisks> getDataDiskss() {
+		return this.dataDiskss;
+	}
+
+	public void setDataDiskss(List<DataDisks> dataDiskss) {
+		this.dataDiskss = dataDiskss;	
+		if (dataDiskss != null) {
+			for (int depth1 = 0; depth1 < dataDiskss.size(); depth1++) {
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskDeleteWithInstance" , dataDiskss.get(depth1).getDataDiskDeleteWithInstance());
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskEncrypted" , dataDiskss.get(depth1).getDataDiskEncrypted());
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskKMSKeyId" , dataDiskss.get(depth1).getDataDiskKMSKeyId());
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskSize" , dataDiskss.get(depth1).getDataDiskSize());
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskCategory" , dataDiskss.get(depth1).getDataDiskCategory());
+				putQueryParameter("DataDisks." + (depth1 + 1) + ".DataDiskPerformanceLevel" , dataDiskss.get(depth1).getDataDiskPerformanceLevel());
+			}
+		}	
 	}
 
 	public Integer getMinCount() {
@@ -407,6 +428,69 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		this.internetMaxBandWidthIn = internetMaxBandWidthIn;
 		if(internetMaxBandWidthIn != null){
 			putQueryParameter("InternetMaxBandWidthIn", internetMaxBandWidthIn.toString());
+		}
+	}
+
+	public static class DataDisks {
+
+		private Boolean dataDiskDeleteWithInstance;
+
+		private Boolean dataDiskEncrypted;
+
+		private String dataDiskKMSKeyId;
+
+		private Integer dataDiskSize;
+
+		private String dataDiskCategory;
+
+		private String dataDiskPerformanceLevel;
+
+		public Boolean getDataDiskDeleteWithInstance() {
+			return this.dataDiskDeleteWithInstance;
+		}
+
+		public void setDataDiskDeleteWithInstance(Boolean dataDiskDeleteWithInstance) {
+			this.dataDiskDeleteWithInstance = dataDiskDeleteWithInstance;
+		}
+
+		public Boolean getDataDiskEncrypted() {
+			return this.dataDiskEncrypted;
+		}
+
+		public void setDataDiskEncrypted(Boolean dataDiskEncrypted) {
+			this.dataDiskEncrypted = dataDiskEncrypted;
+		}
+
+		public String getDataDiskKMSKeyId() {
+			return this.dataDiskKMSKeyId;
+		}
+
+		public void setDataDiskKMSKeyId(String dataDiskKMSKeyId) {
+			this.dataDiskKMSKeyId = dataDiskKMSKeyId;
+		}
+
+		public Integer getDataDiskSize() {
+			return this.dataDiskSize;
+		}
+
+		public void setDataDiskSize(Integer dataDiskSize) {
+			this.dataDiskSize = dataDiskSize;
+		}
+
+		public String getDataDiskCategory() {
+			return this.dataDiskCategory;
+		}
+
+		public void setDataDiskCategory(String dataDiskCategory) {
+			this.dataDiskCategory = dataDiskCategory;
+		}
+
+		public String getDataDiskPerformanceLevel() {
+			return this.dataDiskPerformanceLevel;
+		}
+
+		public void setDataDiskPerformanceLevel(String dataDiskPerformanceLevel) {
+			this.dataDiskPerformanceLevel = dataDiskPerformanceLevel;
 		}
 	}
 

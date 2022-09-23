@@ -36,6 +36,8 @@ public class CreateCenRouteMapRequest extends RpcAcsRequest<CreateCenRouteMapRes
 
 	private List<String> destinationCidrBlockss;
 
+	private String transitRouterRouteTableId;
+
 	private List<String> sourceInstanceIdss;
 
 	private List<String> sourceRegionIdss;
@@ -59,6 +61,8 @@ public class CreateCenRouteMapRequest extends RpcAcsRequest<CreateCenRouteMapRes
 	private List<String> operateCommunitySets;
 
 	private List<String> routeTypess;
+
+	private String matchAddressType;
 
 	private String cidrMatchMode;
 
@@ -151,6 +155,17 @@ public class CreateCenRouteMapRequest extends RpcAcsRequest<CreateCenRouteMapRes
 				putQueryParameter("DestinationCidrBlocks." + (i + 1) , destinationCidrBlockss.get(i));
 			}
 		}	
+	}
+
+	public String getTransitRouterRouteTableId() {
+		return this.transitRouterRouteTableId;
+	}
+
+	public void setTransitRouterRouteTableId(String transitRouterRouteTableId) {
+		this.transitRouterRouteTableId = transitRouterRouteTableId;
+		if(transitRouterRouteTableId != null){
+			putQueryParameter("TransitRouterRouteTableId", transitRouterRouteTableId);
+		}
 	}
 
 	public List<String> getSourceInstanceIdss() {
@@ -299,6 +314,17 @@ public class CreateCenRouteMapRequest extends RpcAcsRequest<CreateCenRouteMapRes
 				putQueryParameter("RouteTypes." + (i + 1) , routeTypess.get(i));
 			}
 		}	
+	}
+
+	public String getMatchAddressType() {
+		return this.matchAddressType;
+	}
+
+	public void setMatchAddressType(String matchAddressType) {
+		this.matchAddressType = matchAddressType;
+		if(matchAddressType != null){
+			putQueryParameter("MatchAddressType", matchAddressType);
+		}
 	}
 
 	public String getCidrMatchMode() {

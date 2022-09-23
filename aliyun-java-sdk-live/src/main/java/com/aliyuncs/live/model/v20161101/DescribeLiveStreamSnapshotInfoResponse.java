@@ -65,6 +65,10 @@ public class DescribeLiveStreamSnapshotInfoResponse extends AcsResponse {
 
 		private String ossEndpoint;
 
+		private Boolean isOverlay;
+
+		private Long createTimestamp;
+
 		public String getOssObject() {
 			return this.ossObject;
 		}
@@ -95,6 +99,22 @@ public class DescribeLiveStreamSnapshotInfoResponse extends AcsResponse {
 
 		public void setOssEndpoint(String ossEndpoint) {
 			this.ossEndpoint = ossEndpoint;
+		}
+
+		public Boolean getIsOverlay() {
+			return this.isOverlay;
+		}
+
+		public void setIsOverlay(Boolean isOverlay) {
+			this.isOverlay = isOverlay;
+		}
+
+		public Long getCreateTimestamp() {
+			return this.createTimestamp;
+		}
+
+		public void setCreateTimestamp(Long createTimestamp) {
+			this.createTimestamp = createTimestamp;
 		}
 	}
 

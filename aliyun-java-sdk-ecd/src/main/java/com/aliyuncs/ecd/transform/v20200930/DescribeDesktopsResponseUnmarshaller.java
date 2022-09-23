@@ -60,9 +60,8 @@ public class DescribeDesktopsResponseUnmarshaller {
 			desktop.setDesktopGroupId(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].DesktopGroupId"));
 			desktop.setDesktopId(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].DesktopId"));
 			desktop.setOfficeSiteName(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].OfficeSiteName"));
-			desktop.setDirectoryType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].DirectoryType"));
-			desktop.setOfficeSiteVpcType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].OfficeSiteVpcType"));
 			desktop.setStartTime(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].StartTime"));
+			desktop.setDirectoryType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].DirectoryType"));
 			desktop.setCpu(_ctx.integerValue("DescribeDesktopsResponse.Desktops["+ i +"].Cpu"));
 			desktop.setNetworkInterfaceIp(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].NetworkInterfaceIp"));
 			desktop.setExpiredTime(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].ExpiredTime"));
@@ -78,13 +77,23 @@ public class DescribeDesktopsResponseUnmarshaller {
 			desktop.setGpuDriverVersion(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].GpuDriverVersion"));
 			desktop.setZoneType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].ZoneType"));
 			desktop.setProgress(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].Progress"));
+			desktop.setVolumeEncryptionEnabled(_ctx.booleanValue("DescribeDesktopsResponse.Desktops["+ i +"].VolumeEncryptionEnabled"));
+			desktop.setVolumeEncryptionKey(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].VolumeEncryptionKey"));
+			desktop.setOfficeSiteVpcType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].OfficeSiteVpcType"));
 			desktop.setPlatform(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].Platform"));
+			desktop.setSessionType(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].SessionType"));
 
 			List<String> endUserIds = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeDesktopsResponse.Desktops["+ i +"].EndUserIds.Length"); j++) {
 				endUserIds.add(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].EndUserIds["+ j +"]"));
 			}
 			desktop.setEndUserIds(endUserIds);
+
+			List<String> managementFlags = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeDesktopsResponse.Desktops["+ i +"].ManagementFlags.Length"); j++) {
+				managementFlags.add(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].ManagementFlags["+ j +"]"));
+			}
+			desktop.setManagementFlags(managementFlags);
 
 			FotaUpdate fotaUpdate = new FotaUpdate();
 			fotaUpdate.setCurrentAppVersion(_ctx.stringValue("DescribeDesktopsResponse.Desktops["+ i +"].FotaUpdate.CurrentAppVersion"));

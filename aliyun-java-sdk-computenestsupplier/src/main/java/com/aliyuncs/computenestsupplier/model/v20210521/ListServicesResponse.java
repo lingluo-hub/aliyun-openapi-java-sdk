@@ -97,7 +97,29 @@ public class ListServicesResponse extends AcsResponse {
 
 		private String commodityCode;
 
+		private String createTime;
+
+		private String updateTime;
+
+		private String shareType;
+
+		private String versionName;
+
+		private String artifactId;
+
+		private String artifactVersion;
+
+		private String sourceImage;
+
+		private String relationType;
+
+		private String trialType;
+
+		private String tenantType;
+
 		private List<ServiceInfo> serviceInfos;
+
+		private List<Tag> tags;
 
 		public String getStatus() {
 			return this.status;
@@ -179,12 +201,100 @@ public class ListServicesResponse extends AcsResponse {
 			this.commodityCode = commodityCode;
 		}
 
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getUpdateTime() {
+			return this.updateTime;
+		}
+
+		public void setUpdateTime(String updateTime) {
+			this.updateTime = updateTime;
+		}
+
+		public String getShareType() {
+			return this.shareType;
+		}
+
+		public void setShareType(String shareType) {
+			this.shareType = shareType;
+		}
+
+		public String getVersionName() {
+			return this.versionName;
+		}
+
+		public void setVersionName(String versionName) {
+			this.versionName = versionName;
+		}
+
+		public String getArtifactId() {
+			return this.artifactId;
+		}
+
+		public void setArtifactId(String artifactId) {
+			this.artifactId = artifactId;
+		}
+
+		public String getArtifactVersion() {
+			return this.artifactVersion;
+		}
+
+		public void setArtifactVersion(String artifactVersion) {
+			this.artifactVersion = artifactVersion;
+		}
+
+		public String getSourceImage() {
+			return this.sourceImage;
+		}
+
+		public void setSourceImage(String sourceImage) {
+			this.sourceImage = sourceImage;
+		}
+
+		public String getRelationType() {
+			return this.relationType;
+		}
+
+		public void setRelationType(String relationType) {
+			this.relationType = relationType;
+		}
+
+		public String getTrialType() {
+			return this.trialType;
+		}
+
+		public void setTrialType(String trialType) {
+			this.trialType = trialType;
+		}
+
+		public String getTenantType() {
+			return this.tenantType;
+		}
+
+		public void setTenantType(String tenantType) {
+			this.tenantType = tenantType;
+		}
+
 		public List<ServiceInfo> getServiceInfos() {
 			return this.serviceInfos;
 		}
 
 		public void setServiceInfos(List<ServiceInfo> serviceInfos) {
 			this.serviceInfos = serviceInfos;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public static class ServiceInfo {
@@ -227,6 +337,29 @@ public class ListServicesResponse extends AcsResponse {
 
 			public void setShortDescription(String shortDescription) {
 				this.shortDescription = shortDescription;
+			}
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
 			}
 		}
 	}

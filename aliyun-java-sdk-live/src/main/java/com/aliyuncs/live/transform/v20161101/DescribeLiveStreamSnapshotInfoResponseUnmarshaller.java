@@ -36,6 +36,8 @@ public class DescribeLiveStreamSnapshotInfoResponseUnmarshaller {
 			liveStreamSnapshotInfo.setOssBucket(_ctx.stringValue("DescribeLiveStreamSnapshotInfoResponse.LiveStreamSnapshotInfoList["+ i +"].OssBucket"));
 			liveStreamSnapshotInfo.setCreateTime(_ctx.stringValue("DescribeLiveStreamSnapshotInfoResponse.LiveStreamSnapshotInfoList["+ i +"].CreateTime"));
 			liveStreamSnapshotInfo.setOssEndpoint(_ctx.stringValue("DescribeLiveStreamSnapshotInfoResponse.LiveStreamSnapshotInfoList["+ i +"].OssEndpoint"));
+			liveStreamSnapshotInfo.setIsOverlay(_ctx.booleanValue("DescribeLiveStreamSnapshotInfoResponse.LiveStreamSnapshotInfoList["+ i +"].IsOverlay"));
+			liveStreamSnapshotInfo.setCreateTimestamp(_ctx.longValue("DescribeLiveStreamSnapshotInfoResponse.LiveStreamSnapshotInfoList["+ i +"].CreateTimestamp"));
 
 			liveStreamSnapshotInfoList.add(liveStreamSnapshotInfo);
 		}

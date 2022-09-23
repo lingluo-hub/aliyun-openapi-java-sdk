@@ -29,6 +29,8 @@ public class PushObjectCacheRequest extends RpcAcsRequest<PushObjectCacheRespons
 
 	private String securityToken;
 
+	private Boolean l2Preload;
+
 	private String area;
 
 	private Long ownerId;
@@ -60,6 +62,17 @@ public class PushObjectCacheRequest extends RpcAcsRequest<PushObjectCacheRespons
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
+		}
+	}
+
+	public Boolean getL2Preload() {
+		return this.l2Preload;
+	}
+
+	public void setL2Preload(Boolean l2Preload) {
+		this.l2Preload = l2Preload;
+		if(l2Preload != null){
+			putQueryParameter("L2Preload", l2Preload.toString());
 		}
 	}
 

@@ -19,6 +19,8 @@ import java.util.List;
 
 import com.aliyuncs.ecs.model.v20140526.DescribeCommandsResponse;
 import com.aliyuncs.ecs.model.v20140526.DescribeCommandsResponse.Command;
+import com.aliyuncs.ecs.model.v20140526.DescribeCommandsResponse.Command.ParameterDefinition;
+import com.aliyuncs.ecs.model.v20140526.DescribeCommandsResponse.Command.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -54,6 +56,34 @@ public class DescribeCommandsResponseUnmarshaller {
 				parameterNames.add(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].ParameterNames["+ j +"]"));
 			}
 			command.setParameterNames(parameterNames);
+
+			List<ParameterDefinition> parameterDefinitions = new ArrayList<ParameterDefinition>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions.Length"); j++) {
+				ParameterDefinition parameterDefinition = new ParameterDefinition();
+				parameterDefinition.setRequired(_ctx.booleanValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].Required"));
+				parameterDefinition.setDescription(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].Description"));
+				parameterDefinition.setDefaultValue(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].DefaultValue"));
+				parameterDefinition.setParameterName(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].ParameterName"));
+
+				List<String> possibleValues = new ArrayList<String>();
+				for (int k = 0; k < _ctx.lengthValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].PossibleValues.Length"); k++) {
+					possibleValues.add(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].ParameterDefinitions["+ j +"].PossibleValues["+ k +"]"));
+				}
+				parameterDefinition.setPossibleValues(possibleValues);
+
+				parameterDefinitions.add(parameterDefinition);
+			}
+			command.setParameterDefinitions(parameterDefinitions);
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeCommandsResponse.Commands["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setTagKey(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].Tags["+ j +"].TagKey"));
+				tag.setTagValue(_ctx.stringValue("DescribeCommandsResponse.Commands["+ i +"].Tags["+ j +"].TagValue"));
+
+				tags.add(tag);
+			}
+			command.setTags(tags);
 
 			commands.add(command);
 		}

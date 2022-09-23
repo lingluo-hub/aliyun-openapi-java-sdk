@@ -134,6 +134,8 @@ public class CreateAutoProvisioningGroupRequest extends RpcAcsRequest<CreateAuto
 
 	private String payAsYouGoTargetCapacity;
 
+	private Boolean hibernationOptionsConfigured;
+
 	private String totalTargetCapacity;
 
 	private String spotTargetCapacity;
@@ -142,7 +144,7 @@ public class CreateAutoProvisioningGroupRequest extends RpcAcsRequest<CreateAuto
 
 	private String autoProvisioningGroupName;
 	public CreateAutoProvisioningGroupRequest() {
-		super("Ecs", "2014-05-26", "CreateAutoProvisioningGroup", "ecs");
+		super("Ecs", "2014-05-26", "CreateAutoProvisioningGroup");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -776,6 +778,17 @@ public class CreateAutoProvisioningGroupRequest extends RpcAcsRequest<CreateAuto
 		this.payAsYouGoTargetCapacity = payAsYouGoTargetCapacity;
 		if(payAsYouGoTargetCapacity != null){
 			putQueryParameter("PayAsYouGoTargetCapacity", payAsYouGoTargetCapacity);
+		}
+	}
+
+	public Boolean getHibernationOptionsConfigured() {
+		return this.hibernationOptionsConfigured;
+	}
+
+	public void setHibernationOptionsConfigured(Boolean hibernationOptionsConfigured) {
+		this.hibernationOptionsConfigured = hibernationOptionsConfigured;
+		if(hibernationOptionsConfigured != null){
+			putQueryParameter("HibernationOptionsConfigured", hibernationOptionsConfigured.toString());
 		}
 	}
 

@@ -15,6 +15,8 @@
 package com.aliyuncs.rds.model.v20140815;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.rds.Endpoint;
 
@@ -29,6 +31,24 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 
 	private Integer dBInstanceStorage;
 
+	private Boolean deletionProtection;
+
+	private String backupType;
+
+	private String period;
+
+	private String backupId;
+
+	private String dBInstanceClass;
+
+	private String vSwitchId;
+
+	private String privateIpAddress;
+
+	private String zoneId;
+
+	private String instanceNetworkType;
+
 	private String tableMeta;
 
 	private String dBInstanceId;
@@ -37,35 +57,22 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 
 	private String dedicatedHostGroupId;
 
-	private String backupType;
-
 	private String restoreTime;
 
-	private String period;
-
-	private String backupId;
+	@SerializedName("serverlessConfig")
+	private ServerlessConfig serverlessConfig;
 
 	private String restoreTable;
 
 	private Integer usedTime;
 
-	private String dBInstanceClass;
-
 	private String dbNames;
 
-	private String vSwitchId;
-
-	private String privateIpAddress;
-
 	private String vPCId;
-
-	private String zoneId;
 
 	private String category;
 
 	private String payType;
-
-	private String instanceNetworkType;
 	public CloneDBInstanceRequest() {
 		super("Rds", "2014-08-15", "CloneDBInstance", "rds");
 		setMethod(MethodType.POST);
@@ -94,6 +101,105 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		this.dBInstanceStorage = dBInstanceStorage;
 		if(dBInstanceStorage != null){
 			putQueryParameter("DBInstanceStorage", dBInstanceStorage.toString());
+		}
+	}
+
+	public Boolean getDeletionProtection() {
+		return this.deletionProtection;
+	}
+
+	public void setDeletionProtection(Boolean deletionProtection) {
+		this.deletionProtection = deletionProtection;
+		if(deletionProtection != null){
+			putQueryParameter("DeletionProtection", deletionProtection.toString());
+		}
+	}
+
+	public String getBackupType() {
+		return this.backupType;
+	}
+
+	public void setBackupType(String backupType) {
+		this.backupType = backupType;
+		if(backupType != null){
+			putQueryParameter("BackupType", backupType);
+		}
+	}
+
+	public String getPeriod() {
+		return this.period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period);
+		}
+	}
+
+	public String getBackupId() {
+		return this.backupId;
+	}
+
+	public void setBackupId(String backupId) {
+		this.backupId = backupId;
+		if(backupId != null){
+			putQueryParameter("BackupId", backupId);
+		}
+	}
+
+	public String getDBInstanceClass() {
+		return this.dBInstanceClass;
+	}
+
+	public void setDBInstanceClass(String dBInstanceClass) {
+		this.dBInstanceClass = dBInstanceClass;
+		if(dBInstanceClass != null){
+			putQueryParameter("DBInstanceClass", dBInstanceClass);
+		}
+	}
+
+	public String getVSwitchId() {
+		return this.vSwitchId;
+	}
+
+	public void setVSwitchId(String vSwitchId) {
+		this.vSwitchId = vSwitchId;
+		if(vSwitchId != null){
+			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public String getPrivateIpAddress() {
+		return this.privateIpAddress;
+	}
+
+	public void setPrivateIpAddress(String privateIpAddress) {
+		this.privateIpAddress = privateIpAddress;
+		if(privateIpAddress != null){
+			putQueryParameter("PrivateIpAddress", privateIpAddress);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public String getInstanceNetworkType() {
+		return this.instanceNetworkType;
+	}
+
+	public void setInstanceNetworkType(String instanceNetworkType) {
+		this.instanceNetworkType = instanceNetworkType;
+		if(instanceNetworkType != null){
+			putQueryParameter("InstanceNetworkType", instanceNetworkType);
 		}
 	}
 
@@ -141,17 +247,6 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		}
 	}
 
-	public String getBackupType() {
-		return this.backupType;
-	}
-
-	public void setBackupType(String backupType) {
-		this.backupType = backupType;
-		if(backupType != null){
-			putQueryParameter("BackupType", backupType);
-		}
-	}
-
 	public String getRestoreTime() {
 		return this.restoreTime;
 	}
@@ -163,26 +258,15 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		}
 	}
 
-	public String getPeriod() {
-		return this.period;
+	public ServerlessConfig getServerlessConfig() {
+		return this.serverlessConfig;
 	}
 
-	public void setPeriod(String period) {
-		this.period = period;
-		if(period != null){
-			putQueryParameter("Period", period);
-		}
-	}
-
-	public String getBackupId() {
-		return this.backupId;
-	}
-
-	public void setBackupId(String backupId) {
-		this.backupId = backupId;
-		if(backupId != null){
-			putQueryParameter("BackupId", backupId);
-		}
+	public void setServerlessConfig(ServerlessConfig serverlessConfig) {
+		this.serverlessConfig = serverlessConfig;	
+		if (serverlessConfig != null) {
+			putQueryParameter("ServerlessConfig" , new Gson().toJson(serverlessConfig));
+		}	
 	}
 
 	public String getRestoreTable() {
@@ -207,17 +291,6 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		}
 	}
 
-	public String getDBInstanceClass() {
-		return this.dBInstanceClass;
-	}
-
-	public void setDBInstanceClass(String dBInstanceClass) {
-		this.dBInstanceClass = dBInstanceClass;
-		if(dBInstanceClass != null){
-			putQueryParameter("DBInstanceClass", dBInstanceClass);
-		}
-	}
-
 	public String getDbNames() {
 		return this.dbNames;
 	}
@@ -229,28 +302,6 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		}
 	}
 
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
-	public String getPrivateIpAddress() {
-		return this.privateIpAddress;
-	}
-
-	public void setPrivateIpAddress(String privateIpAddress) {
-		this.privateIpAddress = privateIpAddress;
-		if(privateIpAddress != null){
-			putQueryParameter("PrivateIpAddress", privateIpAddress);
-		}
-	}
-
 	public String getVPCId() {
 		return this.vPCId;
 	}
@@ -259,17 +310,6 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		this.vPCId = vPCId;
 		if(vPCId != null){
 			putQueryParameter("VPCId", vPCId);
-		}
-	}
-
-	public String getZoneId() {
-		return this.zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
-		if(zoneId != null){
-			putQueryParameter("ZoneId", zoneId);
 		}
 	}
 
@@ -295,14 +335,50 @@ public class CloneDBInstanceRequest extends RpcAcsRequest<CloneDBInstanceRespons
 		}
 	}
 
-	public String getInstanceNetworkType() {
-		return this.instanceNetworkType;
-	}
+	public static class ServerlessConfig {
 
-	public void setInstanceNetworkType(String instanceNetworkType) {
-		this.instanceNetworkType = instanceNetworkType;
-		if(instanceNetworkType != null){
-			putQueryParameter("InstanceNetworkType", instanceNetworkType);
+		@SerializedName("MinCapacity")
+		private Double minCapacity;
+
+		@SerializedName("MaxCapacity")
+		private Double maxCapacity;
+
+		@SerializedName("AutoPause")
+		private Boolean autoPause;
+
+		@SerializedName("SwitchForce")
+		private Boolean switchForce;
+
+		public Double getMinCapacity() {
+			return this.minCapacity;
+		}
+
+		public void setMinCapacity(Double minCapacity) {
+			this.minCapacity = minCapacity;
+		}
+
+		public Double getMaxCapacity() {
+			return this.maxCapacity;
+		}
+
+		public void setMaxCapacity(Double maxCapacity) {
+			this.maxCapacity = maxCapacity;
+		}
+
+		public Boolean getAutoPause() {
+			return this.autoPause;
+		}
+
+		public void setAutoPause(Boolean autoPause) {
+			this.autoPause = autoPause;
+		}
+
+		public Boolean getSwitchForce() {
+			return this.switchForce;
+		}
+
+		public void setSwitchForce(Boolean switchForce) {
+			this.switchForce = switchForce;
 		}
 	}
 

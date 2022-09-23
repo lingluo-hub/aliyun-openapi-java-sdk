@@ -21,6 +21,7 @@ import com.aliyuncs.computenestsupplier.model.v20210521.ListServiceInstancesResp
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServiceInstancesResponse.ServiceInstance;
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServiceInstancesResponse.ServiceInstance.Service;
 import com.aliyuncs.computenestsupplier.model.v20210521.ListServiceInstancesResponse.ServiceInstance.Service.ServiceInfo;
+import com.aliyuncs.computenestsupplier.model.v20210521.ListServiceInstancesResponse.ServiceInstance.Tag;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -49,6 +50,9 @@ public class ListServiceInstancesResponseUnmarshaller {
 			serviceInstance.setOperationStartTime(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].OperationStartTime"));
 			serviceInstance.setOperationEndTime(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].OperationEndTime"));
 			serviceInstance.setEnableInstanceOps(_ctx.booleanValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].EnableInstanceOps"));
+			serviceInstance.setSource(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Source"));
+			serviceInstance.setEndTime(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].EndTime"));
+			serviceInstance.setServiceType(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].ServiceType"));
 
 			Service service = new Service();
 			service.setStatus(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.Status"));
@@ -59,6 +63,8 @@ public class ListServiceInstancesResponseUnmarshaller {
 			service.setSupplierUrl(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.SupplierUrl"));
 			service.setServiceType(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.ServiceType"));
 			service.setSupplierName(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.SupplierName"));
+			service.setVersionName(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.VersionName"));
+			service.setDeployMetadata(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.DeployMetadata"));
 
 			List<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
 			for (int j = 0; j < _ctx.lengthValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Service.ServiceInfos.Length"); j++) {
@@ -72,6 +78,16 @@ public class ListServiceInstancesResponseUnmarshaller {
 			}
 			service.setServiceInfos(serviceInfos);
 			serviceInstance.setService(service);
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setKey(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Tags["+ j +"].Key"));
+				tag.setValue(_ctx.stringValue("ListServiceInstancesResponse.ServiceInstances["+ i +"].Tags["+ j +"].Value"));
+
+				tags.add(tag);
+			}
+			serviceInstance.setTags(tags);
 
 			serviceInstances.add(serviceInstance);
 		}

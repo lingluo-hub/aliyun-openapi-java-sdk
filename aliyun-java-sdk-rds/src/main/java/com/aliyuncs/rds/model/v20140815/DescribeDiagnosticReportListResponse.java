@@ -27,6 +27,8 @@ public class DescribeDiagnosticReportListResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String dBInstanceId;
+
 	private List<Report> reportList;
 
 	public String getRequestId() {
@@ -35,6 +37,14 @@ public class DescribeDiagnosticReportListResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
 	}
 
 	public List<Report> getReportList() {
@@ -47,15 +57,23 @@ public class DescribeDiagnosticReportListResponse extends AcsResponse {
 
 	public static class Report {
 
-		private String diagnosticTime;
+		private String endTime;
 
-		private Integer score;
+		private String diagnosticTime;
 
 		private String startTime;
 
-		private String endTime;
+		private Integer score;
 
 		private String downloadURL;
+
+		public String getEndTime() {
+			return this.endTime;
+		}
+
+		public void setEndTime(String endTime) {
+			this.endTime = endTime;
+		}
 
 		public String getDiagnosticTime() {
 			return this.diagnosticTime;
@@ -63,14 +81,6 @@ public class DescribeDiagnosticReportListResponse extends AcsResponse {
 
 		public void setDiagnosticTime(String diagnosticTime) {
 			this.diagnosticTime = diagnosticTime;
-		}
-
-		public Integer getScore() {
-			return this.score;
-		}
-
-		public void setScore(Integer score) {
-			this.score = score;
 		}
 
 		public String getStartTime() {
@@ -81,12 +91,12 @@ public class DescribeDiagnosticReportListResponse extends AcsResponse {
 			this.startTime = startTime;
 		}
 
-		public String getEndTime() {
-			return this.endTime;
+		public Integer getScore() {
+			return this.score;
 		}
 
-		public void setEndTime(String endTime) {
-			this.endTime = endTime;
+		public void setScore(Integer score) {
+			this.score = score;
 		}
 
 		public String getDownloadURL() {

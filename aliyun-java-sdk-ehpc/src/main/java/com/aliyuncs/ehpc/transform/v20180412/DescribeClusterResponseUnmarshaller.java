@@ -24,6 +24,8 @@ import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.Ecs
 import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.EcsInfo.Compute;
 import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.EcsInfo.Login;
 import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.EcsInfo.Manager;
+import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.EcsInfo.ProxyMgr;
+import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.OnPremiseInfoItem;
 import com.aliyuncs.ehpc.model.v20180412.DescribeClusterResponse.ClusterInfo.PostInstallScriptInfo;
 import com.aliyuncs.transform.UnmarshallerContext;
 
@@ -35,51 +37,56 @@ public class DescribeClusterResponseUnmarshaller {
 		describeClusterResponse.setRequestId(_ctx.stringValue("DescribeClusterResponse.RequestId"));
 
 		ClusterInfo clusterInfo = new ClusterInfo();
-		clusterInfo.setId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Id"));
-		clusterInfo.setRegionId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.RegionId"));
-		clusterInfo.setName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Name"));
-		clusterInfo.setDescription(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Description"));
 		clusterInfo.setStatus(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Status"));
-		clusterInfo.setOsTag(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.OsTag"));
-		clusterInfo.setAccountType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.AccountType"));
-		clusterInfo.setSchedulerType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SchedulerType"));
-		clusterInfo.setCreateTime(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.CreateTime"));
-		clusterInfo.setSecurityGroupId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SecurityGroupId"));
 		clusterInfo.setVpcId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VpcId"));
-		clusterInfo.setVSwitchId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VSwitchId"));
-		clusterInfo.setVolumeType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeType"));
-		clusterInfo.setVolumeId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeId"));
+		clusterInfo.setKeyPairName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.KeyPairName"));
+		clusterInfo.setEcsChargeType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsChargeType"));
+		clusterInfo.setSecurityGroupId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SecurityGroupId"));
+		clusterInfo.setSccClusterId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SccClusterId"));
+		clusterInfo.setCreateTime(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.CreateTime"));
+		clusterInfo.setAccountType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.AccountType"));
 		clusterInfo.setVolumeProtocol(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeProtocol"));
+		clusterInfo.setDescription(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Description"));
+		clusterInfo.setVolumeId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeId"));
+		clusterInfo.setHaEnable(_ctx.booleanValue("DescribeClusterResponse.ClusterInfo.HaEnable"));
+		clusterInfo.setBaseOsTag(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.BaseOsTag"));
+		clusterInfo.setName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Name"));
+		clusterInfo.setImageId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ImageId"));
+		clusterInfo.setSchedulerType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SchedulerType"));
+		clusterInfo.setDeployMode(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.DeployMode"));
+		clusterInfo.setImageOwnerAlias(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ImageOwnerAlias"));
+		clusterInfo.setOsTag(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.OsTag"));
 		clusterInfo.setVolumeMountpoint(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeMountpoint"));
 		clusterInfo.setRemoteDirectory(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.RemoteDirectory"));
-		clusterInfo.setDeployMode(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.DeployMode"));
-		clusterInfo.setHaEnable(_ctx.booleanValue("DescribeClusterResponse.ClusterInfo.HaEnable"));
-		clusterInfo.setEcsChargeType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsChargeType"));
-		clusterInfo.setKeyPairName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.KeyPairName"));
-		clusterInfo.setSccClusterId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.SccClusterId"));
-		clusterInfo.setClientVersion(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ClientVersion"));
-		clusterInfo.setImageOwnerAlias(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ImageOwnerAlias"));
-		clusterInfo.setImageId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ImageId"));
-		clusterInfo.setLocation(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Location"));
-		clusterInfo.setBaseOsTag(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.BaseOsTag"));
+		clusterInfo.setRegionId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.RegionId"));
+		clusterInfo.setVSwitchId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VSwitchId"));
 		clusterInfo.setImageName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ImageName"));
+		clusterInfo.setVolumeType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.VolumeType"));
+		clusterInfo.setLocation(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Location"));
+		clusterInfo.setId(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.Id"));
+		clusterInfo.setClientVersion(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.ClientVersion"));
 
 		EcsInfo ecsInfo = new EcsInfo();
 
 		Manager manager = new Manager();
-		manager.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Manager.Count"));
 		manager.setInstanceType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Manager.InstanceType"));
+		manager.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Manager.Count"));
 		ecsInfo.setManager(manager);
 
 		Compute compute = new Compute();
-		compute.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Compute.Count"));
 		compute.setInstanceType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Compute.InstanceType"));
+		compute.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Compute.Count"));
 		ecsInfo.setCompute(compute);
 
 		Login login = new Login();
-		login.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Login.Count"));
 		login.setInstanceType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Login.InstanceType"));
+		login.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.Login.Count"));
 		ecsInfo.setLogin(login);
+
+		ProxyMgr proxyMgr = new ProxyMgr();
+		proxyMgr.setInstanceType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.EcsInfo.ProxyMgr.InstanceType"));
+		proxyMgr.setCount(_ctx.integerValue("DescribeClusterResponse.ClusterInfo.EcsInfo.ProxyMgr.Count"));
+		ecsInfo.setProxyMgr(proxyMgr);
 		clusterInfo.setEcsInfo(ecsInfo);
 
 		List<ApplicationInfo> applications = new ArrayList<ApplicationInfo>();
@@ -102,6 +109,17 @@ public class DescribeClusterResponseUnmarshaller {
 			postInstallScripts.add(postInstallScriptInfo);
 		}
 		clusterInfo.setPostInstallScripts(postInstallScripts);
+
+		List<OnPremiseInfoItem> onPremiseInfo = new ArrayList<OnPremiseInfoItem>();
+		for (int i = 0; i < _ctx.lengthValue("DescribeClusterResponse.ClusterInfo.OnPremiseInfo.Length"); i++) {
+			OnPremiseInfoItem onPremiseInfoItem = new OnPremiseInfoItem();
+			onPremiseInfoItem.setType(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.OnPremiseInfo["+ i +"].Type"));
+			onPremiseInfoItem.setHostName(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.OnPremiseInfo["+ i +"].HostName"));
+			onPremiseInfoItem.setIP(_ctx.stringValue("DescribeClusterResponse.ClusterInfo.OnPremiseInfo["+ i +"].IP"));
+
+			onPremiseInfo.add(onPremiseInfoItem);
+		}
+		clusterInfo.setOnPremiseInfo(onPremiseInfo);
 		describeClusterResponse.setClusterInfo(clusterInfo);
 	 
 	 	return describeClusterResponse;

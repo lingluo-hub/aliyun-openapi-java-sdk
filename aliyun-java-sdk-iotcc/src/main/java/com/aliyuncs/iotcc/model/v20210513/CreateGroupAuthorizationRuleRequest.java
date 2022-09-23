@@ -31,6 +31,10 @@ public class CreateGroupAuthorizationRuleRequest extends RpcAcsRequest<CreateGro
 
 	private String destination;
 
+	private String type;
+
+	private String protocol;
+
 	private String authorizationRuleDescription;
 
 	private String policy;
@@ -42,6 +46,8 @@ public class CreateGroupAuthorizationRuleRequest extends RpcAcsRequest<CreateGro
 	private List<String> sourceCidrss;
 
 	private String authorizationRuleName;
+
+	private String destinationPort;
 	public CreateGroupAuthorizationRuleRequest() {
 		super("IoTCC", "2021-05-13", "CreateGroupAuthorizationRule", "IoTCC");
 		setMethod(MethodType.POST);
@@ -77,6 +83,28 @@ public class CreateGroupAuthorizationRuleRequest extends RpcAcsRequest<CreateGro
 		this.destination = destination;
 		if(destination != null){
 			putQueryParameter("Destination", destination);
+		}
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		if(type != null){
+			putQueryParameter("Type", type);
+		}
+	}
+
+	public String getBizProtocol() {
+		return this.protocol;
+	}
+
+	public void setBizProtocol(String protocol) {
+		this.protocol = protocol;
+		if(protocol != null){
+			putQueryParameter("Protocol", protocol);
 		}
 	}
 
@@ -145,6 +173,17 @@ public class CreateGroupAuthorizationRuleRequest extends RpcAcsRequest<CreateGro
 		this.authorizationRuleName = authorizationRuleName;
 		if(authorizationRuleName != null){
 			putQueryParameter("AuthorizationRuleName", authorizationRuleName);
+		}
+	}
+
+	public String getDestinationPort() {
+		return this.destinationPort;
+	}
+
+	public void setDestinationPort(String destinationPort) {
+		this.destinationPort = destinationPort;
+		if(destinationPort != null){
+			putQueryParameter("DestinationPort", destinationPort);
 		}
 	}
 

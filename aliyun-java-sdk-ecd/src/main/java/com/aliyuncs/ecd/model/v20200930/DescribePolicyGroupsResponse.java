@@ -103,7 +103,19 @@ public class DescribePolicyGroupsResponse extends AcsResponse {
 
 		private Long recordingFps;
 
+		private Long recordingExpires;
+
 		private String cameraRedirect;
+
+		private String netRedirect;
+
+		private String appContentProtection;
+
+		private String recordContent;
+
+		private Long recordContentExpires;
+
+		private String remoteCoordinate;
 
 		private List<AuthorizeSecurityPolicyRule> authorizeSecurityPolicyRules;
 
@@ -299,12 +311,60 @@ public class DescribePolicyGroupsResponse extends AcsResponse {
 			this.recordingFps = recordingFps;
 		}
 
+		public Long getRecordingExpires() {
+			return this.recordingExpires;
+		}
+
+		public void setRecordingExpires(Long recordingExpires) {
+			this.recordingExpires = recordingExpires;
+		}
+
 		public String getCameraRedirect() {
 			return this.cameraRedirect;
 		}
 
 		public void setCameraRedirect(String cameraRedirect) {
 			this.cameraRedirect = cameraRedirect;
+		}
+
+		public String getNetRedirect() {
+			return this.netRedirect;
+		}
+
+		public void setNetRedirect(String netRedirect) {
+			this.netRedirect = netRedirect;
+		}
+
+		public String getAppContentProtection() {
+			return this.appContentProtection;
+		}
+
+		public void setAppContentProtection(String appContentProtection) {
+			this.appContentProtection = appContentProtection;
+		}
+
+		public String getRecordContent() {
+			return this.recordContent;
+		}
+
+		public void setRecordContent(String recordContent) {
+			this.recordContent = recordContent;
+		}
+
+		public Long getRecordContentExpires() {
+			return this.recordContentExpires;
+		}
+
+		public void setRecordContentExpires(Long recordContentExpires) {
+			this.recordContentExpires = recordContentExpires;
+		}
+
+		public String getRemoteCoordinate() {
+			return this.remoteCoordinate;
+		}
+
+		public void setRemoteCoordinate(String remoteCoordinate) {
+			this.remoteCoordinate = remoteCoordinate;
 		}
 
 		public List<AuthorizeSecurityPolicyRule> getAuthorizeSecurityPolicyRules() {

@@ -32,8 +32,6 @@ public class ListNodesNoPagingRequest extends RpcAcsRequest<ListNodesNoPagingRes
 	private String sequence;
 
 	private String hostName;
-
-	private Boolean onlyDetached;
 	public ListNodesNoPagingRequest() {
 		super("EHPC", "2018-04-12", "ListNodesNoPaging");
 		setMethod(MethodType.GET);
@@ -84,17 +82,6 @@ public class ListNodesNoPagingRequest extends RpcAcsRequest<ListNodesNoPagingRes
 		this.hostName = hostName;
 		if(hostName != null){
 			putQueryParameter("HostName", hostName);
-		}
-	}
-
-	public Boolean getOnlyDetached() {
-		return this.onlyDetached;
-	}
-
-	public void setOnlyDetached(Boolean onlyDetached) {
-		this.onlyDetached = onlyDetached;
-		if(onlyDetached != null){
-			putQueryParameter("OnlyDetached", onlyDetached.toString());
 		}
 	}
 

@@ -25,8 +25,6 @@ import com.aliyuncs.cdn.Endpoint;
 public class SetConfigOfVersionRequest extends RpcAcsRequest<SetConfigOfVersionResponse> {
 	   
 
-	private String functionMatches;
-
 	private String versionId;
 
 	private String securityToken;
@@ -49,17 +47,6 @@ public class SetConfigOfVersionRequest extends RpcAcsRequest<SetConfigOfVersionR
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getFunctionMatches() {
-		return this.functionMatches;
-	}
-
-	public void setFunctionMatches(String functionMatches) {
-		this.functionMatches = functionMatches;
-		if(functionMatches != null){
-			putQueryParameter("FunctionMatches", functionMatches);
-		}
 	}
 
 	public String getVersionId() {

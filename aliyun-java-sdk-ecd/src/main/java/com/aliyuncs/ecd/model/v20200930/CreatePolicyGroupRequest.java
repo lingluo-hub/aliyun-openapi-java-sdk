@@ -26,9 +26,9 @@ import com.aliyuncs.ecd.Endpoint;
 public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupResponse> {
 	   
 
-	private String watermarkCustomText;
-
 	private String preemptLogin;
+
+	private Long recordingExpires;
 
 	private List<ClientType> clientTypes;
 
@@ -39,6 +39,8 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 	private List<String> preemptLoginUsers;
 
 	private String domainList;
+
+	private String netRedirect;
 
 	private String localDrive;
 
@@ -56,15 +58,23 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 
 	private String recordingStartTime;
 
+	private String recordContent;
+
+	private Long recordContentExpires;
+
 	private String watermark;
 
 	private String cameraRedirect;
+
+	private String remoteCoordinate;
 
 	private String html5Access;
 
 	private String gpuAcceleration;
 
 	private String html5FileTransfer;
+
+	private String appContentProtection;
 
 	private List<AuthorizeAccessPolicyRule> authorizeAccessPolicyRules;
 
@@ -84,17 +94,6 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		} catch (Exception e) {}
 	}
 
-	public String getWatermarkCustomText() {
-		return this.watermarkCustomText;
-	}
-
-	public void setWatermarkCustomText(String watermarkCustomText) {
-		this.watermarkCustomText = watermarkCustomText;
-		if(watermarkCustomText != null){
-			putQueryParameter("WatermarkCustomText", watermarkCustomText);
-		}
-	}
-
 	public String getPreemptLogin() {
 		return this.preemptLogin;
 	}
@@ -103,6 +102,17 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		this.preemptLogin = preemptLogin;
 		if(preemptLogin != null){
 			putQueryParameter("PreemptLogin", preemptLogin);
+		}
+	}
+
+	public Long getRecordingExpires() {
+		return this.recordingExpires;
+	}
+
+	public void setRecordingExpires(Long recordingExpires) {
+		this.recordingExpires = recordingExpires;
+		if(recordingExpires != null){
+			putQueryParameter("RecordingExpires", recordingExpires.toString());
 		}
 	}
 
@@ -171,6 +181,17 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		this.domainList = domainList;
 		if(domainList != null){
 			putQueryParameter("DomainList", domainList);
+		}
+	}
+
+	public String getNetRedirect() {
+		return this.netRedirect;
+	}
+
+	public void setNetRedirect(String netRedirect) {
+		this.netRedirect = netRedirect;
+		if(netRedirect != null){
+			putQueryParameter("NetRedirect", netRedirect);
 		}
 	}
 
@@ -270,6 +291,28 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		}
 	}
 
+	public String getRecordContent() {
+		return this.recordContent;
+	}
+
+	public void setRecordContent(String recordContent) {
+		this.recordContent = recordContent;
+		if(recordContent != null){
+			putQueryParameter("RecordContent", recordContent);
+		}
+	}
+
+	public Long getRecordContentExpires() {
+		return this.recordContentExpires;
+	}
+
+	public void setRecordContentExpires(Long recordContentExpires) {
+		this.recordContentExpires = recordContentExpires;
+		if(recordContentExpires != null){
+			putQueryParameter("RecordContentExpires", recordContentExpires.toString());
+		}
+	}
+
 	public String getWatermark() {
 		return this.watermark;
 	}
@@ -289,6 +332,17 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		this.cameraRedirect = cameraRedirect;
 		if(cameraRedirect != null){
 			putQueryParameter("CameraRedirect", cameraRedirect);
+		}
+	}
+
+	public String getRemoteCoordinate() {
+		return this.remoteCoordinate;
+	}
+
+	public void setRemoteCoordinate(String remoteCoordinate) {
+		this.remoteCoordinate = remoteCoordinate;
+		if(remoteCoordinate != null){
+			putQueryParameter("RemoteCoordinate", remoteCoordinate);
 		}
 	}
 
@@ -322,6 +376,17 @@ public class CreatePolicyGroupRequest extends RpcAcsRequest<CreatePolicyGroupRes
 		this.html5FileTransfer = html5FileTransfer;
 		if(html5FileTransfer != null){
 			putQueryParameter("Html5FileTransfer", html5FileTransfer);
+		}
+	}
+
+	public String getAppContentProtection() {
+		return this.appContentProtection;
+	}
+
+	public void setAppContentProtection(String appContentProtection) {
+		this.appContentProtection = appContentProtection;
+		if(appContentProtection != null){
+			putQueryParameter("AppContentProtection", appContentProtection);
 		}
 	}
 

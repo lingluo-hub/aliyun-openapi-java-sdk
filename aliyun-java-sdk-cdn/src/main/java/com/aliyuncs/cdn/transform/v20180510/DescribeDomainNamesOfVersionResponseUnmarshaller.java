@@ -32,8 +32,8 @@ public class DescribeDomainNamesOfVersionResponseUnmarshaller {
 		List<Content> contents = new ArrayList<Content>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeDomainNamesOfVersionResponse.Contents.Length"); i++) {
 			Content content = new Content();
-			content.setDomainId(_ctx.stringValue("DescribeDomainNamesOfVersionResponse.Contents["+ i +"].DomainId"));
 			content.setDomainName(_ctx.stringValue("DescribeDomainNamesOfVersionResponse.Contents["+ i +"].DomainName"));
+			content.setDomainId(_ctx.stringValue("DescribeDomainNamesOfVersionResponse.Contents["+ i +"].DomainId"));
 
 			contents.add(content);
 		}

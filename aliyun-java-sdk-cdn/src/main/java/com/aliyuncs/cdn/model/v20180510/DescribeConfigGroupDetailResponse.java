@@ -24,19 +24,27 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeConfigGroupDetailResponse extends AcsResponse {
 
+	private String updateTime;
+
 	private String requestId;
-
-	private String configGroupId;
-
-	private String configGroupName;
 
 	private String description;
 
-	private String bizName;
+	private String configGroupName;
 
 	private String createTime;
 
-	private String updateTime;
+	private String bizName;
+
+	private String configGroupId;
+
+	public String getUpdateTime() {
+		return this.updateTime;
+	}
+
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -44,22 +52,6 @@ public class DescribeConfigGroupDetailResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getConfigGroupId() {
-		return this.configGroupId;
-	}
-
-	public void setConfigGroupId(String configGroupId) {
-		this.configGroupId = configGroupId;
-	}
-
-	public String getConfigGroupName() {
-		return this.configGroupName;
-	}
-
-	public void setConfigGroupName(String configGroupName) {
-		this.configGroupName = configGroupName;
 	}
 
 	public String getDescription() {
@@ -70,12 +62,12 @@ public class DescribeConfigGroupDetailResponse extends AcsResponse {
 		this.description = description;
 	}
 
-	public String getBizName() {
-		return this.bizName;
+	public String getConfigGroupName() {
+		return this.configGroupName;
 	}
 
-	public void setBizName(String bizName) {
-		this.bizName = bizName;
+	public void setConfigGroupName(String configGroupName) {
+		this.configGroupName = configGroupName;
 	}
 
 	public String getCreateTime() {
@@ -86,12 +78,20 @@ public class DescribeConfigGroupDetailResponse extends AcsResponse {
 		this.createTime = createTime;
 	}
 
-	public String getUpdateTime() {
-		return this.updateTime;
+	public String getBizName() {
+		return this.bizName;
 	}
 
-	public void setUpdateTime(String updateTime) {
-		this.updateTime = updateTime;
+	public void setBizName(String bizName) {
+		this.bizName = bizName;
+	}
+
+	public String getConfigGroupId() {
+		return this.configGroupId;
+	}
+
+	public void setConfigGroupId(String configGroupId) {
+		this.configGroupId = configGroupId;
 	}
 
 	@Override

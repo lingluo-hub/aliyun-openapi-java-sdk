@@ -40,7 +40,7 @@ public class ListInstancesResponseUnmarshaller {
 			instance.setDbPassword(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].DbPassword"));
 			instance.setDbUrl(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].DbUrl"));
 			instance.setDbUserName(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].DbUserName"));
-			instance.setEndDate(_ctx.longValue("ListInstancesResponse.Data["+ i +"].EndDate"));
+			instance.setEndDate(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].EndDate"));
 			instance.setEnvironmentId(_ctx.longValue("ListInstancesResponse.Data["+ i +"].EnvironmentId"));
 			instance.setGmtCreate(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].GmtCreate"));
 			instance.setGmtModified(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].GmtModified"));
@@ -66,6 +66,8 @@ public class ListInstancesResponseUnmarshaller {
 			instance.setVpc(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].Vpc"));
 			instance.setVswitch(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].Vswitch"));
 			instance.setZoneId(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].ZoneId"));
+			instance.setIsCreatedSlb(_ctx.booleanValue("ListInstancesResponse.Data["+ i +"].IsCreatedSlb"));
+			instance.setNameServerPublic(_ctx.stringValue("ListInstancesResponse.Data["+ i +"].NameServerPublic"));
 
 			data.add(instance);
 		}

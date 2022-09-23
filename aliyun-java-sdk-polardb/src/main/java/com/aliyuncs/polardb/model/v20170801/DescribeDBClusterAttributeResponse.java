@@ -65,15 +65,27 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	private String payType;
 
+	private String storagePayType;
+
 	private String lockMode;
 
 	private Long storageUsed;
+
+	private Long storageSpace;
 
 	private String dBVersionStatus;
 
 	private String creationTime;
 
 	private Long sQLSize;
+
+	private Long inodeTotal;
+
+	private Long inodeUsed;
+
+	private Long blktagTotal;
+
+	private Long blktagUsed;
 
 	private String regionId;
 
@@ -84,6 +96,8 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 	private Boolean isProxyLatestVersion;
 
 	private String storageType;
+
+	private String serverlessType;
 
 	private String proxyCpuCores;
 
@@ -257,6 +271,14 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 		this.payType = payType;
 	}
 
+	public String getStoragePayType() {
+		return this.storagePayType;
+	}
+
+	public void setStoragePayType(String storagePayType) {
+		this.storagePayType = storagePayType;
+	}
+
 	public String getLockMode() {
 		return this.lockMode;
 	}
@@ -271,6 +293,14 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	public void setStorageUsed(Long storageUsed) {
 		this.storageUsed = storageUsed;
+	}
+
+	public Long getStorageSpace() {
+		return this.storageSpace;
+	}
+
+	public void setStorageSpace(Long storageSpace) {
+		this.storageSpace = storageSpace;
 	}
 
 	public String getDBVersionStatus() {
@@ -295,6 +325,38 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	public void setSQLSize(Long sQLSize) {
 		this.sQLSize = sQLSize;
+	}
+
+	public Long getInodeTotal() {
+		return this.inodeTotal;
+	}
+
+	public void setInodeTotal(Long inodeTotal) {
+		this.inodeTotal = inodeTotal;
+	}
+
+	public Long getInodeUsed() {
+		return this.inodeUsed;
+	}
+
+	public void setInodeUsed(Long inodeUsed) {
+		this.inodeUsed = inodeUsed;
+	}
+
+	public Long getBlktagTotal() {
+		return this.blktagTotal;
+	}
+
+	public void setBlktagTotal(Long blktagTotal) {
+		this.blktagTotal = blktagTotal;
+	}
+
+	public Long getBlktagUsed() {
+		return this.blktagUsed;
+	}
+
+	public void setBlktagUsed(Long blktagUsed) {
+		this.blktagUsed = blktagUsed;
 	}
 
 	public String getRegionId() {
@@ -335,6 +397,14 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 	public void setStorageType(String storageType) {
 		this.storageType = storageType;
+	}
+
+	public String getServerlessType() {
+		return this.serverlessType;
+	}
+
+	public void setServerlessType(String serverlessType) {
+		this.serverlessType = serverlessType;
 	}
 
 	public String getProxyCpuCores() {
@@ -412,6 +482,8 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 		private String addedCpuCores;
 
 		private String masterId;
+
+		private String sccMode;
 
 		public String getCreationTime() {
 			return this.creationTime;
@@ -515,6 +587,14 @@ public class DescribeDBClusterAttributeResponse extends AcsResponse {
 
 		public void setMasterId(String masterId) {
 			this.masterId = masterId;
+		}
+
+		public String getSccMode() {
+			return this.sccMode;
+		}
+
+		public void setSccMode(String sccMode) {
+			this.sccMode = sccMode;
 		}
 	}
 

@@ -20,6 +20,7 @@ import java.util.List;
 import com.aliyuncs.cms.model.v20190101.DescribeSiteMonitorListResponse;
 import com.aliyuncs.cms.model.v20190101.DescribeSiteMonitorListResponse.SiteMonitor;
 import com.aliyuncs.cms.model.v20190101.DescribeSiteMonitorListResponse.SiteMonitor.OptionsJson;
+import com.aliyuncs.cms.model.v20190101.DescribeSiteMonitorListResponse.SiteMonitor.OptionsJson.AssertionsItem;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -73,6 +74,27 @@ public class DescribeSiteMonitorListResponseUnmarshaller {
 			optionsJson.setEnable_operator_dns(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.enable_operator_dns"));
 			optionsJson.setAttempts(_ctx.longValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.attempts"));
 			optionsJson.setBizProtocol(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.protocol"));
+			optionsJson.setProxy_protocol(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.proxy_protocol"));
+			optionsJson.setAcceptable_response_code(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.acceptable_response_code"));
+			optionsJson.setIsBase64Encode(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.isBase64Encode"));
+			optionsJson.setCert_verify(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.cert_verify"));
+			optionsJson.setUnfollow_redirect(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.unfollow_redirect"));
+			optionsJson.setDiagnosis_mtr(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.diagnosis_mtr"));
+			optionsJson.setDiagnosis_ping(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.diagnosis_ping"));
+			optionsJson.setRetry_delay(_ctx.integerValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.retry_delay"));
+			optionsJson.setSave_response_body(_ctx.booleanValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.save_response_body"));
+
+			List<AssertionsItem> assertions = new ArrayList<AssertionsItem>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.assertions.Length"); j++) {
+				AssertionsItem assertionsItem = new AssertionsItem();
+				assertionsItem.setProperty(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.assertions["+ j +"].property"));
+				assertionsItem.setType(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.assertions["+ j +"].type"));
+				assertionsItem.setOperator(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.assertions["+ j +"].operator"));
+				assertionsItem.setTarget(_ctx.stringValue("DescribeSiteMonitorListResponse.SiteMonitors["+ i +"].OptionsJson.assertions["+ j +"].target"));
+
+				assertions.add(assertionsItem);
+			}
+			optionsJson.setAssertions(assertions);
 			siteMonitor.setOptionsJson(optionsJson);
 
 			siteMonitors.add(siteMonitor);

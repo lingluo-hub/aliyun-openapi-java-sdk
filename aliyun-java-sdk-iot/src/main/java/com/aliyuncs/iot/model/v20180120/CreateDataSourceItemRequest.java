@@ -25,11 +25,17 @@ import com.aliyuncs.iot.Endpoint;
 public class CreateDataSourceItemRequest extends RpcAcsRequest<CreateDataSourceItemResponse> {
 	   
 
+	private String scopeType;
+
 	private String iotInstanceId;
+
+	private String productKey;
 
 	private Long dataSourceId;
 
 	private String topic;
+
+	private String deviceName;
 	public CreateDataSourceItemRequest() {
 		super("Iot", "2018-01-20", "CreateDataSourceItem");
 		setMethod(MethodType.POST);
@@ -37,6 +43,17 @@ public class CreateDataSourceItemRequest extends RpcAcsRequest<CreateDataSourceI
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getScopeType() {
+		return this.scopeType;
+	}
+
+	public void setScopeType(String scopeType) {
+		this.scopeType = scopeType;
+		if(scopeType != null){
+			putQueryParameter("ScopeType", scopeType);
+		}
 	}
 
 	public String getIotInstanceId() {
@@ -47,6 +64,17 @@ public class CreateDataSourceItemRequest extends RpcAcsRequest<CreateDataSourceI
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getProductKey() {
+		return this.productKey;
+	}
+
+	public void setProductKey(String productKey) {
+		this.productKey = productKey;
+		if(productKey != null){
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 
@@ -69,6 +97,17 @@ public class CreateDataSourceItemRequest extends RpcAcsRequest<CreateDataSourceI
 		this.topic = topic;
 		if(topic != null){
 			putQueryParameter("Topic", topic);
+		}
+	}
+
+	public String getDeviceName() {
+		return this.deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 

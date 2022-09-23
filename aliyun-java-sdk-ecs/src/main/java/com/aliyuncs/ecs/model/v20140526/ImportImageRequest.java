@@ -46,6 +46,8 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 
 	private String licenseType;
 
+	private String detectionStrategy;
+
 	private String resourceOwnerAccount;
 
 	private String roleName;
@@ -54,7 +56,7 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 
 	private Long ownerId;
 	public ImportImageRequest() {
-		super("Ecs", "2014-05-26", "ImportImage", "ecs");
+		super("Ecs", "2014-05-26", "ImportImage");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -179,6 +181,17 @@ public class ImportImageRequest extends RpcAcsRequest<ImportImageResponse> {
 		this.licenseType = licenseType;
 		if(licenseType != null){
 			putQueryParameter("LicenseType", licenseType);
+		}
+	}
+
+	public String getDetectionStrategy() {
+		return this.detectionStrategy;
+	}
+
+	public void setDetectionStrategy(String detectionStrategy) {
+		this.detectionStrategy = detectionStrategy;
+		if(detectionStrategy != null){
+			putQueryParameter("DetectionStrategy", detectionStrategy);
 		}
 	}
 

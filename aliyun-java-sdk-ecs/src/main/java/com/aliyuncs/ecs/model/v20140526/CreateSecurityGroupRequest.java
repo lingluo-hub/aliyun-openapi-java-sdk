@@ -50,7 +50,7 @@ public class CreateSecurityGroupRequest extends RpcAcsRequest<CreateSecurityGrou
 
 	private String vpcId;
 	public CreateSecurityGroupRequest() {
-		super("Ecs", "2014-05-26", "CreateSecurityGroup", "ecs");
+		super("Ecs", "2014-05-26", "CreateSecurityGroup");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -132,7 +132,7 @@ public class CreateSecurityGroupRequest extends RpcAcsRequest<CreateSecurityGrou
 		this.tags = tags;	
 		if (tags != null) {
 			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
-				putQueryParameter("Tag." + (depth1 + 1) + ".value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	

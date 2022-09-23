@@ -33,17 +33,17 @@ public class DescribeEsExceptionDataResponseUnmarshaller {
 			Content content = new Content();
 			content.setName(_ctx.stringValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Name"));
 
-			List<String> columns = new ArrayList<String>();
-			for (int j = 0; j < _ctx.lengthValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Columns.Length"); j++) {
-				columns.add(_ctx.stringValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Columns["+ j +"]"));
-			}
-			content.setColumns(columns);
-
 			List<String> points = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Points.Length"); j++) {
 				points.add(_ctx.stringValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Points["+ j +"]"));
 			}
 			content.setPoints(points);
+
+			List<String> columns = new ArrayList<String>();
+			for (int j = 0; j < _ctx.lengthValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Columns.Length"); j++) {
+				columns.add(_ctx.stringValue("DescribeEsExceptionDataResponse.Contents["+ i +"].Columns["+ j +"]"));
+			}
+			content.setColumns(columns);
 
 			contents.add(content);
 		}

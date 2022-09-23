@@ -26,6 +26,8 @@ import com.aliyuncs.ecd.Endpoint;
 public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse> {
 	   
 
+	private String volumeEncryptionKey;
+
 	private String officeSiteId;
 
 	private String bundleId;
@@ -42,6 +44,8 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 
 	private List<Tag> tags;
 
+	private Boolean volumeEncryptionEnabled;
+
 	private String desktopName;
 
 	private Integer amount;
@@ -49,6 +53,8 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 	private Integer period;
 
 	private Boolean autoPay;
+
+	private List<UserCommands> userCommandss;
 
 	private String groupId;
 
@@ -72,6 +78,17 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getVolumeEncryptionKey() {
+		return this.volumeEncryptionKey;
+	}
+
+	public void setVolumeEncryptionKey(String volumeEncryptionKey) {
+		this.volumeEncryptionKey = volumeEncryptionKey;
+		if(volumeEncryptionKey != null){
+			putQueryParameter("VolumeEncryptionKey", volumeEncryptionKey);
+		}
 	}
 
 	public String getOfficeSiteId() {
@@ -167,6 +184,17 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 		}	
 	}
 
+	public Boolean getVolumeEncryptionEnabled() {
+		return this.volumeEncryptionEnabled;
+	}
+
+	public void setVolumeEncryptionEnabled(Boolean volumeEncryptionEnabled) {
+		this.volumeEncryptionEnabled = volumeEncryptionEnabled;
+		if(volumeEncryptionEnabled != null){
+			putQueryParameter("VolumeEncryptionEnabled", volumeEncryptionEnabled.toString());
+		}
+	}
+
 	public String getDesktopName() {
 		return this.desktopName;
 	}
@@ -209,6 +237,21 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 		if(autoPay != null){
 			putQueryParameter("AutoPay", autoPay.toString());
 		}
+	}
+
+	public List<UserCommands> getUserCommandss() {
+		return this.userCommandss;
+	}
+
+	public void setUserCommandss(List<UserCommands> userCommandss) {
+		this.userCommandss = userCommandss;	
+		if (userCommandss != null) {
+			for (int depth1 = 0; depth1 < userCommandss.size(); depth1++) {
+				putQueryParameter("UserCommands." + (depth1 + 1) + ".ContentEncoding" , userCommandss.get(depth1).getContentEncoding());
+				putQueryParameter("UserCommands." + (depth1 + 1) + ".Content" , userCommandss.get(depth1).getContent());
+				putQueryParameter("UserCommands." + (depth1 + 1) + ".ContentType" , userCommandss.get(depth1).getContentType());
+			}
+		}	
 	}
 
 	public String getGroupId() {
@@ -319,6 +362,39 @@ public class CreateDesktopsRequest extends RpcAcsRequest<CreateDesktopsResponse>
 
 		public void setKey(String key) {
 			this.key = key;
+		}
+	}
+
+	public static class UserCommands {
+
+		private String contentEncoding;
+
+		private String content;
+
+		private String contentType;
+
+		public String getContentEncoding() {
+			return this.contentEncoding;
+		}
+
+		public void setContentEncoding(String contentEncoding) {
+			this.contentEncoding = contentEncoding;
+		}
+
+		public String getContent() {
+			return this.content;
+		}
+
+		public void setContent(String content) {
+			this.content = content;
+		}
+
+		public String getContentType() {
+			return this.contentType;
+		}
+
+		public void setContentType(String contentType) {
+			this.contentType = contentType;
 		}
 	}
 

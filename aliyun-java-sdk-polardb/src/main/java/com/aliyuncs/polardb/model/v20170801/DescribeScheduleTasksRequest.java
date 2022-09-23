@@ -29,7 +29,11 @@ public class DescribeScheduleTasksRequest extends RpcAcsRequest<DescribeSchedule
 
 	private String dBClusterDescription;
 
+	private String plannedEndTime;
+
 	private Integer pageNumber;
+
+	private String resourceGroupId;
 
 	private Integer pageSize;
 
@@ -42,6 +46,8 @@ public class DescribeScheduleTasksRequest extends RpcAcsRequest<DescribeSchedule
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String plannedStartTime;
 
 	private String taskAction;
 
@@ -77,6 +83,17 @@ public class DescribeScheduleTasksRequest extends RpcAcsRequest<DescribeSchedule
 		}
 	}
 
+	public String getPlannedEndTime() {
+		return this.plannedEndTime;
+	}
+
+	public void setPlannedEndTime(String plannedEndTime) {
+		this.plannedEndTime = plannedEndTime;
+		if(plannedEndTime != null){
+			putQueryParameter("PlannedEndTime", plannedEndTime);
+		}
+	}
+
 	public Integer getPageNumber() {
 		return this.pageNumber;
 	}
@@ -85,6 +102,17 @@ public class DescribeScheduleTasksRequest extends RpcAcsRequest<DescribeSchedule
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 
@@ -151,6 +179,17 @@ public class DescribeScheduleTasksRequest extends RpcAcsRequest<DescribeSchedule
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getPlannedStartTime() {
+		return this.plannedStartTime;
+	}
+
+	public void setPlannedStartTime(String plannedStartTime) {
+		this.plannedStartTime = plannedStartTime;
+		if(plannedStartTime != null){
+			putQueryParameter("PlannedStartTime", plannedStartTime);
 		}
 	}
 

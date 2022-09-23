@@ -47,99 +47,69 @@ public class DescribeClusterResponse extends AcsResponse {
 
 	public static class ClusterInfo {
 
-		private String id;
-
-		private String regionId;
-
-		private String name;
-
-		private String description;
-
 		private String status;
-
-		private String osTag;
-
-		private String accountType;
-
-		private String schedulerType;
-
-		private String createTime;
-
-		private String securityGroupId;
 
 		private String vpcId;
 
-		private String vSwitchId;
+		private String keyPairName;
 
-		private String volumeType;
+		private String ecsChargeType;
+
+		private String securityGroupId;
+
+		private String sccClusterId;
+
+		private String createTime;
+
+		private String accountType;
+
+		private String volumeProtocol;
+
+		private String description;
 
 		private String volumeId;
 
-		private String volumeProtocol;
+		private Boolean haEnable;
+
+		private String baseOsTag;
+
+		private String name;
+
+		private String imageId;
+
+		private String schedulerType;
+
+		private String deployMode;
+
+		private String imageOwnerAlias;
+
+		private String osTag;
 
 		private String volumeMountpoint;
 
 		private String remoteDirectory;
 
-		private String deployMode;
+		private String regionId;
 
-		private Boolean haEnable;
+		private String vSwitchId;
 
-		private String ecsChargeType;
+		private String imageName;
 
-		private String keyPairName;
-
-		private String sccClusterId;
-
-		private String clientVersion;
-
-		private String imageOwnerAlias;
-
-		private String imageId;
+		private String volumeType;
 
 		private String location;
 
-		private String baseOsTag;
+		private String id;
 
-		private String imageName;
+		private String clientVersion;
 
 		private List<ApplicationInfo> applications;
 
 		private List<PostInstallScriptInfo> postInstallScripts;
 
+		private List<OnPremiseInfoItem> onPremiseInfo;
+
 		private EcsInfo ecsInfo;
-
-		public String getId() {
-			return this.id;
-		}
-
-		public void setId(String id) {
-			this.id = id;
-		}
-
-		public String getRegionId() {
-			return this.regionId;
-		}
-
-		public void setRegionId(String regionId) {
-			this.regionId = regionId;
-		}
-
-		public String getName() {
-			return this.name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getDescription() {
-			return this.description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
-		}
 
 		public String getStatus() {
 			return this.status;
@@ -147,46 +117,6 @@ public class DescribeClusterResponse extends AcsResponse {
 
 		public void setStatus(String status) {
 			this.status = status;
-		}
-
-		public String getOsTag() {
-			return this.osTag;
-		}
-
-		public void setOsTag(String osTag) {
-			this.osTag = osTag;
-		}
-
-		public String getAccountType() {
-			return this.accountType;
-		}
-
-		public void setAccountType(String accountType) {
-			this.accountType = accountType;
-		}
-
-		public String getSchedulerType() {
-			return this.schedulerType;
-		}
-
-		public void setSchedulerType(String schedulerType) {
-			this.schedulerType = schedulerType;
-		}
-
-		public String getCreateTime() {
-			return this.createTime;
-		}
-
-		public void setCreateTime(String createTime) {
-			this.createTime = createTime;
-		}
-
-		public String getSecurityGroupId() {
-			return this.securityGroupId;
-		}
-
-		public void setSecurityGroupId(String securityGroupId) {
-			this.securityGroupId = securityGroupId;
 		}
 
 		public String getVpcId() {
@@ -197,20 +127,68 @@ public class DescribeClusterResponse extends AcsResponse {
 			this.vpcId = vpcId;
 		}
 
-		public String getVSwitchId() {
-			return this.vSwitchId;
+		public String getKeyPairName() {
+			return this.keyPairName;
 		}
 
-		public void setVSwitchId(String vSwitchId) {
-			this.vSwitchId = vSwitchId;
+		public void setKeyPairName(String keyPairName) {
+			this.keyPairName = keyPairName;
 		}
 
-		public String getVolumeType() {
-			return this.volumeType;
+		public String getEcsChargeType() {
+			return this.ecsChargeType;
 		}
 
-		public void setVolumeType(String volumeType) {
-			this.volumeType = volumeType;
+		public void setEcsChargeType(String ecsChargeType) {
+			this.ecsChargeType = ecsChargeType;
+		}
+
+		public String getSecurityGroupId() {
+			return this.securityGroupId;
+		}
+
+		public void setSecurityGroupId(String securityGroupId) {
+			this.securityGroupId = securityGroupId;
+		}
+
+		public String getSccClusterId() {
+			return this.sccClusterId;
+		}
+
+		public void setSccClusterId(String sccClusterId) {
+			this.sccClusterId = sccClusterId;
+		}
+
+		public String getCreateTime() {
+			return this.createTime;
+		}
+
+		public void setCreateTime(String createTime) {
+			this.createTime = createTime;
+		}
+
+		public String getAccountType() {
+			return this.accountType;
+		}
+
+		public void setAccountType(String accountType) {
+			this.accountType = accountType;
+		}
+
+		public String getVolumeProtocol() {
+			return this.volumeProtocol;
+		}
+
+		public void setVolumeProtocol(String volumeProtocol) {
+			this.volumeProtocol = volumeProtocol;
+		}
+
+		public String getDescription() {
+			return this.description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
 		}
 
 		public String getVolumeId() {
@@ -221,12 +199,68 @@ public class DescribeClusterResponse extends AcsResponse {
 			this.volumeId = volumeId;
 		}
 
-		public String getVolumeProtocol() {
-			return this.volumeProtocol;
+		public Boolean getHaEnable() {
+			return this.haEnable;
 		}
 
-		public void setVolumeProtocol(String volumeProtocol) {
-			this.volumeProtocol = volumeProtocol;
+		public void setHaEnable(Boolean haEnable) {
+			this.haEnable = haEnable;
+		}
+
+		public String getBaseOsTag() {
+			return this.baseOsTag;
+		}
+
+		public void setBaseOsTag(String baseOsTag) {
+			this.baseOsTag = baseOsTag;
+		}
+
+		public String getName() {
+			return this.name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getImageId() {
+			return this.imageId;
+		}
+
+		public void setImageId(String imageId) {
+			this.imageId = imageId;
+		}
+
+		public String getSchedulerType() {
+			return this.schedulerType;
+		}
+
+		public void setSchedulerType(String schedulerType) {
+			this.schedulerType = schedulerType;
+		}
+
+		public String getDeployMode() {
+			return this.deployMode;
+		}
+
+		public void setDeployMode(String deployMode) {
+			this.deployMode = deployMode;
+		}
+
+		public String getImageOwnerAlias() {
+			return this.imageOwnerAlias;
+		}
+
+		public void setImageOwnerAlias(String imageOwnerAlias) {
+			this.imageOwnerAlias = imageOwnerAlias;
+		}
+
+		public String getOsTag() {
+			return this.osTag;
+		}
+
+		public void setOsTag(String osTag) {
+			this.osTag = osTag;
 		}
 
 		public String getVolumeMountpoint() {
@@ -245,68 +279,36 @@ public class DescribeClusterResponse extends AcsResponse {
 			this.remoteDirectory = remoteDirectory;
 		}
 
-		public String getDeployMode() {
-			return this.deployMode;
+		public String getRegionId() {
+			return this.regionId;
 		}
 
-		public void setDeployMode(String deployMode) {
-			this.deployMode = deployMode;
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
 		}
 
-		public Boolean getHaEnable() {
-			return this.haEnable;
+		public String getVSwitchId() {
+			return this.vSwitchId;
 		}
 
-		public void setHaEnable(Boolean haEnable) {
-			this.haEnable = haEnable;
+		public void setVSwitchId(String vSwitchId) {
+			this.vSwitchId = vSwitchId;
 		}
 
-		public String getEcsChargeType() {
-			return this.ecsChargeType;
+		public String getImageName() {
+			return this.imageName;
 		}
 
-		public void setEcsChargeType(String ecsChargeType) {
-			this.ecsChargeType = ecsChargeType;
+		public void setImageName(String imageName) {
+			this.imageName = imageName;
 		}
 
-		public String getKeyPairName() {
-			return this.keyPairName;
+		public String getVolumeType() {
+			return this.volumeType;
 		}
 
-		public void setKeyPairName(String keyPairName) {
-			this.keyPairName = keyPairName;
-		}
-
-		public String getSccClusterId() {
-			return this.sccClusterId;
-		}
-
-		public void setSccClusterId(String sccClusterId) {
-			this.sccClusterId = sccClusterId;
-		}
-
-		public String getClientVersion() {
-			return this.clientVersion;
-		}
-
-		public void setClientVersion(String clientVersion) {
-			this.clientVersion = clientVersion;
-		}
-
-		public String getImageOwnerAlias() {
-			return this.imageOwnerAlias;
-		}
-
-		public void setImageOwnerAlias(String imageOwnerAlias) {
-			this.imageOwnerAlias = imageOwnerAlias;
-		}
-
-		public String getImageId() {
-			return this.imageId;
-		}
-
-		public void setImageId(String imageId) {
-			this.imageId = imageId;
+		public void setVolumeType(String volumeType) {
+			this.volumeType = volumeType;
 		}
 
 		public String getLocation() {
@@ -317,20 +319,20 @@ public class DescribeClusterResponse extends AcsResponse {
 			this.location = location;
 		}
 
-		public String getBaseOsTag() {
-			return this.baseOsTag;
+		public String getId() {
+			return this.id;
 		}
 
-		public void setBaseOsTag(String baseOsTag) {
-			this.baseOsTag = baseOsTag;
+		public void setId(String id) {
+			this.id = id;
 		}
 
-		public String getImageName() {
-			return this.imageName;
+		public String getClientVersion() {
+			return this.clientVersion;
 		}
 
-		public void setImageName(String imageName) {
-			this.imageName = imageName;
+		public void setClientVersion(String clientVersion) {
+			this.clientVersion = clientVersion;
 		}
 
 		public List<ApplicationInfo> getApplications() {
@@ -347,6 +349,14 @@ public class DescribeClusterResponse extends AcsResponse {
 
 		public void setPostInstallScripts(List<PostInstallScriptInfo> postInstallScripts) {
 			this.postInstallScripts = postInstallScripts;
+		}
+
+		public List<OnPremiseInfoItem> getOnPremiseInfo() {
+			return this.onPremiseInfo;
+		}
+
+		public void setOnPremiseInfo(List<OnPremiseInfoItem> onPremiseInfo) {
+			this.onPremiseInfo = onPremiseInfo;
 		}
 
 		public EcsInfo getEcsInfo() {
@@ -413,6 +423,39 @@ public class DescribeClusterResponse extends AcsResponse {
 			}
 		}
 
+		public static class OnPremiseInfoItem {
+
+			private String type;
+
+			private String hostName;
+
+			private String iP;
+
+			public String getType() {
+				return this.type;
+			}
+
+			public void setType(String type) {
+				this.type = type;
+			}
+
+			public String getHostName() {
+				return this.hostName;
+			}
+
+			public void setHostName(String hostName) {
+				this.hostName = hostName;
+			}
+
+			public String getIP() {
+				return this.iP;
+			}
+
+			public void setIP(String iP) {
+				this.iP = iP;
+			}
+		}
+
 		public static class EcsInfo {
 
 			private Manager manager;
@@ -420,6 +463,8 @@ public class DescribeClusterResponse extends AcsResponse {
 			private Compute compute;
 
 			private Login login;
+
+			private ProxyMgr proxyMgr;
 
 			public Manager getManager() {
 				return this.manager;
@@ -445,19 +490,19 @@ public class DescribeClusterResponse extends AcsResponse {
 				this.login = login;
 			}
 
-			public static class Manager {
+			public ProxyMgr getProxyMgr() {
+				return this.proxyMgr;
+			}
 
-				private Integer count;
+			public void setProxyMgr(ProxyMgr proxyMgr) {
+				this.proxyMgr = proxyMgr;
+			}
+
+			public static class Manager {
 
 				private String instanceType;
 
-				public Integer getCount() {
-					return this.count;
-				}
-
-				public void setCount(Integer count) {
-					this.count = count;
-				}
+				private Integer count;
 
 				public String getInstanceType() {
 					return this.instanceType;
@@ -465,22 +510,22 @@ public class DescribeClusterResponse extends AcsResponse {
 
 				public void setInstanceType(String instanceType) {
 					this.instanceType = instanceType;
+				}
+
+				public Integer getCount() {
+					return this.count;
+				}
+
+				public void setCount(Integer count) {
+					this.count = count;
 				}
 			}
 
 			public static class Compute {
 
-				private Integer count;
-
 				private String instanceType;
 
-				public Integer getCount() {
-					return this.count;
-				}
-
-				public void setCount(Integer count) {
-					this.count = count;
-				}
+				private Integer count;
 
 				public String getInstanceType() {
 					return this.instanceType;
@@ -488,14 +533,30 @@ public class DescribeClusterResponse extends AcsResponse {
 
 				public void setInstanceType(String instanceType) {
 					this.instanceType = instanceType;
+				}
+
+				public Integer getCount() {
+					return this.count;
+				}
+
+				public void setCount(Integer count) {
+					this.count = count;
 				}
 			}
 
 			public static class Login {
 
+				private String instanceType;
+
 				private Integer count;
 
-				private String instanceType;
+				public String getInstanceType() {
+					return this.instanceType;
+				}
+
+				public void setInstanceType(String instanceType) {
+					this.instanceType = instanceType;
+				}
 
 				public Integer getCount() {
 					return this.count;
@@ -504,6 +565,13 @@ public class DescribeClusterResponse extends AcsResponse {
 				public void setCount(Integer count) {
 					this.count = count;
 				}
+			}
+
+			public static class ProxyMgr {
+
+				private String instanceType;
+
+				private Integer count;
 
 				public String getInstanceType() {
 					return this.instanceType;
@@ -511,6 +579,14 @@ public class DescribeClusterResponse extends AcsResponse {
 
 				public void setInstanceType(String instanceType) {
 					this.instanceType = instanceType;
+				}
+
+				public Integer getCount() {
+					return this.count;
+				}
+
+				public void setCount(Integer count) {
+					this.count = count;
 				}
 			}
 		}

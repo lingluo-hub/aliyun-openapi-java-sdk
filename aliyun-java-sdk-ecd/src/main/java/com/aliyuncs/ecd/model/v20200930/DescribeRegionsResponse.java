@@ -51,6 +51,8 @@ public class DescribeRegionsResponse extends AcsResponse {
 
 		private String regionId;
 
+		private String localName;
+
 		public String getRegionEndpoint() {
 			return this.regionEndpoint;
 		}
@@ -65,6 +67,14 @@ public class DescribeRegionsResponse extends AcsResponse {
 
 		public void setRegionId(String regionId) {
 			this.regionId = regionId;
+		}
+
+		public String getLocalName() {
+			return this.localName;
+		}
+
+		public void setLocalName(String localName) {
+			this.localName = localName;
 		}
 	}
 

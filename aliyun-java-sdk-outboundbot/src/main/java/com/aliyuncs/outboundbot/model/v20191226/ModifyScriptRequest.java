@@ -40,15 +40,21 @@ public class ModifyScriptRequest extends RpcAcsRequest<ModifyScriptResponse> {
 
 	private String asrConfig;
 
+	private String miniPlaybackConfigListJsonString;
+
 	private String nlsConfig;
 
-	private Boolean miniPlaybackEnabled;
+	private Boolean newBargeInEnable;
+
+	private Boolean miniPlaybackEnable;
 
 	private String chatbotId;
 
 	private String instanceId;
 
 	private String scriptDescription;
+
+	private Boolean longWaitEnable;
 
 	private List<String> scriptContents;
 	public ModifyScriptRequest() {
@@ -139,6 +145,17 @@ public class ModifyScriptRequest extends RpcAcsRequest<ModifyScriptResponse> {
 		}
 	}
 
+	public String getMiniPlaybackConfigListJsonString() {
+		return this.miniPlaybackConfigListJsonString;
+	}
+
+	public void setMiniPlaybackConfigListJsonString(String miniPlaybackConfigListJsonString) {
+		this.miniPlaybackConfigListJsonString = miniPlaybackConfigListJsonString;
+		if(miniPlaybackConfigListJsonString != null){
+			putQueryParameter("MiniPlaybackConfigListJsonString", miniPlaybackConfigListJsonString);
+		}
+	}
+
 	public String getNlsConfig() {
 		return this.nlsConfig;
 	}
@@ -150,14 +167,25 @@ public class ModifyScriptRequest extends RpcAcsRequest<ModifyScriptResponse> {
 		}
 	}
 
-	public Boolean getMiniPlaybackEnabled() {
-		return this.miniPlaybackEnabled;
+	public Boolean getNewBargeInEnable() {
+		return this.newBargeInEnable;
 	}
 
-	public void setMiniPlaybackEnabled(Boolean miniPlaybackEnabled) {
-		this.miniPlaybackEnabled = miniPlaybackEnabled;
-		if(miniPlaybackEnabled != null){
-			putQueryParameter("MiniPlaybackEnabled", miniPlaybackEnabled.toString());
+	public void setNewBargeInEnable(Boolean newBargeInEnable) {
+		this.newBargeInEnable = newBargeInEnable;
+		if(newBargeInEnable != null){
+			putQueryParameter("NewBargeInEnable", newBargeInEnable.toString());
+		}
+	}
+
+	public Boolean getMiniPlaybackEnable() {
+		return this.miniPlaybackEnable;
+	}
+
+	public void setMiniPlaybackEnable(Boolean miniPlaybackEnable) {
+		this.miniPlaybackEnable = miniPlaybackEnable;
+		if(miniPlaybackEnable != null){
+			putQueryParameter("MiniPlaybackEnable", miniPlaybackEnable.toString());
 		}
 	}
 
@@ -191,6 +219,17 @@ public class ModifyScriptRequest extends RpcAcsRequest<ModifyScriptResponse> {
 		this.scriptDescription = scriptDescription;
 		if(scriptDescription != null){
 			putQueryParameter("ScriptDescription", scriptDescription);
+		}
+	}
+
+	public Boolean getLongWaitEnable() {
+		return this.longWaitEnable;
+	}
+
+	public void setLongWaitEnable(Boolean longWaitEnable) {
+		this.longWaitEnable = longWaitEnable;
+		if(longWaitEnable != null){
+			putQueryParameter("LongWaitEnable", longWaitEnable.toString());
 		}
 	}
 

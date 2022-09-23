@@ -49,9 +49,17 @@ public class DescribeLiveDomainLimitResponse extends AcsResponse {
 
 		private Integer limitTranscodeNum;
 
-		private String domainName;
+		private Integer currentTranscodeNum;
 
 		private Integer limitNum;
+
+		private Integer limitTransferNum;
+
+		private Integer currentNum;
+
+		private Integer currentTransferNum;
+
+		private String domainName;
 
 		public Integer getLimitTranscodeNum() {
 			return this.limitTranscodeNum;
@@ -61,12 +69,12 @@ public class DescribeLiveDomainLimitResponse extends AcsResponse {
 			this.limitTranscodeNum = limitTranscodeNum;
 		}
 
-		public String getDomainName() {
-			return this.domainName;
+		public Integer getCurrentTranscodeNum() {
+			return this.currentTranscodeNum;
 		}
 
-		public void setDomainName(String domainName) {
-			this.domainName = domainName;
+		public void setCurrentTranscodeNum(Integer currentTranscodeNum) {
+			this.currentTranscodeNum = currentTranscodeNum;
 		}
 
 		public Integer getLimitNum() {
@@ -75,6 +83,38 @@ public class DescribeLiveDomainLimitResponse extends AcsResponse {
 
 		public void setLimitNum(Integer limitNum) {
 			this.limitNum = limitNum;
+		}
+
+		public Integer getLimitTransferNum() {
+			return this.limitTransferNum;
+		}
+
+		public void setLimitTransferNum(Integer limitTransferNum) {
+			this.limitTransferNum = limitTransferNum;
+		}
+
+		public Integer getCurrentNum() {
+			return this.currentNum;
+		}
+
+		public void setCurrentNum(Integer currentNum) {
+			this.currentNum = currentNum;
+		}
+
+		public Integer getCurrentTransferNum() {
+			return this.currentTransferNum;
+		}
+
+		public void setCurrentTransferNum(Integer currentTransferNum) {
+			this.currentTransferNum = currentTransferNum;
+		}
+
+		public String getDomainName() {
+			return this.domainName;
+		}
+
+		public void setDomainName(String domainName) {
+			this.domainName = domainName;
 		}
 	}
 

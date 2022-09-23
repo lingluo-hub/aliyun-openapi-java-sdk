@@ -26,8 +26,6 @@ public class DecodeBlindWatermarkResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String content;
-
 	private String targetUri;
 
 	public String getRequestId() {
@@ -36,14 +34,6 @@ public class DecodeBlindWatermarkResponse extends AcsResponse {
 
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
-	}
-
-	public String getContent() {
-		return this.content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	public String getTargetUri() {

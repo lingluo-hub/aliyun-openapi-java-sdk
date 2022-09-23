@@ -85,6 +85,10 @@ public class ListGroupAuthorizationRulesResponse extends AcsResponse {
 
 		private String destinationType;
 
+		private String destinationPort;
+
+		private String protocol;
+
 		private String destination;
 
 		private String authorizationRuleName;
@@ -92,6 +96,8 @@ public class ListGroupAuthorizationRulesResponse extends AcsResponse {
 		private String authorizationRuleDescription;
 
 		private String authorizationRuleId;
+
+		private String type;
 
 		private List<String> sourceCidrs;
 
@@ -127,6 +133,22 @@ public class ListGroupAuthorizationRulesResponse extends AcsResponse {
 			this.destinationType = destinationType;
 		}
 
+		public String getDestinationPort() {
+			return this.destinationPort;
+		}
+
+		public void setDestinationPort(String destinationPort) {
+			this.destinationPort = destinationPort;
+		}
+
+		public String getBizProtocol() {
+			return this.protocol;
+		}
+
+		public void setBizProtocol(String protocol) {
+			this.protocol = protocol;
+		}
+
 		public String getDestination() {
 			return this.destination;
 		}
@@ -157,6 +179,14 @@ public class ListGroupAuthorizationRulesResponse extends AcsResponse {
 
 		public void setAuthorizationRuleId(String authorizationRuleId) {
 			this.authorizationRuleId = authorizationRuleId;
+		}
+
+		public String getType() {
+			return this.type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
 		}
 
 		public List<String> getSourceCidrs() {

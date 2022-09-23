@@ -25,31 +25,22 @@ import com.aliyuncs.arms.Endpoint;
 public class CreateOrUpdateContactRequest extends RpcAcsRequest<CreateOrUpdateContactResponse> {
 	   
 
-	private String contactName;
-
 	private Long contactId;
+
+	private Long reissueSendNotice;
+
+	private String contactName;
 
 	private String phone;
 
 	private String email;
 	public CreateOrUpdateContactRequest() {
-		super("ARMS", "2019-08-08", "CreateOrUpdateContact");
+		super("ARMS", "2019-08-08", "CreateOrUpdateContact", "arms");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getContactName() {
-		return this.contactName;
-	}
-
-	public void setContactName(String contactName) {
-		this.contactName = contactName;
-		if(contactName != null){
-			putBodyParameter("ContactName", contactName);
-		}
 	}
 
 	public Long getContactId() {
@@ -60,6 +51,28 @@ public class CreateOrUpdateContactRequest extends RpcAcsRequest<CreateOrUpdateCo
 		this.contactId = contactId;
 		if(contactId != null){
 			putBodyParameter("ContactId", contactId.toString());
+		}
+	}
+
+	public Long getReissueSendNotice() {
+		return this.reissueSendNotice;
+	}
+
+	public void setReissueSendNotice(Long reissueSendNotice) {
+		this.reissueSendNotice = reissueSendNotice;
+		if(reissueSendNotice != null){
+			putBodyParameter("ReissueSendNotice", reissueSendNotice.toString());
+		}
+	}
+
+	public String getContactName() {
+		return this.contactName;
+	}
+
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
+		if(contactName != null){
+			putBodyParameter("ContactName", contactName);
 		}
 	}
 

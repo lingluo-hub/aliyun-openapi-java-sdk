@@ -26,27 +26,39 @@ import com.aliyuncs.computenestsupplier.Endpoint;
 public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 	   
 
+	private String alarmMetadata;
+
 	private String clientToken;
 
 	private String policyNames;
 
 	private Long duration;
 
+	private Long trialDuration;
+
+	private String shareType;
+
+	private List<Tag> tags;
+
 	private List<RequestTag> requestTags;
 
-	private String supplierUrl;
+	private String upgradeMetadata;
+
+	private String saleMetadata;
 
 	private String deployMetadata;
-
-	private String supplierName;
 
 	private String serviceType;
 
 	private Boolean isSupportOperated;
 
+	private String tenantType;
+
 	private List<ServiceInfo> serviceInfos;
 
 	private String serviceId;
+
+	private String versionName;
 
 	private String deployType;
 	public CreateServiceRequest() {
@@ -56,6 +68,17 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getAlarmMetadata() {
+		return this.alarmMetadata;
+	}
+
+	public void setAlarmMetadata(String alarmMetadata) {
+		this.alarmMetadata = alarmMetadata;
+		if(alarmMetadata != null){
+			putQueryParameter("AlarmMetadata", alarmMetadata);
+		}
 	}
 
 	public String getClientToken() {
@@ -91,6 +114,42 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		}
 	}
 
+	public Long getTrialDuration() {
+		return this.trialDuration;
+	}
+
+	public void setTrialDuration(Long trialDuration) {
+		this.trialDuration = trialDuration;
+		if(trialDuration != null){
+			putQueryParameter("TrialDuration", trialDuration.toString());
+		}
+	}
+
+	public String getShareType() {
+		return this.shareType;
+	}
+
+	public void setShareType(String shareType) {
+		this.shareType = shareType;
+		if(shareType != null){
+			putQueryParameter("ShareType", shareType);
+		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
 	public List<RequestTag> getRequestTags() {
 		return this.requestTags;
 	}
@@ -105,14 +164,25 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		}	
 	}
 
-	public String getSupplierUrl() {
-		return this.supplierUrl;
+	public String getUpgradeMetadata() {
+		return this.upgradeMetadata;
 	}
 
-	public void setSupplierUrl(String supplierUrl) {
-		this.supplierUrl = supplierUrl;
-		if(supplierUrl != null){
-			putQueryParameter("SupplierUrl", supplierUrl);
+	public void setUpgradeMetadata(String upgradeMetadata) {
+		this.upgradeMetadata = upgradeMetadata;
+		if(upgradeMetadata != null){
+			putQueryParameter("UpgradeMetadata", upgradeMetadata);
+		}
+	}
+
+	public String getSaleMetadata() {
+		return this.saleMetadata;
+	}
+
+	public void setSaleMetadata(String saleMetadata) {
+		this.saleMetadata = saleMetadata;
+		if(saleMetadata != null){
+			putQueryParameter("SaleMetadata", saleMetadata);
 		}
 	}
 
@@ -124,17 +194,6 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		this.deployMetadata = deployMetadata;
 		if(deployMetadata != null){
 			putQueryParameter("DeployMetadata", deployMetadata);
-		}
-	}
-
-	public String getSupplierName() {
-		return this.supplierName;
-	}
-
-	public void setSupplierName(String supplierName) {
-		this.supplierName = supplierName;
-		if(supplierName != null){
-			putQueryParameter("SupplierName", supplierName);
 		}
 	}
 
@@ -157,6 +216,17 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		this.isSupportOperated = isSupportOperated;
 		if(isSupportOperated != null){
 			putQueryParameter("IsSupportOperated", isSupportOperated.toString());
+		}
+	}
+
+	public String getTenantType() {
+		return this.tenantType;
+	}
+
+	public void setTenantType(String tenantType) {
+		this.tenantType = tenantType;
+		if(tenantType != null){
+			putQueryParameter("TenantType", tenantType);
 		}
 	}
 
@@ -187,6 +257,17 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		}
 	}
 
+	public String getVersionName() {
+		return this.versionName;
+	}
+
+	public void setVersionName(String versionName) {
+		this.versionName = versionName;
+		if(versionName != null){
+			putQueryParameter("VersionName", versionName);
+		}
+	}
+
 	public String getDeployType() {
 		return this.deployType;
 	}
@@ -195,6 +276,29 @@ public class CreateServiceRequest extends RpcAcsRequest<CreateServiceResponse> {
 		this.deployType = deployType;
 		if(deployType != null){
 			putQueryParameter("DeployType", deployType);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

@@ -36,8 +36,14 @@ public class CreateOrUpdateIMRobotRequest extends RpcAcsRequest<CreateOrUpdateIM
 	private String type;
 
 	private String dailyNocTime;
+
+	private String token;
+
+	private String cardTemplate;
+
+	private Boolean enableOutgoing;
 	public CreateOrUpdateIMRobotRequest() {
-		super("ARMS", "2019-08-08", "CreateOrUpdateIMRobot");
+		super("ARMS", "2019-08-08", "CreateOrUpdateIMRobot", "arms");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -108,6 +114,39 @@ public class CreateOrUpdateIMRobotRequest extends RpcAcsRequest<CreateOrUpdateIM
 		this.dailyNocTime = dailyNocTime;
 		if(dailyNocTime != null){
 			putBodyParameter("DailyNocTime", dailyNocTime);
+		}
+	}
+
+	public String getToken() {
+		return this.token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+		if(token != null){
+			putBodyParameter("Token", token);
+		}
+	}
+
+	public String getCardTemplate() {
+		return this.cardTemplate;
+	}
+
+	public void setCardTemplate(String cardTemplate) {
+		this.cardTemplate = cardTemplate;
+		if(cardTemplate != null){
+			putBodyParameter("CardTemplate", cardTemplate);
+		}
+	}
+
+	public Boolean getEnableOutgoing() {
+		return this.enableOutgoing;
+	}
+
+	public void setEnableOutgoing(Boolean enableOutgoing) {
+		this.enableOutgoing = enableOutgoing;
+		if(enableOutgoing != null){
+			putBodyParameter("EnableOutgoing", enableOutgoing.toString());
 		}
 	}
 

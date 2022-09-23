@@ -30,8 +30,6 @@ public class AddExistedNodesRequest extends RpcAcsRequest<AddExistedNodesRespons
 
 	private List<Instance> instances;
 
-	private String clientToken;
-
 	private String clusterId;
 
 	private String jobQueue;
@@ -68,17 +66,6 @@ public class AddExistedNodesRequest extends RpcAcsRequest<AddExistedNodesRespons
 				putQueryParameter("Instance." + (depth1 + 1) + ".Id" , instances.get(depth1).getId());
 			}
 		}	
-	}
-
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
 	}
 
 	public String getClusterId() {

@@ -52,6 +52,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private Integer systemDiskSize;
 
+	private List<Tag> tags;
+
 	private String computeSpotPriceLimit;
 
 	private Integer autoRenewPeriod;
@@ -66,6 +68,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private List<PostInstallScript> postInstallScripts;
 
+	private List<String> ramNodeTypess;
+
 	private String vSwitchId;
 
 	private String periodUnit;
@@ -74,6 +78,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private String autoRenew;
 
+	private String domain;
+
 	private String name;
 
 	private String volumeId;
@@ -81,6 +87,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 	private String zoneId;
 
 	private String sccClusterId;
+
+	private String volumeMountOption;
 
 	private String imageId;
 
@@ -114,6 +122,10 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 	private Boolean isComputeEss;
 
+	private String ramRoleName;
+
+	private String plugin;
+
 	private List<Application> applications;
 
 	private String ecsChargeType;
@@ -123,6 +135,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 	private String vpcId;
 
 	private Boolean haEnable;
+
+	private Boolean withoutAgent;
 
 	private String schedulerType;
 
@@ -147,6 +161,7 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		if (additionalVolumess != null) {
 			for (int depth1 = 0; depth1 < additionalVolumess.size(); depth1++) {
 				putQueryParameter("AdditionalVolumes." + (depth1 + 1) + ".VolumeType" , additionalVolumess.get(depth1).getVolumeType());
+				putQueryParameter("AdditionalVolumes." + (depth1 + 1) + ".VolumeMountOption" , additionalVolumess.get(depth1).getVolumeMountOption());
 				putQueryParameter("AdditionalVolumes." + (depth1 + 1) + ".VolumeProtocol" , additionalVolumess.get(depth1).getVolumeProtocol());
 				putQueryParameter("AdditionalVolumes." + (depth1 + 1) + ".LocalDirectory" , additionalVolumess.get(depth1).getLocalDirectory());
 				putQueryParameter("AdditionalVolumes." + (depth1 + 1) + ".RemoteDirectory" , additionalVolumess.get(depth1).getRemoteDirectory());
@@ -295,6 +310,20 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}
 	}
 
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+			}
+		}	
+	}
+
 	public String getComputeSpotPriceLimit() {
 		return this.computeSpotPriceLimit;
 	}
@@ -375,6 +404,19 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}	
 	}
 
+	public List<String> getRamNodeTypess() {
+		return this.ramNodeTypess;
+	}
+
+	public void setRamNodeTypess(List<String> ramNodeTypess) {
+		this.ramNodeTypess = ramNodeTypess;	
+		if (ramNodeTypess != null) {
+			for (int i = 0; i < ramNodeTypess.size(); i++) {
+				putQueryParameter("RamNodeTypes." + (i + 1) , ramNodeTypess.get(i));
+			}
+		}	
+	}
+
 	public String getVSwitchId() {
 		return this.vSwitchId;
 	}
@@ -419,6 +461,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}
 	}
 
+	public String getDomain() {
+		return this.domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+		if(domain != null){
+			putQueryParameter("Domain", domain);
+		}
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -460,6 +513,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		this.sccClusterId = sccClusterId;
 		if(sccClusterId != null){
 			putQueryParameter("SccClusterId", sccClusterId);
+		}
+	}
+
+	public String getVolumeMountOption() {
+		return this.volumeMountOption;
+	}
+
+	public void setVolumeMountOption(String volumeMountOption) {
+		this.volumeMountOption = volumeMountOption;
+		if(volumeMountOption != null){
+			putQueryParameter("VolumeMountOption", volumeMountOption);
 		}
 	}
 
@@ -639,6 +703,28 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}
 	}
 
+	public String getRamRoleName() {
+		return this.ramRoleName;
+	}
+
+	public void setRamRoleName(String ramRoleName) {
+		this.ramRoleName = ramRoleName;
+		if(ramRoleName != null){
+			putQueryParameter("RamRoleName", ramRoleName);
+		}
+	}
+
+	public String getPlugin() {
+		return this.plugin;
+	}
+
+	public void setPlugin(String plugin) {
+		this.plugin = plugin;
+		if(plugin != null){
+			putQueryParameter("Plugin", plugin);
+		}
+	}
+
 	public List<Application> getApplications() {
 		return this.applications;
 	}
@@ -696,6 +782,17 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 		}
 	}
 
+	public Boolean getWithoutAgent() {
+		return this.withoutAgent;
+	}
+
+	public void setWithoutAgent(Boolean withoutAgent) {
+		this.withoutAgent = withoutAgent;
+		if(withoutAgent != null){
+			putQueryParameter("WithoutAgent", withoutAgent.toString());
+		}
+	}
+
 	public String getSchedulerType() {
 		return this.schedulerType;
 	}
@@ -733,6 +830,8 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 		private String volumeType;
 
+		private String volumeMountOption;
+
 		private String volumeProtocol;
 
 		private String localDirectory;
@@ -755,6 +854,14 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 
 		public void setVolumeType(String volumeType) {
 			this.volumeType = volumeType;
+		}
+
+		public String getVolumeMountOption() {
+			return this.volumeMountOption;
+		}
+
+		public void setVolumeMountOption(String volumeMountOption) {
+			this.volumeMountOption = volumeMountOption;
 		}
 
 		public String getVolumeProtocol() {
@@ -832,6 +939,29 @@ public class CreateClusterRequest extends RpcAcsRequest<CreateClusterResponse> {
 			public void setName(String name) {
 				this.name = name;
 			}
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 

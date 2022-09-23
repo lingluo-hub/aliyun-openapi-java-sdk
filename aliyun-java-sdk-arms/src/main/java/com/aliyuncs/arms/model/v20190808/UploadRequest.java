@@ -29,11 +29,13 @@ public class UploadRequest extends RpcAcsRequest<UploadResponse> {
 
 	private String file;
 
+	private String edition;
+
 	private String pid;
 
 	private String version;
 	public UploadRequest() {
-		super("ARMS", "2019-08-08", "Upload");
+		super("ARMS", "2019-08-08", "Upload", "arms");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -59,7 +61,18 @@ public class UploadRequest extends RpcAcsRequest<UploadResponse> {
 	public void setFile(String file) {
 		this.file = file;
 		if(file != null){
-			putQueryParameter("File", file);
+			putBodyParameter("File", file);
+		}
+	}
+
+	public String getEdition() {
+		return this.edition;
+	}
+
+	public void setEdition(String edition) {
+		this.edition = edition;
+		if(edition != null){
+			putQueryParameter("Edition", edition);
 		}
 	}
 

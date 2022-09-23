@@ -27,6 +27,8 @@ public class GetAccountRequest extends RpcAcsRequest<GetAccountResponse> {
 	   
 
 	private String accountId;
+
+	private Boolean includeTags;
 	public GetAccountRequest() {
 		super("ResourceManager", "2020-03-31", "GetAccount");
 		setProtocol(ProtocolType.HTTPS);
@@ -45,6 +47,17 @@ public class GetAccountRequest extends RpcAcsRequest<GetAccountResponse> {
 		this.accountId = accountId;
 		if(accountId != null){
 			putQueryParameter("AccountId", accountId);
+		}
+	}
+
+	public Boolean getIncludeTags() {
+		return this.includeTags;
+	}
+
+	public void setIncludeTags(Boolean includeTags) {
+		this.includeTags = includeTags;
+		if(includeTags != null){
+			putQueryParameter("IncludeTags", includeTags.toString());
 		}
 	}
 

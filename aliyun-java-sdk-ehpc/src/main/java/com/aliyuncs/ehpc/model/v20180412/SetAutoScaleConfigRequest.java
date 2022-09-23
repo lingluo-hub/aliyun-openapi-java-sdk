@@ -208,25 +208,37 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 				putQueryParameter("Queues." + (depth1 + 1) + ".SystemDiskLevel" , queuess.get(depth1).getSystemDiskLevel());
 				if (queuess.get(depth1).getInstanceTypess() != null) {
 					for (int depth2 = 0; depth2 < queuess.get(depth1).getInstanceTypess().size(); depth2++) {
-						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".SpotStrategy" , queuess.get(depth1).getInstanceTypess().get(depth2).getSpotStrategy());
 						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".VSwitchId" , queuess.get(depth1).getInstanceTypess().get(depth2).getVSwitchId());
-						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".InstanceType" , queuess.get(depth1).getInstanceTypess().get(depth2).getInstanceType());
+						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".SpotStrategy" , queuess.get(depth1).getInstanceTypess().get(depth2).getSpotStrategy());
 						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".ZoneId" , queuess.get(depth1).getInstanceTypess().get(depth2).getZoneId());
+						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".InstanceType" , queuess.get(depth1).getInstanceTypess().get(depth2).getInstanceType());
 						putQueryParameter("Queues." + (depth1 + 1) + ".InstanceTypes." + (depth2 + 1) + ".SpotPriceLimit" , queuess.get(depth1).getInstanceTypess().get(depth2).getSpotPriceLimit());
 					}
 				}
 				putQueryParameter("Queues." + (depth1 + 1) + ".EnableAutoGrow" , queuess.get(depth1).getEnableAutoGrow());
-				putQueryParameter("Queues." + (depth1 + 1) + ".SpotPriceLimit" , queuess.get(depth1).getSpotPriceLimit());
 				putQueryParameter("Queues." + (depth1 + 1) + ".HostNameSuffix" , queuess.get(depth1).getHostNameSuffix());
+				putQueryParameter("Queues." + (depth1 + 1) + ".SpotPriceLimit" , queuess.get(depth1).getSpotPriceLimit());
 				putQueryParameter("Queues." + (depth1 + 1) + ".EnableAutoShrink" , queuess.get(depth1).getEnableAutoShrink());
 				putQueryParameter("Queues." + (depth1 + 1) + ".SpotStrategy" , queuess.get(depth1).getSpotStrategy());
+				if (queuess.get(depth1).getDataDiskss() != null) {
+					for (int depth2 = 0; depth2 < queuess.get(depth1).getDataDiskss().size(); depth2++) {
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskDeleteWithInstance" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskDeleteWithInstance());
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskEncrypted" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskEncrypted());
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskKMSKeyId" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskKMSKeyId());
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskSize" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskSize());
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskCategory" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskCategory());
+						putQueryParameter("Queues." + (depth1 + 1) + ".DataDisks." + (depth2 + 1) + ".DataDiskPerformanceLevel" , queuess.get(depth1).getDataDiskss().get(depth2).getDataDiskPerformanceLevel());
+					}
+				}
 				putQueryParameter("Queues." + (depth1 + 1) + ".MinNodesInQueue" , queuess.get(depth1).getMinNodesInQueue());
+				putQueryParameter("Queues." + (depth1 + 1) + ".MaxNodesPerCycle" , queuess.get(depth1).getMaxNodesPerCycle());
 				putQueryParameter("Queues." + (depth1 + 1) + ".SystemDiskCategory" , queuess.get(depth1).getSystemDiskCategory());
 				putQueryParameter("Queues." + (depth1 + 1) + ".MaxNodesInQueue" , queuess.get(depth1).getMaxNodesInQueue());
 				putQueryParameter("Queues." + (depth1 + 1) + ".SystemDiskSize" , queuess.get(depth1).getSystemDiskSize());
-				putQueryParameter("Queues." + (depth1 + 1) + ".InstanceType" , queuess.get(depth1).getInstanceType());
 				putQueryParameter("Queues." + (depth1 + 1) + ".QueueImageId" , queuess.get(depth1).getQueueImageId());
+				putQueryParameter("Queues." + (depth1 + 1) + ".InstanceType" , queuess.get(depth1).getInstanceType());
 				putQueryParameter("Queues." + (depth1 + 1) + ".HostNamePrefix" , queuess.get(depth1).getHostNamePrefix());
+				putQueryParameter("Queues." + (depth1 + 1) + ".MinNodesPerCycle" , queuess.get(depth1).getMinNodesPerCycle());
 			}
 		}	
 	}
@@ -263,15 +275,19 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 
 		private Boolean enableAutoGrow;
 
-		private Float spotPriceLimit;
-
 		private String hostNameSuffix;
+
+		private Float spotPriceLimit;
 
 		private Boolean enableAutoShrink;
 
 		private String spotStrategy;
 
+		private List<DataDisks> dataDiskss;
+
 		private Integer minNodesInQueue;
+
+		private Long maxNodesPerCycle;
 
 		private String systemDiskCategory;
 
@@ -279,11 +295,13 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 
 		private Integer systemDiskSize;
 
-		private String instanceType;
-
 		private String queueImageId;
 
+		private String instanceType;
+
 		private String hostNamePrefix;
+
+		private Long minNodesPerCycle;
 
 		public String getQueueName() {
 			return this.queueName;
@@ -317,20 +335,20 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 			this.enableAutoGrow = enableAutoGrow;
 		}
 
-		public Float getSpotPriceLimit() {
-			return this.spotPriceLimit;
-		}
-
-		public void setSpotPriceLimit(Float spotPriceLimit) {
-			this.spotPriceLimit = spotPriceLimit;
-		}
-
 		public String getHostNameSuffix() {
 			return this.hostNameSuffix;
 		}
 
 		public void setHostNameSuffix(String hostNameSuffix) {
 			this.hostNameSuffix = hostNameSuffix;
+		}
+
+		public Float getSpotPriceLimit() {
+			return this.spotPriceLimit;
+		}
+
+		public void setSpotPriceLimit(Float spotPriceLimit) {
+			this.spotPriceLimit = spotPriceLimit;
 		}
 
 		public Boolean getEnableAutoShrink() {
@@ -349,12 +367,28 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 			this.spotStrategy = spotStrategy;
 		}
 
+		public List<DataDisks> getDataDiskss() {
+			return this.dataDiskss;
+		}
+
+		public void setDataDiskss(List<DataDisks> dataDiskss) {
+			this.dataDiskss = dataDiskss;
+		}
+
 		public Integer getMinNodesInQueue() {
 			return this.minNodesInQueue;
 		}
 
 		public void setMinNodesInQueue(Integer minNodesInQueue) {
 			this.minNodesInQueue = minNodesInQueue;
+		}
+
+		public Long getMaxNodesPerCycle() {
+			return this.maxNodesPerCycle;
+		}
+
+		public void setMaxNodesPerCycle(Long maxNodesPerCycle) {
+			this.maxNodesPerCycle = maxNodesPerCycle;
 		}
 
 		public String getSystemDiskCategory() {
@@ -381,20 +415,20 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 			this.systemDiskSize = systemDiskSize;
 		}
 
-		public String getInstanceType() {
-			return this.instanceType;
-		}
-
-		public void setInstanceType(String instanceType) {
-			this.instanceType = instanceType;
-		}
-
 		public String getQueueImageId() {
 			return this.queueImageId;
 		}
 
 		public void setQueueImageId(String queueImageId) {
 			this.queueImageId = queueImageId;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
 		}
 
 		public String getHostNamePrefix() {
@@ -405,25 +439,25 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 			this.hostNamePrefix = hostNamePrefix;
 		}
 
-		public static class InstanceTypes {
+		public Long getMinNodesPerCycle() {
+			return this.minNodesPerCycle;
+		}
 
-			private String spotStrategy;
+		public void setMinNodesPerCycle(Long minNodesPerCycle) {
+			this.minNodesPerCycle = minNodesPerCycle;
+		}
+
+		public static class InstanceTypes {
 
 			private String vSwitchId;
 
-			private String instanceType;
+			private String spotStrategy;
 
 			private String zoneId;
 
+			private String instanceType;
+
 			private Float spotPriceLimit;
-
-			public String getSpotStrategy() {
-				return this.spotStrategy;
-			}
-
-			public void setSpotStrategy(String spotStrategy) {
-				this.spotStrategy = spotStrategy;
-			}
 
 			public String getVSwitchId() {
 				return this.vSwitchId;
@@ -433,12 +467,12 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 				this.vSwitchId = vSwitchId;
 			}
 
-			public String getInstanceType() {
-				return this.instanceType;
+			public String getSpotStrategy() {
+				return this.spotStrategy;
 			}
 
-			public void setInstanceType(String instanceType) {
-				this.instanceType = instanceType;
+			public void setSpotStrategy(String spotStrategy) {
+				this.spotStrategy = spotStrategy;
 			}
 
 			public String getZoneId() {
@@ -449,12 +483,83 @@ public class SetAutoScaleConfigRequest extends RpcAcsRequest<SetAutoScaleConfigR
 				this.zoneId = zoneId;
 			}
 
+			public String getInstanceType() {
+				return this.instanceType;
+			}
+
+			public void setInstanceType(String instanceType) {
+				this.instanceType = instanceType;
+			}
+
 			public Float getSpotPriceLimit() {
 				return this.spotPriceLimit;
 			}
 
 			public void setSpotPriceLimit(Float spotPriceLimit) {
 				this.spotPriceLimit = spotPriceLimit;
+			}
+		}
+
+		public static class DataDisks {
+
+			private Boolean dataDiskDeleteWithInstance;
+
+			private Boolean dataDiskEncrypted;
+
+			private String dataDiskKMSKeyId;
+
+			private Integer dataDiskSize;
+
+			private String dataDiskCategory;
+
+			private String dataDiskPerformanceLevel;
+
+			public Boolean getDataDiskDeleteWithInstance() {
+				return this.dataDiskDeleteWithInstance;
+			}
+
+			public void setDataDiskDeleteWithInstance(Boolean dataDiskDeleteWithInstance) {
+				this.dataDiskDeleteWithInstance = dataDiskDeleteWithInstance;
+			}
+
+			public Boolean getDataDiskEncrypted() {
+				return this.dataDiskEncrypted;
+			}
+
+			public void setDataDiskEncrypted(Boolean dataDiskEncrypted) {
+				this.dataDiskEncrypted = dataDiskEncrypted;
+			}
+
+			public String getDataDiskKMSKeyId() {
+				return this.dataDiskKMSKeyId;
+			}
+
+			public void setDataDiskKMSKeyId(String dataDiskKMSKeyId) {
+				this.dataDiskKMSKeyId = dataDiskKMSKeyId;
+			}
+
+			public Integer getDataDiskSize() {
+				return this.dataDiskSize;
+			}
+
+			public void setDataDiskSize(Integer dataDiskSize) {
+				this.dataDiskSize = dataDiskSize;
+			}
+
+			public String getDataDiskCategory() {
+				return this.dataDiskCategory;
+			}
+
+			public void setDataDiskCategory(String dataDiskCategory) {
+				this.dataDiskCategory = dataDiskCategory;
+			}
+
+			public String getDataDiskPerformanceLevel() {
+				return this.dataDiskPerformanceLevel;
+			}
+
+			public void setDataDiskPerformanceLevel(String dataDiskPerformanceLevel) {
+				this.dataDiskPerformanceLevel = dataDiskPerformanceLevel;
 			}
 		}
 	}

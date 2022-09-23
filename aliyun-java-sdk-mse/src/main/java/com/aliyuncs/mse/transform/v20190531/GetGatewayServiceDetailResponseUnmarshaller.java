@@ -55,6 +55,9 @@ public class GetGatewayServiceDetailResponseUnmarshaller {
 		data.setMetaInfo(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.MetaInfo"));
 		data.setGmtCreate(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.GmtCreate"));
 		data.setGmtModified(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.GmtModified"));
+		data.setHealthStatus(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.HealthStatus"));
+		data.setHealthCheck(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.HealthCheck"));
+		data.setServiceProtocol(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.ServiceProtocol"));
 
 		List<String> ips = new ArrayList<String>();
 		for (int i = 0; i < _ctx.lengthValue("GetGatewayServiceDetailResponse.Data.Ips.Length"); i++) {
@@ -73,6 +76,7 @@ public class GetGatewayServiceDetailResponseUnmarshaller {
 
 		LoadBalancerSettings loadBalancerSettings = new LoadBalancerSettings();
 		loadBalancerSettings.setLoadbalancerType(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.GatewayTrafficPolicy.LoadBalancerSettings.LoadbalancerType"));
+		loadBalancerSettings.setWarmupDuration(_ctx.longValue("GetGatewayServiceDetailResponse.Data.GatewayTrafficPolicy.LoadBalancerSettings.WarmupDuration"));
 
 		ConsistentHashLBConfig consistentHashLBConfig = new ConsistentHashLBConfig();
 		consistentHashLBConfig.setParameterName(_ctx.stringValue("GetGatewayServiceDetailResponse.Data.GatewayTrafficPolicy.LoadBalancerSettings.ConsistentHashLBConfig.ParameterName"));

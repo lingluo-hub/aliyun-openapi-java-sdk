@@ -1,3 +1,12 @@
+2022-08-01 Version: 1.0.10
+- Support Adb3 For DescribeEIURange and DescribeComputeResource API.
+
+2022-08-01 Version: 1.0.9
+- Support Adb3 For DescribeEIURange and DescribeComputeResource API.
+
+2022-06-07 Version: 1.0.8
+- Support ModifyDBClusterPayType.
+
 2022-03-11 Version: 1.0.7
 - Support modify PayType.
 
