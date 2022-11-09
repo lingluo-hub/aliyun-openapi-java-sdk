@@ -26,6 +26,8 @@ public class ListQueuesRequest extends RpcAcsRequest<ListQueuesResponse> {
 	   
 
 	private String clusterId;
+
+	private Boolean async;
 	public ListQueuesRequest() {
 		super("EHPC", "2018-04-12", "ListQueues");
 		setMethod(MethodType.GET);
@@ -43,6 +45,17 @@ public class ListQueuesRequest extends RpcAcsRequest<ListQueuesResponse> {
 		this.clusterId = clusterId;
 		if(clusterId != null){
 			putQueryParameter("ClusterId", clusterId);
+		}
+	}
+
+	public Boolean getAsync() {
+		return this.async;
+	}
+
+	public void setAsync(Boolean async) {
+		this.async = async;
+		if(async != null){
+			putQueryParameter("Async", async.toString());
 		}
 	}
 
