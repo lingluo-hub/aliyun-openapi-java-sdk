@@ -25,11 +25,7 @@ import com.aliyuncs.dataworks_public.Endpoint;
 public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleResponse> {
 	   
 
-	private String projectName;
-
 	private String trend;
-
-	private Integer ruleType;
 
 	private Integer blockType;
 
@@ -41,25 +37,31 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 
 	private Integer checker;
 
+	private String operator;
+
+	private String property;
+
+	private String warningThreshold;
+
+	private Long projectId;
+
+	private String methodName;
+
+	private String projectName;
+
+	private Integer ruleType;
+
 	private Integer templateId;
 
 	private String expectValue;
-
-	private String operator;
 
 	private String whereCondition;
 
 	private String criticalThreshold;
 
-	private String property;
-
 	private String comment;
 
 	private Integer predictType;
-
-	private String warningThreshold;
-
-	private String methodName;
 	public CreateQualityRuleRequest() {
 		super("dataworks-public", "2020-05-18", "CreateQualityRule");
 		setMethod(MethodType.POST);
@@ -67,17 +69,6 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getProjectName() {
-		return this.projectName;
-	}
-
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-		if(projectName != null){
-			putBodyParameter("ProjectName", projectName);
-		}
 	}
 
 	public String getTrend() {
@@ -88,17 +79,6 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 		this.trend = trend;
 		if(trend != null){
 			putBodyParameter("Trend", trend);
-		}
-	}
-
-	public Integer getRuleType() {
-		return this.ruleType;
-	}
-
-	public void setRuleType(Integer ruleType) {
-		this.ruleType = ruleType;
-		if(ruleType != null){
-			putBodyParameter("RuleType", ruleType.toString());
 		}
 	}
 
@@ -157,6 +137,83 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 		}
 	}
 
+	public String getOperator() {
+		return this.operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+		if(operator != null){
+			putBodyParameter("Operator", operator);
+		}
+	}
+
+	public String getProperty() {
+		return this.property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
+		if(property != null){
+			putBodyParameter("Property", property);
+		}
+	}
+
+	public String getWarningThreshold() {
+		return this.warningThreshold;
+	}
+
+	public void setWarningThreshold(String warningThreshold) {
+		this.warningThreshold = warningThreshold;
+		if(warningThreshold != null){
+			putBodyParameter("WarningThreshold", warningThreshold);
+		}
+	}
+
+	public Long getProjectId() {
+		return this.projectId;
+	}
+
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
+		if(projectId != null){
+			putBodyParameter("ProjectId", projectId.toString());
+		}
+	}
+
+	public String getMethodName() {
+		return this.methodName;
+	}
+
+	public void setMethodName(String methodName) {
+		this.methodName = methodName;
+		if(methodName != null){
+			putBodyParameter("MethodName", methodName);
+		}
+	}
+
+	public String getProjectName() {
+		return this.projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+		if(projectName != null){
+			putBodyParameter("ProjectName", projectName);
+		}
+	}
+
+	public Integer getRuleType() {
+		return this.ruleType;
+	}
+
+	public void setRuleType(Integer ruleType) {
+		this.ruleType = ruleType;
+		if(ruleType != null){
+			putBodyParameter("RuleType", ruleType.toString());
+		}
+	}
+
 	public Integer getTemplateId() {
 		return this.templateId;
 	}
@@ -176,17 +233,6 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 		this.expectValue = expectValue;
 		if(expectValue != null){
 			putBodyParameter("ExpectValue", expectValue);
-		}
-	}
-
-	public String getOperator() {
-		return this.operator;
-	}
-
-	public void setOperator(String operator) {
-		this.operator = operator;
-		if(operator != null){
-			putBodyParameter("Operator", operator);
 		}
 	}
 
@@ -212,17 +258,6 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 		}
 	}
 
-	public String getProperty() {
-		return this.property;
-	}
-
-	public void setProperty(String property) {
-		this.property = property;
-		if(property != null){
-			putBodyParameter("Property", property);
-		}
-	}
-
 	public String getComment() {
 		return this.comment;
 	}
@@ -242,28 +277,6 @@ public class CreateQualityRuleRequest extends RpcAcsRequest<CreateQualityRuleRes
 		this.predictType = predictType;
 		if(predictType != null){
 			putBodyParameter("PredictType", predictType.toString());
-		}
-	}
-
-	public String getWarningThreshold() {
-		return this.warningThreshold;
-	}
-
-	public void setWarningThreshold(String warningThreshold) {
-		this.warningThreshold = warningThreshold;
-		if(warningThreshold != null){
-			putBodyParameter("WarningThreshold", warningThreshold);
-		}
-	}
-
-	public String getMethodName() {
-		return this.methodName;
-	}
-
-	public void setMethodName(String methodName) {
-		this.methodName = methodName;
-		if(methodName != null){
-			putBodyParameter("MethodName", methodName);
 		}
 	}
 

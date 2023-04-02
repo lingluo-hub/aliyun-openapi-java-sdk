@@ -21,6 +21,7 @@ import com.aliyuncs.config.model.v20200907.GetAggregateCompliancePackResponse;
 import com.aliyuncs.config.model.v20200907.GetAggregateCompliancePackResponse.CompliancePack;
 import com.aliyuncs.config.model.v20200907.GetAggregateCompliancePackResponse.CompliancePack.ConfigRulesItem;
 import com.aliyuncs.config.model.v20200907.GetAggregateCompliancePackResponse.CompliancePack.ConfigRulesItem.ConfigRuleParametersItem;
+import com.aliyuncs.config.model.v20200907.GetAggregateCompliancePackResponse.CompliancePack.Scope;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 
@@ -40,6 +41,14 @@ public class GetAggregateCompliancePackResponseUnmarshaller {
 		compliancePack.setAggregatorId(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.AggregatorId"));
 		compliancePack.setCompliancePackTemplateId(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.CompliancePackTemplateId"));
 		compliancePack.setCreateTimestamp(_ctx.longValue("GetAggregateCompliancePackResponse.CompliancePack.CreateTimestamp"));
+
+		Scope scope = new Scope();
+		scope.setRegionIdsScope(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.Scope.RegionIdsScope"));
+		scope.setExcludeResourceIdsScope(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.Scope.ExcludeResourceIdsScope"));
+		scope.setResourceGroupIdsScope(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.Scope.ResourceGroupIdsScope"));
+		scope.setTagKeyScope(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.Scope.TagKeyScope"));
+		scope.setTagValueScope(_ctx.stringValue("GetAggregateCompliancePackResponse.CompliancePack.Scope.TagValueScope"));
+		compliancePack.setScope(scope);
 
 		List<ConfigRulesItem> configRules = new ArrayList<ConfigRulesItem>();
 		for (int i = 0; i < _ctx.lengthValue("GetAggregateCompliancePackResponse.CompliancePack.ConfigRules.Length"); i++) {

@@ -65,6 +65,8 @@ public class GetCompliancePackResponse extends AcsResponse {
 
 		private List<ConfigRulesItem> configRules;
 
+		private Scope scope;
+
 		public String getStatus() {
 			return this.status;
 		}
@@ -135,6 +137,14 @@ public class GetCompliancePackResponse extends AcsResponse {
 
 		public void setConfigRules(List<ConfigRulesItem> configRules) {
 			this.configRules = configRules;
+		}
+
+		public Scope getScope() {
+			return this.scope;
+		}
+
+		public void setScope(Scope scope) {
+			this.scope = scope;
 		}
 
 		public static class ConfigRulesItem {
@@ -230,6 +240,59 @@ public class GetCompliancePackResponse extends AcsResponse {
 				public void setParameterValue(String parameterValue) {
 					this.parameterValue = parameterValue;
 				}
+			}
+		}
+
+		public static class Scope {
+
+			private String regionIdsScope;
+
+			private String excludeResourceIdsScope;
+
+			private String resourceGroupIdsScope;
+
+			private String tagKeyScope;
+
+			private String tagValueScope;
+
+			public String getRegionIdsScope() {
+				return this.regionIdsScope;
+			}
+
+			public void setRegionIdsScope(String regionIdsScope) {
+				this.regionIdsScope = regionIdsScope;
+			}
+
+			public String getExcludeResourceIdsScope() {
+				return this.excludeResourceIdsScope;
+			}
+
+			public void setExcludeResourceIdsScope(String excludeResourceIdsScope) {
+				this.excludeResourceIdsScope = excludeResourceIdsScope;
+			}
+
+			public String getResourceGroupIdsScope() {
+				return this.resourceGroupIdsScope;
+			}
+
+			public void setResourceGroupIdsScope(String resourceGroupIdsScope) {
+				this.resourceGroupIdsScope = resourceGroupIdsScope;
+			}
+
+			public String getTagKeyScope() {
+				return this.tagKeyScope;
+			}
+
+			public void setTagKeyScope(String tagKeyScope) {
+				this.tagKeyScope = tagKeyScope;
+			}
+
+			public String getTagValueScope() {
+				return this.tagValueScope;
+			}
+
+			public void setTagValueScope(String tagValueScope) {
+				this.tagValueScope = tagValueScope;
 			}
 		}
 	}

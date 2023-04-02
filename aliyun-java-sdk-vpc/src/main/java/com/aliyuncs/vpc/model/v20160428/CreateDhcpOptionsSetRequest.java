@@ -25,13 +25,11 @@ import com.aliyuncs.vpc.Endpoint;
 public class CreateDhcpOptionsSetRequest extends RpcAcsRequest<CreateDhcpOptionsSetResponse> {
 	   
 
-	private String bootFileName;
-
 	private Long resourceOwnerId;
 
 	private String clientToken;
 
-	private String tFTPServerName;
+	private String resourceGroupId;
 
 	private String leaseTime;
 
@@ -61,17 +59,6 @@ public class CreateDhcpOptionsSetRequest extends RpcAcsRequest<CreateDhcpOptions
 		} catch (Exception e) {}
 	}
 
-	public String getBootFileName() {
-		return this.bootFileName;
-	}
-
-	public void setBootFileName(String bootFileName) {
-		this.bootFileName = bootFileName;
-		if(bootFileName != null){
-			putQueryParameter("BootFileName", bootFileName);
-		}
-	}
-
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;
 	}
@@ -94,14 +81,14 @@ public class CreateDhcpOptionsSetRequest extends RpcAcsRequest<CreateDhcpOptions
 		}
 	}
 
-	public String getTFTPServerName() {
-		return this.tFTPServerName;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setTFTPServerName(String tFTPServerName) {
-		this.tFTPServerName = tFTPServerName;
-		if(tFTPServerName != null){
-			putQueryParameter("TFTPServerName", tFTPServerName);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
 		}
 	}
 

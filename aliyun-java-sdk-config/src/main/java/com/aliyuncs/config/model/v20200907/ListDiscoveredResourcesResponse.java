@@ -109,6 +109,8 @@ public class ListDiscoveredResourcesResponse extends AcsResponse {
 
 			private Long version;
 
+			private String availabilityZone;
+
 			public String getResourceType() {
 				return this.resourceType;
 			}
@@ -187,6 +189,14 @@ public class ListDiscoveredResourcesResponse extends AcsResponse {
 
 			public void setVersion(Long version) {
 				this.version = version;
+			}
+
+			public String getAvailabilityZone() {
+				return this.availabilityZone;
+			}
+
+			public void setAvailabilityZone(String availabilityZone) {
+				this.availabilityZone = availabilityZone;
 			}
 		}
 	}

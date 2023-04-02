@@ -27,6 +27,8 @@ public class SwitchOverGlobalDatabaseNetworkRequest extends RpcAcsRequest<Switch
 
 	private Long resourceOwnerId;
 
+	private Boolean forced;
+
 	private String resourceGroupId;
 
 	private String securityToken;
@@ -57,6 +59,17 @@ public class SwitchOverGlobalDatabaseNetworkRequest extends RpcAcsRequest<Switch
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public Boolean getForced() {
+		return this.forced;
+	}
+
+	public void setForced(Boolean forced) {
+		this.forced = forced;
+		if(forced != null){
+			putQueryParameter("Forced", forced.toString());
 		}
 	}
 

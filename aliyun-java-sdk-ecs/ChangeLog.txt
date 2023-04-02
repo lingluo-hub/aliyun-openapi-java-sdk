@@ -1,3 +1,103 @@
+2023-03-29 Version: 4.24.61
+- Change visibility of param ActionType in DescribeImageSupportInstanceTypes.
+
+2023-03-27 Version: 4.24.60
+- Add dedicated block stroage cluster ModifyDiskSpec.
+- Support jumbo frame.
+
+2023-02-20 Version: 4.24.59
+- Edit error code.
+- Change timeout.
+- Add ErrorCode ServiceUnavailable for DescribeLaunchTemplates.
+- Add an error code to indicate insufficient quota in the zone.
+- Add specific error code for some unknown error.
+- Delete unused error code.
+- Support AutoRelaseTIme.
+
+2023-02-13 Version: 4.24.58
+- Support TagPolicy Verify NoTag.
+- Fixed bugs for DescribeDemands error code.
+- Add encrypted disk ErrorCode.
+- DescribeDedicatedHosts supports SocketDetails param to check socket capacities of specified dedicated hosts.
+
+2023-02-10 Version: 4.24.57
+- Add parameter DedicatedHostId for DescribePrice.
+
+2023-02-10 Version: 4.24.56
+- Support TagPolicy Verify NoTag.
+- Fixed bugs for DescribeDemands error code.
+- Add encrypted disk ErrorCode.
+- DescribeDedicatedHosts supports SocketDetails param to check socket capacities of specified dedicated hosts.
+
+2023-02-07 Version: 4.24.55
+- Support tag.
+
+2023-02-06 Version: 4.24.54
+- Add OpenAPI DescribeReservedInstanceAutoRenewAttribute, ModifyReservedInstanceAutoRenewAttribute.
+
+2023-01-30 Version: 4.24.52
+- Support system tag.
+
+2023-01-15 Version: 4.24.51
+- Support autoProvisioningGroup instance pattern.
+
+2023-01-13 Version: 4.24.50
+- Add nat errorCode.
+- Support tag for managed instance.
+
+2023-01-05 Version: 4.24.49
+- Deprecate DescribeDedicatedBlockStorageClusters API.
+- Deprecate CreateDedicatedBlockStorageCluster API.
+- Add ErrorCode to ReplaceSystemDisk API.
+- Supported SystemDiskEncrypted for DescribeLaunchTemplateVersions CreateLaunchTemplateVersion and CreateLaunchTemplate.
+
+2023-01-05 Version: 4.24.48
+- Deprecate DescribeDedicatedBlockStorageClusters API.
+- Deprecate CreateDedicatedBlockStorageCluster API.
+- Add ErrorCode to ReplaceSystemDisk API.
+- Supported SystemDiskEncrypted for DescribeLaunchTemplateVersions CreateLaunchTemplateVersion and CreateLaunchTemplate.
+
+2023-01-04 Version: 4.24.47
+- Support release nat public ip.
+
+2023-01-04 Version: 4.24.46
+- CreateSnapshot CreateDisk support system tag.
+- Supported network card index.
+
+2023-01-03 Version: 4.24.45
+- Support InstanceMetadataTags for MetaOption.
+
+2022-12-27 Version: 4.24.44
+- CreateImage support system tag.
+- Fixed ModifyImageAttribute error code.
+- Add CreateRouteEntry ErrorCode Map.
+- Add parameter for ModifyPrepayInstanceSpec.
+- Support  networkCard.
+- Add responselog.
+- Support Attributes field in DescribeDiagnosticReportAttributes.
+
+2022-11-29 Version: 4.24.43
+- Add error code for ModifyInstanceNetworkSpec.
+- Add invalid account buying spot error code.
+- Support ip prefix for eni.
+- Update the StorageLocationArn to private.
+
+2022-11-24 Version: 4.24.42
+- Add error code for ModifyInstanceNetworkSpec.
+- Add invalid account buying spot error code.
+- Support ip prefix for eni.
+- Update the StorageLocationArn to private.
+
+2022-11-23 Version: 4.24.41
+- Add and optimize error code.
+- Support issue occurrence time.
+- Fixed bug for shared encrypted image created instance limit zoneId error code.
+- DescribeTasks add ResourceIds Parameter.
+
+2022-11-18 Version: 4.24.40
+- Supported PRICE PRICING_PLAN_RESULT_NOT_FOUND error code for CreateCapacityReservation CreateElasticityAssurance.
+- Image check supported in CreateImage .
+
 2022-11-03 Version: 4.24.39
 - Automatically generate sdk tasks.
 

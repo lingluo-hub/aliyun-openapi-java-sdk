@@ -27,6 +27,10 @@ public class ListResourceInstancesRequest extends RoaAcsRequest<ListResourceInst
 
 	private String resourceId;
 
+	private String instanceName;
+
+	private String instanceId;
+
 	private Integer pageSize;
 
 	private String clusterId;
@@ -52,6 +56,28 @@ public class ListResourceInstancesRequest extends RoaAcsRequest<ListResourceInst
 		this.resourceId = resourceId;
 		if(resourceId != null){
 			putPathParameter("ResourceId", resourceId);
+		}
+	}
+
+	public String getInstanceName() {
+		return this.instanceName;
+	}
+
+	public void setInstanceName(String instanceName) {
+		this.instanceName = instanceName;
+		if(instanceName != null){
+			putQueryParameter("InstanceName", instanceName);
+		}
+	}
+
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+		if(instanceId != null){
+			putQueryParameter("InstanceId", instanceId);
 		}
 	}
 

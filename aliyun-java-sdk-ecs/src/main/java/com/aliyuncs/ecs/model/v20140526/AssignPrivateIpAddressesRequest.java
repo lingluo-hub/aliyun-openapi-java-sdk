@@ -28,6 +28,8 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 
 	private Long resourceOwnerId;
 
+	private List<String> ipv4Prefixs;
+
 	private String clientToken;
 
 	private Integer secondaryPrivateIpAddressCount;
@@ -38,11 +40,13 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 
 	private Long ownerId;
 
+	private Integer ipv4PrefixCount;
+
 	private List<String> privateIpAddresss;
 
 	private String networkInterfaceId;
 	public AssignPrivateIpAddressesRequest() {
-		super("Ecs", "2014-05-26", "AssignPrivateIpAddresses");
+		super("Ecs", "2014-05-26", "AssignPrivateIpAddresses", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -59,6 +63,19 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
 		}
+	}
+
+	public List<String> getIpv4Prefixs() {
+		return this.ipv4Prefixs;
+	}
+
+	public void setIpv4Prefixs(List<String> ipv4Prefixs) {
+		this.ipv4Prefixs = ipv4Prefixs;	
+		if (ipv4Prefixs != null) {
+			for (int i = 0; i < ipv4Prefixs.size(); i++) {
+				putQueryParameter("Ipv4Prefix." + (i + 1) , ipv4Prefixs.get(i));
+			}
+		}	
 	}
 
 	public String getClientToken() {
@@ -113,6 +130,17 @@ public class AssignPrivateIpAddressesRequest extends RpcAcsRequest<AssignPrivate
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Integer getIpv4PrefixCount() {
+		return this.ipv4PrefixCount;
+	}
+
+	public void setIpv4PrefixCount(Integer ipv4PrefixCount) {
+		this.ipv4PrefixCount = ipv4PrefixCount;
+		if(ipv4PrefixCount != null){
+			putQueryParameter("Ipv4PrefixCount", ipv4PrefixCount.toString());
 		}
 	}
 

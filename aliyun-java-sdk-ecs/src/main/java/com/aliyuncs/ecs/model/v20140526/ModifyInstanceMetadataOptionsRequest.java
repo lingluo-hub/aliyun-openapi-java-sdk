@@ -27,6 +27,8 @@ public class ModifyInstanceMetadataOptionsRequest extends RpcAcsRequest<ModifyIn
 
 	private Long resourceOwnerId;
 
+	private String instanceMetadataTags;
+
 	private Integer httpPutResponseHopLimit;
 
 	private String httpEndpoint;
@@ -39,7 +41,7 @@ public class ModifyInstanceMetadataOptionsRequest extends RpcAcsRequest<ModifyIn
 
 	private String httpTokens;
 	public ModifyInstanceMetadataOptionsRequest() {
-		super("Ecs", "2014-05-26", "ModifyInstanceMetadataOptions");
+		super("Ecs", "2014-05-26", "ModifyInstanceMetadataOptions", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -55,6 +57,17 @@ public class ModifyInstanceMetadataOptionsRequest extends RpcAcsRequest<ModifyIn
 		this.resourceOwnerId = resourceOwnerId;
 		if(resourceOwnerId != null){
 			putQueryParameter("ResourceOwnerId", resourceOwnerId.toString());
+		}
+	}
+
+	public String getInstanceMetadataTags() {
+		return this.instanceMetadataTags;
+	}
+
+	public void setInstanceMetadataTags(String instanceMetadataTags) {
+		this.instanceMetadataTags = instanceMetadataTags;
+		if(instanceMetadataTags != null){
+			putQueryParameter("InstanceMetadataTags", instanceMetadataTags);
 		}
 	}
 

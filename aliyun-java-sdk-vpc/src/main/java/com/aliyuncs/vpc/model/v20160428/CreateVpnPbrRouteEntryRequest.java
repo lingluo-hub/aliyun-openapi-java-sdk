@@ -45,6 +45,8 @@ public class CreateVpnPbrRouteEntryRequest extends RpcAcsRequest<CreateVpnPbrRou
 
 	private Long ownerId;
 
+	private Integer priority;
+
 	private String routeDest;
 
 	private String nextHop;
@@ -166,6 +168,17 @@ public class CreateVpnPbrRouteEntryRequest extends RpcAcsRequest<CreateVpnPbrRou
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Integer getPriority() {
+		return this.priority;
+	}
+
+	public void setPriority(Integer priority) {
+		this.priority = priority;
+		if(priority != null){
+			putQueryParameter("Priority", priority.toString());
 		}
 	}
 

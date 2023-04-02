@@ -25,11 +25,15 @@ import com.aliyuncs.mse.Endpoint;
 public class DeleteSwimmingLaneGroupRequest extends RpcAcsRequest<DeleteSwimmingLaneGroupResponse> {
 	   
 
-	private String mseSessionId;
-
 	private Long groupId;
 
+	private String namespace;
+
+	private String name;
+
 	private String acceptLanguage;
+
+	private String region;
 	public DeleteSwimmingLaneGroupRequest() {
 		super("mse", "2019-05-31", "DeleteSwimmingLaneGroup", "mse");
 		setMethod(MethodType.POST);
@@ -37,17 +41,6 @@ public class DeleteSwimmingLaneGroupRequest extends RpcAcsRequest<DeleteSwimming
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getMseSessionId() {
-		return this.mseSessionId;
-	}
-
-	public void setMseSessionId(String mseSessionId) {
-		this.mseSessionId = mseSessionId;
-		if(mseSessionId != null){
-			putQueryParameter("MseSessionId", mseSessionId);
-		}
 	}
 
 	public Long getGroupId() {
@@ -61,6 +54,28 @@ public class DeleteSwimmingLaneGroupRequest extends RpcAcsRequest<DeleteSwimming
 		}
 	}
 
+	public String getNamespace() {
+		return this.namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+		if(namespace != null){
+			putQueryParameter("Namespace", namespace);
+		}
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+		if(name != null){
+			putQueryParameter("name", name);
+		}
+	}
+
 	public String getAcceptLanguage() {
 		return this.acceptLanguage;
 	}
@@ -69,6 +84,17 @@ public class DeleteSwimmingLaneGroupRequest extends RpcAcsRequest<DeleteSwimming
 		this.acceptLanguage = acceptLanguage;
 		if(acceptLanguage != null){
 			putQueryParameter("AcceptLanguage", acceptLanguage);
+		}
+	}
+
+	public String getRegion() {
+		return this.region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+		if(region != null){
+			putQueryParameter("Region", region);
 		}
 	}
 

@@ -107,6 +107,10 @@ public class DescribeEaisResponse extends AcsResponse {
 
 		private String securityGroupId;
 
+		private String startTime;
+
+		private String resourceGroupId;
+
 		private List<Tag> tags;
 
 		public String getStatus() {
@@ -227,6 +231,22 @@ public class DescribeEaisResponse extends AcsResponse {
 
 		public void setSecurityGroupId(String securityGroupId) {
 			this.securityGroupId = securityGroupId;
+		}
+
+		public String getStartTime() {
+			return this.startTime;
+		}
+
+		public void setStartTime(String startTime) {
+			this.startTime = startTime;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
 		}
 
 		public List<Tag> getTags() {

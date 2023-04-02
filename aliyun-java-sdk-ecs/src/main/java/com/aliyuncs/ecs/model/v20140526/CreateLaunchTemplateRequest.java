@@ -131,8 +131,10 @@ public class CreateLaunchTemplateRequest extends RpcAcsRequest<CreateLaunchTempl
 	private String vpcId;
 
 	private String systemDiskDescription;
+
+	private String systemDiskEncrypted;
 	public CreateLaunchTemplateRequest() {
-		super("Ecs", "2014-05-26", "CreateLaunchTemplate");
+		super("Ecs", "2014-05-26", "CreateLaunchTemplate", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -754,6 +756,17 @@ public class CreateLaunchTemplateRequest extends RpcAcsRequest<CreateLaunchTempl
 		this.systemDiskDescription = systemDiskDescription;
 		if(systemDiskDescription != null){
 			putQueryParameter("SystemDisk.Description", systemDiskDescription);
+		}
+	}
+
+	public String getSystemDiskEncrypted() {
+		return this.systemDiskEncrypted;
+	}
+
+	public void setSystemDiskEncrypted(String systemDiskEncrypted) {
+		this.systemDiskEncrypted = systemDiskEncrypted;
+		if(systemDiskEncrypted != null){
+			putQueryParameter("SystemDisk.Encrypted", systemDiskEncrypted);
 		}
 	}
 

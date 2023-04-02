@@ -25,11 +25,11 @@ import com.aliyuncs.live.Endpoint;
 public class CancelMuteAllGroupUserRequest extends RpcAcsRequest<CancelMuteAllGroupUserResponse> {
 	   
 
+	private String operatorUserId;
+
 	private String groupId;
 
 	private String appId;
-
-	private String operatorUserId;
 	public CancelMuteAllGroupUserRequest() {
 		super("live", "2016-11-01", "CancelMuteAllGroupUser", "live");
 		setMethod(MethodType.POST);
@@ -37,6 +37,17 @@ public class CancelMuteAllGroupUserRequest extends RpcAcsRequest<CancelMuteAllGr
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getOperatorUserId() {
+		return this.operatorUserId;
+	}
+
+	public void setOperatorUserId(String operatorUserId) {
+		this.operatorUserId = operatorUserId;
+		if(operatorUserId != null){
+			putBodyParameter("OperatorUserId", operatorUserId);
+		}
 	}
 
 	public String getGroupId() {
@@ -58,17 +69,6 @@ public class CancelMuteAllGroupUserRequest extends RpcAcsRequest<CancelMuteAllGr
 		this.appId = appId;
 		if(appId != null){
 			putBodyParameter("AppId", appId);
-		}
-	}
-
-	public String getOperatorUserId() {
-		return this.operatorUserId;
-	}
-
-	public void setOperatorUserId(String operatorUserId) {
-		this.operatorUserId = operatorUserId;
-		if(operatorUserId != null){
-			putBodyParameter("OperatorUserId", operatorUserId);
 		}
 	}
 

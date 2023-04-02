@@ -25,9 +25,29 @@ import com.aliyuncs.transform.UnmarshallerContext;
  */
 public class DescribeLiveDomainRecordUsageDataResponse extends AcsResponse {
 
+	private String endTime;
+
+	private String startTime;
+
 	private String requestId;
 
 	private List<DataModule> recordUsageData;
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -49,11 +69,13 @@ public class DescribeLiveDomainRecordUsageDataResponse extends AcsResponse {
 
 		private String type;
 
-		private Long duration;
-
 		private String domain;
 
+		private String region;
+
 		private String timeStamp;
+
+		private Long duration;
 
 		private Long count;
 
@@ -65,14 +87,6 @@ public class DescribeLiveDomainRecordUsageDataResponse extends AcsResponse {
 			this.type = type;
 		}
 
-		public Long getDuration() {
-			return this.duration;
-		}
-
-		public void setDuration(Long duration) {
-			this.duration = duration;
-		}
-
 		public String getDomain() {
 			return this.domain;
 		}
@@ -81,12 +95,28 @@ public class DescribeLiveDomainRecordUsageDataResponse extends AcsResponse {
 			this.domain = domain;
 		}
 
+		public String getRegion() {
+			return this.region;
+		}
+
+		public void setRegion(String region) {
+			this.region = region;
+		}
+
 		public String getTimeStamp() {
 			return this.timeStamp;
 		}
 
 		public void setTimeStamp(String timeStamp) {
 			this.timeStamp = timeStamp;
+		}
+
+		public Long getDuration() {
+			return this.duration;
+		}
+
+		public void setDuration(Long duration) {
+			this.duration = duration;
 		}
 
 		public Long getCount() {

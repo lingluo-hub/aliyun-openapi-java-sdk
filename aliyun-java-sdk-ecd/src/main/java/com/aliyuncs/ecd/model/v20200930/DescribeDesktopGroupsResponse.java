@@ -139,6 +139,12 @@ public class DescribeDesktopGroupsResponse extends AcsResponse {
 
 		private Long stopDuration;
 
+		private String protocolType;
+
+		private String osType;
+
+		private Integer buyDesktopsCount;
+
 		public String getCreateTime() {
 			return this.createTime;
 		}
@@ -465,6 +471,30 @@ public class DescribeDesktopGroupsResponse extends AcsResponse {
 
 		public void setStopDuration(Long stopDuration) {
 			this.stopDuration = stopDuration;
+		}
+
+		public String getProtocolType() {
+			return this.protocolType;
+		}
+
+		public void setProtocolType(String protocolType) {
+			this.protocolType = protocolType;
+		}
+
+		public String getOsType() {
+			return this.osType;
+		}
+
+		public void setOsType(String osType) {
+			this.osType = osType;
+		}
+
+		public Integer getBuyDesktopsCount() {
+			return this.buyDesktopsCount;
+		}
+
+		public void setBuyDesktopsCount(Integer buyDesktopsCount) {
+			this.buyDesktopsCount = buyDesktopsCount;
 		}
 	}
 

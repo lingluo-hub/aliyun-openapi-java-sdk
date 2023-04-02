@@ -136,6 +136,10 @@ public class GetApplicationResponse extends AcsResponse {
 
 		private Boolean enablePortCheck;
 
+		private String appPhase;
+
+		private Boolean haveManageAccess;
+
 		public String getExtSlbIp() {
 			return this.extSlbIp;
 		}
@@ -375,6 +379,22 @@ public class GetApplicationResponse extends AcsResponse {
 		public void setEnablePortCheck(Boolean enablePortCheck) {
 			this.enablePortCheck = enablePortCheck;
 		}
+
+		public String getAppPhase() {
+			return this.appPhase;
+		}
+
+		public void setAppPhase(String appPhase) {
+			this.appPhase = appPhase;
+		}
+
+		public Boolean getHaveManageAccess() {
+			return this.haveManageAccess;
+		}
+
+		public void setHaveManageAccess(Boolean haveManageAccess) {
+			this.haveManageAccess = haveManageAccess;
+		}
 	}
 
 	public static class Application {
@@ -438,6 +458,10 @@ public class GetApplicationResponse extends AcsResponse {
 		private Boolean enableUrlCheck;
 
 		private Boolean enablePortCheck;
+
+		private String appPhase;
+
+		private String haveManageAccess;
 
 		public String getExtSlbIp() {
 			return this.extSlbIp;
@@ -677,6 +701,22 @@ public class GetApplicationResponse extends AcsResponse {
 
 		public void setEnablePortCheck(Boolean enablePortCheck) {
 			this.enablePortCheck = enablePortCheck;
+		}
+
+		public String getAppPhase() {
+			return this.appPhase;
+		}
+
+		public void setAppPhase(String appPhase) {
+			this.appPhase = appPhase;
+		}
+
+		public String getHaveManageAccess() {
+			return this.haveManageAccess;
+		}
+
+		public void setHaveManageAccess(String haveManageAccess) {
+			this.haveManageAccess = haveManageAccess;
 		}
 	}
 

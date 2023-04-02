@@ -117,6 +117,8 @@ public class DescribeApplicationConfigResponse extends AcsResponse {
 
 		private String packageType;
 
+		private String packageRuntimeCustomBuild;
+
 		private String preStop;
 
 		private String packageVersion;
@@ -201,11 +203,25 @@ public class DescribeApplicationConfigResponse extends AcsResponse {
 
 		private String acrAssumeRoleArn;
 
+		private String imagePullSecrets;
+
+		private Boolean enableImageAccl;
+
 		private Boolean associateEip;
 
 		private String kafkaConfigs;
 
 		private String programmingLanguage;
+
+		private String pvtzDiscovery;
+
+		private String microRegistration;
+
+		private String nasConfigs;
+
+		private String python;
+
+		private String pythonModules;
 
 		private List<ConfigMapMountDescItem> configMapMountDesc;
 
@@ -293,6 +309,14 @@ public class DescribeApplicationConfigResponse extends AcsResponse {
 
 		public void setPackageType(String packageType) {
 			this.packageType = packageType;
+		}
+
+		public String getPackageRuntimeCustomBuild() {
+			return this.packageRuntimeCustomBuild;
+		}
+
+		public void setPackageRuntimeCustomBuild(String packageRuntimeCustomBuild) {
+			this.packageRuntimeCustomBuild = packageRuntimeCustomBuild;
 		}
 
 		public String getPreStop() {
@@ -631,6 +655,22 @@ public class DescribeApplicationConfigResponse extends AcsResponse {
 			this.acrAssumeRoleArn = acrAssumeRoleArn;
 		}
 
+		public String getImagePullSecrets() {
+			return this.imagePullSecrets;
+		}
+
+		public void setImagePullSecrets(String imagePullSecrets) {
+			this.imagePullSecrets = imagePullSecrets;
+		}
+
+		public Boolean getEnableImageAccl() {
+			return this.enableImageAccl;
+		}
+
+		public void setEnableImageAccl(Boolean enableImageAccl) {
+			this.enableImageAccl = enableImageAccl;
+		}
+
 		public Boolean getAssociateEip() {
 			return this.associateEip;
 		}
@@ -653,6 +693,46 @@ public class DescribeApplicationConfigResponse extends AcsResponse {
 
 		public void setProgrammingLanguage(String programmingLanguage) {
 			this.programmingLanguage = programmingLanguage;
+		}
+
+		public String getPvtzDiscovery() {
+			return this.pvtzDiscovery;
+		}
+
+		public void setPvtzDiscovery(String pvtzDiscovery) {
+			this.pvtzDiscovery = pvtzDiscovery;
+		}
+
+		public String getMicroRegistration() {
+			return this.microRegistration;
+		}
+
+		public void setMicroRegistration(String microRegistration) {
+			this.microRegistration = microRegistration;
+		}
+
+		public String getNasConfigs() {
+			return this.nasConfigs;
+		}
+
+		public void setNasConfigs(String nasConfigs) {
+			this.nasConfigs = nasConfigs;
+		}
+
+		public String getPython() {
+			return this.python;
+		}
+
+		public void setPython(String python) {
+			this.python = python;
+		}
+
+		public String getPythonModules() {
+			return this.pythonModules;
+		}
+
+		public void setPythonModules(String pythonModules) {
+			this.pythonModules = pythonModules;
 		}
 
 		public List<ConfigMapMountDescItem> getConfigMapMountDesc() {

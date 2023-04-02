@@ -89,6 +89,10 @@ public class GetVpcPrefixListAssociationsResponse extends AcsResponse {
 
 		private String reason;
 
+		private String regionId;
+
+		private String resourceUid;
+
 		public String getPrefixListId() {
 			return this.prefixListId;
 		}
@@ -135,6 +139,22 @@ public class GetVpcPrefixListAssociationsResponse extends AcsResponse {
 
 		public void setReason(String reason) {
 			this.reason = reason;
+		}
+
+		public String getRegionId() {
+			return this.regionId;
+		}
+
+		public void setRegionId(String regionId) {
+			this.regionId = regionId;
+		}
+
+		public String getResourceUid() {
+			return this.resourceUid;
+		}
+
+		public void setResourceUid(String resourceUid) {
+			this.resourceUid = resourceUid;
 		}
 	}
 

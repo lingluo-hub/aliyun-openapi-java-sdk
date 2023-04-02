@@ -28,9 +28,13 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 
 	private Float gpuCount;
 
+	private List<String> imageIds;
+
 	private List<String> bundleIds;
 
 	private String desktopTypeFamily;
+
+	private Boolean selectedBundle;
 
 	private String nextToken;
 
@@ -43,6 +47,8 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 	private Boolean volumeEncryptionEnabled;
 
 	private Integer memorySize;
+
+	private String sessionType;
 
 	private Integer maxResults;
 
@@ -73,6 +79,19 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 		}
 	}
 
+	public List<String> getImageIds() {
+		return this.imageIds;
+	}
+
+	public void setImageIds(List<String> imageIds) {
+		this.imageIds = imageIds;	
+		if (imageIds != null) {
+			for (int i = 0; i < imageIds.size(); i++) {
+				putQueryParameter("ImageId." + (i + 1) , imageIds.get(i));
+			}
+		}	
+	}
+
 	public List<String> getBundleIds() {
 		return this.bundleIds;
 	}
@@ -94,6 +113,17 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 		this.desktopTypeFamily = desktopTypeFamily;
 		if(desktopTypeFamily != null){
 			putQueryParameter("DesktopTypeFamily", desktopTypeFamily);
+		}
+	}
+
+	public Boolean getSelectedBundle() {
+		return this.selectedBundle;
+	}
+
+	public void setSelectedBundle(Boolean selectedBundle) {
+		this.selectedBundle = selectedBundle;
+		if(selectedBundle != null){
+			putQueryParameter("SelectedBundle", selectedBundle.toString());
 		}
 	}
 
@@ -160,6 +190,17 @@ public class DescribeBundlesRequest extends RpcAcsRequest<DescribeBundlesRespons
 		this.memorySize = memorySize;
 		if(memorySize != null){
 			putQueryParameter("MemorySize", memorySize.toString());
+		}
+	}
+
+	public String getSessionType() {
+		return this.sessionType;
+	}
+
+	public void setSessionType(String sessionType) {
+		this.sessionType = sessionType;
+		if(sessionType != null){
+			putQueryParameter("SessionType", sessionType);
 		}
 	}
 

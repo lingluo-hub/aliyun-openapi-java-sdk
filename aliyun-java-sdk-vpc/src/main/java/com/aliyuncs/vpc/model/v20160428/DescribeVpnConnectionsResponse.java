@@ -117,6 +117,10 @@ public class DescribeVpnConnectionsResponse extends AcsResponse {
 
 		private Boolean crossAccountAuthorized;
 
+		private String internetIp;
+
+		private List<TagItem> tag;
+
 		private IkeConfig ikeConfig;
 
 		private IpsecConfig ipsecConfig;
@@ -285,6 +289,22 @@ public class DescribeVpnConnectionsResponse extends AcsResponse {
 			this.crossAccountAuthorized = crossAccountAuthorized;
 		}
 
+		public String getInternetIp() {
+			return this.internetIp;
+		}
+
+		public void setInternetIp(String internetIp) {
+			this.internetIp = internetIp;
+		}
+
+		public List<TagItem> getTag() {
+			return this.tag;
+		}
+
+		public void setTag(List<TagItem> tag) {
+			this.tag = tag;
+		}
+
 		public IkeConfig getIkeConfig() {
 			return this.ikeConfig;
 		}
@@ -315,6 +335,29 @@ public class DescribeVpnConnectionsResponse extends AcsResponse {
 
 		public void setVpnBgpConfig(VpnBgpConfig vpnBgpConfig) {
 			this.vpnBgpConfig = vpnBgpConfig;
+		}
+
+		public static class TagItem {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 
 		public static class IkeConfig {

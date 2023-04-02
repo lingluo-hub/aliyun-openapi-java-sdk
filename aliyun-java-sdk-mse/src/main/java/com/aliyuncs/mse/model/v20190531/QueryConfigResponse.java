@@ -136,6 +136,14 @@ public class QueryConfigResponse extends AcsResponse {
 
 		private String snapshotCount;
 
+		private Long configContentLimit;
+
+		private Boolean extendedTypesEnable;
+
+		private Boolean eurekaSupported;
+
+		private NacosRunningEnv nacosRunningEnv;
+
 		public String getMaxClientCnxns() {
 			return this.maxClientCnxns;
 		}
@@ -334,6 +342,51 @@ public class QueryConfigResponse extends AcsResponse {
 
 		public void setSnapshotCount(String snapshotCount) {
 			this.snapshotCount = snapshotCount;
+		}
+
+		public Long getConfigContentLimit() {
+			return this.configContentLimit;
+		}
+
+		public void setConfigContentLimit(Long configContentLimit) {
+			this.configContentLimit = configContentLimit;
+		}
+
+		public Boolean getExtendedTypesEnable() {
+			return this.extendedTypesEnable;
+		}
+
+		public void setExtendedTypesEnable(Boolean extendedTypesEnable) {
+			this.extendedTypesEnable = extendedTypesEnable;
+		}
+
+		public Boolean getEurekaSupported() {
+			return this.eurekaSupported;
+		}
+
+		public void setEurekaSupported(Boolean eurekaSupported) {
+			this.eurekaSupported = eurekaSupported;
+		}
+
+		public NacosRunningEnv getNacosRunningEnv() {
+			return this.nacosRunningEnv;
+		}
+
+		public void setNacosRunningEnv(NacosRunningEnv nacosRunningEnv) {
+			this.nacosRunningEnv = nacosRunningEnv;
+		}
+
+		public static class NacosRunningEnv {
+
+			private Boolean emptyProtect;
+
+			public Boolean getEmptyProtect() {
+				return this.emptyProtect;
+			}
+
+			public void setEmptyProtect(Boolean emptyProtect) {
+				this.emptyProtect = emptyProtect;
+			}
 		}
 	}
 

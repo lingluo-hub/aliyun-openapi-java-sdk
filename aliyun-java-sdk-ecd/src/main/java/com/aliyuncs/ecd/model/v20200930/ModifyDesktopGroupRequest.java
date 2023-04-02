@@ -15,6 +15,7 @@
 package com.aliyuncs.ecd.model.v20200930;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ecd.Endpoint;
 
@@ -40,6 +41,8 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 	private String desktopGroupName;
 
 	private Integer allowBufferCount;
+
+	private List<String> policyGroupIdss;
 
 	private Long idleDisconnectDuration;
 
@@ -68,6 +71,8 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 	private Long connectDuration;
 
 	private Boolean profileFollowSwitch;
+
+	private Integer buyDesktopsCount;
 
 	private String policyGroupId;
 	public ModifyDesktopGroupRequest() {
@@ -165,6 +170,19 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		if(allowBufferCount != null){
 			putQueryParameter("AllowBufferCount", allowBufferCount.toString());
 		}
+	}
+
+	public List<String> getPolicyGroupIdss() {
+		return this.policyGroupIdss;
+	}
+
+	public void setPolicyGroupIdss(List<String> policyGroupIdss) {
+		this.policyGroupIdss = policyGroupIdss;	
+		if (policyGroupIdss != null) {
+			for (int i = 0; i < policyGroupIdss.size(); i++) {
+				putQueryParameter("PolicyGroupIds." + (i + 1) , policyGroupIdss.get(i));
+			}
+		}	
 	}
 
 	public Long getIdleDisconnectDuration() {
@@ -318,6 +336,17 @@ public class ModifyDesktopGroupRequest extends RpcAcsRequest<ModifyDesktopGroupR
 		this.profileFollowSwitch = profileFollowSwitch;
 		if(profileFollowSwitch != null){
 			putQueryParameter("ProfileFollowSwitch", profileFollowSwitch.toString());
+		}
+	}
+
+	public Integer getBuyDesktopsCount() {
+		return this.buyDesktopsCount;
+	}
+
+	public void setBuyDesktopsCount(Integer buyDesktopsCount) {
+		this.buyDesktopsCount = buyDesktopsCount;
+		if(buyDesktopsCount != null){
+			putQueryParameter("BuyDesktopsCount", buyDesktopsCount.toString());
 		}
 	}
 

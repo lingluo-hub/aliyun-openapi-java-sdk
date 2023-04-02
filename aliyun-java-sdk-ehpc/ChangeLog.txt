@@ -1,3 +1,25 @@
+2023-03-07 Version: 1.14.16
+- Support JobRetry parameters in SubmitJob API.
+
+2023-02-02 Version: 1.14.15
+- Support Async parameter in DescribeJob API.
+
+2023-01-04 Version: 1.14.14
+- Support RamRoleName and RamNodeTypes parameter in ModifyClusterAttributes APIs.
+
+2022-12-07 Version: 1.14.13
+- Support async parameter in Job APIs.
+
+2022-11-21 Version: 1.14.12
+- RunasUserPassword is not required in CreateJobFile.
+- RunasUserPassword not required in SubmitJob.
+- Add new api GetJobLog.
+
+2022-11-16 Version: 1.14.11
+- RunasUserPassword is not required in CreateJobFile.
+- RunasUserPassword not required in SubmitJob.
+- Add new api GetJobLog.
+
 2022-10-27 Version: 1.14.10
 - ListNodesByQueue and ListJobsWithFilters add Async.
 

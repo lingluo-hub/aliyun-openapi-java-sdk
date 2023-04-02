@@ -37,6 +37,8 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 
 	private Integer tsdbNum;
 
+	private String primaryVSwitchId;
+
 	private Integer solrNum;
 
 	private String instanceStorage;
@@ -46,6 +48,8 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 	private Integer lindormNum;
 
 	private String vSwitchId;
+
+	private Integer streamNum;
 
 	private Integer logSingleStorage;
 
@@ -58,6 +62,8 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 	private String multiZoneCombination;
 
 	private String tsdbSpec;
+
+	private String primaryZoneId;
 
 	private String filestoreSpec;
 
@@ -88,6 +94,8 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 	private String instanceAlias;
 
 	private Integer filestoreNum;
+
+	private String streamSpec;
 
 	private String coreSpec;
 
@@ -171,6 +179,17 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 		}
 	}
 
+	public String getPrimaryVSwitchId() {
+		return this.primaryVSwitchId;
+	}
+
+	public void setPrimaryVSwitchId(String primaryVSwitchId) {
+		this.primaryVSwitchId = primaryVSwitchId;
+		if(primaryVSwitchId != null){
+			putQueryParameter("PrimaryVSwitchId", primaryVSwitchId);
+		}
+	}
+
 	public Integer getSolrNum() {
 		return this.solrNum;
 	}
@@ -223,6 +242,17 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 		this.vSwitchId = vSwitchId;
 		if(vSwitchId != null){
 			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public Integer getStreamNum() {
+		return this.streamNum;
+	}
+
+	public void setStreamNum(Integer streamNum) {
+		this.streamNum = streamNum;
+		if(streamNum != null){
+			putQueryParameter("StreamNum", streamNum.toString());
 		}
 	}
 
@@ -289,6 +319,17 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 		this.tsdbSpec = tsdbSpec;
 		if(tsdbSpec != null){
 			putQueryParameter("TsdbSpec", tsdbSpec);
+		}
+	}
+
+	public String getPrimaryZoneId() {
+		return this.primaryZoneId;
+	}
+
+	public void setPrimaryZoneId(String primaryZoneId) {
+		this.primaryZoneId = primaryZoneId;
+		if(primaryZoneId != null){
+			putQueryParameter("PrimaryZoneId", primaryZoneId);
 		}
 	}
 
@@ -454,6 +495,17 @@ public class CreateLindormInstanceRequest extends RpcAcsRequest<CreateLindormIns
 		this.filestoreNum = filestoreNum;
 		if(filestoreNum != null){
 			putQueryParameter("FilestoreNum", filestoreNum.toString());
+		}
+	}
+
+	public String getStreamSpec() {
+		return this.streamSpec;
+	}
+
+	public void setStreamSpec(String streamSpec) {
+		this.streamSpec = streamSpec;
+		if(streamSpec != null){
+			putQueryParameter("StreamSpec", streamSpec);
 		}
 	}
 

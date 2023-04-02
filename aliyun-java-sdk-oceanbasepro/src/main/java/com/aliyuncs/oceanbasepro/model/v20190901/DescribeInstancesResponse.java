@@ -101,6 +101,10 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		private String resourceGroupId;
 
+		private String instanceType;
+
+		private String instanceRole;
+
 		private List<String> availableZones;
 
 		private List<String> securityIps;
@@ -281,6 +285,22 @@ public class DescribeInstancesResponse extends AcsResponse {
 
 		public void setResourceGroupId(String resourceGroupId) {
 			this.resourceGroupId = resourceGroupId;
+		}
+
+		public String getInstanceType() {
+			return this.instanceType;
+		}
+
+		public void setInstanceType(String instanceType) {
+			this.instanceType = instanceType;
+		}
+
+		public String getInstanceRole() {
+			return this.instanceRole;
+		}
+
+		public void setInstanceRole(String instanceRole) {
+			this.instanceRole = instanceRole;
 		}
 
 		public List<String> getAvailableZones() {

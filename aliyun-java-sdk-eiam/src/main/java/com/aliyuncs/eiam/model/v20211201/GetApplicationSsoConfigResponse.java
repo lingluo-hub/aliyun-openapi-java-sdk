@@ -205,6 +205,10 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 
 		public static class OidcSsoConfig {
 
+			private Boolean passwordTotpMfaRequired;
+
+			private String passwordAuthenticationSourceId;
+
 			private Boolean pkceRequired;
 
 			private Long accessTokenEffectiveTime;
@@ -221,6 +225,8 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 
 			private List<String> redirectUris;
 
+			private List<String> postLogoutRedirectUris;
+
 			private List<String> grantTypes;
 
 			private List<String> responseTypes;
@@ -228,6 +234,22 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 			private List<String> grantScopes;
 
 			private List<String> pkceChallengeMethods;
+
+			public Boolean getPasswordTotpMfaRequired() {
+				return this.passwordTotpMfaRequired;
+			}
+
+			public void setPasswordTotpMfaRequired(Boolean passwordTotpMfaRequired) {
+				this.passwordTotpMfaRequired = passwordTotpMfaRequired;
+			}
+
+			public String getPasswordAuthenticationSourceId() {
+				return this.passwordAuthenticationSourceId;
+			}
+
+			public void setPasswordAuthenticationSourceId(String passwordAuthenticationSourceId) {
+				this.passwordAuthenticationSourceId = passwordAuthenticationSourceId;
+			}
 
 			public Boolean getPkceRequired() {
 				return this.pkceRequired;
@@ -291,6 +313,14 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 
 			public void setRedirectUris(List<String> redirectUris) {
 				this.redirectUris = redirectUris;
+			}
+
+			public List<String> getPostLogoutRedirectUris() {
+				return this.postLogoutRedirectUris;
+			}
+
+			public void setPostLogoutRedirectUris(List<String> postLogoutRedirectUris) {
+				this.postLogoutRedirectUris = postLogoutRedirectUris;
 			}
 
 			public List<String> getGrantTypes() {
@@ -369,6 +399,8 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 
 			private String oauth2UserinfoEndpoint;
 
+			private String oidcLogoutEndpoint;
+
 			public String getSamlSsoEndpoint() {
 				return this.samlSsoEndpoint;
 			}
@@ -439,6 +471,14 @@ public class GetApplicationSsoConfigResponse extends AcsResponse {
 
 			public void setOauth2UserinfoEndpoint(String oauth2UserinfoEndpoint) {
 				this.oauth2UserinfoEndpoint = oauth2UserinfoEndpoint;
+			}
+
+			public String getOidcLogoutEndpoint() {
+				return this.oidcLogoutEndpoint;
+			}
+
+			public void setOidcLogoutEndpoint(String oidcLogoutEndpoint) {
+				this.oidcLogoutEndpoint = oidcLogoutEndpoint;
 			}
 		}
 	}

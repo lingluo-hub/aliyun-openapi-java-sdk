@@ -82,6 +82,8 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String scope;
 
+	private String schedulerOptionsDedicatedHostId;
+
 	private String instanceType;
 
 	private String dedicatedHostType;
@@ -112,7 +114,7 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String offeringType;
 	public DescribePriceRequest() {
-		super("Ecs", "2014-05-26", "DescribePrice");
+		super("Ecs", "2014-05-26", "DescribePrice", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -427,6 +429,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.scope = scope;
 		if(scope != null){
 			putQueryParameter("Scope", scope);
+		}
+	}
+
+	public String getSchedulerOptionsDedicatedHostId() {
+		return this.schedulerOptionsDedicatedHostId;
+	}
+
+	public void setSchedulerOptionsDedicatedHostId(String schedulerOptionsDedicatedHostId) {
+		this.schedulerOptionsDedicatedHostId = schedulerOptionsDedicatedHostId;
+		if(schedulerOptionsDedicatedHostId != null){
+			putQueryParameter("SchedulerOptions.DedicatedHostId", schedulerOptionsDedicatedHostId);
 		}
 	}
 

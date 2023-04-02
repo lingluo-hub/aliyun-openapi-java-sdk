@@ -1,0 +1,19 @@
+2023-03-31 Version: 3.3.5
+- SetVerificationInfo api.
+- GetVerificationInfo api.
+- UnbindVerification api,  user unbind verification.
+- SetSecurityPreference, add configuration of verify type for login.
+- GetSecurityPreference.
+
+2023-03-24 Version: 3.3.4
+- ListUserBasicInfos bug fix, delete tags element.
+
+2023-02-21 Version: 3.3.3
+- Add recyclebin api for user and accesskey.
+
+2023-01-09 Version: 3.3.2
+- Add verification configuration for risky logins.
+
+2023-01-06 Version: 3.3.1
+- Add tag api tagResources、untagResources、listTagResources
+

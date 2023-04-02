@@ -30,6 +30,14 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private String dBClusterDescription;
 
+	private String proxyClass;
+
+	private String proxyType;
+
+	private String scaleMax;
+
+	private String storageType;
+
 	private String creationCategory;
 
 	private String resourceGroupId;
@@ -41,6 +49,8 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 	private List<Tag> tags;
 
 	private String sourceResourceId;
+
+	private String scaleMin;
 
 	private String backupRetentionPolicyOnClusterDeletion;
 
@@ -56,11 +66,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private Boolean autoRenew;
 
+	private String hotStandbyCluster;
+
 	private String zoneId;
 
 	private Boolean tDEStatus;
 
+	private String allowShutDown;
+
 	private String lowerCaseTableNames;
+
+	private String scaleRoNumMax;
 
 	private String clientToken;
 
@@ -78,7 +94,11 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 
 	private String usedTime;
 
+	private Integer dBNodeNum;
+
 	private String vPCId;
+
+	private String scaleRoNumMin;
 
 	private String dBType;
 
@@ -87,6 +107,10 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 	private String cloneDataPoint;
 
 	private String payType;
+
+	private Long storageSpace;
+
+	private String serverlessType;
 	public CreateDBClusterRequest() {
 		super("polardb", "2017-08-01", "CreateDBCluster", "polardb");
 		setMethod(MethodType.POST);
@@ -115,6 +139,50 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.dBClusterDescription = dBClusterDescription;
 		if(dBClusterDescription != null){
 			putQueryParameter("DBClusterDescription", dBClusterDescription);
+		}
+	}
+
+	public String getProxyClass() {
+		return this.proxyClass;
+	}
+
+	public void setProxyClass(String proxyClass) {
+		this.proxyClass = proxyClass;
+		if(proxyClass != null){
+			putQueryParameter("ProxyClass", proxyClass);
+		}
+	}
+
+	public String getProxyType() {
+		return this.proxyType;
+	}
+
+	public void setProxyType(String proxyType) {
+		this.proxyType = proxyType;
+		if(proxyType != null){
+			putQueryParameter("ProxyType", proxyType);
+		}
+	}
+
+	public String getScaleMax() {
+		return this.scaleMax;
+	}
+
+	public void setScaleMax(String scaleMax) {
+		this.scaleMax = scaleMax;
+		if(scaleMax != null){
+			putQueryParameter("ScaleMax", scaleMax);
+		}
+	}
+
+	public String getStorageType() {
+		return this.storageType;
+	}
+
+	public void setStorageType(String storageType) {
+		this.storageType = storageType;
+		if(storageType != null){
+			putQueryParameter("StorageType", storageType);
 		}
 	}
 
@@ -184,6 +252,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.sourceResourceId = sourceResourceId;
 		if(sourceResourceId != null){
 			putQueryParameter("SourceResourceId", sourceResourceId);
+		}
+	}
+
+	public String getScaleMin() {
+		return this.scaleMin;
+	}
+
+	public void setScaleMin(String scaleMin) {
+		this.scaleMin = scaleMin;
+		if(scaleMin != null){
+			putQueryParameter("ScaleMin", scaleMin);
 		}
 	}
 
@@ -264,6 +343,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public String getHotStandbyCluster() {
+		return this.hotStandbyCluster;
+	}
+
+	public void setHotStandbyCluster(String hotStandbyCluster) {
+		this.hotStandbyCluster = hotStandbyCluster;
+		if(hotStandbyCluster != null){
+			putQueryParameter("HotStandbyCluster", hotStandbyCluster);
+		}
+	}
+
 	public String getZoneId() {
 		return this.zoneId;
 	}
@@ -286,6 +376,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public String getAllowShutDown() {
+		return this.allowShutDown;
+	}
+
+	public void setAllowShutDown(String allowShutDown) {
+		this.allowShutDown = allowShutDown;
+		if(allowShutDown != null){
+			putQueryParameter("AllowShutDown", allowShutDown);
+		}
+	}
+
 	public String getLowerCaseTableNames() {
 		return this.lowerCaseTableNames;
 	}
@@ -294,6 +395,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.lowerCaseTableNames = lowerCaseTableNames;
 		if(lowerCaseTableNames != null){
 			putQueryParameter("LowerCaseTableNames", lowerCaseTableNames);
+		}
+	}
+
+	public String getScaleRoNumMax() {
+		return this.scaleRoNumMax;
+	}
+
+	public void setScaleRoNumMax(String scaleRoNumMax) {
+		this.scaleRoNumMax = scaleRoNumMax;
+		if(scaleRoNumMax != null){
+			putQueryParameter("ScaleRoNumMax", scaleRoNumMax);
 		}
 	}
 
@@ -385,6 +497,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		}
 	}
 
+	public Integer getDBNodeNum() {
+		return this.dBNodeNum;
+	}
+
+	public void setDBNodeNum(Integer dBNodeNum) {
+		this.dBNodeNum = dBNodeNum;
+		if(dBNodeNum != null){
+			putQueryParameter("DBNodeNum", dBNodeNum.toString());
+		}
+	}
+
 	public String getVPCId() {
 		return this.vPCId;
 	}
@@ -393,6 +516,17 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.vPCId = vPCId;
 		if(vPCId != null){
 			putQueryParameter("VPCId", vPCId);
+		}
+	}
+
+	public String getScaleRoNumMin() {
+		return this.scaleRoNumMin;
+	}
+
+	public void setScaleRoNumMin(String scaleRoNumMin) {
+		this.scaleRoNumMin = scaleRoNumMin;
+		if(scaleRoNumMin != null){
+			putQueryParameter("ScaleRoNumMin", scaleRoNumMin);
 		}
 	}
 
@@ -437,6 +571,28 @@ public class CreateDBClusterRequest extends RpcAcsRequest<CreateDBClusterRespons
 		this.payType = payType;
 		if(payType != null){
 			putQueryParameter("PayType", payType);
+		}
+	}
+
+	public Long getStorageSpace() {
+		return this.storageSpace;
+	}
+
+	public void setStorageSpace(Long storageSpace) {
+		this.storageSpace = storageSpace;
+		if(storageSpace != null){
+			putQueryParameter("StorageSpace", storageSpace.toString());
+		}
+	}
+
+	public String getServerlessType() {
+		return this.serverlessType;
+	}
+
+	public void setServerlessType(String serverlessType) {
+		this.serverlessType = serverlessType;
+		if(serverlessType != null){
+			putQueryParameter("ServerlessType", serverlessType);
 		}
 	}
 

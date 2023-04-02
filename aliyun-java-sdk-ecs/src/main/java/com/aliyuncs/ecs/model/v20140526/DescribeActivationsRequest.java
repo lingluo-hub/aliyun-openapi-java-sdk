@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ecs.Endpoint;
 
@@ -31,6 +32,8 @@ public class DescribeActivationsRequest extends RpcAcsRequest<DescribeActivation
 
 	private Long pageSize;
 
+	private List<Tag> tags;
+
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
@@ -41,7 +44,7 @@ public class DescribeActivationsRequest extends RpcAcsRequest<DescribeActivation
 
 	private String activationId;
 	public DescribeActivationsRequest() {
-		super("Ecs", "2014-05-26", "DescribeActivations");
+		super("Ecs", "2014-05-26", "DescribeActivations", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -80,6 +83,20 @@ public class DescribeActivationsRequest extends RpcAcsRequest<DescribeActivation
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
 		}
+	}
+
+	public List<Tag> getTags() {
+		return this.tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;	
+		if (tags != null) {
+			for (int depth1 = 0; depth1 < tags.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tags.get(depth1).getValue());
+			}
+		}	
 	}
 
 	public String getResourceOwnerAccount() {
@@ -134,6 +151,29 @@ public class DescribeActivationsRequest extends RpcAcsRequest<DescribeActivation
 		this.activationId = activationId;
 		if(activationId != null){
 			putQueryParameter("ActivationId", activationId);
+		}
+	}
+
+	public static class Tag {
+
+		private String key;
+
+		private String value;
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
+		}
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
 		}
 	}
 

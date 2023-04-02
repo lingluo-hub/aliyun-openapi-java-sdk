@@ -30,11 +30,13 @@ public class ListTransitRouterMulticastGroupsRequest extends RpcAcsRequest<ListT
 
 	private String clientToken;
 
+	private List<String> networkInterfaceIdss;
+
 	private List<String> vSwitchIdss;
 
 	private String transitRouterMulticastDomainId;
 
-	private List<String> connectPeerIdss;
+	private Boolean isGroupSource;
 
 	private String nextToken;
 
@@ -55,8 +57,10 @@ public class ListTransitRouterMulticastGroupsRequest extends RpcAcsRequest<ListT
 	private String transitRouterAttachmentId;
 
 	private Long maxResults;
+
+	private Boolean isGroupMember;
 	public ListTransitRouterMulticastGroupsRequest() {
-		super("Cbn", "2017-09-12", "ListTransitRouterMulticastGroups", "cbn");
+		super("Cbn", "2017-09-12", "ListTransitRouterMulticastGroups");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -86,6 +90,19 @@ public class ListTransitRouterMulticastGroupsRequest extends RpcAcsRequest<ListT
 		}
 	}
 
+	public List<String> getNetworkInterfaceIdss() {
+		return this.networkInterfaceIdss;
+	}
+
+	public void setNetworkInterfaceIdss(List<String> networkInterfaceIdss) {
+		this.networkInterfaceIdss = networkInterfaceIdss;	
+		if (networkInterfaceIdss != null) {
+			for (int i = 0; i < networkInterfaceIdss.size(); i++) {
+				putQueryParameter("NetworkInterfaceIds." + (i + 1) , networkInterfaceIdss.get(i));
+			}
+		}	
+	}
+
 	public List<String> getVSwitchIdss() {
 		return this.vSwitchIdss;
 	}
@@ -110,17 +127,15 @@ public class ListTransitRouterMulticastGroupsRequest extends RpcAcsRequest<ListT
 		}
 	}
 
-	public List<String> getConnectPeerIdss() {
-		return this.connectPeerIdss;
+	public Boolean getIsGroupSource() {
+		return this.isGroupSource;
 	}
 
-	public void setConnectPeerIdss(List<String> connectPeerIdss) {
-		this.connectPeerIdss = connectPeerIdss;	
-		if (connectPeerIdss != null) {
-			for (int i = 0; i < connectPeerIdss.size(); i++) {
-				putQueryParameter("ConnectPeerIds." + (i + 1) , connectPeerIdss.get(i));
-			}
-		}	
+	public void setIsGroupSource(Boolean isGroupSource) {
+		this.isGroupSource = isGroupSource;
+		if(isGroupSource != null){
+			putQueryParameter("IsGroupSource", isGroupSource.toString());
+		}
 	}
 
 	public String getNextToken() {
@@ -232,6 +247,17 @@ public class ListTransitRouterMulticastGroupsRequest extends RpcAcsRequest<ListT
 		this.maxResults = maxResults;
 		if(maxResults != null){
 			putQueryParameter("MaxResults", maxResults.toString());
+		}
+	}
+
+	public Boolean getIsGroupMember() {
+		return this.isGroupMember;
+	}
+
+	public void setIsGroupMember(Boolean isGroupMember) {
+		this.isGroupMember = isGroupMember;
+		if(isGroupMember != null){
+			putQueryParameter("IsGroupMember", isGroupMember.toString());
 		}
 	}
 

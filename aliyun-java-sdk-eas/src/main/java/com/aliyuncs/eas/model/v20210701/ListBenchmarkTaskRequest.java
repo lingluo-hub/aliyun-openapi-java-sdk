@@ -25,13 +25,13 @@ import com.aliyuncs.eas.Endpoint;
 public class ListBenchmarkTaskRequest extends RoaAcsRequest<ListBenchmarkTaskResponse> {
 	   
 
+	private String filter;
+
 	private String pageSize;
 
 	private String serviceName;
 
 	private String pageNumber;
-
-	private String fileter;
 	public ListBenchmarkTaskRequest() {
 		super("eas", "2021-07-01", "ListBenchmarkTask", "eas");
 		setUriPattern("/api/v2/benchmark-tasks");
@@ -40,6 +40,17 @@ public class ListBenchmarkTaskRequest extends RoaAcsRequest<ListBenchmarkTaskRes
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getFilter() {
+		return this.filter;
+	}
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+		if(filter != null){
+			putQueryParameter("Filter", filter);
+		}
 	}
 
 	public String getPageSize() {
@@ -72,17 +83,6 @@ public class ListBenchmarkTaskRequest extends RoaAcsRequest<ListBenchmarkTaskRes
 		this.pageNumber = pageNumber;
 		if(pageNumber != null){
 			putQueryParameter("PageNumber", pageNumber);
-		}
-	}
-
-	public String getFileter() {
-		return this.fileter;
-	}
-
-	public void setFileter(String fileter) {
-		this.fileter = fileter;
-		if(fileter != null){
-			putQueryParameter("Fileter", fileter);
 		}
 	}
 

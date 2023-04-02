@@ -104,7 +104,11 @@ public class GetUserResponse extends AcsResponse {
 
 		private Map<Object,Object> extensionAttributes;
 
+		private Long passwordExpireTime;
+
 		private List<OrganizationalUnit> organizationalUnits;
+
+		private List<CustomField> customFields;
 
 		public String getUserId() {
 			return this.userId;
@@ -330,12 +334,28 @@ public class GetUserResponse extends AcsResponse {
 			this.extensionAttributes = extensionAttributes;
 		}
 
+		public Long getPasswordExpireTime() {
+			return this.passwordExpireTime;
+		}
+
+		public void setPasswordExpireTime(Long passwordExpireTime) {
+			this.passwordExpireTime = passwordExpireTime;
+		}
+
 		public List<OrganizationalUnit> getOrganizationalUnits() {
 			return this.organizationalUnits;
 		}
 
 		public void setOrganizationalUnits(List<OrganizationalUnit> organizationalUnits) {
 			this.organizationalUnits = organizationalUnits;
+		}
+
+		public List<CustomField> getCustomFields() {
+			return this.customFields;
+		}
+
+		public void setCustomFields(List<CustomField> customFields) {
+			this.customFields = customFields;
 		}
 
 		public static class OrganizationalUnit {
@@ -378,6 +398,29 @@ public class GetUserResponse extends AcsResponse {
 
 			public void setPrimary(Boolean primary) {
 				this.primary = primary;
+			}
+		}
+
+		public static class CustomField {
+
+			private String fieldName;
+
+			private String fieldValue;
+
+			public String getFieldName() {
+				return this.fieldName;
+			}
+
+			public void setFieldName(String fieldName) {
+				this.fieldName = fieldName;
+			}
+
+			public String getFieldValue() {
+				return this.fieldValue;
+			}
+
+			public void setFieldValue(String fieldValue) {
+				this.fieldValue = fieldValue;
 			}
 		}
 	}

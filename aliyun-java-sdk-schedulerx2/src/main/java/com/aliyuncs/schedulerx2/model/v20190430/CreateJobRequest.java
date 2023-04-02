@@ -28,13 +28,13 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 
 	private Integer attemptInterval;
 
+	private Integer failTimes;
+
 	private Integer consumerSize;
 
-	private String jarUrl;
+	private String groupId;
 
 	private Integer dataOffset;
-
-	private String groupId;
 
 	private Integer taskMaxAttempt;
 
@@ -62,6 +62,8 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 
 	private String namespaceSource;
 
+	private String timezone;
+
 	private String description;
 
 	private String content;
@@ -81,6 +83,8 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 	private Integer maxAttempt;
 
 	private Boolean missWorkerEnable;
+
+	private Boolean successNoticeEnable;
 
 	private Integer queueSize;
 
@@ -111,6 +115,17 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		}
 	}
 
+	public Integer getFailTimes() {
+		return this.failTimes;
+	}
+
+	public void setFailTimes(Integer failTimes) {
+		this.failTimes = failTimes;
+		if(failTimes != null){
+			putBodyParameter("FailTimes", failTimes.toString());
+		}
+	}
+
 	public Integer getConsumerSize() {
 		return this.consumerSize;
 	}
@@ -122,14 +137,14 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		}
 	}
 
-	public String getJarUrl() {
-		return this.jarUrl;
+	public String getGroupId() {
+		return this.groupId;
 	}
 
-	public void setJarUrl(String jarUrl) {
-		this.jarUrl = jarUrl;
-		if(jarUrl != null){
-			putBodyParameter("JarUrl", jarUrl);
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+		if(groupId != null){
+			putBodyParameter("GroupId", groupId);
 		}
 	}
 
@@ -141,17 +156,6 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		this.dataOffset = dataOffset;
 		if(dataOffset != null){
 			putBodyParameter("DataOffset", dataOffset.toString());
-		}
-	}
-
-	public String getGroupId() {
-		return this.groupId;
-	}
-
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-		if(groupId != null){
-			putBodyParameter("GroupId", groupId);
 		}
 	}
 
@@ -303,6 +307,17 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		}
 	}
 
+	public String getTimezone() {
+		return this.timezone;
+	}
+
+	public void setTimezone(String timezone) {
+		this.timezone = timezone;
+		if(timezone != null){
+			putBodyParameter("Timezone", timezone);
+		}
+	}
+
 	public String getDescription() {
 		return this.description;
 	}
@@ -410,6 +425,17 @@ public class CreateJobRequest extends RpcAcsRequest<CreateJobResponse> {
 		this.missWorkerEnable = missWorkerEnable;
 		if(missWorkerEnable != null){
 			putBodyParameter("MissWorkerEnable", missWorkerEnable.toString());
+		}
+	}
+
+	public Boolean getSuccessNoticeEnable() {
+		return this.successNoticeEnable;
+	}
+
+	public void setSuccessNoticeEnable(Boolean successNoticeEnable) {
+		this.successNoticeEnable = successNoticeEnable;
+		if(successNoticeEnable != null){
+			putBodyParameter("SuccessNoticeEnable", successNoticeEnable.toString());
 		}
 	}
 

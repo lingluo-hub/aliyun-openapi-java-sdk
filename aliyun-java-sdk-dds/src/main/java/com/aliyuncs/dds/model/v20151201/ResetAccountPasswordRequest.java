@@ -39,6 +39,8 @@ public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPassw
 	private Long ownerId;
 
 	private String accountPassword;
+
+	private String characterType;
 	public ResetAccountPasswordRequest() {
 		super("Dds", "2015-12-01", "ResetAccountPassword", "dds");
 		setMethod(MethodType.POST);
@@ -129,6 +131,17 @@ public class ResetAccountPasswordRequest extends RpcAcsRequest<ResetAccountPassw
 		this.accountPassword = accountPassword;
 		if(accountPassword != null){
 			putQueryParameter("AccountPassword", accountPassword);
+		}
+	}
+
+	public String getCharacterType() {
+		return this.characterType;
+	}
+
+	public void setCharacterType(String characterType) {
+		this.characterType = characterType;
+		if(characterType != null){
+			putQueryParameter("CharacterType", characterType);
 		}
 	}
 

@@ -99,7 +99,13 @@ public class ListTransitRouterVpnAttachmentsResponse extends AcsResponse {
 
 		private String transitRouterAttachmentName;
 
+		private String chargeType;
+
+		private String cenId;
+
 		private List<ZoneMapping> zones;
+
+		private List<Tag> tags;
 
 		public String getCreationTime() {
 			return this.creationTime;
@@ -189,12 +195,36 @@ public class ListTransitRouterVpnAttachmentsResponse extends AcsResponse {
 			this.transitRouterAttachmentName = transitRouterAttachmentName;
 		}
 
+		public String getChargeType() {
+			return this.chargeType;
+		}
+
+		public void setChargeType(String chargeType) {
+			this.chargeType = chargeType;
+		}
+
+		public String getCenId() {
+			return this.cenId;
+		}
+
+		public void setCenId(String cenId) {
+			this.cenId = cenId;
+		}
+
 		public List<ZoneMapping> getZones() {
 			return this.zones;
 		}
 
 		public void setZones(List<ZoneMapping> zones) {
 			this.zones = zones;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
 		}
 
 		public static class ZoneMapping {
@@ -207,6 +237,29 @@ public class ListTransitRouterVpnAttachmentsResponse extends AcsResponse {
 
 			public void setZoneId(String zoneId) {
 				this.zoneId = zoneId;
+			}
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
 			}
 		}
 	}

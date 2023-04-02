@@ -35,11 +35,9 @@ public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCe
 
 	private Long ownerId;
 
-	private String serviceType;
-
 	private String cenBandwidthPackageId;
 	public ModifyCenBandwidthPackageSpecRequest() {
-		super("Cbn", "2017-09-12", "ModifyCenBandwidthPackageSpec", "cbn");
+		super("Cbn", "2017-09-12", "ModifyCenBandwidthPackageSpec");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -99,17 +97,6 @@ public class ModifyCenBandwidthPackageSpecRequest extends RpcAcsRequest<ModifyCe
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
-		}
-	}
-
-	public String getServiceType() {
-		return this.serviceType;
-	}
-
-	public void setServiceType(String serviceType) {
-		this.serviceType = serviceType;
-		if(serviceType != null){
-			putQueryParameter("ServiceType", serviceType);
 		}
 	}
 

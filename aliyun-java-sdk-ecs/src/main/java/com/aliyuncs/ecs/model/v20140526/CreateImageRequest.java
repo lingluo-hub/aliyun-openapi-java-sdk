@@ -44,11 +44,11 @@ public class CreateImageRequest extends RpcAcsRequest<CreateImageResponse> {
 
 	private String imageName;
 
-	private String storageLocationArn;
-
 	private List<Tag> tags;
 
 	private String architecture;
+
+	private String detectionStrategy;
 
 	private String resourceOwnerAccount;
 
@@ -62,7 +62,7 @@ public class CreateImageRequest extends RpcAcsRequest<CreateImageResponse> {
 
 	private String imageVersion;
 	public CreateImageRequest() {
-		super("Ecs", "2014-05-26", "CreateImage");
+		super("Ecs", "2014-05-26", "CreateImage", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -174,17 +174,6 @@ public class CreateImageRequest extends RpcAcsRequest<CreateImageResponse> {
 		}
 	}
 
-	public String getStorageLocationArn() {
-		return this.storageLocationArn;
-	}
-
-	public void setStorageLocationArn(String storageLocationArn) {
-		this.storageLocationArn = storageLocationArn;
-		if(storageLocationArn != null){
-			putQueryParameter("StorageLocationArn", storageLocationArn);
-		}
-	}
-
 	public List<Tag> getTags() {
 		return this.tags;
 	}
@@ -207,6 +196,17 @@ public class CreateImageRequest extends RpcAcsRequest<CreateImageResponse> {
 		this.architecture = architecture;
 		if(architecture != null){
 			putQueryParameter("Architecture", architecture);
+		}
+	}
+
+	public String getDetectionStrategy() {
+		return this.detectionStrategy;
+	}
+
+	public void setDetectionStrategy(String detectionStrategy) {
+		this.detectionStrategy = detectionStrategy;
+		if(detectionStrategy != null){
+			putQueryParameter("DetectionStrategy", detectionStrategy);
 		}
 	}
 

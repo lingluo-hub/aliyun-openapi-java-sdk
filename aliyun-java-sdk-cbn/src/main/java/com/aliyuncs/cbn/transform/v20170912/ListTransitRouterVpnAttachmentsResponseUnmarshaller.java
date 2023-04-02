@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.cbn.model.v20170912.ListTransitRouterVpnAttachmentsResponse;
 import com.aliyuncs.cbn.model.v20170912.ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachment;
+import com.aliyuncs.cbn.model.v20170912.ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachment.Tag;
 import com.aliyuncs.cbn.model.v20170912.ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachment.ZoneMapping;
 import com.aliyuncs.transform.UnmarshallerContext;
 
@@ -46,6 +47,8 @@ public class ListTransitRouterVpnAttachmentsResponseUnmarshaller {
 			transitRouterAttachment.setVpnRegionId(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].VpnRegionId"));
 			transitRouterAttachment.setAutoPublishRouteEnabled(_ctx.booleanValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].AutoPublishRouteEnabled"));
 			transitRouterAttachment.setTransitRouterAttachmentName(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].TransitRouterAttachmentName"));
+			transitRouterAttachment.setChargeType(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].ChargeType"));
+			transitRouterAttachment.setCenId(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].CenId"));
 
 			List<ZoneMapping> zones = new ArrayList<ZoneMapping>();
 			for (int j = 0; j < _ctx.lengthValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].Zones.Length"); j++) {
@@ -55,6 +58,16 @@ public class ListTransitRouterVpnAttachmentsResponseUnmarshaller {
 				zones.add(zoneMapping);
 			}
 			transitRouterAttachment.setZones(zones);
+
+			List<Tag> tags = new ArrayList<Tag>();
+			for (int j = 0; j < _ctx.lengthValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].Tags.Length"); j++) {
+				Tag tag = new Tag();
+				tag.setKey(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].Tags["+ j +"].Key"));
+				tag.setValue(_ctx.stringValue("ListTransitRouterVpnAttachmentsResponse.TransitRouterAttachments["+ i +"].Tags["+ j +"].Value"));
+
+				tags.add(tag);
+			}
+			transitRouterAttachment.setTags(tags);
 
 			transitRouterAttachments.add(transitRouterAttachment);
 		}

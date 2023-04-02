@@ -73,6 +73,9 @@ public class DescribeDesktopGroupsResponseUnmarshaller {
 			desktopGroup.setIdleDisconnectDuration(_ctx.longValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].IdleDisconnectDuration"));
 			desktopGroup.setVersion(_ctx.integerValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].Version"));
 			desktopGroup.setStopDuration(_ctx.longValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].StopDuration"));
+			desktopGroup.setProtocolType(_ctx.stringValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].ProtocolType"));
+			desktopGroup.setOsType(_ctx.stringValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].OsType"));
+			desktopGroup.setBuyDesktopsCount(_ctx.integerValue("DescribeDesktopGroupsResponse.DesktopGroups["+ i +"].BuyDesktopsCount"));
 
 			desktopGroups.add(desktopGroup);
 		}

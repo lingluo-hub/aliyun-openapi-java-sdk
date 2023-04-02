@@ -123,6 +123,8 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 		private String machineId;
 
+		private Long dedicatedHostOwnerId;
+
 		private List<Instance> instances;
 
 		private List<OperationLock> operationLocks;
@@ -325,6 +327,14 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 			this.machineId = machineId;
 		}
 
+		public Long getDedicatedHostOwnerId() {
+			return this.dedicatedHostOwnerId;
+		}
+
+		public void setDedicatedHostOwnerId(Long dedicatedHostOwnerId) {
+			this.dedicatedHostOwnerId = dedicatedHostOwnerId;
+		}
+
 		public List<Instance> getInstances() {
 			return this.instances;
 		}
@@ -403,6 +413,10 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 			private String instanceId;
 
+			private String socketId;
+
+			private Long instanceOwnerId;
+
 			public String getInstanceType() {
 				return this.instanceType;
 			}
@@ -417,6 +431,22 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 			public void setInstanceId(String instanceId) {
 				this.instanceId = instanceId;
+			}
+
+			public String getSocketId() {
+				return this.socketId;
+			}
+
+			public void setSocketId(String socketId) {
+				this.socketId = socketId;
+			}
+
+			public Long getInstanceOwnerId() {
+				return this.instanceOwnerId;
+			}
+
+			public void setInstanceOwnerId(Long instanceOwnerId) {
+				this.instanceOwnerId = instanceOwnerId;
 			}
 		}
 
@@ -475,6 +505,8 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 			private Integer availableVcpus;
 
 			private Integer availableVgpus;
+
+			private List<SocketCapacity> socketCapacities;
 
 			public Float getAvailableMemory() {
 				return this.availableMemory;
@@ -546,6 +578,67 @@ public class DescribeDedicatedHostsResponse extends AcsResponse {
 
 			public void setAvailableVgpus(Integer availableVgpus) {
 				this.availableVgpus = availableVgpus;
+			}
+
+			public List<SocketCapacity> getSocketCapacities() {
+				return this.socketCapacities;
+			}
+
+			public void setSocketCapacities(List<SocketCapacity> socketCapacities) {
+				this.socketCapacities = socketCapacities;
+			}
+
+			public static class SocketCapacity {
+
+				private Integer socketId;
+
+				private Float availableMemory;
+
+				private Float totalMemory;
+
+				private Integer availableVcpu;
+
+				private Integer totalVcpu;
+
+				public Integer getSocketId() {
+					return this.socketId;
+				}
+
+				public void setSocketId(Integer socketId) {
+					this.socketId = socketId;
+				}
+
+				public Float getAvailableMemory() {
+					return this.availableMemory;
+				}
+
+				public void setAvailableMemory(Float availableMemory) {
+					this.availableMemory = availableMemory;
+				}
+
+				public Float getTotalMemory() {
+					return this.totalMemory;
+				}
+
+				public void setTotalMemory(Float totalMemory) {
+					this.totalMemory = totalMemory;
+				}
+
+				public Integer getAvailableVcpu() {
+					return this.availableVcpu;
+				}
+
+				public void setAvailableVcpu(Integer availableVcpu) {
+					this.availableVcpu = availableVcpu;
+				}
+
+				public Integer getTotalVcpu() {
+					return this.totalVcpu;
+				}
+
+				public void setTotalVcpu(Integer totalVcpu) {
+					this.totalVcpu = totalVcpu;
+				}
 			}
 		}
 

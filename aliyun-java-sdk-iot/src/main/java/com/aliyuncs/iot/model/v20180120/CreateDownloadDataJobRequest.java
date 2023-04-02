@@ -31,8 +31,6 @@ public class CreateDownloadDataJobRequest extends RpcAcsRequest<CreateDownloadDa
 
 	private String iotInstanceId;
 
-	private String context;
-
 	private String tableName;
 
 	private Long endTime;
@@ -77,17 +75,6 @@ public class CreateDownloadDataJobRequest extends RpcAcsRequest<CreateDownloadDa
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putBodyParameter("IotInstanceId", iotInstanceId);
-		}
-	}
-
-	public String getContext() {
-		return this.context;
-	}
-
-	public void setContext(String context) {
-		this.context = context;
-		if(context != null){
-			putBodyParameter("Context", context);
 		}
 	}
 

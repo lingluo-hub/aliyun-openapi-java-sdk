@@ -50,6 +50,8 @@ public class DescribeEaisResponseUnmarshaller {
 			instance.setJupyterUrl(_ctx.stringValue("DescribeEaisResponse.Instances["+ i +"].JupyterUrl"));
 			instance.setVSwitchId(_ctx.stringValue("DescribeEaisResponse.Instances["+ i +"].VSwitchId"));
 			instance.setSecurityGroupId(_ctx.stringValue("DescribeEaisResponse.Instances["+ i +"].SecurityGroupId"));
+			instance.setStartTime(_ctx.stringValue("DescribeEaisResponse.Instances["+ i +"].StartTime"));
+			instance.setResourceGroupId(_ctx.stringValue("DescribeEaisResponse.Instances["+ i +"].ResourceGroupId"));
 
 			List<Tag> tags = new ArrayList<Tag>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeEaisResponse.Instances["+ i +"].Tags.Length"); j++) {

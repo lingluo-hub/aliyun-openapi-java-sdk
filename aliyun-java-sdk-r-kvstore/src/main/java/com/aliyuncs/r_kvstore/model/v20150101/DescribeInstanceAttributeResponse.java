@@ -91,6 +91,8 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 
 		private Integer shardCount;
 
+		private Integer readOnlyCount;
+
 		private String globalInstanceId;
 
 		private Long qPS;
@@ -101,9 +103,11 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 
 		private String maintainStartTime;
 
+		private String maintainEndTime;
+
 		private String instanceClass;
 
-		private String maintainEndTime;
+		private String realInstanceClass;
 
 		private String instanceId;
 
@@ -140,6 +144,10 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 		private String storage;
 
 		private String cloudType;
+
+		private Boolean isOrderCompleted;
+
+		private Boolean isSupportTDE;
 
 		private List<Tag> tags;
 
@@ -319,6 +327,14 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 			this.shardCount = shardCount;
 		}
 
+		public Integer getReadOnlyCount() {
+			return this.readOnlyCount;
+		}
+
+		public void setReadOnlyCount(Integer readOnlyCount) {
+			this.readOnlyCount = readOnlyCount;
+		}
+
 		public String getGlobalInstanceId() {
 			return this.globalInstanceId;
 		}
@@ -359,6 +375,14 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 			this.maintainStartTime = maintainStartTime;
 		}
 
+		public String getMaintainEndTime() {
+			return this.maintainEndTime;
+		}
+
+		public void setMaintainEndTime(String maintainEndTime) {
+			this.maintainEndTime = maintainEndTime;
+		}
+
 		public String getInstanceClass() {
 			return this.instanceClass;
 		}
@@ -367,12 +391,12 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 			this.instanceClass = instanceClass;
 		}
 
-		public String getMaintainEndTime() {
-			return this.maintainEndTime;
+		public String getRealInstanceClass() {
+			return this.realInstanceClass;
 		}
 
-		public void setMaintainEndTime(String maintainEndTime) {
-			this.maintainEndTime = maintainEndTime;
+		public void setRealInstanceClass(String realInstanceClass) {
+			this.realInstanceClass = realInstanceClass;
 		}
 
 		public String getInstanceId() {
@@ -517,6 +541,22 @@ public class DescribeInstanceAttributeResponse extends AcsResponse {
 
 		public void setCloudType(String cloudType) {
 			this.cloudType = cloudType;
+		}
+
+		public Boolean getIsOrderCompleted() {
+			return this.isOrderCompleted;
+		}
+
+		public void setIsOrderCompleted(Boolean isOrderCompleted) {
+			this.isOrderCompleted = isOrderCompleted;
+		}
+
+		public Boolean getIsSupportTDE() {
+			return this.isSupportTDE;
+		}
+
+		public void setIsSupportTDE(Boolean isSupportTDE) {
+			this.isSupportTDE = isSupportTDE;
 		}
 
 		public List<Tag> getTags() {

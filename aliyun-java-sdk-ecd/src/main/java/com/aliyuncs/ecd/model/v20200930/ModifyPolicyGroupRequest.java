@@ -40,9 +40,13 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 
 	private String localDrive;
 
+	private Integer watermarkTransparencyValue;
+
 	private List<AuthorizeSecurityPolicyRule> authorizeSecurityPolicyRules;
 
 	private String clipboard;
+
+	private String endUserApplyAdminCoordinate;
 
 	private String usbRedirect;
 
@@ -50,11 +54,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 
 	private String recordingStartTime;
 
+	private Integer recordingDuration;
+
+	private Integer watermarkColor;
+
 	private List<RevokeAccessPolicyRule> revokeAccessPolicyRules;
 
 	private String watermark;
 
 	private String cameraRedirect;
+
+	private String videoRedirect;
 
 	private String appContentProtection;
 
@@ -72,13 +82,29 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 
 	private List<UsbSupplyRedirectRule> usbSupplyRedirectRules;
 
+	private Integer watermarkFontSize;
+
 	private String recording;
+
+	private List<String> scopeValues;
 
 	private Long recordingFps;
 
+	private String watermarkFontStyle;
+
 	private String recordContent;
 
+	private String scope;
+
+	private Integer watermarkRowAmount;
+
+	private String endUserGroupCoordinate;
+
+	private Double watermarkDegree;
+
 	private Long recordContentExpires;
+
+	private String recordingAudio;
 
 	private String remoteCoordinate;
 
@@ -91,6 +117,8 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 	private String visualQuality;
 
 	private String recordingEndTime;
+
+	private String internetCommunicationProtocol;
 	public ModifyPolicyGroupRequest() {
 		super("ecd", "2020-09-30", "ModifyPolicyGroup");
 		setMethod(MethodType.POST);
@@ -187,6 +215,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		}
 	}
 
+	public Integer getWatermarkTransparencyValue() {
+		return this.watermarkTransparencyValue;
+	}
+
+	public void setWatermarkTransparencyValue(Integer watermarkTransparencyValue) {
+		this.watermarkTransparencyValue = watermarkTransparencyValue;
+		if(watermarkTransparencyValue != null){
+			putQueryParameter("WatermarkTransparencyValue", watermarkTransparencyValue.toString());
+		}
+	}
+
 	public List<AuthorizeSecurityPolicyRule> getAuthorizeSecurityPolicyRules() {
 		return this.authorizeSecurityPolicyRules;
 	}
@@ -214,6 +253,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		this.clipboard = clipboard;
 		if(clipboard != null){
 			putQueryParameter("Clipboard", clipboard);
+		}
+	}
+
+	public String getEndUserApplyAdminCoordinate() {
+		return this.endUserApplyAdminCoordinate;
+	}
+
+	public void setEndUserApplyAdminCoordinate(String endUserApplyAdminCoordinate) {
+		this.endUserApplyAdminCoordinate = endUserApplyAdminCoordinate;
+		if(endUserApplyAdminCoordinate != null){
+			putQueryParameter("EndUserApplyAdminCoordinate", endUserApplyAdminCoordinate);
 		}
 	}
 
@@ -250,6 +300,28 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		}
 	}
 
+	public Integer getRecordingDuration() {
+		return this.recordingDuration;
+	}
+
+	public void setRecordingDuration(Integer recordingDuration) {
+		this.recordingDuration = recordingDuration;
+		if(recordingDuration != null){
+			putQueryParameter("RecordingDuration", recordingDuration.toString());
+		}
+	}
+
+	public Integer getWatermarkColor() {
+		return this.watermarkColor;
+	}
+
+	public void setWatermarkColor(Integer watermarkColor) {
+		this.watermarkColor = watermarkColor;
+		if(watermarkColor != null){
+			putQueryParameter("WatermarkColor", watermarkColor.toString());
+		}
+	}
+
 	public List<RevokeAccessPolicyRule> getRevokeAccessPolicyRules() {
 		return this.revokeAccessPolicyRules;
 	}
@@ -283,6 +355,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		this.cameraRedirect = cameraRedirect;
 		if(cameraRedirect != null){
 			putQueryParameter("CameraRedirect", cameraRedirect);
+		}
+	}
+
+	public String getVideoRedirect() {
+		return this.videoRedirect;
+	}
+
+	public void setVideoRedirect(String videoRedirect) {
+		this.videoRedirect = videoRedirect;
+		if(videoRedirect != null){
+			putQueryParameter("VideoRedirect", videoRedirect);
 		}
 	}
 
@@ -388,6 +471,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		}	
 	}
 
+	public Integer getWatermarkFontSize() {
+		return this.watermarkFontSize;
+	}
+
+	public void setWatermarkFontSize(Integer watermarkFontSize) {
+		this.watermarkFontSize = watermarkFontSize;
+		if(watermarkFontSize != null){
+			putQueryParameter("WatermarkFontSize", watermarkFontSize.toString());
+		}
+	}
+
 	public String getRecording() {
 		return this.recording;
 	}
@@ -399,6 +493,19 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		}
 	}
 
+	public List<String> getScopeValues() {
+		return this.scopeValues;
+	}
+
+	public void setScopeValues(List<String> scopeValues) {
+		this.scopeValues = scopeValues;	
+		if (scopeValues != null) {
+			for (int i = 0; i < scopeValues.size(); i++) {
+				putQueryParameter("ScopeValue." + (i + 1) , scopeValues.get(i));
+			}
+		}	
+	}
+
 	public Long getRecordingFps() {
 		return this.recordingFps;
 	}
@@ -407,6 +514,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		this.recordingFps = recordingFps;
 		if(recordingFps != null){
 			putQueryParameter("RecordingFps", recordingFps.toString());
+		}
+	}
+
+	public String getWatermarkFontStyle() {
+		return this.watermarkFontStyle;
+	}
+
+	public void setWatermarkFontStyle(String watermarkFontStyle) {
+		this.watermarkFontStyle = watermarkFontStyle;
+		if(watermarkFontStyle != null){
+			putQueryParameter("WatermarkFontStyle", watermarkFontStyle);
 		}
 	}
 
@@ -421,6 +539,50 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		}
 	}
 
+	public String getScope() {
+		return this.scope;
+	}
+
+	public void setScope(String scope) {
+		this.scope = scope;
+		if(scope != null){
+			putQueryParameter("Scope", scope);
+		}
+	}
+
+	public Integer getWatermarkRowAmount() {
+		return this.watermarkRowAmount;
+	}
+
+	public void setWatermarkRowAmount(Integer watermarkRowAmount) {
+		this.watermarkRowAmount = watermarkRowAmount;
+		if(watermarkRowAmount != null){
+			putQueryParameter("WatermarkRowAmount", watermarkRowAmount.toString());
+		}
+	}
+
+	public String getEndUserGroupCoordinate() {
+		return this.endUserGroupCoordinate;
+	}
+
+	public void setEndUserGroupCoordinate(String endUserGroupCoordinate) {
+		this.endUserGroupCoordinate = endUserGroupCoordinate;
+		if(endUserGroupCoordinate != null){
+			putQueryParameter("EndUserGroupCoordinate", endUserGroupCoordinate);
+		}
+	}
+
+	public Double getWatermarkDegree() {
+		return this.watermarkDegree;
+	}
+
+	public void setWatermarkDegree(Double watermarkDegree) {
+		this.watermarkDegree = watermarkDegree;
+		if(watermarkDegree != null){
+			putQueryParameter("WatermarkDegree", watermarkDegree.toString());
+		}
+	}
+
 	public Long getRecordContentExpires() {
 		return this.recordContentExpires;
 	}
@@ -429,6 +591,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		this.recordContentExpires = recordContentExpires;
 		if(recordContentExpires != null){
 			putQueryParameter("RecordContentExpires", recordContentExpires.toString());
+		}
+	}
+
+	public String getRecordingAudio() {
+		return this.recordingAudio;
+	}
+
+	public void setRecordingAudio(String recordingAudio) {
+		this.recordingAudio = recordingAudio;
+		if(recordingAudio != null){
+			putQueryParameter("RecordingAudio", recordingAudio);
 		}
 	}
 
@@ -495,6 +668,17 @@ public class ModifyPolicyGroupRequest extends RpcAcsRequest<ModifyPolicyGroupRes
 		this.recordingEndTime = recordingEndTime;
 		if(recordingEndTime != null){
 			putQueryParameter("RecordingEndTime", recordingEndTime);
+		}
+	}
+
+	public String getInternetCommunicationProtocol() {
+		return this.internetCommunicationProtocol;
+	}
+
+	public void setInternetCommunicationProtocol(String internetCommunicationProtocol) {
+		this.internetCommunicationProtocol = internetCommunicationProtocol;
+		if(internetCommunicationProtocol != null){
+			putQueryParameter("InternetCommunicationProtocol", internetCommunicationProtocol);
 		}
 	}
 

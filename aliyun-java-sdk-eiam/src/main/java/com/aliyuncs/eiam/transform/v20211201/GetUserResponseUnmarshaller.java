@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.aliyuncs.eiam.model.v20211201.GetUserResponse;
 import com.aliyuncs.eiam.model.v20211201.GetUserResponse.User;
+import com.aliyuncs.eiam.model.v20211201.GetUserResponse.User.CustomField;
 import com.aliyuncs.eiam.model.v20211201.GetUserResponse.User.OrganizationalUnit;
 import java.util.Map;
 import com.aliyuncs.transform.UnmarshallerContext;
@@ -59,6 +60,7 @@ public class GetUserResponseUnmarshaller {
 		user.setLocked(_ctx.booleanValue("GetUserResponse.User.Locked"));
 		user.setPrimaryOrganizationalUnitId(_ctx.stringValue("GetUserResponse.User.PrimaryOrganizationalUnitId"));
 		user.setExtensionAttributes(_ctx.mapValue("GetUserResponse.User.ExtensionAttributes"));
+		user.setPasswordExpireTime(_ctx.longValue("GetUserResponse.User.PasswordExpireTime"));
 
 		List<OrganizationalUnit> organizationalUnits = new ArrayList<OrganizationalUnit>();
 		for (int i = 0; i < _ctx.lengthValue("GetUserResponse.User.OrganizationalUnits.Length"); i++) {
@@ -71,6 +73,16 @@ public class GetUserResponseUnmarshaller {
 			organizationalUnits.add(organizationalUnit);
 		}
 		user.setOrganizationalUnits(organizationalUnits);
+
+		List<CustomField> customFields = new ArrayList<CustomField>();
+		for (int i = 0; i < _ctx.lengthValue("GetUserResponse.User.CustomFields.Length"); i++) {
+			CustomField customField = new CustomField();
+			customField.setFieldName(_ctx.stringValue("GetUserResponse.User.CustomFields["+ i +"].FieldName"));
+			customField.setFieldValue(_ctx.stringValue("GetUserResponse.User.CustomFields["+ i +"].FieldValue"));
+
+			customFields.add(customField);
+		}
+		user.setCustomFields(customFields);
 		getUserResponse.setUser(user);
 	 
 	 	return getUserResponse;

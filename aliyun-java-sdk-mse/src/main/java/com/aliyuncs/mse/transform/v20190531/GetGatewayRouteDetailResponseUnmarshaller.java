@@ -65,6 +65,7 @@ public class GetGatewayRouteDetailResponseUnmarshaller {
 		data.setEnableWaf(_ctx.booleanValue("GetGatewayRouteDetailResponse.Data.EnableWaf"));
 		data.setAhasStatus(_ctx.integerValue("GetGatewayRouteDetailResponse.Data.AhasStatus"));
 		data.setFallback(_ctx.booleanValue("GetGatewayRouteDetailResponse.Data.Fallback"));
+		data.setPolicies(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.Policies"));
 
 		List<Long> domainIdList = new ArrayList<Long>();
 		for (int i = 0; i < _ctx.lengthValue("GetGatewayRouteDetailResponse.Data.DomainIdList.Length"); i++) {
@@ -197,6 +198,7 @@ public class GetGatewayRouteDetailResponseUnmarshaller {
 			routeServicesItem.setNamespace(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.RouteServices["+ i +"].Namespace"));
 			routeServicesItem.setGroupName(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.RouteServices["+ i +"].GroupName"));
 			routeServicesItem.setAgreementType(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.RouteServices["+ i +"].AgreementType"));
+			routeServicesItem.setServicePort(_ctx.integerValue("GetGatewayRouteDetailResponse.Data.RouteServices["+ i +"].ServicePort"));
 
 			routeServices.add(routeServicesItem);
 		}
@@ -214,6 +216,7 @@ public class GetGatewayRouteDetailResponseUnmarshaller {
 			fallbackServicesItem.setNamespace(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.FallbackServices["+ i +"].Namespace"));
 			fallbackServicesItem.setGroupName(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.FallbackServices["+ i +"].GroupName"));
 			fallbackServicesItem.setAgreementType(_ctx.stringValue("GetGatewayRouteDetailResponse.Data.FallbackServices["+ i +"].AgreementType"));
+			fallbackServicesItem.setServicePort(_ctx.integerValue("GetGatewayRouteDetailResponse.Data.FallbackServices["+ i +"].ServicePort"));
 
 			fallbackServices.add(fallbackServicesItem);
 		}

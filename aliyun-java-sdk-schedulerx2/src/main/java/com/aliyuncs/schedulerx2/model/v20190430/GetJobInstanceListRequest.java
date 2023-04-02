@@ -29,9 +29,15 @@ public class GetJobInstanceListRequest extends RpcAcsRequest<GetJobInstanceListR
 
 	private String groupId;
 
+	private Long startTimestamp;
+
+	private Long endTimestamp;
+
 	private Long jobId;
 
 	private String namespace;
+
+	private Integer status;
 	public GetJobInstanceListRequest() {
 		super("schedulerx2", "2019-04-30", "GetJobInstanceList");
 		setMethod(MethodType.GET);
@@ -63,6 +69,28 @@ public class GetJobInstanceListRequest extends RpcAcsRequest<GetJobInstanceListR
 		}
 	}
 
+	public Long getStartTimestamp() {
+		return this.startTimestamp;
+	}
+
+	public void setStartTimestamp(Long startTimestamp) {
+		this.startTimestamp = startTimestamp;
+		if(startTimestamp != null){
+			putQueryParameter("StartTimestamp", startTimestamp.toString());
+		}
+	}
+
+	public Long getEndTimestamp() {
+		return this.endTimestamp;
+	}
+
+	public void setEndTimestamp(Long endTimestamp) {
+		this.endTimestamp = endTimestamp;
+		if(endTimestamp != null){
+			putQueryParameter("EndTimestamp", endTimestamp.toString());
+		}
+	}
+
 	public Long getJobId() {
 		return this.jobId;
 	}
@@ -82,6 +110,17 @@ public class GetJobInstanceListRequest extends RpcAcsRequest<GetJobInstanceListR
 		this.namespace = namespace;
 		if(namespace != null){
 			putQueryParameter("Namespace", namespace);
+		}
+	}
+
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status.toString());
 		}
 	}
 

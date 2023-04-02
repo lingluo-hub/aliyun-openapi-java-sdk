@@ -28,6 +28,8 @@ import com.aliyuncs.config.Endpoint;
 public class CreateCompliancePackRequest extends RpcAcsRequest<CreateCompliancePackResponse> {
 	   
 
+	private String tagKeyScope;
+
 	private String compliancePackName;
 
 	private String clientToken;
@@ -36,10 +38,20 @@ public class CreateCompliancePackRequest extends RpcAcsRequest<CreateComplianceP
 
 	private String description;
 
+	private String tagValueScope;
+
+	private String regionIdsScope;
+
+	private Boolean defaultEnable;
+
 	@SerializedName("configRules")
 	private List<ConfigRules> configRules;
 
 	private Integer riskLevel;
+
+	private String resourceGroupIdsScope;
+
+	private String excludeResourceIdsScope;
 	public CreateCompliancePackRequest() {
 		super("Config", "2020-09-07", "CreateCompliancePack");
 		setMethod(MethodType.POST);
@@ -47,6 +59,17 @@ public class CreateCompliancePackRequest extends RpcAcsRequest<CreateComplianceP
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getTagKeyScope() {
+		return this.tagKeyScope;
+	}
+
+	public void setTagKeyScope(String tagKeyScope) {
+		this.tagKeyScope = tagKeyScope;
+		if(tagKeyScope != null){
+			putBodyParameter("TagKeyScope", tagKeyScope);
+		}
 	}
 
 	public String getCompliancePackName() {
@@ -93,6 +116,39 @@ public class CreateCompliancePackRequest extends RpcAcsRequest<CreateComplianceP
 		}
 	}
 
+	public String getTagValueScope() {
+		return this.tagValueScope;
+	}
+
+	public void setTagValueScope(String tagValueScope) {
+		this.tagValueScope = tagValueScope;
+		if(tagValueScope != null){
+			putBodyParameter("TagValueScope", tagValueScope);
+		}
+	}
+
+	public String getRegionIdsScope() {
+		return this.regionIdsScope;
+	}
+
+	public void setRegionIdsScope(String regionIdsScope) {
+		this.regionIdsScope = regionIdsScope;
+		if(regionIdsScope != null){
+			putBodyParameter("RegionIdsScope", regionIdsScope);
+		}
+	}
+
+	public Boolean getDefaultEnable() {
+		return this.defaultEnable;
+	}
+
+	public void setDefaultEnable(Boolean defaultEnable) {
+		this.defaultEnable = defaultEnable;
+		if(defaultEnable != null){
+			putBodyParameter("DefaultEnable", defaultEnable.toString());
+		}
+	}
+
 	public List<ConfigRules> getConfigRules() {
 		return this.configRules;
 	}
@@ -112,6 +168,28 @@ public class CreateCompliancePackRequest extends RpcAcsRequest<CreateComplianceP
 		this.riskLevel = riskLevel;
 		if(riskLevel != null){
 			putBodyParameter("RiskLevel", riskLevel.toString());
+		}
+	}
+
+	public String getResourceGroupIdsScope() {
+		return this.resourceGroupIdsScope;
+	}
+
+	public void setResourceGroupIdsScope(String resourceGroupIdsScope) {
+		this.resourceGroupIdsScope = resourceGroupIdsScope;
+		if(resourceGroupIdsScope != null){
+			putBodyParameter("ResourceGroupIdsScope", resourceGroupIdsScope);
+		}
+	}
+
+	public String getExcludeResourceIdsScope() {
+		return this.excludeResourceIdsScope;
+	}
+
+	public void setExcludeResourceIdsScope(String excludeResourceIdsScope) {
+		this.excludeResourceIdsScope = excludeResourceIdsScope;
+		if(excludeResourceIdsScope != null){
+			putBodyParameter("ExcludeResourceIdsScope", excludeResourceIdsScope);
 		}
 	}
 

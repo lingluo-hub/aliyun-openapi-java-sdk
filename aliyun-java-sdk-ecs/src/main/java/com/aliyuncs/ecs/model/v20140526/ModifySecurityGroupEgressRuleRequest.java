@@ -66,8 +66,10 @@ public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySe
 	private String destCidrIp;
 
 	private Long destGroupOwnerId;
+
+	private String securityGroupRuleId;
 	public ModifySecurityGroupEgressRuleRequest() {
-		super("Ecs", "2014-05-26", "ModifySecurityGroupEgressRule");
+		super("Ecs", "2014-05-26", "ModifySecurityGroupEgressRule", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -303,6 +305,17 @@ public class ModifySecurityGroupEgressRuleRequest extends RpcAcsRequest<ModifySe
 		this.destGroupOwnerId = destGroupOwnerId;
 		if(destGroupOwnerId != null){
 			putQueryParameter("DestGroupOwnerId", destGroupOwnerId.toString());
+		}
+	}
+
+	public String getSecurityGroupRuleId() {
+		return this.securityGroupRuleId;
+	}
+
+	public void setSecurityGroupRuleId(String securityGroupRuleId) {
+		this.securityGroupRuleId = securityGroupRuleId;
+		if(securityGroupRuleId != null){
+			putQueryParameter("SecurityGroupRuleId", securityGroupRuleId);
 		}
 	}
 

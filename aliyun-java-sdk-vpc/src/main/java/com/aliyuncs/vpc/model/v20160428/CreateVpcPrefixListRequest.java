@@ -26,15 +26,17 @@ import com.aliyuncs.vpc.Endpoint;
 public class CreateVpcPrefixListRequest extends RpcAcsRequest<CreateVpcPrefixListResponse> {
 	   
 
-	private List<PrefixListEntrys> prefixListEntryss;
-
 	private Long resourceOwnerId;
 
 	private String clientToken;
 
 	private Integer maxEntries;
 
+	private String resourceGroupId;
+
 	private String ipVersion;
+
+	private List<PrefixListEntries> prefixListEntriess;
 
 	private Boolean dryRun;
 
@@ -54,20 +56,6 @@ public class CreateVpcPrefixListRequest extends RpcAcsRequest<CreateVpcPrefixLis
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public List<PrefixListEntrys> getPrefixListEntryss() {
-		return this.prefixListEntryss;
-	}
-
-	public void setPrefixListEntryss(List<PrefixListEntrys> prefixListEntryss) {
-		this.prefixListEntryss = prefixListEntryss;	
-		if (prefixListEntryss != null) {
-			for (int depth1 = 0; depth1 < prefixListEntryss.size(); depth1++) {
-				putQueryParameter("PrefixListEntrys." + (depth1 + 1) + ".Cidr" , prefixListEntryss.get(depth1).getCidr());
-				putQueryParameter("PrefixListEntrys." + (depth1 + 1) + ".Description" , prefixListEntryss.get(depth1).getDescription());
-			}
-		}	
 	}
 
 	public Long getResourceOwnerId() {
@@ -103,6 +91,17 @@ public class CreateVpcPrefixListRequest extends RpcAcsRequest<CreateVpcPrefixLis
 		}
 	}
 
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
+	}
+
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
 	public String getIpVersion() {
 		return this.ipVersion;
 	}
@@ -112,6 +111,20 @@ public class CreateVpcPrefixListRequest extends RpcAcsRequest<CreateVpcPrefixLis
 		if(ipVersion != null){
 			putQueryParameter("IpVersion", ipVersion);
 		}
+	}
+
+	public List<PrefixListEntries> getPrefixListEntriess() {
+		return this.prefixListEntriess;
+	}
+
+	public void setPrefixListEntriess(List<PrefixListEntries> prefixListEntriess) {
+		this.prefixListEntriess = prefixListEntriess;	
+		if (prefixListEntriess != null) {
+			for (int depth1 = 0; depth1 < prefixListEntriess.size(); depth1++) {
+				putQueryParameter("PrefixListEntries." + (depth1 + 1) + ".Cidr" , prefixListEntriess.get(depth1).getCidr());
+				putQueryParameter("PrefixListEntries." + (depth1 + 1) + ".Description" , prefixListEntriess.get(depth1).getDescription());
+			}
+		}	
 	}
 
 	public Boolean getDryRun() {
@@ -180,7 +193,7 @@ public class CreateVpcPrefixListRequest extends RpcAcsRequest<CreateVpcPrefixLis
 		}
 	}
 
-	public static class PrefixListEntrys {
+	public static class PrefixListEntries {
 
 		private String cidr;
 

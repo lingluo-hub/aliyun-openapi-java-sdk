@@ -1,3 +1,19 @@
+2023-03-23 Version: 1.0.15
+- Fix some bugs.
+- Support PathLenConstraint and ExtendedKeyUsages.
+
+2023-02-13 Version: 1.0.14
+- Fix some bugs.
+
+2022-11-29 Version: 1.0.13
+- Fix some bugs.
+
+2022-11-24 Version: 1.0.12
+- Support deleteCertificate.
+
+2022-11-17 Version: 1.0.11
+- Support GetCertWarehouseQuota.
+
 2022-11-07 Version: 1.0.9
 - Support encrypt and decrypt.
 

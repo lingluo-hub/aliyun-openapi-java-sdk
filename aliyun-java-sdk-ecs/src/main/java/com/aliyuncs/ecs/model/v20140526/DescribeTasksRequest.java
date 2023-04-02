@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.ecs.Endpoint;
 
@@ -46,8 +47,10 @@ public class DescribeTasksRequest extends RpcAcsRequest<DescribeTasksResponse> {
 	private Long ownerId;
 
 	private String taskAction;
+
+	private List<String> resourceIdss;
 	public DescribeTasksRequest() {
-		super("Ecs", "2014-05-26", "DescribeTasks");
+		super("Ecs", "2014-05-26", "DescribeTasks", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -174,6 +177,19 @@ public class DescribeTasksRequest extends RpcAcsRequest<DescribeTasksResponse> {
 		if(taskAction != null){
 			putQueryParameter("TaskAction", taskAction);
 		}
+	}
+
+	public List<String> getResourceIdss() {
+		return this.resourceIdss;
+	}
+
+	public void setResourceIdss(List<String> resourceIdss) {
+		this.resourceIdss = resourceIdss;	
+		if (resourceIdss != null) {
+			for (int i = 0; i < resourceIdss.size(); i++) {
+				putQueryParameter("ResourceIds." + (i + 1) , resourceIdss.get(i));
+			}
+		}	
 	}
 
 	@Override

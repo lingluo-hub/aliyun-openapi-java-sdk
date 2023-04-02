@@ -1,3 +1,21 @@
+2023-01-12 Version: 1.1.10
+- Add PostPay Basic Ga.
+
+2023-01-05 Version: 1.1.9
+- Update sdk.
+
+2022-12-09 Version: 1.1.8
+- Update sdk.
+
+2022-12-06 Version: 1.1.7
+- Tags for endpoint groups.
+
+2022-12-06 Version: 1.1.6
+- Basic endpoint support NLB.
+
+2022-11-15 Version: 1.1.5
+- Update ReplaceBandwidthPackage Api.
+
 2022-11-03 Version: 1.1.4
 - Update Api, add resource group id and tag.
 

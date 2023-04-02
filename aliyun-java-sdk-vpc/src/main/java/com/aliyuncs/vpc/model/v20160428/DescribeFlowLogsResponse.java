@@ -113,6 +113,14 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 
 		private Integer aggregationInterval;
 
+		private String serviceType;
+
+		private String resourceGroupId;
+
+		private List<Tag> tags;
+
+		private List<String> trafficPath;
+
 		public String getStatus() {
 			return this.status;
 		}
@@ -215,6 +223,61 @@ public class DescribeFlowLogsResponse extends AcsResponse {
 
 		public void setAggregationInterval(Integer aggregationInterval) {
 			this.aggregationInterval = aggregationInterval;
+		}
+
+		public String getServiceType() {
+			return this.serviceType;
+		}
+
+		public void setServiceType(String serviceType) {
+			this.serviceType = serviceType;
+		}
+
+		public String getResourceGroupId() {
+			return this.resourceGroupId;
+		}
+
+		public void setResourceGroupId(String resourceGroupId) {
+			this.resourceGroupId = resourceGroupId;
+		}
+
+		public List<Tag> getTags() {
+			return this.tags;
+		}
+
+		public void setTags(List<Tag> tags) {
+			this.tags = tags;
+		}
+
+		public List<String> getTrafficPath() {
+			return this.trafficPath;
+		}
+
+		public void setTrafficPath(List<String> trafficPath) {
+			this.trafficPath = trafficPath;
+		}
+
+		public static class Tag {
+
+			private String key;
+
+			private String value;
+
+			public String getKey() {
+				return this.key;
+			}
+
+			public void setKey(String key) {
+				this.key = key;
+			}
+
+			public String getValue() {
+				return this.value;
+			}
+
+			public void setValue(String value) {
+				this.value = value;
+			}
 		}
 	}
 

@@ -25,8 +25,6 @@ import com.aliyuncs.mse.Endpoint;
 public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<CreateOrUpdateSwimmingLaneGroupResponse> {
 	   
 
-	private String mseSessionId;
-
 	private String source;
 
 	private String gmtModified;
@@ -39,17 +37,23 @@ public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<Create
 
 	private Boolean messageQueueGrayEnable;
 
+	private Boolean dbGrayEnable;
+
 	private Boolean enable;
 
 	private String entryApp;
 
 	private Long id;
 
+	private Boolean recordCanaryDetail;
+
 	private String gmtCreate;
 
 	private String name;
 
 	private String messageQueueFilterSide;
+
+	private String namespace;
 
 	private String acceptLanguage;
 
@@ -63,17 +67,6 @@ public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<Create
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getMseSessionId() {
-		return this.mseSessionId;
-	}
-
-	public void setMseSessionId(String mseSessionId) {
-		this.mseSessionId = mseSessionId;
-		if(mseSessionId != null){
-			putQueryParameter("MseSessionId", mseSessionId);
-		}
 	}
 
 	public String getSource() {
@@ -142,6 +135,17 @@ public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<Create
 		}
 	}
 
+	public Boolean getDbGrayEnable() {
+		return this.dbGrayEnable;
+	}
+
+	public void setDbGrayEnable(Boolean dbGrayEnable) {
+		this.dbGrayEnable = dbGrayEnable;
+		if(dbGrayEnable != null){
+			putQueryParameter("DbGrayEnable", dbGrayEnable.toString());
+		}
+	}
+
 	public Boolean getEnable() {
 		return this.enable;
 	}
@@ -175,6 +179,17 @@ public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<Create
 		}
 	}
 
+	public Boolean getRecordCanaryDetail() {
+		return this.recordCanaryDetail;
+	}
+
+	public void setRecordCanaryDetail(Boolean recordCanaryDetail) {
+		this.recordCanaryDetail = recordCanaryDetail;
+		if(recordCanaryDetail != null){
+			putQueryParameter("RecordCanaryDetail", recordCanaryDetail.toString());
+		}
+	}
+
 	public String getGmtCreate() {
 		return this.gmtCreate;
 	}
@@ -205,6 +220,17 @@ public class CreateOrUpdateSwimmingLaneGroupRequest extends RpcAcsRequest<Create
 		this.messageQueueFilterSide = messageQueueFilterSide;
 		if(messageQueueFilterSide != null){
 			putQueryParameter("MessageQueueFilterSide", messageQueueFilterSide);
+		}
+	}
+
+	public String getNamespace() {
+		return this.namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+		if(namespace != null){
+			putQueryParameter("Namespace", namespace);
 		}
 	}
 

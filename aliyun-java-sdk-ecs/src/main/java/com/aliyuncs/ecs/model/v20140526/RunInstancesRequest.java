@@ -44,6 +44,8 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 
 	private SystemDisk systemDisk;
 
+	private ImageOptions imageOptions;
+
 	private Integer deploymentSetGroupNo;
 
 	private String systemDiskAutoSnapshotPolicyId;
@@ -103,6 +105,8 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 	private Integer spotDuration;
 
 	private List<String> securityGroupIdss;
+
+	private NetworkOptions networkOptions;
 
 	private String systemDiskSize;
 
@@ -190,7 +194,7 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 
 	private String systemDiskDescription;
 	public RunInstancesRequest() {
-		super("Ecs", "2014-05-26", "RunInstances");
+		super("Ecs", "2014-05-26", "RunInstances", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -300,6 +304,18 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 				putQueryParameter("SystemDisk.Encrypted" , systemDisk.getEncrypted());
 				putQueryParameter("SystemDisk.KMSKeyId" , systemDisk.getKMSKeyId());
 				putQueryParameter("SystemDisk.EncryptAlgorithm" , systemDisk.getEncryptAlgorithm());
+		}	
+	}
+
+	public ImageOptions getImageOptions() {
+		return this.imageOptions;
+	}
+
+	public void setImageOptions(ImageOptions imageOptions) {
+		this.imageOptions = imageOptions;	
+		if (imageOptions != null) {
+			
+				putQueryParameter("ImageOptions.LoginAsNonRoot" , imageOptions.getLoginAsNonRoot());
 		}	
 	}
 
@@ -636,6 +652,18 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 			for (int i = 0; i < securityGroupIdss.size(); i++) {
 				putQueryParameter("SecurityGroupIds." + (i + 1) , securityGroupIdss.get(i));
 			}
+		}	
+	}
+
+	public NetworkOptions getNetworkOptions() {
+		return this.networkOptions;
+	}
+
+	public void setNetworkOptions(NetworkOptions networkOptions) {
+		this.networkOptions = networkOptions;	
+		if (networkOptions != null) {
+			
+				putQueryParameter("NetworkOptions.EnableJumboFrame" , networkOptions.getEnableJumboFrame());
 		}	
 	}
 
@@ -1015,6 +1043,7 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 						putQueryParameter("NetworkInterface." + (depth1 + 1) + ".Ipv6Address." + (i + 1) , networkInterfaces.get(depth1).getIpv6Addresss().get(i));
 					}
 				}
+				putQueryParameter("NetworkInterface." + (depth1 + 1) + ".NetworkCardIndex" , networkInterfaces.get(depth1).getNetworkCardIndex());
 			}
 		}	
 	}
@@ -1219,6 +1248,19 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 		}
 	}
 
+	public static class ImageOptions {
+
+		private Boolean loginAsNonRoot;
+
+		public Boolean getLoginAsNonRoot() {
+			return this.loginAsNonRoot;
+		}
+
+		public void setLoginAsNonRoot(Boolean loginAsNonRoot) {
+			this.loginAsNonRoot = loginAsNonRoot;
+		}
+	}
+
 	public static class Arn {
 
 		private String roleType;
@@ -1249,6 +1291,19 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 
 		public void setAssumeRoleFor(Long assumeRoleFor) {
 			this.assumeRoleFor = assumeRoleFor;
+		}
+	}
+
+	public static class NetworkOptions {
+
+		private Boolean enableJumboFrame;
+
+		public Boolean getEnableJumboFrame() {
+			return this.enableJumboFrame;
+		}
+
+		public void setEnableJumboFrame(Boolean enableJumboFrame) {
+			this.enableJumboFrame = enableJumboFrame;
 		}
 	}
 
@@ -1300,6 +1355,8 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 		private Long ipv6AddressCount;
 
 		private List<String> ipv6Addresss;
+
+		private Integer networkCardIndex;
 
 		public String getVSwitchId() {
 			return this.vSwitchId;
@@ -1395,6 +1452,14 @@ public class RunInstancesRequest extends RpcAcsRequest<RunInstancesResponse> {
 
 		public void setIpv6Addresss(List<String> ipv6Addresss) {
 			this.ipv6Addresss = ipv6Addresss;
+		}
+
+		public Integer getNetworkCardIndex() {
+			return this.networkCardIndex;
+		}
+
+		public void setNetworkCardIndex(Integer networkCardIndex) {
+			this.networkCardIndex = networkCardIndex;
 		}
 	}
 

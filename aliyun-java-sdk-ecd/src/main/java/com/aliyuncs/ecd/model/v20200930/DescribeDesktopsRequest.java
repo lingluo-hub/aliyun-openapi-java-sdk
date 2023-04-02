@@ -28,9 +28,17 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 
 	private String officeSiteId;
 
+	private String snapshotPolicyId;
+
+	private List<String> imageIds;
+
 	private String desktopStatus;
 
+	private String desktopGroupId;
+
 	private String nextToken;
+
+	private Boolean onlyDesktopGroup;
 
 	private Boolean queryFotaUpdate;
 
@@ -41,6 +49,8 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 	private List<String> desktopIds;
 
 	private List<Tag> tags;
+
+	private String desktopType;
 
 	private String desktopName;
 
@@ -57,6 +67,8 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 	private String expiredTime;
 
 	private Integer maxResults;
+
+	private List<String> osTypess;
 
 	private String protocolType;
 
@@ -85,6 +97,30 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 		}
 	}
 
+	public String getSnapshotPolicyId() {
+		return this.snapshotPolicyId;
+	}
+
+	public void setSnapshotPolicyId(String snapshotPolicyId) {
+		this.snapshotPolicyId = snapshotPolicyId;
+		if(snapshotPolicyId != null){
+			putQueryParameter("SnapshotPolicyId", snapshotPolicyId);
+		}
+	}
+
+	public List<String> getImageIds() {
+		return this.imageIds;
+	}
+
+	public void setImageIds(List<String> imageIds) {
+		this.imageIds = imageIds;	
+		if (imageIds != null) {
+			for (int i = 0; i < imageIds.size(); i++) {
+				putQueryParameter("ImageId." + (i + 1) , imageIds.get(i));
+			}
+		}	
+	}
+
 	public String getDesktopStatus() {
 		return this.desktopStatus;
 	}
@@ -96,6 +132,17 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 		}
 	}
 
+	public String getDesktopGroupId() {
+		return this.desktopGroupId;
+	}
+
+	public void setDesktopGroupId(String desktopGroupId) {
+		this.desktopGroupId = desktopGroupId;
+		if(desktopGroupId != null){
+			putQueryParameter("DesktopGroupId", desktopGroupId);
+		}
+	}
+
 	public String getNextToken() {
 		return this.nextToken;
 	}
@@ -104,6 +151,17 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 		this.nextToken = nextToken;
 		if(nextToken != null){
 			putQueryParameter("NextToken", nextToken);
+		}
+	}
+
+	public Boolean getOnlyDesktopGroup() {
+		return this.onlyDesktopGroup;
+	}
+
+	public void setOnlyDesktopGroup(Boolean onlyDesktopGroup) {
+		this.onlyDesktopGroup = onlyDesktopGroup;
+		if(onlyDesktopGroup != null){
+			putQueryParameter("OnlyDesktopGroup", onlyDesktopGroup.toString());
 		}
 	}
 
@@ -167,6 +225,17 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tags.get(depth1).getKey());
 			}
 		}	
+	}
+
+	public String getDesktopType() {
+		return this.desktopType;
+	}
+
+	public void setDesktopType(String desktopType) {
+		this.desktopType = desktopType;
+		if(desktopType != null){
+			putQueryParameter("DesktopType", desktopType);
+		}
 	}
 
 	public String getDesktopName() {
@@ -257,6 +326,19 @@ public class DescribeDesktopsRequest extends RpcAcsRequest<DescribeDesktopsRespo
 		if(maxResults != null){
 			putQueryParameter("MaxResults", maxResults.toString());
 		}
+	}
+
+	public List<String> getOsTypess() {
+		return this.osTypess;
+	}
+
+	public void setOsTypess(List<String> osTypess) {
+		this.osTypess = osTypess;	
+		if (osTypess != null) {
+			for (int i = 0; i < osTypess.size(); i++) {
+				putQueryParameter("OsTypes." + (i + 1) , osTypess.get(i));
+			}
+		}	
 	}
 
 	public String getProtocolType() {

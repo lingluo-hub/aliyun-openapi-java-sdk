@@ -37,11 +37,13 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 
 	private Long ownerId;
 
+	private Integer networkCardIndex;
+
 	private String instanceId;
 
 	private String networkInterfaceId;
 	public AttachNetworkInterfaceRequest() {
-		super("Ecs", "2014-05-26", "AttachNetworkInterface");
+		super("Ecs", "2014-05-26", "AttachNetworkInterface", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -112,6 +114,17 @@ public class AttachNetworkInterfaceRequest extends RpcAcsRequest<AttachNetworkIn
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public Integer getNetworkCardIndex() {
+		return this.networkCardIndex;
+	}
+
+	public void setNetworkCardIndex(Integer networkCardIndex) {
+		this.networkCardIndex = networkCardIndex;
+		if(networkCardIndex != null){
+			putQueryParameter("NetworkCardIndex", networkCardIndex.toString());
 		}
 	}
 

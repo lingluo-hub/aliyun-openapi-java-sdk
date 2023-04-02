@@ -33,6 +33,8 @@ public class RRpcRequest extends RpcAcsRequest<RRpcResponse> {
 
 	private String productKey;
 
+	private String contentType;
+
 	private String topic;
 
 	private String deviceName;
@@ -86,6 +88,17 @@ public class RRpcRequest extends RpcAcsRequest<RRpcResponse> {
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getContentType() {
+		return this.contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+		if(contentType != null){
+			putQueryParameter("ContentType", contentType);
 		}
 	}
 

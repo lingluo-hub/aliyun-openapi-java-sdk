@@ -30,7 +30,7 @@ public class GetVideoTaskInfoResponse extends AcsResponse {
 
 	private String message;
 
-	private String success;
+	private Boolean success;
 
 	private Data data;
 
@@ -58,11 +58,11 @@ public class GetVideoTaskInfoResponse extends AcsResponse {
 		this.message = message;
 	}
 
-	public String getSuccess() {
+	public Boolean getSuccess() {
 		return this.success;
 	}
 
-	public void setSuccess(String success) {
+	public void setSuccess(Boolean success) {
 		this.success = success;
 	}
 
@@ -132,7 +132,11 @@ public class GetVideoTaskInfoResponse extends AcsResponse {
 
 			private String subtitlesUrl;
 
+			private String wordSubtitlesUrl;
+
 			private String failReason;
+
+			private String failCode;
 
 			public String getVideoUrl() {
 				return this.videoUrl;
@@ -150,12 +154,28 @@ public class GetVideoTaskInfoResponse extends AcsResponse {
 				this.subtitlesUrl = subtitlesUrl;
 			}
 
+			public String getWordSubtitlesUrl() {
+				return this.wordSubtitlesUrl;
+			}
+
+			public void setWordSubtitlesUrl(String wordSubtitlesUrl) {
+				this.wordSubtitlesUrl = wordSubtitlesUrl;
+			}
+
 			public String getFailReason() {
 				return this.failReason;
 			}
 
 			public void setFailReason(String failReason) {
 				this.failReason = failReason;
+			}
+
+			public String getFailCode() {
+				return this.failCode;
+			}
+
+			public void setFailCode(String failCode) {
+				this.failCode = failCode;
 			}
 		}
 	}

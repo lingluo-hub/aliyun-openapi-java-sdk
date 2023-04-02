@@ -31,27 +31,33 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 
 	private String ossAkSecret;
 
+	private String nasConfigs;
+
 	private String mountHost;
 
 	private Integer batchWaitTime;
 
 	private String envs;
 
-	private String kafkaInstanceId;
-
 	private String phpArmsConfigLocation;
 
 	private String customHostAlias;
 
+	private String deploy;
+
 	private String jarStartOptions;
+
+	private String pvtzDiscoverySvc;
 
 	private String configMapMountDesc;
 
 	private String ossMountDescs;
 
-	private String kafkaEndpoint;
+	private String imagePullSecrets;
 
 	private String preStop;
+
+	private String python;
 
 	private String updateStrategy;
 
@@ -60,6 +66,8 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 	private Integer minReadyInstanceRatio;
 
 	private Boolean autoEnableApplicationScalingRule;
+
+	private String packageType;
 
 	private String postStart;
 
@@ -72,8 +80,6 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 	private String slsConfigs;
 
 	private String kafkaConfigs;
-
-	private Boolean openCollectToKafka;
 
 	private String commandArgs;
 
@@ -101,6 +107,8 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 
 	private String phpConfig;
 
+	private String microRegistration;
+
 	private Boolean enableGreyTagRoute;
 
 	private String command;
@@ -111,13 +119,13 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 
 	private Integer minReadyInstances;
 
-	private String kafkaLogfileConfig;
-
 	private String acrInstanceId;
 
 	private String appId;
 
 	private String imageUrl;
+
+	private String pythonModules;
 
 	private String phpConfigLocation;
 	public DeployApplicationRequest() {
@@ -163,6 +171,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
+	public String getNasConfigs() {
+		return this.nasConfigs;
+	}
+
+	public void setNasConfigs(String nasConfigs) {
+		this.nasConfigs = nasConfigs;
+		if(nasConfigs != null){
+			putQueryParameter("NasConfigs", nasConfigs);
+		}
+	}
+
 	public String getMountHost() {
 		return this.mountHost;
 	}
@@ -196,17 +215,6 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
-	public String getKafkaInstanceId() {
-		return this.kafkaInstanceId;
-	}
-
-	public void setKafkaInstanceId(String kafkaInstanceId) {
-		this.kafkaInstanceId = kafkaInstanceId;
-		if(kafkaInstanceId != null){
-			putQueryParameter("KafkaInstanceId", kafkaInstanceId);
-		}
-	}
-
 	public String getPhpArmsConfigLocation() {
 		return this.phpArmsConfigLocation;
 	}
@@ -229,6 +237,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
+	public String getDeploy() {
+		return this.deploy;
+	}
+
+	public void setDeploy(String deploy) {
+		this.deploy = deploy;
+		if(deploy != null){
+			putQueryParameter("Deploy", deploy);
+		}
+	}
+
 	public String getJarStartOptions() {
 		return this.jarStartOptions;
 	}
@@ -237,6 +256,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		this.jarStartOptions = jarStartOptions;
 		if(jarStartOptions != null){
 			putQueryParameter("JarStartOptions", jarStartOptions);
+		}
+	}
+
+	public String getPvtzDiscoverySvc() {
+		return this.pvtzDiscoverySvc;
+	}
+
+	public void setPvtzDiscoverySvc(String pvtzDiscoverySvc) {
+		this.pvtzDiscoverySvc = pvtzDiscoverySvc;
+		if(pvtzDiscoverySvc != null){
+			putQueryParameter("PvtzDiscoverySvc", pvtzDiscoverySvc);
 		}
 	}
 
@@ -262,14 +292,14 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
-	public String getKafkaEndpoint() {
-		return this.kafkaEndpoint;
+	public String getImagePullSecrets() {
+		return this.imagePullSecrets;
 	}
 
-	public void setKafkaEndpoint(String kafkaEndpoint) {
-		this.kafkaEndpoint = kafkaEndpoint;
-		if(kafkaEndpoint != null){
-			putQueryParameter("KafkaEndpoint", kafkaEndpoint);
+	public void setImagePullSecrets(String imagePullSecrets) {
+		this.imagePullSecrets = imagePullSecrets;
+		if(imagePullSecrets != null){
+			putQueryParameter("ImagePullSecrets", imagePullSecrets);
 		}
 	}
 
@@ -281,6 +311,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		this.preStop = preStop;
 		if(preStop != null){
 			putQueryParameter("PreStop", preStop);
+		}
+	}
+
+	public String getPython() {
+		return this.python;
+	}
+
+	public void setPython(String python) {
+		this.python = python;
+		if(python != null){
+			putQueryParameter("Python", python);
 		}
 	}
 
@@ -325,6 +366,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		this.autoEnableApplicationScalingRule = autoEnableApplicationScalingRule;
 		if(autoEnableApplicationScalingRule != null){
 			putQueryParameter("AutoEnableApplicationScalingRule", autoEnableApplicationScalingRule.toString());
+		}
+	}
+
+	public String getPackageType() {
+		return this.packageType;
+	}
+
+	public void setPackageType(String packageType) {
+		this.packageType = packageType;
+		if(packageType != null){
+			putQueryParameter("PackageType", packageType);
 		}
 	}
 
@@ -391,17 +443,6 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		this.kafkaConfigs = kafkaConfigs;
 		if(kafkaConfigs != null){
 			putQueryParameter("KafkaConfigs", kafkaConfigs);
-		}
-	}
-
-	public Boolean getOpenCollectToKafka() {
-		return this.openCollectToKafka;
-	}
-
-	public void setOpenCollectToKafka(Boolean openCollectToKafka) {
-		this.openCollectToKafka = openCollectToKafka;
-		if(openCollectToKafka != null){
-			putQueryParameter("OpenCollectToKafka", openCollectToKafka.toString());
 		}
 	}
 
@@ -548,6 +589,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
+	public String getMicroRegistration() {
+		return this.microRegistration;
+	}
+
+	public void setMicroRegistration(String microRegistration) {
+		this.microRegistration = microRegistration;
+		if(microRegistration != null){
+			putQueryParameter("MicroRegistration", microRegistration);
+		}
+	}
+
 	public Boolean getEnableGreyTagRoute() {
 		return this.enableGreyTagRoute;
 	}
@@ -603,17 +655,6 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		}
 	}
 
-	public String getKafkaLogfileConfig() {
-		return this.kafkaLogfileConfig;
-	}
-
-	public void setKafkaLogfileConfig(String kafkaLogfileConfig) {
-		this.kafkaLogfileConfig = kafkaLogfileConfig;
-		if(kafkaLogfileConfig != null){
-			putQueryParameter("KafkaLogfileConfig", kafkaLogfileConfig);
-		}
-	}
-
 	public String getAcrInstanceId() {
 		return this.acrInstanceId;
 	}
@@ -644,6 +685,17 @@ public class DeployApplicationRequest extends RoaAcsRequest<DeployApplicationRes
 		this.imageUrl = imageUrl;
 		if(imageUrl != null){
 			putQueryParameter("ImageUrl", imageUrl);
+		}
+	}
+
+	public String getPythonModules() {
+		return this.pythonModules;
+	}
+
+	public void setPythonModules(String pythonModules) {
+		this.pythonModules = pythonModules;
+		if(pythonModules != null){
+			putQueryParameter("PythonModules", pythonModules);
 		}
 	}
 

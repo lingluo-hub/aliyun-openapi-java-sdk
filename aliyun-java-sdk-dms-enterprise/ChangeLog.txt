@@ -1,3 +1,16 @@
+2023-01-13 Version: 1.44.0
+- Supported GetProxy, ListProxies to return RegionId information.
+- Supported SearchDatabase to return CatalogName information.
+
+2022-12-21 Version: 1.43.0
+- Supported GetProxyAccess API.
+
+2022-12-02 Version: 1.42.0
+- Supported GetStructSyncOrderDetail OrderId param required.
+
+2022-11-23 Version: 1.41.0
+- Supported GetDataCronClearConfig,GetDataCorrectRollbackFile,GetOrderAttachmentFile API.
+
 2022-10-28 Version: 1.40.0
 - Support BuyPayAsYouGoOrder, RefundPayAsYouGoOrder, ListEffectiveOrders, ListClassificationTemplates.
 - Modify RegisterInstance, UpdateInstance, ListInstances, GetInstance, GetApprovalDetail.

@@ -27,7 +27,11 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String nasId;
 
+	private String sidecars;
+
 	private String intranetSlbId;
+
+	private Integer requestsEphemeralStorage;
 
 	private String envs;
 
@@ -59,9 +63,15 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String localVolume;
 
+	private String workloadType;
+
 	private String labels;
 
+	private String userBaseImageUrl;
+
 	private Boolean useBodyEncoding;
+
+	private Integer limitEphemeralStorage;
 
 	private Integer losslessRuleFuncType;
 
@@ -70,6 +80,8 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 	private String packageType;
 
 	private Boolean losslessRuleRelated;
+
+	private String secretName;
 
 	private String runtimeClassName;
 
@@ -102,6 +114,8 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 	private String csClusterId;
 
 	private String appConfig;
+
+	private String initContainers;
 
 	private Integer internetSlbPort;
 
@@ -159,6 +173,8 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 
 	private String namespace;
 
+	private String containerRegistryId;
+
 	private String appTemplateName;
 
 	private String applicationDescription;
@@ -189,6 +205,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getSidecars() {
+		return this.sidecars;
+	}
+
+	public void setSidecars(String sidecars) {
+		this.sidecars = sidecars;
+		if(sidecars != null){
+			putQueryParameter("Sidecars", sidecars);
+		}
+	}
+
 	public String getIntranetSlbId() {
 		return this.intranetSlbId;
 	}
@@ -197,6 +224,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.intranetSlbId = intranetSlbId;
 		if(intranetSlbId != null){
 			putQueryParameter("IntranetSlbId", intranetSlbId);
+		}
+	}
+
+	public Integer getRequestsEphemeralStorage() {
+		return this.requestsEphemeralStorage;
+	}
+
+	public void setRequestsEphemeralStorage(Integer requestsEphemeralStorage) {
+		this.requestsEphemeralStorage = requestsEphemeralStorage;
+		if(requestsEphemeralStorage != null){
+			putQueryParameter("RequestsEphemeralStorage", requestsEphemeralStorage.toString());
 		}
 	}
 
@@ -365,6 +403,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getWorkloadType() {
+		return this.workloadType;
+	}
+
+	public void setWorkloadType(String workloadType) {
+		this.workloadType = workloadType;
+		if(workloadType != null){
+			putQueryParameter("WorkloadType", workloadType);
+		}
+	}
+
 	public String getLabels() {
 		return this.labels;
 	}
@@ -376,6 +425,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		}
 	}
 
+	public String getUserBaseImageUrl() {
+		return this.userBaseImageUrl;
+	}
+
+	public void setUserBaseImageUrl(String userBaseImageUrl) {
+		this.userBaseImageUrl = userBaseImageUrl;
+		if(userBaseImageUrl != null){
+			putQueryParameter("UserBaseImageUrl", userBaseImageUrl);
+		}
+	}
+
 	public Boolean getUseBodyEncoding() {
 		return this.useBodyEncoding;
 	}
@@ -384,6 +444,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.useBodyEncoding = useBodyEncoding;
 		if(useBodyEncoding != null){
 			putQueryParameter("UseBodyEncoding", useBodyEncoding.toString());
+		}
+	}
+
+	public Integer getLimitEphemeralStorage() {
+		return this.limitEphemeralStorage;
+	}
+
+	public void setLimitEphemeralStorage(Integer limitEphemeralStorage) {
+		this.limitEphemeralStorage = limitEphemeralStorage;
+		if(limitEphemeralStorage != null){
+			putQueryParameter("LimitEphemeralStorage", limitEphemeralStorage.toString());
 		}
 	}
 
@@ -428,6 +499,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.losslessRuleRelated = losslessRuleRelated;
 		if(losslessRuleRelated != null){
 			putQueryParameter("LosslessRuleRelated", losslessRuleRelated.toString());
+		}
+	}
+
+	public String getSecretName() {
+		return this.secretName;
+	}
+
+	public void setSecretName(String secretName) {
+		this.secretName = secretName;
+		if(secretName != null){
+			putQueryParameter("SecretName", secretName);
 		}
 	}
 
@@ -604,6 +686,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.appConfig = appConfig;
 		if(appConfig != null){
 			putQueryParameter("AppConfig", appConfig);
+		}
+	}
+
+	public String getInitContainers() {
+		return this.initContainers;
+	}
+
+	public void setInitContainers(String initContainers) {
+		this.initContainers = initContainers;
+		if(initContainers != null){
+			putQueryParameter("InitContainers", initContainers);
 		}
 	}
 
@@ -912,6 +1005,17 @@ public class InsertK8sApplicationRequest extends RoaAcsRequest<InsertK8sApplicat
 		this.namespace = namespace;
 		if(namespace != null){
 			putQueryParameter("Namespace", namespace);
+		}
+	}
+
+	public String getContainerRegistryId() {
+		return this.containerRegistryId;
+	}
+
+	public void setContainerRegistryId(String containerRegistryId) {
+		this.containerRegistryId = containerRegistryId;
+		if(containerRegistryId != null){
+			putQueryParameter("ContainerRegistryId", containerRegistryId);
 		}
 	}
 

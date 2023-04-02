@@ -52,6 +52,8 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 
 	private String hostNamePrefix;
 
+	private String computeSpotInterruptionBehavior;
+
 	private String computeSpotPriceLimit;
 
 	private Integer autoRenewPeriod;
@@ -68,7 +70,11 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 
 	private Boolean sync;
 
+	private String networkInterfaceTrafficMode;
+
 	private String vSwitchId;
+
+	private Integer computeSpotDuration;
 
 	private String periodUnit;
 
@@ -244,6 +250,17 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		}
 	}
 
+	public String getComputeSpotInterruptionBehavior() {
+		return this.computeSpotInterruptionBehavior;
+	}
+
+	public void setComputeSpotInterruptionBehavior(String computeSpotInterruptionBehavior) {
+		this.computeSpotInterruptionBehavior = computeSpotInterruptionBehavior;
+		if(computeSpotInterruptionBehavior != null){
+			putQueryParameter("ComputeSpotInterruptionBehavior", computeSpotInterruptionBehavior);
+		}
+	}
+
 	public String getComputeSpotPriceLimit() {
 		return this.computeSpotPriceLimit;
 	}
@@ -332,6 +349,17 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		}
 	}
 
+	public String getNetworkInterfaceTrafficMode() {
+		return this.networkInterfaceTrafficMode;
+	}
+
+	public void setNetworkInterfaceTrafficMode(String networkInterfaceTrafficMode) {
+		this.networkInterfaceTrafficMode = networkInterfaceTrafficMode;
+		if(networkInterfaceTrafficMode != null){
+			putQueryParameter("NetworkInterfaceTrafficMode", networkInterfaceTrafficMode);
+		}
+	}
+
 	public String getVSwitchId() {
 		return this.vSwitchId;
 	}
@@ -340,6 +368,17 @@ public class AddNodesRequest extends RpcAcsRequest<AddNodesResponse> {
 		this.vSwitchId = vSwitchId;
 		if(vSwitchId != null){
 			putQueryParameter("VSwitchId", vSwitchId);
+		}
+	}
+
+	public Integer getComputeSpotDuration() {
+		return this.computeSpotDuration;
+	}
+
+	public void setComputeSpotDuration(Integer computeSpotDuration) {
+		this.computeSpotDuration = computeSpotDuration;
+		if(computeSpotDuration != null){
+			putQueryParameter("ComputeSpotDuration", computeSpotDuration.toString());
 		}
 	}
 

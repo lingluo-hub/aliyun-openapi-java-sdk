@@ -1,3 +1,33 @@
+2023-03-23 Version: 3.9.34
+- Live sdk update.
+
+2023-02-28 Version: 3.9.33
+- Live sdk update.
+
+2023-02-10 Version: 3.9.32
+- Live sdk update.
+
+2023-01-05 Version: 3.9.31
+- Live sdk update.
+
+2022-12-28 Version: 3.9.29
+- Live sdk update.
+
+2022-12-08 Version: 3.9.28
+- Add live message mute related interface.
+
+2022-12-05 Version: 3.9.27
+- Add list live message interface.
+
+2022-12-05 Version: 3.9.26
+- Add list live message interface.
+
+2022-12-04 Version: 3.9.25
+- Support live interaction and message.
+
+2022-12-02 Version: 3.9.24
+- Support live interaction and message.
+
 2022-10-31 Version: 3.9.23
 - Live pre sdk test.
 

@@ -50,6 +50,8 @@ public class CreateDesktopGroupRequest extends RpcAcsRequest<CreateDesktopGroupR
 
 	private Boolean profileFollowSwitch;
 
+	private Integer buyDesktopsCount;
+
 	private String policyGroupId;
 
 	private String volumeEncryptionKey;
@@ -231,6 +233,17 @@ public class CreateDesktopGroupRequest extends RpcAcsRequest<CreateDesktopGroupR
 		this.profileFollowSwitch = profileFollowSwitch;
 		if(profileFollowSwitch != null){
 			putQueryParameter("ProfileFollowSwitch", profileFollowSwitch.toString());
+		}
+	}
+
+	public Integer getBuyDesktopsCount() {
+		return this.buyDesktopsCount;
+	}
+
+	public void setBuyDesktopsCount(Integer buyDesktopsCount) {
+		this.buyDesktopsCount = buyDesktopsCount;
+		if(buyDesktopsCount != null){
+			putQueryParameter("BuyDesktopsCount", buyDesktopsCount.toString());
 		}
 	}
 

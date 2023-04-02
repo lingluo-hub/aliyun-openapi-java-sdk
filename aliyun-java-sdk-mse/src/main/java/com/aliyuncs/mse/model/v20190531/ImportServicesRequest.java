@@ -28,8 +28,6 @@ import com.aliyuncs.mse.Endpoint;
 public class ImportServicesRequest extends RpcAcsRequest<ImportServicesResponse> {
 	   
 
-	private String mseSessionId;
-
 	private String gatewayUniqueId;
 
 	@SerializedName("serviceList")
@@ -39,6 +37,10 @@ public class ImportServicesRequest extends RpcAcsRequest<ImportServicesResponse>
 
 	private String sourceType;
 
+	private String fcServiceName;
+
+	private String fcVersion;
+
 	private String acceptLanguage;
 	public ImportServicesRequest() {
 		super("mse", "2019-05-31", "ImportServices", "mse");
@@ -47,17 +49,6 @@ public class ImportServicesRequest extends RpcAcsRequest<ImportServicesResponse>
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getMseSessionId() {
-		return this.mseSessionId;
-	}
-
-	public void setMseSessionId(String mseSessionId) {
-		this.mseSessionId = mseSessionId;
-		if(mseSessionId != null){
-			putQueryParameter("MseSessionId", mseSessionId);
-		}
 	}
 
 	public String getGatewayUniqueId() {
@@ -101,6 +92,28 @@ public class ImportServicesRequest extends RpcAcsRequest<ImportServicesResponse>
 		this.sourceType = sourceType;
 		if(sourceType != null){
 			putQueryParameter("SourceType", sourceType);
+		}
+	}
+
+	public String getFcServiceName() {
+		return this.fcServiceName;
+	}
+
+	public void setFcServiceName(String fcServiceName) {
+		this.fcServiceName = fcServiceName;
+		if(fcServiceName != null){
+			putQueryParameter("FcServiceName", fcServiceName);
+		}
+	}
+
+	public String getFcVersion() {
+		return this.fcVersion;
+	}
+
+	public void setFcVersion(String fcVersion) {
+		this.fcVersion = fcVersion;
+		if(fcVersion != null){
+			putQueryParameter("FcVersion", fcVersion);
 		}
 	}
 

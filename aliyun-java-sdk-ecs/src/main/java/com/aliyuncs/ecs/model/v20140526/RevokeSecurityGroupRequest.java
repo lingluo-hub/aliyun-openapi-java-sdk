@@ -69,8 +69,10 @@ public class RevokeSecurityGroupRequest extends RpcAcsRequest<RevokeSecurityGrou
 	private String destCidrIp;
 
 	private String sourceGroupId;
+
+	private List<String> securityGroupRuleIds;
 	public RevokeSecurityGroupRequest() {
-		super("Ecs", "2014-05-26", "RevokeSecurityGroup");
+		super("Ecs", "2014-05-26", "RevokeSecurityGroup", "ecs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -337,6 +339,19 @@ public class RevokeSecurityGroupRequest extends RpcAcsRequest<RevokeSecurityGrou
 		if(sourceGroupId != null){
 			putQueryParameter("SourceGroupId", sourceGroupId);
 		}
+	}
+
+	public List<String> getSecurityGroupRuleIds() {
+		return this.securityGroupRuleIds;
+	}
+
+	public void setSecurityGroupRuleIds(List<String> securityGroupRuleIds) {
+		this.securityGroupRuleIds = securityGroupRuleIds;	
+		if (securityGroupRuleIds != null) {
+			for (int i = 0; i < securityGroupRuleIds.size(); i++) {
+				putQueryParameter("SecurityGroupRuleId." + (i + 1) , securityGroupRuleIds.get(i));
+			}
+		}	
 	}
 
 	public static class Permissions {

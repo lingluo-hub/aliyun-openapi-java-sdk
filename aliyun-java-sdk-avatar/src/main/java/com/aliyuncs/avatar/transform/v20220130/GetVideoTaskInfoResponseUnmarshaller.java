@@ -27,7 +27,7 @@ public class GetVideoTaskInfoResponseUnmarshaller {
 		getVideoTaskInfoResponse.setRequestId(_ctx.stringValue("GetVideoTaskInfoResponse.RequestId"));
 		getVideoTaskInfoResponse.setCode(_ctx.stringValue("GetVideoTaskInfoResponse.Code"));
 		getVideoTaskInfoResponse.setMessage(_ctx.stringValue("GetVideoTaskInfoResponse.Message"));
-		getVideoTaskInfoResponse.setSuccess(_ctx.stringValue("GetVideoTaskInfoResponse.Success"));
+		getVideoTaskInfoResponse.setSuccess(_ctx.booleanValue("GetVideoTaskInfoResponse.Success"));
 
 		Data data = new Data();
 		data.setTaskUuid(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskUuid"));
@@ -38,7 +38,9 @@ public class GetVideoTaskInfoResponseUnmarshaller {
 		TaskResult taskResult = new TaskResult();
 		taskResult.setVideoUrl(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskResult.VideoUrl"));
 		taskResult.setSubtitlesUrl(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskResult.SubtitlesUrl"));
+		taskResult.setWordSubtitlesUrl(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskResult.WordSubtitlesUrl"));
 		taskResult.setFailReason(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskResult.FailReason"));
+		taskResult.setFailCode(_ctx.stringValue("GetVideoTaskInfoResponse.Data.TaskResult.FailCode"));
 		data.setTaskResult(taskResult);
 		getVideoTaskInfoResponse.setData(data);
 	 

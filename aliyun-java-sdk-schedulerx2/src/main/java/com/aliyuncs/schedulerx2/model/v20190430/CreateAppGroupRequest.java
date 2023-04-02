@@ -48,6 +48,8 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 
 	private String namespace;
 
+	private Boolean enableLog;
+
 	private String appKey;
 	public CreateAppGroupRequest() {
 		super("schedulerx2", "2019-04-30", "CreateAppGroup");
@@ -177,6 +179,17 @@ public class CreateAppGroupRequest extends RpcAcsRequest<CreateAppGroupResponse>
 		this.namespace = namespace;
 		if(namespace != null){
 			putQueryParameter("Namespace", namespace);
+		}
+	}
+
+	public Boolean getEnableLog() {
+		return this.enableLog;
+	}
+
+	public void setEnableLog(Boolean enableLog) {
+		this.enableLog = enableLog;
+		if(enableLog != null){
+			putQueryParameter("EnableLog", enableLog.toString());
 		}
 	}
 

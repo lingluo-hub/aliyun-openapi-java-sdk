@@ -25,9 +25,13 @@ import com.aliyuncs.arms.Endpoint;
 public class GetManagedPrometheusStatusRequest extends RpcAcsRequest<GetManagedPrometheusStatusResponse> {
 	   
 
+	private String clusterId;
+
 	private String clusterType;
 
-	private String clusterId;
+	private String resourceGroupId;
+
+	private String vpcId;
 	public GetManagedPrometheusStatusRequest() {
 		super("ARMS", "2019-08-08", "GetManagedPrometheusStatus", "arms");
 		setMethod(MethodType.POST);
@@ -35,6 +39,17 @@ public class GetManagedPrometheusStatusRequest extends RpcAcsRequest<GetManagedP
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getClusterId() {
+		return this.clusterId;
+	}
+
+	public void setClusterId(String clusterId) {
+		this.clusterId = clusterId;
+		if(clusterId != null){
+			putQueryParameter("ClusterId", clusterId);
+		}
 	}
 
 	public String getClusterType() {
@@ -48,14 +63,25 @@ public class GetManagedPrometheusStatusRequest extends RpcAcsRequest<GetManagedP
 		}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
+	public String getResourceGroupId() {
+		return this.resourceGroupId;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putQueryParameter("ClusterId", clusterId);
+	public void setResourceGroupId(String resourceGroupId) {
+		this.resourceGroupId = resourceGroupId;
+		if(resourceGroupId != null){
+			putQueryParameter("ResourceGroupId", resourceGroupId);
+		}
+	}
+
+	public String getVpcId() {
+		return this.vpcId;
+	}
+
+	public void setVpcId(String vpcId) {
+		this.vpcId = vpcId;
+		if(vpcId != null){
+			putQueryParameter("VpcId", vpcId);
 		}
 	}
 

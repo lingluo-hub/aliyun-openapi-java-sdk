@@ -36,11 +36,19 @@ public class PubRequest extends RpcAcsRequest<PubResponse> {
 
 	private String iotInstanceId;
 
+	private Long messageExpiryInterval;
+
 	private String responseTopic;
 
 	private String topicFullName;
 
+	private Integer payloadFormatIndicator;
+
 	private String productKey;
+
+	private String contentType;
+
+	private Boolean retained;
 
 	private String deviceName;
 	public PubRequest() {
@@ -110,6 +118,17 @@ public class PubRequest extends RpcAcsRequest<PubResponse> {
 		}
 	}
 
+	public Long getMessageExpiryInterval() {
+		return this.messageExpiryInterval;
+	}
+
+	public void setMessageExpiryInterval(Long messageExpiryInterval) {
+		this.messageExpiryInterval = messageExpiryInterval;
+		if(messageExpiryInterval != null){
+			putQueryParameter("MessageExpiryInterval", messageExpiryInterval.toString());
+		}
+	}
+
 	public String getResponseTopic() {
 		return this.responseTopic;
 	}
@@ -132,6 +151,17 @@ public class PubRequest extends RpcAcsRequest<PubResponse> {
 		}
 	}
 
+	public Integer getPayloadFormatIndicator() {
+		return this.payloadFormatIndicator;
+	}
+
+	public void setPayloadFormatIndicator(Integer payloadFormatIndicator) {
+		this.payloadFormatIndicator = payloadFormatIndicator;
+		if(payloadFormatIndicator != null){
+			putQueryParameter("PayloadFormatIndicator", payloadFormatIndicator.toString());
+		}
+	}
+
 	public String getProductKey() {
 		return this.productKey;
 	}
@@ -140,6 +170,28 @@ public class PubRequest extends RpcAcsRequest<PubResponse> {
 		this.productKey = productKey;
 		if(productKey != null){
 			putQueryParameter("ProductKey", productKey);
+		}
+	}
+
+	public String getContentType() {
+		return this.contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+		if(contentType != null){
+			putQueryParameter("ContentType", contentType);
+		}
+	}
+
+	public Boolean getRetained() {
+		return this.retained;
+	}
+
+	public void setRetained(Boolean retained) {
+		this.retained = retained;
+		if(retained != null){
+			putQueryParameter("Retained", retained.toString());
 		}
 	}
 
